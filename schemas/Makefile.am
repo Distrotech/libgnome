@@ -5,6 +5,7 @@ schema_DATA = \
 	desktop_gnome_applications_help_viewer.schemas		\
 	desktop_gnome_applications_terminal.schemas		\
 	desktop_gnome_applications_window_manager.schemas	\
+	desktop_gnome_file_views.schemas			\
 	desktop_gnome_interface.schemas				\
 	desktop_gnome_peripherals_mouse.schemas			\
 	desktop_gnome_peripherals_keyboard.schemas		\
