@@ -51,7 +51,7 @@ explode_locale (const gchar *locale,
   if (at_pos)
     {
       mask |= COMPONENT_MODIFIER;
-      *territory = g_strdup (at_pos);
+      *modifier = g_strdup (at_pos);
     }
   else
     at_pos = locale + strlen (locale);
@@ -125,6 +125,14 @@ compute_locale_variants (const gchar *locale)
 				 NULL);
 	retval = g_list_prepend (retval, val);
       }
+
+  g_free (language);
+  if (mask & COMPONENT_CODESET)
+    g_free (codeset);
+  if (mask & COMPONENT_TERRITORY)
+    g_free (territory);
+  if (mask & COMPONENT_MODIFIER)
+    g_free (modifier);
 
   return retval;
 }
@@ -204,12 +212,13 @@ gnome_i18n_get_language_list (const gchar *category_name)
       gint c_locale_defined= FALSE;
   
       const gchar *category_value;
-      gchar *category_memory;
+      gchar *category_memory, *orig_category_memory;
 
       category_value = guess_category_value (category_name);
       if (! category_value)
 	category_value = "C";
-      category_memory= g_malloc (strlen (category_value)+1);
+      orig_category_memory = category_memory =
+	g_malloc (strlen (category_value)+1);
       
       while (category_value[0] != '\0')
 	{
@@ -232,6 +241,8 @@ gnome_i18n_get_language_list (const gchar *category_name)
 	      list= g_list_concat (list, compute_locale_variants (cp));
 	    }
 	}
+
+      g_free (orig_category_memory);
       
       if (!c_locale_defined)
 	list= g_list_append (list, "C");
