@@ -412,8 +412,8 @@ g_filename_index (const char * path)
 	static int warned = 0;
 
 	if(!warned) {
-	  g_warning("\ng_filename_index is about to disappear. Please recompile your apps. <<----");
-	  warned = 1;
+		g_warning("\ng_filename_index is about to disappear. Please recompile your apps. <<----");
+		warned = 1;
 	}
 	
 	g_return_val_if_fail(path != NULL, 0);
@@ -448,9 +448,9 @@ g_filename_pointer (const gchar * path)
 	char * s;
 	static int warned = 0;
 
-	if(!warned) {
-	  g_warning("\ng_filename_pointer is about to disappear. Please recompile your apps. <<----");
-	  warned = 1;
+	if (!warned){
+		g_warning("\ng_filename_pointer is about to disappear. Please recompile your apps. <<----");
+		warned = 1;
 	}
 	
 	g_return_val_if_fail (path != NULL, NULL);
