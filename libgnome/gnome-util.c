@@ -52,6 +52,7 @@
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-util.h>
 
+/* Hmmm, how do we handle deprecated functions that are now macros? */
 /**
  * g_concat_dir_and_file:
  * @dir:  directory name
@@ -60,19 +61,6 @@
  * returns a new allocated string that is the concatenation of dir and file,
  * takes care of the exact details for concatenating them.
  */
-char *
-g_concat_dir_and_file (const char *dir, const char *file)
-{
-	g_return_val_if_fail (dir != NULL, NULL);
-	g_return_val_if_fail (file != NULL, NULL);
-
-        /* If the directory name doesn't have a / on the end, we need
-	   to add one so we get a proper path to the file */
-	if (dir[0] != '\0' && dir [strlen(dir) - 1] != G_DIR_SEPARATOR)
-		return g_strconcat (dir, G_DIR_SEPARATOR_S, file, NULL);
-	else
-		return g_strconcat (dir, file, NULL);
-}
 
 /**
  * gnome_util_user_shell:

@@ -36,9 +36,6 @@ G_BEGIN_DECLS
 /* locate a program in $PATH, or return NULL if not found */
 char *gnome_is_program_in_path (const gchar *program);
 
-/* Make a dir and a file into a full path, handling / issues. */
-char *g_concat_dir_and_file (const char *dir, const char *file);
-
 /* Return pointer to the character after the last .,
    or "" if no dot. */
 const char * g_extension_pointer (const char * path);
@@ -49,7 +46,7 @@ const char * g_extension_pointer (const char * path);
  * /home/imain/.gnome/bookmarks.html
  * 
  * Remember to g_free() returned value! */
-#define gnome_util_prepend_user_home(x) (g_concat_dir_and_file(g_get_home_dir(), (x)))
+#define gnome_util_prepend_user_home(x) (g_build_filename (g_get_home_dir(), (x), NULL))
 
 /* very similar to above, but adds $HOME/.gnome/ to beginning
  * This is meant to be the most useful version.
@@ -70,22 +67,24 @@ void	gnome_clearenv (void);
 /* Some deprecated functions macroed to their new equivalents */
 #ifndef GNOME_DISABLE_DEPRECATED
 
-#define g_file_exists(filename)		g_file_test (filename, G_FILE_TEST_EXISTS)
-#define g_unix_error_string(error_num)	g_strerror (error_num)
+#define g_file_exists(filename)		g_file_test ((filename), G_FILE_TEST_EXISTS)
+#define g_unix_error_string(error_num)	g_strerror ((error_num))
 #define gnome_util_user_home()		g_get_home_dir ()
-#define g_copy_vector(vec)		g_strdupv (vec)
+#define g_copy_vector(vec)		g_strdupv ((vec))
+#define g_concat_dir_and_file(dir,file)	g_build_filename ((dir), (file), NULL)
 
-#define gnome_libdir_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_LIBDIR,  f, TRUE, NULL))
-#define gnome_datadir_file(f) (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_DATADIR, f, TRUE, NULL))
-#define gnome_sound_file(f)   (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_SOUND,   f, TRUE, NULL))
-#define gnome_pixmap_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_PIXMAP,  f, TRUE, NULL))
-#define gnome_config_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_CONFIG,  f, TRUE, NULL))
 
-#define gnome_unconditional_libdir_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_LIBDIR,  f, FALSE, NULL))
-#define gnome_unconditional_datadir_file(f) (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_DATADIR, f, FALSE, NULL))
-#define gnome_unconditional_sound_file(f)   (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_SOUND,   f, FALSE, NULL))
-#define gnome_unconditional_pixmap_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_PIXMAP,  f, FALSE, NULL))
-#define gnome_unconditional_config_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_CONFIG,  f, FALSE, NULL))
+#define gnome_libdir_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_LIBDIR,  (f), TRUE, NULL))
+#define gnome_datadir_file(f) (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_DATADIR, (f), TRUE, NULL))
+#define gnome_sound_file(f)   (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_SOUND,   (f), TRUE, NULL))
+#define gnome_pixmap_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_PIXMAP,  (f), TRUE, NULL))
+#define gnome_config_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_CONFIG,  (f), TRUE, NULL))
+
+#define gnome_unconditional_libdir_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_LIBDIR,  (f), FALSE, NULL))
+#define gnome_unconditional_datadir_file(f) (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_DATADIR, (f), FALSE, NULL))
+#define gnome_unconditional_sound_file(f)   (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_SOUND,   (f), FALSE, NULL))
+#define gnome_unconditional_pixmap_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_PIXMAP,  (f), FALSE, NULL))
+#define gnome_unconditional_config_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_CONFIG,  (f), FALSE, NULL))
 
 #endif /* GNOME_DISABLE_DEPRECATED */
 

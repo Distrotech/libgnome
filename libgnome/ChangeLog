@@ -1,3 +1,9 @@
+Tue Sep 18 20:40:04 2001  George Lebl <jirka@5z.com>
+
+	* gnome-util.[ch], gnome-config.h, gnome-init.c:
+	  deprecate g_concat_dir_and_file, and replace it with a macro
+	  using g_build_filename, which essentially does the same thing.
+
 Tue Sep 18 17:43:45 2001  George Lebl <jirka@5z.com>
 
 	* Makefile.am, gnome-config.[ch], gnome-gconfP.h, gnome-gconf.[ch],

@@ -270,9 +270,9 @@ void gnome_config_clean_key_ (const char *path, gboolean priv);
 
 /* returns the true filename of the config file */
 #define gnome_config_get_real_path(path) \
-	(g_concat_dir_and_file (gnome_user_dir_get(),(path)))
+	(g_build_filename (gnome_user_dir_get(),(path),NULL))
 #define gnome_config_private_get_real_path(path) \
-	(g_concat_dir_and_file (gnome_user_private_dir_get(),(path)))
+	(g_build_filename (gnome_user_private_dir_get(),(path),NULL))
 
 /* Set an active prefix and remove an active prefix */
 void gnome_config_push_prefix (const char *path);
