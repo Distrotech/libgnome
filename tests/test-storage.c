@@ -488,7 +488,7 @@ main (int argc, char *argv [])
 	if (bonobo_init (orb, NULL, NULL) == FALSE)
 		g_error (_("Can not bonobo_init"));
 
-	while ((driver = driver_list[dn++])) {
+	while ((driver = driver_list [dn++])) {
 		printf ("TEST DRIVER: %s\n", driver);
 		
 		system ("rm -rf /tmp/storagetest.dir1");
