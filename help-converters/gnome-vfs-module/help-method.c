@@ -27,7 +27,6 @@
 #include "libgnome/gnome-i18n.h"
 #include "libgnome/gnome-util.h"
 #include <libgnomevfs/gnome-vfs-mime.h>
-#include <libgnomevfs/gnome-vfs-module-shared.h>
 #include <libgnomevfs/gnome-vfs-module.h>
 #include <libgnomevfs/gnome-vfs.h>
 #include <libgnomevfs/gnome-vfs-method.h>

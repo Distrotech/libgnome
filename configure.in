@@ -165,7 +165,7 @@ GNOME_VFS_VERSION=`$PKG_CONFIG --modversion gnome-vfs-2.0`
 AC_SUBST(GNOME_VFS_VERSION)
 
 AC_CHECK_LIB(popt, poptStrippedArgv,, AC_MSG_ERROR([popt 1.5 or newer is required to build
-gnome-libs. You can download the latest version from ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/]))
+libgnome. You can download the latest version from ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/]))
 
 dnl ====================================
 dnl = zlib for help converters
