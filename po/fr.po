@@ -6,15 +6,15 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.3.3.1\n"
-"POT-Creation-Date: 2003-08-25 20:17+0200\n"
-"PO-Revision-Date: 2003-07-20 11:43+0200\n"
+"Project-Id-Version: libgnome 2.3.7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-08-30 10:32+0200\n"
+"PO-Revision-Date: 2003-08-30 10:20+0200\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -142,7 +142,8 @@ msgstr ""
 #: libgnome/gnome-init.c:335
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Impossible de créer le répertoire d'accélérateurs gnome « %s » : %s\n"
+msgstr ""
+"Impossible de créer le répertoire de raccourcis clavier gnome « %s » : %s\n"
 
 #: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
@@ -430,7 +431,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
-msgstr "temps pour accelérer en millisecondes"
+msgstr "durée d'accelération en millisecondes"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "initial delay in milliseconds"
@@ -475,13 +476,14 @@ msgstr "Navigateur par défaut pour toutes les URLs"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr "Si le navigateur par défaut a besoin d'un terminal pour fonctionner"
+msgstr ""
+"Indique si le navigateur par défaut a besoin d'un terminal pour fonctionner"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
 msgstr ""
-"Si le navigateur par défaut comprend le protocole de commande à distance de "
-"netscape"
+"Indique si le navigateur par défaut comprend le protocole de commande à "
+"distance de netscape"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
@@ -493,12 +495,13 @@ msgstr "Le visionneur d'aide à besoin d'un terminal"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
-msgstr "Si le visionneur d'aide par défaut accepte les URLs"
+msgstr "Indique si le visionneur d'aide par défaut accepte les URLs"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
 msgstr ""
-"Si le visionneur d'aide par défaut a besoin d'un terminal pour fonctionner"
+"Indique si le visionneur d'aide par défaut a besoin d'un terminal pour "
+"fonctionner"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -638,7 +641,7 @@ msgstr "Nom de base du thème par défaut utilisé par Gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
-msgstr "Peut changer les accélérateurs"
+msgstr "Autorise la modification des raccourcis clavier"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
@@ -654,11 +657,11 @@ msgstr "Police par défaut"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:6
 msgid "Enable Accessibility"
-msgstr "Activer l'accessibilité"
+msgstr "Active l'accessibilité"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:7
 msgid "Enable Animations"
-msgstr "Activer les animations"
+msgstr "Active les animations"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
@@ -753,53 +756,60 @@ msgstr "Utiliser une police personnalisée"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
-msgstr "SI les applications doivent avoir le support de l'accessibilité"
+msgstr ""
+"Insique si les applications doivent avoir le support de l'accessibilité"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
-"Si les animations doivent être affichées. Note : C'est une clé globale, cela "
-"change le comportement du gestionnaire de fenêtres, du tableau de bord, etc."
+"Indique si les animations doivent être affichées. Note : C'est une clé "
+"globale, cela change le comportement du gestionnaire de fenêtres, du tableau "
+"de bord, etc."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr ""
-"Si les menus doivent être affichés avec une icône a coté de l'entrée de menu"
+"Indique si les menus doivent être affichés avec une icône a coté de l'entrée "
+"de menu"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether menus should have a tearoff"
-msgstr "Si les menu doivent avoir un séparateur"
+msgstr "Indique si les menu doivent avoir un séparateur"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the cursor should blink"
-msgstr "Si le curseur doit clignoter"
+msgstr "Indique si le curseur doit clignoter"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach menubars and move them around"
-msgstr "Si l'utilisateur peut détacher les barres de menus et les déplacer"
+msgstr ""
+"Indique si l'utilisateur peut détacher les barres de menus et les déplacer"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the user can detach toolbars and move them around"
-msgstr "Si l'utilisateur peut détacher les barres d'outils et les déplacer"
+msgstr ""
+"Indique si l'utilisateur peut détacher les barres d'outils et les déplacer"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
-"Si l'utilisateur peut saisir dynamiquement un nouvel accélérateur quand un "
-"menu est déroulé"
+"Indique si l'utilisateur peut saisir dynamiquement un nouveau raccourci "
+"clavier lorqu'un menu est déroulé"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
-msgstr "Si il faut afficher un indicateur de barre d'état su la droite"
+msgstr ""
+"Indique si il faut afficher un indicateur de barre d'état sur la droite"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr ""
-"Si il faut utiliser une police personnalisée dans les applications Gtk+"
+"Indique si il faut utiliser une police personnalisée dans les applications "
+"Gtk+"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -938,7 +948,7 @@ msgstr "Sons pour les événements"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
-msgstr "Si il faut jouer des sons sur les événements utilisateur"
+msgstr "Indique si il faut jouer des sons sur les événements utilisateur"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
@@ -989,14 +999,12 @@ msgid "How to handle ghelp URLs"
 msgstr "Comment gérer les URLs « ghelp »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-#, fuzzy
 msgid "How to handle http URLs"
-msgstr "Comment gérer les URLs « ghelp »"
+msgstr "Comment gérer les URLs « http »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-#, fuzzy
 msgid "How to handle https URLs"
-msgstr "Comment gérer les URLs « ghelp »"
+msgstr "Comment gérer les URLs « https »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle info URLs"
@@ -1015,38 +1023,36 @@ msgid "Run program in terminal"
 msgstr "Lancer le programme dans un terminal"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-#, fuzzy
 msgid "Set to true to have a program specified in command handle http URLs"
 msgstr ""
-"Définir à vrai pour que le programme spécifié dans trash/command gère les "
-"URLs « trash »"
+"Définir à vrai pour que le programme spécifié dans command gère les URLs "
+"« http »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-#, fuzzy
 msgid "Set to true to have a program specified in command handle https URLs"
 msgstr ""
-"Définir à vrai pour que le programme spécifié dans trash/command gère les "
-"URLs « trash »"
+"Définir à vrai pour que le programme spécifié dans command gère les URLs "
+"« https »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid ""
 "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
-"Définir à vrai pour que le programme spécifié dans ghelp/command gère les "
+"Définir à vrai pour que le programme spécifié dans programs/ghelp gère les "
 "URLs « ghelp »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:11
 msgid ""
 "Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
-"Définir à vrai pour que le programme spécifié dans info/command gère les "
+"Définir à vrai pour que le programme spécifié dans programs/info gère les "
 "URLs « info »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:12
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr ""
-"Définir à vrai pour que le programme spécifié dans man/command gère les URLs "
-"« man »"
+"Définir à vrai pour que le programme spécifié dans programs/man gère les "
+"URLs « man »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:13
 msgid ""
@@ -1062,29 +1068,27 @@ msgstr ""
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid "URL handler for ghelp pages"
-msgstr "Gestionnaire d'URL pour les pages « ghelp »"
+msgstr "Gestionnaire d'URLs pour les pages « ghelp »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-#, fuzzy
 msgid "URL handler for http uris"
-msgstr "Gestionnaire d'URL pour les pages « ghelp »"
+msgstr "Gestionnaire d'URLs pour les pages « http »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:17
-#, fuzzy
 msgid "URL handler for https uris"
-msgstr "Gestionnaire d'URL pour les pages « ghelp »"
+msgstr "Gestionnaire d'URLs pour les pages « https »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid "URL handler for info pages"
-msgstr "Gestionnaire d'URL pour les pages « info »"
+msgstr "Gestionnaire d'URLs pour les pages « info »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:19
 msgid "URL handler for man pages"
-msgstr "Gestionnaire d'URL pour les pages « man »"
+msgstr "Gestionnaire d'URLs pour les pages « man »"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid "URL handler for trash pages"
-msgstr "Gestionnaire d'URL pour les pages « trash »"
+msgstr "Gestionnaire d'URLs pour les pages « trash »"
 
 #~ msgid "Action button click"
 #~ msgstr "Clic de bouton d'action"
