@@ -30,8 +30,6 @@
 #include <libgnome/gnome-defs.h>
 
 #include <libgnome/gnome-program.h>
-#include <libgnome/gnome-oaf.h>
-#include <libgnome/gnome-gconf.h>
 
 #include <libgnome/gnome-config.h>
 #include <libgnome/gnome-exec.h>
@@ -46,6 +44,9 @@
 #include <libgnome/gnome-url.h>
 #include <libgnome/gnome-ditem.h>
 
+extern GnomeModuleInfo gnome_oaf_module_info;
+extern GnomeModuleInfo gnome_gconf_module_info;
+extern GnomeModuleInfo gnome_vfs_module_info;
 extern GnomeModuleInfo libgnome_module_info;
 
 #ifdef COMPAT_1_0
