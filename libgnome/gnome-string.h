@@ -10,3 +10,6 @@ gchar * gnome_string_joinv (gchar *separator,
 			    gchar **strings);
 gchar * gnome_string_chomp (gchar *astring,
 			    gboolean in_place);
+/* Frees each element of the NULL-terminated array, then the
+   array memory itself */
+void    gnome_string_array_free (gchar **strarray);

@@ -102,11 +102,7 @@ gnome_triggers_readfile(gchar *infilename)
 
     parts = gnome_string_split(aline, " ", -1);
     if(!parts || !parts[0] || !parts[1] || !parts[2] || !parts[3]) {
-      if(parts) {
-	for(i = 0; parts[i]; i++)
-	  g_free(parts[i]);
-	g_free(parts);
-      }
+      gnome_string_array_free(parts);
       g_warning("Invalid triggers line \'%s\'\n", aline);
       continue;
     }
@@ -128,13 +124,8 @@ gnome_triggers_readfile(gchar *infilename)
       nt->level = parts[0];
     gnome_triggers_vadd_trigger(nt, subnames);
 
-    for(i = 0; subnames[i]; i++)
-      g_free(subnames[i]);
-    g_free(subnames); subnames = NULL;
-
-    for(i = 0; parts[i]; i++)
-      g_free(parts[i]);
-    g_free(parts); parts = NULL;
+    gnome_string_array_free(subnames); subnames = NULL;
+    gnome_string_array_free(parts); parts = NULL;
   }
   g_free(nt);
 

@@ -143,3 +143,16 @@ gnome_string_chomp(gchar *astring, gboolean in_place)
 
 	return retval;
 }
+
+void
+gnome_string_array_free(gchar **strarray)
+{
+  int i;
+
+  g_return_if_fail(strarray != NULL);
+
+  for(i = 0; strarray[i]; i++)
+    g_free(strarray[i]);
+
+  g_free(strarray);
+}
