@@ -35,7 +35,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <glib.h>
-#include <glib/gstdio.h>
 #include <locale.h>
 #ifdef HAVE_SYS_FSUID_H
 #ifdef HAVE_SETFSGID
@@ -48,23 +47,11 @@
 #include "gnome-score.h"
 #include "gnome-util.h"
 
-#ifdef G_OS_WIN32
-#include <fcntl.h>
-#include <io.h>
-
-/* Microsoft's strtok() *is* thread-safe, it uses a thread-local
- * buffer. "Use" the third argument to this macro so gcc doesn't
- * complain about an unused variable, and we don't have to ifdef out
- * the definition.
- */
-#define strtok_r(s, delim, ptrptr) (*(ptrptr) = strtok (s, delim))
-#endif
-
-#include "libgnome-private.h"
-
 #ifndef NSCORES
 #define NSCORES 10
 #endif
+
+#define SCORE_PATH LIBGNOME_LOCALSTATEDIR "/games"
 
 struct command
 {
@@ -90,13 +77,10 @@ static gchar *
 gnome_get_score_file_name (const gchar * progname, const gchar * level)
 {
    if (level)
-     return g_strconcat (LIBGNOME_LOCALSTATEDIR,
-			 G_DIR_SEPARATOR_S "games" G_DIR_SEPARATOR_S,
-			 progname, ".", level, ".scores", NULL);
+     return g_strconcat (SCORE_PATH "/",
+			    progname, ".", level, ".scores", NULL);
    else
-     return g_strconcat (LIBGNOME_LOCALSTATEDIR,
-			 G_DIR_SEPARATOR_S "games" G_DIR_SEPARATOR_S,
-			 progname, ".scores", NULL);
+     return g_strconcat (SCORE_PATH "/", progname, ".scores", NULL);
 }
 
 /* This must be wrapped in push_c_locale on the caller */
@@ -145,7 +129,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 
    game_score_file = gnome_get_score_file_name (progname, level);
 
-   infile = g_fopen (game_score_file, "r");
+   infile = fopen (game_score_file, "r");
    if (infile)
      {
        /* make sure we read values from files in a consistent manner */
@@ -218,12 +202,8 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
      retval = 0;
    
    /* we dont create the file; it must already exist */
-   outfile = g_fopen (game_score_file, "r+");
-#ifndef G_OS_WIN32
-   ftruncate (fileno (outfile), 0);
-#else
-   _chsize (fileno (outfile), 0);
-#endif
+   truncate (game_score_file, 0);
+   outfile = fopen (game_score_file, "r+");
    
    if (outfile)
      {
@@ -244,8 +224,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 }
 
 static int
-gnome_score_child (int infileno,
-		   int outfileno)
+gnome_score_child (void)
 {
    struct command cmd;
    gchar *level;
@@ -264,9 +243,9 @@ gnome_score_child (int infileno,
      realname = g_strdup (g_get_user_name ());
    }
 
-   while (read (infileno, &cmd, sizeof cmd) == sizeof(cmd)) {
+   while (read (STDIN_FILENO, &cmd, sizeof cmd) == sizeof(cmd)) {
 	level = g_new (char, cmd.level);
-	if (read (outfileno, level, cmd.level) != cmd.level) {
+	if (read (STDIN_FILENO, level, cmd.level) != cmd.level) {
 	  g_free (realname);
 	  return EXIT_FAILURE;
 	}
@@ -276,7 +255,7 @@ gnome_score_child (int infileno,
 	}
 	retval = log_score (defgamename, level, realname, cmd.score,
 			    cmd.ordering);
-	if (write(outfileno, &retval, sizeof retval) != sizeof retval) {
+	if (write(STDOUT_FILENO, &retval, sizeof retval) != sizeof retval) {
 	  g_free (realname);
 	  return EXIT_FAILURE;
 	}
@@ -287,24 +266,9 @@ gnome_score_child (int infileno,
    return EXIT_SUCCESS;
 }
 
-#ifdef G_OS_WIN32
-
-static gpointer
-gnome_score_child_thread (gpointer data)
-{
-  int *a = data;
-
-  gnome_score_child (a[0], a[1]);
-
-  return NULL;
-}
-
-#endif
-
 static void 
 drop_perms (void)
 {
-#ifndef G_OS_WIN32
    gid_t gid = getegid ();
    
    setregid (getgid (), getgid ());	/* on some os'es (eg linux) this
@@ -318,7 +282,6 @@ drop_perms (void)
 		     "get a real OS :)\n");
 	setgid (getgid ());
      }
-#endif
 }
 
 /*********************** external functions **********************************/
@@ -361,7 +324,6 @@ gnome_score_init (const gchar * gamename)
      }
    outfd = outpipe[1];
    infd = inpipe[0];
-#ifndef G_OS_WIN32
    switch (fork ())
      {
       case 0:
@@ -372,7 +334,7 @@ gnome_score_init (const gchar * gamename)
 	close(inpipe[1]);
 	close(outpipe[0]);
 	close(outpipe[1]);
-	exit (gnome_score_child (STDIN_FILENO, STDOUT_FILENO));
+	exit (gnome_score_child ());
       case -1:
 	close (inpipe[0]);
 	close (inpipe[1]);
@@ -385,13 +347,6 @@ gnome_score_init (const gchar * gamename)
    close(outpipe[0]);
    close(inpipe[1]);
    drop_perms ();
-#else
-   {
-     int a[2] = { outpipe[0], inpipe[1] };
-     g_thread_create (gnome_score_child_thread, a, FALSE, NULL);
-   }
-#endif
-
    return 0;
 }
 
@@ -417,13 +372,11 @@ gnome_score_log (gfloat score,
    struct command cmd;
    gint retval;
    
-#ifndef G_OS_WIN32
    if (getgid () != getegid ())
      {
 	g_error ("gnome_score_init must be called first thing in main()\n");
 	abort ();
      }
-#endif
    if (infd == -1 || outfd == -1)
      return 0;
    
@@ -482,7 +435,7 @@ gnome_score_get_notable (const gchar * gamename,
    
    infile_name = gnome_get_score_file_name (realname, level);
    
-   infile = g_fopen (infile_name, "r");
+   infile = fopen (infile_name, "r");
    g_free (infile_name);
    
    if (infile)

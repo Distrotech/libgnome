@@ -8,7 +8,7 @@ AC_PREREQ(2.54)
 # set LIBGNOME_BINARY_AGE and LIBGNOME_INTERFACE_AGE to 0.
 #
 m4_define([libgnome_major_version], [2])
-m4_define([libgnome_minor_version], [11])
+m4_define([libgnome_minor_version], [10])
 m4_define([libgnome_micro_version], [0])
 m4_define([libgnome_interface_age], [0])
 # If you need a modifier for the version number. 
@@ -19,7 +19,7 @@ dnl required versions of other tools.
 m4_define([audiofile_required_version], [0.2.3])
 m4_define([esound_required_version],    [0.2.26])
 m4_define([gconf_required_version],     [1.1.11])
-m4_define([glib_required_version],      [2.6.0])
+m4_define([glib_required_version],      [2.0.3])
 m4_define([gnome_vfs_required_version], [2.5.3])
 m4_define([libbonobo_required_version], [2.0.0])
 
@@ -68,26 +68,6 @@ AC_PROG_CC
 AC_STDC_HEADERS
 AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
-
-AC_MSG_CHECKING([for Win32])
-case "$host" in
-  *-*-mingw*)
-    os_win32=yes
-    dnl Try to manage without GnomeVFS on Win32, at least for now
-    GNOME_VFS_MODULE=''
-    GNOME_VFS_MODULES=''
-    ;;
-  *)
-    os_win32=no
-    GNOME_VFS_MODULE='gnome-vfs-2.0'
-    GNOME_VFS_MODULES='gnome-vfs-2.0 >= gnome_vfs_required_version'
-    ;;
-esac
-AC_MSG_RESULT([$os_win32])
-
-AM_CONDITIONAL(OS_WIN32, [test $os_win32 = yes])
-
-AC_SUBST(GNOME_VFS_MODULE)
 
 AC_CHECK_FUNCS([setenv unsetenv clearenv setfsgid])
 AC_CHECK_HEADERS(sys/fsuid.h)
@@ -157,7 +137,7 @@ PKG_CHECK_MODULES(LIBGNOME, dnl
  [glib-2.0 >= glib_required_version dnl
   gmodule-2.0 >= glib_required_version dnl
   gobject-2.0 >= glib_required_version dnl
-  $GNOME_VFS_MODULES dnl
+  gnome-vfs-2.0 >= gnome_vfs_required_version dnl
   libbonobo-2.0 >= libbonobo_required_version dnl
   gconf-2.0 >= gconf_required_version dnl
   $SOUND_MODULES])
@@ -193,7 +173,6 @@ libgnome. You can download the latest version from ftp://ftp.rpm.org/pub/rpm/dis
 
 AC_CONFIG_FILES([
 Makefile
-libgnome-zip
 po/Makefile.in
 libgnome/Makefile
 monikers/Makefile

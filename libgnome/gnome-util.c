@@ -46,9 +46,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <glib.h>
-#ifndef G_OS_WIN32
+#include <sys/stat.h>
 #include <pwd.h>
-#endif
 #include <limits.h>
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-util.h>
@@ -68,7 +67,6 @@
 char *
 gnome_util_user_shell (void)
 {
-#ifndef G_OS_WIN32
 	struct passwd *pw;
 	int i;
 	const char *shell;
@@ -109,20 +107,6 @@ gnome_util_user_shell (void)
 
 	/* Placate compiler.  */
 	return NULL;
-#else
-	/* g_find_program_in_path() always looks also in the Windows
-	 * and System32 directories, so it should always find either cmd.exe
-	 * or command.com.
-	 */
-	char *retval = g_find_program_in_path ("cmd.exe");
-
-	if (retval == NULL)
-		retval = g_find_program_in_path ("command.com");
-
-	g_assert (retval != NULL);
-
-	return retval;
-#endif
 }
 
 /**

@@ -25,7 +25,6 @@
 
 #include <config.h>
 #include <glib.h>
-#include <glib/gstdio.h>
 
 #include <string.h>
 #include <stdio.h>
@@ -39,6 +38,7 @@
 #include "gnome-i18nP.h"
 #include "gnome-util.h"
 #include "gnome-config.h"
+
 
 #if !defined getc_unlocked && !defined HAVE_GETC_UNLOCKED
 # define getc_unlocked(fp) getc (fp)
@@ -119,7 +119,7 @@ config_concat_dir_and_key (const char *dir, const char *key)
 		return g_strconcat (dir, key, NULL);
 }
 
-/* The `release_path' and `parse_path' routines are inside the
+/* The `release_path' and `parsed_path' routines are inside the
    following file.  It is in a separate file to allow the test-suite
    to get at it, without needing to export special symbols.
 
@@ -314,7 +314,7 @@ load (const char *file)
 	char *next = "";		/* Not needed */
 	int c;
 	
-	if ((f = g_fopen (file, "r"))==NULL)
+	if ((f = fopen (file, "r"))==NULL)
 		return NULL;
 	
 	state = FirstBrace;
@@ -655,22 +655,32 @@ dump_sections (FILE *profile, TSecHeader *p)
 static gint
 check_path(char *path, mode_t newmode)
 {
-	gchar *dir, *root, *p, *cur;
-	GString *newpath = NULL;
+	gchar *dirpath;
+	gchar *p, *cur;
+	GString *newpath;
 	struct stat s;
 
 	g_return_val_if_fail (path != NULL, FALSE);
 
-	/*not absolute, we refuse to work*/
-	if (!g_path_is_absolute(path))
+	if(strchr(path,'/')==NULL)
 		return FALSE;
 
-	dir = g_path_get_dirname (path);
+	dirpath = strcpy (g_alloca (strlen (path) + 1), path);
+	g_return_val_if_fail (dirpath != NULL, FALSE);
+
+	if (*dirpath == '\0')
+		return FALSE;
+
+	/*not absolute, we refuse to work*/
+	if (dirpath[0] != '/')
+		return FALSE;
+
+	p = strrchr(dirpath,'/');
+		*p='\0';
 
 	/*special case if directory exists, this is probably gonna happen
 	  a lot so we don't want to go though checking it part by part*/
-	if (stat(dir, &s) == 0) {
-		g_free(dir);
+	if (stat(dirpath, &s) == 0) {
 		/*check if a directory*/
 		if (!S_ISDIR(s.st_mode))
 			return FALSE;
@@ -679,53 +689,40 @@ check_path(char *path, mode_t newmode)
 	}
 
 
-	p = (gchar *) g_path_skip_root(dir);
-	root = g_strndup(dir, p-dir);
+	/*skip leading '/'*/
+	p = dirpath;
+	while(*p == '/')
+		p++;
 
 	cur = p;
+	newpath = g_string_new(NULL);
 	while ((p = cur)) {
-	       	cur = strchr (p, G_DIR_SEPARATOR);
-#ifdef G_OS_WIN32
-		{
-			gchar *cur2 = strchr (p, '/');
-			if (cur == NULL || (cur2 != NULL && cur2 < cur))
-				cur = cur2;
-		}
-#endif
+	       	cur = strchr (cur, '/');
 		if (cur) {
 			*cur = '\0';
 			cur++;
 		}
 		
-		if (newpath == NULL)
-			newpath = g_string_new(root);
-		else
-			newpath = g_string_append_c(newpath, G_DIR_SEPARATOR);
+		newpath = g_string_append_c(newpath,'/');
 		newpath = g_string_append(newpath,p);
 		if(stat(newpath->str,&s)==0) {
 			/*check if a directory*/
 			if(!S_ISDIR(s.st_mode)) {
 				g_string_free(newpath,TRUE);
-				g_free(root);
-				g_free(dir);
 				return FALSE;
 			}
 		} else {
 			/*we couldn't stat it .. let's try making the
 			  directory*/
-			if(g_mkdir(newpath->str,newmode)!=0) {
+			if(mkdir(newpath->str,newmode)!=0) {
 				/*error, return false*/
 				g_string_free(newpath,TRUE);
-				g_free(root);
-				g_free(dir);
 				return FALSE;
 			}
 		}
 	}
 
 	g_string_free(newpath,TRUE);
-	g_free(root);
-	g_free(dir);
 
 	return TRUE;
 }
@@ -764,7 +761,7 @@ dump_profile (TProfile *p, gboolean one_only)
 		if(p->to_be_deleted) {
 			/*remove the file and remove all it's ramaints
 			  from memory*/
-			g_unlink(p->filename);
+			unlink(p->filename);
 			/* this already must have been true */
 			/*p->section = 0;*/
 			p->filename [0] = '\0';
@@ -773,7 +770,7 @@ dump_profile (TProfile *p, gboolean one_only)
 			if(p==Current)
 				Current = NULL;
 		} else if (check_path(p->filename,0755) &&
-		    (profile = g_fopen (p->filename, "w")) != NULL){
+		    (profile = fopen (p->filename, "w")) != NULL){
 			dump_sections (profile, p->section);
 			fclose (profile);
 		} else {

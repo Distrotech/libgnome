@@ -33,12 +33,8 @@
 #include "gnome-i18nP.h"
 
 #include <gconf/gconf-client.h>
-#ifndef G_OS_WIN32
 #include <libgnomevfs/gnome-vfs-utils.h>
 #include <libgnomevfs/gnome-vfs-uri.h>
-#else
-#include <windows.h>
-#endif
 
 #include "gnome-exec.h"
 #include "gnome-util.h"
@@ -47,6 +43,8 @@
 #include "gnome-gconfP.h"
 
 #include "gnome-url.h"
+
+#include <popt.h>
 
 /**
  * gnome_url_show_with_env:
@@ -65,7 +63,6 @@ gnome_url_show_with_env (const char  *url,
                          char       **envp,
 			 GError     **error)
 {
-#ifndef G_OS_WIN32
 	GnomeVFSResult result;
 
 	g_return_val_if_fail (url != NULL, FALSE);
@@ -129,21 +126,7 @@ gnome_url_show_with_env (const char  *url,
 	}
 
 	return FALSE;
-#else
-	/* FIXME: Just call ShellExecute... Good enough? */
-
-	if ((int) ShellExecute (HWND_DESKTOP, "open", url, NULL, NULL, SW_SHOWNORMAL) <= 32) {
-		g_set_error (error,
-			     GNOME_URL_ERROR,
-			     GNOME_URL_ERROR_LAUNCH,
-			     _("There was an error launching the default action command associated "
-			       "with this location."));
-		return FALSE;
-	}
-
-	return TRUE;
-#endif
-}
+ }
 
 /**
  * gnome_url_show:
