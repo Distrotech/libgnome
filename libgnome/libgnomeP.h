@@ -29,13 +29,15 @@
 #include "libgnome/gnome-hook.h"
 #include "libgnome/gnome-i18nP.h"
 #include "libgnome/gnome-metadata.h"
+#include "libgnome/gnome-mime.h"
+#include "libgnome/gnome-paper.h"
 #include "libgnome/gnome-popt.h"
 #include "libgnome/gnome-remote.h"
 #include "libgnome/gnome-score.h"
 #include "libgnome/gnome-sound.h"
 #include "libgnome/gnome-triggers.h"
 #include "libgnome/gnome-util.h"
-#include "libgnome/gnome-paper.h"
+#include "libgnome/gnome-url.h"
 
 extern char *gnome_user_home_dir;
 extern char *gnome_user_dir;
