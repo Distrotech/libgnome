@@ -1,3 +1,8 @@
+2002-04-11  jacob berkman  <jacob@ximian.com>
+
+	* libgnome/gnome-url.c (gnome_url_show): pass G_SPAWN_SEARCH_PATH
+	to g_spawn_async() to fix previous commit (and clean up a little)
+
 2002-04-09  Anders Carlsson  <andersca@gnu.org>
 
 	* libgnome/gnome-url.c (gnome_url_show): Don't use a shell,

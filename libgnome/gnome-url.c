@@ -78,7 +78,6 @@ gnome_url_show (const gchar *url, GError **error)
 	gchar *pos, *template;
 	int argc;
 	char **argv;
-	char **newargv;
 	gboolean ret;
 	
 	g_return_val_if_fail (url != NULL, FALSE);
@@ -140,27 +139,30 @@ gnome_url_show (const gchar *url, GError **error)
 		return FALSE;
 	}
 
-	newargv = g_new0 (char *, argc + 1);
+	g_free (template);
+
 	for (i = 0; i < argc; i++) {
-		if (strcmp (argv[i], "%s") == 0)
-			newargv[i] = g_strdup (url);
-		else
-			newargv[i] = g_strdup (argv[i]);
+		char *arg;
+
+		if (strcmp (argv[i], "%s") != 0)
+			continue;
+
+		arg = argv[i];
+		argv[i] = g_strdup (url);
+		g_free (arg);
 	}
-	newargv[i] = NULL;
 	
 	/* This can return some errors */
 	ret = g_spawn_async (NULL /* working directory */,
-			     newargv,
+			     argv,
 			     NULL /* envp */,
-			     0 /* flags */,
+			     G_SPAWN_SEARCH_PATH /* flags */,
 			     NULL /* child_setup */,
 			     NULL /* data */,
 			     NULL /* child_pid */,
 			     error);
 
-	g_strfreev (newargv);
-	g_free (template);
+	g_strfreev (argv);
 
 	return ret;
 }
