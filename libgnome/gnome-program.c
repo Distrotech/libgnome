@@ -53,8 +53,6 @@
 #include "gnome-i18n.h"
 #include "gnome-url.h"
 
-#include <bonobo-activation/bonobo-activation-register.h>
-
 struct _GnomeProgramPrivate {
     enum {
 	APP_UNINIT=0,
@@ -1526,13 +1524,7 @@ accessibility_invoke (GnomeProgram *program, gboolean init)
 		}
 	}
 
-	/*
-	 *   We only want to enable the bridge for top level
-	 * applications, we detect bonobo components by seeing
-	 * if they were activated with the intention of extracting
-	 * an impl. by IID - very solid.
-	 */
-	if (use_gui && !bonobo_activation_iid_get ()) {
+	if (use_gui) {
 		accessibility_invoke_module (program, "libatk-bridge", init);
 	}
 
