@@ -322,6 +322,7 @@ add_uri_handler (GnomeSelector *selector, const gchar *uri, gint position,
 {
     GnomeFileSelector *fselector;
     GnomeFileSelectorAsyncData *async_data;
+    GnomeVFSURI *vfs_uri;
     GList fake_list;
 
     g_return_if_fail (selector != NULL);
@@ -332,11 +333,15 @@ add_uri_handler (GnomeSelector *selector, const gchar *uri, gint position,
 
     fselector = GNOME_FILE_SELECTOR (selector);
 
+    vfs_uri = gnome_vfs_uri_new (uri);
+    if (!vfs_uri)
+	return;
+
     async_data = g_new0 (GnomeFileSelectorAsyncData, 1);
     async_data->async_handle = async_handle;
     async_data->type = GNOME_SELECTOR_ASYNC_TYPE_ADD_URI;
     async_data->fselector = fselector;
-    async_data->uri = gnome_vfs_uri_new (uri);
+    async_data->uri = vfs_uri;
     async_data->position = position;
     async_data->list_id = list_id;
 

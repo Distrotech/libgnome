@@ -97,6 +97,7 @@ libgnome_headers = \
 	gnome-preferences.h	\
 	gnome-marshal.h		\
 	gnome-selector.h	\
+	gnome-selectorP.h	\
 	gnome-file-selector.h	\
 	libgnome-init.h		\
 	libgnome.h
