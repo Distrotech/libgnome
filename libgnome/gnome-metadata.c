@@ -33,6 +33,7 @@
 #endif
 
 #include "libgnomeP.h"
+#include "gnome-mime.h"
 
 
 /* Each key in the database has 3 parts: the space, the object, and
@@ -208,7 +209,7 @@ metadata_set (const char *space, const char *object, const char *key,
 		/* Update list with new info, if required.  */
 		char *p, *end;
 
-		end = value.data + value.size;
+		end = (char *) value.data + value.size;
 		p = value.data;
 		while (p < end) {
 			if (! strcmp (p, xitem))
@@ -307,7 +308,7 @@ metadata_remove (const char *space, const char *object, const char *key)
 			/* Remove it.  */
 			int l = strlen (p) + 1;
 
-			if (value.size == l) {
+			if ((int) value.size == l) {
 				/* Remove entry entirely.  */
 				database->del (database, &dkey, 0);
 			} else {
@@ -436,7 +437,7 @@ gnome_metadata_list (const char *file)
 
 	/* Count number of strings in data value.  */
 	dd = (char *) value.data;
-	for (num = i = 0; i < value.size; ++i) {
+	for (num = i = 0; i < (int) value.size; ++i) {
 		if (! dd[i])
 			++num;
 	}
@@ -472,7 +473,7 @@ try_regexs (const char *file, const char *key, int *size, char **buffer)
 		rxcache = gnome_regex_cache_new ();
 
 	p = value.data;
-	end = value.data + value.size;
+	end = (char *) value.data + value.size;
 	while (p < end) {
 		regex_t *buf;
 		buf = gnome_regex_cache_compile (rxcache, p, REG_EXTENDED);
