@@ -1,4 +1,188 @@
+2001-09-02  Anders Carlsson  <andersca@gnu.org>
+
+	* Makefile.am: Remove compilation of Gnome.idl.
+
+	* gnome-exec.c: (gnome_prepend_terminal_to_vector):
+	Use gconf.
+	
+	* gnome-help.c: (gnome_help_display_uri):
+	Use the old gnome_url_show API.
+	
+	* gnome-init.c: (libbonobo_class_init):
+	Don't initialize the bonobo-config monikers.
+	
+	* gnome-init.h:
+	Remove functions to get a ConfigDatabase from a GnomeProgram.
+	
+	* gnome-preferences.c: (desktop_property_get_boolean),
+	(desktop_property_set_boolean):
+	Add a really bad hack (always return FALSE on get_boolean) until
+	we can put GnomePreferences out of its misery.
+	
+	* gnome-url.c: (gnome_url_default_handler), (gnome_url_show):
+	* gnome-url.h:
+	Remove complex API and just export gnome_url_show.
+	
+	* libgnome.h:
+	Don't include Gnome.h
+	
+	* test-libgnome.c: (test_url), (main):
+	Remove moniker tests and use gnome_url_show for the url test.
+
+Sun Sep 02 02:45:37 2001  George Lebl <jirka@5z.com>
+
+	* libgnome.h: add gnome-help.h and gnome-score.h
+
+Sun Sep 02 01:38:05 2001  George Lebl <jirka@5z.com>
+
+	* gnome-help.c: make actually compile.  DOH!
+
+Sun Sep 02 00:49:05 2001  George Lebl <jirka@5z.com>
+
+	* gnome-program.[ch], gnome-init.c, gnome-gconf.c:  Be consistent
+	  with naming of attributes and getters.  So
+	  s/gnome_program_get_name/gnome_program_get_app_id/ and
+	  s/gnome_program_get_version/gnome_program_get_app_version/
+
+	* gnome-program.c, gnome-help.[ch]:  Implement the help stuff
+	  according to jrb's RFP.  Hopefully correctly :)
+
+	* gnome-exec.c, gnome-program.c, gnome-config.c: Be more consistent
+	  with use of alloca and always call g_alloca
+
+Sat Sep 01 23:01:30 2001  George Lebl <jirka@5z.com>
+
+	* Makefile.am, gnome-score.[ch]: bring back the non-gui portion of
+	  gnome-scores.
+
+	* gnome-i18n.c: the push/pop numeric C locale was sort of stupid.  It
+	  was saving the C locale.  So assume that if we're nested we're in the
+	  C locale.  This is just as safe netable wise and wastes less
+	  resources
+
+	* gnome-config.c: alloca voodoo is now done in glib
+
+Sat Sep 01 17:26:44 2001  George Lebl <jirka@5z.com>
+
+	* gnome-init.c: don't run the gnome_triggers_init, it's an empty
+	  function
+
+	* gnome-sound.c: actually do on demand esd startup and not on init,
+	  and fix the issue with possible sound sample conflicts if they were
+	  loaded at the same second.  Perhaps this code is weird, need more
+	  investigation.
+
+	* gnome-triggers.[ch]: comment out the init function, and whack the
+	  prototypes from the .h file that weren't implemented at all anyway
+
+	* gnome-util.[ch]:  use G_DIR_SEPARATOR(_S), deprecate g_copy_vector,
+	  and mark all the deprecation macros as deprecated.  Add deprecated
+	  macro for g_file_exists, g_unix_error_string and
+	  gnome_util_user_home as well.
+
+Sat Sep 01 15:24:54 2001  George Lebl <jirka@5z.com>
+
+	* gnome-program.c: in the _init function only reregister a module if
+	  it hasn't been registered yet.
+
+2001-09-01  Anders Carlsson  <andersca@gnu.org>
+
+	* gnome-program.c (gnome_program_module_registered): the program_modules
+	array is NULL-terminated, so break if we get a NULL.
+
+Sat Sep 01 06:49:49 2001  George Lebl <jirka@5z.com>
+
+	* gnome-program.c: Init modules passed to gnome_program_init on
+	  the second (non-global) invocation as well.  Found out bonobo is
+	  calling this and that's very wrong BTW.  gnome_program_init should
+	  be only called by the program itself in it's main.  Also don't
+	  load shlib modules if we're setgid or setuid.  Take the
+	  "--load-modules modules" form of argument.  Use the type in the
+	  init to create the program.
+
+Sat Sep 01 02:40:35 2001  George Lebl <jirka@5z.com>
+
+	* gnome-config.c: kill weird include for strndup, this is in glib
+	  now
+
+Thu Aug 30 19:04:25 2001  George Lebl <jirka@5z.com>
+
+	* gnome-util.c: if looking for a shell in the fallback code,
+	  look for shells in /usr/bin as well as that's used on solaris
+
+Thu Aug 30 14:15:44 2001  George Lebl <jirka@5z.com>
+
+	* gnome-gconf.h:  Eeek, we were including gconf-client, we don't
+	  want to do that.
+
+Wed Aug 29 01:24:33 2001  George Lebl <jirka@5z.com>
+
+	* gnome-program.[ch]: ifdef out the help functions, that's a better
+	  indication that these are here just for show for now.  A proposal
+	  of sorts.
+
+Tue Aug 28 23:40:23 2001  George Lebl <jirka@5z.com>
+
+	* gnome-program.c: app prefix defaults to NULL, which will cause
+	  a g_warning (maybe should be g_error) when locate_file is used
+	  for an app relative domain.  Also don't search the path for
+	  app relative files.
+
+	* gnome-program.[ch]:  Add a proposal of functions implementation
+	  for displaying app and system help.  This is not part of the
+	  API people should use.  It's just for people to leer at for
+	  now.
+
+Tue Aug 28 22:45:44 2001  George Lebl <jirka@5z.com>
+
+	* gnome-program.[ch]: To make help file (and other files) location
+	  possible add distinction for app and gnome specific files.  Also
+	  add a macro that will set the standard directory properties more
+	  simply.
+
+	* gnome-init.c: translate module names
+
+Tue Aug 28 01:49:27 2001  George Lebl <jirka@5z.com>
+
+	* gnome-gconf.[ch]: For program relative path, take an optional
+	  argument of GnomeProgram.  Also add documentation for these
+	  two.
+
+Mon Aug 27 00:55:56 2001  George Lebl <jirka@5z.com>
+
+	* gnome-config.c, parse-path.cP: use an internal version of
+	  cancat dir and file which always works with '/'
+
+Mon Aug 27 00:32:57 2001  George Lebl <jirka@5z.com>
+
+	* gnome-gconf.c: include gnome-i18nP.h
+
+	* gnome-init.[ch], gnome-program.[ch]: Fix include stuff foo, 
+	  declare the externs in the header file, initialize triggers again,
+	  and put back the sound stuff so that we're at 1.0 level on that.
+	  Also added a few descriptions of GnomeProgram properties.
+
+Sun Aug 26 22:54:57 2001  George Lebl <jirka@5z.com>
+
+	* libgnome.h, Makefile.am, gnome-gconf.c: Getting confused a bit,
+	  fix things up, now it does compile
+
+Sun Aug 26 22:48:54 2001  George Lebl <jirka@5z.com>
+
+	* gnome-init.c, gnome-gconf.[ch], Makefile.am:  Add gconf support
+	  here.  This is the init stuff, none of the gui stuff.
+
 Sun Aug 26 07:29:59 2001  George Lebl <jirka@5z.com>
+
+	* Makefile.am, gnome-config.[ch], parse-path.cP, gnome-sound.[ch],
+	  gnome-triggersP.h, gnome-triggers.[ch], gnome-i18n.[ch],
+	  gnome-i18nP.h, libgnome.h:  Bring back sane versions of these files.
+	  Will be marked as deprecated where appropriate later after some more
+	  discussion.  In gnome-i18n, don't bring back the broken and
+	  unused crap (preffered language and get_language)
+
+	* gnome-i18nP.h, gnome-exec.c, gnome-init.c, gnome-program.c, 
+	  gnome-url.c, test-libgnome.c: Make translations works once more
 
 	* gnome-util.c: paranoia fix, setuid/setgid programs can't use
 	  getenv ("SHELL") (for obvious reasons).
@@ -9,14 +193,6 @@ Thu Aug 23 23:23:42 2001  George Lebl <jirka@5z.com>
 	  that types that you don't know size (such as gsize) should be
 	  casted when passed to printf since they can be either %d or %ld
 	  or some such.
-
-Fri Aug 24 09:59:14 2001  George Lebl <jirka@5z.com>
-
-	* gnome-utils.c:  make gnome_is_program_in_path use 'access'
-	  with X_OK to check only for actually executable files and it also
-	  regets the PATH every time so that it follows the current PATH
-	  setting.  Note that this cannot possibly be the bottleneck in this
-	  function and the "access" is.
 
 2001-08-10  Michael Meeks  <michael@ximian.com>
 

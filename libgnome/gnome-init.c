@@ -37,9 +37,13 @@
 #include <sys/stat.h>
 
 #include <glib.h>
+#include "gnome-i18nP.h"
 
-#include <libgnome/gnome-init.h>
-#include <libgnome/gnome-util.h>
+#include "gnome-init.h"
+#include "gnome-gconf.h"
+#include "gnome-util.h"
+#include "gnome-sound.h"
+#include "gnome-triggers.h"
 
 #include <errno.h>
 
@@ -180,119 +184,6 @@ libbonobo_delay_init (GnomeProgramPrivate_libbonobo *priv)
 	return FALSE;
 }
 
-static Bonobo_ConfigDatabase
-get_db (GnomeProgram *program, const char *key, CORBA_Environment *opt_ev)
-{
-	GValue value = { 0, };
-	Bonobo_ConfigDatabase database;
-	GnomeProgramPrivate_libbonobo *priv;
-
-	g_return_val_if_fail (program != NULL, CORBA_OBJECT_NIL);
-	g_return_val_if_fail (GNOME_IS_PROGRAM (program), CORBA_OBJECT_NIL);
-
-	priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
-	while (!priv->constructed && libbonobo_delay_init (priv))
-	    ;
-
-	g_value_init (&value, G_TYPE_POINTER);
-	g_object_get_property (G_OBJECT (program), key, &value);
-	database = (Bonobo_ConfigDatabase) g_value_get_pointer (&value);
-	g_value_unset (&value);
-
-	return bonobo_object_dup_ref (database, opt_ev);
-}
-
-Bonobo_ConfigDatabase
-gnome_program_get_config_database (GnomeProgram *program)
-{
-	return get_db (program, GNOME_PARAM_CONFIG_DATABASE, NULL);
-}
-
-Bonobo_ConfigDatabase
-gnome_program_get_desktop_config_database (GnomeProgram *program)
-{
-	return get_db (program, GNOME_PARAM_DESKTOP_CONFIG_DATABASE, NULL);
-}
-
-Bonobo_ConfigDatabase
-gnome_get_config_database (void)
-{
-	return gnome_program_get_config_database (gnome_program_get ());
-}    
-
-static void
-libbonobo_get_property (GObject *object, guint param_id, GValue *value,
-			GParamSpec *pspec)
-{
-	GnomeProgramClass_libbonobo *cdata;
-	GnomeProgramPrivate_libbonobo *priv;
-	GnomeProgram *program;
-
-	g_return_if_fail (object != NULL);
-	g_return_if_fail (GNOME_IS_PROGRAM (object));
-
-	program = GNOME_PROGRAM (object);
-
-	cdata = g_type_get_qdata (G_OBJECT_TYPE (program), quark_gnome_program_class_libbonobo);
-	priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
-
-	if (param_id == cdata->config_database_id)
-		g_value_set_pointer (value, priv->config_database);
-
-	else if (param_id == cdata->config_moniker_id)
-		g_value_set_string (value, priv->config_moniker);
-
-	else if (param_id == cdata->desktop_config_database_id)
-		g_value_set_pointer (value, priv->desktop_config_database);
-
-	else if (param_id == cdata->desktop_config_moniker_id)
-		g_value_set_string (value, priv->desktop_config_moniker);
-
-	else
-		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
-}
-
-static void
-libbonobo_set_property (GObject *object, guint param_id,
-			const GValue *value, GParamSpec *pspec)
-{
-	GnomeProgramClass_libbonobo *cdata;
-	GnomeProgramPrivate_libbonobo *priv;
-	GnomeProgram *program;
-
-	g_return_if_fail (object != NULL);
-	g_return_if_fail (GNOME_IS_PROGRAM (object));
-
-	program = GNOME_PROGRAM (object);
-
-	cdata = g_type_get_qdata (G_OBJECT_TYPE (program), quark_gnome_program_class_libbonobo);
-	priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
-
-	g_message (G_STRLOC ": %d - %d", priv->constructed, param_id);
-
-	if (!priv->constructed) {
-		if (param_id == cdata->config_database_id) {
-			bonobo_object_release_unref (priv->config_database, NULL);
-			priv->config_database =
-				bonobo_object_dup_ref (g_value_get_pointer (value), NULL);
-
-		} else if (param_id == cdata->config_moniker_id)
-			priv->config_moniker = g_value_dup_string (value);
-	
-		else if (param_id == cdata->desktop_config_database_id) {
-			bonobo_object_release_unref (priv->desktop_config_database, NULL);
-			priv->desktop_config_database =
-				bonobo_object_dup_ref (g_value_get_pointer (value), NULL);
-
-		} else if (param_id == cdata->desktop_config_moniker_id)
-			priv->desktop_config_moniker = g_value_dup_string (value);
-
-		else
-			G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
-	} else
-		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
-}
-
 static void
 libbonobo_init_pass (const GnomeModuleInfo *mod_info)
 {
@@ -312,31 +203,6 @@ libbonobo_class_init (GnomeProgramClass *klass, const GnomeModuleInfo *mod_info)
 
 	g_type_set_qdata (G_OBJECT_CLASS_TYPE (klass), quark_gnome_program_class_libbonobo, cdata);
 
-	cdata->config_moniker_id = gnome_program_install_property
-		(klass, libbonobo_get_property, libbonobo_set_property,
-		 g_param_spec_string (GNOME_PARAM_CONFIG_MONIKER, NULL, NULL,
-				      NULL,
-				      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-				       G_PARAM_CONSTRUCT_ONLY)));
-
-	cdata->config_database_id = gnome_program_install_property
-		(klass, libbonobo_get_property, libbonobo_set_property,
-		 g_param_spec_pointer (GNOME_PARAM_CONFIG_DATABASE, NULL, NULL,
-				       (G_PARAM_READABLE | G_PARAM_WRITABLE |
-					G_PARAM_CONSTRUCT_ONLY)));
-
-	cdata->desktop_config_moniker_id = gnome_program_install_property
-		(klass, libbonobo_get_property, libbonobo_set_property,
-		 g_param_spec_string (GNOME_PARAM_DESKTOP_CONFIG_MONIKER, NULL, NULL,
-				      "config:/gnome/desktop/",
-				      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-				       G_PARAM_CONSTRUCT_ONLY)));
-
-	cdata->desktop_config_database_id = gnome_program_install_property
-		(klass, libbonobo_get_property, libbonobo_set_property,
-		 g_param_spec_pointer (GNOME_PARAM_DESKTOP_CONFIG_DATABASE, NULL, NULL,
-				       (G_PARAM_READABLE | G_PARAM_WRITABLE |
-					G_PARAM_CONSTRUCT_ONLY)));
 }
 
 static void
@@ -388,7 +254,7 @@ GnomeModuleInfo libbonobo_module_info = {
  * libgnome
  *****************************************************************************/
 
-enum { ARG_VERSION = 1 };
+enum { ARG_DISABLE_SOUND = 1, ARG_ENABLE_SOUND, ARG_ESPEAKER, ARG_VERSION };
 
 char *gnome_user_dir = NULL, *gnome_user_private_dir = NULL, *gnome_user_accels_dir = NULL;
 
@@ -398,16 +264,41 @@ libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
 		    void *data)
 {
 	GnomeProgram *program;
+	GValue value = { 0 };
 
 	program = gnome_program_get ();
 	
 	switch(reason) {
 	case POPT_CALLBACK_REASON_OPTION:
 		switch(opt->val) {
+		case ARG_ESPEAKER:
+			g_value_init (&value, G_TYPE_STRING);
+			g_value_set_string (&value, opt->arg);
+			g_object_set (G_OBJECT (program),
+				      GNOME_PARAM_ESPEAKER, &value);
+			g_value_unset (&value);
+			break;
+
+		case ARG_DISABLE_SOUND:
+			g_value_init (&value, G_TYPE_BOOLEAN);
+			g_value_set_boolean (&value, FALSE);
+			g_object_set (G_OBJECT (program),
+				      GNOME_PARAM_ENABLE_SOUND, &value);
+			g_value_unset (&value);
+			break;
+
+		case ARG_ENABLE_SOUND:
+			g_value_init (&value, G_TYPE_BOOLEAN);
+			g_value_set_boolean (&value, TRUE);
+			g_object_set (G_OBJECT (program),
+				      GNOME_PARAM_ENABLE_SOUND, &value);
+			g_value_unset (&value);
+			break;
+
 		case ARG_VERSION:
 			g_print ("Gnome %s %s\n",
-				 gnome_program_get_name (program),
-				 gnome_program_get_version (program));
+				 gnome_program_get_app_id (program),
+				 gnome_program_get_app_version (program));
 			exit(0);
 			break;
 		}
@@ -474,15 +365,33 @@ static void
 libgnome_post_args_parse (GnomeProgram *program,
 			  GnomeModuleInfo *mod_info)
 {
-	GValue value = { 0, };
-	gboolean create_dirs_val;
+	GValue value = { 0 };
+	gboolean enable_val = TRUE, create_dirs_val = TRUE;                           
+	char *espeaker_val = NULL;                                                    
 
 	g_value_init (&value, G_TYPE_BOOLEAN);
-	g_object_get_property (G_OBJECT (program), "create-directories", &value);
+	g_object_get_property (G_OBJECT (program),
+			       GNOME_PARAM_CREATE_DIRECTORIES,
+			       &value);
 	create_dirs_val = g_value_get_boolean (&value);
 	g_value_unset (&value);
 
-	// gnome_triggers_init ();
+	g_value_init (&value, G_TYPE_BOOLEAN);
+	g_object_get_property (G_OBJECT (program), 
+			       GNOME_PARAM_ENABLE_SOUND, &value);
+	enable_val = g_value_get_boolean (&value);
+	g_value_unset (&value);
+
+	g_value_init (&value, G_TYPE_STRING);
+	g_object_get_property (G_OBJECT (program), 
+			       GNOME_PARAM_ESPEAKER, &value);
+	espeaker_val = g_value_dup_string (&value);
+	g_value_unset (&value);
+
+
+	if (enable_val) {
+		gnome_sound_init(espeaker_val);
+	}
 
 	libgnome_userdir_setup (create_dirs_val);
 
@@ -496,6 +405,17 @@ static struct poptOption gnomelib_options [] = {
 
 	{ NULL, '\0', POPT_ARG_CALLBACK, (void *) libgnome_option_cb, 0, NULL, NULL},
 
+	{ "disable-sound", '\0', POPT_ARG_NONE,                                 
+	  NULL, ARG_DISABLE_SOUND, N_("Disable sound server usage"), NULL},     
+
+	{ "enable-sound", '\0', POPT_ARG_NONE,                                  
+	  NULL, ARG_ENABLE_SOUND, N_("Enable sound server usage"), NULL},       
+
+	{ "espeaker", '\0', POPT_ARG_STRING,                                    
+	  NULL, ARG_ESPEAKER, N_("Host:port on which the sound server to use is 
+				 running"),
+	  N_("HOSTNAME:PORT")},                                                 
+
 	{"version", '\0', POPT_ARG_NONE, NULL, },
 
 	{ NULL, '\0', 0, NULL, 0 }
@@ -508,7 +428,7 @@ gnome_vfs_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 }
 
 GnomeModuleInfo gnome_vfs_module_info = {
-	"gnome-vfs", GNOMEVFSVERSION, "GNOME Virtual Filesystem",
+	"gnome-vfs", GNOMEVFSVERSION, N_("GNOME Virtual Filesystem"),
 	NULL, NULL,
 	gnome_vfs_pre_args_parse, NULL,
 	NULL,
@@ -519,11 +439,12 @@ GnomeModuleInfo gnome_vfs_module_info = {
 static GnomeModuleRequirement libgnome_requirements [] = {
 	{ VERSION, &libbonobo_module_info },
 	{ "0.3.0", &gnome_vfs_module_info },
+	{ VERSION, &gnome_gconf_module_info },
 	{ NULL }
 };
 
 GnomeModuleInfo libgnome_module_info = {
-	"libgnome", VERSION, "GNOME Library",
+	"libgnome", VERSION, N_("GNOME Library"),
 	libgnome_requirements, NULL,
 	NULL, libgnome_post_args_parse,
 	gnomelib_options,

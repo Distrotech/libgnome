@@ -25,6 +25,8 @@
 #  include <config.h>
 #endif
 
+#include "gnome-i18nP.h"
+
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-i18n.h>
@@ -39,8 +41,7 @@
 #include <signal.h>
 
 #include <libgnome/gnome-init.h>
-#include <bonobo/bonobo-property-bag-client.h>
-#include <bonobo/bonobo-exception.h>
+#include <gconf/gconf-client.h>
 
 #include <popt.h>
 
@@ -138,7 +139,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
       if(dir) chdir(dir);
 
-      cpargv = alloca((argc + 1) * sizeof(char *));
+      cpargv = g_alloca((argc + 1) * sizeof(char *));
       memcpy(cpargv, argv, argc * sizeof(char *));
       cpargv[argc] = NULL;
 
@@ -185,7 +186,8 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
   res = read (parent_comm_pipes[0], &child_pid, sizeof(child_pid));
   if (res != sizeof(child_pid))
     {
-      g_message("res is %d instead of %d", res, (int)sizeof(child_pid));
+      g_message("res is %ld instead of %d",
+		(long)res, (int)sizeof(child_pid));
       child_pid = -1; /* really weird things happened */
     }
   else if (read (parent_comm_pipes[0], &child_errno, sizeof(child_errno))
@@ -349,8 +351,8 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 	char **term_argv = NULL;
 	const char **temp_argv = NULL;
 	int term_argc = 0;
+	GConfClient *client;
 
-	Bonobo_ConfigDatabase db;
 	gchar *terminal = NULL;
 
 	char **the_argv;
@@ -371,12 +373,15 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 		*argc = i;
 	}
 
-	db = gnome_get_config_database ();
-	terminal = bonobo_pbclient_get_string (db, "/Gnome/Applications/Terminal", NULL);
+	client = gconf_client_get_default ();
+	terminal = gconf_client_get_string (client, "/desktop/gnome/applications/terminal", NULL);
+	g_object_unref (G_OBJECT (client));
+	
 	g_message (G_STRLOC ": |%s|", terminal);
 	if (terminal) {
 	    poptParseArgvString (terminal, &term_argc, &temp_argv);
 	    term_argv = g_strdupv ((gchar **) temp_argv);
+	    g_free (terminal);
 	}
 
 	if (term_argv == NULL) {

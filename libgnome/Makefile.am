@@ -7,8 +7,6 @@
 LIB_VERSION=0:0:0
 LIB_VERSION_NUM=0.0.0
 
-ORBIT_IDL = @ORBIT_IDL@
-
 lib_LTLIBRARIES = libgnome-2.la
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
@@ -33,53 +31,46 @@ INCLUDES = \
 	-DGNOMEVFSVERSION=\"$(GNOME_VFS_VERSION)\"		\
 	-DG_LOG_DOMAIN=\"Gnome\"
 
-CORBA_SOURCE =			\
-	Gnome.h			\
-	Gnome-common.c		\
-	Gnome-stubs.c		\
-	Gnome-skels.c
-
-idls =							\
-	$(top_srcdir)/idl/Gnome.idl
-
-idl_flags = -I @BONOBO_IDLDIR@ -D__GNOME_COMPILATION
-
-$(CORBA_SOURCE): $(idls) $(ORBIT_IDL)
-	$(ORBIT_IDL) $(top_srcdir)/idl/Gnome.idl -I$(top_srcdir)/idl $(idl_flags)
-
-libgnome_src = \
+libgnome_2_la_SOURCES = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
+	gnome-config.c		\
+	gnome-sound.c		\
+	gnome-triggers.c	\
+	gnome-triggersP.h	\
 	gnome-program.c		\
+	gnome-help.c		\
 	gnome-exec.c		\
+	gnome-gconf.c		\
+	gnome-i18n.c		\
+	gnome-i18nP.h		\
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-preferences.c	\
+	gnome-score.c		\
 	gnome-marshal-main.c	\
 	gnome-init.c
-
-$(gnome2_src) : $(CORBA_SOURCE)
-CLEANFILES += $(CORBA_SOURCE)
-
-libgnome_2_la_SOURCES = \
-	$(libgnome_src)		\
-	$(CORBA_SOURCE)
 
 libinclude_HEADERS = \
 	libgnome.h
 
 libgnome_headers = \
+	gnome-config.h		\
+	gnome-sound.h		\
+	gnome-triggers.h	\
 	gnome-program.h		\
+	gnome-help.h		\
 	gnome-i18n.h		\
 	gnome-exec.h		\
+	gnome-gconf.h		\
 	gnome-url.h		\
 	gnome-util.h   		\
 	gnome-preferences.h	\
 	gnome-marshal.h		\
+	gnome-score.h		\
 	gnome-init.h
 
 libgnomeinclude_HEADERS = \
-	Gnome.h			\
 	libgnometypebuiltins.h	\
 	$(libgnome_headers)
 
@@ -151,14 +142,14 @@ $(srcdir)/gnome-marshal.c: @REBUILD@ Makefile.am gnome-marshal.list
 EXTRA_DIST = \
 	libgnome-2.0.pc.in		\
 	gnome-marshal.list		\
-	gnome-marshal.c
+	gnome-marshal.c			\
+	parse-path.cP
 
 BUILT_SOURCES = \
 	libgnometypebuiltins.h		\
 	libgnometypebuiltins.c		\
 	gnome-marshal.h			\
-	gnome-marshal.c			\
-	$(CORBA_SOURCE)
+	gnome-marshal.c			
 
 libgnome_2_la_LDFLAGS = -version-info $(LIB_VERSION)
 libgnome_2_la_LIBADD =		\

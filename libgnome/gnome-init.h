@@ -29,37 +29,15 @@
 
 #include <libgnome/gnome-program.h>
 
-#include <bonobo/Bonobo.h>
-
 G_BEGIN_DECLS
-
-/*
- * Bonobo::ConfigDatabase for desktop-wide settings.
- */
-Bonobo_ConfigDatabase
-gnome_program_get_desktop_config_database (GnomeProgram *program);
-
-#define GNOME_PARAM_DESKTOP_CONFIG_DATABASE "desktop-config-database"
-#define GNOME_PARAM_DESKTOP_CONFIG_MONIKER  "desktop-config-moniker"
-
-/*
- * Bonobo::ConfigDatabase for per-application settings.
- */
-Bonobo_ConfigDatabase
-gnome_program_get_config_database (GnomeProgram *program);
-
-/*
- * Shortcut for gnome_program_get_config_database (gnome_program_get ()).
- */
-Bonobo_ConfigDatabase
-gnome_get_config_database (void);
-
-#define GNOME_PARAM_CONFIG_DATABASE "config-database"
-#define GNOME_PARAM_CONFIG_MONIKER  "config-moniker"
 
 extern GnomeModuleInfo gnome_bonobo_activation_module_info;
 extern GnomeModuleInfo gnome_vfs_module_info;
 extern GnomeModuleInfo libgnome_module_info;
+
+extern char *gnome_user_dir;
+extern char *gnome_user_private_dir;
+extern char *gnome_user_accels_dir;
 
 G_END_DECLS
 

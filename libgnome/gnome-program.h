@@ -52,12 +52,21 @@ typedef struct _GnomeProgramClass     GnomeProgramClass;
 
 typedef enum {
     GNOME_FILE_DOMAIN_UNKNOWN = 0,
+
+    /* Gnome installed files */
     GNOME_FILE_DOMAIN_LIBDIR,
     GNOME_FILE_DOMAIN_DATADIR,
     GNOME_FILE_DOMAIN_SOUND,
     GNOME_FILE_DOMAIN_PIXMAP,
     GNOME_FILE_DOMAIN_CONFIG,
     GNOME_FILE_DOMAIN_HELP,
+
+    /* Application files */
+    GNOME_FILE_DOMAIN_APP_LIBDIR,
+    GNOME_FILE_DOMAIN_APP_DATADIR,
+    GNOME_FILE_DOMAIN_APP_SOUND,
+    GNOME_FILE_DOMAIN_APP_PIXMAP,
+    GNOME_FILE_DOMAIN_APP_CONFIG,
     GNOME_FILE_DOMAIN_APP_HELP
 } GnomeFileDomain;
 
@@ -79,14 +88,14 @@ gnome_program_get_type                  (void);
 GnomeProgram *
 gnome_program_get                       (void);
 
-const char*
+const char *
 gnome_program_get_human_readable_name   (GnomeProgram *program);
 
 const char *
-gnome_program_get_name                  (GnomeProgram *program);
+gnome_program_get_app_id                (GnomeProgram *program);
 
 const char *
-gnome_program_get_version               (GnomeProgram *program);
+gnome_program_get_app_version           (GnomeProgram *program);
 
 gchar *
 gnome_program_locate_file               (GnomeProgram    *program,
@@ -101,11 +110,14 @@ gnome_program_locate_file               (GnomeProgram    *program,
 #define GNOME_PARAM_POPT_FLAGS          "popt-flags"
 #define GNOME_PARAM_POPT_CONTEXT        "popt-context"
 #define GNOME_PARAM_CREATE_DIRECTORIES  "create-directories"
-#define GNOME_PARAM_SOUND_DRIVER	"sound-driver"
 #define GNOME_PARAM_ENABLE_SOUND        "enable-sound"
-#define GNOME_PARAM_FILE_LOCATOR        "file-locator"
+#define GNOME_PARAM_ESPEAKER            "espeaker"
 #define GNOME_PARAM_APP_ID              "app-id"
 #define GNOME_PARAM_APP_VERSION         "app-version"
+#define GNOME_PARAM_GNOME_PREFIX        "gnome-prefix"
+#define GNOME_PARAM_GNOME_SYSCONFDIR    "gnome-sysconfdir"
+#define GNOME_PARAM_GNOME_DATADIR       "gnome-datadir"
+#define GNOME_PARAM_GNOME_LIBDIR        "gnome-libdir"
 #define GNOME_PARAM_APP_PREFIX          "app-prefix"
 #define GNOME_PARAM_APP_SYSCONFDIR      "app-sysconfdir"
 #define GNOME_PARAM_APP_DATADIR         "app-datadir"
@@ -187,6 +199,14 @@ gnome_program_parse_args (GnomeProgram *program);
 
 void
 gnome_program_postinit (GnomeProgram *program);
+
+/* If you have your auto* define PREFIX, SYSCONFDIR, DATADIR and LIBDIR,
+ * Use this macro in your init code. */
+#define GNOME_PROGRAM_STANDARD_PROPERTIES \
+	GNOME_PARAM_APP_PREFIX, PREFIX,		\
+	GNOME_PARAM_APP_SYSCONFDIR, SYSCONFDIR,	\
+	GNOME_PARAM_APP_DATADIR, DATADIR,	\
+	GNOME_PARAM_APP_LIBDIR, LIBDIR
 
 /* These are convenience functions that calls gnomelib_preinit(...), have
    popt parse all args, and then call gnomelib_postinit() */

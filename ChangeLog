@@ -1,27 +1,23 @@
-2001-09-02  Martin Baulig  <baulig@suse.de>
+2001-09-02  Anders Carlsson  <andersca@gnu.org>
 
-	Please read http://mail.gnome.org/archives/gnome-2-0-list/2001-September/msg00009.html.
+	* Makefile.am: Don't build tests/
+	
+	* configure.in: Don't build tests, remove bonobo-config dependency.
+	
+	* idl/ChangeLog: Remove.
+	
+	* idl/Gnome.idl: Remove.
+	
+	* idl/Makefile.am: Remove.
 
-2001-08-28  Martin Baulig  <baulig@suse.de>
+Sat Sep 01 23:05:23 2001  George Lebl <jirka@5z.com>
 
-	* configure.in (MONIKER_SRCDIR): Set this to the full pathname of the
-	monikers/ subdirectory and AC_SUBST it.
+	* configure.in, acconfig.h: Add some HAVE_ defines, and again
+	  look for esd and audiofile
 
-	* configure.in (MONIKER_LIBS): Added this back, but don't compile the
-	monikers/ directory for the moment.
+Sun Aug 26 18:39:43 2001  George Lebl <jirka@5z.com>
 
-	* NEWS: Added comment about the Gnome.idl change.
-
-2001-08-28  Martin Baulig  <baulig@suse.de>
-
-	* configure.in: Bumped version number to 1.103.0, the next release will
-	be 1.104.0.
-
-	NOTE: We're in API freeze again, this is the state of the 1.102.0 release.
-
-	NOTE: Please update the required version in your PKG_CHECK_MODULES macros
-	to 1.103.0, there was some larger breakage between 1.102.0 and this one,
-	but 1.103.0 is stable again (and compatible with the frozen 1.102.0).
+	* libgnome/configure.in, libgnome/libgnome-2.0.pc.in:  Require GConf
 
 Fri Aug 24 09:59:14 2001  George Lebl <jirka@5z.com>
 
@@ -31,9 +27,22 @@ Fri Aug 24 09:59:14 2001  George Lebl <jirka@5z.com>
 	  by macros or just punted.  They are simple yet very useful to
 	  have to write portable code
 
+	* libgnome/gnome-utils.c:  make gnome_is_program_in_path use 'access'
+	  with X_OK to check only for actually executable files and it also
+	  regets the PATH every time so that it follows the current PATH
+	  setting.  Note that this cannot possibly be the bottleneck in this
+	  function and the "access" is.
+
+	* configure.in: get rid of this elitist evil CERTIFIED_GNOMIE
+	  bullshit
+
 2001-08-14  Michael Meeks  <michael@ximian.com>
 
 	* configure.in: add a bonobo-config dependency.
+
+2001-08-14  Abel Cheung  <maddog@linux.org.hk>
+
+	* configure.in: Added zh_TW to ALL_LINGUAS.
 
 2001-08-14  Martin Baulig  <baulig@suse.de>
 

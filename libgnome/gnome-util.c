@@ -52,9 +52,6 @@
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-util.h>
 
-#define PATH_SEP '/'
-#define PATH_SEP_STR "/"
-
 /**
  * g_concat_dir_and_file:
  * @dir:  directory name
@@ -71,8 +68,8 @@ g_concat_dir_and_file (const char *dir, const char *file)
 
         /* If the directory name doesn't have a / on the end, we need
 	   to add one so we get a proper path to the file */
-	if (dir[0] != '\0' && dir [strlen(dir) - 1] != PATH_SEP)
-		return g_strconcat (dir, PATH_SEP_STR, file, NULL);
+	if (dir[0] != '\0' && dir [strlen(dir) - 1] != G_DIR_SEPARATOR)
+		return g_strconcat (dir, G_DIR_SEPARATOR_S, file, NULL);
 	else
 		return g_strconcat (dir, file, NULL);
 }
@@ -90,12 +87,21 @@ gnome_util_user_shell (void)
 	int i;
 	const char *shell;
 	static char *shells [] = {
-		"/bin/bash", "/bin/zsh", "/bin/tcsh", "/bin/ksh",
+		/* Note that on some systems shells can also
+		 * be installed in /usr/bin */
+		"/bin/bash", "/usr/bin/bash",
+		"/bin/zsh", "/usr/bin/zsh",
+		"/bin/tcsh", "/usr/bin/tcsh",
+		"/bin/ksh", "/usr/bin/ksh",
 		"/bin/csh", "/bin/sh", 0
 	};
 
-	if ((shell = g_getenv ("SHELL"))){
-		return g_strdup (shell);
+	if (geteuid () == getuid () &&
+	    getegid () == getgid ()) {
+		/* only in non-setuid */
+		if ((shell = g_getenv ("SHELL"))){
+			return g_strdup (shell);
+		}
 	}
 	pw = getpwuid(getuid());
 	if (pw && pw->pw_shell) {
@@ -103,7 +109,7 @@ gnome_util_user_shell (void)
 	} 
 
 	for (i = 0; shells [i]; i++) {
-		if (g_file_test (shells [i], G_FILE_TEST_EXISTS)) {
+		if (access (shells [i], X_OK) == 0) {
 			return g_strdup (shells[i]);
 		}
 	}
@@ -152,30 +158,8 @@ g_extension_pointer (const char * path)
  *
  * Returns a copy of a NULL-terminated string array.
  */
-char **
-g_copy_vector (const char **vec)
-{
-	char ** new_vec;
-	int size = 0;
-	
-	if (vec == NULL)
-	    return NULL;
-
-	while (vec [size] != NULL){
-		++size;
-	}
-	
-	new_vec = g_malloc (sizeof(char *) * (size + 1));
-	
-	size = 0;
-	while (vec [size]){
-		new_vec [size] = g_strdup (vec [size]);
-		++size;
-	}
-	new_vec [size] = NULL;
-	
-	return new_vec;
-}
+/* FIXME: how does this doc stuff work for macros again?
+ *   -George*/
 
 /**
  * gnome_is_program_in_path:
@@ -191,20 +175,112 @@ g_copy_vector (const char **vec)
 char *
 gnome_is_program_in_path (const gchar *program)
 {
-	static gchar **paths = NULL;
+	gchar **paths = NULL;
 	gchar **p;
 	gchar *f;
 	
-	if (!paths)
-	  paths = g_strsplit(g_getenv("PATH"), ":", -1);
+	paths = g_strsplit (g_getenv ("PATH"), ":", -1);
 
-	p = paths;
-	while (*p){
-		f = g_strconcat (*p,"/",program, NULL);
-		if (g_file_test (f, G_FILE_TEST_EXISTS))
+	for (p = paths; *p != NULL; p++) {
+		f = g_strconcat (*p,"/", program, NULL);
+		if (access (f, X_OK) == 0) {
+			g_strfreev (paths);
 			return f;
+		}
 		g_free (f);
-		p++;
 	}
-	return 0;
+
+	g_strfreev (paths);
+	return NULL;
+}
+
+/**
+ * gnome_setenv:
+ * 
+ * Description: Adds "@name=@value" to the environment
+ * Note that on systems without setenv, this leaks memory
+ * so please do not use inside a loop or anything like that.
+ * semantics are the same as the glibc setenv.  The @overwrite
+ * flag says that existing @name in the environment should be
+ * overwritten.
+ *
+ * Returns: 0 on success -1 on error
+ * 
+ **/
+int
+gnome_setenv (const char *name, const char *value, gboolean overwrite)
+{
+#if defined (HAVE_SETENV)
+	return setenv (name, value, overwrite);
+#else
+	char *string;
+	
+	if (! overwrite && g_getenv (name) != NULL) {
+		return 0;
+	}
+	
+	/* This results in a leak when you overwrite existing
+	 * settings. It would be fairly easy to fix this by keeping
+	 * our own parallel array or hash table.
+	 */
+	string = g_strconcat (name, "=", value, NULL);
+	return putenv (string);
+#endif
+}
+
+/**
+ * gnome_unsetenv:
+ * @name: 
+ * 
+ * Description: Removes @name from the environment.
+ * In case there is no native implementation of unsetenv,
+ * this could cause leaks depending on the implementation of
+ * enviroment.
+ * 
+ **/
+void
+gnome_unsetenv (const char *name)
+{
+#if defined (HAVE_SETENV)
+	unsetenv (name);
+#else
+	extern char **environ;
+	int i, len;
+
+	len = strlen (name);
+	
+	/* Mess directly with the environ array.
+	 * This seems to be the only portable way to do this.
+	 */
+	for (i = 0; environ[i] != NULL; i++) {
+		if (strncmp (environ[i], name, len) == 0
+		    && environ[i][len + 1] == '=') {
+			break;
+		}
+	}
+	while (environ[i] != NULL) {
+		environ[i] = environ[i + 1];
+		i++;
+	}
+#endif
+}
+
+/**
+ * gnome_clearenv:
+ * 
+ * Description: Clears out the environment completely.
+ * In case there is no native implementation of clearenv,
+ * this could cause leaks depending on the implementation
+ * of enviroment.
+ * 
+ **/
+void
+gnome_clearenv (void)
+{
+#ifdef HAVE_CLEARENV
+	clearenv ();
+#else
+	extern char **environ;
+	environ[0] = NULL;
+#endif
 }

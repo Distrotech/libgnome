@@ -29,6 +29,17 @@
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-i18n.h>
 
+#include <libgnome/gnome-config.h>
+
+#include <libgnome/gnome-gconf.h>
+
+#include <libgnome/gnome-help.h>
+
+#include <libgnome/gnome-triggers.h>
+#include <libgnome/gnome-sound.h>
+
+#include <libgnome/gnome-score.h>
+
 #include <libgnome/gnome-exec.h>
 
 #include <libgnome/gnome-util.h>
@@ -36,8 +47,6 @@
 
 #include <libgnome/gnome-preferences.h>
 #include <libgnome/gnome-marshal.h>
-
-#include <libgnome/Gnome.h>
 
 #include <libgnome/gnome-init.h>
 

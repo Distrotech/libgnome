@@ -2,14 +2,9 @@ AC_PREREQ(2.52)
 AC_INIT(libgnome)
 
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(libgnome2, 1.103.0)
+AM_INIT_AUTOMAKE(libgnome2, 1.102.0)
 
 AM_MAINTAINER_MODE
-
-if test -z "$CERTIFIED_GNOMIE"; then
-  cat $srcdir/message-of-doom
-  exit 1
-fi
 
 dnl
 dnl Due to the sed scripts being split on 90 line
@@ -30,7 +25,18 @@ AM_PROG_LIBTOOL
 AC_PROG_YACC
 AC_PATH_PROGS(PATH_TO_XRDB, "xrdb")
 
-AC_CHECK_FUNCS([setenv unsetenv clearenv])
+AC_CHECK_FUNCS([setenv unsetenv clearenv setfsgid])
+AC_CHECK_HEADERS(sys/fsuid.h)
+
+dnl
+dnl Check for esound library
+dnl
+AM_PATH_ESD(0.2.5, AC_DEFINE(HAVE_ESD))
+
+dnl
+dnl Check for audiofile library
+dnl
+AM_PATH_AUDIOFILE(0.1.5,AC_DEFINE(HAVE_LIBAUDIOFILE))
 
 dnl utility conditional
 AM_CONDITIONAL(FALSE, test "x" = "y")
@@ -68,25 +74,23 @@ AC_SUBST(REBUILD)
 dnl
 dnl Start of pkg-config checks
 dnl
-PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.7 gmodule-2.0 >= 1.3.7 gnome-vfs-2.0 >= 1.1 libxml-2.0 >= 2.4.1 libbonobo-2.0 >= 1.100.0 bonobo-config-2.0 >= 0.1.3)
+PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.7 gmodule-2.0 >= 1.3.7 gnome-vfs-2.0 >= 1.1 \
+	          libxml-2.0 >= 2.4.1 libbonobo-2.0 >= 1.100.0 gconf-2.0 >= 1.1.1)
+
+dnl
+dnl Add esd and audiofile stuff
+dnl
+LIBGNOME_CFLAGS="$LIBGNOME_CFLAGS $AUDIOFILE_CFLAGS $ESD_CFLAGS"
+LIBGNOME_LIBS="$LIBGNOME_LIBS $AUDIOFILE_LIBS $ESD_LIBS"
+
+dnl
+dnl Substitute these
+dnl
 AC_SUBST(LIBGNOME_CFLAGS)
 AC_SUBST(LIBGNOME_LIBS)
 
-PKG_CHECK_MODULES(MONIKER, glib-2.0 >= 1.3.7 gmodule-2.0 >= 1.3.7 gnome-vfs-2.0 >= 1.1 libxml-2.0 >= 2.4.1 libbonobo-2.0 >= 1.100.0 bonobo-config-2.0 >= 0.1.3 libbonobo-config >= 0.1.3)
-AC_SUBST(MONIKER_CFLAGS)
-AC_SUBST(MONIKER_LIBS)
-
-MONIKER_SRCDIR=`cd $srcdir/monikers; pwd`
-AC_SUBST(MONIKER_SRCDIR)
-
 GNOME_VFS_VERSION=`$PKG_CONFIG --modversion gnome-vfs-2.0`
 AC_SUBST(GNOME_VFS_VERSION)
-
-ORBIT_IDL="`$PKG_CONFIG --variable=orbit_idl ORBit-2.0`"
-AC_SUBST(ORBIT_IDL)
-
-BONOBO_IDLDIR="`$PKG_CONFIG --variable=idldir libbonobo-2.0`"
-AC_SUBST(BONOBO_IDLDIR)
 
 AC_CHECK_LIB(popt, poptStrippedArgv,, AC_MSG_ERROR([popt 1.5 or newer is required to build
 gnome-libs. You can download the latest version from ftp://people.redhat.com/sopwith/popt/]))
@@ -94,11 +98,8 @@ gnome-libs. You can download the latest version from ftp://people.redhat.com/sop
 AC_OUTPUT([
 Makefile
 po/Makefile.in
-idl/Makefile
-tests/Makefile
 libgnome/Makefile
 libgnome/libgnome-2.0.pc
-monikers/Makefile
 ])
 
 cat $srcdir/message-of-doom
