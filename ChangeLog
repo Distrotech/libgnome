@@ -1,3 +1,10 @@
+2003-05-24  Jeffrey Stedfast  <fejj@ximian.com>
+
+	* libgnome/gnome-program.c (gnome_program_preinit): Do like what
+	the comment says and really copy the argv, otherwise the
+	g_strfreev() in gnome_program_finalize() will free memory we don't
+	own.
+
 2003-05-18  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* schemas/Makefile.am: Make this honor --disable-schemas-install

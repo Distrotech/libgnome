@@ -1292,7 +1292,8 @@ gnome_program_preinit (GnomeProgram *program,
      * there are those evil people out there that modify it.
      * Also, this may be some other argv, think 'fake argv' here */
     program->_priv->argv = g_new (char *, argc + 1);
-    memcpy (program->_priv->argv, argv, sizeof (char *) * argc);
+    for (i = 0; i < argc; i++)
+        program->_priv->argv[i] = g_strdup (argv[i]);
     program->_priv->argv[argc] = NULL;
 
     if (!program_modules) {
