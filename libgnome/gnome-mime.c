@@ -272,7 +272,12 @@ gnome_mime_type (gchar * filename)
 gchar *
 gnome_mime_type_or_default_of_file (char *existing_filename, gchar *defaultv)
 {
-	/* FIXME: Hook gnome-magic here */
+	char *mime_type;
+
+	mime_type = gnome_mime_type_from_magic (filename);
+	if (mime_type)
+		return mime_type;
+	
 	return gnome_mime_type_or_default (existing_filename, defaultv);
 }
 
@@ -289,6 +294,12 @@ gnome_mime_type_or_default_of_file (char *existing_filename, gchar *defaultv)
 gchar *
 gnome_mime_type_of_file (char *existing_filename)
 {
+	char *mime_type;
+
+	mime_type = gnome_mime_type_from_magic (filename);
+	if (mime_type)
+		return mime_type;
+
 	return gnome_mime_type_or_default_of_file (existing_filename, "text/plain");
 }
 
