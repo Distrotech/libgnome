@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
-"POT-Creation-Date: 2003-03-26 19:08+0100\n"
-"PO-Revision-Date: 2003-01-22 20:39+0100\n"
+"POT-Creation-Date: 2003-05-19 20:49+0200\n"
+"PO-Revision-Date: 2003-05-19 20:51+0200\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +110,7 @@ msgstr "Kan ikke finde doc_id %s i hjælpestien"
 msgid "Help document %s/%s not found"
 msgstr "Hjælpedokumentet %s/%s blev ikke fundet"
 
-#: libgnome/gnome-i18n.c:85
+#: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "For mange aliasniveauer for regionaldata, kan indikere en løkke"
 
@@ -142,27 +142,27 @@ msgstr ""
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Kunne ikke oprette Gnome-acceleratormappen '%s': %s\n"
 
-#: libgnome/gnome-init.c:391
+#: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
 msgstr "Deaktivér brug af lydserver"
 
-#: libgnome/gnome-init.c:394
+#: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
 msgstr "Aktivér brug af lydserver"
 
-#: libgnome/gnome-init.c:397
+#: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
 msgstr "Vært:port hvor lydserveren som skal bruges, kører"
 
-#: libgnome/gnome-init.c:399
+#: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
 msgstr "VÆRTSNAVN:PORT"
 
-#: libgnome/gnome-init.c:417
+#: libgnome/gnome-init.c:410
 msgid "GNOME Virtual Filesystem"
 msgstr "Gnome virtuelt filsystem"
 
-#: libgnome/gnome-init.c:438
+#: libgnome/gnome-init.c:431
 msgid "GNOME Library"
 msgstr "Gnome-biblioteket"
 
@@ -325,6 +325,39 @@ msgstr "Dynamiske moduler som skal indlæses"
 #: libgnome/gnome-program.c:1374
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
+
+#: libgnome/gnome-url.c:81
+msgid "Unknown internal error while displaying this location."
+msgstr "Ukendt intern fejl under visning af dette sted."
+
+#: libgnome/gnome-url.c:88
+msgid "The specified location is invalid."
+msgstr "Det angivne sted er ugyldigt."
+
+#: libgnome/gnome-url.c:95
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr "Der opstod en fejl under fortolkning af den forvalgte handling som er associeret med dette sted."
+
+#: libgnome/gnome-url.c:103
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
+msgstr "Der opstod en fejl under kørsel af kommandoen for den forvalgte handling som er associeret med dette sted."
+
+#: libgnome/gnome-url.c:111
+msgid "There is no default action associated with this location."
+msgstr "Der er ikke nogen forvalgt handling associeret med dette sted."
+
+#: libgnome/gnome-url.c:118
+msgid "The default action does not support this protocol."
+msgstr "Den forvalgte handling understøtter ikke denne protokol."
+
+#: libgnome/gnome-url.c:125
+#, c-format
+msgid "Unknown error code: %d"
+msgstr "Ukendt fejlkode: %d"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -616,8 +649,8 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Ikontema der skal benyttes til panelet, Nautilus osv."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-msgid "Length of the cursor blink cycle, in milleseconds"
-msgstr "Længde af markørblinkningscyklussen, i millisekunder"
+msgid "Length of the cursor blink cycle, in milliseconds"
+msgstr "Længde af markørblinkningscyklus, i millisekunder"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Menubar Detachable"
@@ -858,165 +891,140 @@ msgid "Whether to play sounds on user events."
 msgstr "Om der skal afspilles lyde ved brugerhændelser."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-msgid "Default URL show handler"
-msgstr "Forvalgt URL-fremvisningshåndtering"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-msgid "How to handle applications URLs"
-msgstr "Hvordan 'applications:'-URL'er skal håndteres"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-msgid "How to handle ghelp URLs"
-msgstr "Hvordan 'ghelp:'-URL'er skal håndteres"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
-msgid "How to handle info URLs"
-msgstr "Hvordan 'info:'-URL'er skal håndteres"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
-msgid "How to handle man URLs"
-msgstr "Hvordan 'man:'-URL'er skal håndteres"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid "How to handle preferences URLs"
-msgstr "Hvordan 'preferences:'-URL'er skal håndteres"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid "How to handle server-settings URLs"
-msgstr "Hvordan 'server-settings:'-URL'er skal håndteres"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-msgid "How to handle start-here URLs"
-msgstr "Hvordan 'start-here:'-URL'er skal håndteres"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid "How to handle system-settings URLs"
-msgstr "Hvordan 'system-settings:'-URL'er skal håndteres"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
 msgstr "Hvordan 'trash:'-URL'er skal håndteres"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
-msgid "How to handle unknown URLs"
-msgstr "Hvordan ukendte URL'er skal håndteres"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "Run program in terminal"
 msgstr "Kør program i terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-msgid ""
-"Set to true to have a program specified in applications/command handle "
-"applications URLs"
-msgstr ""
-"Sæt til sand for at få et program angivet i applications/command til at "
-"håndtere 'applications:'-URL'er"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
-msgid ""
-"Set to true to have a program specified in preferences/command handle "
-"preferences URLs"
-msgstr ""
-"Sæt til sand for at få et program angivet i preferences/command til at "
-"håndtere 'preferences:'-URL'er"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr ""
-"Sæt til sand for at få et program angivet i programs/ghelp til at håndtere "
-"'ghelp:'-URL'er"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
-msgstr ""
-"Sæt til sand for at få et program angivet i programs/info til at håndtere "
-"'info:'-URL'er"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
-msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr ""
-"Sæt til sand for at få et program angivet i programs/man til at håndtere "
-"'man:'-URL'er"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
-msgid ""
-"Set to true to have a program specified in programs/unknown handle unknown "
-"URLs"
-msgstr ""
-"Sæt til sand for at få et program angivet i programs/unknown til at håndtere "
-"ukendte URL'er"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
-msgid ""
-"Set to true to have a program specified in server-settings/command handle "
-"server-settings URLs"
-msgstr ""
-"Sæt til sand for at få et program angivet i server-settings/command til at "
-"håndtere 'server-settings:'-URL'er"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
-msgid ""
-"Set to true to have a program specified in start-here/command handle start-"
-"here URLs"
-msgstr ""
-"Sæt til sand for at få et program angivet i start-here/command til at "
-"håndtere 'start-here:'-URL'er"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:21
-msgid ""
-"Set to true to have a program specified in system-settings/command handle "
-"system-settings URLs"
-msgstr ""
-"Sæt til sand for at få et program angivet i system-settings/command til at "
-"håndtere 'system-settings:'-URL'er"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:22
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Sæt til sand for at få et program angivet i trash/command til at håndtere "
 "'trash:'-URL'er"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:23
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Sand hvis programmet til at håndtere denne URL skal køres i en terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:24
-msgid "URL handler for applications pages"
-msgstr "URL-håndtering for 'applications:'-sider"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:25
-msgid "URL handler for ghelp pages"
-msgstr "URL-håndtering for 'ghelp:'-sider"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:26
-msgid "URL handler for info pages"
-msgstr "URL-håndtering for 'info:'-sider"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:27
-msgid "URL handler for man pages"
-msgstr "URL-håndtering for 'man:'-sider"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:28
-msgid "URL handler for preferences pages"
-msgstr "URL-håndtering for 'preferences:'-sider"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:29
-msgid "URL handler for server-settings pages"
-msgstr "URL-håndtering for 'server-settings:'-sider"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:30
-msgid "URL handler for start-here pages"
-msgstr "URL-håndtering for 'start-here:'-sider"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:31
-msgid "URL handler for system-settings pages"
-msgstr "URL-håndtering for 'system-settings:'-sider"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:32
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "URL handler for trash pages"
 msgstr "URL-håndtering for 'trash:'-sider"
+
+#~ msgid "Default URL show handler"
+#~ msgstr "Forvalgt URL-fremvisningshåndtering"
+
+#~ msgid "How to handle applications URLs"
+#~ msgstr "Hvordan 'applications:'-URL'er skal håndteres"
+
+#~ msgid "How to handle ghelp URLs"
+#~ msgstr "Hvordan 'ghelp:'-URL'er skal håndteres"
+
+#~ msgid "How to handle info URLs"
+#~ msgstr "Hvordan 'info:'-URL'er skal håndteres"
+
+#~ msgid "How to handle man URLs"
+#~ msgstr "Hvordan 'man:'-URL'er skal håndteres"
+
+#~ msgid "How to handle preferences URLs"
+#~ msgstr "Hvordan 'preferences:'-URL'er skal håndteres"
+
+#~ msgid "How to handle server-settings URLs"
+#~ msgstr "Hvordan 'server-settings:'-URL'er skal håndteres"
+
+#~ msgid "How to handle start-here URLs"
+#~ msgstr "Hvordan 'start-here:'-URL'er skal håndteres"
+
+#~ msgid "How to handle system-settings URLs"
+#~ msgstr "Hvordan 'system-settings:'-URL'er skal håndteres"
+
+#~ msgid "How to handle unknown URLs"
+#~ msgstr "Hvordan ukendte URL'er skal håndteres"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in applications/command handle "
+#~ "applications URLs"
+#~ msgstr ""
+#~ "Sæt til sand for at få et program angivet i applications/command til at "
+#~ "håndtere 'applications:'-URL'er"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in preferences/command handle "
+#~ "preferences URLs"
+#~ msgstr ""
+#~ "Sæt til sand for at få et program angivet i preferences/command til at "
+#~ "håndtere 'preferences:'-URL'er"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
+#~ "URLs"
+#~ msgstr ""
+#~ "Sæt til sand for at få et program angivet i programs/ghelp til at "
+#~ "håndtere 'ghelp:'-URL'er"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/info handle info URLs"
+#~ msgstr ""
+#~ "Sæt til sand for at få et program angivet i programs/info til at håndtere "
+#~ "'info:'-URL'er"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/man handle man URLs"
+#~ msgstr ""
+#~ "Sæt til sand for at få et program angivet i programs/man til at håndtere "
+#~ "'man:'-URL'er"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/unknown handle "
+#~ "unknown URLs"
+#~ msgstr ""
+#~ "Sæt til sand for at få et program angivet i programs/unknown til at "
+#~ "håndtere ukendte URL'er"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in server-settings/command handle "
+#~ "server-settings URLs"
+#~ msgstr ""
+#~ "Sæt til sand for at få et program angivet i server-settings/command til "
+#~ "at håndtere 'server-settings:'-URL'er"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in start-here/command handle "
+#~ "start-here URLs"
+#~ msgstr ""
+#~ "Sæt til sand for at få et program angivet i start-here/command til at "
+#~ "håndtere 'start-here:'-URL'er"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in system-settings/command handle "
+#~ "system-settings URLs"
+#~ msgstr ""
+#~ "Sæt til sand for at få et program angivet i system-settings/command til "
+#~ "at håndtere 'system-settings:'-URL'er"
+
+#~ msgid "URL handler for applications pages"
+#~ msgstr "URL-håndtering for 'applications:'-sider"
+
+#~ msgid "URL handler for ghelp pages"
+#~ msgstr "URL-håndtering for 'ghelp:'-sider"
+
+#~ msgid "URL handler for info pages"
+#~ msgstr "URL-håndtering for 'info:'-sider"
+
+#~ msgid "URL handler for man pages"
+#~ msgstr "URL-håndtering for 'man:'-sider"
+
+#~ msgid "URL handler for preferences pages"
+#~ msgstr "URL-håndtering for 'preferences:'-sider"
+
+#~ msgid "URL handler for server-settings pages"
+#~ msgstr "URL-håndtering for 'server-settings:'-sider"
+
+#~ msgid "URL handler for start-here pages"
+#~ msgstr "URL-håndtering for 'start-here:'-sider"
+
+#~ msgid "URL handler for system-settings pages"
+#~ msgstr "URL-håndtering for 'system-settings:'-sider"
