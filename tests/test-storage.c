@@ -471,7 +471,7 @@ main (int argc, char *argv [])
 	CORBA_exception_init (&ev);
 
 	if (!bonobo_init (&argc, argv))
-		g_error (_("Can not bonobo_init"));
+		g_error ("Can not bonobo_init");
 
 	orb = bonobo_orb ();
 
