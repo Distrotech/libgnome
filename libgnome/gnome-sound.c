@@ -476,7 +476,9 @@ void
 gnome_sound_shutdown(void)
 {
 #ifdef HAVE_ESD
-  if(gnome_sound_connection >= 0)
-    esd_close(gnome_sound_connection);
+	if(gnome_sound_connection >= 0){
+		esd_close(gnome_sound_connection);
+		gnome_sound_connection = -1;
+	}
 #endif
 }

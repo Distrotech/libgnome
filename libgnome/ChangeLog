@@ -1,5 +1,8 @@
 1999-02-23  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
+	* gnome-sound.c (gnome_sound_shutdown): Make the sound file
+	descriptor be in sync with reality.
+
 	* gnome-mime.c (gnome_mime_type_or_default): If no extension is
 	found, only scan the regular expressions.
 
