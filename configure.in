@@ -41,10 +41,8 @@ LIBGNOME_MICRO_VERSION=libgnome_micro_version
 LIBGNOME_INTERFACE_AGE=libgnome_interface_age
 
 LIBGNOME_CURRENT=libgnome_current
-LIBGNOME_BINARY_AGE=libgnome_binary_age
 LIBGNOME_REVISION=libgnome_revision
 LIBGNOME_AGE=libgnome_age
-LIBGNOME_VERSION=libgnome_version
 
 AC_SUBST(LIBGNOME_CURRENT)
 AC_SUBST(LIBGNOME_REVISION)
@@ -79,12 +77,7 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [The gettext package])
 
 ALL_LINGUAS="am ar az be bg bn bs ca cs cy da de el en_CA en_GB es et eu fa fi fr ga gl gu he hi hr hu id is it ja ko lt lv mk ml mn ms nl nn no pa pl pt pt_BR ro ru sk sl sq sr sr@ije sr@Latn sv ta th tr uk vi wa yi zh_CN zh_TW"
 AM_GLIB_GNU_GETTEXT
-gnomelocaledir='${prefix}/${DATADIRNAME}/locale'
-AC_SUBST(gnomelocaledir)
-
-AC_SUBST(CFLAGS)
-AC_SUBST(CPPFLAGS)
-AC_SUBST(LDFLAGS)
+AM_GLIB_DEFINE_LOCALEDIR([LIBGNOME_LOCALEDIR])
 
 GNOME_COMPILE_WARNINGS
 
