@@ -37,10 +37,10 @@ GList *gnome_history_get_recently_used(void)
 	infile = fopen(filename, "r");
 	if(infile){
 		while(fgets(aline, sizeof(aline), infile)){
-			gnome_chomp_string(aline, TRUE);
+			gnome_string_chomp(aline, TRUE);
 			if(aline[0] == '\0') continue;
 			
-			parts = gnome_split_string(aline, " ", 4);
+			parts = gnome_string_split(aline, " ", 4);
 			
 			anent = g_malloc(sizeof(struct _GnomeHistoryEntry));
 			anent->filename = parts[0];

@@ -1,5 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
+scoredir=/var/lib/games
+
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 libgnomeincludedir = $(includedir)/libgnome
@@ -23,6 +25,7 @@ libgnome_la_SOURCES = \
 	gnome-fileconvert.c	\
 	gnome-history.c		\
 	gnome-mime.c		\
+	gnome-score.c		\
 	gnome-string.c		\
 	gnome-triggers.c
 
@@ -38,9 +41,21 @@ libgnomeinclude_HEADERS = \
 	gnome-i18n.h 		\
 	gnome-mime.h		\
 	gnome-triggers.h 	\
+	gnome-score.h		\
 	gnome-string.h		\
 	libgnome.h
 
 
 libgnome_la_LDFLAGS = -version-info 0:0:0 -rpath $(libdir)
 libgnome_la_LIBADD = -lgdk -lglib -lm
+
+bin_PROGRAMS = gnome-score-helper
+
+gnome_score_helper_SOURCES = gnome-score-helper.c
+gnome_score_helper_LDADD = -lglib
+
+install-data-local:
+	-chgrp games $(bindir)/gnome-score-helper
+	-chmod g+s $(bindir)/gnome-score-helper
+	-chgrp games $(scoredir)
+	-chmod g=rwXs $(scoredir)

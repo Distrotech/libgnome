@@ -53,11 +53,11 @@ gfc_get_path(gchar *fromtype, gchar *totype)
 
   if(conffile) {
     while(fgets(aline, sizeof(aline), conffile)) {
-      gnome_chomp_string(aline, TRUE);
+      gnome_string_chomp(aline, TRUE);
       if(aline[0] == '#'
 	 || aline[0] == '\0')
 	continue;
-      parts = gnome_split_string(aline, " ", 3);
+      parts = gnome_string_split(aline, " ", 3);
 
       if(!strcmp(fromtype, parts[0])
 	 && !strcmp(totype, parts[1])) {
@@ -88,7 +88,7 @@ gfc_run_pipe(gchar *acmd, gint infd)
     return fds[0];
 
   /* else */
-  parts = gnome_split_string(acmd, " ", -1);
+  parts = gnome_string_split(acmd, " ", -1);
   dup2(infd, 0);
   dup2(fds[1], 1);
   execv(parts[0], parts);

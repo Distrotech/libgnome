@@ -100,7 +100,7 @@ gnome_triggers_readfile(gchar *infilename)
     if(aline[0] == '\0' || aline[0] == '#')
       continue;
 
-    parts = gnome_split_string(aline, " ", -1);
+    parts = gnome_string_split(aline, " ", -1);
     if(!parts || !parts[0] || !parts[1] || !parts[2] || !parts[3]) {
       if(parts) {
 	for(i = 0; parts[i]; i++)
@@ -115,7 +115,7 @@ gnome_triggers_readfile(gchar *infilename)
       subnames = g_malloc(sizeof(gchar *));
       subnames[0] = NULL;
     } else
-      subnames = gnome_split_string(parts[1], ":", -1);
+      subnames = gnome_string_split(parts[1], ":", -1);
 
     if(!strcmp(parts[2], "command"))
       nt->type = GTRIG_COMMAND;

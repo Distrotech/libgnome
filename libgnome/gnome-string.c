@@ -5,7 +5,7 @@
 #include <limits.h>
 #include <ctype.h>
 
-gchar **gnome_split_string(gchar *string, gchar *delim, gint max_tokens)
+gchar **gnome_string_split(gchar *string, gchar *delim, gint max_tokens)
 {
 	gchar **retval = NULL;
 	GList *items = NULL, *anode;
@@ -53,16 +53,16 @@ gchar **gnome_split_string(gchar *string, gchar *delim, gint max_tokens)
 }
 
 gchar *
-gnome_join_strings(gchar *separator, ...)
+gnome_string_join(gchar *separator, ...)
 {
 	va_list l;
 	va_start(l, separator);
 	/* Elliot: this can not be done like this: */
-	/*	return gnome_join_vstrings(separator, l);*/
+	return gnome_string_joinv(separator, l);
 }
 
 gchar *
-gnome_join_vstrings(gchar *separator, gchar **strings)
+gnome_string_joinv(gchar *separator, gchar **strings)
 {
 	gchar *retval;
 	gint total_size, i, seplen;
@@ -92,7 +92,7 @@ gnome_join_vstrings(gchar *separator, gchar **strings)
 }
 
 gchar *
-gnome_chomp_string(gchar *astring, gboolean in_place)
+gnome_string_chomp(gchar *astring, gboolean in_place)
 {
 	int i;
 	gchar *retval, *end;
