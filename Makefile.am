@@ -1,4 +1,4 @@
-SUBDIRS = tools libgnome po intl doc
+SUBDIRS = tools idl libgnome po intl doc
 
 EXTRA_DIST = message-of-doom
 
