@@ -7,6 +7,11 @@
  * Adatped to the GNOME needs by:
  *    Elliot Lee (sopwith@cuc.edu)
  */
+
+/* needed for S_ISSOCK with 'gcc -ansi -pedantic' on GNU/Linux */
+#define _BSD_SOURCE 1
+#include <sys/types.h>
+
 #include <libgnome/libgnome.h>
 #include <ctype.h>
 #include <unistd.h>

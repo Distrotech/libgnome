@@ -19,6 +19,9 @@
 
 #include <config.h>
 
+/* compatibility define needed for 'gcc -ansi -pedantic' on db.h */
+#define _BSD_SOURCE 1
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/file.h>

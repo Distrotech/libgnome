@@ -19,6 +19,10 @@
 
 #include <config.h>
 
+/* needed for db.h with 'gcc -ansi -pedantic' */
+#define _BSD_SOURCE 1
+#include <sys/types.h>
+
 #ifdef HAVE_DB_185_H
 # include <db_185.h>
 #else

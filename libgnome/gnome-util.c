@@ -6,6 +6,11 @@
  * Author: Miguel de Icaza, 
  */
 #include <config.h>
+
+/* needed for S_ISLNK with 'gcc -ansi -pedantic' on GNU/Linux */
+#define _BSD_SOURCE 1
+#include <sys/types.h>
+
 #include <errno.h>
 #include <stdarg.h>
 #include <stdlib.h>
