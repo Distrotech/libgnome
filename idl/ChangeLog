@@ -1,3 +1,12 @@
+2001-05-08  Martin Baulig  <baulig@suse.de>
+
+	* Gnome_Selector.idl (GNOME::Selector::ClientID): New typedef.
+	(GNOME::Selector::AsyncID): New typedef.
+	(GNOME::Selector::AsyncType): New enum type.
+	(GNOME::Selector::AsyncContext): New struct.
+	(GNOME::Selector::AsyncReply): New struct.
+	(GNOME::Selector): Added getClientID(), getURI() and addURI().
+
 2001-05-07  Martin Baulig  <baulig@suse.de>
 
 	* Gnome_Selector.idl (GNOME::Selector): Added getEventSource().
