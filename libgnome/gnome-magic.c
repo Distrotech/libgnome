@@ -9,7 +9,9 @@
  */
 
 /* needed for S_ISSOCK with 'gcc -ansi -pedantic' on GNU/Linux */
-#define _BSD_SOURCE 1
+#ifndef _BSD_SOURCE
+#  define _BSD_SOURCE 1
+#endif
 #include <sys/types.h>
 
 #include <libgnome/libgnome.h>
