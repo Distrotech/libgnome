@@ -193,7 +193,6 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
       free_if_empty (item->name);
       free_if_empty (item->comment);
       gnome_string_array_free (item->exec);
-      free_if_empty (item->exec);
       free_if_empty (item->icon);
       free_if_empty (item->docpath);
       free_if_empty (item->type);
