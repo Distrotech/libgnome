@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-03-26 21:12+0200\n"
+"POT-Creation-Date: 2002-03-29 23:52+0100\n"
 "PO-Revision-Date: 2002-03-26 20:23+0200\n"
 "Last-Translator: Yuriy Syrota <yuri@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -15,12 +15,8 @@ msgstr ""
 
 #: libgnome/gnome-exec.c:428
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "Неможливо знайти термінал, використовується xterm, навіть якщо він не працює"
-
-#: libgnome/gnome-url.c:144
-#, c-format
-msgid "Cannot parse: %s"
-msgstr "Неможливо проаналізувати: %s"
+msgstr ""
+"Неможливо знайти термінал, використовується xterm, навіть якщо він не працює"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -31,33 +27,25 @@ msgstr "Підтримка Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Підтримка активізації Bonobo"
 
-#: libgnome/gnome-init.c:275
-#: libgnome/gnome-init.c:289
+#: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
 #, c-format
-msgid ""
-"Could not create per-user gnome configuration directory `%s': %s\n"
-""
+msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Не вдалось створити окремий конфіґураційний каталог користувача \"%s\": %s\n"
-""
 
 #: libgnome/gnome-init.c:298
 #, c-format
 msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
-""
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
 msgstr ""
-"Не вдалось встановити режим доступу 0700 на окремому приваткому конфіґураційному каталозі користувача \"%s\": %s\n"
-""
+"Не вдалось встановити режим доступу 0700 на окремому приваткому "
+"конфіґураційному каталозі користувача \"%s\": %s\n"
 
 #: libgnome/gnome-init.c:305
 #, c-format
-msgid ""
-"Could not create gnome accelerators directory `%s': %s\n"
-""
-msgstr ""
-"Не вдалось створити каталог комбінацій клавіш GNOME \"%s\": %s\n"
-""
+msgid "Could not create gnome accelerators directory `%s': %s\n"
+msgstr "Не вдалось створити каталог комбінацій клавіш GNOME \"%s\": %s\n"
 
 #: libgnome/gnome-init.c:357
 msgid "Disable sound server usage"
@@ -100,13 +88,21 @@ msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Неможливо віднайти домен GNOME_FILE_DOMAIN_APP_HELP"
 
 #: libgnome/gnome-help.c:163
-msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-libs was compiled incorrectly."
-msgstr "Неможливо віднайти домен GNOME_FILE_DOMAIN_APP_HELP.  Це може означати, що gnome-libs скомпільовано не коректно."
+msgid ""
+"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
+"libs was compiled incorrectly."
+msgstr ""
+"Неможливо віднайти домен GNOME_FILE_DOMAIN_APP_HELP.  Це може означати, що "
+"gnome-libs скомпільовано не коректно."
 
 #: libgnome/gnome-help.c:175
 #, c-format
-msgid "Unable to show help as file %s is not a directory.  This implies an incorrect installation."
-msgstr "Неможливо відобразити довідку, бо файл %s не є каталогом.  Це може означати некоректне встановлення."
+msgid ""
+"Unable to show help as file %s is not a directory.  This implies an "
+"incorrect installation."
+msgstr ""
+"Неможливо відобразити довідку, бо файл %s не є каталогом.  Це може означати "
+"некоректне встановлення."
 
 #: libgnome/gnome-help.c:193
 #, c-format
@@ -245,7 +241,8 @@ msgstr "Каталог налаштувань додатків GNOME"
 
 #: libgnome/gnome-program.c:559
 msgid "Configuration prefix where this application was installed"
-msgstr "Префікс шляху, за яким було встановлено файли налаштувань додатків GNOME"
+msgstr ""
+"Префікс шляху, за яким було встановлено файли налаштувань додатків GNOME"
 
 #: libgnome/gnome-program.c:568
 msgid "Create Directories"
@@ -287,12 +284,26 @@ msgstr "Динамічні модулі до завантаження"
 msgid "MODULE1,MODULE2,..."
 msgstr "МОДУЛЬ1,МОДУЛЬ2..."
 
+#: monikers/GNOME_Moniker_std.server.in.in.h:1
+msgid "Extra Moniker factory"
+msgstr ""
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:2
+msgid "GConf moniker"
+msgstr ""
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:3
+msgid "config indirect moniker"
+msgstr ""
+
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
 msgstr "Ключа %s не знайдено в конфіґурації"
 
-#: monikers/bonobo-config-bag.c:214
+#: monikers/bonobo-config-bag.c:230
 msgid "Unknown type"
 msgstr "Невідомий тип"
 
+#~ msgid "Cannot parse: %s"
+#~ msgstr "Неможливо проаналізувати: %s"

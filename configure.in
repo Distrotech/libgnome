@@ -1,7 +1,7 @@
 AC_INIT(libgnome)
 
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(libgnome, 1.113.0)
+AM_INIT_AUTOMAKE(libgnome, 1.114.0)
 
 AM_MAINTAINER_MODE
 
@@ -72,7 +72,7 @@ PKG_CHECK_MODULES(SOUND_TEST, $ESOUND_MODULE $AUDIOFILE_MODULE, [
 	ESOUND_MODULE=""
 ])
 
-PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.15 gmodule-2.0 >= 1.3.15 gnome-vfs-2.0 >= 1.9.7 \
+PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 2.0.0 gmodule-2.0 >= 2.0.0 gnome-vfs-2.0 >= 1.9.7 \
 libxml-2.0 >= 2.4.14 libbonobo-2.0 >= 1.112.0 gconf-2.0 >= 1.1.8 \
 $AUDIOFILE_MODULE $ESOUND_MODULE)
 
