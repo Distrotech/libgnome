@@ -25,6 +25,7 @@
   @NOTATION@
  */
 
+#undef TIME_INIT
 
 /* This module takes care of handling application and library
    initialization and command line parsing */
@@ -594,13 +595,17 @@ gnome_program_instance_init (GnomeProgram *program)
 	GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
 	if (a_module && a_module->instance_init) {
+#ifdef TIME_INIT
 	    GTimer *timer = g_timer_new ();
 	    g_timer_start (timer);
 	    g_print ("Running class_init for: %s ...", a_module->name); 
+#endif
 	    a_module->instance_init (program, a_module);
+#ifdef TIME_INIT
 	    g_timer_stop (timer);
 	    g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
 	    g_timer_destroy (timer);
+#endif
 	}
     }
 }
@@ -1277,13 +1282,17 @@ gnome_program_preinit (GnomeProgram *program,
     /* 3. call the pre-init functions */
     for (i = 0; (a_module = g_ptr_array_index (program_modules, i)); i++) {
 	if (a_module->pre_args_parse) {
+#ifdef TIME_INIT
 	    GTimer *timer = g_timer_new ();
 	    g_timer_start (timer);
 	    g_print ("Running pre_args_parse for: %s ...", a_module->name); 
+#endif
 	    a_module->pre_args_parse (program, a_module);
+#ifdef TIME_INIT
 	    g_timer_stop (timer);
 	    g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
 	    g_timer_destroy (timer);
+#endif
 	}
     }
 
@@ -1439,13 +1448,17 @@ gnome_program_postinit (GnomeProgram *program)
     /* Call post-parse functions */
     for (i = 0; (a_module = g_ptr_array_index(program_modules, i)); i++) {
 	if (a_module->post_args_parse) {
+#ifdef TIME_INIT
 	    GTimer *timer = g_timer_new ();
 	    g_timer_start (timer);
 	    g_print ("Running post_args_parse for: %s ...", a_module->name); 
+#endif
 	    a_module->post_args_parse (program, a_module);
+#ifdef TIME_INIT
 	    g_timer_stop (timer);
 	    g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
 	    g_timer_destroy (timer);
+#endif
 	}
     }
 
@@ -1525,10 +1538,13 @@ gnome_program_initv (GType type,
     GnomeProgram *program;
     GnomeProgramClass *klass;
     int i;
+
+#ifdef TIME_INIT
     GTimer *global_timer = g_timer_new ();
 
     g_timer_start (global_timer);
     g_print ("Starting gnome_program_init:\n\n");
+#endif
 
     g_type_init ();
 
@@ -1587,13 +1603,17 @@ gnome_program_initv (GType type,
 	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
 	    if (a_module && a_module->init_pass) {
+#ifdef TIME_INIT
 	        GTimer *timer = g_timer_new ();
 	        g_timer_start (timer);
 	        g_print ("Running init_pass for: %s ...", a_module->name); 
+#endif
 		a_module->init_pass (a_module);
+#ifdef TIME_INIT
 		g_timer_stop (timer);
 		g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
 		g_timer_destroy (timer);
+#endif
 	    }
 	}
 
@@ -1604,13 +1624,17 @@ gnome_program_initv (GType type,
 	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
 	    if (a_module && a_module->class_init) {
+#ifdef TIME_INIT
 	        GTimer *timer = g_timer_new ();
 	        g_timer_start (timer);
 	        g_print ("Running class_init for: %s ...", a_module->name); 
+#endif
 		a_module->class_init (klass, a_module);
+#ifdef TIME_INIT
 		g_timer_stop (timer);
 		g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
 		g_timer_destroy (timer);
+#endif
 	    }
 	}
     } else if ( ! gnome_program_module_registered (module_info)) {
@@ -1623,13 +1647,17 @@ gnome_program_initv (GType type,
 	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
 	    if (a_module && a_module->init_pass) {
+#ifdef TIME_INIT
 	        GTimer *timer = g_timer_new ();
 	        g_timer_start (timer);
 	        g_print ("Running init_pass for: %s ...", a_module->name); 
+#endif
 		a_module->init_pass (a_module);
+#ifdef TIME_INIT
 		g_timer_stop (timer);
 		g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
 		g_timer_destroy (timer);
+#endif
 	    }
 	}
 
@@ -1641,13 +1669,17 @@ gnome_program_initv (GType type,
 	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
 	    if (a_module && a_module->class_init) {
+#ifdef TIME_INIT
 	        GTimer *timer = g_timer_new ();
 	        g_timer_start (timer);
 	        g_print ("Running class_init for: %s ...", a_module->name); 
+#endif
 		a_module->class_init (klass, a_module);
+#ifdef TIME_INIT
 		g_timer_stop (timer);
 		g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
 		g_timer_destroy (timer);
+#endif
 	    }
 	}
     }
@@ -1666,9 +1698,11 @@ gnome_program_initv (GType type,
     gnome_program_parse_args (program);
     gnome_program_postinit (program);
 
+#ifdef TIME_INIT
     g_timer_stop (global_timer);
     g_print ("\nGlobal init done in: %f seconds\n\n", g_timer_elapsed (global_timer, NULL));
     g_timer_destroy (global_timer);
+#endif
 
     return program;
 }

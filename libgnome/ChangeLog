@@ -1,3 +1,12 @@
+2001-11-21  Michael Meeks  <michael@ximian.com>
+
+	* gnome-program.c (gnome_program_preinit),
+	(gnome_program_initv, gnome_program_instance_init),
+	(gnome_program_postinit): remove _massive_ debug spew,
+	all trying ( unsuccessfully ) to discover that it is in
+	fact pango that takes > 1 sec. to initialize - which it
+	does idly.
+
 Tue Nov 20 15:44:49 2001  Owen Taylor  <otaylor@redhat.com>
 
 	* gnome-marshal-main.c gnome-program.c test-libgnome.c: 
