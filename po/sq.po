@@ -7,14 +7,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.sq\n"
-"POT-Creation-Date: 2004-02-03 10:27+0100\n"
-"PO-Revision-Date: 2004-01-31 20:10+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-05 21:59+0100\n"
+"PO-Revision-Date: 2004-02-05 22:09+0100\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.3\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
@@ -97,8 +97,7 @@ msgstr ""
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr ""
-"E pamundur gjetja e files së ndihmës tek %s apo %s. Kontrollo instalimin"
+msgstr "E pamundur gjetja e files së ndihmës tek %s apo %s. Kontrollo instalimin"
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -400,20 +399,17 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Disaktivo nëse shtypen njëkohësisht dy pulsante"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
 "Mos prano një pulsant nëse nuk është mbajtur i shtypur për të paktën @delay "
 "millisekonda"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr ""
-"Për sa millisekonda ka nevojë për të shkuar nga 0 në shpejtësinë maksimum"
+msgstr "Për sa millisekonda ka nevojë për të shkuar nga 0 në shpejtësinë maksimum"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Sa millisekonda duhet pritur përpara se pulsantët për lëvizjen e mouse të "
 "hyjnë në aksion"
@@ -475,8 +471,7 @@ msgstr "Browseri i prezgjedhur për çdo URL"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr ""
-"Tregon nëse browseri i prezgjedhur ka nevojë për një terminal që të zbatohet"
+msgstr "Tregon nëse browseri i prezgjedhur ka nevojë për një terminal që të zbatohet"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
@@ -501,8 +496,7 @@ msgstr ""
 "të zbatohet"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Argumenti i përdorur për të ndjekur programe në terminal i përcaktuar nga "
 "çelsi 'exec'."
@@ -523,8 +517,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr ""
-"Një listë me emrat e hapësirave të punës së manazhuesit primar të dritareve"
+msgstr "Një listë me emrat e hapësirave të punës së manazhuesit primar të dritareve"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
@@ -702,8 +695,7 @@ msgid "Monospace font"
 msgstr "Monospace font"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
-msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Emri i një shkronje monospace (me gjërësi të fiksuar) për tu përdorur në "
 "pozicionet si p.sh. terminalët"
@@ -754,8 +746,7 @@ msgstr "Përdor gërmat e personalizuara"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
-msgstr ""
-"Përcakton nëse aplikativët duhet të kenë suportin e hyrjes së lehtësuar"
+msgstr "Përcakton nëse aplikativët duhet të kenë suportin e hyrjes së lehtësuar"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid ""
@@ -804,6 +795,56 @@ msgstr "Tregon nëse duhet vendosur djathtas treguesi tek paneli i gjendjes"
 #: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Tregon nëse duhen përdorur gërmat e personalizuar tek aplikativët gtk+"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:1
+msgid "Disable command line"
+msgstr "Ç'aktivo rreshtin e komandës"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable print setup"
+msgstr "Ç'aktivo konfigurimin e printerit"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:3
+msgid "Disable printing"
+msgstr "Ç'aktivo printimin"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:4
+msgid "Disable saving files to disk"
+msgstr "Ç'aktivo ruajtjen e files në disk"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:5
+msgid ""
+"Prevent the user form accessing the terminal or specifying a command line to "
+"be executed. For example, this would disable access to the panel's \"Run "
+"Application\" dialog."
+msgstr ""
+"Bllokon mundësnë e përdorimit të terminalit nga ana e përdoruesit apo "
+"ekzekutimin e një komande në rresht. Për shembull, do të ç'aktivojë hyrjen tek dritarja e dialogut \"Zbato Aplikativin\" tek paneli."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all application's \"Print Setup\" dialogs."
+msgstr ""
+"Nuk lejon ndryshimin e konfigurimit të printerit nga ana e përdoruesit. "
+"Për shembull, do të ç'aktivojë hyrjen tek të gjitha dritaret e dialogut "
+"\"Rregullimi i Printerit\" të aplikativëve."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:7
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all application's \"Print\" dialogs."
+msgstr ""
+"Nuk lejon printimin nga ana e përdoruesit. Për shembull, do të "
+"ç'aktivojë hyrjen tek të gjitha dritaret e dialogut \"Printo\" të aplikativëve."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:8
+msgid ""
+"Prevent the user from saving files to disk. For example, this would disable "
+"access to all application's \"Save as\" dialogs."
+msgstr ""
+"Ndalon ruajtjen e files në disk nga ana e përdoruesve. Për shembull, "
+"do të ç'aktivojë hyrjen tek të gjitha dritaret e dialogut \"Ruaje si\" të aplikativëve."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -986,3 +1027,4 @@ msgstr "Tregon nëse bllokimi i tastierës është aktiv."
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Tregon nëse screen i pushimit në shkrim mund të mbas-vendoset."
+
