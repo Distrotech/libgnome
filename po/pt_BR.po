@@ -6,11 +6,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 1.114.0\n"
-"POT-Creation-Date: 2003-08-25 20:17+0200\n"
-"PO-Revision-Date: 2003-08-27 14:25-0300\n"
+"Project-Id-Version: libgnome 2.4.0\n"
+"POT-Creation-Date: 2003-10-01 10:34-0400\n"
+"PO-Revision-Date: 2003-10-01 10:34-0400\n"
 "Last-Translator: Evandro Fernandes Giovanini <evandrofg@ig.com.br>\n"
-"Language-Team: GNOME-l10n-BR <gnome-l10n-br@listas.cipsga.org.br>\n"
+"Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -67,8 +67,8 @@ msgstr "Eventos de interface de usuário"
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
-"Não foi encontrado um terminal. Utilizando o xterm, mesmo que possa não "
-"funcionar."
+"Não foi possível encontrar um terminal. Utilizando o xterm, mesmo que este "
+"não funcione."
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
@@ -112,7 +112,7 @@ msgstr "Documento de ajuda %s/%s não encontrado"
 
 #: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "Muitos níveis de alias para um locale, pode indicar um loop"
+msgstr "Muitos níveis de alias para um local podem indicar um laço"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -160,11 +160,11 @@ msgstr "Máquina:porta onde o servidor de áudio usado está executando"
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: libgnome/gnome-init.c:410
+#: libgnome/gnome-init.c:412
 msgid "GNOME Virtual Filesystem"
 msgstr "Sistemas de arquivos virtual GNOME"
 
-#: libgnome/gnome-init.c:431
+#: libgnome/gnome-init.c:433
 msgid "GNOME Library"
 msgstr "Biblioteca GNOME"
 
@@ -178,11 +178,11 @@ msgstr "A tabela de opções para popt"
 
 #: libgnome/gnome-program.c:434
 msgid "Popt Flags"
-msgstr "Flags Popt"
+msgstr "Sinalizadores popt"
 
 #: libgnome/gnome-program.c:435
 msgid "The flags to use for popt"
-msgstr "As flags a serem utilizadas para popt"
+msgstr "Os sinalizadores a serem utilizados para popt"
 
 #: libgnome/gnome-program.c:443
 msgid "Popt Context"
@@ -206,7 +206,7 @@ msgstr "Caminho do GNOME"
 
 #: libgnome/gnome-program.c:463
 msgid "Path in which to look for installed files"
-msgstr "Caminho a procurar por arquivos instalados"
+msgstr "Caminho onde procurar arquivos instalados"
 
 #: libgnome/gnome-program.c:472
 msgid "App ID"
@@ -299,11 +299,11 @@ msgstr "Criar os diretórios padrões do GNOME ao iniciar"
 
 #: libgnome/gnome-program.c:578
 msgid "Enable Sound"
-msgstr "Habilitar Áudio"
+msgstr "Ativar áudio"
 
 #: libgnome/gnome-program.c:579
 msgid "Enable sound on startup"
-msgstr "Habilitar o servidor de áudio ao iniciar"
+msgstr "Ativar áudio ao iniciar"
 
 #: libgnome/gnome-program.c:588
 msgid "Espeaker"
@@ -396,7 +396,7 @@ msgstr "Bipar quando um modificador for pressionado"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
-msgstr "Desligar se duas teclas forem pressionadas ao mesmo tempo."
+msgstr "Desativar se duas teclas forem pressionadas ao mesmo tempo."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
@@ -648,11 +648,11 @@ msgstr "Fonte padrão"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:6
 msgid "Enable Accessibility"
-msgstr "Ligar Acessibilidade"
+msgstr "Ativar acessibilidade"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:7
 msgid "Enable Animations"
-msgstr "Habilitar Animações"
+msgstr "Ativar animações"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
@@ -916,11 +916,11 @@ msgstr "Trocar botões da direita e esquerda para canhotos"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Enable ESD"
-msgstr "Habilitar ESD"
+msgstr "Ativar ESD"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:2
 msgid "Enable sound server startup."
-msgstr "Habilidar servidor de som na inicialização."
+msgstr "Ativar servidor de áudio ao iniciar."
 
 #: schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Sounds for events"
@@ -932,7 +932,7 @@ msgstr "Se deve-se tocar sons para eventos do usuário."
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
-msgstr "Desligar todos os criadores de miniaturas externos"
+msgstr "Desativar todos os criadores de miniaturas externos"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
@@ -1070,12 +1070,3 @@ msgstr "Visualizador de URL para páginas de manual"
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid "URL handler for trash pages"
 msgstr "Visualizador de URL para páginas da Lixeira"
-
-#~ msgid "Action button click"
-#~ msgstr "Clique em botões de ação"
-
-#~ msgid "Check box toggled"
-#~ msgstr "Caixa de marcar alternada"
-
-#~ msgid "Menu item activation"
-#~ msgstr "Ativação de item de menu"
