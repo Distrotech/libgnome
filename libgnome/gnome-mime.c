@@ -61,7 +61,7 @@ gnome_mime_type (gchar * filename)
 
 	if (!mime_hash) {
 		gchar *f;
-		mime_hash = g_hash_table_new ((GHashFunc) g_string_hash, (GCompareFunc) g_string_equal);
+		mime_hash = g_hash_table_new ((GHashFunc) g_str_hash, (GCompareFunc) g_str_equal);
 		mime_fill_from_file ("/etc/mime.types");
 		f = gnome_util_prepend_user_home (".mime.types");
 		if (f) {
@@ -151,7 +151,7 @@ gnome_mime_entries (gchar * mime_type)
 
 	if (!mcap_hash) {
 		gchar *f;
-		mcap_hash = g_hash_table_new ((GHashFunc) g_string_hash, (GCompareFunc) g_string_equal);
+		mcap_hash = g_hash_table_new ((GHashFunc) g_str_hash, (GCompareFunc) g_str_equal);
 		f = gnome_util_prepend_user_home (".mailcap");
 		if (f) {
 			mcap_fill_from_file (f);
