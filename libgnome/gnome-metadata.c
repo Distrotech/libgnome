@@ -1,6 +1,6 @@
 /* gnome-metadata.c - Metadata implementation.
 
-   Copyright (C) 1998 Tom Tromey
+   Copyright (C) 1998, 1999 Tom Tromey
 
    The Gnome Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -64,6 +64,8 @@ char *alloca ();
 #ifdef NEED_GNOMESUPPORT_H
 #include "gnomesupport.h"
 #endif
+
+#define ZERO(Dbt) memset (&(Dbt), sizeof (DBT), 0)
 
 #if !defined getc_unlocked && !defined HAVE_GETC_UNLOCKED
 # define getc_unlocked(fp) getc (fp)
@@ -240,6 +242,9 @@ metadata_set (const char *space, const char *object, const char *key,
 	if (! database && init ())
 		return GNOME_METADATA_IO_ERROR;
 
+	ZERO (dkey);
+	ZERO (value);
+
 	/* We make it big enough to hold the full key later.  */
 	dbkey = alloca (key_size + LISTLEN);
 	strcpy (dbkey, space);
@@ -387,14 +392,21 @@ metadata_remove (const char *space, const char *object, const char *key)
 				/* Remove entry entirely.  */
 				database->del (database, &dkey, 0);
 			} else {
-				/* Just remove a single item from list.  */
+				/* Just remove a single item from
+				   list.  We have to allocate a new
+				   item because reusing a db return
+				   value is wrong.  */
 				char *n = p + l;
 				char *dd = (char *) value.data;
 				int delta = value.size - l - (p - dd);
+				char *newv = alloca (value.size - l);
+
+				memmove (newv, dd, p - dd);
+				memmove (newv + (p - dd), n, delta);
 
 				value.size -= l;
+				value.data = newv;
 
-				memmove (p, n, delta);
 				database->put (database, &dkey, &value, 0);
 			}
 		}
@@ -416,6 +428,8 @@ metadata_get_list (const char *space, const char *object, DBT *value)
 	if (!database && init ())
 		return GNOME_METADATA_IO_ERROR;
 	
+	ZERO (key);
+
 	dbkey = alloca (key_size);
 	strcpy (dbkey, space);
 	strcat (dbkey, LIST);
@@ -443,6 +457,9 @@ metadata_get_no_dup (const char *space, const char *object, const char *key,
 
 	if (! database && init ())
 		return GNOME_METADATA_IO_ERROR;
+
+	ZERO (dkey);
+	ZERO (value);
 
 	dbkey = alloca (key_size);
 	strcpy (dbkey, space);
@@ -891,6 +908,8 @@ gnome_metadata_list (const char *file)
 	if (! database && init ())
 		return NULL;
 	
+	ZERO (value);
+
 	if (metadata_get_list ("file", file, &value))
 		return NULL;
 
@@ -924,6 +943,8 @@ try_regexs (const char *file, const char *key, int *size, char **buffer)
 {
 	DBT value;
 	char *p, *end;
+
+	ZERO (value);
 
 	if (metadata_get_list ("regex", key, &value))
 		return GNOME_METADATA_NOT_FOUND;

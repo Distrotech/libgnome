@@ -1,3 +1,13 @@
+1999-02-13  Tom Tromey  <tromey@cygnus.com>
+
+	* gnome-metadata.c (ZERO): New macro.
+	(metadata_set): Zero DBTs.
+	(metadata_get_list): Likewise.
+	(metadata_get_no_dup): Likewise.
+	(gnome_metadata_list): Likewise.
+	(try_regexs): Likewise.
+	(metadata_remove): Don't reuse return value from db.
+
 Thu Feb 11 23:56:18 1999  George Lebl  <jirka@5z.com>
 
 	* gnome-dentry.c,gnome-url.c: use gnome_config_sync_file instead of
