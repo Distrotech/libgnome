@@ -7,8 +7,10 @@ BEGIN {
   gen_macros = 0;
   gen_entries = 0;
   gen_vars = 0;
+  boxed_init = "";
   boxed_copy = "";
   boxed_free = "";
+  is_refcounted = "";
   
   for (i = 2; i < ARGC; i++)
     {
@@ -64,7 +66,7 @@ function generate (generate_what)
     {
       printf ("  { \"%s\", &%s,\n", type_name, type_macro);
       if (generate_what == "BOXED")
-	printf ("    GTK_TYPE_%s, %s, %s, },\n", generate_what, boxed_copy, boxed_free);
+	printf ("    GTK_TYPE_%s, %s, %s, },\n", generate_what, boxed_init, boxed_copy, boxed_free, is_refcounted);
       else
 	printf ("    GTK_TYPE_%s, %s_values },\n", generate_what, type_ident);
     }
@@ -106,8 +108,10 @@ function generate (generate_what)
     printf ("huh? define-boxed keyword without arg?\n") > "/dev/stderr";
   else
       {
+	  boxed_init = "NULL";
 	  boxed_copy = "NULL";
 	  boxed_free = "NULL";
+	  is_refcounted = "FALSE";
 	  set_type($2);
 	  do {
 	      getline;
@@ -120,13 +124,28 @@ function generate (generate_what)
 	      sub (";.*", "", $0);
 	  } while ($0 ~ /^[ \t]*$/);
 	  tmp_var2 = $1;
-	  sub ("\).*", "", tmp_var2);
+	  if ($0 ~ /\)/) { generate("BOXED"); next; }
+	  do {
+	      getline;
+	      sub (";.*", "", $0);
+	  } while ($0 ~ /^[ \t]*$/);
+	  tmp_var3 = $1;
+	  if ($0 ~ /\)/) { generate("BOXED"); next; }
+	  do {
+	      getline;
+	      sub (";.*", "", $0);
+	  } while ($0 ~ /^[ \t]*$/);
+	  tmp_var4 = $1;
+	  sub ("\).*", "", tmp_var4);
 	  if (tmp_var1 ~ /^[_A-Za-z][_A-Za-z0-9]*$/ &&
-	      tmp_var2 ~ /^[_A-Za-z][_A-Za-z0-9]*$/)
+	      tmp_var2 ~ /^[_A-Za-z][_A-Za-z0-9]*$/ &&
+	      tmp_var3 ~ /^[_A-Za-z][_A-Za-z0-9]*$/)
 	      {
-		  boxed_copy = tmp_var1;
-		  boxed_free = tmp_var2;
-		  # printf ("read boxed funcs: %s %s\n", boxed_copy, boxed_free) > "/dev/stderr";
+		  boxed_init = tmp_var1;
+		  boxed_copy = tmp_var2;
+		  boxed_free = tmp_var3;
+		  is_refcounted = tmp_var4;
+		  # printf ("read boxed funcs: %s %s %s\n", boxed_init, boxed_copy, boxed_free) > "/dev/stderr";
 	      }
 	  generate("BOXED");
       }
