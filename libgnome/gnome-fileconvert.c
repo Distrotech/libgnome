@@ -13,6 +13,7 @@ static GList *
 gfc_get_path(gchar *fromtype, gchar *totype);
 static gint
 gfc_run_pipe(gchar *acmd, gint infd);
+static GList *pids;
 
 gint
 gnome_file_convert(gchar *filename, gchar *fromtype, gchar *totype)
@@ -36,6 +37,7 @@ gnome_file_convert_fd(gint fd, gchar *fromtype, gchar *totype)
   for(l = convlist, infd = fd; l; l = l->next) {
     ccmd = l->data;
     outfd = gfc_run_pipe(ccmd, infd);
+    if(infd != fd) close(infd);
     infd = outfd;
   }
   return infd;
@@ -85,13 +87,25 @@ gfc_run_pipe(gchar *acmd, gint infd)
     return -1;
 
   if(childpid)
-    return fds[0];
+    {
+      close(fds[1]);
+      waitpid(childpid, &childpid, 0);
+      return fds[0];
+    }
 
   /* else */
   parts = gnome_string_split(acmd, " ", -1);
   dup2(infd, 0);
   dup2(fds[1], 1);
-  execv(parts[0], parts);
+  dup2(fds[1], 2);
+  if(fds[1] > 2)
+    close(fds[1]);
+  if(infd > 2)
+    close(infd);
+  if(fork()) /* Double-forking is good for the (zombified) soul ;-) */
+    exit(0);
+  else
+    execv(parts[0], parts);
 
   /* ERROR IF REACHED */
   close(0); close(1);
