@@ -23,27 +23,26 @@
   @NOTATION@
  */
 
-#ifndef LIBGNOME_H
-#define LIBGNOME_H
+#ifndef LIBGNOMEINIT_H
+#define LIBGNOMEINIT_H
 
-#include <libgnomebase/libgnomebase.h>
+#include <libgnomebase/gnome-defs.h>
+#include <libgnomebase/gnome-program.h>
 
-#include <libgnome/gnome-config.h>
-#include <libgnome/gnome-exec.h>
+#include <gconf/gconf-client.h>
 
-/* Should this be in gnome-print? */
-#include <libgnome/gnome-paper.h>
-#include <libgnome/gnome-remote.h>
-#include <libgnome/gnome-score.h>
-#include <libgnome/gnome-triggers.h>
-#include <libgnome/gnome-util.h>
-#include <libgnome/gnome-url.h>
-#include <libgnome/gnome-ditem.h>
+BEGIN_GNOME_DECLS
 
-#include <libgnome/libgnome-init.h>
+GConfClient *
+gnome_program_get_gconf_client (GnomeProgram *program);
 
-#ifdef COMPAT_1_0
-#include <compat/1.0/libgnome/libgnome-compat-1.0.h>
-#endif
+#define GNOME_PARAM_GCONF_CLIENT "gconf-client"
 
-#endif /* LIBGNOME_H */
+extern GnomeModuleInfo gnome_oaf_module_info;
+extern GnomeModuleInfo gnome_gconf_module_info;
+extern GnomeModuleInfo gnome_vfs_module_info;
+extern GnomeModuleInfo libgnome_module_info;
+
+END_GNOME_DECLS
+
+#endif /* LIBGNOMEINIT_H */

@@ -1,5 +1,19 @@
 2001-04-15  Martin Baulig  <baulig@suse.de>
 
+	* libgnome-init.c (gnome_program_get_gconf_client): Moved this function
+	here; it was previously in gnome-program.c, but gnome-program.c is now
+	in libgnomebase and thus cannot use gconf anymore.
+
+	* libgnome-init.h: New public header file.
+	(GNOME_PARAM_GCONF_CLIENT): Moved this #define here.
+	(gnome_program_get_gconf_client): Provide external declaration.
+	(gnome_oaf_module_info, gnome_gconf_module_info, gnome_vfs_module_info,
+	libgnome_module_info): Moved external declarations here from libgnome.h.
+
+	* libgnome.h: #include <libgnome/libgnome-init.h>.
+
+2001-04-15  Martin Baulig  <baulig@suse.de>
+
 	* libgnome-2.0.pc.in: Depend on libgnomebase-2.
 
 2001-04-15  Martin Baulig  <baulig@suse.de>

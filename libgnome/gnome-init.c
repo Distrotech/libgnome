@@ -39,6 +39,8 @@
 #include <gconf/gconf-client.h>
 extern struct poptOption gconf_options[];
 
+#include <libgnome/libgnome-init.h>
+
 #include "libgnomeP.h"
 #include <errno.h>
 
@@ -90,6 +92,23 @@ typedef struct {
 typedef struct {
     GConfClient *client;
 } GnomeProgramPrivate_gnome_gconf;
+
+GConfClient *
+gnome_program_get_gconf_client (GnomeProgram *program)
+{
+    GValue value = { 0, };
+    GConfClient *retval = NULL;
+
+    g_return_val_if_fail (program != NULL, NULL);
+    g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
+
+    g_value_init (&value, GCONF_TYPE_CLIENT);
+    g_object_get_property (G_OBJECT (program), GNOME_PARAM_GCONF_CLIENT, &value);
+    retval = (GConfClient *) g_value_dup_object (&value);
+    g_value_unset (&value);
+
+    return retval;
+}
 
 static gchar *
 gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)

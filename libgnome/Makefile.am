@@ -63,6 +63,7 @@ libgnome_headers = \
 	gnome-url.h		\
 	gnome-util.h   		\
 	gnome-paper.h		\
+	libgnome-init.h		\
 	libgnome.h
 
 libgnomeinclude_HEADERS = \
