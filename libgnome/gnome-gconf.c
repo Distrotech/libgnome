@@ -121,6 +121,11 @@ static GnomeModuleRequirement gnome_gconf_requirements[] = {
 GnomeModuleInfo gnome_gconf_module_info = {
         "gnome-gconf", VERSION, N_("GNOME GConf Support"),
         gnome_gconf_requirements,
-        gnome_gconf_pre_args_parse, gnome_gconf_post_args_parse,
-        gconf_options
+	NULL /* instance init */,
+        gnome_gconf_pre_args_parse,
+	gnome_gconf_post_args_parse,
+        gconf_options,
+	NULL /* init_pass */,
+	NULL /* class_init */,
+	NULL, NULL /* expansions */
 };

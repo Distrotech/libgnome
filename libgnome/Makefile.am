@@ -56,6 +56,7 @@ libgnome_src = \
 	gnome-triggersP.h	\
 	gnome-program.c		\
 	gnome-exec.c		\
+	gnome-gconf.c		\
 	gnome-i18n.c		\
 	gnome-i18nP.h		\
 	gnome-url.c		\
@@ -81,6 +82,7 @@ libgnome_headers = \
 	gnome-program.h		\
 	gnome-i18n.h		\
 	gnome-exec.h		\
+	gnome-gconf.h		\
 	gnome-url.h		\
 	gnome-util.h   		\
 	gnome-preferences.h	\
