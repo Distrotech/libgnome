@@ -10,9 +10,8 @@ typedef enum {
 	GTRIG_FUNCTION,
 	GTRIG_COMMAND,
 	GTRIG_MEDIAPLAY
-} _GnomeTriggerType;
+} GnomeTriggerType;
 
-typedef enum _GnomeTriggerType GnomeTriggerType;
 typedef void (*GnomeTriggerActionFunction)(char *msg, char *level, char *supinfo[]);
 
 struct _GnomeTrigger {
