@@ -2,7 +2,7 @@ AC_PREREQ(2.52)
 AC_INIT(libgnome)
 
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(libgnome2, 1.99.0)
+AM_INIT_AUTOMAKE(libgnome2, 1.100.0)
 
 AM_MAINTAINER_MODE
 
@@ -17,7 +17,7 @@ dnl blocks, this macro needs to be right at the beggining.
 dnl
 AM_PROG_XML_I18N_TOOLS
 
-GNOME_PLUGIN_SERIAL=2
+GNOME_PLUGIN_SERIAL=3
 AC_DEFINE_UNQUOTED(GNOME_PLUGIN_SERIAL, $GNOME_PLUGIN_SERIAL, [Serial number, incremented each time we do a binary incompatible change])
 
 GNOME_COMMON_INIT
