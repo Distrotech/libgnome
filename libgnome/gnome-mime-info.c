@@ -90,8 +90,10 @@ context_new (GString *str)
 	
 	context = g_hash_table_lookup (table, mime_type);
 
-	if (context)
+	if (context) {
+		g_free (mime_type);
 		return context;
+	}
 	
 	context = g_new (GnomeMimeContext, 1);
 	context->mime_type = mime_type;

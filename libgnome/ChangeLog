@@ -1,3 +1,11 @@
+1999-08-20  Federico Mena Quintero  <federico@redhat.com>
+
+	* gnome-mime-info.c (context_new): Free the temporary string
+	before returning the context that was found.
+
+	* gnome-mime.c (mime_fill_from_file): Free the current key when we
+	are done.
+
 1999-08-17  Havoc Pennington  <hp@pobox.com>
 
 	* libgnome.h: comment about gnome-paper.h
