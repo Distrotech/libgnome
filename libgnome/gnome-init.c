@@ -40,6 +40,7 @@
 #include "gnome-i18nP.h"
 
 #include <libgnome/gnome-init.h>
+#include <libgnome/gnome-gconf.h>
 #include <libgnome/gnome-util.h>
 
 #include <errno.h>
@@ -520,6 +521,7 @@ GnomeModuleInfo gnome_vfs_module_info = {
 static GnomeModuleRequirement libgnome_requirements [] = {
 	{ VERSION, &libbonobo_module_info },
 	{ "0.3.0", &gnome_vfs_module_info },
+	{ VERSION, &gnome_gconf_module_info },
 	{ NULL }
 };
 
