@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-16 13:00+0100\n"
-"PO-Revision-Date: 2004-03-15 00:11+0000\n"
-"Last-Translator: Dafydd Harries <daf@muse.19inch.net>\n"
+"POT-Creation-Date: 2004-03-19 11:43+0000\n"
+"PO-Revision-Date: 2004-03-19 12:12+0000\n"
+"Last-Translator: Telsa Gwynne <hobbit@aloss.ukuu.org.uk>\n"
 "Language-Team: Welsh <gnome-cy@pengwyn.linux.org.uk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -449,7 +449,7 @@ msgstr "Rhaglenni Technoleg Cynorthwyl Wrth Gychwyn"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
-msgstr "Mae'r porwr angen terfynnell"
+msgstr "Mae'r porwr angen terfynell"
 
 # EFALLAI
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:2
@@ -467,7 +467,7 @@ msgstr "Y porwr rhagosodedig ar gyfer pob LAU"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr "A ydy'r porwr rhagosodedig anger terfynnell er mwyn gweithredu"
+msgstr "A ydy'r porwr rhagosodedig anger terfynell er mwyn gweithredu"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
@@ -498,7 +498,7 @@ msgstr ""
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
-"Ymresymiad a ddefnyddir er mwyn rhedeg rhaglenni yn y terfynnell fe "
+"Ymresymiad a ddefnyddir er mwyn rhedeg rhaglenni yn y terfynell fe "
 "ddiffiniwyd gan yr allwedd 'exec'."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
@@ -507,12 +507,12 @@ msgstr "Ymresymiadau Exec"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
 msgid "Terminal application"
-msgstr "Rhaglen terfynnell"
+msgstr "Rhaglen terfynell"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
 msgstr ""
-"Y rhaglen terfynnell i'w ddefnyddio wrth gychwyn rhaglenni sydd angen un"
+"Y rhaglen terfynell i'w ddefnyddio wrth gychwyn rhaglenni sydd angen un"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
@@ -688,49 +688,61 @@ msgid "Menus Have Tearoff"
 msgstr "Bar Rhwygo Gan Dewislenni"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
+msgid "Module for GtkFileChooser"
+msgstr "Modiwl ar gyfer GtkFileChooser"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:18
+msgid ""
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gnome-vfs\" and \"gtk+\"."
+msgstr ""
+"Pa fodiwl i'w ddefnyddio ar gyfer y system ffeil yn y teclyn GtkFileChooser."
+"Gwerthoedd posib yw \"gnome-vfs\" a \"gtk+\"."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Monospace font"
 msgstr "Ffont unlled"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Enw ffont unlledd (lled gosodedig) er mwyn defnyddio mewn llefydd fel "
 "terfynellau."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Enw yr arddull cyn-olygu modd mewnbwn GTK+ a ddefnyddir gan gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Enw yr arddull statws modd mewnbwn GTK+ a ddefnyddir gan gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Name of the default font used by gtk+."
 msgstr "Enw y ffont rhagosodedig a ddefnyddir gan gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Status Bar on Right"
 msgstr "Bar Statws ar y Dde"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Mae hyn yn penodi maint yr eiconau a ddangosir mewn barau offer"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Detachable"
 msgstr "Bar Offer Datgysyllatadwy"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Toolbar Icon Size"
 msgstr "Maint Eiconau Bar Offer"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Toolbar Style"
 msgstr "Arddull Bar Offer"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
@@ -738,15 +750,15 @@ msgstr ""
 "Arddull Bar Offer. Gwerthoedd dilys: \"both\", \"both_horiz\", \"icon\", a "
 "\"text\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Use Custom Font"
 msgstr "Defnyddio Ffont Addasiedig"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether Applications should have accessibility support"
 msgstr "A ddylai rhaglenni gael cynnhaliaeth ar gyfer hygyrchedd"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -754,28 +766,28 @@ msgstr ""
 "A ddylid dangos animeiddiadau. Noder: Mae hyn yn allwedd eang, a mae'n newid "
 "ymddygiad y rheolwr ffenestri, y panel, a.y.y.b."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "A ydi dewislenni yn cael rhoi eiconau nesaf i eitem dewislen"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether menus should have a tearoff"
 msgstr "A ddylai dewislenni gael bar rhwygo"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the cursor should blink"
 msgstr "A ddylai'r cyrchydd chwincio"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
 "A ydi'r defnyddiwr yn gallu datgysylltu barau dewislenni a'u symud o gwmpas"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "A ydi'r defnyddiwr yn gallu datgysylltu barau offer a'u symud o gwmpas"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -783,11 +795,11 @@ msgstr ""
 "A ydi'r defnyddiwr yn gallu teipio cyflymydd newydd pan mae dewislen yn "
 "ymddangos"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:37
+#: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether to display a status bar meter on the right"
 msgstr "A ddylid dangos mesurudd bar statws ar y dde"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:38
+#: schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "A ddylid defnyddio ffont addasiedig mewn rhaglenni gtk+."
 
@@ -1042,7 +1054,7 @@ msgstr "A ellir gohirio'r sgrîn gorffwys teipio ai peidio"
 #~ msgstr "Sut i ymdrin â LAU \"trash\""
 
 #~ msgid "Run program in terminal"
-#~ msgstr "Gweithredu'r rhaglen mewn terfynnell"
+#~ msgstr "Gweithredu'r rhaglen mewn terfynell"
 
 #~ msgid "Set to true to have a program specified in command handle http URLs"
 #~ msgstr "Gosod yn wir er mwyn i'r rhaglen penodedig ymdrin a LAU https"
@@ -1068,7 +1080,7 @@ msgstr "A ellir gohirio'r sgrîn gorffwys teipio ai peidio"
 #~ msgstr "Gosod yn wir er mwyn i'r rhaglen penodedig ymdrin a LAU https"
 
 #~ msgid "True if the program to handle this URL should be run in a terminal"
-#~ msgstr "Gwir os dylai'r rhaglen i ymdrin a'r LAU yma rhedeg mewn terfynnell"
+#~ msgstr "Gwir os dylai'r rhaglen i ymdrin a'r LAU yma rhedeg mewn terfynell"
 
 #~ msgid "URL handler for ghelp pages"
 #~ msgstr "Trinydd LAU ar gyfer lleoliadau \"ghelp\""
