@@ -398,16 +398,18 @@ gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 #ifdef HAVE_ESD
   int level_num = -1;
 
-  if(!strcmp(level, "info")) level_num = 0;
-  else if(!strcmp(level, "warning")) level_num = 1;
-  else if(!strcmp(level, "error")) level_num = 2;
-  else if(!strcmp(level, "question")) level_num = 3;
-  else if(!strcmp(level, "generic")) level_num = 4;
+  if(level) {
+    if(!strcmp(level, "info")) level_num = 0;
+    else if(!strcmp(level, "warning")) level_num = 1;
+    else if(!strcmp(level, "error")) level_num = 2;
+    else if(!strcmp(level, "question")) level_num = 3;
+    else if(!strcmp(level, "generic")) level_num = 4;
 
-  if(level_num >= 0
-     && trigger_msg_sample_ids[level_num] >= 0)
-    esd_sample_play(gnome_sound_connection,
-		    trigger_msg_sample_ids[level_num]);
+    if(level_num >= 0
+       && trigger_msg_sample_ids[level_num] >= 0)
+      esd_sample_play(gnome_sound_connection,
+		      trigger_msg_sample_ids[level_num]);
+  }
 #endif
 
   if(!supinfo)
