@@ -85,6 +85,7 @@ libgnomeinclude_HEADERS = \
 	gnome-paper.h		\
 	libgnome.h		\
 	gnomelib-init2.h	\
+	gnomelib-init.h	\
 	gnome-portability.h
 
 noinst_HEADERS =				\
