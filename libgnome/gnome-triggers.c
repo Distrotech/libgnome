@@ -143,6 +143,7 @@ gnome_triggers_read_path(const char *config_path)
     return -1;
 
   tmpstr = g_string_new(NULL);
+
   while((dent = readdir(dirh))) {
     /* ignore no-good dir entries.
        We ignore "gnome" because the system sounds are listed in there.
@@ -153,14 +154,24 @@ gnome_triggers_read_path(const char *config_path)
 	|| !strcmp(dent->d_name, "gnome.soundlist"))
       continue;
 
-    g_string_sprintf(tmpstr, "=%s/%s=/events", config_path, dent->d_name);
+    g_string_sprintf(tmpstr, "=%s/%s=", config_path, dent->d_name);
 
     gnome_config_push_prefix(tmpstr->str);
 
-    event_iter = gnome_config_init_iterator(tmpstr->str);
+    event_iter = gnome_config_init_iterator_sections(tmpstr->str);
     while((event_iter = gnome_config_iterator_next(event_iter,
-						   &sample_name,
-						   &sample_file))) {
+						   &sample_name, NULL))) {
+      if(!strcmp(sample_name, "__section_info__"))
+	goto continue_loop;
+
+      g_string_sprintf(tmpstr, "%s/file", sample_name);
+      sample_file = gnome_config_get_string(tmpstr->str);
+
+      if(!sample_file || !*sample_file) {
+	g_free(sample_name);
+	continue;
+      }
+	
       if(*sample_file != '/') {
 	char *tmp = gnome_sound_file(sample_file);
 	g_free(sample_file);
@@ -173,8 +184,10 @@ gnome_triggers_read_path(const char *config_path)
 
       nt.u.media.file = sample_file;
       gnome_triggers_add_trigger(&nt, ctmp, sample_name, NULL);
-
+      
       g_free(ctmp);
+
+    continue_loop:
       g_free(sample_name);
     }
 
