@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include "gnome-defs.h"
 #include "gnome-util.h"
+#include "gnome-url.h"
 #include "gnome-config.h"
 #include "gnome-dentry.h"
 #include "gnome-exec.h"
@@ -517,7 +518,8 @@ join_with_quotes(char *argv[], int argc)
 void
 gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[])
 {
-	char *uargv[9], *env [2];
+	char *env [2];
+	GPtrArray *uarray;
 	char *exec_str;
 	char **term_argv;
 	int term_argc = 0;
@@ -525,10 +527,12 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	char **argv;
 	GSList *args_to_free = NULL;
 	gchar *sub_arg;
-	int i, argc, uargs=4;
+	int i, argc;
 	int envc = 0;
 	char **envp = NULL;
 	char *xalf = NULL;
+	gboolean no_xalf = FALSE;
+	char **options_argv = NULL;
 
 	g_assert (item != NULL);
 
@@ -599,24 +603,42 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		g_free ((char *) argv);
 	}
 
+	uarray = g_ptr_array_new();
 
-	if (getenv ("GNOME_USE_XALF")) {
+	if (strcmp (item->exec[0], "NO_XALF") == 0) 
+		no_xalf = TRUE;
+	
+	if ( ! no_xalf &&
+	    gnome_config_get_bool("/xalf/settings/enabled=true")) {
 		xalf = gnome_is_program_in_path ("xalf");
 
-		if (xalf) {
-			uargv[0] = xalf;
-			uargv[1] = "-i";
-			uargv[2] = "--title";
-			uargv[3] = item->name;
-			uargv[4] = "-m";
-			uargs = 9;
+		if (xalf != NULL) {
+			int options_argc = 0;
+			int i;
+			
+ 			g_ptr_array_add (uarray, (gpointer) xalf);
+ 			g_ptr_array_add (uarray, (gpointer) "--title");
+ 			g_ptr_array_add (uarray, (gpointer) item->name);
+
+			gnome_config_get_vector ("/xalf/settings/options",
+						 &options_argc, &options_argv);
+
+			if (options_argc > 0 &&
+			    options_argv != NULL) {
+				for (i = 0; i < options_argc; i++) 
+					g_ptr_array_add (uarray,
+							 options_argv[i]);
+			}
 		}
 	}
 	
-	uargv[uargs-4] = "/bin/sh";
-	uargv[uargs-3] = "-c";
-	uargv[uargs-2] = exec_str;
-	uargv[uargs-1] = NULL;
+ 	g_ptr_array_add (uarray, (gpointer) "/bin/sh");
+ 	g_ptr_array_add (uarray, (gpointer) "-c");
+	if (no_xalf)
+		/* Skip over "NO_XALF " (8 chars) in the string */
+		g_ptr_array_add (uarray, (gpointer) exec_str+8);
+	else 
+		g_ptr_array_add (uarray, (gpointer) exec_str);
 
 	if (item->icon && !item->is_kde && item->location) {
 		char *path = g_strdup_printf ("=%s=/Desktop Entry/X-GNOME-SetIcon=true",
@@ -634,7 +656,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	if (item->type && strcmp (item->type, "URL") == 0) {
 		gnome_url_show (exec_str);
 	} else {
-		gnome_execute_async_with_env (NULL, uargs, uargv, envc, envp);
+		gnome_execute_async_with_env (NULL, uarray->len, (char **) uarray->pdata, envc, envp);
 	}
 
 	if (envp)
@@ -642,6 +664,8 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	
 	g_free (exec_str);
 	g_free (xalf);
+	g_strfreev (options_argv);
+ 	g_ptr_array_free (uarray, TRUE);
 }
 
 /**
