@@ -460,6 +460,8 @@ check_path(char *path, mode_t newmode)
 	gchar *dirpath;
 	gchar *p;
 	GString *newpath;
+	struct stat s;
+
 
 	g_return_if_fail(path!=NULL);
 
@@ -477,15 +479,21 @@ check_path(char *path, mode_t newmode)
 		return FALSE;
 	}
 
-	if(strcmp(dirpath,".")==0) {
-		g_free(dirpath);
-		return TRUE;
-	}
-
 	/*not absolute, we refuse to work*/
 	if(dirpath[0]!='/') {
 		g_free(dirpath);
 		return FALSE;
+	}
+
+	/*special case if directory exists, this is probably gonna happen
+	  a lot so we don't want to go though checking it part by part*/
+	if(stat(dirpath,&s)==0) {
+		g_free(dirpath);
+		/*check if a directory*/
+		if(!S_ISDIR(s.st_mode))
+			return FALSE;
+		else
+			return TRUE;
 	}
 
 
@@ -497,8 +505,6 @@ check_path(char *path, mode_t newmode)
 	p=strtok(p,"/");
 	newpath = g_string_new("");
 	do {
-		struct stat s;
-
 		newpath = g_string_append_c(newpath,'/');
 		newpath = g_string_append(newpath,p);
 		if(stat(newpath->str,&s)==0) {
