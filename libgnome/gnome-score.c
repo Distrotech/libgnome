@@ -35,7 +35,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <glib.h>
-#include <pwd.h>
 #include <locale.h>
 #ifdef HAVE_SYS_FSUID_H
 #ifdef HAVE_SETFSGID
@@ -119,7 +118,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 {
    FILE *infile;
    FILE *outfile;
-   gchar buf[512], name[512];
+   gchar buf[512], *buf2;
    GList *scores = NULL, *anode;
    gchar *game_score_file;
    gfloat ascore;
@@ -142,12 +141,22 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 	     while (g_ascii_isspace (buf[i]))
 	       buf[i--] = '\0';
 
-	     if(sscanf(buf, "%f %ld %s", &ascore, &ltime, name) != 3)
-	       break;
+  	     {
+	        char *tokp;
+
+	        if((buf2 = strtok_r (buf, " ", &tokp)) == NULL)
+		  break;
+	        ascore = atof (buf2);
+	        if((buf2 = strtok_r (NULL, " ", &tokp)) == NULL)
+		  break;
+	        ltime = atoi (buf2);
+	        if((buf2 = strtok_r (NULL, "\n", &tokp)) == NULL)
+		  break;
+	     }
 
 	     anitem = g_new(struct ascore_t, 1);
 	     anitem->score = ascore;
-	     anitem->username = g_strdup (name);
+	     anitem->username = g_strdup (buf2);
 	     anitem->scoretime = (time_t)ltime;
 	     scores = g_list_append (scores, (gpointer) anitem);
 	  }
@@ -219,7 +228,7 @@ gnome_score_child (void)
 {
    struct command cmd;
    gchar *level;
-   struct passwd *pwd;
+   gchar *realname;
    gint retval;
 #ifdef HAVE_SETFSGID
    gid_t gid;
@@ -228,7 +237,9 @@ gnome_score_child (void)
    setgid (getgid ());
    setfsgid (gid);
 #endif
-   pwd = getpwuid (getuid ());
+   realname = g_strdup (g_get_real_name ());
+   if (strlen (realname) == 0)
+     realname = g_strdup (g_get_user_name ());
 
    while (read (STDIN_FILENO, &cmd, sizeof cmd) == sizeof(cmd))
      {
@@ -239,13 +250,15 @@ gnome_score_child (void)
 	   g_free(level);
 	   level = NULL;
 	}
-	retval = log_score (defgamename, level, pwd->pw_name, cmd.score,
+	retval = log_score (defgamename, level, realname, cmd.score,
 			    cmd.ordering);
 	if (write(STDOUT_FILENO, &retval, sizeof retval) != sizeof retval)
 	  return EXIT_FAILURE;
 	if (level)
 	  g_free(level);
      }
+   if (realname)
+     g_free (realname);
    return EXIT_SUCCESS;
 }
 
