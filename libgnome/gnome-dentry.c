@@ -517,7 +517,7 @@ join_with_quotes(char *argv[], int argc)
 void
 gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[])
 {
-	char *uargv[8], *env [2];
+	char *uargv[9], *env [2];
 	char *exec_str;
 	char **term_argv;
 	int term_argc = 0;
@@ -608,7 +608,8 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 			uargv[1] = "-i";
 			uargv[2] = "--title";
 			uargv[3] = item->name;
-			uargs = 8;
+			uargv[4] = "-m";
+			uargs = 9;
 		}
 	}
 	
