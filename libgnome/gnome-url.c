@@ -45,7 +45,7 @@
 #include <popt.h>
 
 #define URL_HANDLER_DIR      "/desktop/gnome/url-handlers/"
-#define DEFAULT_HANDLER_PATH "/desktop/gnome/url-handlers/default-show"
+#define DEFAULT_HANDLER_PATH "/desktop/gnome/url-handlers/unknown/command"
 
 /**
  * gnome_url_show
@@ -55,12 +55,12 @@
  *
  * Displays the given URL in an appropriate viewer. The appropriate viewer is
  * user definable. It is determined by extracting the protocol from the @url,
- * then seeing if the /desktop/gnome/url-handlers/<protocol>-show key exists in
+ * then seeing if the /desktop/gnome/url-handlers/<protocol>/command key exists in
  * the configuration database. It it does, this entry is used as the template
  * for the command. 
  *
  * If no protocol specific handler exists, the
- * /desktop/gnome/url-handlers/default-show key is used to determine the
+ * /desktop/gnome/url-handlers/unknown/command key is used to determine the
  * viewer.
  *
  * Once a viewer is determined, it is called with the @url as a parameter. If
@@ -101,7 +101,7 @@ gnome_url_show (const gchar *url, GError **error)
 		protocol[pos - url] = '\0';
 		g_ascii_strdown (protocol, -1);
 
-		path = g_strconcat (URL_HANDLER_DIR, protocol, "-show", NULL);
+		path = g_strconcat (URL_HANDLER_DIR, protocol, "/command", NULL);
 		template = gconf_client_get_string (client, path, NULL);
 
 		if (template == NULL) {
