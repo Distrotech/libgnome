@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-16 13:00+0100\n"
-"PO-Revision-Date: 2004-02-12 01:26+0100\n"
+"POT-Creation-Date: 2004-03-18 03:34+0100\n"
+"PO-Revision-Date: 2004-03-18 03:35+0100\n"
 "Last-Translator: Bojan Suzic <bojans@teol.net>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -113,8 +113,7 @@ msgstr "Nije pronađen dokument za pomoć %s/%s"
 
 #: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
-"Previše imena za jedan lokalitet, možda je u pitanju međusobno pozivanje"
+msgstr "Previše imena za jedan lokalitet, možda je u pitanju međusobno pozivanje"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -564,8 +563,8 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
-"Određuje kako se iscrtava slika postavljena pomoću wallpaper_filename. "
-"Moguće vrednosti su „none“, „wallpaper“, „centered“, „scaled“, „stretched“."
+"Određuje kako se iscrtava slika postavljena pomoću wallpaper_filename. Moguće "
+"vrednosti su „none“, „wallpaper“, „centered“, „scaled“, „stretched“."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -697,64 +696,74 @@ msgid "Menus Have Tearoff"
 msgstr "Meni se može otkinuti"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
+msgid "Module for GtkFileChooser"
+msgstr "Deo za izbor datoteka (GtkFileChooser)"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:18
+msgid ""
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gnome-vfs\" and \"gtk+\"."
+msgstr "Deo za način izbora datoteka pomoću elementa GtkFileChooser. Dozvoljene vrednosti su „gnome-vfs“ i „gtk+“."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Monospace font"
 msgstr "Font utvrđene širine"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Ime fonta utvrđene širine koji se koriste na mestima kao što je npr. "
 "terminal."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Ime Gtk+ IM stila predunosa koji koristi Gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Ime Gtk+ IM stila stanja koji koristi Gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Name of the default font used by gtk+."
 msgstr "Ime uobičajenog pisma koje koristi Gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Status Bar on Right"
 msgstr "Stanje na desnoj strani"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Ovo određuje veličinu ikona koje se prikazuju među alatkama"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Detachable"
 msgstr "Odvojive alatke"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Toolbar Icon Size"
 msgstr "Veličina ikona alatki"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Toolbar Style"
 msgstr "Stil alatki"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
 msgstr ""
 "Stil alatki. Dozvoljene vrednosti su „both“, „both_horiz“, „icon“ i „text“"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Use Custom Font"
 msgstr "Prilagodi pismo"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether Applications should have accessibility support"
 msgstr "Da li programi sadrže podršku za pristupačnost"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -762,38 +771,38 @@ msgstr ""
 "Da li se prikazuju animacije. Napomena: ovo je opšti ključ, i izmeniće "
 "ponašanje upravnika prozora, panela, itd."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Da li se prikazuje ikona pored stavke u meniju"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether menus should have a tearoff"
 msgstr "Da li je menije moguće otkinuti"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the cursor should blink"
 msgstr "Da li kursor treba da treperi"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Da li korisnik može da odvoji osnovne menije i da ih pomera naokolo"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Da li korisnik može da odvoji alatke i da ih pomera naokolo"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "Da li korisnik može dinamički da postavi novu prečicu kada je meni prikazan"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:37
+#: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether to display a status bar meter on the right"
 msgstr "Da li da prikaže stanje na desnoj strani prozora"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:38
+#: schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Da li da koristi prilagođeno pismo u Gtk+ programima."
 
@@ -915,8 +924,8 @@ msgid ""
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Ime fonta za kursor. Ukoliko nije postavljeno, koristi se uobičajeni font. "
-"Ova vrednost sa šalje Iks serveru samo na početku rada, pa izmene u toku "
-"rada neće imati uticaja dok se ponovo ne prijavite."
+"Ova vrednost sa šalje Iks serveru samo na početku rada, pa izmene u toku rada "
+"neće imati uticaja dok se ponovo ne prijavite."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
