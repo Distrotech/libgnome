@@ -36,7 +36,6 @@ typedef struct _GnomeProgram GnomeProgram;
 /*@observer@*/ GnomeProgram *gnome_program_get(void);
 /*@observer@*/ const char *gnome_program_get_name(/*@in@*/ GnomeProgram *app);
 /*@observer@*/ const char *gnome_program_get_version(/*@in@*/ GnomeProgram *app);
-const char* gnome_program_get_human_readable_name(GnomeProgram *app);
 
 /***** application attributes ******/
 typedef enum {
@@ -143,12 +142,12 @@ void gnome_program_module_load(GnomeProgram *app, const char *mod_name); /* do t
   Attribute type 'A' IS VALID FOR 'set' OPERATIONS ONLY! Libraries should provide
   separate #define constants for append and set on string vectors.
 */
-extern const char gnome_param_popt_table[], gnome_param_popt_flags[], gnome_param_popt_context[], gnome_param_module[], gnome_param_human_readable_name[];
+extern const char gnome_param_popt_table[], gnome_param_popt_flags[], gnome_param_popt_context[], gnome_param_module[];
 #define GNOME_PARAM_POPT_TABLE gnome_param_popt_table
 #define GNOME_PARAM_POPT_FLAGS gnome_param_popt_flags
 #define GNOME_PARAM_POPT_CONTEXT gnome_param_popt_context
 #define GNOME_PARAM_MODULE gnome_param_module
-#define GNOME_PARAM_HUMAN_READABLE_NAME gnome_param_human_readable_name 
+#define GNOME_PARAM_HUMAN_READABLE_NAME gnome_param_human_readable_name
 
 /*
  * If the application writer wishes to use getopt()-style arg

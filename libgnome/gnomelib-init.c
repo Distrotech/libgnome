@@ -22,6 +22,37 @@ const char libgnome_param_app_prefix[]="S:libgnome/app_prefix";
 const char libgnome_param_app_sysconfdir[]="S:libgnome/app_sysconfdir";
 const char libgnome_param_app_datadir[]="S:libgnome/app_datadir";
 const char libgnome_param_app_libdir[]="S:libgnome/app_libdir";
+const char libgnome_param_human_readable_name[] = "S:libgnome/human_readable_name";
+
+/**
+ * gnome_program_get_human_readable_name
+ * @app: The application object
+ *
+ * Description:
+ * This function returns a pointer to a static string that the
+ * application has provided as a human readable name. The app
+ * should provide the name with the GNOME_PARAM_HUMAN_READABLE_NAME
+ * init argument. Returns NULL if no name was set.
+ *
+ * Returns: application human-readable name string.
+ */
+
+const char*
+gnome_program_get_human_readable_name(GnomeProgram *app)
+{
+  const GnomeAttributeValue* val;
+  
+  g_return_val_if_fail (app, NULL);
+
+  val = gnome_program_attribute_get(app, LIBGNOME_PARAM_HUMAN_READABLE_NAME);
+
+  if (val) {
+    g_assert(val->type == GNOME_ATTRIBUTE_STRING);
+    return val->u.string_value;
+  } else {
+    return NULL;
+  }
+}
 
 char *gnome_user_dir = NULL, *gnome_user_private_dir = NULL, *gnome_user_accels_dir = NULL;
 

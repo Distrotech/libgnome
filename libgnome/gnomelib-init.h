@@ -25,7 +25,7 @@ extern GnomeModuleInfo libgnome_module_info;
 
 extern const char libgnome_param_create_directories[], libgnome_param_espeaker[], libgnome_param_enable_sound[],
   libgnome_param_file_locator[], libgnome_param_app_prefix[], libgnome_param_app_sysconfdir[], libgnome_param_app_datadir[],
-  libgnome_param_app_libdir[];
+  libgnome_param_app_libdir[], libgnome_param_human_readable_name[];
 #define LIBGNOME_PARAM_CREATE_DIRECTORIES libgnome_param_create_directories
 #define LIBGNOME_PARAM_ESPEAKER libgnome_param_espeaker
 #define LIBGNOME_PARAM_ENABLE_SOUND libgnome_param_enable_sound
@@ -34,6 +34,7 @@ extern const char libgnome_param_create_directories[], libgnome_param_espeaker[]
 #define LIBGNOME_PARAM_APP_SYSCONFDIR libgnome_param_app_sysconfdir
 #define LIBGNOME_PARAM_APP_DATADIR libgnome_param_app_datadir
 #define LIBGNOME_PARAM_APP_LIBDIR libgnome_param_app_libdir
+#define LIBGNOME_PARAM_HUMAN_READABLE_NAME libgnome_param_human_readable_name 
 
 typedef char * (*GnomeFileLocatorFunc)(const char *domain, const char *filename, gboolean only_if_exists);
 
@@ -45,6 +46,8 @@ extern char *gnome_user_accels_dir;
 /* Backwards compat */
 #define gnome_app_id gnome_program_get_name(gnome_program_get())
 #define gnome_app_version gnome_program_get_version(gnome_program_get())
+
+const char* gnome_program_get_human_readable_name(GnomeProgram *app);
 
 
 END_GNOME_DECLS
