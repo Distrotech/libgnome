@@ -497,18 +497,31 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 		return 0;
 
 	/* Phase 3: see if `type' is set.  */
-	if (metadata_get ("file", file, "type", &type_size, &type)) {
-		/* Didn't find type.  See if regular expression can
-		   characterize file type.  */
-		if (try_regexs (file, "type", &type_size, &type)) {
-			/* Nope.  If slow, try `file' command.  */
-			if (! is_fast)
-				type = run_file (file);
-			if (! type)
-				return GNOME_METADATA_NOT_FOUND;
-		}
+	if (! metadata_get ("file", file, "type", &type_size, &type)) {
+		/* Found the type.  */
+		goto got_type;
 	}
 
+	/* See if regular expression can characterize file type.  */
+	if (! try_regexs (file, "type", &type_size, &type)) {
+		goto got_type;
+	}
+
+	/* See if `mime.types' has the answer.  */
+	type = gnome_mime_type_or_default (file, NULL);
+	if (type) {
+		type = strdup (type);
+		goto got_type;
+	}
+
+	/* If slow, try `file' command.  Otherwise, we've failed to
+	   find the info.  */
+	if (! is_fast)
+		type = run_file (file);
+	if (! type)
+		return GNOME_METADATA_NOT_FOUND;
+
+got_type:
 	/* Return lookup based on discovered type.  */
 	r = metadata_get ("type", type, name, size, buffer);
 	free (type);

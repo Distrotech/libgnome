@@ -49,11 +49,10 @@ mime_fill_from_file (gchar * filename)
 }
 
 gchar *
-gnome_mime_type (gchar * filename)
+gnome_mime_type_or_default (gchar * filename, gchar * defaultv)
 {
 	gchar *ext;
 	gchar *result;
-	gchar *defaultv = "text/plain";	/* maybe NULL? */
 
 	if (!filename)
 		return defaultv;
@@ -87,6 +86,12 @@ gnome_mime_type (gchar * filename)
 			return defaultv;
 	}
 	return result;
+}
+
+gchar *
+gnome_mime_type (gchar * filename)
+{
+	return gnome_mime_type_or_default (filename, "text/plain");
 }
 
 static void

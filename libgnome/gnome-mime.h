@@ -18,6 +18,7 @@ void          gnome_mime_init          (void);
 
 /* do not free() any of the returned values */
 gchar*        gnome_mime_type          (gchar* filename);
+gchar*        gnome_mime_type_or_default (gchar *filename, gchar *ddef);
 GnomeMailCap* gnome_mime_default_entry (gchar* mime_type);
 GList*        gnome_mime_entries       (gchar* mime_type);
 gchar*        gnome_mime_program       (gchar* mime_type);
