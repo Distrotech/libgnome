@@ -127,55 +127,69 @@ static ParsedPath *
 parse_path (const char *path, gint priv)
 {
 	ParsedPath *p = g_malloc (sizeof (ParsedPath));
+	char *end;
 
 	g_assert(path != NULL);
-	
-	if (*path == '/' || prefix == NULL)
+
+	/* If it is an absolute path name */
+	if ((*path == '/') || (*path == '=') || prefix == NULL)
 		p->opath = g_strdup (path);
 	else
 		p->opath = g_copy_strings (prefix, path, NULL);
 
 	p->path = p->opath;
+	
+	/* If path starts with '=', it is an absolute - we just
+	 * need to skip the equal sign. */
 
-	if (*p->path == '='){
-		/* If it is an absolute path name */
+	if (*p->path == '=')
 		p->path++;
-		p->file    = strtok (p->path, "=");
-		p->section = strtok (NULL, "/=");
-		p->key     = strtok (NULL, "=");
-		p->def     = strtok (NULL, "=");
-	} else {
-		char *end;
+	
+	p->file    = p->path;
+	p->def     = NULL;
+	p->section = NULL;
+	p->key     = NULL;
 
-		p->file    = p->path;
-		p->def     = NULL;
-		p->section = NULL;
-		p->key     = NULL;
-		if ((end = strchr (p->path, '='))) {
+	/* p->path is something like this:
+	 *
+	 * /path/filename/section/key
+	 * /path/filename/section/key=def
+	 *                           |
+	 *         set `end' to this position here
+	 *
+	 */
+
+	if ((end = strchr (p->path, '='))) {
+		*end = 0;
+		p->def = end + 1;
+	} else 
+		end = p->path + strlen (p->path);
+
+	/* Look backwards for a slash, to split key from the filename/section */
+	while (end > p->path){
+		end--;
+		if (*end == '/'){
 			*end = 0;
-			p->def = end + 1;
-		} else 
-			end = p->path + strlen (p->path);
-
-		/* Look backwards for a slash, to split key from the filename/section */
-		while (end > p->path){
-			end--;
-			if (*end == '/'){
-				*end = 0;
-				p->key = end + 1;
-				break;
-			}
+			p->key = end + 1;
+			break;
 		}
-
-		/* Look backwards for the next slash, to get the section name */
-		while (end > p->path){
-			end--;
-			if (*end == '/'){
-				*end = 0;
-				p->section = end + 1;
-				break;
-			}
+	}
+	
+	/* Look backwards for the next slash, to get the section name */
+	while (end > p->path){
+		end--;
+		if (*end == '/'){
+			*end = 0;
+			p->section = end + 1;
+			break;
 		}
+	}
+
+	/* If the original path was no absolute pathname, make it
+	 * relative to `gnome_user_dir' or `gnome_user_private_dir'.
+	 */
+
+	if ((*p->opath != '=') && (*p->opath != '/')) {
 		if (*p->file == '/')
 			p->file++;
 
