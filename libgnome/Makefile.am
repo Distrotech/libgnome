@@ -44,8 +44,7 @@ CORBA_SOURCE =			\
 
 idls =							\
 	$(top_srcdir)/idl/Gnome.idl			\
-	$(top_srcdir)/idl/Gnome_Desktop.idl		\
-	$(top_srcdir)/idl/Gnome_Selector.idl
+	$(top_srcdir)/idl/Gnome_Desktop.idl
 
 idl_flags = -I $(datadir)/idl -D__GNOME_COMPILATION
 
@@ -55,10 +54,7 @@ $(CORBA_SOURCE): $(idls) $(ORBIT_IDL)
 libgnome_src = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
-	gnome-async-context.c	\
 	gnome-program.c		\
-	gnome-selector.c	\
-	gnome-selector-factory.c\
 	gnome-ditem.c		\
 	gnome-exec.c		\
 	gnome-fileconvert.c	\
@@ -78,7 +74,6 @@ libgnome_2_la_SOURCES = \
 	$(CORBA_SOURCE)
 
 libgnome_headers = \
-	gnome-async-context.h	\
 	gnome-program.h		\
 	gnome-i18n.h		\
 	gnome-fileconvert.h	\
@@ -90,9 +85,6 @@ libgnome_headers = \
 	gnome-util.h   		\
 	gnome-preferences.h	\
 	gnome-marshal.h		\
-	gnome-selector.h	\
-	gnome-selectorP.h	\
-	gnome-selector-factory.h\
 	libgnome-init.h		\
 	libgnome.h
 
@@ -102,7 +94,6 @@ libgnomeinclude_HEADERS = \
 	$(libgnome_headers)
 
 noinst_HEADERS = \
-	gnome-selectorP.h	\
 	gnome-triggersP.h	\
 	libgnomeP.h
 
