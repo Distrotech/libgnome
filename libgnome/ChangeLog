@@ -1,5 +1,8 @@
 1999-10-27  Elliot Lee  <sopwith@redhat.com>
 
+	* gnomelib-init.h: Add attributes for application prefix/libdir/datadir/sysconfdir.
+	* gnome-util.c: Make use of these attributes in gnome_file_locate().
+
 	* gnome-ditem.[ch]: Add save routine, location accessors. Remove run-in-bg flag. Add check-for-changes routine.
 
 1999-10-26  Elliot Lee  <sopwith@redhat.com>

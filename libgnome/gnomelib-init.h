@@ -27,6 +27,10 @@ extern GnomeModuleInfo libgnome_module_info;
 #define LIBGNOME_PARAM_ESPEAKER "S:libgnome/espeaker"
 #define LIBGNOME_PARAM_ENABLE_SOUND "B:libgnome/enable_sound"
 #define LIBGNOME_PARAM_FILE_LOCATOR "P:libgnome/file_locator"
+#define LIBGNOME_PARAM_APP_PREFIX "S:libgnome/app_prefix"
+#define LIBGNOME_PARAM_APP_SYSCONFDIR "S:libgnome/app_sysconfdir"
+#define LIBGNOME_PARAM_APP_DATADIR "S:libgnome/app_datadir"
+#define LIBGNOME_PARAM_APP_LIBDIR "S:libgnome/app_libdir"
 
 typedef char * (*GnomeFileLocatorFunc)(const char *domain, const char *filename, gboolean only_if_exists);
 

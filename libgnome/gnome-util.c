@@ -50,7 +50,7 @@ const char gnome_file_domain_config[]="config";
 char *
 gnome_file_locate (const char *domain, const char *filename, gboolean only_if_exists)
 {
-  char *retval = NULL, *dir = NULL, *prefix_rel = NULL, *envvar;
+  char *retval = NULL, *dir = NULL, *prefix_rel = NULL, *envvar, *attr_name, *attr_rel;
   char fnbuf[PATH_MAX];
 
   g_return_val_if_fail(domain, NULL);
@@ -67,30 +67,40 @@ gnome_file_locate (const char *domain, const char *filename, gboolean only_if_ex
 	break;
       dir = GNOMELIBDIR;
       prefix_rel = "lib";
+      attr_name = LIBGNOME_PARAM_APP_LIBDIR;
+      attr_rel = NULL;
       break;
     case 'd':
       if(strcmp(domain, gnome_file_domain_datadir))
 	break;
       dir = GNOMEDATADIR;
       prefix_rel = "share";
+      attr_name = LIBGNOME_PARAM_APP_DATADIR;
+      attr_rel = NULL;
       break;
     case 's':
       if(strcmp(domain, gnome_file_domain_sound))
 	break;
       dir = GNOMEDATADIR "/sounds";
       prefix_rel = "share/sounds";
+      attr_name = LIBGNOME_PARAM_APP_DATADIR;
+      attr_rel = "sounds";
       break;
     case 'p':
       if(strcmp(domain, gnome_file_domain_pixmap))
 	break;
       dir = GNOMEDATADIR "/pixmaps";
       prefix_rel = "share/pixmaps";
+      attr_name = LIBGNOME_PARAM_APP_DATADIR;
+      attr_rel = "pixmaps";
       break;
     case 'c':
       if(strcmp(domain, gnome_file_domain_config))
 	break;
       dir = GNOMESYSCONFDIR;
-      prefix_rel = "share/config";
+      prefix_rel = "etc";
+      attr_name = LIBGNOME_PARAM_APP_SYSCONFDIR;
+      attr_rel = NULL;
       break;
     }
 
@@ -101,7 +111,6 @@ gnome_file_locate (const char *domain, const char *filename, gboolean only_if_ex
       if (!only_if_exists || g_file_exists (fnbuf))
 	retval = g_strdup(fnbuf);
     }
-
   if (retval)
     goto out;
 
@@ -123,7 +132,6 @@ gnome_file_locate (const char *domain, const char *filename, gboolean only_if_ex
 
       g_strfreev(dirs);
     }
-
   if (retval)
     goto out;
 
@@ -136,6 +144,31 @@ gnome_file_locate (const char *domain, const char *filename, gboolean only_if_ex
       {
 	retval = lfunc(domain, filename, only_if_exists);
       }
+  }
+  if (retval)
+    goto out;
+
+  if (prefix_rel) {
+    char *app_prefix = NULL, *app_dir = NULL;
+
+    gnome_program_attributes_get(gnome_program_get(), attr_name, &app_dir, NULL);
+
+    if(!app_dir)
+      {
+	gnome_program_attributes_get(gnome_program_get(), LIBGNOME_PARAM_APP_PREFIX, &app_prefix, NULL);
+
+	if(!app_prefix)
+	  goto out;
+
+	sprintf(fnbuf, "%s/%s/%s", app_prefix, prefix_rel, filename);
+      }
+    else
+      {
+	sprintf(fnbuf, "%s/%s%s%s", app_dir, attr_rel?attr_rel:"", attr_rel?"/":"", filename);
+      }
+
+    if (!only_if_exists || g_file_exists (fnbuf))
+      retval = g_strdup(fnbuf);
   }
 
  out:
