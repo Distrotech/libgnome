@@ -60,8 +60,6 @@ static const GnomeTriggerTypeFunction actiontypes[] =
   (GnomeTriggerTypeFunction)NULL
 };
 
-static GHashTable *sound_ids = NULL;
-
 /* IMPLEMENTATIONS */
 void
 gnome_triggers_init(void)
@@ -389,6 +387,7 @@ gnome_triggers_play_sound(const char *sndname)
 {
 #ifdef HAVE_ESD
   int sid;
+  static GHashTable *sound_ids = NULL;
 
   if(gnome_sound_connection < 0) return;
 
