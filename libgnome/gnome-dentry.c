@@ -171,7 +171,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 	 * entries, we will later need to make this code smarter.
 	 */
 
-	type      = gnome_config_get_string ("Type");
+	type      = gnome_config_get_string (is_kde ? "Type=Directory" : "Type");
 	gnome_config_get_vector ("Exec", &exec_length, &exec_vector);
 	try_file  = gnome_config_get_string ("TryExec");
 
@@ -210,12 +210,8 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 	if (icon_base && *icon_base) {
 		/* Sigh, now we need to make them local to the gnome install */
 		if (*icon_base != '/') {
-			/* We look for KDE icons in hardcoded /usr/share/icons
-			 * I don't how we can efficiently look in the "right"
-			 * place - maybe a configure time test for KDE location?
-			 */
 			if (newitem->is_kde) {
-				gchar *iconname = g_concat_dir_and_file ("/usr/share/icons/", icon_base);
+				gchar *iconname = g_concat_dir_and_file (KDE_ICONDIR, icon_base);
 				if (g_file_exists (iconname))
 					newitem->icon = iconname;
 				else {

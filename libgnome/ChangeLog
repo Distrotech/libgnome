@@ -1,3 +1,12 @@
+1999-09-01  Jacob Berkman  <jberkman@andrew.cmu.edu>
+
+	* gnome-dentry.c (gnome_desktop_entry_load_flags_conditional): 
+	default type to Directory for KDE dentries.  Unfortunately for
+	directories, they do not specify the Type (at least for KDE 1.1.1)
+	Also, look in the KDE_ICONDIR for KDE icons
+
+	This fixes bug #2015
+
 1999-08-31  Federico Mena Quintero  <federico@redhat.com>
 
 	* gnome-metadata.c: Arrange order of #ifdef tests for db.
