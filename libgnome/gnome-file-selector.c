@@ -416,9 +416,6 @@ static void
 activate_entry_handler (GnomeSelector *selector)
 {
     GnomeFileSelector *fselector;
-    GnomeVFSResult result;
-    GnomeVFSFileInfo *info;
-    GnomeVFSURI *uri;
     gchar *text;
 
     g_return_if_fail (selector != NULL);
@@ -433,36 +430,7 @@ activate_entry_handler (GnomeSelector *selector)
 
     g_message (G_STRLOC ": '%s'", text);
 
-    info = gnome_vfs_file_info_new ();
-    uri = gnome_vfs_uri_new (text);
-
-    result = gnome_vfs_get_file_info_uri (uri, info,
-					  GNOME_VFS_FILE_INFO_DEFAULT);
-    if (result != GNOME_VFS_OK) {
-	g_warning (G_STRLOC ": `%s': %s", text,
-		   gnome_vfs_result_to_string (result));
-	gnome_vfs_file_info_unref (info);
-	gnome_vfs_uri_unref (uri);
-	g_free (text);
-	return;
-    }
-
-    switch (info->type) {
-    case GNOME_VFS_FILE_TYPE_REGULAR:
-	g_message (G_STRLOC ": appending `%s' as file", text);
-	gnome_selector_append_file (selector, text, FALSE);
-	break;
-    case GNOME_VFS_FILE_TYPE_DIRECTORY:
-	gnome_selector_append_directory (selector, text, FALSE);
-	break;
-    default:
-	g_warning (G_STRLOC ": URI `%s' has invalid type %d", text,
-		   info->type);
-	break;
-    }
-    
-    gnome_vfs_file_info_unref (info);
-    gnome_vfs_uri_unref (uri);
+    gnome_selector_add_file (selector, text, 0, FALSE);
 
     g_free (text);
 }
@@ -537,7 +505,11 @@ check_filename_handler (GnomeSelector *selector, const gchar *filename)
 	return FALSE;
     }
 
-    retval = info->type == GNOME_VFS_FILE_TYPE_REGULAR;
+    if (fselector->_priv->filter)
+	retval = gnome_vfs_directory_filter_apply (fselector->_priv->filter,
+						   info);
+    else
+	retval = info->type == GNOME_VFS_FILE_TYPE_REGULAR;
 
     gnome_vfs_file_info_unref (info);
     gnome_vfs_uri_unref (uri);
