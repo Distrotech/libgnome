@@ -505,11 +505,14 @@ gnome_config_clean_file (const char *path)
 {
 	TProfile *p;
 	ParsedPath *pp;
+	char *fake_path;
 	
 	if (!path)
 		return;
 
-	pp = parse_path (path);
+	fake_path = g_copy_strings (path, "/section/key", NULL);
+	pp = parse_path (fake_path);
+	g_free (fake_path);
 	
 	for (p = Base; p; p = p->link){
 		if (strcmp (pp->file, p->filename) != 0)
@@ -530,8 +533,11 @@ gnome_config_init_iterator (const char *path)
 	TProfile   *New;
 	TSecHeader *section;
 	ParsedPath *pp;
+	char *fake_path;
 
-	pp = parse_path (path);
+	fake_path = g_copy_strings (path, "/key", NULL);
+	pp = parse_path (fake_path);
+	g_free (fake_path);
 	
 	if (!is_loaded (pp->file, &section)){
 		New = (TProfile *) g_malloc (sizeof (TProfile));
@@ -566,12 +572,14 @@ gnome_config_iterator_next (void *s, char **key, char **value)
 
 void 
 gnome_config_clean_section (const char *path)
-	/* *section_name, char *file */
 {
 	TSecHeader *section;
 	ParsedPath *pp;
+	char *fake_path;
 
-	pp = parse_path (path);
+	fake_path = g_copy_strings (path, "/key", NULL);
+	pp = parse_path (fake_path);
+	g_free (fake_path);
 	
 	/* We assume the user has called one of the other initialization funcs */
 	if (!is_loaded (pp->file, &section)){
@@ -624,8 +632,12 @@ gnome_config_has_section (const char *path)
 {
 	TSecHeader *section;
 	ParsedPath *pp;
+	char *fake_path;
 
-	pp = parse_path (path);
+	fake_path = g_copy_strings (path, "/key", NULL);
+	pp = parse_path (fake_path);
+	g_free (fake_path);
+	
 	/* We assume the user has called one of the other initialization funcs */
 	if (!is_loaded (pp->file, &section)){
 		release_path (pp);
@@ -768,6 +780,8 @@ gnome_config_pop_prefix (void)
 }
 
 #ifdef TEST
+
+static
 x (char *str, char *file, char *sec, char *key, char *val)
 {
 	ParsedPath *pp;
@@ -779,6 +793,7 @@ x (char *str, char *file, char *sec, char *key, char *val)
 	printf ("   key:  %s [%s]\n", pp->key, key);
 	printf ("   def:  %s [%s]\n", pp->def, val);
 }
+
 
 main ()
 {
