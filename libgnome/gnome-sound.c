@@ -461,8 +461,7 @@ void
 gnome_sound_init(const char *hostname)
 {
 #ifdef HAVE_ESD
-  if(gnome_sound_connection < 0
-     && gnome_config_get_bool("/sound/system/settings/start_esd=true"))
+  if(gnome_sound_connection < 0)
     gnome_sound_connection = esd_open_sound((char *)hostname);
 #endif
 }

@@ -83,7 +83,7 @@ gnomelib_option_cb(poptContext ctx, enum poptCallbackReason reason,
 	
 	switch(reason) {
 	case POPT_CALLBACK_REASON_POST:
-		real_enable_sound = disable_sound ?FALSE :enable_sound ? TRUE : gnome_config_get_bool ("/sound/system/settings/start_esd=true");
+		real_enable_sound = disable_sound ? FALSE : TRUE;
 		
 		if (real_enable_sound){
 			if (esound_host)
