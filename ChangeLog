@@ -1,3 +1,11 @@
+2001-04-13  Martin Baulig  <baulig@suse.de>
+
+	NOTE: You must update your gnome-common to make this work !
+	
+	* configure.in: Optionally depend on libbonobo and define
+	`HAVE_LIBBONOBO' automake conditional.
+	(LIBGNOME_EXTRA_DEPS): New AC_SUBST'ed variable for our .pc file.
+
 2001-04-12  Martin Baulig  <baulig@suse.de>
 
 	* configure.in (--disable-deprecated): Put back this command
