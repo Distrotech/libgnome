@@ -1,5 +1,10 @@
 #!/usr/bin/perl -w
 
+# This script snarfs the enums from header files and writes them out into
+# a .defs file (gnome.defs, for example). From there, the sister script
+# maketypes.awk converts the defs into a *typebuiltins.h, as well as
+# *typebuiltins_vals.c, *typebuiltins_ids.c and *typebuiltins_evals.c.
+
 # Information about the current enumeration
 
 my $flags;			# Is enumeration a bitmask
