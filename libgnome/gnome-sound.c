@@ -307,7 +307,6 @@ gnome_sound_sample_load_audiofile(const char *file)
   in_channels = afGetChannels(in_file, AF_DEFAULT_TRACK);
   in_rate = afGetRate (in_file, AF_DEFAULT_TRACK);
   afGetSampleFormat (in_file, AF_DEFAULT_TRACK, &in_format, &in_width);
-  afSetVirtualByteOrder (in_file, AF_DEFAULT_TRACK, AF_BYTEORDER_LITTLEENDIAN);
   if (in_width == 8)
     out_bits = ESD_BITS8;
   else if (in_width == 16)
