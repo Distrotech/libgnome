@@ -49,7 +49,8 @@ bonobo_file_extender_resolve (BonoboMonikerExtender *extender,
 		mime_type, requested_interface);
 		
 	result = oaf_query (oaf_requirements, NULL, ev);
-	if (BONOBO_EX (ev) || result == NULL || !result->_buffer[0].iid)
+	if (BONOBO_EX (ev) || result == NULL || result->_buffer == NULL ||
+	    !result->_buffer[0].iid)
 		return CORBA_OBJECT_NIL;
 
 	g_free (oaf_requirements);
