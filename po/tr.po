@@ -1,15 +1,16 @@
 # Turkish translation of libgnome2.
-# Copyright (C) 2001 Free Software Foundation, Inc.
+# Copyright (C) 2001-2003 Free Software Foundation, Inc.
 # Ozgur Dogan GUNES <ozgurdogan@programmer.net>
 # Ömer Fadıl USTA <omer_fad@hotmail.com>, 1999
 # Görkem Çetin <gorkem@gelecek.com.tr>, 2002
+# Arman Akssoy <armish@linux-sevenler.de>, 2003
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-01-23 12:10+0100\n"
-"PO-Revision-Date: 2003-01-22 04:04+0200\n"
-"Last-Translator: Barbaros Ulutaş <tebarul@yahoo.com>\n"
+"POT-Creation-Date: 2003-02-07 05:01+0100\n"
+"PO-Revision-Date: 2003-02-07 14:43+0200\n"
+"Last-Translator: Arman Aksoy (Armish) <armish@linux-sevenler.de>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +54,7 @@ msgstr "Düğme tıklama eylemi"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Check box toggled"
-msgstr ""
+msgstr "Seçim kutusu işaretli"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Menu item activation"
@@ -73,11 +74,11 @@ msgstr "GNOME GConf Desteği"
 
 #: libgnome/gnome-help.c:159
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr " GNOME_FILE_DOMAIN_APP_HELP etki alanı bulunamadı."
+msgstr " GNOME_FILE_DOMAIN_APP_HELP alan adı bulunamadı."
 
 #: libgnome/gnome-help.c:172
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "GNOME_FILE_DOMAIN_HELP  etki alanı bulunamadı."
+msgstr "GNOME_FILE_DOMAIN_HELP alan adı bulunamadı."
 
 #: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
 #, c-format
@@ -153,7 +154,7 @@ msgstr "Sunucu:Ses Sunucusunun kullandığı kapı(port)"
 
 #: libgnome/gnome-init.c:399
 msgid "HOSTNAME:PORT"
-msgstr "SUNUCU_ADI:KAPI(port)"
+msgstr "SUNUCU_ADI:PORT"
 
 #: libgnome/gnome-init.c:417
 msgid "GNOME Virtual Filesystem"
@@ -169,15 +170,15 @@ msgstr "Popt Tablosu"
 
 #: libgnome/gnome-program.c:427
 msgid "The table of options for popt"
-msgstr "Popt için seçenekler tablosu."
+msgstr "Popt için seçenekler tablosu"
 
 #: libgnome/gnome-program.c:434
 msgid "Popt Flags"
-msgstr "Popt Bayrakları"
+msgstr "Popt İşaretleri"
 
 #: libgnome/gnome-program.c:435
 msgid "The flags to use for popt"
-msgstr "Popt için kullanılan bayraklar"
+msgstr "Popt için kullanılan işaretler"
 
 #: libgnome/gnome-program.c:443
 msgid "Popt Context"
@@ -201,16 +202,15 @@ msgstr "GNOME yol"
 
 #: libgnome/gnome-program.c:463
 msgid "Path in which to look for installed files"
-msgstr "Yüklenen dosyalara bakılacak yol(patika)"
+msgstr "Yüklenen dosyalara bakılacak konum"
 
 #: libgnome/gnome-program.c:472
 msgid "App ID"
 msgstr "Uygulama No"
 
 #: libgnome/gnome-program.c:473
-#, fuzzy
 msgid "ID string to use for this application"
-msgstr "Bu programın sürümü"
+msgstr "Bu uygulama için kullanılacak ID değeri"
 
 #: libgnome/gnome-program.c:480
 msgid "App version"
@@ -354,8 +354,7 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "İki tuşa birden basıldığında etkisiz hale getir."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr "Bir tuşa @gecikmeli milisaniye olarak basılmadıkça kabul etme"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
@@ -363,8 +362,7 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "0'dan en yüksek hıza ulaşmak için kaç milisaniye gerektiği"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Fare hareket tuşlarının harekete başlamasından önce kaç milisaniye beklemek "
 "gerektiği"
@@ -375,8 +373,7 @@ msgstr "En yüksek hızda hareket ederken kaç piksel/saniye"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr ""
-"@gecikmeli milisaniye içerisinde _aynı_ tuşa birden fazla basmayı gözardı et"
+msgstr "@gecikmeli milisaniye içerisinde _aynı_ tuşa birden fazla basmayı gözardı et"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -401,23 +398,23 @@ msgstr "Gözatıcı uçbirime ihtiyaç duyuyor"
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:2
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
-msgstr ""
+msgstr "Tarayıcı uzaktaki sistemi anlar"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:3
 msgid "Default browser"
-msgstr "Öntanımlı gözatıcı"
+msgstr "Öntanımlı tarayıcı"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:4
 msgid "Default browser for all URLs"
-msgstr "Tüm URL'ler için öntanımlı gözatıcı"
+msgstr "Tüm URL'ler için öntanımlı tarayıcı"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr "Geçerli gözatıcı çalışmak için uçbirime ihtiyaç duyuyor"
+msgstr "Öntanımlı tarayıcı çalışmak için bir uçbirime ihtiyaç duysun"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
-msgstr ""
+msgstr "Öntanımlı tarayıcı netscape sistemini anlasın"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
@@ -429,22 +426,21 @@ msgstr "Yardım görüntüleyicisi uçbirime ihtiyaç duyuyor"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
-msgstr ""
+msgstr "Öntanımlı yardım görüntüleyicisi URLleri kabul etsin"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
-msgstr ""
+msgstr "Öntanımlı yardım görüntüleyicisi çalışmak için bir uçbirime ihtiyaç duysun"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Programları uçbirimde çalıştırmak için kullanılan, 'çalıştır' tuşuyla "
 "belirlenmiş bağımsız değişken."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
-msgstr ""
+msgstr "Çalıştırma Argümanları"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
 msgid "Terminal application"
@@ -452,12 +448,11 @@ msgstr "Uçbirim uygulaması"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr ""
-"Bunu gerektiren uygulamalar başlatılırken kullanılacak uçbirim programı"
+msgstr "Bunu gerektiren uygulamalar başlatılırken kullanılacak uçbirim programı"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr ""
+msgstr "Kullanılan pencere yöneticisinin çalışma alan adlarıyla bir liste"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
@@ -465,8 +460,7 @@ msgstr "Pencere yöneticisine geri dön"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr ""
-"Eğer kullanıcı pencere yöneticisi bulunamazsa pencere yöneticisine geri dön"
+msgstr "Eğer kullanıcı pencere yöneticisi bulunamazsa pencere yöneticisine geri dön"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -497,10 +491,12 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
+"Arkaplan dosyasının nasıl sunulacağını belirtir. Kullanılabilir değerler, "
+"\"hiçbiri\", \"arkaplan\", \"odaklanmış\", \"döşeli\", \"uzatılmış\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
-msgstr ""
+msgstr "Masaüstü Arkaplanını Çiz"
 
 #: schemas/desktop_gnome_background.schemas.in.h:4
 msgid "File to use for the background image"
@@ -508,7 +504,7 @@ msgstr "Arkaplan görüntüsü için kullanılacak dosya"
 
 #: schemas/desktop_gnome_background.schemas.in.h:5
 msgid "Have GNOME draw the desktop background"
-msgstr ""
+msgstr "GNOME masaüstü arkaplanını çizdi mi"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
 msgid ""
@@ -520,11 +516,11 @@ msgstr ""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr ""
+msgstr "Katı renkleri veya geçişleri çizerken kullanılacak Sol veya Üstteki renk"
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
-msgstr ""
+msgstr "Arkaplan resmi donukluğu"
 
 #: schemas/desktop_gnome_background.schemas.in.h:9
 msgid "Picture Filename"
@@ -544,7 +540,7 @@ msgstr "Birincil Renk"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr ""
+msgstr "Katı renkleri veya geçişleri çizerken kullanılacak Sağ veya Alttaki renk"
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -560,11 +556,11 @@ msgstr "Dosya simgelerini görüntülemekte kullanılan tema"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr ""
+msgstr "Gtk+ tarafından kullanılan öntanımlı temanın ana adı"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
-msgstr ""
+msgstr "Hızlar değiştirilebilir"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
@@ -572,7 +568,7 @@ msgstr "İmlecin yanıp sönmesi"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:4
 msgid "Cursor Blink Time"
-msgstr ""
+msgstr "İmleci Yanıp Sönme Süresi"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:5
 msgid "Default font"
@@ -588,15 +584,15 @@ msgstr "Animasyonları etkinleştir"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
-msgstr ""
+msgstr "GTK IM Öndüzenli Stili"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Status Style"
-msgstr ""
+msgstr "GTK IM Durum Stili"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:10
 msgid "Gtk+ Theme"
-msgstr ""
+msgstr "Gtk+ Teması"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:11
 msgid "Icon Theme"
@@ -608,31 +604,31 @@ msgstr "Panel, nautilus vs. kullanmak için simge teması"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Length of the cursor blink cycle, in milleseconds"
-msgstr ""
+msgstr "İmlecin yanıp sönme sırasındaki geçiş süresi, milisaniye olarak"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Menubar Detachable"
-msgstr ""
+msgstr "Menü Çubukları Ayrılabilir"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:15
 msgid "Menus Have Icons"
-msgstr ""
+msgstr "Menülerde Simgeler Bulunsun"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menus Have Tearoff"
-msgstr ""
+msgstr "Menülerde Ayıraç Bulunsun"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
+msgstr "Gtk+ tarafından kullanılan Öndüzenli Stilin GTK+ girdi metodu adı"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
+msgstr "Gtk+ tarafından kullanılan Durum Stilin GTK+ girdi metodu adı"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the default font used by gtk+."
-msgstr "İml"
+msgstr "Gtk+ tarafından öntanımlı olarak kullanılan yazı tipinin adı"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Status Bar on Right"
@@ -656,7 +652,7 @@ msgstr "Araç Çubuğu Stili"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
-msgstr ""
+msgstr "Araç çubuğu Stili: Kullanılabilir değerşer ikiside, yanyana, simge ve metin"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
@@ -664,47 +660,49 @@ msgstr "Özel Yazıtipi Kullan"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Whether Applications should have accessibility support"
-msgstr ""
+msgstr "Uygulamalarda erişebilirlik desteği olsun"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
+"Canlandırmalar gösterilsin. Not: Bu genel bir ayardır ve pencere yöneticisi, "
+"panelin davranışını da değiştirir."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "Menülerde girdilerin yanında simgeler de gösterilsin."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Whether menus should have a tearoff"
-msgstr ""
+msgstr "Menülerde ayıraçlar olsun"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr ""
+msgstr "Bir menü açıldığında kullanıcı dinamiksel olarak yeni bir belirtici girebilsin"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
-msgstr ""
+msgstr "İmleç yanıp sönsün"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach menubars and move them around"
-msgstr ""
+msgstr "Kullanıcı menüleri ayırıp ekranda taşıyabilsin"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach toolbars and move them around"
-msgstr ""
+msgstr "Kullanıcı araç çubukarını ayırabilsin ve ekranda taşıyabilsin."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
-msgstr ""
+msgstr "Sağda bir durum çubuğu ölçücü gösterilsin"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr ""
+msgstr "Gtk+ uygulamalarında özel yazı tipi kullanılsın."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -712,31 +710,31 @@ msgstr "Çalınacak zil sesinin dosya adı"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr ""
+msgstr "Klavye Zili Özel Dosya adı"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are on, off, and custom."
-msgstr ""
+msgstr "kullanılabilecek değerler açık, kapalı ve özel"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
+"Fare hareketleri için hızlanma değeri. Eğer değer -1 ise sistem öntanımlı değeri "
+"kullanılır."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
 msgstr "İmleç yazıtipi"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
-#, fuzzy
 msgid "Cursor size"
-msgstr "İmlecin yanıp sönmesi"
+msgstr "İmleç Boyutu"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
-#, fuzzy
 msgid "Cursor theme"
-msgstr "İmleç yazıtipi"
+msgstr "İmleç teması"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
@@ -745,6 +743,10 @@ msgid ""
 "of each session, so changing it mid-session won't have an effect until the "
 "next time you log in."
 msgstr ""
+"İmleç temasının adı. XFree86 4.3 ve sonrasındaki Xcursor desteği olan "
+"X sunucuları içindir. Bu değer sadece X oturumu açıldığında kullanılır "
+"bu yüzden bu ayarın aktif olmasıiçin X sunucuyu yeniden başlatmanız "
+"gerekir."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -755,6 +757,8 @@ msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
+"Fare hareketi başlamadan önce imlecin taşınması gereken piksel değerinde "
+"uzaklık. Eğer bu değer -1 ise sistem öntanımlı değeri kullanılır."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -762,7 +766,7 @@ msgstr "Çift tıklatmasüresi"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
-msgstr ""
+msgstr "Taşıma Başlangıcı"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
@@ -770,24 +774,27 @@ msgid ""
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
+"İmlecin yazı tipi. Eğer \"atama\" seçilmişse öntanımlı yazı tipi kullanılır. "
+"Bu değer sadece X oturumu açıldığında kullanılır bu yüzden bu ayarın "
+"aktif olmasıiçin X sunucuyu yeniden başlatmanız gerekir."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
-msgstr ""
+msgstr "Kontrol tuşuna basıldığında imlecin bulunduğu noktayı gösterir"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
-msgstr ""
+msgstr "Çift tıklama süresi"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
-msgstr ""
+msgstr "İmleci Bul"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
-msgstr ""
+msgstr "Hareket Başlangıcı"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
@@ -807,15 +814,17 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
+"İmleç teması tarafından sağlanan imleç boyutu. Bu değer sadece X oturumu "
+"açıldığında kullanılır bu yüzden bu ayarın aktif olmasıiçin X sunucuyu "
+"yeniden başlatmanız gerekir."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr ""
+msgstr "Solaklar için sağ ve sol tuşların yerini değiştir"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:1
-#, fuzzy
 msgid "Enable ESD"
-msgstr "Sesi Etkinleştir"
+msgstr "ESD'yi Aç"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:2
 msgid "Enable sound server startup."
@@ -831,47 +840,47 @@ msgstr "Kullanıcı olaylarında ses çalınır."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "Default URL show handler"
-msgstr ""
+msgstr "Öntanımlı URL işleyiciyi gösterir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "How to handle applications URLs"
-msgstr ""
+msgstr "Uygulama URL'leri nasıl kullanılır"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid "How to handle ghelp URLs"
-msgstr ""
+msgstr "Ghelp URL'leri nasıl kullanılır"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle info URLs"
-msgstr ""
+msgstr "İnfo URL'leri nasıl kullanılır"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "How to handle man URLs"
-msgstr ""
+msgstr "Man URL'leri nasıl kullanılır"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:6
 msgid "How to handle preferences URLs"
-msgstr ""
+msgstr "Tercihler URL'leri nasıl kullanılır"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:7
 msgid "How to handle server-settings URLs"
-msgstr ""
+msgstr "Sunucu ayarları URL'leri nasıl kullanılır"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
 msgid "How to handle start-here URLs"
-msgstr ""
+msgstr "Başlangıç URL'leri nasıl kullanılır"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid "How to handle system-settings URLs"
-msgstr ""
+msgstr "Sistem ayarları URL'leri nasıl kullanılır"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
-msgstr ""
+msgstr "Çöp URL'leri nasıl kullanılır"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:11
 msgid "How to handle unknown URLs"
-msgstr ""
+msgstr "Bilinmeyen URL'ler nasıl kullanılır"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:12
 msgid "Run program in terminal"
@@ -882,92 +891,112 @@ msgid ""
 "Set to true to have a program specified in applications/command handle "
 "applications URLs"
 msgstr ""
+"Uygulamalar/komut içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid ""
 "Set to true to have a program specified in preferences/command handle "
 "preferences URLs"
 msgstr ""
+"Tercihler/komut içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgid "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
+"Uygulamalar/ghelp içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
+msgid "Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
+"Uygulamalar/bilgi içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:17
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr ""
+"Uygulamalar/man içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid ""
 "Set to true to have a program specified in programs/unknown handle unknown "
 "URLs"
 msgstr ""
+"Uygulamalar/bilinmeyen içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:19
 msgid ""
 "Set to true to have a program specified in server-settings/command handle "
 "server-settings URLs"
 msgstr ""
+"Sunucu-ayaları/komut içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid ""
 "Set to true to have a program specified in start-here/command handle start-"
 "here URLs"
 msgstr ""
+"Başlangıç/komut içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:21
 msgid ""
 "Set to true to have a program specified in system-settings/command handle "
 "system-settings URLs"
 msgstr ""
+"Sistem-ayarları/komut içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:22
-msgid ""
-"Set to true to have a program specified in trash/command handle trash URLs"
+msgid "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
+"Çöp/komut içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:23
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
+"Eğer URL'i kullanacak programın uçbirimde çalışmasını istiyorsanız bu "
+"değere doğru atayın"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:24
 msgid "URL handler for applications pages"
-msgstr ""
+msgstr "Uygulama sayfaları için URL algılayıcısı"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:25
 msgid "URL handler for ghelp pages"
-msgstr ""
+msgstr "Ghelp sayfaları için URL algılayıcısı"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:26
 msgid "URL handler for info pages"
-msgstr ""
+msgstr "Bilgi sayfaları için URL algılayıcısı"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:27
 msgid "URL handler for man pages"
-msgstr ""
+msgstr "Man sayfaları için URL algılayıcısı"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:28
 msgid "URL handler for preferences pages"
-msgstr ""
+msgstr "Tercihler sayfaları için URL algılayıcısı"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:29
 msgid "URL handler for server-settings pages"
-msgstr ""
+msgstr "Sunucu-ayarları sayfaları için URL algılayıcısı"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:30
 msgid "URL handler for start-here pages"
-msgstr ""
+msgstr "Başlangıç sayfaları için URL algılayıcısı"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:31
 msgid "URL handler for system-settings pages"
-msgstr ""
+msgstr "Sistem-ayarlarısayfaları için URL algılayıcısı"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:32
 msgid "URL handler for trash pages"
-msgstr ""
+msgstr "Çöp sayfaları için URL algılayıcısı"
+
