@@ -10,6 +10,7 @@
 #ifdef HAVE_ERRNO_H
 # include <errno.h>
 #endif
+#include <string.h>
 #include "glib.h"
 #include "gnome-defs.h"
 #include "gnome-util.h"
