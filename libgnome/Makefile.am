@@ -17,8 +17,8 @@ LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 libgnomeincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/libgnome
 
-INCLUDES = -I.. -I$(srcdir)/.. $(SUPPORTINCS) \
-	-I$(top_srcdir)/intl -I$(top_builddir)/intl \
+INCLUDES = -I.. -I$(srcdir)/.. \
+	$(SUPPORTINCS) \
 	-I$(includedir) $(GLIB_CFLAGS) $(GDK_IMLIB_CFLAGS)  \
 	-DGNOMELIBDIR=\""$(libdir)"\" \
 	-DGNOMEDATADIR=\""$(datadir)"\" \
