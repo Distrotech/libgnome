@@ -79,13 +79,17 @@ gnome_util_user_shell (void)
 	    getegid () == getgid ()) {
 		/* only in non-setuid */
 		if ((shell = g_getenv ("SHELL"))){
-			return g_strdup (shell);
+			if (access (shell, X_OK) == 0) {
+				return g_strdup (shell);
+			}
 		}
 	}
 	pw = getpwuid(getuid());
 	if (pw && pw->pw_shell) {
-		return g_strdup (pw->pw_shell);
-	} 
+		if (access (pw->pw_shell, X_OK) == 0) {
+			return g_strdup (pw->pw_shell);
+		}
+	}
 
 	for (i = 0; shells [i]; i++) {
 		if (access (shells [i], X_OK) == 0) {

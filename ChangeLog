@@ -1,5 +1,11 @@
 2003-06-24  Anders Carlsson  <andersca@codefactory.se>
 
+	* libgnome/gnome-util.c: (gnome_util_user_shell):
+	Check that the shells exist and that they are executable.
+	(#91925, Giovanni Pardini).
+
+2003-06-24  Anders Carlsson  <andersca@codefactory.se>
+
 	* help-converters/man/gnome-man2html.c: Use glib versions of
 	string functions. (Fixes #81355, Morten Welinder.)
 
