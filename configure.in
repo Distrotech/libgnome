@@ -53,6 +53,10 @@ AM_CONFIG_HEADER(config.h)
 
 AM_MAINTAINER_MODE
 
+dnl make aclocal calls respect $ACLOCAL_FLAGS
+ACLOCAL_AMFLAGS="\${ACLOCAL_FLAGS}"
+AC_SUBST(ACLOCAL_AMFLAGS)
+
 dnl
 dnl Due to the sed scripts being split on 90 line
 dnl blocks, this macro needs to be right at the beginning.

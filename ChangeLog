@@ -1,5 +1,8 @@
 2004-05-13  James Henstridge  <james@daa.com.au>
 
+	* Makefile.am (ACLOCAL_AMFLAGS): set so that aclocal gets called
+	with contents of $ACLOCAL_FLAGS environment variable.
+
 	* acconfig.h: remove file. All used AC_DEFINE()'s have help
 	strings.
 
