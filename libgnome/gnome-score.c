@@ -210,7 +210,7 @@ drop_perms (void)
 					 * incantation will also drop the
 					 * saved gid */
    /* see if we can set it back -- if we can, saved id wasnt dropped */
-   if (!setgid (gid))
+   if (gid != getgid() && !setgid (gid))
      {
 	if (getuid())
 	  g_warning ("losing saved gid implementation detected, "
