@@ -1,3 +1,9 @@
+2002-08-21  Anju P S  <anju.premachandran@wipro.com>
+ 
+ 	* libgnome/gnome-exec.c (gnome_execute_async_with_env_fds) :
+ 	Added code to check the return value of the chdir() call.If chdir
+ 	call fails the child process may be executed in the wrong directoy.
+ 
 2002-08-15  Mikael Hallendal  <micke@codefactory.se>
 
 	* help-converters/man/gnome-man2html.c:
