@@ -1,42 +1,37 @@
-# Translation into the walloon language.
-#
-# Si vos voloz donner on c�p di spale pol ratournaedje di Gnome (ou des
-# �tes libes programes) sicrijhoz-mu a l' adresse emile
-# <srtxg@chanae.alphanet.ch>; nos avans co br�mint di l' ovraedje a f�.
-#
-# Copyright (C) 2001 Free Software Foundation, Inc.
-# Pablo Saratxaga <srtxg@chanae.alphanet.ch> 2001
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# pclouds <pclouds@gmx.net>, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome2 1.104.0\n"
+"Project-Id-Version: libgnome VERSION\n"
 "POT-Creation-Date: 2002-05-04 14:28+0200\n"
-"PO-Revision-Date: 2002-05-04 14:41MET\n"
-"Last-Translator: Pablo Saratxaga <pablo@mandrakesoft.com>\n"
-"Language-Team: Walon <linux-wa@chanae.alphanet.ch>\n"
+"PO-Revision-Date: 2002-05-03 17:39-0400\n"
+"Last-Translator: pclouds <pclouds@gmx.net>\n"
+"Language-Team: GnomeVI <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: libgnome/gnome-exec.c:438
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
-"Dji n'�a savou trover li termin�; �xterm� sr�-st eploy�, mins �oula poreut "
-"n'�n�n aler."
+"Không thể tìm thấy terminal. Sẽ dùng xterm, bất kể nó có làm việc hay không"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
 msgid "Bonobo Support"
-msgstr "Sopoirt bonobo"
+msgstr "Hỗ trợ Bonobo"
 
 #: libgnome/gnome-init.c:142
 msgid "Bonobo activation Support"
-msgstr "Sopoirt pol activaedje bonobo"
+msgstr "Hỗ trợ Bonobo activation"
 
 #: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Dji n' a savu f� li ridant d' apontiaedje par uzeu di gnome �%s�: %s\n"
+msgstr "Không thể tạo thư mục cấu hình GNOME của người dùng `%s': %s\n"
 
 #: libgnome/gnome-init.c:298
 #, c-format
@@ -44,53 +39,53 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Dji n' a savu mete li m�de a 0700 pol ridant d' apontiaedje par uzeu di "
-"gnome �%s�: %s\n"
+"Không thể thiết lập quyền 0700 cho thư mục cấu hình GNOME của người dùng `%"
+"s': %s\n"
 
 #: libgnome/gnome-init.c:305
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Dji n' a savu f� li ridant des accelerateus di gnome �%s�: %s\n"
+msgstr "Không thể tạo thư mục GNOME accelerator `%s': %s\n"
 
 #: libgnome/gnome-init.c:361
 msgid "Disable sound server usage"
-msgstr "Essocter li sierveu di sons"
+msgstr "Tắt server âm thanh"
 
 #: libgnome/gnome-init.c:364
 msgid "Enable sound server usage"
-msgstr "Mete en ouve li sierveu di sons"
+msgstr "Mở server âm thanh"
 
 #: libgnome/gnome-init.c:367
 msgid "Host:port on which the sound server to use is running"
-msgstr "Lodjeu: p�rt do sierveu di sons"
+msgstr "Host:port mà server âm thanh định dùng đã bị sử dụng"
 
 #: libgnome/gnome-init.c:369
 msgid "HOSTNAME:PORT"
-msgstr "LODJEU:P�RT"
+msgstr "HOSTNAME:PORT"
 
 #: libgnome/gnome-init.c:387
 msgid "GNOME Virtual Filesystem"
-msgstr "Forveyou sistinme di fitch�s di GNOME"
+msgstr "Hệ thống tập tin ảo GNOME"
 
 #: libgnome/gnome-init.c:408
 msgid "GNOME Library"
-msgstr "Livreye di GNOME"
+msgstr "GNOME Library"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
-msgstr "Sopoirt di Gnome GConf"
+msgstr "Hỗ trợ GNOME GConf"
 
 #: libgnome/gnome-help.c:148
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr "Dji n'�a savou trover li dominne GNOME_FILE_DOMAIN_APP_HELP"
+msgstr "Không thể tìm thấy vùng GNOME_FILE_DOMAIN_APP_HELP"
 
 #: libgnome/gnome-help.c:162
 msgid ""
 "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
 "libs was compiled incorrectly."
 msgstr ""
-"Dji n'�a savou trover li dominne GNOME_FILE_DOMAIN_HELP.  "
-"�oula vout dire ki gnome-libs n'�a n�n st� copil� comuf�t."
+"Không thể tìm thấy vùng GNOME_FILE_DOMAIN_HELP. Có lẽ gnomelibs được biên "
+"dịch sai."
 
 #: libgnome/gnome-help.c:173
 #, c-format
@@ -98,185 +93,183 @@ msgid ""
 "Unable to show help as file %s is not a directory.  This implies an "
 "incorrect installation."
 msgstr ""
-"Dji n'�sai mostrer l'�aidance, ca l'�fitch� %s n'�est n�n on ridant.  "
-"�oula vout dire ki l'�astalaedje n'�a n�n st� fwait comuf�t."
+"Không thể xem trợ giúp vì %s không phải là thư mục. Có lẽ quá trình cài đặt "
+"sai."
 
 #: libgnome/gnome-help.c:197
 #, c-format
 msgid "Help document %s for %s not found"
-msgstr "Li documint d'�aidance %s po %s n' a n�n st� trov�."
+msgstr "Không tìm thấy tài liệu trợ giúp %s cho %s."
 
 #: libgnome/gnome-help.c:268
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr "Dji n'�sai trover li doc_id %s el tchimin di l'�aidance"
+msgstr "Không tìm thấy doc_id %s trong đường dẫn help"
 
 #: libgnome/gnome-help.c:289
 #, c-format
 msgid "Help document %s/%s not found"
-msgstr "Li documint d'�aidance %s/%s n' a n�n st� trov�."
+msgstr "Không tìm thấy tài liệu trợ giúp %s/%s"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
-"P�r trop di liveas d'�alias po ene loc�le; �oula pout esse c�ze d'�on "
-"betchfess� loy�n"
+msgstr "Có quá nhiều mức bí danh cho một locale, có thể tạo ra vòng lặp"
 
 #: libgnome/gnome-program.c:426
 msgid "Popt Table"
-msgstr ""
+msgstr "Bảng Popt"
 
 #: libgnome/gnome-program.c:427
 msgid "The table of options for popt"
-msgstr ""
+msgstr "Bảng tùy chọn của popt"
 
 #: libgnome/gnome-program.c:434
 msgid "Popt Flags"
-msgstr ""
+msgstr "Cờ hiệu Popt"
 
 #: libgnome/gnome-program.c:435
 msgid "The flags to use for popt"
-msgstr "Les drapeas a-z eploy� po popt"
+msgstr "Cờ hiệu được dùng cho popt"
 
 #: libgnome/gnome-program.c:443
 msgid "Popt Context"
-msgstr ""
+msgstr "Ngữ cảnh Popt"
 
 #: libgnome/gnome-program.c:444
 msgid "The popt context pointer that GnomeProgram is using"
-msgstr ""
+msgstr "Con trỏ ngữ cảnh popt mà chương trình Gnome đang dùng"
 
 #: libgnome/gnome-program.c:452
 msgid "Human readable name"
-msgstr "No lejh�ve p�z�s djins"
+msgstr "Tên"
 
 #: libgnome/gnome-program.c:453
 msgid "Human readable name of this application"
-msgstr "On no lejh�ve p�z�s djins po ci programe chal"
+msgstr "Tên ứng dụng"
 
 #: libgnome/gnome-program.c:462
 msgid "GNOME path"
-msgstr "Tchimin di GNOME"
+msgstr "Đường dẫn GNOME"
 
 #: libgnome/gnome-program.c:463
 msgid "Path in which to look for installed files"
-msgstr "Li tchimin k'�on louke apr�s les astal�s programes"
+msgstr "Đường dẫn để tìm các tập tin được cài đặt"
 
 #: libgnome/gnome-program.c:472
 msgid "App ID"
-msgstr "ID do programe"
+msgstr "App ID"
 
 #: libgnome/gnome-program.c:473
 msgid "ID string to use for this application"
-msgstr "Tchinne d'�ID a-z eploy� po ci programe chal"
+msgstr "Mã ID của ứng dụng"
 
 #: libgnome/gnome-program.c:480
 msgid "App version"
-msgstr "Mod�ye do programe"
+msgstr "Phiên bản"
 
 #: libgnome/gnome-program.c:481
 msgid "Version of this application"
-msgstr "Li mod�ye di ci programe chal"
+msgstr "Phiên bản của ứng dụng"
 
 #: libgnome/gnome-program.c:488
 msgid "GNOME Prefix"
-msgstr ""
+msgstr "Thư mục gốc"
 
 #: libgnome/gnome-program.c:489
 msgid "Prefix where GNOME was installed"
-msgstr ""
+msgstr "Thư mục gốc mà GNOME được cài đặt"
 
 #: libgnome/gnome-program.c:498
 msgid "GNOME Libdir"
-msgstr ""
+msgstr "GNOME Libdir"
 
 #: libgnome/gnome-program.c:499
 msgid "Library prefix where GNOME was installed"
-msgstr ""
+msgstr "Thư mục lib, nơi cài GNOME"
 
 #: libgnome/gnome-program.c:508
 msgid "GNOME Datadir"
-msgstr ""
+msgstr "GNOME Datadir"
 
 #: libgnome/gnome-program.c:509
 msgid "Data prefix where GNOME was installed"
-msgstr ""
+msgstr "Thư mục data, nơi cài GNOME"
 
 #: libgnome/gnome-program.c:518
 msgid "GNOME Sysconfdir"
-msgstr "Ridant des apontiaedjes di GNOME"
+msgstr "GNOME Sysconfdir"
 
 #: libgnome/gnome-program.c:519
 msgid "Configuration prefix where GNOME was installed"
-msgstr ""
+msgstr "Thư mục config, nơi cài GNOME"
 
 #: libgnome/gnome-program.c:529
 msgid "GNOME App Prefix"
-msgstr ""
+msgstr "Thư mục gốc của ứng dụng"
 
 #: libgnome/gnome-program.c:530
 msgid "Prefix where this application was installed"
-msgstr ""
+msgstr "Thư mục gốc mà ứng dụng được cài đặt"
 
 #: libgnome/gnome-program.c:538
 msgid "GNOME App Libdir"
-msgstr ""
+msgstr "GNOME App Libdir"
 
 #: libgnome/gnome-program.c:539
 msgid "Library prefix where this application was installed"
-msgstr ""
+msgstr "Thư mục lib, nơi cài đặt ứng dụng"
 
 #: libgnome/gnome-program.c:548
 msgid "GNOME App Datadir"
-msgstr ""
+msgstr "GNOME App Datadir"
 
 #: libgnome/gnome-program.c:549
 msgid "Data prefix where this application was installed"
-msgstr ""
+msgstr "Thư mục data, nơi cài đặt ứng dụng"
 
 #: libgnome/gnome-program.c:558
 msgid "GNOME App Sysconfdir"
-msgstr ""
+msgstr "GNOME App Sysconfdir"
 
 #: libgnome/gnome-program.c:559
 msgid "Configuration prefix where this application was installed"
-msgstr ""
+msgstr "Thư mục config, nơi cài đặt ứng dụng"
 
 #: libgnome/gnome-program.c:568
 msgid "Create Directories"
-msgstr "Askepy� les ridants"
+msgstr "Tạo thư mục"
 
 #: libgnome/gnome-program.c:569
 msgid "Create standard GNOME directories on startup"
-msgstr "Askepy� les ridants stand�rd di Gnome a l'�enondaedje"
+msgstr "Tạo thư mục chuẩn của GNOME khi khởi động"
 
 #: libgnome/gnome-program.c:578
 msgid "Enable Sound"
-msgstr "Mete en alaedje li son"
+msgstr "Bật âm thanh"
 
 #: libgnome/gnome-program.c:579
 msgid "Enable sound on startup"
-msgstr "Mete en ouve li son a l'�enondaedje"
+msgstr "Bật âm thanh khi khởi động"
 
 #: libgnome/gnome-program.c:588
 msgid "Espeaker"
-msgstr ""
+msgstr "Espeaker"
 
 #: libgnome/gnome-program.c:589
 msgid "How to connect to esd"
-msgstr "Kimint s'�raloy� a esd"
+msgstr "Kết nối với esd như thế nào"
 
 #: libgnome/gnome-program.c:1335
 msgid "Help options"
-msgstr "Tchuzes del aidance"
+msgstr "Tuỳ chọn trợ giúp"
 
 #: libgnome/gnome-program.c:1340
 msgid "Application options"
-msgstr "Tchuzes do programe"
+msgstr "Tùy chọn ứng dụng"
 
 #: libgnome/gnome-program.c:1356
 msgid "Dynamic modules to load"
-msgstr "Modules dinamikes a tcherdj�"
+msgstr "Module động cần nạp"
 
 #: libgnome/gnome-program.c:1357
 msgid "MODULE1,MODULE2,..."
@@ -284,36 +277,36 @@ msgstr "MODULE1,MODULE2,..."
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr ""
+msgstr "Extra Moniker factory"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
-msgstr ""
+msgstr "Moniker GConf"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr ""
+msgstr "moniker cấu hình gián tiếp"
 
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr "Li cl� %s n'�a n�n st� trov�ye el apontiaedje"
+msgstr "Không tìm thấy phím %s trong cấu hình"
 
 #: monikers/bonobo-config-bag.c:230
 msgid "Unknown type"
-msgstr "S�re n�n cnoxhowe"
+msgstr "Kiểu lạ"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error Messages"
-msgstr "Messaedjes d'�aroke"
+msgstr ""
 
 #: gnome-data/gnome-2.soundlist.in.h:2
 msgid "GNOME system events"
-msgstr "Evenmints sistinme di Gnome"
+msgstr ""
 
 #: gnome-data/gnome-2.soundlist.in.h:3
 msgid "Informational Messages"
-msgstr "Messaedjes d'�inform�cion"
+msgstr ""
 
 #: gnome-data/gnome-2.soundlist.in.h:4
 msgid "Login"
@@ -325,15 +318,15 @@ msgstr ""
 
 #: gnome-data/gnome-2.soundlist.in.h:6
 msgid "Miscellaneous Messages"
-msgstr "Messaedjes di totes s�res"
+msgstr ""
 
 #: gnome-data/gnome-2.soundlist.in.h:7
 msgid "Question Dialogs"
-msgstr "Purneas di kesses"
+msgstr ""
 
 #: gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning Messages"
-msgstr "Messaedjes d'�adviertixhmint"
+msgstr ""
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Action button click"
@@ -349,5 +342,10 @@ msgstr ""
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
-msgstr "Evenmints di l'�eterface avou l'�uzeu"
+msgstr ""
 
+#~ msgid "Test option."
+#~ msgstr "Kiểm tra tuỳ chọn."
+
+#~ msgid "The Application Name"
+#~ msgstr "Tên ứng dụng"
