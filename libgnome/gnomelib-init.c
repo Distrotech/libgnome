@@ -42,8 +42,6 @@ create_user_gnome_directories (void)
 	  g_error("Could not create per-user Gnome directory <%s> - aborting\n",
 		  gnome_user_dir);
 
-	gnome_user_private_dir = g_concat_dir_and_file (gnome_user_home_dir,
-							".gnome_private");
 	if(
 	   mkdir(gnome_user_private_dir, 0700) /* This is private per-user info
 						  mode 700 will be enforced!
@@ -139,6 +137,8 @@ gnomelib_init (const char *app_id,
 	/* never freed - gnome_config currently uses this, and it's better
 	   to figure it out once than to repeatedly get it */
 	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome");
+	gnome_user_private_dir = g_concat_dir_and_file (gnome_user_home_dir,
+							".gnome_private");
 	create_user_gnome_directories ();
 
 	gnomelib_register_options();
