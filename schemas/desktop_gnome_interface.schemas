@@ -2,6 +2,17 @@
 <gconfschemafile>
   <schemalist>
     <schema>
+      <applyto>/desktop/gnome/interface/accessibility</applyto>
+      <key>/schemas/desktop/gnome/interface/accessibility</key>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Accessibility</short>
+        <long>Programs have accessibility support</long>
+      </locale>
+    </schema>
+    <schema>
       <applyto>/desktop/gnome/interface/menus_have_tearoff</applyto>
       <key>/schemas/desktop/gnome/interface/menus_have_tearoff</key>
       <owner>gnome</owner>
