@@ -16,6 +16,7 @@ libgnomeincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/libgnome
 INCLUDES = \
 	-I..					\
 	-I$(srcdir)/..				\
+	$(WARN_CFLAGS)				\
 	$(GNOMESUPPORT_CFLAGS)			\
 	$(GLIB_CFLAGS)				\
 	$(GNOME_VFS_CFLAGS)			\
