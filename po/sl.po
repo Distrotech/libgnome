@@ -5,7 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-06-16 01:41+0200\n"
 "PO-Revision-Date: 2001-07-29 12:32+0200\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -323,36 +324,38 @@ msgstr "MODUL1,MODUL2,..."
 
 #: libgnome/gnome-url.c:81
 msgid "Unknown internal error while displaying this location."
-msgstr ""
+msgstr "Neznana notranja napaka med prikazovanjem te lokacije."
 
 #: libgnome/gnome-url.c:88
 msgid "The specified location is invalid."
-msgstr ""
+msgstr "Navedena lokacija ni veljavna"
 
 #: libgnome/gnome-url.c:95
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr ""
+"Ob razčlenjevanju ukaza privzetega dejanja povezanega z to lokacijo se je zgodila napaka."
 
 #: libgnome/gnome-url.c:103
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr ""
+"Ob zaganjanju ukaza privzetega dejanja povezanega z to lokacijo se je zgodila napaka."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
-msgstr ""
+msgstr "S to lokacijo ni povezano nobeno privzeto dejanje"
 
 #: libgnome/gnome-url.c:118
 msgid "The default action does not support this protocol."
-msgstr ""
+msgstr "Privzeto dejanje ne podpira tega protokola."
 
 #: libgnome/gnome-url.c:125
 #, c-format
 msgid "Unknown error code: %d"
-msgstr ""
+msgstr "Neznana koda napake: %d"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -640,7 +643,6 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Tema ikon, ki naj se uporabi za pult, nautilusa, itd."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-#, fuzzy
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Dolžina cikla utripanja kazalca, v milisekundah"
 
@@ -880,26 +882,70 @@ msgid "Whether to play sounds on user events."
 msgstr "Ali naj se ob uporabniških dogodkih predvajajo zvoki."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Kako obravnavati URLje ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Kako obravnavati URLje info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Kako obravnavati URLje man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Kako obravnavati URLje trash"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Program poženi v terminalu"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v programs/ghelp obravnava "
+"URLje ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v programs/info obravnava "
+"URLje info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v programs/man obravnava "
+"URLje man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Nastavite na true, če želite, da program naveden v trash/command obravnava "
 "URLje trash"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "True (resnično), če naj bo program za obravnavo URLja pognan v terminalu"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "Obravnavalnik URL za strani ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "Obravnavalnik URL za strani info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "Obravnavalnik URL za strani man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Obravnavalnik URL za strani trash"
 
@@ -908,15 +954,6 @@ msgstr "Obravnavalnik URL za strani trash"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Kako naj se obravnava URLje programov"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Kako obravnavati URLje ghelp"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Kako obravnavati URLje info"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Kako obravnavati URLje man"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Kako obravnavati URLje preferences"
@@ -948,25 +985,6 @@ msgstr "Obravnavalnik URL za strani trash"
 #~ "obravnava URLje preferences"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Nastavite na true, če želite, da program naveden v programs/ghelp "
-#~ "obravnava URLje ghelp"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Nastavite na true, če želite, da program naveden v programs/info "
-#~ "obravnava URLje info"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Nastavite na true, če želite, da program naveden v programs/man obravnava "
-#~ "URLje man"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -996,15 +1014,6 @@ msgstr "Obravnavalnik URL za strani trash"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "Obravnavalnik URL za strani applications"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Obravnavalnik URL za strani ghelp"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Obravnavalnik URL za strani info"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Obravnavalnik URL za strani man"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "Obravnavalnik URL za strani preferences"
