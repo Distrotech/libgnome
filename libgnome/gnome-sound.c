@@ -35,8 +35,120 @@
 #include <unistd.h>
 #include <time.h>
 
-static const GnomeSoundPlugin *sound_plugin = NULL;
-static GModule *sound_plugin_module = NULL;
+typedef struct _GnomeSoundModule            GnomeSoundModule;
+typedef struct _GnomeSoundModuleClass       GnomeSoundModuleClass;
+
+#define GNOME_TYPE_SOUND_MODULE             (gnome_sound_module_get_type ())
+#define GNOME_SOUND_MODULE(sound_module)    (G_TYPE_CHECK_INSTANCE_CAST ((sound_module), GNOME_TYPE_SOUND_MODULE, GnomeSoundModule))
+#define GNOME_IS_SOUND_MODULE(sound_module) (G_TYPE_CHECK_INSTANCE_TYPE ((sound_module), GNOME_TYPE_SOUND_MODULE))
+
+struct _GnomeSoundModule
+{
+    GTypeModule parent_instance;
+    GModule *library;
+    gchar *path;
+
+    GnomeSoundPlugin *plugin;
+};
+
+struct _GnomeSoundModuleClass 
+{
+    GTypeModuleClass parent_class;
+};
+
+static GObjectClass *module_parent_class = NULL;
+static GnomeSoundModule *sound_module = NULL;
+static GnomeSoundDriver *sound_driver = NULL;
+
+GType gnome_sound_module_get_type (void);
+
+static gboolean
+gnome_sound_module_load (GTypeModule *module)
+{
+    GnomeSoundModule *sound_module = GNOME_SOUND_MODULE (module);
+  
+    sound_module->library = g_module_open (sound_module->path, 0);
+    if (!sound_module->library) {
+	g_warning (g_module_error ());
+	return FALSE;
+    }
+  
+    /* extract symbols from the lib */
+    if (!g_module_symbol (sound_module->library, "gnome_sound_plugin",
+			  (gpointer *)&sound_module->plugin)) {
+	g_warning (g_module_error ());
+	g_module_close (sound_module->library);
+      
+	return FALSE;
+    }
+
+    return TRUE;
+}
+
+static void
+gnome_sound_module_unload (GTypeModule *module)
+{
+    GnomeSoundModule *sound_module = GNOME_SOUND_MODULE (module);
+
+#if 0
+    sound_module->exit();
+#endif
+
+    g_module_close (sound_module->library);
+    sound_module->library = NULL;
+}
+
+/* This only will ever be called if an error occurs during
+ * initialization
+ */
+static void
+gnome_sound_module_finalize (GObject *object)
+{
+    GnomeSoundModule *module = GNOME_SOUND_MODULE (object);
+
+    g_free (module->path);
+
+    module_parent_class->finalize (object);
+}
+
+static void
+gnome_sound_module_class_init (GnomeSoundModuleClass *klass)
+{
+    GTypeModuleClass *module_class = G_TYPE_MODULE_CLASS (klass);
+    GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+
+    module_parent_class = G_OBJECT_CLASS (g_type_class_peek_parent (klass));
+  
+    module_class->load = gnome_sound_module_load;
+    module_class->unload = gnome_sound_module_unload;
+
+    gobject_class->finalize = gnome_sound_module_finalize;
+}
+
+GType
+gnome_sound_module_get_type (void)
+{
+    static GType sound_module_type = 0;
+
+    if (!sound_module_type) {
+	static const GTypeInfo sound_module_info = {
+	    sizeof (GnomeSoundModuleClass),
+	    NULL,           /* base_init */
+	    NULL,           /* base_finalize */
+	    (GClassInitFunc) gnome_sound_module_class_init,
+	    NULL,           /* class_finalize */
+	    NULL,           /* class_data */
+	    sizeof (GnomeSoundModule),
+	    0,              /* n_preallocs */
+	    NULL,           /* instance_init */
+	};
+
+	sound_module_type = g_type_register_static (G_TYPE_TYPE_MODULE, "GnomeSoundModule",
+						    &sound_module_info, 0);
+    }
+  
+    return sound_module_type;
+}
 
 static void
 _gnome_sound_error_nodriver (GError **error)
@@ -44,136 +156,6 @@ _gnome_sound_error_nodriver (GError **error)
     g_set_error (error, GNOME_SOUND_ERROR,
 		 GNOME_SOUND_ERROR_NODRIVER,
 		 _("No sound driver loaded"));
-}
-
-void 
-gnome_sound_play (const char *filename, GError **error)
-{
-    if (sound_plugin)
-	sound_plugin->play_file (filename, error);
-    else
-	_gnome_sound_error_nodriver (error);
-}
-
-void 
-gnome_sound_cache_add_sample (GnomeSoundSample *gs, GError **error)
-{
-    if (sound_plugin)
-	sound_plugin->cache_add_sample (gs, error);
-    else
-	_gnome_sound_error_nodriver (error);
-}
-
-void 
-gnome_sound_cache_remove_sample (GnomeSoundSample *gs, GError **error)
-{
-    if (sound_plugin)
-	sound_plugin->cache_remove_sample (gs, error);
-    else
-	_gnome_sound_error_nodriver (error);
-}
-
-GnomeSoundSample *
-gnome_sound_sample_new_from_file (const gchar *name, const char *filename,
-				  GError **error)
-{
-    if (sound_plugin)
-	return sound_plugin->sample_new_from_file (name, filename, error);
-    else {
-	_gnome_sound_error_nodriver (error);
-	return NULL;
-    }
-}
-
-GnomeSoundSample *
-gnome_sound_sample_new_from_cache (const char *name, GError **error)
-{
-    if (sound_plugin)
-	return sound_plugin->sample_new_from_cache (name, error);
-    else {
-	_gnome_sound_error_nodriver (error);
-	return NULL;
-    }
-}
-
-GnomeSoundSample *
-gnome_sound_sample_new (const char *sample_name, GError **error)
-{
-    if (sound_plugin)
-	return sound_plugin->sample_new (sample_name, error);
-    else {
-	_gnome_sound_error_nodriver (error);
-	return NULL;
-    }
-}
-
-int
-gnome_sound_sample_write (GnomeSoundSample *gs,
-			  guint n_bytes, gpointer bytes,
-			  GError **error)
-{
-    if (sound_plugin)
-	return sound_plugin->sample_write (gs, n_bytes, bytes, error);
-    else {
-	_gnome_sound_error_nodriver (error);
-	return -1;
-    }
-}
-
-void
-gnome_sound_sample_write_done (GnomeSoundSample *gs, GError **error)
-{
-    if (sound_plugin)
-	sound_plugin->sample_write_done (gs, error);
-    else
-    _gnome_sound_error_nodriver (error);
-}
-
-void
-gnome_sound_sample_play (GnomeSoundSample *gs, GError **error)
-{
-    if (sound_plugin)
-	sound_plugin->sample_play (gs, error);
-    else
-	_gnome_sound_error_nodriver (error);
-}
-
-gboolean
-gnome_sound_sample_is_playing (GnomeSoundSample *gs, GError **error)
-{
-    if (sound_plugin)
-	return sound_plugin->sample_is_playing (gs, error);
-    else {
-	_gnome_sound_error_nodriver (error);
-	return FALSE;
-    }
-}
-
-void
-gnome_sound_sample_stop (GnomeSoundSample *gs, GError **error)
-{
-    if (sound_plugin)
-	sound_plugin->sample_stop (gs, error);
-    else
-	_gnome_sound_error_nodriver (error);
-}
-
-void
-gnome_sound_sample_wait_done (GnomeSoundSample *gs, GError **error)
-{
-    if (sound_plugin)
-	sound_plugin->sample_wait_done (gs, error);
-    else
-	_gnome_sound_error_nodriver (error);
-}
-
-void
-gnome_sound_sample_release (GnomeSoundSample *gs, GError **error)
-{
-    if (sound_plugin)
-	sound_plugin->sample_release (gs, error);
-    else
-	_gnome_sound_error_nodriver (error);
 }
 
 GQuark
@@ -187,74 +169,38 @@ gnome_sound_error_quark (void)
     return q;
 }
 
-void
-gnome_sound_init (const gchar *name, const gchar *backend_args,
-		  const GnomeSoundPlugin *plugin, GError **error)
+GnomeSoundDriver *
+gnome_sound_get_default_driver (void)
 {
-    if (sound_plugin)
-	return;
-
-    if (plugin)
-	sound_plugin = plugin;
-    else {
-	gchar *module_name;
-	gpointer plugin_ptr = NULL;
-	GModule *module;
-
-	module_name = g_strdup_printf (LIBGNOME_SOUNDPLUGINDIR
-				       "/gnomesoundplugin_%s",
-				       name);
-	module = g_module_open (module_name, G_MODULE_BIND_LAZY);
-	if (!module) {
-	    g_warning (G_STRLOC ": Can't open sound plugin `%s': %s",
-		       name, g_module_error ());
-	    return;
-	}
-
-	if (!g_module_symbol (module, "gnome_sound_plugin", &plugin_ptr)) {
-	    g_warning (G_STRLOC ": Not a valid sound plugin: `%s'", name);
-	    g_module_close (module);
-	    return;
-	}
-
-	sound_plugin = plugin_ptr;
-	sound_plugin_module = module;
-    }
-
-    if (sound_plugin->version != GNOME_PLUGIN_SERIAL) {
-	g_warning (G_STRLOC ": Sound plugin `%s' has invalid version %ld",
-		   name, sound_plugin->version);
-	sound_plugin = NULL;
-
-	if (sound_plugin_module) {
-	    g_module_close (sound_plugin_module);
-	    sound_plugin_module = NULL;
-	}
-    }
-
-    if (sound_plugin)
-	sound_plugin->init (backend_args, error);
-    else
-	_gnome_sound_error_nodriver (error);
+    return g_object_ref (G_OBJECT (sound_driver));
 }
 
-void
-gnome_sound_shutdown (GError **error)
+GnomeSoundDriver *
+gnome_sound_init (const gchar *name, const gchar *backend_args, GError **error)
 {
-    if (sound_plugin)
-	sound_plugin->shutdown (error);
-    else
-	_gnome_sound_error_nodriver (error);
+    GnomeSoundDriver *driver = NULL;
+    GnomeSoundModule *module;
 
-    sound_plugin = NULL;
-    if (sound_plugin_module) {
-	g_module_close (sound_plugin_module);
-	sound_plugin_module = NULL;
+    module = g_object_new (GNOME_TYPE_SOUND_MODULE, NULL);
+    module->path = g_strdup_printf (LIBGNOME_SOUNDPLUGINDIR
+				    "/gnomesoundplugin_%s",
+				    name);
+    g_type_module_set_name (G_TYPE_MODULE (module), module->path);
+
+    if (g_type_module_use (G_TYPE_MODULE (module))) {
+	driver = module->plugin->init (G_TYPE_MODULE (module),
+				       backend_args, error);
+	g_type_module_unuse (G_TYPE_MODULE (module));
+    } else {
+	g_warning (G_STRLOC ": Loading sound module '%s' failed", name);
+	_gnome_sound_error_nodriver (error);
     }
+
+    return driver;
 }
 
 gboolean
 gnome_sound_enabled (void)
 {
-    return sound_plugin != NULL;
+    return sound_module != NULL;
 }

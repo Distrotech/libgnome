@@ -31,6 +31,7 @@ int
 main (int argc, char **argv)
 {
     struct _GnomeTrigger trig;
+    GnomeSoundDriver *driver;
     GnomeProgram *program;
     GnomeSoundSample *gs;
 
@@ -38,19 +39,19 @@ main (int argc, char **argv)
 				  &libgnome_module_info,
 				  argc, argv, NULL);
 
-    gnome_sound_init ("csl", NULL, NULL, NULL);
+    driver = gnome_sound_init ("csl", NULL, NULL);
 
-    gs = gnome_sound_sample_new_from_file ("gnome/warning",
-					   "/usr/share/sounds/phone.wav",
-					   NULL);
-    gnome_sound_cache_add_sample (gs, NULL);
-    gnome_sound_sample_release (gs, NULL);
+    gs = gnome_sound_driver_sample_new_from_file (driver, "gnome/warning",
+						  "/usr/share/sounds/phone.wav",
+						  NULL);
+    gnome_sound_driver_cache_add_sample (driver, gs, NULL);
+    gnome_sound_driver_sample_release (driver, gs, NULL);
 
-    gs = gnome_sound_sample_new_from_file ("test/one",
-					   "/usr/share/sounds/panel/slide.wav",
-					   NULL);
-    gnome_sound_cache_add_sample (gs, NULL);
-    gnome_sound_sample_release (gs, NULL);
+    gs = gnome_sound_driver_sample_new_from_file (driver, "test/one",
+						  "/usr/share/sounds/panel/slide.wav",
+						  NULL);
+    gnome_sound_driver_cache_add_sample (driver, gs, NULL);
+    gnome_sound_driver_sample_release (driver, gs, NULL);
 
     trig.type = GTRIG_FUNCTION;
     trig.u.function = sample_trigger_function;
@@ -60,9 +61,9 @@ main (int argc, char **argv)
     gnome_triggers_add_trigger (&trig, "test", "one", NULL);
     gnome_triggers_do ("Test of direct hit", "warning", "test", "one", NULL);
 
-    sleep(5);
+    g_object_unref (G_OBJECT (driver));
 
-    gnome_sound_shutdown (NULL);
+    sleep(5);
 
     return 0;
 }
