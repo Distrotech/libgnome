@@ -37,6 +37,10 @@
 extern char *strndup (const char *s, size_t n);
 #endif
 
+#if !defined getc_unlocked && !defined HAVE_GETC_UNLOCKED
+# define getc_unlocked(fp) getc (fp)
+#endif
+
 #define STRSIZE 4096
 #define overflow (next == &CharBuffer [STRSIZE-1])
 
@@ -244,7 +248,7 @@ load (const char *file)
 		return NULL;
 	
 	state = FirstBrace;
-	while ((c = getc (f)) != EOF){
+	while ((c = getc_unlocked (f)) != EOF){
 		if (c == '\r')		/* Ignore Carriage Return */
 			continue;
 		
@@ -325,7 +329,7 @@ load (const char *file)
 	    
 		} /* switch */
 	
-	} /* while ((c = getc (f)) != EOF) */
+	} /* while ((c = getc_unlocked (f)) != EOF) */
 	if (c == EOF && state == KeyValue){
 		*next = '\0';
 		SecHeader->keys->value = decode_string_and_dup (CharBuffer);

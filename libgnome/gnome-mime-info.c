@@ -30,6 +30,10 @@
 #endif
 #include "gnome-mime-info.h"
 
+#if !defined getc_unlocked && !defined HAVE_GETC_UNLOCKED
+# define getc_unlocked(fp) getc (fp)
+#endif
+
 typedef struct {
 	char       *mime_type;
 	GHashTable *keys;
@@ -168,7 +172,7 @@ load_mime_type_info_from (char *filename)
 	line = g_string_sized_new (120);
 	state = STATE_NONE;
 	
-	while ((c = getc (mime_file)) != EOF){
+	while ((c = getc_unlocked (mime_file)) != EOF){
 		column++;
 		if (c == '\r')
 			continue;

@@ -52,6 +52,10 @@
 #include "gnomesupport.h"
 #endif
 
+#if !defined getc_unlocked && !defined HAVE_GETC_UNLOCKED
+# define getc_unlocked(fp) getc (fp)
+#endif
+
 /* Each key in the database has 3 parts: the space, the object, and
    the "key" (confusingly named, I know).  The space is "type" for
    type maps, "file" for direct file maps, and "regex" for regular
@@ -554,7 +558,7 @@ scan_app_file (const struct dirent *ent)
 	if (! line)
 		line = g_string_sized_new (100);
 	equals = comment = column = was_space = skipping = 0;
-	while ((c = getc (f)) != EOF) {
+	while ((c = getc_unlocked (f)) != EOF) {
 		if (c == '\r')
 			continue;
 
