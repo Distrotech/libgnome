@@ -56,6 +56,7 @@ gchar *gnome_help_file_find_file (gchar *app, gchar *path)
 gchar *gnome_help_file_path(gchar *app, gchar *path)
 {
   gchar *res;
+  GString *buf;
   
   res= gnome_help_file_find_file (app, path);
   
