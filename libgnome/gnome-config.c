@@ -177,6 +177,71 @@ is_loaded (char *filename, TSecHeader **section)
 	return 0;
 }
 
+static char *
+decode_string_and_dup (char *s)
+{
+	char *p = g_malloc (strlen (s) + 1);
+
+	while (*s){
+		if (*s == '\\'){
+			switch (*(++s)){
+			case 'n':
+				*p++ = '\n';
+				break;
+			case '\\':
+				*p++ = '\\';
+				break;
+			case 'r':
+				*p++ = '\r';
+				break;
+			default:
+				*p++ = '\\';
+				*p++ = *s;
+			}
+		} else
+			*p++ = *s;
+		s++;
+	}
+}
+
+static char *
+escape_string_and_dup (char *s)
+{
+	char *return_value, *p = s;
+	int len = 0;
+	
+	while (*p){
+		len++;
+		if (*p == '\n' || *p == '\\' || *p == '\r' || *p == '\0')
+			len++;
+		p++;
+	}
+	return_value = p = (char *) g_malloc (len + 1);
+	if (!return_value)
+		return 0;
+	for (;*s;s++){
+		switch (*s){
+		case '\n':
+			*p++ = '\\';
+			*p++ = 'n';
+			break;
+		case '\r':
+			*p++ = '\\';
+			*p++ = 'r';
+			break;
+		case '\\':
+			*p++ = '\\';
+			*p++ = '\\';
+			break;
+		default:
+			*p++ = *s;
+		}
+		s++;
+	}
+	*p = 0;
+	return return_value;
+}
+
 static TSecHeader *
 load (char *file)
 {
@@ -257,7 +322,7 @@ load (char *file)
 		case KeyValue:
 			if (overflow || c == '\n'){
 				*next = '\0';
-				SecHeader->keys->value = strdup (CharBuffer);
+				SecHeader->keys->value = decode_string_and_dup (CharBuffer);
 				state = c == '\n' ? KeyDef : IgnoreToEOL;
 				next = CharBuffer;
 #ifdef DEBUG
@@ -273,7 +338,7 @@ load (char *file)
 	} /* while ((c = getc (f)) != EOF) */
 	if (c == EOF && state == KeyValue){
 		*next = '\0';
-		SecHeader->keys->value = strdup (CharBuffer);
+		SecHeader->keys->value = decode_string_and_dup (CharBuffer);
 	}
 	fclose (f);
 	return SecHeader;
@@ -356,8 +421,11 @@ dump_keys (FILE *profile, TKeys *p)
 	if (!p)
 		return;
 	dump_keys (profile, p->link);
-	if (*p->key_name) 
-		fprintf (profile, "%s=%s\n", p->key_name, p->value);
+	if (*p->key_name) {
+		char *t = escape_string_and_dup (p->value);
+		fprintf (profile, "%s=%s\n", p->key_name, t);
+		free (t);
+	}
 }
 
 static void 
