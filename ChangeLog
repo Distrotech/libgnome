@@ -1,3 +1,9 @@
+2002-03-22  Havoc Pennington  <hp@pobox.com>
+
+	* libgnome/gnome-program.c
+	(gnome_program_get_human_readable_name): fall back to
+	g_get_prgname() if human readable name is not set
+
 2002-03-20  Mark McLoughlin  <mark@skynet.ie>
 
 	* libgnome/gnome-help.c: (locate_help_file): add a missing '/' when

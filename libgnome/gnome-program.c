@@ -781,6 +781,9 @@ gnome_program_get_human_readable_name (GnomeProgram *program)
     g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
     g_return_val_if_fail (program->_priv->state >= APP_PREINIT_DONE, NULL);
 
+    if (program->_priv->prop_human_readable_name == NULL)
+      return g_get_prgname ();
+    
     return program->_priv->prop_human_readable_name;
 }
 
