@@ -236,7 +236,7 @@ libbonobo_class_init (GnomeProgramClass *klass, const GnomeModuleInfo *mod_info)
 	cdata->config_moniker_id = gnome_program_install_property
 		(klass, libbonobo_get_property, libbonobo_set_property,
 		 g_param_spec_string (GNOME_PARAM_CONFIG_MONIKER, NULL, NULL,
-				      NULL,
+				      "config:",
 				      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 				       G_PARAM_CONSTRUCT_ONLY)));
 
@@ -249,7 +249,7 @@ libbonobo_class_init (GnomeProgramClass *klass, const GnomeModuleInfo *mod_info)
 	cdata->desktop_config_moniker_id = gnome_program_install_property
 		(klass, libbonobo_get_property, libbonobo_set_property,
 		 g_param_spec_string (GNOME_PARAM_DESKTOP_CONFIG_MONIKER, NULL, NULL,
-				      "xmldb:" LIBGNOME_SYSCONFDIR "/gnome-2.0/gnome-desktop.xmldb",
+				      "config:/gnome/desktop/",
 				      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 				       G_PARAM_CONSTRUCT_ONLY)));
 

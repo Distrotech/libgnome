@@ -1,3 +1,10 @@
+2001-07-16  Martin Baulig  <baulig@suse.de>
+
+	* libgnome-init.c (GNOME_PARAM_CONFIG_MONIKER): Default to "config:";
+	you don't need to set this property unless you have a reason to do so.
+	(GNOME_PARAM_DESKTOP_CONFIG_MONIKER): Default to "config:/gnome/desktop/".
+	No need to set this property.
+
 2001-07-11  Martin Baulig  <baulig@suse.de>
 
 	* libgnome-init.c (gnome_mime_type): Removed.
