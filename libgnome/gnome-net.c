@@ -1,4 +1,3 @@
-
 #include <glib.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -13,6 +12,9 @@
 #include <stdarg.h>
 #include <gnome.h>
 
+/* `g_string_length' doesn't appear in the CVS version of `gtk+/glib',
+   and I can't find a reference to it in its ChangeLog */
+#define g_string_length(pGString_x) ((pGString_x)->len)
 extern char* g_vsprintf (gchar *fmt, va_list *args, va_list *args2);
 
 static struct NetSocketData *sockets = NULL;
