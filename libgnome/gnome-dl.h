@@ -16,10 +16,10 @@ typedef void* GnomeFuncHandle;
 #define GNOME_DL_BIND_LAZY 1
 
 /* one time initialization */
-void			gnome_dl_init();
+void			gnome_dl_init(void);
 
 /* returns the shared library descriptor for the executable. */
-GnomeLibHandle*		gnome_dl_exec_handle();
+GnomeLibHandle*		gnome_dl_exec_handle(void);
 
 /* loads a shared library given an explicit pathname */
 GnomeLibHandle*		gnome_dl_load(char *lib_path, int bind_lazy);
@@ -42,7 +42,7 @@ GnomeFuncHandle*	gnome_dl_findsym_and_lib(char *symbol_name, GnomeLibHandle **ha
 
 /* returns the error returned by the last gnome_dl_* call.  equivalent to dlerror() on
    platforms that have it. */
-const char*		gnome_dl_error();
+const char*		gnome_dl_error(void);
 
 END_GNOME_DECLS
 
