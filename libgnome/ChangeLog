@@ -1,3 +1,8 @@
+2001-09-01  Anders Carlsson  <andersca@gnu.org>
+
+	* gnome-program.c (gnome_program_module_registered): the program_modules
+	array is NULL-terminated, so break if we get a NULL.
+
 Sat Sep 01 06:49:49 2001  George Lebl <jirka@5z.com>
 
 	* gnome-program.c: Init modules passed to gnome_program_init on

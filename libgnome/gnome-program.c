@@ -1218,6 +1218,11 @@ gnome_program_module_registered (const GnomeModuleInfo *module_info)
 
     for(i = 0; i < program_modules->len; i++) {
 	curmod = g_ptr_array_index (program_modules, i);
+
+	/* array is NULL-terminated, so break on NULL */
+	if (curmod == NULL)
+		break;
+	
 	if(curmod == module_info
 	   || strcmp (curmod->name, module_info->name) == 0)
 	    return TRUE;
