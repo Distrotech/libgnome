@@ -1,0 +1,145 @@
+# Turkish translation of libgnome2.
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Ozgur Dogan GUNES <ozgurdogan@programmer.net>
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: libgnome2 1.96.0\n"
+"POT-Creation-Date: 2001-06-01 21:47+0200\n"
+"PO-Revision-Date: 2001-06-01 21:48+0200\n"
+"Last-Translator: Ozgur Dogan GUNES <ozgurdogan@programmer.net>\n"
+"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-9\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. FIXME: use GError
+#: libgnome/gnome-ditem.c:579
+msgid "Unknown desktop file"
+msgstr "Bilinmeyen masaüstü dosyasý"
+
+#. we are not an application so just exit
+#. with an error
+#: libgnome/gnome-ditem.c:922
+msgid "Attempting to launch a non-application"
+msgstr "Uygulama olmayan dosya çalýþtýrýlmaya çabalanýlýyor "
+
+#. FIXME: use GError
+#: libgnome/gnome-ditem.c:1051
+msgid "Trying to execute an item with no 'Exec'"
+msgstr "'Exec' olmayan dosya çalýþtýrýlmaya çabalanýyor"
+
+#: libgnome/gnome-ditem.c:1094 libgnome/gnome-ditem.c:1187
+msgid "No exec field for this drop"
+msgstr "Býrakma için çalýþtýrýlabilir alan yok"
+
+#: libgnome/gnome-ditem.c:1125
+msgid "Nothing to replace with a file in the exec string"
+msgstr "Çalýþma deðiþkininde dosya ile yerdeðiþtirecek birþey yok"
+
+#: libgnome/gnome-ditem.c:1238
+msgid "There was no argument to replace with dropped files"
+msgstr "Býrakýlan dosyalar ile yer deðiþtirmek için argüman yok"
+
+#: libgnome/gnome-ditem.c:1331
+msgid "Dropped URLs on an app that can only take files"
+msgstr "Uygulamaya býraklýlan URL sadece dosyalarý alýr"
+
+#: libgnome/gnome-exec.c:392
+msgid "Cannot find a terminal, using xterm, even if it may not work"
+msgstr "Terminal bulunamadý, xterm kullanýlýyor"
+
+#: libgnome/gnome-moz-remote2.c:111
+msgid "Specify X display to use."
+msgstr "Kullanmak için X görünümünü belirleyiniz"
+
+#: libgnome/gnome-moz-remote2.c:112
+msgid "Put the X connection in synchronous mode."
+msgstr "X baðlantýlarýný eþ zamanda bulundur."
+
+#: libgnome/gnome-moz-remote2.c:113
+msgid "Specify the X window ID of Netscape."
+msgstr "Netscape'in X pencere ID 'sini belirtin."
+
+#: libgnome/gnome-moz-remote2.c:115
+msgid "Don't raise the Netscape window."
+msgstr "Netscape penceresini büyütme."
+
+#: libgnome/gnome-moz-remote2.c:116
+msgid "Show the given URL in a new window."
+msgstr "Verilen URL'leri yeni pencerede göster."
+
+#: libgnome/gnome-moz-remote2.c:117
+msgid "Close the specified window."
+msgstr "Seçilmiþ pencereyi kapat."
+
+#: libgnome/gnome-moz-remote2.c:118
+msgid "Print the X window ID of the utilized window."
+msgstr "Deðerlendirilmiþ pencerenin X pencere ID 'sini yazdýr."
+
+#: libgnome/gnome-url.c:122
+#, c-format
+msgid "Error parsing '%s' (empty result)"
+msgstr "Bölme Hatasý '%s' (boþ sonuç)"
+
+#: libgnome/gnome-url.c:138
+#, c-format
+msgid "Mozilla not found as '%s'"
+msgstr "'%s' olarak Mozilla bulunamadý"
+
+#: libgnome/gnome-url.c:296 libgnome/gnome-url.c:300
+#, c-format
+msgid "Cannot open a pipe: %s"
+msgstr "%s pipe açýlamýyor"
+
+#: libgnome/gnome-url.c:310 libgnome/gnome-url.c:368
+#, c-format
+msgid "Cannot parse handler template: %s"
+msgstr "Þablon muamelece bölünemiyor: %s"
+
+#: libgnome/gnome-url.c:320 libgnome/gnome-url.c:324 libgnome/gnome-url.c:373
+#: libgnome/gnome-url.c:377
+#, c-format
+msgid "Cannot execute command '%s'!"
+msgstr "'%s' komutu çalýþtýrýlamýyor!"
+
+#: libgnome/gnome-url.c:356
+#, c-format
+msgid "Command '%s' did not return an ID!"
+msgstr "'%s' komutu ID olarak dönüþemedi!"
+
+#: libgnome/libgnome-init.c:81
+msgid "GNOME OAF Support"
+msgstr "GNOME OAF Desteði"
+
+#: libgnome/libgnome-init.c:301
+msgid "Bonobo Support"
+msgstr "Bonobo Desteði"
+
+#: libgnome/libgnome-init.c:358 libgnome/libgnome-init.c:372
+#, c-format
+msgid "Could not create per-user gnome configuration directory `%s': %s\n"
+msgstr "Kullanýcý baþýna gnome ayarlayýcý dizini `%s' yaratýlamadý: %s\n"
+
+#: libgnome/libgnome-init.c:381
+#, c-format
+msgid ""
+"Could not set mode 0700 on private per-user gnome configuration directory "
+"`%s': %s\n"
+msgstr ""
+"0700 chmod deðeri özel kiþisel gnome ayarlayýcý dizinine uygulanamýyor "
+"`%s': %s\n" 
+
+#: libgnome/libgnome-init.c:388
+#, c-format
+msgid "Could not create gnome accelerators directory `%s': %s\n"
+msgstr "Gnome hýzlandýrýcý dizinler yaratýlamýyor `%s': %s\n"
+
+#: libgnome/test-libgnome.c:20
+msgid "Test option."
+msgstr "Test Seçeneði."
+
+#: libgnome/test-libgnome.c:153
+msgid "The Application Name"
+msgstr "Uygulama Adý"
+
