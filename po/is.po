@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-07-04 10:50+0200\n"
-"PO-Revision-Date: 2003-06-21 13:09--100\n"
+"POT-Creation-Date: 2003-07-20 17:47+0200\n"
+"PO-Revision-Date: 2003-07-20 17:51-0100\n"
 "Last-Translator: Samuel Jon Gunnarsson <sammi@techattack.nu>\n"
 "Language-Team: icelandic <gnome@techattack.nu>\n"
 "MIME-Version: 1.0\n"
@@ -15,48 +15,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
-msgid "Error Messages"
+msgid "Error message"
 msgstr "Villuskilaboð"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
-msgid "GNOME system events"
-msgstr "Atburðir GNOME kerfis"
-
-#: gnome-data/gnome-2.soundlist.in.h:3
-msgid "Informational Messages"
+#, fuzzy
+msgid "Informational message"
 msgstr "Upplýsingaskilaboð"
 
-#: gnome-data/gnome-2.soundlist.in.h:4
-msgid "Login"
+#: gnome-data/gnome-2.soundlist.in.h:3
+#, fuzzy
+msgid "Log in"
 msgstr "Innskrá"
 
-#: gnome-data/gnome-2.soundlist.in.h:5
-msgid "Logout"
+#: gnome-data/gnome-2.soundlist.in.h:4
+#, fuzzy
+msgid "Log out"
 msgstr "afskrá"
 
-#: gnome-data/gnome-2.soundlist.in.h:6
-msgid "Miscellaneous Messages"
+#: gnome-data/gnome-2.soundlist.in.h:5
+msgid "Miscellaneous message"
 msgstr "Ýmis skilaboð"
 
-#: gnome-data/gnome-2.soundlist.in.h:7
-msgid "Question Dialogs"
+#: gnome-data/gnome-2.soundlist.in.h:6
+#, fuzzy
+msgid "Question dialog"
 msgstr "Spurningargluggi"
 
+#: gnome-data/gnome-2.soundlist.in.h:7
+msgid "System events"
+msgstr "Kerfisatburðir"
+
 #: gnome-data/gnome-2.soundlist.in.h:8
-msgid "Warning Messages"
+msgid "Warning message"
 msgstr "Viðvörunarskilaboð"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
-msgid "Action button click"
-msgstr "Atburðir tvöfalds músarklikks"
+msgid "Choose menu item"
+msgstr "Veldu valmyndarhlut"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
-msgid "Check box toggled"
-msgstr "Valbox valið"
+msgid "Click on command button"
+msgstr "Ýttu á skipunarhnapp"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
-msgid "Menu item activation"
-msgstr "Virkjun valmyndahluts"
+msgid "Select check box"
+msgstr "Veldu hökunarbox"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -64,9 +68,7 @@ msgstr "Atburðir notendaviðmóts"
 
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr ""
-"Ekki tókst að finna útstöð, nota xterm, jafnvel þó svo það muni jafnvel ekki "
-"virka"
+msgstr "Ekki tókst að finna útstöð, nota xterm, jafnvel þó svo það muni jafnvel ekki virka"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
@@ -80,23 +82,17 @@ msgstr "Ekki tókst að finna GNOME_FILE_DOMAIN_APP_HELP lénið"
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Ekki tókst að finna GNOME_FILE_DOMAIN_HELP lénið."
 
-#: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
+#: libgnome/gnome-help.c:185
+#: libgnome/gnome-help.c:200
 #, c-format
-msgid ""
-"Unable to show help as %s is not a directory.  Please check your "
-"installation."
-msgstr ""
-"Ekki tókst að sýna hjálp þar sem %s er ekki mappa. Vinamlegast athugaðu "
-"innsetninguna."
+msgid "Unable to show help as %s is not a directory.  Please check your installation."
+msgstr "Ekki tókst að sýna hjálp þar sem %s er ekki mappa. Vinamlegast athugaðu innsetninguna."
 
-#: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
+#: libgnome/gnome-help.c:209
+#: libgnome/gnome-help.c:225
 #, c-format
-msgid ""
-"Unable to find the help files in either %s or %s.  Please check your "
-"installation"
-msgstr ""
-"Ekki tókst að finna hjálparskrár, hvorki  %s né %s.  Vinsamlegast athugaðu "
-"innsetninguna"
+msgid "Unable to find the help files in either %s or %s.  Please check your installation"
+msgstr "Ekki tókst að finna hjálparskrár, hvorki  %s né %s.  Vinsamlegast athugaðu innsetninguna"
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -122,20 +118,16 @@ msgstr "Bonobo stuðningur"
 msgid "Bonobo activation Support"
 msgstr "Bonobo virkjunarstuðningur"
 
-#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
+#: libgnome/gnome-init.c:305
+#: libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr ""
-"Ekki tókst að stofna per-notanda möppu fyrir gnome stillingar `%s': %s\n"
+msgstr "Ekki tókst að stofna per-notanda möppu fyrir gnome stillingar `%s': %s\n"
 
 #: libgnome/gnome-init.c:328
 #, c-format
-msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory `%"
-"s': %s\n"
-msgstr ""
-"Ekki tókst að setja heimild 0700 fyrir per-notanda fyrir gnome stillingar `%"
-"s': %s\n"
+msgid "Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
+msgstr "Ekki tókst að setja heimild 0700 fyrir per-notanda fyrir gnome stillingar `%s': %s\n"
 
 #: libgnome/gnome-init.c:335
 #, c-format
@@ -335,17 +327,12 @@ msgid "The specified location is invalid."
 msgstr "Uppgefin áfangastaður er ógildur."
 
 #: libgnome/gnome-url.c:95
-msgid ""
-"There was an error parsing the default action command associated with this "
-"location."
+msgid "There was an error parsing the default action command associated with this location."
 msgstr ""
 
 #: libgnome/gnome-url.c:103
-msgid ""
-"There was an error launching the default action command associated with this "
-"location."
-msgstr ""
-"Villa kom upp við ræsingu á sjálfgefin aðgerð-skipun tengd þessum áfangastað."
+msgid "There was an error launching the default action command associated with this location."
+msgstr "Villa kom upp við ræsingu á sjálfgefin aðgerð-skipun tengd þessum áfangastað."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
@@ -396,22 +383,16 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Afvirkja ef stutt er á tvo hnappa samtímis."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr ""
-"Viðurkenna innslátt einungis ef hnapp hefur verið haldið í @delay "
-"millisekúndur"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr "Viðurkenna innslátt einungis ef hnapp hefur verið haldið í @delay millisekúndur"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Hve margar millisekúndur það tekur að fara frá 0 og upp í hámarkshraða"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
-msgstr ""
-"Hve margar millisekúndur á að bíða áður en hnappar músarhreyfinga byrja að "
-"virka"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgstr "Hve margar millisekúndur á að bíða áður en hnappar músarhreyfinga byrja að virka"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -419,8 +400,7 @@ msgstr "Hve marga pixels á sekúndu flytja má á hámarkshraða"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr ""
-"Hunsa fjöldainnslátt ef þrýst er á  _same_ key innan @delay millisekúndna"
+msgstr "Hunsa fjöldainnslátt ef þrýst er á  _same_ key innan @delay millisekúndna"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -439,9 +419,7 @@ msgid "pixels per seconds"
 msgstr "pixels á sekúndu"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
-msgid ""
-"List of assistive technology applications to start when logging into the "
-"GNOME desktop"
+msgid "List of assistive technology applications to start when logging into the GNOME desktop"
 msgstr ""
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
@@ -491,8 +469,7 @@ msgstr "Hvort sjálfgefin hjálparrýnir þurfi útstöð til að keyra"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 #, fuzzy
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr "Rök notuð til þess að ræsa forrit í skel skilgreind með 'exec' lykli."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
@@ -544,9 +521,7 @@ msgid "Color Shading Type"
 msgstr "Gerð skuggalits"
 
 #: schemas/desktop_gnome_background.schemas.in.h:2
-msgid ""
-"Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
@@ -562,9 +537,7 @@ msgid "Have GNOME draw the desktop background"
 msgstr "Fá GNOME til að teikna bakgrunn skjáborðs"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
-msgid ""
-"How to shade the background color. Possible values are \"horizontal-gradient"
-"\", \"vertical-gradient\", and \"solid\""
+msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
 msgstr ""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
@@ -672,88 +645,90 @@ msgid "Menus Have Tearoff"
 msgstr "Hægt er að rífa valmyndir af"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
-msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr "Nafn GTK+ inngangsaðgerð sem Preedit Style notaður af gtk+."
+msgid "Monospace font"
+msgstr "Monospace letur"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
-msgid "Name of the GTK+ input method Status Style used by gtk+."
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
+msgid "Name of the GTK+ input method Preedit Style used by gtk+."
+msgstr "Nafn GTK+ inngangsaðgerð sem Preedit Style notaður af gtk+."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:20
+msgid "Name of the GTK+ input method Status Style used by gtk+."
+msgstr ""
+
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the default font used by gtk+."
 msgstr "Nafn fyrir sjálfgefið letur sem notast á af gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Status Bar on Right"
 msgstr "Upplýsingastika til hægri"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Hér tilgreinist stærð táknmynda sýndar á tólstiku"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Toolbar Detachable"
 msgstr "Hægt er að flytja tólstiku"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Icon Size"
 msgstr "Stærð smátáknmynda á tólstiku"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Style"
 msgstr "Stíll tólstiku"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid ""
-"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
-"\"text\""
+#: schemas/desktop_gnome_interface.schemas.in.h:27
+msgid "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and \"text\""
 msgstr ""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
 msgstr "Nota annað letur"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
 msgstr "Hvort að forrit eigi að fá stuðning við aukið aðgengi"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
-msgid ""
-"Whether animations should be displayed. Note: This is a global key, it "
-"changes the behaviour of the window manager, the panel etc."
+#: schemas/desktop_gnome_interface.schemas.in.h:30
+msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
 msgstr ""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Hvort að valmyndir megi sýna táknmynd við hliðiná valmyndafærslu"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether menus should have a tearoff"
 msgstr "Hvort að sé hægt að rífa valmyndir frá"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the cursor should blink"
 msgstr "Hvort að bendill eigi að blikka"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Hvort að notandi eigi möguleika á að losa og hreyfa valstikur "
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Hvort notandi eigi möguleika á að losa og hreyfa tólstikur"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
-msgid ""
-"Whether the user can dynamically type a new accelerator when a menu is "
-"popped up"
+#: schemas/desktop_gnome_interface.schemas.in.h:36
+msgid "Whether the user can dynamically type a new accelerator when a menu is popped up"
 msgstr ""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
 msgstr "Hvort eigi að sýna stöðustiku til hægri"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Hvort nota eigi sérvalið letur í gtk+ forritum."
 
@@ -771,9 +746,7 @@ msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "möguleg gildi eru á, af og annað."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
-msgid ""
-"Acceleration multiplier for mouse motion. A value of -1 is the system "
-"default."
+msgid "Acceleration multiplier for mouse motion. A value of -1 is the system default."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
@@ -790,25 +763,15 @@ msgstr "Þema bendils"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 #, fuzzy
-msgid ""
-"Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server at the "
-"start of each session, so changing it mid-session won't have an effect until "
-"the next time you log in."
-msgstr ""
-"Nafn bendlaþema. Einungis notað af Xþjónum sem styðja Xcursor ss. XFree86 "
-"4.3 eða seinna. Þetta gildi berst einungis til X þjónsins við byrjun hverjar "
-"setu, þannig að breytingar hafa einungis áhrif næst þegar að þú skráir þig "
-"inn."
+msgid "Cursor theme name. Used only by Xservers that support Xcursor, such as XFree86 4.3 and later. This value is only propagated to the X server at the start of each session, so changing it mid-session won't have an effect until the next time you log in."
+msgstr "Nafn bendlaþema. Einungis notað af Xþjónum sem styðja Xcursor ss. XFree86 4.3 eða seinna. Þetta gildi berst einungis til X þjónsins við byrjun hverjar setu, þannig að breytingar hafa einungis áhrif næst þegar að þú skráir þig inn."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
 msgstr "Fjarlægð áður en hlutur byrjar að dragast úr stað"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
-msgid ""
-"Distance in pixels the pointer must move before accelerated mouse motion is "
-"activated. A value of -1 is the system default."
+msgid "Distance in pixels the pointer must move before accelerated mouse motion is activated. A value of -1 is the system default."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
@@ -822,22 +785,12 @@ msgstr "Skynjunarmörk f. dregna hluti"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 #, fuzzy
-msgid ""
-"Font name of the cursor. If unset, the default font is used. This value is "
-"only propagated to the X server start of each session, so changing it mid-"
-"session won't have an effect until the next time you log in."
-msgstr ""
-"Stærð bendils tekur mið í cursor_theme. Þetta gildi er einungis sent áfram "
-"til X þjóns við ræsingu hverrar setu, þannig að breytingar í miðri setu munu "
-"ekki hafa áhrif fyrr en næst þegar þú skráir þig inn."
+msgid "Font name of the cursor. If unset, the default font is used. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in."
+msgstr "Stærð bendils tekur mið í cursor_theme. Þetta gildi er einungis sent áfram til X þjóns við ræsingu hverrar setu, þannig að breytingar í miðri setu munu ekki hafa áhrif fyrr en næst þegar þú skráir þig inn."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
-msgid ""
-"Highlights the current location of the pointer when the Control key is "
-"pressed and released"
-msgstr ""
-"Lýsa upp núverandi staðsetningu bendils þegar Ctrl hnapp er þrýst niður og "
-"sleppt"
+msgid "Highlights the current location of the pointer when the Control key is pressed and released"
+msgstr "Lýsa upp núverandi staðsetningu bendils þegar Ctrl hnapp er þrýst niður og sleppt"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
@@ -864,14 +817,8 @@ msgid "Single click to open icons"
 msgstr "Einfalt músarklikk við opnun smátáknmynda"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid ""
-"Size of the cursor referenced by cursor_theme. This value is only propagated "
-"to the X server start of each session, so changing it mid-session won't have "
-"an effect until the next time you log in."
-msgstr ""
-"Stærð bendils tekur mið í cursor_theme. Þetta gildi er einungis sent áfram "
-"til X þjóns við ræsingu hverrar setu, þannig að breytingar í miðri setu munu "
-"ekki hafa áhrif fyrr en næst þegar þú skráir þig inn."
+msgid "Size of the cursor referenced by cursor_theme. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in."
+msgstr "Stærð bendils tekur mið í cursor_theme. Þetta gildi er einungis sent áfram til X þjóns við ræsingu hverrar setu, þannig að breytingar í miðri setu munu ekki hafa áhrif fyrr en næst þegar þú skráir þig inn."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -898,9 +845,7 @@ msgid "Disable all external thumbnailers"
 msgstr ""
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
-msgid ""
-"Set to true to disable all external thumbnailer programs, independent on "
-"whether they are independently disabled/enabled."
+msgid "Set to true to disable all external thumbnailer programs, independent on whether they are independently disabled/enabled."
 msgstr ""
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
@@ -956,31 +901,20 @@ msgid "Run program in terminal"
 msgstr "Keyra forrit í útstöð"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr ""
-"Setja sem satt til þess að gera uppgefnu forriti í forrit/ghelp möguleika á "
-"að meðhöndla ghelp slóðir"
+msgid "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr "Setja sem satt til þess að gera uppgefnu forriti í forrit/ghelp möguleika á að meðhöndla ghelp slóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
-msgstr ""
-"Setja sem satt til þess að gera uppgefnu forriti í forrit/info möguleika á "
-"að meðhöndla info slóðir"
+msgid "Set to true to have a program specified in programs/info handle info URLs"
+msgstr "Setja sem satt til þess að gera uppgefnu forriti í forrit/info möguleika á að meðhöndla info slóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
 msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr ""
-"Setja sem satt til þess að gera uppgefnu forriti í forrit/man möguleika á að "
-"meðhöndla man slóðir"
+msgstr "Setja sem satt til þess að gera uppgefnu forriti í forrit/man möguleika á að meðhöndla man slóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid ""
-"Set to true to have a program specified in trash/command handle trash URLs"
-msgstr ""
-"Setja sem satt til þess að gera uppgefnu forriti í rusl/skipun möguleika á "
-"að meðhöndla rusl slóðir"
+msgid "Set to true to have a program specified in trash/command handle trash URLs"
+msgstr "Setja sem satt til þess að gera uppgefnu forriti í rusl/skipun möguleika á að meðhöndla rusl slóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
@@ -1001,3 +935,4 @@ msgstr "Slóðameðhöndlun fyrir man síður"
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Slóðameðhöndlun fyrir rusl síður"
+
