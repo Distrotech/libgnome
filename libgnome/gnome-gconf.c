@@ -452,6 +452,10 @@ gnome_gconf_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
            just let gconfd catch on to our death */
         gtk_object_ref(GTK_OBJECT(global_client));
         gtk_object_sink(GTK_OBJECT(global_client));
+
+        gconf_client_add_dir(global_client,
+                             "/desktop/gnome",
+                             GCONF_CLIENT_PRELOAD_NONE, NULL);
 }
 
 extern GnomeModuleInfo gtk_module_info;
