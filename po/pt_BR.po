@@ -7,9 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 1.114.0\n"
-"POT-Creation-Date: 2003-03-26 19:08+0100\n"
-"PO-Revision-Date: 2003-01-04 10:49-0200\n"
-"Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
+"POT-Creation-Date: 2003-05-18 20:48+0200\n"
+"PO-Revision-Date: 2003-05-18 20:48-0300\n"
+"Last-Translator: Evandro Fernandes Giovanini <evandrofg@ig.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>, Debian-"
 "BR <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +110,7 @@ msgstr "Não foi possível encontrar o doc_id %s no caminho da ajuda"
 msgid "Help document %s/%s not found"
 msgstr "Documento de ajuda %s/%s não encontrado"
 
-#: libgnome/gnome-i18n.c:85
+#: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "Muitos níveis de alias para um locale, pode indicar um loop"
 
@@ -144,27 +144,27 @@ msgstr ""
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Não foi possível criar o diretório '%s' para atalhos do gnome: %s\n"
 
-#: libgnome/gnome-init.c:391
+#: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
 msgstr "Não utilizar o servidor de áudio"
 
-#: libgnome/gnome-init.c:394
+#: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
 msgstr "Utilizar o servidor de áudio"
 
-#: libgnome/gnome-init.c:397
+#: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
 msgstr "Máquina:porta onde o servidor de áudio usado está executando"
 
-#: libgnome/gnome-init.c:399
+#: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: libgnome/gnome-init.c:417
+#: libgnome/gnome-init.c:410
 msgid "GNOME Virtual Filesystem"
 msgstr "Sistemas de arquivos virtual GNOME"
 
-#: libgnome/gnome-init.c:438
+#: libgnome/gnome-init.c:431
 msgid "GNOME Library"
 msgstr "Biblioteca GNOME"
 
@@ -328,6 +328,41 @@ msgstr "Módulos dinâmicos a carregar"
 #: libgnome/gnome-program.c:1374
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
+
+#: libgnome/gnome-url.c:81
+msgid "Unknown internal error while displaying this location."
+msgstr "Erro interno desconhecido ao exibir este local."
+
+#: libgnome/gnome-url.c:88
+msgid "The specified location is invalid."
+msgstr "O local especificado não é válido."
+
+#: libgnome/gnome-url.c:95
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr ""
+"Ocorreu um erro ao analisar o comando padrão de ação associado a este local."
+
+#: libgnome/gnome-url.c:103
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
+msgstr ""
+"Ocorreu um erro ao iniciar o comando padrão de ação associado a este local."
+
+#: libgnome/gnome-url.c:111
+msgid "There is no default action associated with this location."
+msgstr "Não existe uma ação padrão associada a este local."
+
+#: libgnome/gnome-url.c:118
+msgid "The default action does not support this protocol."
+msgstr "A ação padrão não suporta este protocolo."
+
+#: libgnome/gnome-url.c:125
+#, c-format
+msgid "Unknown error code: %d"
+msgstr "Código de erro desconhecido: %d"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -623,7 +658,7 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Tema de ícones usados para o painel, nautilus etc."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-msgid "Length of the cursor blink cycle, in milleseconds"
+msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Tamanho do ciclo da piscada do cursor, em milisegundos"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
@@ -866,176 +901,26 @@ msgid "Whether to play sounds on user events."
 msgstr "Se deve-se tocar sons para eventos do usuário."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-msgid "Default URL show handler"
-msgstr "Visualizador de URL padrão"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-msgid "How to handle applications URLs"
-msgstr "Como lidar com as URLs de aplicações"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-msgid "How to handle ghelp URLs"
-msgstr "Como lidar com URLs ghelp"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
-msgid "How to handle info URLs"
-msgstr "Como lidar com URLs info"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
-msgid "How to handle man URLs"
-msgstr "Como lidar com URLs man"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid "How to handle preferences URLs"
-msgstr "Como lidar com URLs preferences"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid "How to handle server-settings URLs"
-msgstr "Como lidar com URLs server-settings"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-msgid "How to handle start-here URLs"
-msgstr "Como lidar com URLs start-here"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid "How to handle system-settings URLs"
-msgstr "Como lidar com URLs system-settings"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
 msgstr "Como lidar com URLs trash"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
-msgid "How to handle unknown URLs"
-msgstr "Como lidar com URLs desconhecidas"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "Run program in terminal"
 msgstr "Executar programa em terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-msgid ""
-"Set to true to have a program specified in applications/command handle "
-"applications URLs"
-msgstr ""
-"Defina como verdadeiro para fazer um programa especificado em applications/"
-"command lidar com URLs de aplicações"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
-msgid ""
-"Set to true to have a program specified in preferences/command handle "
-"preferences URLs"
-msgstr ""
-"Defina como verdadeiro para ter um programa especificado em preferences/"
-"command lidar com URLs de preferências"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr ""
-"Defina como verdadeiro para fazer um programa especificado em programs/ghelp "
-"lidar com URLs ghelp"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
-msgstr ""
-"Defina como verdadeiro para fazer um programa especificado em programs/info "
-"lidar com URLs info"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
-msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr ""
-"Defina como verdadeiro para fazer um programa especificado em programs/man "
-"lidar com URLs man"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
-msgid ""
-"Set to true to have a program specified in programs/unknown handle unknown "
-"URLs"
-msgstr ""
-"Defina como verdadeiro para fazer um programa especificado em programs/"
-"unknown lidar com URLs desconhecidas"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
-msgid ""
-"Set to true to have a program specified in server-settings/command handle "
-"server-settings URLs"
-msgstr ""
-"Defina como verdadeiro para fazer um programa especificado em server-"
-"settings/command lidar com URLs server-settings"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
-msgid ""
-"Set to true to have a program specified in start-here/command handle start-"
-"here URLs"
-msgstr ""
-"Defina como verdadeiro para fazer um programa especificado em start-here/"
-"command lidar com URLs start-here"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:21
-msgid ""
-"Set to true to have a program specified in system-settings/command handle "
-"system-settings URLs"
-msgstr ""
-"Defina como verdadeiro para fazer um programa especificado em system-"
-"settings/command lidar com URLs system-settings"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:22
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Defina como verdadeiro para fazer um programa especificado em trash/command "
 "lidar com URLs trash"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:23
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Verdadeiro se o programa usado para lidar com essa URL deve ser executado em "
 "um terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:24
-msgid "URL handler for applications pages"
-msgstr "Visualizador de URL para página de aplicações"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:25
-msgid "URL handler for ghelp pages"
-msgstr "Visualizador de URL para páginas ghelp"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:26
-msgid "URL handler for info pages"
-msgstr "Visualizador de URL para páginas info"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:27
-msgid "URL handler for man pages"
-msgstr "Visualizador de URL para páginas de manual"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:28
-msgid "URL handler for preferences pages"
-msgstr "Visualizador de URL para páginas de preferências"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:29
-msgid "URL handler for server-settings pages"
-msgstr "Visualizador de URL para páginas de Configurações do Servidor"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:30
-msgid "URL handler for start-here pages"
-msgstr "Visualizador de URL para páginas de Comece Aqui"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:31
-msgid "URL handler for system-settings pages"
-msgstr "Visualizador de URL para páginas de Configurações do Sistema"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:32
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "URL handler for trash pages"
 msgstr "Visualizador de URL para páginas da Lixeira"
-
-#~ msgid ""
-#~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
-#~ "gnome-libs was compiled incorrectly."
-#~ msgstr ""
-#~ "Não foi possível encontrar o domínio GNOME_FILE_DOMAIN_HELP. Isto "
-#~ "significa que gnome-libs não foi instalada corretamente."
-
-#~ msgid "Help document %s for %s not found"
-#~ msgstr "Documento de ajuda %s para %s não encontrado"
