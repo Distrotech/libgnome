@@ -35,7 +35,7 @@ fs_write (BonoboStream *stream, const Bonobo_Stream_iobuf *buffer,
 	return bytes_written;
 }
 
-static CORBA_long
+static void
 fs_read (BonoboStream *stream, CORBA_long count,
 	 Bonobo_Stream_iobuf **buffer,
 	 CORBA_Environment    *ev)
@@ -55,13 +55,16 @@ fs_read (BonoboStream *stream, CORBA_long count,
 					 count, &bytes_read);
 	} while (bytes_read < 1 && result == GNOME_VFS_ERROR_INTERRUPTED);
 
-	if (result != GNOME_VFS_OK)
-		g_warning ("Should signal an exception here");
-
-	(*buffer)->_buffer = data;
-	(*buffer)->_length = bytes_read;
-
-	return bytes_read;
+	if (result != GNOME_VFS_OK) {
+		CORBA_free (data);
+		CORBA_free (*buffer);
+		*buffer = NULL;
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+				     ex_Bonobo_Stream_IOError, NULL);
+	} else {
+		(*buffer)->_buffer = data;
+		(*buffer)->_length = bytes_read;
+	}
 }
 
 static CORBA_long
@@ -93,14 +96,16 @@ fs_seek (BonoboStream *stream,
 	result = gnome_vfs_seek (sfs->handle, pos, offset);
 
 	if (result != GNOME_VFS_OK) {
-		g_warning ("Seek failure");
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+				     ex_Bonobo_Stream_IOError, NULL);
 		return 0;
 	}
        
 	result = gnome_vfs_tell (sfs->handle, &where);
 	
 	if (result != GNOME_VFS_OK) {
-		g_warning ("Tell failure");
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+				     ex_Bonobo_Stream_IOError, NULL);
 		return 0;
 	}
 
@@ -119,7 +124,8 @@ fs_truncate (BonoboStream *stream,
 	if (result == GNOME_VFS_OK)
 		return;
 
-	g_warning ("Signal truncate exception");
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+			     ex_Bonobo_Stream_NoPermission, NULL);
 }
 
 static void
@@ -234,6 +240,8 @@ fs_length (BonoboStream *stream,
 	} else 
 	return st.st_size;*/
 	g_warning ("Implement me");
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+			     ex_Bonobo_Stream_NotSupported, NULL);
 	return 0;
 }
 

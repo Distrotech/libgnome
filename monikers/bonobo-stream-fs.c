@@ -38,10 +38,11 @@ fs_write (BonoboStream *stream, const Bonobo_Stream_iobuf *buffer,
 	return buffer->_length;
 }
 
-static CORBA_long
-fs_read (BonoboStream *stream, CORBA_long count,
-	 Bonobo_Stream_iobuf ** buffer,
-	 CORBA_Environment *ev)
+static void
+fs_read (BonoboStream         *stream,
+	 CORBA_long            count,
+	 Bonobo_Stream_iobuf **buffer,
+	 CORBA_Environment    *ev)
 {
 	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
 	CORBA_octet *data;
@@ -58,10 +59,13 @@ fs_read (BonoboStream *stream, CORBA_long count,
 	if (v != -1){
 		(*buffer)->_buffer = data;
 		(*buffer)->_length = v;
-	} else
+	} else {
 		CORBA_free (data);
-
-	return v;
+		CORBA_free (*buffer);
+		*buffer = NULL;
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+				     ex_Bonobo_Stream_IOError, NULL);
+	}
 }
 
 static CORBA_long
@@ -92,7 +96,8 @@ fs_truncate (BonoboStream *stream,
 	if (ftruncate (sfs->fd, new_size) == 0)
 		return;
 
-	g_warning ("Signal exception");
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+			     ex_Bonobo_Stream_NoPermission, NULL);
 }
 
 static void
