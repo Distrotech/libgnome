@@ -256,14 +256,8 @@ void gnome_config_pop_prefix (void);
 void gnome_config_make_vector (const char *string, int *argcp, char ***argvp);
 char *gnome_config_assemble_vector (int argc, const char *const argv []);
 
-/* a set handler is a function which is called every time a gnome_config_set_*
-   function is called, this can be used by the app to say guarantee a sync,
-   apps using libgnomeui should not call this, libgnomeui already provides
-   this, this would be for non-gui apps and apps that use a different toolkit
-   then gtk*/
+/*these two are absolutely obscolete and should not be used!!!*/
 void gnome_config_set_set_handler(void (*func)(void *),void *data);
-
-/* similiar to the above, but the function triggers on a sync */
 void gnome_config_set_sync_handler(void (*func)(void *),void *data);
 
 END_GNOME_DECLS

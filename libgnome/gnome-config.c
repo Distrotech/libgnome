@@ -96,26 +96,6 @@ static TProfile *Current = 0;
  */
 static TProfile *Base = 0;
 
-/*
- * a set handler is a function which is called every time a gnome_config_set_*
- * function is called, this can be used by the app to say guarantee a sync,
- * apps using libgnomeui should not call this, libgnomeui already provides
- * this, this would be for non-gui apps and apps that use a different toolkit
- * than gtk.
- */
-static void (*set_handler)(void *data) = NULL;
-static void *set_handler_data;
-
-#define CALL_SET_HANDLER() { if(set_handler) (*set_handler)(set_handler_data); }
-
-/* same as above for a "sync" handler */
-static void (*sync_handler)(void *data) = NULL;
-static void *sync_handler_data;
-
-#define CALL_SYNC_HANDLER() { if(sync_handler) (*sync_handler)(sync_handler_data); }
-
-
-
 /* The `release_path' and `parsed_path' routines are inside the
    following file.  It is in a separate file to allow the test-suite
    to get at it, without needing to export special symbols.
@@ -627,7 +607,6 @@ void
 gnome_config_sync (void)
 {
 	dump_profile (Base,FALSE);
-	CALL_SYNC_HANDLER();
 	gnome_config_drop_all();
 }
 
@@ -1378,7 +1357,6 @@ _gnome_config_set_translated_string (const char *path, const char *value,
 		g_free (tkey);
 	} else
 		_gnome_config_set_string (path, value, priv);
-	CALL_SET_HANDLER();
 }
 
 /**
@@ -1399,7 +1377,6 @@ _gnome_config_set_string (const char *path, const char *new_value, gint priv)
 	r = access_config (SET, pp->section, pp->key, new_value, pp->file,
 			   NULL);
 	release_path (pp);
-	CALL_SET_HANDLER();
 }
 
 /**
@@ -1422,7 +1399,6 @@ _gnome_config_set_int (const char *path, int new_value, gint priv)
 	r = access_config (SET, pp->section, pp->key, intbuf, pp->file,
 			   NULL);
 	release_path (pp);
-	CALL_SET_HANDLER();
 }
 
 /**
@@ -1445,7 +1421,6 @@ _gnome_config_set_float (const char *path, gdouble new_value, gint priv)
 	r = access_config (SET, pp->section, pp->key, floatbuf, pp->file,
 			   NULL);
 	release_path (pp);
-	CALL_SET_HANDLER();
 }
 
 /**
@@ -1466,7 +1441,6 @@ _gnome_config_set_bool (const char *path, gboolean new_value, gint priv)
 	r = access_config (SET, pp->section, pp->key,
 			   new_value ? "true" : "false", pp->file, NULL);
 	release_path (pp);
-	CALL_SET_HANDLER();
 }
 
 /**
@@ -1521,7 +1495,6 @@ _gnome_config_set_vector (const char *path, int argc,
 	access_config (SET, pp->section, pp->key, s, pp->file, NULL);
 	g_free (s);
 	release_path (pp);
-	CALL_SET_HANDLER();
 }
 
 /**
@@ -1562,15 +1535,13 @@ gnome_config_pop_prefix (void)
 void
 gnome_config_set_set_handler(void (*func)(void *),void *data)
 {
-	set_handler = func;
-	set_handler_data = data;
+	g_warning("gnome_config_set_set_handler is obscolete and has no replacement");
 }
 
 void
 gnome_config_set_sync_handler(void (*func)(void *),void *data)
 {
-	sync_handler = func;
-	sync_handler_data = data;
+	g_warning("gnome_config_set_sync_handler is obscolete and has no replacement");
 }
 
 #ifdef TEST
