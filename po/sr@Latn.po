@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.2\n"
-"POT-Creation-Date: 2003-08-11 20:21+0200\n"
-"PO-Revision-Date: 2003-07-14 07:00+0200\n"
+"POT-Creation-Date: 2003-08-25 19:09+0200\n"
+"PO-Revision-Date: 2003-08-25 19:09+0200\n"
 "Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -111,8 +111,7 @@ msgstr "Nije pronađen dokument za pomoć %s/%s"
 
 #: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
-"Previše imena za jedan lokalitet, možda je u pitanju međusobno pozivanje"
+msgstr "Previše imena za jedan lokalitet, možda je u pitanju međusobno pozivanje"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -562,8 +561,8 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
-"Određuje kako se iscrtava slika postavljena pomoću wallpaper_filename. "
-"Moguće vrednosti su „none“, „wallpaper“, „centered“, „scaled“, „stretched“."
+"Određuje kako se iscrtava slika postavljena pomoću wallpaper_filename. Moguće "
+"vrednosti su „none“, „wallpaper“, „centered“, „scaled“, „stretched“."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -864,8 +863,8 @@ msgid ""
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Ime fonta za kursor. Ukoliko nije postavljeno, koristi se uobičajeni font. "
-"Ova vrednost sa šalje Iks serveru samo na početku rada, pa izmene u toku "
-"rada neće imati uticaja dok se ponovo ne prijavite."
+"Ova vrednost sa šalje Iks serveru samo na početku rada, pa izmene u toku rada "
+"neće imati uticaja dok se ponovo ne prijavite."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -978,56 +977,80 @@ msgid "How to handle ghelp URLs"
 msgstr "Kako baratati adresama za pomoć (ghelp)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle http URLs"
+msgstr "Kako baratati HTTP adresama"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle https URLs"
+msgstr "Kako baratati HTTPS adresama"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle info URLs"
 msgstr "Kako baratati adresama za pomoć (info)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "How to handle man URLs"
 msgstr "Kako baratati adresama za pomoć (man)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
 msgid "How to handle trash URLs"
 msgstr "Kako baratati adresama za smeće (trash)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
 msgid "Run program in terminal"
 msgstr "Pokreni program u terminalu"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in command handle http URLs"
+msgstr "Postavite kako bi program naveden kao naredba baratao HTTP adresama"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
+msgid "Set to true to have a program specified in command handle https URLs"
+msgstr "Postavite kako bi program naveden kao naredba baratao HTTPS adresama"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid ""
 "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr "Postavite kako bi navedeni program baratao adresama za pomoć (ghelp)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
 msgid ""
 "Set to true to have a program specified in programs/info handle info URLs"
 msgstr "Postavite kako bi navedeni program baratao adresama za pomoć (info)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr "Postavite kako bi navedeni program baratao adresama za pomoć (man)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr "Postavite kako bi navedeni program baratao smećem"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "Postavite ako program za ovu adresu treba da radi u terminalu"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid "URL handler for ghelp pages"
 msgstr "Program za pomoćne stranice (ghelp)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
+msgid "URL handler for http uris"
+msgstr "Program za HTTP adrese"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
+msgid "URL handler for https uris"
+msgstr "Program za HTTPS adrese"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid "URL handler for info pages"
 msgstr "Program za pomoćne stranice (info)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
 msgid "URL handler for man pages"
 msgstr "Program za pomoćne stranice (man)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid "URL handler for trash pages"
 msgstr "Program za stranice sa smećem"
