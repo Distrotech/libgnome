@@ -59,5 +59,6 @@ dns_helper_SOURCES = dns-helper.c
 dns_helper_LDADD = $(NSL_LIBS)
 
 install-data-local:
+	$(mkinstalldirs) $(scoredir)
 	-chgrp games $(scoredir)
 	-chmod g=rwXs $(scoredir)
