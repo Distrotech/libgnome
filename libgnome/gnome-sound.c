@@ -22,6 +22,9 @@
 #include "gnome-sound.h"
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
 
 #ifdef HAVE_ESD
 #include <esd.h>
