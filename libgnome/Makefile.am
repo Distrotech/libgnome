@@ -24,11 +24,13 @@ libgnome_la_SOURCES = \
 	gnome-dentry.c          \
 	gnome-dl.c		\
 	gnome-fileconvert.c	\
+	gnome-help.c		\
 	gnome-history.c		\
 	gnome-mime.c		\
 	gnome-score.c		\
 	gnome-string.c		\
 	gnome-triggers.c
+	
 
 libgnomeinclude_HEADERS = \
         gnome-config.h 		\
@@ -38,6 +40,7 @@ libgnomeinclude_HEADERS = \
 	gnome-util.h   		\
 	gnome-dl.h		\
 	gnome-dentry.h 		\
+	gnome-help.h		\
 	gnome-history.h		\
 	gnome-i18n.h 		\
 	gnome-mime.h		\
