@@ -4,7 +4,6 @@
 #include <gdk/gdkprivate.h>
 #include <gdk/gdkx.h>
 #include <bonobo/gnome-bonobo.h>
-#include "gnome-storage-efs.h"
 
 CORBA_Environment ev;
 CORBA_ORB orb;
@@ -31,7 +30,7 @@ main (int argc, char *argv [])
     g_error (_("Can not bonobo_init\n"));
 
   system("rm -rf /tmp/testdb");
-  storage = gnome_storage_efs_open("/tmp/testdb",EFS_RDWR|EFS_CREATE,0664);
+  storage = gnome_storage_open("efs", "/tmp/testdb",GNOME_SS_RDWR|GNOME_SS_CREATE,0664);
 
   o = GNOME_OBJECT(storage)->corba_objref;
   printf("Storage %p\n",o);

@@ -13,7 +13,6 @@
 #include <sys/stat.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
-#include <bonobo/gnome-storage-fs.h>
 #include <bonobo/gnome-stream-fs.h>
 #include <errno.h>
 
@@ -147,7 +146,6 @@ fs_commit   (GnomeStream *stream,
 static void
 gnome_stream_fs_class_init (GnomeStreamFSClass *class)
 {
-	GtkObjectClass *object_class = (GtkObjectClass *) class;
 	GnomeStreamClass *sclass = GNOME_STREAM_CLASS (class);
 	
 	gnome_stream_fs_parent_class = gtk_type_class (gnome_stream_get_type ());
@@ -229,7 +227,7 @@ create_gnome_stream_fs (GnomeObject *object)
 }
 
 static GnomeStream *
-gnome_stream_create (GnomeStorageFS *parent, int fd)
+gnome_stream_create (int fd)
 {
 	GnomeStreamFS *stream_fs;
 	GNOME_Stream corba_stream;
@@ -239,7 +237,6 @@ gnome_stream_create (GnomeStorageFS *parent, int fd)
 		return NULL;
 	
 	stream_fs->fd = fd;
-	stream_fs->parent = parent;
 	
 	corba_stream = create_gnome_stream_fs (
 		GNOME_OBJECT (stream_fs));
@@ -255,30 +252,22 @@ gnome_stream_create (GnomeStorageFS *parent, int fd)
 
 /**
  * gnome_stream_fs_open:
- * @parent: A storage file system object.
  * @path: The path to the file to be opened.
  * @mode: The mode with which the file should be opened.
  *
  * Creates a new GnomeStream object for the filename specified by
- * @path.  If @parent is not %NULL, the path specified in @path is
- * taken relative to the GnomeStorageFS provided by @parent.
+ * @path.  
  */
 GnomeStream *
-gnome_stream_fs_open (GnomeStorageFS *parent, const CORBA_char *path, GNOME_Storage_OpenMode mode)
+gnome_stream_fs_open (const CORBA_char *path, GNOME_Storage_OpenMode mode)
 {
 	struct stat s;
 	int v, fd;
 	char *full;
 
-	if (parent != NULL){
-		g_return_val_if_fail (GNOME_IS_STORAGE_FS (parent), NULL);
-	}
 	g_return_val_if_fail (path != NULL, NULL);
 
-	if (parent)
-		full = g_concat_dir_and_file (parent->path, path);
-	else
-		full = g_strdup (path);
+	full = g_strdup (path);
 	
 	v = stat (full, &s);
 
@@ -306,42 +295,36 @@ gnome_stream_fs_open (GnomeStorageFS *parent, const CORBA_char *path, GNOME_Stor
 	
 	g_free (full);
 	
-	return gnome_stream_create (parent, fd);
+	return gnome_stream_create (fd);
 }
 
 /**
  * gnome_stream_fs_create:
- * @fs: A storage file system object.
  * @path: The path to the file to be opened.
  *
  * Creates a new GnomeStreamFS object which is bound to the file
- * specified by @path.  If @fs is not %NULL, @path is taken to be
- * relative to the storage provided in @fs.  When data is read out of
- * or written into the returned GnomeStream object, the read() and
- * write() operations are mapped to the corresponding operations on
- * the specified file.
+ * specified by @path.
+ *
+ * When data is read out of or written into the returned GnomeStream
+ * object, the read() and write() operations are mapped to the
+ * corresponding operations on the specified file.
  *
  * Returns: the constructed GnomeStream object which is bound to the specified file.
  */
 GnomeStream *
-gnome_stream_fs_create (GnomeStorageFS *fs, const CORBA_char *path)
+gnome_stream_fs_create (const CORBA_char *path)
 {
 	char *full;
 	int fd;
 
-	if (fs != NULL){
-		g_return_val_if_fail (GNOME_IS_STORAGE_FS (fs), NULL);
-	}
 	g_return_val_if_fail (path != NULL, NULL);
 	
-	full = g_concat_dir_and_file (fs->path, path);
-	fd = open (full, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-	g_free (full);
+	fd = open (path, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	
 	if (fd == -1)
 		return NULL;
 
-	return gnome_stream_create (fs, fd);
+	return gnome_stream_create (fd);
 }
 
 

@@ -24,7 +24,6 @@ struct _GnomeStreamFS {
 	GnomeStream stream;
 	int fd;
 	char *path;
-	GnomeStorageFS *parent;
 };
 
 typedef struct {
@@ -32,10 +31,8 @@ typedef struct {
 } GnomeStreamFSClass;
 
 GtkType         gnome_stream_fs_get_type     (void);
-GnomeStream    *gnome_stream_fs_open         (GnomeStorageFS *parent,
-					      const CORBA_char *path, GNOME_Storage_OpenMode mode);
-GnomeStream    *gnome_stream_fs_create       (GnomeStorageFS *fs,
-					      const CORBA_char *path);
+GnomeStream    *gnome_stream_fs_open         (const CORBA_char *path, GNOME_Storage_OpenMode mode);
+GnomeStream    *gnome_stream_fs_create       (const CORBA_char *path);
 GnomeStream    *gnome_stream_fs_construct    (GnomeStreamFS *stream,
 					      GNOME_Stream corba_stream);
 	

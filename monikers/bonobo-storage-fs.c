@@ -11,7 +11,6 @@
 #include <config.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <fcntl.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
 #include <bonobo/gnome-storage-fs.h>
@@ -198,7 +197,7 @@ do_gnome_storage_fs_create (char *path)
  * gnome_storage_fs_open:
  * @path: path to existing directory that represents the storage
  * @flags: open flags.
- * @mode: mode used if @flags containst O_CREAT for the storage.
+ * @mode: mode used if @flags containst GNOME_SS_CREATE for the storage.
  *
  * Returns a GnomeStorage object that represents the storage at @path
  */
@@ -210,7 +209,7 @@ gnome_storage_fs_open (const char *path, gint flags, gint mode)
 	
 	g_return_val_if_fail (path != NULL, NULL);
 
-	if (flags & O_CREAT){
+	if (flags & GNOME_SS_CREATE){
 		if (mkdir (path, mode) == -1){
 			return NULL;
 		}
@@ -218,14 +217,14 @@ gnome_storage_fs_open (const char *path, gint flags, gint mode)
 
 	v = stat (path, &s);
 
-	if (flags & O_RDONLY){
+	if (flags & GNOME_SS_READ){
 		if (v == -1)
 			return NULL;
 		
 		if (!S_ISDIR (s.st_mode))
 			return NULL;
 
-	} else if (flags & (O_RDWR|O_WRONLY)){
+	} else if (flags & (GNOME_SS_RDWR|GNOME_SS_WRITE)){
 		if (v == -1){
 			if (mkdir (path, 0777) == -1)
 				return NULL;
