@@ -1,3 +1,11 @@
+2002-01-08  Richard Hestilow  <hestilow@ximian.com>
+
+	* gnome-sound.c (use_sound): Check to see if NULL is really
+	ok (it means to use the default hostname sometimes.)
+
+	* gnome-triggers.c: (gnome_triggers_play_sound,
+	gnome_triggers_do_mediaplay): Re-enable.
+	
 Thu Jan 03 11:15:40 2002  George Lebl <jirka@5z.com>
 
 	* gnome-program.[ch]:  Perform some garbage collection: Remove

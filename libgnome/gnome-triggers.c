@@ -31,12 +31,9 @@
 #include "gnome-triggersP.h"
 #include "gnome-config.h"
 #include "gnome-util.h"
-#if 0
 #include "gnome-sound.h"
-
 #ifdef HAVE_ESD
-#include <esd.h>
-#endif
+ #include <esd.h>
 #endif
 
 #include <unistd.h>
@@ -101,8 +98,8 @@ static gint
 gnome_triggers_read_path(const char *config_path)
 {
   DIR *dirh;
-  char *category_name, *sample_name, *sample_file, *ctmp;
-  gpointer top_iter, event_iter;
+  char *sample_name, *sample_file, *ctmp;
+  gpointer event_iter;
   struct dirent *dent;
   GnomeTrigger nt;
   GString *tmpstr;
@@ -127,7 +124,7 @@ gnome_triggers_read_path(const char *config_path)
 	|| !strcmp(dent->d_name, "gnome.soundlist"))
       continue;
 
-    g_string_sprintf(tmpstr, "=%s/%s=", config_path, dent->d_name);
+    g_string_printf(tmpstr, "=%s/%s=", config_path, dent->d_name);
 
     gnome_config_push_prefix(tmpstr->str);
 
@@ -137,7 +134,7 @@ gnome_triggers_read_path(const char *config_path)
       if(!strcmp(sample_name, "__section_info__"))
 	goto continue_loop;
 
-      g_string_sprintf(tmpstr, "%s/file", sample_name);
+      g_string_printf(tmpstr, "%s/file", sample_name);
       sample_file = gnome_config_get_string(tmpstr->str);
 
       if(!sample_file || !*sample_file) {
@@ -157,6 +154,7 @@ gnome_triggers_read_path(const char *config_path)
 
       nt.u.media.file = sample_file;
       gnome_triggers_add_trigger(&nt, ctmp, sample_name, NULL);
+      g_print ("Added: %s\n", ctmp);
       
       g_free(ctmp);
 
@@ -191,7 +189,7 @@ gnome_triggers_read_path(const char *config_path)
  * Returns 0 on success.  1 otherwise.
  *
  */
-gint
+static gint
 gnome_triggers_readfile(const char *infilename)
 {
   GnomeTrigger* nt;
@@ -415,11 +413,11 @@ gnome_triggers_do(const char *msg, const char *level, ...)
 static void
 gnome_triggers_play_sound(const char *sndname)
 {
-#if defined(HAVE_ESD) && 0
+#ifdef HAVE_ESD
   int sid;
   static GHashTable *sound_ids = NULL;
 
-  if(gnome_sound_connection < 0) return;
+  if(gnome_sound_connection_get () < 0) return;
 
   if(!sound_ids)
     sound_ids = g_hash_table_new(g_str_hash, g_str_equal);
@@ -427,14 +425,14 @@ gnome_triggers_play_sound(const char *sndname)
   sid = GPOINTER_TO_INT(g_hash_table_lookup(sound_ids, sndname));
 
   if(!sid) {
-    sid = esd_sample_getid(gnome_sound_connection, sndname);
+    sid = esd_sample_getid(gnome_sound_connection_get (), sndname);
     if(sid >= 0) sid++;
     g_hash_table_insert(sound_ids, g_strdup(sndname), GINT_TO_POINTER(sid));
   }
 
   if(sid < 0) return;
   sid--;
-  esd_sample_play(gnome_sound_connection, sid);
+  esd_sample_play(gnome_sound_connection_get (), sid);
 #endif
   /* If there's no esound, this is just a no-op */
 }
@@ -598,13 +596,14 @@ gnome_trigger_do_mediaplay(GnomeTrigger* t,
 			   const char *level,
 			   const char *supinfo[])
 {
-#if defined(HAVE_ESD) && 0
-  if(gnome_sound_connection == -1)
+#if defined(HAVE_ESD)
+  if(gnome_sound_connection_get () == -1)
     return;
 
   if(t->u.media.cache_id >= 0)
-    esd_sample_play(gnome_sound_connection, t->u.media.cache_id);
+    esd_sample_play(gnome_sound_connection_get (), t->u.media.cache_id);
   else if(t->u.media.cache_id == -1)
     gnome_sound_play(t->u.media.file);
 #endif
 }
+
