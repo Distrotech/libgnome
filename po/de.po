@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.2\n"
-"POT-Creation-Date: 2002-12-09 20:56+0100\n"
-"PO-Revision-Date: 2002-11-27 14:54+0100\n"
+"POT-Creation-Date: 2002-12-16 23:59+0100\n"
+"PO-Revision-Date: 2002-12-16 23:59+0100\n"
 "Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -372,10 +372,13 @@ msgstr ""
 "Wie viele Millisekunden soll es von 0 bis zur maximalen Beschleunigung "
 "dauern?"
 
+# CHECK
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
+"Wie viele Millisekunden soll gewartet werden, bevor Maus-Bewegungstasten zu "
+"funktionieren beginnen?"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -451,10 +454,12 @@ msgstr ""
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
+"Das zum Ausführen von Programmen im Terminal verwendete, vom Schlüssel "
+"»exec« festgelegte Argument."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
-msgstr ""
+msgstr "Ausführen-Argumente"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
 msgid "Terminal application"
@@ -600,14 +605,12 @@ msgid "Default font"
 msgstr "Vorgabe-Schrift"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:6
-#, fuzzy
 msgid "Enable Accessibility"
-msgstr "Barrierefreiheit"
+msgstr "Barrierefreiheit aktivieren"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:7
-#, fuzzy
 msgid "Enable Animations"
-msgstr "Ton aktivieren"
+msgstr "Animationen aktivieren"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
@@ -618,14 +621,12 @@ msgid "GTK IM Status Style"
 msgstr "Statusstil der GTK-Eingabemethoden"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:10
-#, fuzzy
 msgid "Gtk+ Theme"
 msgstr "GTK+-Thema"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:11
-#, fuzzy
 msgid "Icon Theme"
-msgstr "Datei-Icon-Thema"
+msgstr "Icon-Thema"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon theme to use for the panel, nautilus etc."
@@ -660,13 +661,12 @@ msgid "Name of the default font used by gtk+."
 msgstr "Name der von GTK+ verwendeten Vorgabe-Schrift."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
-#, fuzzy
 msgid "Status Bar on Right"
 msgstr "Statusleiste rechts"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "This specifies the size of icons displayed in toolbars"
-msgstr ""
+msgstr "Dies gibt die Größe der in Werkzeugleisten angezeigten Icons an"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Toolbar Detachable"
@@ -687,37 +687,36 @@ msgstr ""
 "»icon« und »text«"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
-#, fuzzy
 msgid "Use Custom Font"
-msgstr "Eine benutzerdefinierte Schrift verwenden"
+msgstr "Benutzerdefinierte Schrift verwenden"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:27
-#, fuzzy
 msgid "Whether Applications should have accessibility support"
-msgstr "Sollen Programme den barrierefreien Zugriff ermöglichen?"
+msgstr "Sollen Anwendungen den barrierefreien Zugriff ermöglichen?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
+"Sollen Animationen angezeigt werden? Hinweis: Dies ist ein globaler "
+"Schlüssel. Er ändert das Verhalten des Fenstermanagers, des Panels usw."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "Sollen Menüs ein Icon neben den Menüeinträgen anzeigen dürfen?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Whether menus should have a tearoff"
-msgstr ""
+msgstr "Sollen in Menüs ein Abriss angezeigt werden?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-#, fuzzy
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
-"Soll der Benutzer eine Tastenkombination für Menüeiträge festlegen können, "
-"wenn diese angezeigt werden?"
+"Soll der Benutzer dynamisch eine Tastenkombination für Menüeiträge festlegen "
+"können, wenn diese angezeigt werden?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
@@ -725,15 +724,15 @@ msgstr "Soll der Cursor blinken?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach menubars and move them around"
-msgstr ""
+msgstr "Soll der Benutzer Menüleisten abnehmen und verschieben können?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach toolbars and move them around"
-msgstr ""
+msgstr "Soll der Benutzer Werkzeugleisten abnehmen und verschieben können?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
-msgstr ""
+msgstr "Sollen Status-Anzeigen auf der rechten Seite angezeigt werden?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether to use a custom font in gtk+ applications."
@@ -1011,6 +1010,3 @@ msgstr "URL-Handler für Systemeinstellungen-Seiten"
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:32
 msgid "URL handler for trash pages"
 msgstr "URL-Handler für Müll-Seiten"
-
-#~ msgid "Name of icon theme"
-#~ msgstr "Name des Icon-Themas"
