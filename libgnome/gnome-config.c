@@ -627,6 +627,7 @@ gnome_config_sync (void)
 {
 	dump_profile (Base);
 	CALL_SYNC_HANDLER();
+	gnome_config_drop_all();
 }
 
 /**
