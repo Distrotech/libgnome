@@ -294,7 +294,7 @@ gnome_dl_findsym(char *symbol_name,
 
   if (symbol == NULL)
     {
-      snprintf(err_buf, 256, "couldn't find symbol '%s' in library %s", symbol_name, handle->full_path);
+      g_snprintf(err_buf, 256, "couldn't find symbol '%s' in library %s", symbol_name, handle->full_path);
 
       fill_in_last_error(err_buf);
     }
@@ -338,7 +338,7 @@ gnome_dl_findsym_and_lib(char *symbol_name,
 
   if (symbol == NULL)
     {
-      snprintf(err_buf, 256, "couldn't find symbol '%s'", symbol_name);
+      g_snprintf(err_buf, 256, "couldn't find symbol '%s'", symbol_name);
       
       fill_in_last_error(err_buf);
     }
