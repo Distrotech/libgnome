@@ -172,7 +172,7 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	newitem->terminal      = gnome_config_get_bool   ("Terminal=0");
 	newitem->type          = gnome_config_get_string ("Type");
 	newitem->geometry      = gnome_config_get_string ("Geometry");
-	newitem->multiple_args = gnome_config_get_bool ("MultipleArgs=0");
+	newitem->multiple_args = gnome_config_get_bool   ("MultipleArgs=0");
 	newitem->location      = g_strdup (file);
 	icon_base	       = gnome_config_get_string ("Icon");
 	
@@ -234,6 +234,9 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	if (dentry->icon)
 		gnome_config_set_string ("Icon", dentry->icon);
 
+	if (dentry->geometry)
+		gnome_config_set_string ("Geometry", dentry->geometry);
+	
 	if (dentry->docpath)
 		gnome_config_set_string ("DocPath", dentry->docpath);
 

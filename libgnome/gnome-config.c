@@ -740,6 +740,7 @@ void
 gnome_config_drop_all (void)
 {
 	free_profile (Base);
+	Base = 0;
 }
 
 gint
