@@ -1,3 +1,9 @@
+2004-08-12  J.H.M. Dassen (Ray) <jdassen@debian.org>
+
+	* configure.in: Added gobject-2.0 to the PKG_CHECK_MODULES for LIBGNOME
+	so all libgnome's symbol references are resolvable (i.e. it builds with
+	LDFLAGS=-Wl,-z,defs).
+
 =================== 2.6.1.2 ===================
 
 2004-05-16  Anders Carlsson  <andersca@gnome.org>
