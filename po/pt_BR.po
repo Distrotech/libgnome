@@ -7,14 +7,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 1.114.0\n"
-"POT-Creation-Date: 2003-07-04 10:50+0200\n"
-"PO-Revision-Date: 2003-06-16 16:18-0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-07-09 21:14+0200\n"
+"PO-Revision-Date: 2003-07-09 18:34-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: GNOME-l10n-BR <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error Messages"
@@ -367,7 +367,7 @@ msgstr "Código de erro desconhecido: %d"
 #: libgnome/gnome-open.c:35
 #, c-format
 msgid "Error showing url: %s\n"
-msgstr ""
+msgstr "Erro ao exibir url: %s\n"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -450,7 +450,6 @@ msgstr ""
 "desktop GNOME iniciar."
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
-#, fuzzy
 msgid "Startup Assistive Technology Applications"
 msgstr "Inicialização de Aplicações de Tecnologia Assistencial"
 
@@ -692,56 +691,62 @@ msgid "Menus Have Tearoff"
 msgstr "Os Menus Têm Tearoff"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
+msgid "Monospace font"
+msgstr "Fonte monoespaçada"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:18
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr "Nome de uma fonte monoespaçada (largura-fixa) a ser usada em locais como terminais."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Nome do Estilo Preedit do método de entrada GTK+ usado pelo gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Nome do Estilo de Status do método de entrada GTK+ usado pelo gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the default font used by gtk+."
 msgstr "Nome da fonte padrão usada pelo gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Status Bar on Right"
 msgstr "Barra de Status na Direita"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr ""
 "Isso especifica o tamanho dos ícones mostrados nas barras de ferramentas"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Toolbar Detachable"
 msgstr "Barra de Ferramentas Destacável"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Icon Size"
 msgstr "Tamanho dos Ícones da Barra de Ferramentas"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Style"
 msgstr "Estilo da Barra de Ferramentas"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
-#, fuzzy
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
-msgstr ""
-"Estilo da Barra de Ferramentas. Valores válidos são both, both_horiz, icon e "
-"text"
+msgstr "Estilo da Barra de Ferramentas. Valores válidos são \"both\", \"both_horiz\", \"icon\" e \"text\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
 msgstr "Usar Fonte Customizada"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
 msgstr "Se as Aplicações devem ter suporte a acessibilidade"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -749,40 +754,37 @@ msgstr ""
 "Se as animações devem ser mostradas. Nota: Essa é uma chave global, ela muda "
 "o comportamento do gerenciador de janelas, do painel, etc."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Se os menus devem mostrar um ícone próximo à entrada de menu"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether menus should have a tearoff"
 msgstr "Se os menus devem ter uma tearoff"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the cursor should blink"
 msgstr "Se o cursor devem piscar"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Se o usuário pode destacar as barras de menu e movê-las"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Se o usuário pode destacar as barras de ferramentas e movê-las"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
-#, fuzzy
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr ""
-"Se o Usuário pode digitar dinamicamente um novo acelerador quando um menu "
-"está selecionado"
+msgstr "Se o usuário pode digitar dinamicamente um novo acelerador quando um menu está aberto"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
 msgstr "Se deve-se mostrar um medidor da barra de status na direita"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Se deve-se usar uma fonte customizada nas aplicações gtk+."
 
@@ -795,9 +797,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Nome do Arquivo Customizado da Campainha do Teclado"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-#, fuzzy
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "valores possíveis são on, off e custom."
+msgstr "valores possíveis são \"on\", \"off\" e \"custom\"."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -820,17 +821,12 @@ msgid "Cursor theme"
 msgstr "Tema do cursor"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later. This value is only propagated to the X server at the "
 "start of each session, so changing it mid-session won't have an effect until "
 "the next time you log in."
-msgstr ""
-"Nome da tema do cursor. Usado apenas por servidores X que suportam Xcursor, "
-"como o XFree86 4.3 ou mais recente. Este valor é propagado somente para a "
-"inicialização do servidor X de cada sessão, então mudá-la no meio da sessão "
-"não terá efeito até a próxima vez que você logar."
+msgstr "Nome do tema do cursor. Usado apenas por servidores X que suportam Xcursor, como o XFree86 4.3 ou mais recente. Este valor é propagado somente para a inicialização do servidor X de cada sessão, então mudá-la no meio da sessão não terá efeito até a próxima vez que você logar."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -853,15 +849,11 @@ msgid "Drag Threshold"
 msgstr "Limiar do Arrasto"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-#, fuzzy
 msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
-msgstr ""
-"Nome da fonte do cursor. Se desligado a fonte padrão é usada. Esse valor é "
-"propagado somente para a inicialização do servidor X de cada sessão, então "
-"mudá-la no meio da sessão não terá efeito até a próxima vez que você logar."
+msgstr "Nome da fonte do cursor. Se desligado a fonte padrão é usada. Esse valor é propagado somente para a inicialização do servidor X de cada sessão, então mudá-la no meio da sessão não terá efeito até a próxima vez que você logar."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -927,45 +919,45 @@ msgstr "Se deve-se tocar sons para eventos do usuário."
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
-msgstr ""
+msgstr "Desligar todos os criadores de miniaturas externos"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
-msgstr ""
+msgstr "Defina verdadeiro para desligar todos os programas criadores de miniaturas externos, independente de se eles estão independentemente desligados/ligados."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
-msgstr ""
+msgstr "Permitir adiamento de intervalo"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:2
 msgid "Break time"
-msgstr ""
+msgstr "Tempo de intervalo"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:3
 msgid "Number of minutes of typing time before break mode starts."
-msgstr ""
+msgstr "Número de minutos de digitação antes de o modo de intervalo começar."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:4
 msgid "Number of minutes that the typing break should last."
-msgstr ""
+msgstr "Número de minutos que o intervalo de digitação deve durar."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:5
 msgid "Type time"
-msgstr ""
+msgstr "Tempo de digitação"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
-msgstr ""
+msgstr "Se o bloqueio de teclado está ativado"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr ""
+msgstr "Se o bloqueio de teclado está ativado."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr ""
+msgstr "Se a tela de tempo de intervalo pode ser adiada."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle ghelp URLs"
