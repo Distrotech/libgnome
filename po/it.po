@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2\n"
-"POT-Creation-Date: 2002-05-27 16:29+0200\n"
+"POT-Creation-Date: 2002-06-06 23:40+0200\n"
 "PO-Revision-Date: 2002-03-03 16:51+0100\n"
 "Last-Translator: Christopher R. Gabriel <cgabriel@cgabriel.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -13,10 +13,103 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: gnome-data/gnome-2.soundlist.in.h:1
+msgid "Error Messages"
+msgstr "Errore"
+
+#: gnome-data/gnome-2.soundlist.in.h:2
+msgid "GNOME system events"
+msgstr "Eventi di sistema GNOME"
+
+#: gnome-data/gnome-2.soundlist.in.h:3
+msgid "Informational Messages"
+msgstr "Informazioni"
+
+#: gnome-data/gnome-2.soundlist.in.h:4
+msgid "Login"
+msgstr "Login"
+
+#: gnome-data/gnome-2.soundlist.in.h:5
+msgid "Logout"
+msgstr "Esci da GNOME"
+
+#: gnome-data/gnome-2.soundlist.in.h:6
+msgid "Miscellaneous Messages"
+msgstr "Evento generico"
+
+#: gnome-data/gnome-2.soundlist.in.h:7
+msgid "Question Dialogs"
+msgstr "Domanda"
+
+#: gnome-data/gnome-2.soundlist.in.h:8
+msgid "Warning Messages"
+msgstr "Avviso"
+
+#: gnome-data/gtk-events-2.soundlist.in.h:1
+msgid "Action button click"
+msgstr ""
+
+#: gnome-data/gtk-events-2.soundlist.in.h:2
+msgid "Check box toggled"
+msgstr ""
+
+#: gnome-data/gtk-events-2.soundlist.in.h:3
+msgid "Menu item activation"
+msgstr ""
+
+#: gnome-data/gtk-events-2.soundlist.in.h:4
+msgid "User interface events"
+msgstr ""
+
 #: libgnome/gnome-exec.c:438
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Impossibile trovare un terminale. Tento con xterm, anche può non funzionare"
+
+#: libgnome/gnome-gconf.c:174
+msgid "GNOME GConf Support"
+msgstr "Supporto GConf GNOME"
+
+#: libgnome/gnome-help.c:167
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr "Impossibile trovare il dominio GNOME_FILE_DOMAIN_APP_HELP"
+
+#: libgnome/gnome-help.c:180
+#, fuzzy
+msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
+msgstr "Impossibile trovare il dominio GNOME_FILE_DOMAIN_APP_HELP"
+
+#: libgnome/gnome-help.c:193 libgnome/gnome-help.c:208
+#, fuzzy, c-format
+msgid ""
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
+msgstr ""
+"Impossibile mostrare l'aiuto poichè %s non è una directory. Questo implica "
+"una non corretta installazione."
+
+#: libgnome/gnome-help.c:217 libgnome/gnome-help.c:233
+#, fuzzy, c-format
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
+msgstr ""
+"Impossibile mostrare l'aiuto poichè %s non è una directory. Questo implica "
+"una non corretta installazione."
+
+#: libgnome/gnome-help.c:312
+#, c-format
+msgid "Unable to find doc_id %s in the help path"
+msgstr "Impossibile trovare il doc_id %s nel percorso dei documenti di aiuto"
+
+#: libgnome/gnome-help.c:333
+#, c-format
+msgid "Help document %s/%s not found"
+msgstr "Documento di aiuto %s/%s non trovato"
+
+#: libgnome/gnome-i18n.c:85
+msgid "Too many alias levels for a locale, may indicate a loop"
+msgstr "Troppi livelli di alias per un locale, può indicare un loop"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -27,14 +120,14 @@ msgstr "Supporto Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Supporto Attivazione Bonobo"
 
-#: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
+#: libgnome/gnome-init.c:281 libgnome/gnome-init.c:295
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Impossibile creare la directory utente per la configurazione di Gnome '%s': %"
 "s\n"
 
-#: libgnome/gnome-init.c:298
+#: libgnome/gnome-init.c:304
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -43,80 +136,35 @@ msgstr ""
 "Impossibile impostare i permessi a 0700 per la directory privata di "
 "configurazione di Gnome '%s': %s\n"
 
-#: libgnome/gnome-init.c:305
+#: libgnome/gnome-init.c:311
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr ""
 "Impossibile creare la directory per gli accelleratori di Gnome '%s': %s\n"
 
-#: libgnome/gnome-init.c:361
+#: libgnome/gnome-init.c:367
 msgid "Disable sound server usage"
 msgstr "Disabilita l'uso del server per i suoni"
 
-#: libgnome/gnome-init.c:364
+#: libgnome/gnome-init.c:370
 msgid "Enable sound server usage"
 msgstr "Abilita l'uso del server per i suoni"
 
-#: libgnome/gnome-init.c:367
+#: libgnome/gnome-init.c:373
 msgid "Host:port on which the sound server to use is running"
 msgstr "Host:port dove si trova il server dei suoni da utilizzare"
 
-#: libgnome/gnome-init.c:369
+#: libgnome/gnome-init.c:375
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: libgnome/gnome-init.c:387
+#: libgnome/gnome-init.c:393
 msgid "GNOME Virtual Filesystem"
 msgstr "FileSystem Virtual di GNOME"
 
-#: libgnome/gnome-init.c:408
+#: libgnome/gnome-init.c:414
 msgid "GNOME Library"
 msgstr "Libreria GNOME"
-
-#: libgnome/gnome-gconf.c:174
-msgid "GNOME GConf Support"
-msgstr "Supporto GConf GNOME"
-
-#: libgnome/gnome-help.c:166
-msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr "Impossibile trovare il dominio GNOME_FILE_DOMAIN_APP_HELP"
-
-#: libgnome/gnome-help.c:179
-#, fuzzy
-msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "Impossibile trovare il dominio GNOME_FILE_DOMAIN_APP_HELP"
-
-#: libgnome/gnome-help.c:192 libgnome/gnome-help.c:207
-#, fuzzy, c-format
-msgid ""
-"Unable to show help as %s is not a directory.  Please check your "
-"installation."
-msgstr ""
-"Impossibile mostrare l'aiuto poichè %s non è una directory. Questo implica "
-"una non corretta installazione."
-
-#: libgnome/gnome-help.c:216 libgnome/gnome-help.c:232
-#, fuzzy, c-format
-msgid ""
-"Unable to find the help files in either %s or %s.  Please check your "
-"installation"
-msgstr ""
-"Impossibile mostrare l'aiuto poichè %s non è una directory. Questo implica "
-"una non corretta installazione."
-
-#: libgnome/gnome-help.c:309
-#, c-format
-msgid "Unable to find doc_id %s in the help path"
-msgstr "Impossibile trovare il doc_id %s nel percorso dei documenti di aiuto"
-
-#: libgnome/gnome-help.c:330
-#, c-format
-msgid "Help document %s/%s not found"
-msgstr "Documento di aiuto %s/%s non trovato"
-
-#: libgnome/gnome-i18n.c:85
-msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "Troppi livelli di alias per un locale, può indicare un loop"
 
 #: libgnome/gnome-program.c:426
 msgid "Popt Table"
@@ -262,19 +310,19 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Come connettersi a esd"
 
-#: libgnome/gnome-program.c:1335
+#: libgnome/gnome-program.c:1352
 msgid "Help options"
 msgstr "Opzione di aiuto."
 
-#: libgnome/gnome-program.c:1340
+#: libgnome/gnome-program.c:1357
 msgid "Application options"
 msgstr "Opzioni dell'applicazione"
 
-#: libgnome/gnome-program.c:1356
+#: libgnome/gnome-program.c:1373
 msgid "Dynamic modules to load"
 msgstr "Moduli dinamici da caricare"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1374
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULO1,MODULO2,..."
 
@@ -290,62 +338,14 @@ msgstr "Moniker GConf"
 msgid "config indirect moniker"
 msgstr "configurazione moniker indiretta"
 
-#: monikers/bonobo-moniker-conf-indirect.c:44
-#, c-format
-msgid "Key %s not found in configuration"
-msgstr "Chiave %s non trovata nella configurazione"
-
 #: monikers/bonobo-config-bag.c:230
 msgid "Unknown type"
 msgstr "Tipo sconosciuto"
 
-#: gnome-data/gnome-2.soundlist.in.h:1
-msgid "Error Messages"
-msgstr "Errore"
-
-#: gnome-data/gnome-2.soundlist.in.h:2
-msgid "GNOME system events"
-msgstr "Eventi di sistema GNOME"
-
-#: gnome-data/gnome-2.soundlist.in.h:3
-msgid "Informational Messages"
-msgstr "Informazioni"
-
-#: gnome-data/gnome-2.soundlist.in.h:4
-msgid "Login"
-msgstr "Login"
-
-#: gnome-data/gnome-2.soundlist.in.h:5
-msgid "Logout"
-msgstr "Esci da GNOME"
-
-#: gnome-data/gnome-2.soundlist.in.h:6
-msgid "Miscellaneous Messages"
-msgstr "Evento generico"
-
-#: gnome-data/gnome-2.soundlist.in.h:7
-msgid "Question Dialogs"
-msgstr "Domanda"
-
-#: gnome-data/gnome-2.soundlist.in.h:8
-msgid "Warning Messages"
-msgstr "Avviso"
-
-#: gnome-data/gtk-events-2.soundlist.in.h:1
-msgid "Action button click"
-msgstr ""
-
-#: gnome-data/gtk-events-2.soundlist.in.h:2
-msgid "Check box toggled"
-msgstr ""
-
-#: gnome-data/gtk-events-2.soundlist.in.h:3
-msgid "Menu item activation"
-msgstr ""
-
-#: gnome-data/gtk-events-2.soundlist.in.h:4
-msgid "User interface events"
-msgstr ""
+#: monikers/bonobo-moniker-conf-indirect.c:44
+#, c-format
+msgid "Key %s not found in configuration"
+msgstr "Chiave %s non trovata nella configurazione"
 
 #~ msgid ""
 #~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
