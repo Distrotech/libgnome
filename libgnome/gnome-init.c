@@ -37,13 +37,9 @@
 #include <sys/stat.h>
 
 #include <glib.h>
-#include "gnome-i18nP.h"
 
-#include "gnome-init.h"
-#include "gnome-gconf.h"
-#include "gnome-util.h"
-#include "gnome-sound.h"
-#include "gnome-triggers.h"
+#include <libgnome/gnome-init.h>
+#include <libgnome/gnome-util.h>
 
 #include <errno.h>
 
@@ -392,7 +388,7 @@ GnomeModuleInfo libbonobo_module_info = {
  * libgnome
  *****************************************************************************/
 
-enum { ARG_DISABLE_SOUND = 1, ARG_ENABLE_SOUND, ARG_ESPEAKER, ARG_VERSION };
+enum { ARG_VERSION = 1 };
 
 char *gnome_user_dir = NULL, *gnome_user_private_dir = NULL, *gnome_user_accels_dir = NULL;
 
@@ -402,37 +398,12 @@ libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
 		    void *data)
 {
 	GnomeProgram *program;
-	GValue value = { 0 };
 
 	program = gnome_program_get ();
 	
 	switch(reason) {
 	case POPT_CALLBACK_REASON_OPTION:
 		switch(opt->val) {
-		case ARG_ESPEAKER:
-			g_value_init (&value, G_TYPE_STRING);
-			g_value_set_string (&value, opt->arg);
-			g_object_set (G_OBJECT (program),
-				      GNOME_PARAM_ESPEAKER, &value);
-			g_value_unset (&value);
-			break;
-
-		case ARG_DISABLE_SOUND:
-			g_value_init (&value, G_TYPE_BOOLEAN);
-			g_value_set_boolean (&value, FALSE);
-			g_object_set (G_OBJECT (program),
-				      GNOME_PARAM_ENABLE_SOUND, &value);
-			g_value_unset (&value);
-			break;
-
-		case ARG_ENABLE_SOUND:
-			g_value_init (&value, G_TYPE_BOOLEAN);
-			g_value_set_boolean (&value, TRUE);
-			g_object_set (G_OBJECT (program),
-				      GNOME_PARAM_ENABLE_SOUND, &value);
-			g_value_unset (&value);
-			break;
-
 		case ARG_VERSION:
 			g_print ("Gnome %s %s\n",
 				 gnome_program_get_name (program),
@@ -503,35 +474,15 @@ static void
 libgnome_post_args_parse (GnomeProgram *program,
 			  GnomeModuleInfo *mod_info)
 {
-	GValue value = { 0 };
-	gboolean enable_val = TRUE, create_dirs_val = TRUE;                           
-	char *espeaker_val = NULL;                                                    
+	GValue value = { 0, };
+	gboolean create_dirs_val;
 
 	g_value_init (&value, G_TYPE_BOOLEAN);
-	g_object_get_property (G_OBJECT (program),
-			       GNOME_PARAM_CREATE_DIRECTORIES,
-			       &value);
+	g_object_get_property (G_OBJECT (program), "create-directories", &value);
 	create_dirs_val = g_value_get_boolean (&value);
 	g_value_unset (&value);
 
-	g_value_init (&value, G_TYPE_BOOLEAN);
-	g_object_get_property (G_OBJECT (program), 
-			       GNOME_PARAM_ENABLE_SOUND, &value);
-	enable_val = g_value_get_boolean (&value);
-	g_value_unset (&value);
-
-	g_value_init (&value, G_TYPE_STRING);
-	g_object_get_property (G_OBJECT (program), 
-			       GNOME_PARAM_ESPEAKER, &value);
-	espeaker_val = g_value_dup_string (&value);
-	g_value_unset (&value);
-
-
-	if (enable_val) {
-		gnome_sound_init(espeaker_val);
-	}
-
-	gnome_triggers_init ();
+	// gnome_triggers_init ();
 
 	libgnome_userdir_setup (create_dirs_val);
 
@@ -544,17 +495,6 @@ static struct poptOption gnomelib_options [] = {
 	{ NULL, '\0', POPT_ARG_INTL_DOMAIN, PACKAGE, 0, NULL, NULL},
 
 	{ NULL, '\0', POPT_ARG_CALLBACK, (void *) libgnome_option_cb, 0, NULL, NULL},
-
-	{ "disable-sound", '\0', POPT_ARG_NONE,                                 
-	  NULL, ARG_DISABLE_SOUND, N_("Disable sound server usage"), NULL},     
-
-	{ "enable-sound", '\0', POPT_ARG_NONE,                                  
-	  NULL, ARG_ENABLE_SOUND, N_("Enable sound server usage"), NULL},       
-
-	{ "espeaker", '\0', POPT_ARG_STRING,                                    
-	  NULL, ARG_ESPEAKER, N_("Host:port on which the sound server to use is 
-				 running"),
-	  N_("HOSTNAME:PORT")},                                                 
 
 	{"version", '\0', POPT_ARG_NONE, NULL, },
 
@@ -579,7 +519,6 @@ GnomeModuleInfo gnome_vfs_module_info = {
 static GnomeModuleRequirement libgnome_requirements [] = {
 	{ VERSION, &libbonobo_module_info },
 	{ "0.3.0", &gnome_vfs_module_info },
-	{ VERSION, &gnome_gconf_module_info },
 	{ NULL }
 };
 

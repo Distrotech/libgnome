@@ -1,44 +1,4 @@
-Tue Aug 28 01:49:27 2001  George Lebl <jirka@5z.com>
-
-	* gnome-gconf.[ch]: For program relative path, take an optional
-	  argument of GnomeProgram.  Also add documentation for these
-	  two.
-
-Mon Aug 27 00:55:56 2001  George Lebl <jirka@5z.com>
-
-	* gnome-config.c, parse-path.cP: use an internal version of
-	  cancat dir and file which always works with '/'
-
-Mon Aug 27 00:32:57 2001  George Lebl <jirka@5z.com>
-
-	* gnome-gconf.c: include gnome-i18nP.h
-
-	* gnome-init.[ch], gnome-program.[ch]: Fix include stuff foo, 
-	  declare the externs in the header file, initialize triggers again,
-	  and put back the sound stuff so that we're at 1.0 level on that.
-	  Also added a few descriptions of GnomeProgram properties.
-
-Sun Aug 26 22:54:57 2001  George Lebl <jirka@5z.com>
-
-	* libgnome.h, Makefile.am, gnome-gconf.c: Getting confused a bit,
-	  fix things up, now it does compile
-
-Sun Aug 26 22:48:54 2001  George Lebl <jirka@5z.com>
-
-	* gnome-init.c, gnome-gconf.[ch], Makefile.am:  Add gconf support
-	  here.  This is the init stuff, none of the gui stuff.
-
 Sun Aug 26 07:29:59 2001  George Lebl <jirka@5z.com>
-
-	* Makefile.am, gnome-config.[ch], parse-path.cP, gnome-sound.[ch],
-	  gnome-triggersP.h, gnome-triggers.[ch], gnome-i18n.[ch],
-	  gnome-i18nP.h, libgnome.h:  Bring back sane versions of these files.
-	  Will be marked as deprecated where appropriate later after some more
-	  discussion.  In gnome-i18n, don't bring back the broken and
-	  unused crap (preffered language and get_language)
-
-	* gnome-i18nP.h, gnome-exec.c, gnome-init.c, gnome-program.c, 
-	  gnome-url.c, test-libgnome.c: Make translations works once more
 
 	* gnome-util.c: paranoia fix, setuid/setgid programs can't use
 	  getenv ("SHELL") (for obvious reasons).
@@ -49,6 +9,14 @@ Thu Aug 23 23:23:42 2001  George Lebl <jirka@5z.com>
 	  that types that you don't know size (such as gsize) should be
 	  casted when passed to printf since they can be either %d or %ld
 	  or some such.
+
+Fri Aug 24 09:59:14 2001  George Lebl <jirka@5z.com>
+
+	* gnome-utils.c:  make gnome_is_program_in_path use 'access'
+	  with X_OK to check only for actually executable files and it also
+	  regets the PATH every time so that it follows the current PATH
+	  setting.  Note that this cannot possibly be the bottleneck in this
+	  function and the "access" is.
 
 2001-08-10  Michael Meeks  <michael@ximian.com>
 

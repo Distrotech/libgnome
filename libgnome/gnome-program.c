@@ -29,15 +29,11 @@
 /* This module takes care of handling application and library
    initialization and command line parsing */
 
-#include <config.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <gmodule.h>
-
-#include "gnome-i18nP.h"
-
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-init.h>
 #include <libgnome/gnome-i18n.h>
@@ -66,8 +62,6 @@ struct _GnomeProgramPrivate {
     gchar *prop_app_sysconfdir;
     gchar *prop_app_datadir;
     gboolean prop_create_directories;
-    gboolean prop_enable_sound;
-    gchar *prop_espeaker;
 
     gchar **gnome_path;
 
@@ -103,8 +97,6 @@ enum {
     PROP_APP_DATADIR,
     PROP_APP_SYSCONFDIR,
     PROP_CREATE_DIRECTORIES,
-    PROP_ENABLE_SOUND,
-    PROP_ESPEAKER,
     PROP_POPT_TABLE,
     PROP_POPT_FLAGS,
     PROP_POPT_CONTEXT,
@@ -170,7 +162,6 @@ gnome_program_set_property (GObject *object, guint param_id,
 	program->_priv->prop_module_info = g_value_dup_boxed ((GValue *) value);
 	break;
     case PROP_MODULES:
-	g_free (program->_priv->prop_module_list);
 	program->_priv->prop_module_list = g_value_dup_string (value);
 	break;
     case PROP_POPT_TABLE:
@@ -180,7 +171,6 @@ gnome_program_set_property (GObject *object, guint param_id,
 	program->_priv->prop_popt_flags = g_value_get_int (value);
 	break;
     case PROP_HUMAN_READABLE_NAME:
-	g_free (program->_priv->prop_human_readable_name);
 	program->_priv->prop_human_readable_name = g_value_dup_string (value);
 	break;
     case PROP_GNOME_PATH:
@@ -193,30 +183,19 @@ gnome_program_set_property (GObject *object, guint param_id,
 		(g_value_get_string (value), ":", -1);
 	break;
     case PROP_APP_PREFIX:
-	g_free (program->_priv->prop_app_prefix);
 	program->_priv->prop_app_prefix = g_value_dup_string (value);
 	break;
     case PROP_APP_SYSCONFDIR:
-	g_free (program->_priv->prop_app_sysconfdir);
 	program->_priv->prop_app_sysconfdir = g_value_dup_string (value);
 	break;
     case PROP_APP_DATADIR:
-	g_free (program->_priv->prop_app_datadir);
 	program->_priv->prop_app_datadir = g_value_dup_string (value);
 	break;
     case PROP_APP_LIBDIR:
-	g_free (program->_priv->prop_app_libdir);
 	program->_priv->prop_app_libdir = g_value_dup_string (value);
 	break;
     case PROP_CREATE_DIRECTORIES:
 	program->_priv->prop_create_directories = g_value_get_boolean (value);
-	break;
-    case PROP_ENABLE_SOUND:
-	program->_priv->prop_enable_sound = g_value_get_boolean (value);
-	break;
-    case PROP_ESPEAKER:
-	g_free (program->_priv->prop_espeaker);
-	program->_priv->prop_espeaker = g_value_dup_string (value);
 	break;
     default: {
 	    GObjectSetPropertyFunc set_func;
@@ -276,12 +255,6 @@ gnome_program_get_property (GObject *object, guint param_id, GValue *value,
 	break;
     case PROP_CREATE_DIRECTORIES:
 	g_value_set_boolean (value, program->_priv->prop_create_directories);
-	break;
-    case PROP_ENABLE_SOUND:
-	g_value_set_boolean (value, program->_priv->prop_enable_sound);
-	break;
-    case PROP_ESPEAKER:
-	g_value_set_string (value, program->_priv->prop_espeaker);
 	break;
     default: {
 	    GObjectSetPropertyFunc get_func;
@@ -454,9 +427,7 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_HUMAN_READABLE_NAME,
-	 g_param_spec_string (GNOME_PARAM_HUMAN_READABLE_NAME,
-			      _("Human readable name"), 
-			      _("Human readable name of this application"),
+	 g_param_spec_string (GNOME_PARAM_HUMAN_READABLE_NAME, NULL, NULL,
 			      NULL,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
@@ -464,9 +435,7 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_GNOME_PATH,
-	 g_param_spec_string (GNOME_PARAM_GNOME_PATH, 
-			      _("GNOME path"), 
-			      _("Path in which to look for installed files"),
+	 g_param_spec_string (GNOME_PARAM_GNOME_PATH, NULL, NULL,
 			      g_getenv ("GNOME2_PATH"),
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
@@ -480,9 +449,7 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_APP_VERSION,
-	 g_param_spec_string (GNOME_PARAM_APP_VERSION, 
-			      _("App version"), 
-			      _("Version of this application"),
+	 g_param_spec_string (GNOME_PARAM_APP_VERSION, NULL, NULL,
 			      NULL, G_PARAM_READABLE));
 
     g_object_class_install_property
@@ -524,22 +491,6 @@ gnome_program_class_init (GnomeProgramClass *class)
 			       TRUE,
 			       (G_PARAM_READABLE | G_PARAM_WRITABLE |
 				G_PARAM_CONSTRUCT_ONLY)));
-
-    g_object_class_install_property
-	(object_class,
-	 PROP_ENABLE_SOUND,
-	 g_param_spec_boolean (GNOME_PARAM_ENABLE_SOUND, NULL, NULL,
-			       TRUE,
-			       (G_PARAM_READABLE | G_PARAM_WRITABLE |
-				G_PARAM_CONSTRUCT_ONLY)));
-
-    g_object_class_install_property
-	(object_class,
-	 PROP_ESPEAKER,
-	 g_param_spec_string (GNOME_PARAM_ESPEAKER, NULL, NULL,
-			      NULL,
-			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-			       G_PARAM_CONSTRUCT_ONLY)));
 
     object_class->finalize  = gnome_program_finalize;
 }

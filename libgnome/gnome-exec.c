@@ -25,8 +25,6 @@
 #  include <config.h>
 #endif
 
-#include "gnome-i18nP.h"
-
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-i18n.h>
@@ -187,8 +185,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
   res = read (parent_comm_pipes[0], &child_pid, sizeof(child_pid));
   if (res != sizeof(child_pid))
     {
-      g_message("res is %ld instead of %d",
-		(long)res, (int)sizeof(child_pid));
+      g_message("res is %d instead of %d", res, (int)sizeof(child_pid));
       child_pid = -1; /* really weird things happened */
     }
   else if (read (parent_comm_pipes[0], &child_errno, sizeof(child_errno))

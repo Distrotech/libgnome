@@ -1,6 +1,13 @@
-Sun Aug 26 18:39:43 2001  George Lebl <jirka@5z.com>
+2001-08-28  Martin Baulig  <baulig@suse.de>
 
-	* libgnome/configure.in, libgnome/libgnome-2.0.pc.in:  Require GConf
+	* configure.in: Bumped version number to 1.103.0, the next release will
+	be 1.104.0.
+
+	NOTE: We're in API freeze again, this is the state of the 1.102.0 release.
+
+	NOTE: Please update the required version in your PKG_CHECK_MODULES macros
+	to 1.103.0, there was some larger breakage between 1.102.0 and this one,
+	but 1.103.0 is stable again (and compatible with the frozen 1.102.0).
 
 Fri Aug 24 09:59:14 2001  George Lebl <jirka@5z.com>
 
@@ -10,22 +17,9 @@ Fri Aug 24 09:59:14 2001  George Lebl <jirka@5z.com>
 	  by macros or just punted.  They are simple yet very useful to
 	  have to write portable code
 
-	* libgnome/gnome-utils.c:  make gnome_is_program_in_path use 'access'
-	  with X_OK to check only for actually executable files and it also
-	  regets the PATH every time so that it follows the current PATH
-	  setting.  Note that this cannot possibly be the bottleneck in this
-	  function and the "access" is.
-
-	* configure.in: get rid of this elitist evil CERTIFIED_GNOMIE
-	  bullshit
-
 2001-08-14  Michael Meeks  <michael@ximian.com>
 
 	* configure.in: add a bonobo-config dependency.
-
-2001-08-14  Abel Cheung  <maddog@linux.org.hk>
-
-	* configure.in: Added zh_TW to ALL_LINGUAS.
 
 2001-08-14  Martin Baulig  <baulig@suse.de>
 

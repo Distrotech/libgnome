@@ -7,8 +7,6 @@
 #include <unistd.h>
 #include <string.h>
 
-#include "gnome-i18nP.h"
-
 #include "libgnome.h"
 
 #include <libgnome/gnome-url.h>

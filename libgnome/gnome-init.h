@@ -61,10 +61,6 @@ extern GnomeModuleInfo gnome_bonobo_activation_module_info;
 extern GnomeModuleInfo gnome_vfs_module_info;
 extern GnomeModuleInfo libgnome_module_info;
 
-extern char *gnome_user_dir;
-extern char *gnome_user_private_dir;
-extern char *gnome_user_accels_dir;
-
 G_END_DECLS
 
 #endif /* LIBGNOMEINIT_H */
