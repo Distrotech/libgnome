@@ -75,7 +75,7 @@ libgnome_2_la_SOURCES = \
 	$(libgnome_src)		\
 	$(CORBA_SOURCE)
 
-lib_headers = \
+libinclude_HEADERS = \
 	libgnome.h
 
 libgnome_headers = \
