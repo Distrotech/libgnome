@@ -1,3 +1,13 @@
+2001-12-04  Gregory Leblanc  <gleblanc@linuxweasel.com>
+
+	* README: added some explanation of how to set up XML catalogs,
+	and why they're important.
+	* docbook/gnome-customization/eric_customization.xsl: Changed
+	xsl:import to use the correct URI for the docbook stylesheets.
+	This will cause the stylesheets to be fetched over the network,
+	unless you have your XML catalogs set up correctly.
+	* docbook/gnome-customization/gnome-customization.xsl: ditto
+
 2001-11-27  Anders Carlsson  <andersca@gnu.org>
 
 	* Makefile.am (EXTRA_DIST): Add ChangeLog.

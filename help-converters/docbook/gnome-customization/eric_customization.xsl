@@ -6,7 +6,7 @@
 <!--########################Files to Include######################-->
 
 <!-- Importing the Norman Walsh's stylesheet as the basis. -->
-<xsl:import href="/usr/share/sgml/docbook/stylesheet/xsl/nwalsh-1.45/html/chunk.xsl"/>
+<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/html/chunk.xsl"/>
 
 <!-- Including a new title page stylesheet for customizing the placement 
 	 of tags in the title page. -->
