@@ -37,7 +37,7 @@ typedef struct {
 
 static char *current_lang;
 
-static gboolean gnome_mime_type_inited = FALSE;
+static gboolean gnome_mime_inited = FALSE;
 
 /*
  * A hash table containing all of the Mime records for specific
@@ -336,11 +336,13 @@ load_mime_type_info (void)
 }
 
 static void
-gnome_mime_type_init ()
+gnome_mime_init ()
 {
 	specific_types = g_hash_table_new (g_str_hash, g_str_equal);
 	generic_types  = g_hash_table_new (g_str_hash, g_str_equal);
 	load_mime_type_info ();
+
+	gnome_mime_inited = TRUE;
 }
 
 /**
@@ -353,7 +355,7 @@ gnome_mime_type_init ()
  * should not free the result.
  */
 char *
-gnome_mime_type_get_value (char *mime_type, char *key)
+gnome_mime_get_value (char *mime_type, char *key)
 {
 	char *value, *generic_type, *p;
 	GnomeMimeContext *context;
@@ -361,10 +363,8 @@ gnome_mime_type_get_value (char *mime_type, char *key)
 	g_return_val_if_fail (mime_type != NULL, NULL);
 	g_return_val_if_fail (key != NULL, NULL);
 
-	if (!gnome_mime_type_inited){
-		gnome_mime_type_init ();
-		gnome_mime_type_inited = TRUE;
-	}
+	if (!gnome_mime_inited)
+		gnome_mime_init ();
 
 	context = g_hash_table_lookup (specific_types, mime_type);
 	if (context){
@@ -400,14 +400,14 @@ assemble_list (gpointer key, gpointer value, gpointer user_data)
 }
 
 /**
- * gnome_mime_type_get_keys:
+ * gnome_mime_get_keys:
  * @mime_type: the mime type to lookup.
  *
  * Returns a GList that contains private strings with all of the keys
  * associated with the @mime_type.  
  */
 GList *
-gnome_mime_type_get_keys (char *mime_type)
+gnome_mime_get_keys (char *mime_type)
 {
 	char *p, *generic_type;
 	GnomeMimeContext *context;
@@ -415,10 +415,8 @@ gnome_mime_type_get_keys (char *mime_type)
 	
 	g_return_val_if_fail (mime_type != NULL, NULL);
 
-	if (!gnome_mime_type_inited){
-		gnome_mime_type_init ();
-		gnome_mime_type_inited = TRUE;
-	}
+	if (!gnome_mime_inited)
+		gnome_mime_init ();
 
 	generic_type = g_strdup (mime_type);
 	p = strchr (generic_type, '/');
@@ -455,6 +453,97 @@ gnome_mime_type_get_keys (char *mime_type)
 	return list;
 }
 
+/**
+ * gnome_mime_program:
+ * @mime_type: the mime_type 
+ *
+ * Returns the program intended to be loaded for this given mime-type
+ */
+gchar *
+gnome_mime_program (gchar * mime_type)
+{
+	return gnome_mime_get_value (mime_type, "open");
+}
+
+/**
+ * gnome_mime_description:
+ * @mime_type: the mime type
+ *
+ * Returns the description for this mime-type
+ */
+gchar *
+gnome_mime_description (gchar * mime_type)
+{
+	return gnome_mime_get_value (mime_type, "description");
+}
+
+/**
+ * gnome_mime_test:
+ * @mime_type: the mime type
+ *
+ * Returns the command to be executed on the file before considering
+ * the file to match this mime_type.
+ */
+gchar *
+gnome_mime_test (gchar * mime_type)
+{
+	return gnome_mime_get_value (mime_type, "test");
+}
+
+/**
+ * gnome_mime_composetyped:
+ * @mime_type: the mime type
+ *
+ * Returns the command to be executed to compose a message of
+ * the given mime_type
+ */
+gchar *
+gnome_mime_composetyped (gchar * mime_type)
+{
+	return gnome_mime_get_value (mime_type, "compose");
+}
+
+static gboolean
+gnome_mime_flag (gchar *mime_type, gchar *flag)
+{
+	char *str;
+	
+	str = gnome_mime_get_value (mime_type, flag);
+	if (str){
+		if (strstr (str, "copiousoutput") != NULL)
+			return TRUE;
+	}
+	return FALSE;
+}
+
+/**
+ * gnome_mime_copiousoutput:
+ * @mime_type: the mime type
+ * @key: the key used to open the command.
+ *
+ * Returns a boolean value, whether the mime_type open
+ * command will produce lots of output
+ */
+gboolean 
+gnome_mime_copiousoutput (gchar * mime_type, gchar *key)
+{
+	return gnome_mime_flag (mime_type, "copiousoutput");
+}
+
+/**
+ * gnome_mime_needsterminal
+ * @mime_type: the mime type
+ * @key: the key used to open the command.
+ *
+ * Returns a boolean value, whether the mime_type open
+ * command will required a terminal.
+ */
+gboolean
+gnome_mime_needsterminal (gchar * mime_type, gchar *key)
+{
+	return gnome_mime_flag (mime_type, "needsterminal");
+}
+
 #if 0
 int
 main ()
@@ -463,7 +552,7 @@ main ()
 
 	g_warning ("El lookup de image/* fall!\n");
 		
-	keys = gnome_mime_type_get_keys ("image/gif");
+	keys = gnome_mime_get_keys ("image/gif");
 	printf ("Dumping keys for image/gif\n");
 	for (; keys; keys = keys->next){
 		char *value;

@@ -23,8 +23,16 @@
 
 BEGIN_GNOME_DECLS
 
-char      *gnome_mime_type_get_value (char *mime_type, char *key);
-GList     *gnome_mime_type_get_keys  (char *mime_type);
+char      *gnome_mime_get_value (char *mime_type, char *key);
+GList     *gnome_mime_get_keys  (char *mime_type);
+
+gchar     *gnome_mime_program       (gchar* mime_type);
+gchar     *gnome_mime_description   (gchar* mime_type);
+gchar     *gnome_mime_nametemplate  (gchar* mime_type);
+gchar     *gnome_mime_test          (gchar* mime_type);
+gchar     *gnome_mime_composetyped  (gchar* mime_type);
+gboolean   gnome_mime_copiousoutput (gchar* mime_type, char *key);
+gboolean   gnome_mime_needsterminal (gchar* mime_type, char *key);
 
 END_GNOME_DECLS
 

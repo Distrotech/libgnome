@@ -16,6 +16,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/mman.h>
+#include "gnome-mime.h"
 
 typedef enum {
   T_END /* end of array */, T_BYTE, T_SHORT, T_LONG, T_STR, T_DATE, 
@@ -170,7 +171,8 @@ static char *read_num_val(char *curpos, int bsize, char *intobuf)
   return curpos;
 }
 
-GnomeMagicEntry *gnome_magic_parse(const gchar *filename, gint *nents)
+GnomeMagicEntry *
+gnome_magic_parse(const gchar *filename, gint *nents)
 {
   GArray *array;
   GnomeMagicEntry newent, *retval;
@@ -377,7 +379,8 @@ gnome_magic_db_load(void)
   return retval;
 }
 
-const char *gnome_mime_type_from_magic(const gchar *filename)
+const char *
+gnome_mime_type_from_magic(const gchar *filename)
 {
   FILE *fh;
   static GnomeMagicEntry *ents = NULL;
