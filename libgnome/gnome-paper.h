@@ -24,11 +24,8 @@
 #define GNOME_PAPER_H
 
 #include <glib.h>
+#include <libgnome/gnome-defs.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
-  
 BEGIN_GNOME_DECLS
 
 typedef struct _GnomePaper GnomePaper;
@@ -61,9 +58,5 @@ gdouble		 gnome_paper_convert	(double psvalue, const GnomeUnit *unit);
 double           gnome_paper_convert_to_points (double othervalue, const GnomeUnit *unit);
 
 END_GNOME_DECLS
-
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
 
 #endif 
