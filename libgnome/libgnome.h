@@ -37,6 +37,7 @@
 #include "libgnome/gnome-triggers.h"
 #include "libgnome/gnome-util.h"
 #include "libgnome/gnome-paper.h"
+#include "libgnome/gnome-url.h"
 
 extern char *gnome_user_home_dir;
 extern char *gnome_user_dir;
