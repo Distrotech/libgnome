@@ -28,7 +28,7 @@
 
 #include <libgnome/gnome-program.h>
 
-#include <bonobo/bonobo-config-database.h>
+#include <bonobo/Bonobo.h>
 
 G_BEGIN_DECLS
 

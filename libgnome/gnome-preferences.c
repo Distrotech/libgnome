@@ -20,7 +20,7 @@
 #include <config.h>
 #include <libgnome/gnome-preferences.h>
 #include <libgnome/libgnome-init.h>
-#include <bonobo/bonobo-config-database.h>
+#include <bonobo/bonobo-property-bag-client.h>
 #include <string.h>
 
 static gboolean
@@ -32,7 +32,7 @@ desktop_property_get_boolean (const gchar *name)
     if (cb == CORBA_OBJECT_NIL)
 	return FALSE;
 
-    return bonobo_config_get_boolean (cb, name, NULL);
+    return bonobo_pbclient_get_boolean (cb, name, NULL);
 }
 
 static void
@@ -44,7 +44,7 @@ desktop_property_set_boolean (const gchar *name, gboolean value)
     if (cb == CORBA_OBJECT_NIL)
 	return;
 
-    bonobo_config_set_boolean (cb, name, value, NULL);
+    bonobo_pbclient_set_boolean (cb, name, value, NULL);
 }
 
 #define DEFINE_DESKTOP_PROP_BOOLEAN(c_name, prop_name)  \
