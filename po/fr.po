@@ -1,13 +1,13 @@
 # libgnome fr.po
 # Copyright (C) 2001-2002 Free Software Foundation, Inc.
-# maintainer : Christophe Merlet (RedFox) <christophe@merlet.net>, 2001-2002.
+# maintainer: Christophe Merlet (RedFox) <christophe@merlet.net>, 2001-2002.
 # Christophe Fergeau <teuf@users.sourceforge.net>, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 1.116.0\n"
-"POT-Creation-Date: 2002-05-20 11:53+0200\n"
-"PO-Revision-Date: 2002-05-05 19:11+0200\n"
+"Project-Id-Version: libgnome 1.117.1\n"
+"POT-Creation-Date: 2002-05-23 01:59+0200\n"
+"PO-Revision-Date: 2002-05-23 01:53+0200\n"
 "Last-Translator: Christophe Merlet (RedFox) <christophe@merlet.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "Support de bonobo-activation"
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Ne peut créer un répertoire de configuration par utilisateur « %s » : %s\n"
+"Ne peut créer un répertoire de configuration par utilisateur « %s » : %s\n"
 
 #: libgnome/gnome-init.c:298
 #, c-format
@@ -42,20 +42,20 @@ msgid ""
 "s': %s\n"
 msgstr ""
 "Ne peut définir le mode à 0700 sur le répertoire de configuration privé par "
-"utilisateur « %s » : %s\n"
+"utilisateur « %s » : %s\n"
 
 #: libgnome/gnome-init.c:305
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Ne peut créer le répertoire d'accélérateurs gnome « %s » : %s\n"
+msgstr "Ne peut créer le répertoire d'accélérateurs gnome « %s » : %s\n"
 
 #: libgnome/gnome-init.c:361
 msgid "Disable sound server usage"
-msgstr "Désactiver l'utilisation du serveur de son"
+msgstr "Désactive l'utilisation du serveur de son"
 
 #: libgnome/gnome-init.c:364
 msgid "Enable sound server usage"
-msgstr "Activer l'utilisation du serveur de son"
+msgstr "Active l'utilisation du serveur de son"
 
 #: libgnome/gnome-init.c:367
 msgid "Host:port on which the sound server to use is running"
@@ -63,7 +63,7 @@ msgstr "Hôte:port où trouver le serveur de son à utiliser"
 
 #: libgnome/gnome-init.c:369
 msgid "HOSTNAME:PORT"
-msgstr "NOMDHOTE:PORT"
+msgstr "HÔTE:PORT"
 
 #: libgnome/gnome-init.c:387
 msgid "GNOME Virtual Filesystem"
@@ -77,38 +77,38 @@ msgstr "Bibliothèque GNOME"
 msgid "GNOME GConf Support"
 msgstr "Support GNOME de GConf"
 
-#: libgnome/gnome-help.c:148
+#: libgnome/gnome-help.c:166
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Impossible de trouver le domaine GNOME_FILE_DOMAIN_APP_HELP"
 
-#: libgnome/gnome-help.c:162
-msgid ""
-"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
-"libs was compiled incorrectly."
-msgstr ""
-"Impossible de trouver le domaine GNOME_FILE_DOMAIN_HELP. Cela indique que "
-"gnome-libs n'a pas été compilé correctement."
+#: libgnome/gnome-help.c:179
+msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
+msgstr "Incapable de trouver le domaine GNOME_FILE_DOMAIN_HELP."
 
-#: libgnome/gnome-help.c:173
+#: libgnome/gnome-help.c:192 libgnome/gnome-help.c:207
 #, c-format
 msgid ""
-"Unable to show help as file %s is not a directory.  This implies an "
-"incorrect installation."
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
 msgstr ""
-"Impossible d'afficher l'aide car le fichier « %s » n'est pas un répertoire. "
-"Cela indique une installation incorrecte"
+"Incapable d'afficher l'aide car %s n'est pas un répertoire. Veuillez "
+"vérifier votre installation."
 
-#: libgnome/gnome-help.c:197
+#: libgnome/gnome-help.c:216 libgnome/gnome-help.c:232
 #, c-format
-msgid "Help document %s for %s not found"
-msgstr "Document d'aide « %s » pour « %s » non trouvé"
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
+msgstr ""
+"Incapable de trouver les fichiers d'aide dans %s ou %s. Veuillez vérifier "
+"votre installation."
 
-#: libgnome/gnome-help.c:268
+#: libgnome/gnome-help.c:309
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr "Impossible de trouver doc_id %s dans le chemin d'aide"
+msgstr "Incapable de trouver doc_id %s dans le chemin d'aide"
 
-#: libgnome/gnome-help.c:289
+#: libgnome/gnome-help.c:330
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "Le document d'aide %s/%s est introuvable"
@@ -346,6 +346,16 @@ msgstr "Activation d'élément de menu"
 msgid "User interface events"
 msgstr "Événements d'interface utilisateur"
 
+#~ msgid ""
+#~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
+#~ "gnome-libs was compiled incorrectly."
+#~ msgstr ""
+#~ "Impossible de trouver le domaine GNOME_FILE_DOMAIN_HELP. Cela indique que "
+#~ "gnome-libs n'a pas été compilé correctement."
+
+#~ msgid "Help document %s for %s not found"
+#~ msgstr "Document d'aide « %s » pour « %s » non trouvé"
+
 #~ msgid "Test option."
 #~ msgstr "Option de test."
 
@@ -354,28 +364,28 @@ msgstr "Événements d'interface utilisateur"
 
 #, fuzzy
 #~ msgid "Cannot parse: %s"
-#~ msgstr "Ne peut ouvrir un tube : %s"
+#~ msgstr "Ne peut ouvrir un tube : %s"
 
 #~ msgid "Error parsing '%s' (empty result)"
-#~ msgstr "Erreur d'analyse de « %s » (résultat vide)"
+#~ msgstr "Erreur d'analyse de « %s » (résultat vide)"
 
 #~ msgid "Mozilla not found as '%s'"
-#~ msgstr "Mozilla n'a pas été trouvé comme « %s »"
+#~ msgstr "Mozilla n'a pas été trouvé comme « %s »"
 
 #~ msgid "Cannot parse handler template: %s"
-#~ msgstr "ne peut analyser le modèle du gestionnaire : %s"
+#~ msgstr "ne peut analyser le modèle du gestionnaire : %s"
 
 #~ msgid "Cannot execute command '%s'!"
-#~ msgstr "Ne peut exécuter la commande « %s » !"
+#~ msgstr "Ne peut exécuter la commande « %s » !"
 
 #~ msgid "Command '%s' did not return an ID!"
-#~ msgstr "La commande « %s » n'a pas retourné d'ID !"
+#~ msgstr "La commande « %s » n'a pas retourné d'ID !"
 
 #~ msgid "Attempting to launch a non-application"
 #~ msgstr "Tentative de lancer une non-application"
 
 #~ msgid "Trying to execute an item with no 'Exec'"
-#~ msgstr "Essaye d'exécuter un élément sans « Exec »"
+#~ msgstr "Essaye d'exécuter un élément sans « Exec »"
 
 #~ msgid "No exec field for this drop"
 #~ msgstr "Aucun champ exec pour ce lacher"
