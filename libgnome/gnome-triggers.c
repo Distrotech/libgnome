@@ -93,8 +93,7 @@ gnome_triggers_init(void)
     g_free(fn);
   }
 #endif
-
-  if(gnome_config_get_bool("/sound/system/settings/start_esd=true")
+  if(gnome_sound_connection >= 0
      && gnome_config_get_bool("/sound/system/settings/event_sounds=true")) {
 
 #ifdef HAVE_ESD

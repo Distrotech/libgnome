@@ -820,6 +820,9 @@ gnome_metadata_list (const char *file)
 	int num, i;
 	char **result, *p, *dd;
 
+	if (! database && init ())
+		return NULL;
+
 	if (metadata_get_list ("file", file, &value))
 		return NULL;
 
