@@ -11,7 +11,6 @@ GnomeModuleClassInitHook
 GnomeModuleHook
 gnome_program_init
 gnome_program_initv
-GNOME_PROGRAM_STANDARD_PROPERTIES
 
 <SUBSECTION>
 gnome_program_get
@@ -21,8 +20,15 @@ gnome_program_get_app_version
 gnome_program_locate_file
 
 <SUBSECTION>
-GNOME_PARAM_MODULE_INFO
-GNOME_PARAM_MODULES
+gnome_program_module_register
+gnome_program_module_registered
+gnome_program_module_load
+gnome_program_install_property
+gnome_program_preinit
+gnome_program_parse_args
+gnome_program_postinit
+
+<SUBSECTION>
 GNOME_PARAM_POPT_TABLE
 GNOME_PARAM_POPT_FLAGS
 GNOME_PARAM_POPT_CONTEXT
@@ -41,17 +47,11 @@ GNOME_PARAM_APP_DATADIR
 GNOME_PARAM_APP_LIBDIR
 GNOME_PARAM_HUMAN_READABLE_NAME
 GNOME_PARAM_GNOME_PATH
-
-<SUBSECTION>
-gnome_program_module_register
-gnome_program_module_registered
-gnome_program_module_load
-gnome_program_install_property
-gnome_program_preinit
-gnome_program_parse_args
-gnome_program_postinit
+GNOME_PARAM_NONE
+GNOME_PROGRAM_STANDARD_PROPERTIES
 
 <SUBSECTION Standard>
+GnomeProgramClass
 GNOME_PROGRAM
 GNOME_IS_PROGRAM
 GNOME_TYPE_PROGRAM
@@ -63,6 +63,8 @@ GNOME_TYPE_MODULE_INFO
 
 <SUBSECTION Private>
 GnomeProgramPrivate
+GNOME_DOT_GNOME
+GNOME_DOT_GNOME_PRIVATE
 
 </SECTION>
 
@@ -168,13 +170,32 @@ gnome_config_make_vector
 <SUBSECTION Private>
 gnome_config_set_set_handler
 gnome_config_set_sync_handler
+gnome_config_sync_file_
+gnome_config_get_vector_with_default_
+gnome_config_init_iterator_sections_
+gnome_config_clean_file_
+gnome_config_set_float_
+gnome_config_clean_section_
+gnome_config_set_vector_
+gnome_config_init_iterator_
+gnome_config_set_bool_
+gnome_config_drop_file_
+gnome_config_get_bool_with_default_
+gnome_config_get_string_with_default_
+gnome_config_get_int_with_default_
+gnome_config_clean_key_
+gnome_config_set_string_
+gnome_config_has_section_
+gnome_config_get_float_with_default_
+gnome_config_set_translated_string_
+gnome_config_set_int_
+gnome_config_get_translated_string_with_default_
 </SECTION>
 
 <SECTION>
 <FILE>gnome-init</FILE>
 <SUBSECTION>
 LIBGNOME_MODULE
-GNOME_BONOBO_MODULE
 
 <SUBSECTION>
 libgnome_module_info_get
@@ -184,6 +205,9 @@ gnome_bonobo_module_info_get
 gnome_user_dir_get
 gnome_user_private_dir_get
 gnome_user_accels_dir_get
+
+<SUBSECTION Private>
+GNOME_BONOBO_MODULE
 </SECTION>
 
 <SECTION>
@@ -200,6 +224,8 @@ gnome_help_display
 gnome_help_display_with_doc_id
 gnome_help_display_desktop
 gnome_help_display_uri
+
+<SUBSECTION Private>
 gnome_help_error_quark
 </SECTION>
 
@@ -214,6 +240,8 @@ gnome_score_log
 GnomeURLError
 GNOME_URL_ERROR
 gnome_url_show
+
+<SUBSECTION Private>
 gnome_url_error_quark
 </SECTION>
 
@@ -257,6 +285,13 @@ gnome_sound_connection_get
 
 <SECTION>
 <FILE>libgnome</FILE>
+
+<SUBSECTION Private>
+GNOME_CALL_PARENT
+GNOME_CALL_PARENT_WITH_DEFAULT
+GNOME_CLASS_BOILERPLATE
+GNOME_REGISTER_TYPE
+
 </SECTION>
 
 <SECTION>
@@ -283,4 +318,3 @@ gnome_file_domain_get_type
 gnome_help_error_get_type
 gnome_url_error_get_type
 </SECTION>
-

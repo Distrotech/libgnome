@@ -97,8 +97,8 @@ gnome_help_display (const char    *file_name,
 /**
  * gnome_help_display_with_doc_id
  * @program: The current application object, or %NULL for the default one.
- * @doc_id: The document identifier, or %NULL to default to the application ID (app_id)
- * of the specified @program.
+ * @doc_id: The document identifier, or %NULL to default to the application ID
+ * (app_id) of the specified @program.
  * @file_name: The name of the help document to display.
  * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
  * requested document.
@@ -107,20 +107,21 @@ gnome_help_display (const char    *file_name,
  *
  * Displays the help file specified by @file_name at location @link_id within
  * the @doc_id domain in the preferred help browser of the user.  Most of the
- * time, you want to call @gnome_help_display() instead.
+ * time, you want to call gnome_help_display() instead.
  *
- * This function will display the help through creating a "ghelp" URI, by looking for
- * @file_name in the applications installed help location (found by
- * #GNOME_FILE_DOMAIN_APP_HELP) and its app_id.  The resulting URI is roughly in
- * the form "ghelp:appid/file_name?link_id".  If a matching file cannot be
+ * This function will display the help through creating a "ghelp" URI, by
+ * looking for @file_name in the applications installed help location (found by
+ * #GNOME_FILE_DOMAIN_APP_HELP) and its app_id.  The resulting URI is roughly
+ * in the form "ghelp:appid/file_name?link_id".  If a matching file cannot be
  * found, %FALSE is returned and @error is set.
  *
  * Please note that this only displays application help.  To display help files
  * from the global GNOME domain, you will want to use
- * #gnome_help_display_desktop().
+ * gnome_help_display_desktop().
  *
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
- * contain the actual error).  */
+ * contain the actual error).
+ **/
 gboolean
 gnome_help_display_with_doc_id (GnomeProgram  *program,
 				const char    *doc_id,
@@ -258,6 +259,8 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
 /**
  * gnome_help_display_desktop
  * @program: The current application object, or %NULL for the default one.
+ * @doc_id: The name of the help file relative to the system's help domain
+ * (#GNOME_FILE_DOMAIN_HELP).
  * @file_name: The name of the help document to display.
  * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
  * requested document.
@@ -272,7 +275,7 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
  * returned and @error is set.
  *
  * Please note that this only displays system help.  To display help files
- * for an application, you will want to use #gnome_help_display().
+ * for an application, you will want to use gnome_help_display().
  *
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
  * contain the actual error).
@@ -379,8 +382,8 @@ gnome_help_display_uri (const char    *help_uri,
 }
 
 /**
- * gnome_help_error_quark
- *
+ * gnome_help_error_quark:
+ * 
  * Returns: A #GQuark representing the domain of gnome-help errors.
  */
 GQuark

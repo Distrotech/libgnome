@@ -55,8 +55,9 @@
 /**
  * gnome_util_user_shell:
  *
- * Returns: A newly allocated string that is the path to the user's
- * preferred shell.
+ * Retrieves the user's preferred shell.
+ *
+ * Returns: A newly allocated string that is the path to the shell.
  */
 char *
 gnome_util_user_shell (void)
@@ -103,10 +104,12 @@ gnome_util_user_shell (void)
  * g_extension_pointer:
  * @path: A filename or file path.
  *
+ * Extracts the extension from the end of a filename (the part after the final
+ * '.' in the filename).
+ *
  * Returns: A pointer to the extension part of the filename, or a
  * pointer to the end of the string if the filename does not
  * have an extension.
- *
  */
 const char *
 g_extension_pointer (const char * path)

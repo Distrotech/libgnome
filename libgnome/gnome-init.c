@@ -167,8 +167,10 @@ static char *gnome_user_accels_dir = NULL;
 /**
 * gnome_user_dir_get:
 *
-* Returns: An absolute path to the user-specific directory for GNOME apps to
-* use.
+* Retrieves the user-specific directory for GNOME apps to use ($HOME/.gnome2
+* is the usual GNOME 2 value).
+*
+* Returns: An absolute path to the directory.
 */
 const char *
 gnome_user_dir_get (void)
@@ -196,8 +198,12 @@ gnome_user_private_dir_get (void)
 /**
 * gnome_user_accels_dir_get:
 *
-* Returns: The absolute path to the user-specific directory that stores the
-* keyboard shortcut files for each GNOME app.
+* Retrieves the user-specific directory that stores the keyboard shortcut files
+* for each GNOME app. Note that most applications should be using GConf for
+* storing this information, but it may be necessary to use the
+* gnome_user_accels_dir_get() directory for legacy applications.
+*
+* Returns: The absolute path to the directory.
 */
 const char *
 gnome_user_accels_dir_get (void)

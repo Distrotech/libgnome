@@ -55,9 +55,9 @@
  *
  * Displays the given URL in an appropriate viewer. The appropriate viewer is
  * user definable. It is determined by extracting the protocol from the @url,
- * then seeing if the /desktop/gnome/url-handlers/<protocol>/command key exists in
- * the configuration database. It it does, this entry is used as the template
- * for the command. 
+ * then seeing if the /desktop/gnome/url-handlers/&lt;protocol&gt;/command key
+ * exists in the configuration database. It it does, this entry is used as the
+ * template for the command. 
  *
  * If no protocol specific handler exists, the
  * /desktop/gnome/url-handlers/unknown/command key is used to determine the
@@ -65,7 +65,8 @@
  *
  * Once a viewer is determined, it is called with the @url as a parameter. If
  * any errors occur, they are returned in the @error parameter. These errors
- * will either be in the %GNOME_URL_ERROR, %GNOME_SHELL_ERROR, or %G_SPAWN_ERROR domains.
+ * will either be in the %GNOME_URL_ERROR, %GNOME_SHELL_ERROR, or
+ * %G_SPAWN_ERROR domains.
  *
  * Returns: %TRUE if everything went fine, %FALSE otherwise (in which case
  * @error will contain the actual error).

@@ -673,7 +673,7 @@ which returns the translated version of the string for the current locale.
 
 <!-- ##### MACRO gnome_config_get_real_path ##### -->
 <para>
-
+Retrieves the full (absolute) path to a configuration file.
 </para>
 
 @path: A configuration file (this should only be the file, not the section or
@@ -683,13 +683,13 @@ key).
 
 <!-- ##### MACRO gnome_config_private_get_real_path ##### -->
 <para>
-
+Retrieves the full (absolute) path to a configuration file in the user's
+private configuration storage area.
 </para>
 
 @path: A configuration file (this should only be the file, not the section or
 key).
-@Returns: An absolute path to the config file in the user's private
-configuration storage area.
+@Returns: An absolute path to the config file.
 
 
 <!-- ##### FUNCTION gnome_config_push_prefix ##### -->

@@ -1348,7 +1348,9 @@ gnome_config_drop_all (void)
  * gnome_config_get_int:
  * @path: A gnome configuration path to an item.
  *
- * Returns: The value of a configuration item as an integer.
+ * Retrieves an integer value configuration item.
+ *
+ * Returns: The value of a configuration item.
  */
 /**
  * gnome_config_private_get_int:
@@ -1364,6 +1366,8 @@ gnome_config_drop_all (void)
  * @path: A gnome configuration path to an item.
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
+ *
+ * Retrieves an integer value configuration item.
  *
  * Returns: The value of a configuration item as an integer or @def if the
  * configuration item does not exist.
@@ -1411,8 +1415,9 @@ gnome_config_get_int_with_default_ (const char *path, gboolean *def, gboolean pr
  * gnome_config_get_float:
  * @path: A gnome configuration path to an item.
  *
- * Returns: The value of a configuration item as a floating-point
- * number.
+ * Retrieves a floating-point valued configuration item.
+ *
+ * Returns: The value of a configuration item.
  */
 /**
  * gnome_config_private_get_float:
@@ -1429,6 +1434,8 @@ gnome_config_get_int_with_default_ (const char *path, gboolean *def, gboolean pr
  * @path: A gnome configuration path to an item.
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
+ *
+ * Retrieves a floating-point valued configuration item.
  *
  * Returns: The value of a configuration item as a floating-point
  * number or @def if the configuration item does not exist.
@@ -1693,7 +1700,9 @@ gnome_config_get_string_with_default_ (const char *path, gboolean *def,
  * gnome_config_get_bool:
  * @path: A gnome configuration path to an item.
  *
- * Returns: The value of a configuration item as a boolean.
+ * Retrieves a boolean configuration value.
+ *
+ * Returns: The value of a configuration item.
  */
 /**
  * gnome_config_private_get_bool:
@@ -1709,7 +1718,9 @@ gnome_config_get_string_with_default_ (const char *path, gboolean *def,
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Returns: The value of a configuration item as a boolean, or @def if the
+ * Retrieves a boolean configuration value.
+ *
+ * Returns: The value of a configuration item, or @def if the
  * configuration item does not exist.
  */
 /**

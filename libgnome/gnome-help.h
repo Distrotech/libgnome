@@ -28,11 +28,6 @@
 
 G_BEGIN_DECLS
 
-/**
- * GnomeHelpError:
- * @GNOME_HELP_ERROR_INTERNAL: Something went wrong interally.  This is most likely caused by resource problems or a bad installation.
- * @GNOME_HELP_ERROR_NOT_FOUND: Help file does not exist.
- **/
 typedef enum {
   GNOME_HELP_ERROR_INTERNAL, 
   GNOME_HELP_ERROR_NOT_FOUND

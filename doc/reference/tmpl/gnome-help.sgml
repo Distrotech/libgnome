@@ -18,11 +18,12 @@ application.
 
 <!-- ##### ENUM GnomeHelpError ##### -->
 <para>
-
+The different error codes which can be thrown in the #GNOME_HELP_ERROR domain.
 </para>
 
-@GNOME_HELP_ERROR_INTERNAL: 
-@GNOME_HELP_ERROR_NOT_FOUND: 
+@GNOME_HELP_ERROR_INTERNAL: Something went wrong internally. This is most
+likely caused by a resource problem or bad installation.
+@GNOME_HELP_ERROR_NOT_FOUND: Help file does not exist.
 
 <!-- ##### MACRO GNOME_HELP_ERROR ##### -->
 <para>
@@ -81,14 +82,6 @@ is used as a value in the domain field of the #GError structure.
 
 @help_uri: 
 @error: 
-@Returns: 
-
-
-<!-- ##### FUNCTION gnome_help_error_quark ##### -->
-<para>
-
-</para>
-
 @Returns: 
 
 

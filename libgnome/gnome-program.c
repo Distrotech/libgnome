@@ -706,10 +706,12 @@ gnome_module_info_get_type (void)
 /**
  * gnome_program_get:
  *
- * Returns: An object that stores information on the GNOME application's state.
- * If the object does not exist, %NULL is returned. Other functions assume that
- * this will always return a #GnomeProgram object which (if not %NULL) has
- * already been initialized.
+ * Retrieves an object that stored information about the application's state.
+ * Other functions assume this will always return a #GnomeProgram object which
+ * (if not %NULL) has already been initialized.
+ *
+ * Returns: The application's #GnomeProgram instance, or %NULL if it does not
+ * exist.
  */
 
 GnomeProgram *
@@ -787,6 +789,21 @@ gnome_program_get_human_readable_name (GnomeProgram *program)
     return program->_priv->prop_human_readable_name;
 }
 
+/**
+ * gnome_program_install_property:
+ * @pclass: A #GnomeProgramClass.
+ * @get_fn: A function to get property values.
+ * @set_fn: A function to set property values.
+ * @pspec: A collection of properties.
+ *
+ * Install a collection of available properties, their default values and the
+ * functions to set and retrieve these properties.
+ *
+ * Normal applications will never need to call this function, it is mostly for
+ * use by other platform library authors.
+ *
+ * Returns: The number of properties installed.
+ */
 guint
 gnome_program_install_property (GnomeProgramClass *pclass,
 				GObjectGetPropertyFunc get_fn,
@@ -1642,6 +1659,8 @@ gnome_program_postinit (GnomeProgram *program)
  * name and value pairs (so this will be an attribute name or %NULL).
  * @...: The continuation of a %NULL-terminated list of attribute name/value
  * pairs.
+ *
+ * Initialises the current GNOME libraries for use by the application.
  *
  * Returns: A #GnomeProgram instance representing the current application.
  */
