@@ -97,7 +97,7 @@ make_std_factory (PortableServer_POA poa,
                 return CORBA_OBJECT_NIL;
         }
 	
-        return object_ref;
+        return CORBA_Object_duplicate (object_ref, ev);
 }
 
 static const OAFPluginObject std_plugin_list[] = {
