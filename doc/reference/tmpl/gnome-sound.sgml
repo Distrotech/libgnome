@@ -2,25 +2,23 @@
 gnome-sound
 
 <!-- ##### SECTION Short_Description ##### -->
-
+Sound playing routines.
 
 <!-- ##### SECTION Long_Description ##### -->
 <para>
-
+This module provides wrapper functions for playing sound samples. Currently it
+just wraps the esound daemon, but the API is flexible enough that other sound
+infrastructures can be included in the future.
 </para>
+<para>
+These functions also allow for the fact that no sound may be supported on the
+current platform. So applications can safely call these functions to play
+sounds and they will just quietly return if no action is possible.
 
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
-
-<!-- ##### FUNCTION gnome_sound_connection_get ##### -->
-<para>
-
-</para>
-
-@Returns: 
-
 
 <!-- ##### FUNCTION gnome_sound_init ##### -->
 <para>
@@ -37,6 +35,14 @@ gnome-sound
 
 
 
+<!-- ##### FUNCTION gnome_sound_play ##### -->
+<para>
+
+</para>
+
+@filename: 
+
+
 <!-- ##### FUNCTION gnome_sound_sample_load ##### -->
 <para>
 
@@ -47,11 +53,11 @@ gnome-sound
 @Returns: 
 
 
-<!-- ##### FUNCTION gnome_sound_play ##### -->
+<!-- ##### FUNCTION gnome_sound_connection_get ##### -->
 <para>
 
 </para>
 
-@filename: 
+@Returns: 
 
 

@@ -1334,11 +1334,13 @@ gnome_program_preinit (GnomeProgram *program,
 
 /**
  * gnome_program_module_load:
- * @program: Application object
  * @mod_name: module name
  *
  * Loads a shared library that contains a
- * 'GnomeModuleInfo dynamic_module_info' structure.
+ * #GnomeModuleInfo dynamic_module_info structure.
+ *
+ * Returns: The #GnomeModuleInfo structure that was loaded, or %NULL if the
+ * module could not be loaded.
  */
 const GnomeModuleInfo *
 gnome_program_module_load (const char *mod_name)

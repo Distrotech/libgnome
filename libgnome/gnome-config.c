@@ -788,10 +788,10 @@ dump_profile (TProfile *p, gboolean one_only)
  * Writes all of the information modified by gnome-config to the
  * disk.
  *
- * Note: the gnome_config code does not write anything to the
+ * Note: the gnome-config code does not write anything to the
  * configuration files until this routine is actually invoked.
  *
- * Returns: %TRUE if everything went well.  %FALSE if any file
+ * Returns: %TRUE if everything went well. %FALSE if any file
  * could not be written to disk.
  */
 gboolean 
@@ -810,9 +810,13 @@ gnome_config_sync (void)
  * Writes all of the information modified by gnome-config to the
  * disk for the given file.
  *
- * Note: the gnome_config code does not write anything to the
- * configuration files until this routine or gnome_config_sync 
+ * Note: the gnome-config code does not write anything to the
+ * configuration files until this routine or gnome_config_sync()
  * is actually invoked.
+ *
+ * Returns: %TRUE if everything went well, %FALSE if the file
+ * could not be written to for some reason.  %FALSE is only returned
+ * when a write was actually attempted and failed.
  */
 /**
  * gnome_config_private_sync_file:
@@ -821,8 +825,8 @@ gnome_config_sync (void)
  * Writes all of the information modified by gnome-config to the
  * disk for the given private file.
  *
- * Note: the gnome_config code does not write anything to the
- * configuration files until this routine or gnome_config_sync 
+ * Note: the gnome-config code does not write anything to the
+ * configuration files until this routine or gnome_config_sync()
  * is actually invoked.
  *
  * Returns: %TRUE if everything went well, %FALSE if the file
@@ -866,7 +870,7 @@ gnome_config_sync_file_ (char *path, gboolean priv)
  * Cleans up the configuration file specified by @path from any
  * configuration information.
  *
- * Changes will take place after #gnome_config_sync has been invoked.
+ * Changes will take place after gnome_config_sync() has been invoked.
  */
 /**
  * gnome_config_private_clean_file:
@@ -875,7 +879,7 @@ gnome_config_sync_file_ (char *path, gboolean priv)
  * Cleans up the private configuration file specified by @path from
  * any configuration information.
  *
- * Changes will take place after #gnome_config_sync has been invoked.
+ * Changes will take place after gnome_config_sync() has been invoked.
  */
 void 
 gnome_config_clean_file_ (const char *path, gboolean priv)
@@ -913,7 +917,7 @@ gnome_config_clean_file_ (const char *path, gboolean priv)
  *
  * Releases any memory resources that were allocated from accessing
  * the configuration file in @path.  Changes will take place after
- * #gnome_config_sync has been invoked
+ * gnome_config_sync() has been invoked
  */
 /**
  * gnome_config_private_drop_file:
@@ -964,9 +968,9 @@ gnome_config_drop_file_ (const char *path, gboolean priv)
  * Creates an iterator handle that can be used to
  * iterate over the keys in a section in a gnome configuration
  * file.  @path must refer to a section.  The returned value
- * can be used as an iterator for #gnome_config_iterator_next().
+ * can be used as an iterator for gnome_config_iterator_next().
  *
- * Returns the iterator handle.
+ * Returns: The iterator handle.
  */
 /**
  * gnome_config_private_init_iterator:
@@ -975,9 +979,9 @@ gnome_config_drop_file_ (const char *path, gboolean priv)
  * Creates an iterator handle that can be used to
  * iterate over the keys in a section in a private gnome configuration
  * file.  @path must refer to a section.  The returned value
- * can be used as an iterator for #gnome_config_iterator_next().
+ * can be used as an iterator for gnome_config_iterator_next().
  *
- * Returns the iterator handle.
+ * Returns: The iterator handle.
  */
 void *
 gnome_config_init_iterator_ (const char *path, gboolean priv)
@@ -1033,9 +1037,9 @@ gnome_config_init_iterator_ (const char *path, gboolean priv)
  * Creates an iterator handle that can be used to iterate over the
  * sections in a gnome configuration file.  @path must refer to a
  * gnome configuration file.  The returned value can be used as an
- * iterator for #gnome_config_iterator_next().
+ * iterator for gnome_config_iterator_next().
  *
- * Returns the iterator handle.
+ * Returns: The iterator handle.
  */
 /**
  * gnome_config_private_init_iterator_sections:
@@ -1044,9 +1048,9 @@ gnome_config_init_iterator_ (const char *path, gboolean priv)
  * Creates an iterator handle that can be used to iterate over the
  * sections in a private gnome configuration file.  @path must refer to a
  * gnome configuration file.  The returned value can be used as an
- * iterator for #gnome_config_iterator_next().
+ * iterator for gnome_config_iterator_next().
  *
- * Returns the iterator handle.
+ * Returns: The iterator handle.
  */
 void *
 gnome_config_init_iterator_sections_ (const char *path, gboolean priv)
@@ -1094,15 +1098,11 @@ gnome_config_init_iterator_sections_ (const char *path, gboolean priv)
  * @key:   Address where the key gets stored.
  * @value: Address where the value gets stored.
  *
- *
- * Returns a new iterator handle.
- *
  * If @key is non-NULL, then @key will point to a g_malloc()ed region that
  * holds the key.
  *
  * If @value is non-NULL, then @value will point to a g_malloc()ed region that
  * holds the key.
- *
  */
 void *
 gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
@@ -1156,19 +1156,19 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
 
 /**
  * gnome_config_clean_section:
- * @path: a gnome configuration path to a section.
+ * @path: A gnome configuration path to a section.
  *
  * Cleans up the section specified by @path from any
  * configuration information.  Changes will only take place
- * after #gnome_config_sync has been invoked.
+ * after gnome_config_sync() has been invoked.
  */
 /**
  * gnome_config_private_clean_section:
- * @path: a gnome configuration path to a section.
+ * @path: A gnome configuration path to a section.
  *
  * Cleans up the section specified by @path in a private file from any
  * configuration information.  Changes will only take place after
- * #gnome_config_sync has been invoked.
+ * gnome_config_sync() has been invoked.
  */
 void 
 gnome_config_clean_section_ (const char *path, gboolean priv)
@@ -1214,20 +1214,20 @@ gnome_config_clean_section_ (const char *path, gboolean priv)
 
 /**
  * gnome_config_clean_key:
- * @path: a gnome configuration path to a key.
+ * @path: A gnome configuration path to a key.
  *
  * Removes the definition for the key on a gnome configuration file.
  *
- * Changes will take place after #gnome_config_sync has been invoked.
+ * Changes will take place after gnome_config_sync() has been invoked.
  */
 /**
  * gnome_config_private_clean_key:
- * @path: a gnome configuration path to a key.
+ * @path: A gnome configuration path to a key.
  *
  * Removes the definition for the key on a private gnome configuration
  * file.
  *
- * Changes will take place after #gnome_config_sync has been invoked.
+ * Changes will take place after gnome_config_sync() has been invoked.
  */
 void 
 gnome_config_clean_key_ (const char *path, gboolean priv)
@@ -1278,7 +1278,7 @@ gnome_config_clean_key_ (const char *path, gboolean priv)
  * Queries the gnome configuration file for the presence
  * of the section specified in @path.
  *
- * Returns TRUE if the section exists.  FALSE otherwise.
+ * Returns: %TRUE if the section exists, %FALSE otherwise.
  */
 /**
  * gnome_config_private_has_section:
@@ -1287,7 +1287,7 @@ gnome_config_clean_key_ (const char *path, gboolean priv)
  * Queries the private gnome configuration file for the presence
  * of the section specified in @path.
  *
- * Returns TRUE if the section exists.  FALSE otherwise.
+ * Returns: %TRUE if the section exists, %FALSE otherwise.
  */
 gboolean 
 gnome_config_has_section_ (const char *path, gboolean priv)
@@ -1334,7 +1334,7 @@ gnome_config_has_section_ (const char *path, gboolean priv)
  * gnome_config_drop_all:
  *
  * Drops any information cached in memory that was fetched with
- * gnome config.  Any pending information that has not been
+ * gnome config. Any pending information that has not been
  * written to disk is discarded.
  */
 void 
@@ -1349,14 +1349,16 @@ gnome_config_drop_all (void)
  * gnome_config_get_int:
  * @path: A gnome configuration path to an item.
  *
- * Retrieves & returns the value of a configuration item as an integer.
+ * Returns: The value of a configuration item as an integer.
  */
 /**
  * gnome_config_private_get_int:
  * @path: A gnome configuration path to an item in the user-private namespace.
  *
- * Retrieves & returns the value of a configuration item as an integer.
- * The item is retrieved from the user's private configuration storage area.
+ * Retrieves a configuration item as an int from the user's private
+ * configuration storage area.
+ *
+ * Returns: The value of a configuration item as an integer.
  */
 /**
  * gnome_config_get_int_with_default:
@@ -1364,7 +1366,8 @@ gnome_config_drop_all (void)
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as an integer.
+ * Returns: The value of a configuration item as an integer or @def if the
+ * configuration item does not exist.
  */
 /**
  * gnome_config_private_get_int_with_default:
@@ -1372,8 +1375,11 @@ gnome_config_drop_all (void)
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as an integer.
- * The item is retrieved from the user's private configuration storage area.
+ * Retrieves a configuration item as an int from the user's private
+ * configuration storage area.
+ *
+ * Returns: The value of a configuration item as an integer or @def if the
+ * configuration item does not exist.
  */
 gint
 gnome_config_get_int_with_default_ (const char *path, gboolean *def, gboolean priv)
@@ -1406,15 +1412,18 @@ gnome_config_get_int_with_default_ (const char *path, gboolean *def, gboolean pr
  * gnome_config_get_float:
  * @path: A gnome configuration path to an item.
  *
- * Retrieves & returns the value of a configuration item as a floating-point
+ * Returns: The value of a configuration item as a floating-point
  * number.
  */
 /**
  * gnome_config_private_get_float:
  * @path: A gnome configuration path to an item in the user-private namespace.
  *
- * Retrieves & returns the value of a configuration item as a floating-point number.
- * The item is retrieved from the user's private configuration storage area.
+ * Retrieves a configuration item from the user's private configuration storage
+ * area.
+ *
+ * Returns: The value of a configuration item as a floating-point
+ * number.
  */
 /**
  * gnome_config_get_float_with_default:
@@ -1422,7 +1431,8 @@ gnome_config_get_int_with_default_ (const char *path, gboolean *def, gboolean pr
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as a floating-point number.
+ * Returns: The value of a configuration item as a floating-point
+ * number or @def if the configuration item does not exist.
  */
 /**
  * gnome_config_private_get_float_with_default:
@@ -1430,8 +1440,11 @@ gnome_config_get_int_with_default_ (const char *path, gboolean *def, gboolean pr
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as a floating-point number.
- * The item is retrieved from the user's private configuration storage area.
+ * Retrieves a configuration item from the user's private configuration storage
+ * area.
+ *
+ * Returns: The value of a configuration item as a floating-point
+ * number or @def if the configuration item does not exist.
  */
 gdouble
 gnome_config_get_float_with_default_ (const char *path, gboolean *def, gboolean priv)
@@ -1512,17 +1525,22 @@ get_string_with_default_from_pp_with_lang (ParsedPath *pp,
  * gnome_config_get_translated_string:
  * @path: A gnome configuration path to an item.
  *
- * Retrieves & returns the value of a configuration item as a string
- * appropriate for the current language. The returned value should be
- * g_free()'d when no longer needed.
+ * Retrieves the value of a configuration item as a string appropriate for the
+ * current language. The returned value should be freed with g_free() when no
+ * longer needed.
+ *
+ * Returns: The value of the configuration item.
  */
 /**
  * gnome_config_private_get_translated_string:
  * @path: A gnome configuration path to an item in the user-private namespace.
  *
- * Retrieves & returns the value of a configuration item as a string appropriate for the current language. The returned value should be
- * g_free()'d when no longer needed.
- * The item is retrieved from the user's private configuration storage area.
+ * Retrieves the value of a configuration item as a string appropriate for the
+ * current language. The returned value should be freed with g_free() when no
+ * longer needed.  The item is retrieved from the user's private configuration
+ * storage area.
+ *
+ * Returns: The value of the configuration item.
  */
 /**
  * gnome_config_get_translated_string_with_default:
@@ -1530,8 +1548,12 @@ get_string_with_default_from_pp_with_lang (ParsedPath *pp,
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as a string appropriate for the current language. The returned value should be
- * g_free()'d when no longer needed.
+ * Retrieves the value of a configuration item as a string appropriate for the
+ * current language. The returned value should be freed with g_free() when no
+ * longer needed.
+ *
+ * Returns: The value of the configuration item or @def if the configuration
+ * item does not exist.
  */
 /**
  * gnome_config_private_get_translated_string_with_default:
@@ -1539,9 +1561,13 @@ get_string_with_default_from_pp_with_lang (ParsedPath *pp,
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as a string appropriate for the current language. The returned value should be
- * g_free()'d when no longer needed.
- * The item is retrieved from the user's private configuration storage area.
+ * Retrieves the value of a configuration item as a string appropriate for the
+ * current language. The returned value should be freed with g_free() when no
+ * longer needed.  The item is retrieved from the user's private configuration
+ * storage area.
+ *
+ * Returns: The value of the configuration item or @def if the configuration
+ * item does not exist.
  */
 char *
 gnome_config_get_translated_string_with_default_ (const char *path,
@@ -1610,18 +1636,20 @@ gnome_config_get_translated_string_with_default_ (const char *path,
  * gnome_config_get_string:
  * @path: A gnome configuration path to an item.
  *
- * Retrieves & returns the value of a configuration item as a string.
- * The returned value should be
- * g_free()'d when no longer needed.
+ * Retrieves the value of a configuration item as a string. This value should
+ * be freed with g_free() when no longer needed.
+ *
+ * Returns: The value of the configuration item as a string.
  */
 /**
  * gnome_config_private_get_string:
  * @path: A gnome configuration path to an item in the user-private namespace.
  *
- * Retrieves & returns the value of a configuration item as a
- * string. The returned value should be g_free()'d when no longer
- * needed.  The item is retrieved from the user's private
- * configuration storage area.
+ * Retrieves the value of a configuration item from the user's private
+ * configuration directory as a string. This value should be freed with
+ * g_free() when no longer needed.
+ *
+ * Returns: The value of the configuration item as a string.
  */
 /**
  * gnome_config_get_string_with_default:
@@ -1629,9 +1657,11 @@ gnome_config_get_translated_string_with_default_ (const char *path,
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as a string.
- * The returned value should be g_free()'d when no longer needed.
+ * Retrieves the value of a configuration item as a string. This value should
+ * be freed with g_free() when no longer needed.
  *
+ * Returns: The value of the configuration item as a string, or @def if the
+ * configuration key does not exist.
  */
 /**
  * gnome_config_private_get_string_with_default:
@@ -1639,11 +1669,12 @@ gnome_config_get_translated_string_with_default_ (const char *path,
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as a string.
- * The returned value should be g_free()'d when no longer needed.  The
- * item is retrieved from the user's private configuration storage
- * area.
+ * Retrieves the value of a configuration item from the user's private
+ * configuration directory as a string. This value should be freed with
+ * g_free() when no longer needed.
  *
+ * Returns: The value of the configuration item as a string, or @def if the
+ * configuration key does not exist.
  */
 char *
 gnome_config_get_string_with_default_ (const char *path, gboolean *def,
@@ -1663,14 +1694,15 @@ gnome_config_get_string_with_default_ (const char *path, gboolean *def,
  * gnome_config_get_bool:
  * @path: A gnome configuration path to an item.
  *
- * Retrieves & returns the value of a configuration item as a boolean.
+ * Returns: The value of a configuration item as a boolean.
  */
 /**
  * gnome_config_private_get_bool:
  * @path: A gnome configuration path to an item in the user-private namespace.
  *
- * Retrieves & returns the value of a configuration item as a boolean.
- * The item is retrieved from the user's private configuration storage area.
+ * Retrieves the item from the user's private configuration storage area.
+ *
+ * Returns: The value of a configuration item as a boolean.
  */
 /**
  * gnome_config_get_bool_with_default:
@@ -1678,7 +1710,8 @@ gnome_config_get_string_with_default_ (const char *path, gboolean *def,
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as a boolean.
+ * Returns: The value of a configuration item as a boolean, or @def if the
+ * configuration item does not exist.
  */
 /**
  * gnome_config_private_get_bool_with_default:
@@ -1686,8 +1719,10 @@ gnome_config_get_string_with_default_ (const char *path, gboolean *def,
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as a boolean.
- * The item is retrieved from the user's private configuration storage area.
+ * Retrieves the item from the user's private configuration storage area.
+ *
+ * Returns: The value of a configuration item as a boolean, or @def if the
+ * configuration item does not exist.
  */
 gboolean
 gnome_config_get_bool_with_default_ (const char *path, gboolean *def,
@@ -1724,8 +1759,8 @@ gnome_config_get_bool_with_default_ (const char *path, gboolean *def,
 /**
  * gnome_config_make_vector:
  * @string: The stringified vector to decode into 'argcp' and 'argvp'
- * @argcp: Returns the number of elements in 'argvp'
- * @argvp: Returns the array of strings found in 'rr'.
+ * @argcp: Returns the number of elements in @string.
+ * @argvp: Returns the array of strings found in @string.
  *
  * Creates a new vector from a string as it stored in the config file,
  * breaks the string on spaces except if the space is escaped with a
@@ -1796,34 +1831,33 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
 /**
  * gnome_config_get_vector:
  * @path: A gnome configuration path to an item.
- * @argcp: Number of elements in the vector
- * @argvp: Vector of strings
+ * @argcp: Number of elements in the vector.
+ * @argvp: Vector of strings.
  *
- * Retrieves & returns the value of a configuration item as a string array.
- * The returned value should be
- * g_free()'d when no longer needed.
+ * Retrieves the value of a configuration item as a string array.
+ * The returned vector should be freed with g_free() when no longer needed.
  */
 /**
  * gnome_config_private_get_vector:
  * @path: A gnome configuration path to an item in the user-private namespace.
- * @argcp: Number of elements in the vector
- * @argvp: Vector of strings
+ * @argcp: Number of elements in the vector.
+ * @argvp: Vector of strings.
  *
- * Retrieves & returns the value of a configuration item as a
- * string. The returned value should be g_free()'d when no longer
- * needed.  The item is retrieved from the user's private
- * configuration storage area.
+ * Retrieves the value of a configuration item as a string array.
+ * The returned vector should be freed with g_free() when no longer needed. The
+ * configuration value is retrieved from the user's private configuration
+ * storage area.
  */
 /**
  * gnome_config_get_vector_with_default:
  * @path: A gnome configuration path to an item.
- * @argcp: Number of elements in the vector
- * @argvp: Vector of strings
+ * @argcp: Number of elements in the vector.
+ * @argvp: Vector of strings.
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as a string array.
- * The returned value should be g_free()'d when no longer needed.
+ * Retrieves the value of a configuration item as a string array.
+ * The returned vector should be freed with g_free() when no longer needed.
  *
  */
 /**
@@ -1834,11 +1868,10 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
- * Retrieves & returns the value of a configuration item as a string array.
- * The returned value should be g_free()'d when no longer needed.  The
- * item is retrieved from the user's private configuration storage
- * area.
- *
+ * Retrieves the value of a configuration item as a string array.
+ * The returned vector should be freed with g_free() when no longer needed. The
+ * configuration value is retrieved from the user's private configuration
+ * storage area.
  */
 void
 gnome_config_get_vector_with_default_ (const char *path, int *argcp,
@@ -1865,12 +1898,21 @@ gnome_config_get_vector_with_default_ (const char *path, int *argcp,
 
 /**
  * gnome_config_set_translated_string:
- * @path: a gnome configuration path to a key
- * @value: a string value to set.
+ * @path: A gnome configuration path to a key.
+ * @value: A string value to set.
  * 
- * Stores the string value @new_value in the file/section/key defined
+ * Stores the string value @value in the file/section/key defined
  * by the @path on the proper section for the current language set by
  * by the user.
+ */
+/**
+ * gnome_config_private_set_translated_string:
+ * @path: A gnome configuration path to a key.
+ * @new_value: A string value to set.
+ * 
+ * Stores the string value @new_value in the file/section/key defined by the
+ * @path on the proper section for the current language set by by the user.
+ * The configuration value is stored in the user's private storage area.
  */
 void
 gnome_config_set_translated_string_ (const char *path, const char *value,
@@ -1894,11 +1936,20 @@ gnome_config_set_translated_string_ (const char *path, const char *value,
 
 /**
  * gnome_config_set_string:
- * @path: a gnome configuration path to a key
- * @new_value: a string value to set.
+ * @path: A gnome configuration path to a key.
+ * @new_value: A string value to set.
  *
  * Stores the string value @new_value in the file/section/key
- * defined by the @path
+ * defined by the @path.
+ */
+/**
+ * gnome_config_private_set_string:
+ * @path: A gnome configuration path to a key.
+ * @new_value: A string value to set.
+ *
+ * Stores the string value @new_value in the file/section/key
+ * defined by the @path. The configuration value is stored in the user's
+ * private storage area.
  */
 void
 gnome_config_set_string_ (const char *path, const char *new_value, gboolean priv)
@@ -1914,11 +1965,20 @@ gnome_config_set_string_ (const char *path, const char *new_value, gboolean priv
 
 /**
  * gnome_config_set_int:
- * @path: a gnome configuration path to a key
- * @new_value: a int value to set.
+ * @path: A gnome configuration path to a key.
+ * @new_value: A int value to set.
  *
  * Stores the integer value @new_value in the file/section/key
- * defined by the @path
+ * defined by the @path.
+ */
+/**
+ * gnome_config_private_set_int:
+ * @path: A gnome configuration path to a key.
+ * @new_value: A int value to set.
+ *
+ * Stores the integer value @new_value in the file/section/key
+ * defined by the @path. The value is stored in the user's private
+ * configuration storage area.
  */
 void
 gnome_config_set_int_ (const char *path, int new_value, gboolean priv)
@@ -1936,11 +1996,20 @@ gnome_config_set_int_ (const char *path, int new_value, gboolean priv)
 
 /**
  * gnome_config_set_float:
- * @path: a gnome configuration path to a key
- * @new_value: a double value to set.
+ * @path: A gnome configuration path to a key.
+ * @new_value: A double value to set.
  *
  * Stores the double value @new_value in the file/section/key
- * defined by the @path
+ * defined by the @path.
+ */
+/**
+ * gnome_config_private_set_float:
+ * @path: A gnome configuration path to a key.
+ * @new_value: A double value to set.
+ *
+ * Stores the double value @new_value in the file/section/key
+ * defined by the @path. The value is stored in the user's private
+ * configuration storage area.
  */
 void
 gnome_config_set_float_ (const char *path, gdouble new_value, gboolean priv)
@@ -1963,11 +2032,19 @@ gnome_config_set_float_ (const char *path, gdouble new_value, gboolean priv)
 
 /**
  * gnome_config_set_bool:
- * @path: a gnome configuration path to a key
- * @new_value: a boolean value to set
+ * @path: A gnome configuration path to a key.
+ * @new_value: A boolean value to set.
  *
  * Stores boolean value @new_value in the file/section/key defined by
  * @path.
+ */
+/**
+ * gnome_config_private_set_bool:
+ * @path: A gnome configuration path to a key.
+ * @new_value: A boolean value to set.
+ *
+ * Stores boolean value @new_value in the file/section/key defined by @path.
+ * The value is stored in the user's private configuration storage area.
  */
 void
 gnome_config_set_bool_ (const char *path, gboolean new_value, gboolean priv)
@@ -1987,9 +2064,10 @@ gnome_config_set_bool_ (const char *path, gboolean new_value, gboolean priv)
  * @argv: An array of strings.
  *
  * This routine returns the the strings in the array contactenated by
- * spaces.
+ * spaces. The return value should be freed with g_free() when it is no longer
+ * required.
  *
- * Returns: a g_malloc()ed string with the concatenation results.
+ * Returns: A string with the concatenation results.
  */
 char *
 gnome_config_assemble_vector (int argc, const char *const argv [])
@@ -2023,12 +2101,21 @@ gnome_config_assemble_vector (int argc, const char *const argv [])
 
 /**
  * gnome_config_set_vector:
- * @path: a gnome configuration path to a key
- * @argc: the number of elements in @argv
- * @argv: a string array holding the data to store.
+ * @path: A gnome configuration path to a key.
+ * @argc: The number of elements in @argv.
+ * @argv: A string array holding the data to store.
  *
  * Stores vector @argv in the file/section/key defined by
  * @path.
+ */
+/**
+ * gnome_config_private_set_vector:
+ * @path: A gnome configuration path to a key.
+ * @argc: The number of elements in @argv.
+ * @argv: A string array holding the data to store.
+ *
+ * Stores vector @argv in the file/section/key defined by @path. The
+ * configuration value is set in the user's private storage area.
  */
 void
 gnome_config_set_vector_ (const char *path, int argc,
@@ -2047,7 +2134,7 @@ gnome_config_set_vector_ (const char *path, int argc,
 
 /**
  * gnome_config_push_prefix:
- * @path: a gnome configuration path prefix
+ * @path: A gnome configuration path prefix.
  *
  * @path is a prefix that will be prepended automatically to any
  * non-absolute configuration path in gnome config.

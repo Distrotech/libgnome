@@ -84,6 +84,25 @@ display_help_file (GnomeProgram *program,
 	return ret;
 }
 
+/**
+ * gnome_help_display
+ * @program: The current application object.
+ * @doc_name: The name of the help document to display.
+ * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
+ * requested document.
+ * @error: A #GError instance that will hold the specifics of any error which
+ * occurs during processing.
+ *
+ * Displays the help file in @doc_name from an application by passing to the
+ * preferred help browser of the user with the "ghelp://" scheme prepended.
+ * Note that this function only looks for the help file in the application's
+ * help domain (#GNOME_FILE_DOMAIN_APP_HELP). To display help files from the
+ * global GNOME domain, you will want to use gnome_help_display_desktop().
+ *
+ * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
+ * contain the actual error).
+ */
+
 gboolean
 gnome_help_display (GnomeProgram  *program,
 		    const char    *doc_name,
@@ -131,6 +150,24 @@ gnome_help_display (GnomeProgram  *program,
 
 	return ret;
 }
+
+/**
+ * gnome_help_display_desktop
+ * @program: The current application object.
+ * @doc_name: The name of the help document to display.
+ * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
+ * requested document.
+ * @error: A #GError instance that will hold the specifics of any error which
+ * occurs during processing.
+ *
+ * Displays the GNOME help file in @doc_name by prepending "ghelp://" to the
+ * name and passing it to the user's preferred help browser. This function only
+ * looks in the #GNOME_FILE_DOMAIN_HELP domain for help files. To search for
+ * files in the application's own domain, use gnome_help_display().
+ *
+ * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
+ * contain the actual error).
+ */
 
 gboolean
 gnome_help_display_desktop (GnomeProgram  *program,
@@ -189,6 +226,22 @@ gnome_help_display_desktop (GnomeProgram  *program,
 	return ret;
 }
 
+/**
+ * gnome_help_display_uri
+ * @help_uri: The URI to display.
+ * @error: A #GError instance that will hold the specifics of any error which
+ * occurs during processing.
+ *
+ * Displays @help_uri in the user's preferred viewer. You should never need to
+ * call this function directly in code, since it is just a wrapper for
+ * gnome_url_show() and consequently the viewer used to display the results
+ * depends upon the scheme of the URI (so it is not strictly a help-only
+ * function).
+ *
+ * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
+ * contain the actual error).
+ */
+
 gboolean
 gnome_help_display_uri (const char    *help_uri,
 			GError       **error)
@@ -202,6 +255,11 @@ gnome_help_display_uri (const char    *help_uri,
 	return ret;
 }
 
+/**
+ * gnome_help_error_quark
+ *
+ * Returns: A #GQuark representing the domain of gnome-help errors.
+ */
 GQuark
 gnome_help_error_quark (void)
 {

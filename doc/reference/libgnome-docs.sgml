@@ -4,7 +4,6 @@
 <!ENTITY libgnome-gnome-i18n SYSTEM "sgml/gnome-i18n.sgml">
 <!ENTITY libgnome-gnome-config SYSTEM "sgml/gnome-config.sgml">
 <!ENTITY libgnome-gnome-init SYSTEM "sgml/gnome-init.sgml">
-<!ENTITY libgnome-gnome-preferences SYSTEM "sgml/gnome-preferences.sgml">
 <!ENTITY libgnome-gnome-gconf SYSTEM "sgml/gnome-gconf.sgml">
 <!ENTITY libgnome-gnome-help SYSTEM "sgml/gnome-help.sgml">
 <!ENTITY libgnome-gnome-score SYSTEM "sgml/gnome-score.sgml">
@@ -20,22 +19,39 @@
     <title>GNOME Library Reference Manual</title>
   </bookinfo>
 
-  <chapter>
+  <chapter id="libgnome">
     <title>GNOME Library (libgnome)</title>
-    &libgnome-GnomeProgram;
-    &libgnome-gnome-exec;
-    &libgnome-gnome-i18n;
-    &libgnome-gnome-config;
-    &libgnome-gnome-init;
-    &libgnome-gnome-preferences;
-    &libgnome-gnome-gconf;
-    &libgnome-gnome-help;
-    &libgnome-gnome-score;
-    &libgnome-gnome-url;
-    &libgnome-gnome-util;
-    &libgnome-gnome-sound;
-    &libgnome-gnome-triggers;
-    &libgnome-gnome-marshal;
-    &libgnome-libgnometypebuiltins;
+    <sect1 id="program-start">
+       <title>Initializing applications and starting programs</title>
+	  &libgnome-GnomeProgram;
+	  &libgnome-gnome-init;
+	  &libgnome-gnome-exec;
+    </sect1>
+
+    <sect1>
+       <title>Configuration</title>
+	  &libgnome-gnome-gconf;
+	  &libgnome-gnome-config;
+	  &libgnome-gnome-i18n;
+    </sect1>
+    <sect1>
+       <title>Displaying help and external info</title>
+	  &libgnome-gnome-help;
+	  &libgnome-gnome-url;
+	  &libgnome-gnome-score;
+    </sect1>
+
+    <sect1>
+       <title>Miscellaneous</title>
+	  &libgnome-gnome-util;
+	  &libgnome-gnome-sound;
+	  &libgnome-gnome-triggers;
+    </sect1>
+
+    <sect1>
+       <title>Lower level interactions</title>
+	  &libgnome-gnome-marshal;
+	  &libgnome-libgnometypebuiltins;
+    </sect1>
   </chapter>
 </book>

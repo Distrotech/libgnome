@@ -101,6 +101,30 @@ gnome_url_default_handler (void)
 	return g_strdup (default_handler);
 }
 
+/**
+ * gnome_url_show
+ * @url: The url to display. Should begin with the protocol to use (e.g.
+ * "http:", "ghelp:", etc)
+ * @error: Used to store any errors that result from trying to display the @url.
+ *
+ * Displays the given URL in an appropriate viewer. The appropriate viewer is
+ * user definable. It is determined by extracting the protocol from the @url,
+ * then seeing if the /desktop/gnome/url-handlers/<protocol>-show key exists in
+ * the configuration database. It it does, this entry is used as the template
+ * for the command. 
+ *
+ * If no protocol specific handler exists, the
+ * /desktop/gnome/url-handlers/default-show key is used to determine the
+ * viewer and if that doesn't exist a compiled in default is used (Nautilus,
+ * or failing that gnome-help-browser).
+ *
+ * Once a viewer is determined, it is called with the @url as a parameter. If
+ * any errors occur, they are returned in the @error parameter. These errors
+ * will either be in the %GNOME_URL_ERROR or the %G_SPAWN_ERROR domains.
+ *
+ * Returns: %TRUE if everything went fine, %FALSE otherwise (in which case
+ * @error will contain the actual error).
+ */
 gboolean
 gnome_url_show (const gchar *url, GError **error)
 {
@@ -188,6 +212,11 @@ gnome_url_show (const gchar *url, GError **error)
 	return TRUE;
 }
 
+/**
+ * gnome_url_error_quark
+ *
+ * Returns: A quark representing gnome-url module errors.
+ */
 GQuark
 gnome_url_error_quark (void)
 {

@@ -274,12 +274,12 @@ drop_perms (void)
  * gnome_score_init:
  * @gamename: Identifies the game name.
  *
- * GNOME Games should call this routine as the first statement
- * in main () if they have been installed setgid to the games() group.
+ * GNOME games should call this routine as the first statement
+ * in main() if they have been installed setgid to the "games" group. It
+ * performs the intialization required to later record information in the
+ * scores table and then drops the groups privileges.
  * 
- * Returns: 0 on success, returns -1 on failure.
- *
- * group privileges are dropped regardless of the status returned.
+ * Returns: %0 on success, returns %-1 on failure.
  */
 
 gint
@@ -336,13 +336,16 @@ gnome_score_init (const gchar * gamename)
 
 /**
  * gnome_score_log:
- * @score: the score achieved by the user in this game
- * @level: level on which the score was obtained
- * @higher_to_lower_score_order: biggers is better or not
+ * @score: The score achieved by the user in this game
+ * @level: The level on which the score was obtained
+ * @higher_to_lower_score_order: Set to %TRUE if high scores are better than
+ * low scores.
  *
- * Logs a score entry for the user.
+ * Logs a score entry for the user. You should call this every time a game
+ * ends.  This function takes care of working out whether the user's score made
+ * it into the ten best scores and, if so, records it in the table.
  *
- * Returns 0 on failure or the status from the gnome-score helper
+ * Returns: %0 on failure or the status from the gnome-score helper
  * program.
  */
 gint
@@ -381,16 +384,17 @@ gnome_score_log (gfloat score,
 
 /**
  * gnome_score_get_notable:
- * @gamename:   the name of the game we want to fetch information from.
- * @level:      the level from which we want to pull information.
- * @names:      an array of strings is returned at the address pointed here
- * @scores:     an array of gfloats is returned at the address pointed here
- * @scoretimes: an array of time_t is returned at the address pointed here
+ * @gamename:   The name of the game we want to fetch information from.
+ * @level:      The level for which we want to pull information.
+ * @names:      An array of strings is returned at the address pointed here
+ * @scores:     An array of gfloats is returned at the address pointed here
+ * @scoretimes: An array of time_t is returned at the address pointed here
  *
  * Fetches the most notable players on @gamename at level @level.
  *
- * Returns the number of scores returned.  @names, @scores and @scoretime
- * point to regions that were allocated with g_malloc() with the contents.
+ * Returns: the number of scores returned.  The @names, @scores and @scoretime
+ * pointers point to regions that were allocated with g_malloc() with the
+ * contents.
  */
 gint
 gnome_score_get_notable (const gchar * gamename,

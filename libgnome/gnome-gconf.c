@@ -105,7 +105,7 @@ gnome_gconf_get_app_settings_relative (GnomeProgram *program, const gchar *subke
 }
 
 /**
- * gnome_gconf_lazy_init:
+ * gnome_gconf_lazy_init
  *
  * Description:  Internal libgnome/ui routine.  You never have
  * to do this from your code.  But all places in libgnome/ui
@@ -145,6 +145,13 @@ _gnome_gconf_lazy_init (void)
         g_free (settings_dir);
 }
 
+/**
+ * gnome_gconf_module_info_get
+ *
+ * An internal libgnome/ui routine. This will never be needed in public code.
+ *
+ * Returns: A #GnomeModuleInfo instance representing the GConf module.
+ */
 const GnomeModuleInfo *
 _gnome_gconf_module_info_get (void)
 {

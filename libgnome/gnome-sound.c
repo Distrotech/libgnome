@@ -381,12 +381,15 @@ gnome_sound_sample_load_audiofile(const char *file)
 
 /**
  * gnome_sound_sample_load:
- * @sample_name: the name of the sample
- * @filename: the filename where the audio is stored
+ * @sample_name: The name of the sample.
+ * @filename: The filename where the audio is stored.
  *
- * Loads the audio on @filename and XXXX
+ * Loads the audio from @filename and load it into the esd cache for later
+ * playing. Programs will rarely want to call this function directly. Use
+ * gnome_sound_play() instead for fire and forget sound playing.
  *
- * Returns: a sample_id, or a negative number otherwise.
+ * Returns: The esound sample_id or %-1 if the sample was unable to be cached
+ * for esound.
  */
 int
 gnome_sound_sample_load(const char *sample_name, const char *filename)
@@ -455,9 +458,10 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
 
 /**
  * gnome_sound_play:
- * @filename: file containing the sound sample
+ * @filename: File containing the sound sample.
  *
- * Plays the audio stored in @filename
+ * Plays the audio stored in @filename, if possible. Fail quietly if playing is
+ * not possible (due to missing sound support or for other reasons).
  */
 void 
 gnome_sound_play (const char * filename)
@@ -490,9 +494,9 @@ gnome_sound_play (const char * filename)
 
 /**
  * gnome_sound_init:
- * @hostname: hostname where esd daemon resides.
+ * @hostname: Hostname where esd daemon resides.
  *
- * Initialize esd connection
+ * Initialize the esd connection.
  */
 void
 gnome_sound_init(const char *hostname)
@@ -507,7 +511,7 @@ gnome_sound_init(const char *hostname)
 /** 
  * gnome_sound_shutdown:
  *
- * shuts down the gnome sound support
+ * Shuts down the gnome sound support.
  */
 void
 gnome_sound_shutdown(void)
@@ -525,8 +529,12 @@ gnome_sound_shutdown(void)
 /** 
  * gnome_sound_connection_get:
  *
- * Returns: the fd of our Esound connection or -1
- * on error
+ * Rarely needed to by programs directly, this function may be useful if a
+ * program has cached a sample with gnome_sound_sample_load() and now wishes to
+ * call esd_sample_play() to play the sample.
+ *
+ * Returns: the file descriptor of our esound connection or %-1
+ * on error.
  **/
 int
 gnome_sound_connection_get (void)
