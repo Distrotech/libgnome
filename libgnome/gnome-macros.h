@@ -38,6 +38,12 @@
 static void type_as_function ## _class_init    (type ## Class *klass);	\
 static void type_as_function ## _instance_init (type          *object);	\
 static parent_type ## Class *parent_class = NULL;			\
+static void								\
+_ ## type_as_function ## _class_init (type ## Class *klass)		\
+{									\
+	parent_class = g_type_class_ref (parent_type_macro);		\
+	type_as_function ## _class_init (klass);			\
+}									\
 GType									\
 type_as_function ## _get_type (void)					\
 {									\
@@ -47,7 +53,7 @@ type_as_function ## _get_type (void)					\
 		    sizeof (type ## Class),				\
 		    (GBaseInitFunc)         NULL,			\
 		    (GBaseFinalizeFunc)     NULL,			\
-		    (GClassInitFunc)        type_as_function ## _class_init, \
+		    (GClassInitFunc)        _ ## type_as_function ## _class_init, \
 		    NULL,                   /* class_finalize */	\
 		    NULL,                   /* class_data */		\
 		    sizeof (type),					\
@@ -56,7 +62,6 @@ type_as_function ## _get_type (void)					\
 		};							\
 		object_type = g_type_register_static			\
 		    (parent_type_macro, #type, &object_info, 0);	\
-		parent_class = g_type_class_ref (parent_type_macro);	\
 	}								\
 	return object_type;						\
 }

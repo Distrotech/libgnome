@@ -1,3 +1,9 @@
+Tue Nov 06 23:56:12 2001  George Lebl <jirka@5z.com>
+
+	* gnome-macros.h: chain the class_init func so that we get
+	  the parent_class pointer in the class_init function rather then
+	  in the get_type function to reduce get_type overhead.
+
 2001-11-02  Michael Meeks  <michael@ximian.com>
 
 	* gnome-init.c (bonobo_activation_pre_args_parse),
