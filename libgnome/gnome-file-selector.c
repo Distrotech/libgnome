@@ -46,6 +46,7 @@
 #include <libgnomevfs/gnome-vfs.h>
 
 typedef struct _GnomeFileSelectorAsyncData      GnomeFileSelectorAsyncData;
+typedef struct _GnomeFileSelectorSubAsyncData   GnomeFileSelectorSubAsyncData;
 
 struct _GnomeFileSelectorAsyncData {
     GnomeSelectorAsyncHandle *async_handle;
@@ -59,6 +60,12 @@ struct _GnomeFileSelectorAsyncData {
     GnomeVFSAsyncHandle *vfs_handle;
     GnomeVFSURI *uri;
     gint position;
+};
+
+struct _GnomeFileSelectorSubAsyncData {
+    GnomeSelectorAsyncHandle *async_handle;
+
+    GnomeFileSelectorAsyncData *async_data;
 };
 
 struct _GnomeFileSelectorPrivate {
@@ -167,6 +174,8 @@ add_uri_async_done_cb (GnomeFileSelectorAsyncData *async_data)
 			       (GNOME_SELECTOR (async_data->fselector), path,
 				async_data->position, async_handle));
 
+    _gnome_selector_async_handle_completed (async_handle, TRUE);
+
     g_message (G_STRLOC ": %p - async reading completed (%s).",
 	       async_data->fselector, path);
 
@@ -182,9 +191,12 @@ add_uri_async_add_cb (GnomeSelector *selector,
 		      const char *uri, GError *error,
 		      gboolean success, gpointer user_data)
 {
-    GnomeFileSelectorAsyncData *async_data = user_data;
+    GnomeFileSelectorSubAsyncData *sub_async_data = user_data;
+    GnomeFileSelectorAsyncData *async_data;
 
-    g_return_if_fail (async_data != NULL);
+    g_return_if_fail (sub_async_data != NULL);
+    g_assert (sub_async_data->async_data != NULL);
+    async_data = sub_async_data->async_data;
 
     /* This operation is completed, remove it from the list and call
      * add_uri_async_done_cb() - this function will check whether
@@ -192,7 +204,10 @@ add_uri_async_add_cb (GnomeSelector *selector,
      */
 
     async_data->async_ops = g_slist_remove (async_data->async_ops,
-					    async_handle);
+					    sub_async_data);
+
+    g_message (G_STRLOC ": %p - %p - `%s'", async_data->async_ops,
+	       sub_async_data, uri);
 
     add_uri_async_done_cb (async_data);
 }
@@ -235,16 +250,19 @@ add_uri_async_cb (GnomeVFSAsyncHandle *handle, GList *results,
 		   file->file_info->type);
 
 	if (file->file_info->type == GNOME_VFS_FILE_TYPE_DIRECTORY) {
-	    GnomeSelectorAsyncHandle *async_handle;
+	    GnomeFileSelectorSubAsyncData *sub_async_data;
 
-	    gnome_selector_add_directory (GNOME_SELECTOR (fselector),
-					  &async_handle, uri,
-					  async_data->position, FALSE,
-					  add_uri_async_add_cb,
-					  async_data);
+	    sub_async_data = g_new0 (GnomeFileSelectorSubAsyncData, 1);
+	    sub_async_data->async_data = async_data;
 
 	    async_data->async_ops = g_slist_prepend
-		(async_data->async_ops, async_handle);
+		(async_data->async_ops, sub_async_data);
+
+	    gnome_selector_add_directory (GNOME_SELECTOR (fselector),
+					  &sub_async_data->async_handle, uri,
+					  async_data->position, FALSE,
+					  add_uri_async_add_cb,
+					  sub_async_data);
 
 	    g_free (uri);
 	    continue;
@@ -261,16 +279,19 @@ add_uri_async_cb (GnomeVFSAsyncHandle *handle, GList *results,
 	}
 
 	if (file->file_info->type == GNOME_VFS_FILE_TYPE_REGULAR) {
-	    GnomeSelectorAsyncHandle *async_handle;
+	    GnomeFileSelectorSubAsyncData *sub_async_data;
 
-	    gnome_selector_add_file (GNOME_SELECTOR (fselector),
-				     &async_handle, uri,
-				     async_data->position, FALSE,
-				     add_uri_async_add_cb,
-				     async_data);
+	    sub_async_data = g_new0 (GnomeFileSelectorSubAsyncData, 1);
+	    sub_async_data->async_data = async_data;
 
 	    async_data->async_ops = g_slist_prepend
-		(async_data->async_ops, async_handle);
+		(async_data->async_ops, sub_async_data);
+
+	    gnome_selector_add_file (GNOME_SELECTOR (fselector),
+				     &sub_async_data->async_handle, uri,
+				     async_data->position, FALSE,
+				     add_uri_async_add_cb,
+				     sub_async_data);
 
 	    g_free (uri);
 	    continue;
@@ -354,8 +375,7 @@ add_directory_async_done_cb (GnomeFileSelectorAsyncData *async_data)
 			       (GNOME_SELECTOR (async_data->fselector), path,
 				async_data->position, async_handle));
 
-    g_message (G_STRLOC ": %p - async reading completed (%s).",
-	       async_data->fselector, path);
+    _gnome_selector_async_handle_completed (async_handle, TRUE);
 
     g_free (path);
 
@@ -369,9 +389,12 @@ add_directory_async_file_cb (GnomeSelector *selector,
 			     const char *uri, GError *error,
 			     gboolean success, gpointer user_data)
 {
-    GnomeFileSelectorAsyncData *async_data = user_data;
+    GnomeFileSelectorSubAsyncData *sub_async_data = user_data;
+    GnomeFileSelectorAsyncData *async_data;
 
-    g_return_if_fail (async_data != NULL);
+    g_return_if_fail (sub_async_data != NULL);
+    g_assert (sub_async_data->async_data != NULL);
+    async_data = sub_async_data->async_data;
 
     /* This operation is completed, remove it from the list and call
      * add_directory_async_done_cb() - this function will check whether
@@ -379,7 +402,7 @@ add_directory_async_file_cb (GnomeSelector *selector,
      */
 
     async_data->async_ops = g_slist_remove (async_data->async_ops,
-					    async_handle);
+					    sub_async_data);
 
     add_directory_async_done_cb (async_data);
 }
@@ -406,7 +429,7 @@ add_directory_async_cb (GnomeVFSAsyncHandle *handle, GnomeVFSResult result,
 
 	info = gnome_vfs_directory_list_current (list);
 	while (info != NULL) {
-	    GnomeSelectorAsyncHandle *async_handle;
+	    GnomeFileSelectorSubAsyncData *sub_async_data;
 	    GnomeVFSURI *uri;
 	    gchar *text;
 
@@ -420,18 +443,22 @@ add_directory_async_cb (GnomeVFSAsyncHandle *handle, GnomeVFSResult result,
 	    uri = gnome_vfs_uri_append_file_name (async_data->uri, info->name);
 	    text = gnome_vfs_uri_to_string (uri, GNOME_VFS_URI_HIDE_NONE);
 
-	    g_message (G_STRLOC ": `%s'", text);
-
 	    /* We keep a list of currently running async operations in
 	     * async_data->async_ops. This is that add_directory_async_done_cb()
 	     * knows whether we're really done or whether we still need to wait.
 	     */
-	    gnome_selector_add_file (GNOME_SELECTOR (fselector), &async_handle,
-				     text, async_data->position, FALSE,
-				     add_directory_async_file_cb, async_data);
 
-	    async_data->async_ops = g_slist_prepend (async_data->async_ops,
-						     async_handle);
+	    sub_async_data = g_new0 (GnomeFileSelectorSubAsyncData, 1);
+	    sub_async_data->async_data = async_data;
+
+	    async_data->async_ops = g_slist_prepend
+		(async_data->async_ops, sub_async_data);
+
+	    gnome_selector_add_file (GNOME_SELECTOR (fselector),
+				     &sub_async_data->async_handle,
+				     text, async_data->position, FALSE,
+				     add_directory_async_file_cb,
+				     sub_async_data);
 
 	    gnome_vfs_uri_unref (uri);
 	    g_free (text);
