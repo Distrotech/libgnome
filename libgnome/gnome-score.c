@@ -306,6 +306,9 @@ gnome_score_init (const gchar * gamename)
  * @higher_to_lower_score_order: biggers is better or not
  *
  * Logs a score entry for the user.
+ *
+ * Returns 0 on failure or the status from the gnome-score helper
+ * program.
  */
 gint
 gnome_score_log (gfloat score,

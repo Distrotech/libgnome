@@ -26,7 +26,7 @@
 /**
  * gnome_desktop_entry_load_flags:
  * @file: a file name that contains a desktop entry.
- * @clean_from_memory: flag
+ * @clean_from_memory_after_load: flag
  * @unconditional: flag
  *
  * Returns a newly created desktop entry loaded from @file or NULL
@@ -36,11 +36,13 @@
  * it contains stale data, otherwise, NULL is returned if stale data
  * is found (like, the program referenced not existing).
  *
- * if @clean_from_memory is TRUE, then any data cached used by loading
+ * if @clean_from_memory_after_load is TRUE, then any data cached used by loading
  * process is discarded after loading the desktop entry.
  */
 GnomeDesktopEntry *
-gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_memory, int unconditional)
+gnome_desktop_entry_load_flags_conditional (const char *file,
+					    int clean_from_memory_after_load,
+					    int unconditional)
 {
 	GnomeDesktopEntry *newitem;
 	char *prefix;
@@ -117,7 +119,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 	}
 	gnome_config_pop_prefix ();
 	
-	if (clean_from_memory){
+	if (clean_from_memory_after_load){
 		prefix = g_strconcat ("=", file, "=", NULL);
 		gnome_config_drop_file (prefix);
 		g_free (prefix);
@@ -129,18 +131,18 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 /**
  * gnome_desktop_entry_load_flags:
  * @file: a file name that contains a desktop entry.
- * @clean_from_memory: flag
+ * @clean_from_memory_after_load: flag
  *
  * Returns a newly created desktop entry loaded from @file or NULL
  * if the file does not exist or contains stale data.
  *
- * if @clean_from_memory is TRUE, then any data cached used by loading
+ * if @clean_from_memory_after_load is TRUE, then any data cached used by loading
  * process is discarded after loading the desktop entry.
  */
 GnomeDesktopEntry *
-gnome_desktop_entry_load_flags (const char *file, int clean_from_memory)
+gnome_desktop_entry_load_flags (const char *file, int clean_from_memory_after_load)
 {
-	return gnome_desktop_entry_load_flags_conditional (file, clean_from_memory, FALSE);
+	return gnome_desktop_entry_load_flags_conditional (file, clean_from_memory_after_load, FALSE);
 }
 
 /**

@@ -112,8 +112,9 @@ gnome_help_file_path(gchar *app, gchar *path)
  * gnome_help_display:
  * @ignore: value of this is ignored.  To simplify hooking into clicked
  *          signals
- *
- * Cause a help viewer to display help entry defined in ref.
+ * @ref: A GnomeHelpMenuEntry.
+ * 
+ * Cause a help viewer to display help entry defined in @ref.
  */
 void
 gnome_help_display (void *ignore, GnomeHelpMenuEntry *ref)
@@ -141,6 +142,7 @@ gnome_help_display (void *ignore, GnomeHelpMenuEntry *ref)
  * @ignore: ignored.
  * @page_num: The number of the current notebook page in the
  * properties box.
+ * @ref: A GnomeHelpMenuEntry
  *
  * Cause a help viewer to display the help entry defined in ref.  This
  * function is meant to be connected to the "help" signal of a
@@ -177,8 +179,9 @@ gnome_help_pbox_display (void *ignore, gint page_num, GnomeHelpMenuEntry *ref)
  * gnome_help_pbox_goto
  * @ignore: ignored.
  * @ignore2: also ignored.
+ * @ref: A GnomeHelpMenuEntry
  *
- * Cause a help viewer to display the help entry defined in ref.  This
+ * Cause a help viewer to display the help entry defined in @ref.  This
  * function is meant to be connected to the help button of a
  * GnomePropertyBox, when you don't want any munging of the help path
  * done.  Most of the time, you can use gnome_help_pbox_display,

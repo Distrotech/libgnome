@@ -358,6 +358,8 @@ gnome_sound_sample_load_audiofile(const char *file)
  * @filename: the filename where the audio is stored
  *
  * Loads the audio on @filename and XXXX
+ *
+ * Returns: a sample_id, or a negative number otherwise.
  */
 int
 gnome_sound_sample_load(const char *sample_name, const char *filename)

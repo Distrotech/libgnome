@@ -62,6 +62,8 @@ gnomelib_register_popt_table (const struct poptOption *options,
  *
  * Parses the arguments in argv according to all of the registered
  * tables.
+ *
+ * Returns a poptContext to the remaining arguments.
  */
 poptContext
 gnomelib_parse_args (int argc, char *argv[], int popt_flags)

@@ -207,7 +207,7 @@ mime_init (void)
  * determined, it will return @defaultv.
  */
 const char *
-gnome_mime_type_or_default (const gchar * filename, const gchar * defaultv)
+gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 {
 	const gchar *ext;
 	gchar *result;

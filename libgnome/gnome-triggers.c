@@ -173,6 +173,8 @@ gnome_triggers_read_path(const char *config_path)
  * specified in 'params') or 'play' (play the esd sound sample named
  * 'params').
  *
+ * Returns 0 on success.  1 otherwise.
+ *
  */
 gint
 gnome_triggers_readfile(const char *infilename)

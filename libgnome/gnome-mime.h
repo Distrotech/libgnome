@@ -6,7 +6,7 @@ BEGIN_GNOME_DECLS
 /* do not free() any of the returned values */
 const char  *gnome_mime_type                    (const gchar* filename);
 const char  *gnome_mime_type_or_default         (const gchar *filename,
-						 const gchar *ddef);
+						 const gchar *defaultv);
 const char  *gnome_mime_type_of_file            (const char *existing_filename);
 const char  *gnome_mime_type_or_default_of_file (const char *existing_filename,
 						 const gchar *defaultv);

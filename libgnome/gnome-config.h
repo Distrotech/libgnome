@@ -67,65 +67,65 @@ void _gnome_config_get_vector_with_default     (const char *path, gint *argcp,
 /*these just call the above functions, but devide them into two groups,
   in the future these may be different functions, so use these defines*/
 /*normal functions*/
-#define gnome_config_get_string_with_default(Path,Def) \
-	(_gnome_config_get_string_with_default((Path),(Def),FALSE))
-#define gnome_config_get_translated_string_with_default(Path,Def) \
-	(_gnome_config_get_translated_string_with_default((Path),(Def),FALSE))
-#define gnome_config_get_int_with_default(Path,Def) \
-	(_gnome_config_get_int_with_default((Path),(Def),FALSE))
-#define gnome_config_get_float_with_default(Path,Def) \
-	(_gnome_config_get_float_with_default((Path),(Def),FALSE))
-#define gnome_config_get_bool_with_default(Path,Def) \
-	(_gnome_config_get_bool_with_default((Path),(Def),FALSE))
-#define gnome_config_get_vector_with_default(Path, Argcp, Argvp, Def) \
-        (_gnome_config_get_vector_with_default ((Path),(Argcp),(Argvp), \
-						(Def),FALSE))
+#define gnome_config_get_string_with_default(path,def) \
+	(_gnome_config_get_string_with_default((path),(def),FALSE))
+#define gnome_config_get_translated_string_with_default(path,def) \
+	(_gnome_config_get_translated_string_with_default((path),(def),FALSE))
+#define gnome_config_get_int_with_default(path,def) \
+	(_gnome_config_get_int_with_default((path),(def),FALSE))
+#define gnome_config_get_float_with_default(path,def) \
+	(_gnome_config_get_float_with_default((path),(def),FALSE))
+#define gnome_config_get_bool_with_default(path,def) \
+	(_gnome_config_get_bool_with_default((path),(def),FALSE))
+#define gnome_config_get_vector_with_default(path, argcp, argvp, def) \
+        (_gnome_config_get_vector_with_default ((path),(argcp),(argvp), \
+						(def),FALSE))
 
 /*private functions*/
-#define gnome_config_private_get_string_with_default(Path,Def) \
-	(_gnome_config_get_string_with_default((Path),(Def),TRUE))
-#define gnome_config_private_get_translated_string_with_default(Path,Def) \
-	(_gnome_config_get_translated_string_with_default((Path), (Def),TRUE))
-#define gnome_config_private_get_int_with_default(Path,Def) \
-	(_gnome_config_get_int_with_default((Path),(Def),TRUE))
-#define gnome_config_private_get_float_with_default(Path,Def) \
-	(_gnome_config_get_int_with_default((Path),(Def),TRUE))
-#define gnome_config_private_get_bool_with_default(Path,Def) \
-	(_gnome_config_get_bool_with_default((Path),(Def),TRUE))
-#define gnome_config_private_get_vector_with_default(Path, Argcp, Argvp, Def) \
-        (_gnome_config_get_vector_with_default ((Path),(Argcp), (Argvp), \
-        					(Def), TRUE))
+#define gnome_config_private_get_string_with_default(path,def) \
+	(_gnome_config_get_string_with_default((path),(def),TRUE))
+#define gnome_config_private_get_translated_string_with_default(path,def) \
+	(_gnome_config_get_translated_string_with_default((path), (def),TRUE))
+#define gnome_config_private_get_int_with_default(path,def) \
+	(_gnome_config_get_int_with_default((path),(def),TRUE))
+#define gnome_config_private_get_float_with_default(path,def) \
+	(_gnome_config_get_int_with_default((path),(def),TRUE))
+#define gnome_config_private_get_bool_with_default(path,def) \
+	(_gnome_config_get_bool_with_default((path),(def),TRUE))
+#define gnome_config_private_get_vector_with_default(path, argcp, argvp, def) \
+        (_gnome_config_get_vector_with_default ((path),(argcp), (argvp), \
+        					(def), TRUE))
 
 /* Convenience wrappers for the case when you don't care if you see
    the default.  */
 /*normal functions*/
-#define gnome_config_get_string(Path) \
-	(_gnome_config_get_string_with_default ((Path), NULL, FALSE))
-#define gnome_config_get_translated_string(Path) \
-	(_gnome_config_get_translated_string_with_default ((Path), NULL, FALSE))
-#define gnome_config_get_int(Path) \
-	(_gnome_config_get_int_with_default ((Path), NULL, FALSE))
-#define gnome_config_get_float(Path) \
-	(_gnome_config_get_float_with_default ((Path), NULL, FALSE))
-#define gnome_config_get_bool(Path) \
-	(_gnome_config_get_bool_with_default ((Path), NULL, FALSE))
-#define gnome_config_get_vector(Path, Argcp, Argvp) \
-        (_gnome_config_get_vector_with_default ((Path), (Argcp), (Argvp), \
+#define gnome_config_get_string(path) \
+	(_gnome_config_get_string_with_default ((path), NULL, FALSE))
+#define gnome_config_get_translated_string(path) \
+	(_gnome_config_get_translated_string_with_default ((path), NULL, FALSE))
+#define gnome_config_get_int(path) \
+	(_gnome_config_get_int_with_default ((path), NULL, FALSE))
+#define gnome_config_get_float(path) \
+	(_gnome_config_get_float_with_default ((path), NULL, FALSE))
+#define gnome_config_get_bool(path) \
+	(_gnome_config_get_bool_with_default ((path), NULL, FALSE))
+#define gnome_config_get_vector(path, argcp, argvp) \
+        (_gnome_config_get_vector_with_default ((path), (argcp), (argvp), \
         					NULL, FALSE))
 
 /*private functions*/
-#define gnome_config_private_get_string(Path) \
-	(_gnome_config_get_string_with_default ((Path), NULL, TRUE))
-#define gnome_config_private_get_translated_string(Path) \
-	(_gnome_config_get_translated_string_with_default ((Path), NULL, TRUE))
-#define gnome_config_private_get_int(Path) \
-	(_gnome_config_get_int_with_default ((Path), NULL, TRUE))
-#define gnome_config_private_get_float(Path) \
-	(_gnome_config_get_float_with_default ((Path), NULL, TRUE))
-#define gnome_config_private_get_bool(Path) \
-	(_gnome_config_get_bool_with_default ((Path), NULL, TRUE))
-#define gnome_config_private_get_vector(Path, Argcp, Argvp) \
-        (_gnome_config_get_vector_with_default ((Path), (Argcp), (Argvp), \
+#define gnome_config_private_get_string(path) \
+	(_gnome_config_get_string_with_default ((path), NULL, TRUE))
+#define gnome_config_private_get_translated_string(path) \
+	(_gnome_config_get_translated_string_with_default ((path), NULL, TRUE))
+#define gnome_config_private_get_int(path) \
+	(_gnome_config_get_int_with_default ((path), NULL, TRUE))
+#define gnome_config_private_get_float(path) \
+	(_gnome_config_get_float_with_default ((path), NULL, TRUE))
+#define gnome_config_private_get_bool(path) \
+	(_gnome_config_get_bool_with_default ((path), NULL, TRUE))
+#define gnome_config_private_get_vector(path, argcp, argvp) \
+        (_gnome_config_get_vector_with_default ((path), (argcp), (argvp), \
         					NULL, TRUE))
 
 /* Set a config variable.  Use the warppers below*/
@@ -146,53 +146,53 @@ void _gnome_config_set_vector     (const char *path,
 
 
 /* normal functions */
-#define gnome_config_set_string(Path,Val) \
-	(_gnome_config_set_string((Path),(Val),FALSE))
-#define gnome_config_set_translated_string(Path,Val) \
-	(_gnome_config_set_translated_string((Path),(Val),FALSE))
-#define gnome_config_set_int(Path,Val) \
-	(_gnome_config_set_int((Path),(Val),FALSE))
-#define gnome_config_set_float(Path,Val) \
-	(_gnome_config_set_float((Path),(Val),FALSE))
-#define gnome_config_set_bool(Path,Val) \
-	(_gnome_config_set_bool((Path),(Val),FALSE))
-#define gnome_config_set_vector(Path,Argc,Argv) \
-	(_gnome_config_set_vector((Path),(Argc),(Argv),FALSE))
+#define gnome_config_set_string(path,new_value) \
+	(_gnome_config_set_string((path),(new_value),FALSE))
+#define gnome_config_set_translated_string(path,value) \
+	(_gnome_config_set_translated_string((path),(value),FALSE))
+#define gnome_config_set_int(path,new_value) \
+	(_gnome_config_set_int((path),(new_value),FALSE))
+#define gnome_config_set_float(path,new_value) \
+	(_gnome_config_set_float((path),(new_value),FALSE))
+#define gnome_config_set_bool(path,new_value) \
+	(_gnome_config_set_bool((path),(new_value),FALSE))
+#define gnome_config_set_vector(path,argc,argv) \
+	(_gnome_config_set_vector((path),(argc),(argv),FALSE))
 
 /* private functions */
-#define gnome_config_private_set_string(Path,Val) \
-	(_gnome_config_set_string((Path),(Val),TRUE))
-#define gnome_config_private_set_translated_string(Path,Val) \
-	(_gnome_config_set_translated_string((Path),(Val),TRUE))
-#define gnome_config_private_set_int(Path,Val) \
-	(_gnome_config_set_int((Path),(Val),TRUE))
-#define gnome_config_private_set_float(Path,Val) \
-	(_gnome_config_set_float((Path),(Val),TRUE))
-#define gnome_config_private_set_bool(Path,Val) \
-	(_gnome_config_set_bool((Path),(Val),TRUE))
-#define gnome_config_private_set_vector(Path,Argc,Argv) \
-	(_gnome_config_set_vector((Path),(Argc),(Argv),TRUE))
+#define gnome_config_private_set_string(path,val) \
+	(_gnome_config_set_string((path),(value),TRUE))
+#define gnome_config_private_set_translated_string(path,val) \
+	(_gnome_config_set_translated_string((path),(value),TRUE))
+#define gnome_config_private_set_int(path,value) \
+	(_gnome_config_set_int((path),(value),TRUE))
+#define gnome_config_private_set_float(path,value) \
+	(_gnome_config_set_float((path),(value),TRUE))
+#define gnome_config_private_set_bool(path,value) \
+	(_gnome_config_set_bool((path),(value),TRUE))
+#define gnome_config_private_set_vector(path,argc,argv) \
+	(_gnome_config_set_vector((path),(argc),(argv),TRUE))
 
 /* Returns true if /path/section is defined */
 gboolean  _gnome_config_has_section    (const char *path, gint priv);
-#define gnome_config_has_section(Path) \
-	(_gnome_config_has_section((Path),FALSE))
+#define gnome_config_has_section(path) \
+	(_gnome_config_has_section((path),FALSE))
 #define gnome_config_private_has_section(Path) \
-	(_gnome_config_has_section((Path),TRUE))
+	(_gnome_config_has_section((path),TRUE))
 
 /* Returns a pointer for iterating on /file/section contents */
 void *_gnome_config_init_iterator (const char *path, gint priv);
-#define gnome_config_init_iterator(Path) \
-	(_gnome_config_init_iterator((Path),FALSE))
-#define gnome_config_private_init_iterator(Path) \
-	(_gnome_config_init_iterator((Path),TRUE))
+#define gnome_config_init_iterator(path) \
+	(_gnome_config_init_iterator((path),FALSE))
+#define gnome_config_private_init_iterator(path) \
+	(_gnome_config_init_iterator((path),TRUE))
 
 /* Returns a pointer for iterating on /file contents */
 void *_gnome_config_init_iterator_sections (const char *path, gint priv);
-#define gnome_config_init_iterator_sections(Path) \
-	(_gnome_config_init_iterator_sections((Path),FALSE))
-#define gnome_config_private_init_iterator_sections(Path) \
-	(_gnome_config_init_iterator_sections((Path),TRUE))
+#define gnome_config_init_iterator_sections(path) \
+	(_gnome_config_init_iterator_sections((path),FALSE))
+#define gnome_config_private_init_iterator_sections(path) \
+	(_gnome_config_init_iterator_sections((path),TRUE))
 
 /* Get next key and value value from a section */
 void *gnome_config_iterator_next (void *iterator_handle, char **key, char **value);
@@ -203,60 +203,61 @@ void gnome_config_sync           (void);
 
 /* sync's data for one file only */
 void _gnome_config_sync_file      (char *path, int priv);
-#define gnome_config_sync_file(Path) \
-	(_gnome_config_sync_file((Path),FALSE))
-#define gnome_config_private_sync_file(Path) \
-	(_gnome_config_sync_file((Path),TRUE))
+#define gnome_config_sync_file(path) \
+	(_gnome_config_sync_file((path),FALSE))
+#define gnome_config_private_sync_file(path) \
+	(_gnome_config_sync_file((path),TRUE))
 
 /* This routine drops the information about /file, meaning changes
    done to this file will be dropped, it will no delete the file */
 void _gnome_config_drop_file     (const char *path, gint priv);
-#define gnome_config_drop_file(Path) \
-	(_gnome_config_drop_file((Path),FALSE))
-#define gnome_config_private_drop_file(Path) \
-	(_gnome_config_drop_file((Path),TRUE))
+#define gnome_config_drop_file(path) \
+	(_gnome_config_drop_file((path),FALSE))
+#define gnome_config_private_drop_file(path) \
+	(_gnome_config_drop_file((path),TRUE))
 
 /* This routine actually removes /file on sync (not right away, you
    can still save it by dropping it)*/
 void _gnome_config_clean_file     (const char *path, gint priv);
-#define gnome_config_clean_file(Path) \
-	(_gnome_config_clean_file((Path),FALSE))
-#define gnome_config_private_clean_file(Path) \
-	(_gnome_config_clean_file((Path),TRUE))
+#define gnome_config_clean_file(path) \
+	(_gnome_config_clean_file((path),FALSE))
+#define gnome_config_private_clean_file(path) \
+	(_gnome_config_clean_file((path),TRUE))
 
 /* This routine drops all of the information related to /file/section 
    this will actually remove the section */
 void _gnome_config_clean_section  (const char *path, gint priv);
-#define gnome_config_clean_section(Path) \
-	(_gnome_config_clean_section((Path),FALSE))
+#define gnome_config_clean_section(path) \
+	(_gnome_config_clean_section((path),FALSE))
 #define gnome_config_private_clean_section(Path) \
-	(_gnome_config_clean_section((Path),TRUE))
+	(_gnome_config_clean_section((path),TRUE))
 
 /* Drops the information for a specific key, this will actually remove
    the key */
 void _gnome_config_clean_key (const char *path, gint priv);
-#define gnome_config_clean_key(Path) \
-	(_gnome_config_clean_key((Path),FALSE))
-#define gnome_config_private_clean_key(Path) \
-	(_gnome_config_clean_key((Path),TRUE))
+#define gnome_config_clean_key(path) \
+	(_gnome_config_clean_key((path),FALSE))
+#define gnome_config_private_clean_key(path) \
+	(_gnome_config_clean_key((path),TRUE))
 
 /* returns the true filename of the config file */
-#define gnome_config_get_real_path(Path) \
-	(g_concat_dir_and_file (gnome_user_dir,(Path)))
-#define gnome_config_private_get_real_path(Path) \
-	(g_concat_dir_and_file (gnome_user_private_dir,(Path)))
+#define gnome_config_get_real_path(path) \
+	(g_concat_dir_and_file (gnome_user_dir,(path)))
+#define gnome_config_private_get_real_path(path) \
+	(g_concat_dir_and_file (gnome_user_private_dir,(path)))
 
 /* Set an active prefix and remove an active prefix */
 void gnome_config_push_prefix (const char *path);
 void gnome_config_pop_prefix (void);
 
-/* Internal routines that we export
+/*
+ * Internal routines that we export
  * Used to go from string->vector and from vector->string
  */
 void gnome_config_make_vector (const char *string, int *argcp, char ***argvp);
 char *gnome_config_assemble_vector (int argc, const char *const argv []);
 
-/*these two are absolutely obscolete and should not be used!!!*/
+/* these two are absolutely obscolete and should not be used */
 void gnome_config_set_set_handler(void (*func)(void *),void *data);
 void gnome_config_set_sync_handler(void (*func)(void *),void *data);
 

@@ -120,7 +120,7 @@ unit_name_compare (const Unit* a, const gchar *b)
  * 
  * grants access to the hardcoded internal list of paper specifications
  *
- * Return Value: internal list of paper specifications
+ * Returns: internal list of paper specifications
  **/
 GList*
 gnome_paper_name_list (void)
@@ -137,7 +137,7 @@ gnome_paper_name_list (void)
  * searches internal list of paper sizes, searching
  * for one with the name 'papername'
  * 
- * Return Value: paper specification with given name, or NULL
+ * Returns: paper specification with given name, or NULL
  **/
 const Paper*
 gnome_paper_with_name (const gchar *papername)
@@ -161,7 +161,7 @@ gnome_paper_with_name (const gchar *papername)
  * 
  * create a custom paper type with given dimensions
  * 
- * Return Value: paper specification
+ * Returns: paper specification
  **/
 const Paper*
 gnome_paper_with_size (const double pswidth, const double psheight)
@@ -184,7 +184,7 @@ gnome_paper_with_size (const double pswidth, const double psheight)
 /**
  * gnome_paper_name_default: get the name of the default paper
  * 
- * Return Value: human readable name for default paper type
+ * Returns: human readable name for default paper type
  **/
 const gchar*
 gnome_paper_name_default(void)
@@ -200,7 +200,7 @@ gnome_paper_name_default(void)
  * 
  * 
  * 
- * Return Value: human readable name for paper type
+ * Returns: human readable name for paper type
  **/
 const gchar*
 gnome_paper_name (const Paper *paper)
@@ -216,7 +216,7 @@ gnome_paper_name (const Paper *paper)
  * 
  * returns the width of the paper, including the margins
  * 
- * Return Value: width of paper (in points)
+ * Returns: width of paper (in points)
  **/
 gdouble
 gnome_paper_pswidth (const Paper *paper)
@@ -232,7 +232,7 @@ gnome_paper_pswidth (const Paper *paper)
  * 
  * returns the height of the paper, including the margins
  * 
- * Return Value: height of paper (in points)
+ * Returns: height of paper (in points)
  **/
 gdouble
 gnome_paper_psheight (const Paper *paper)
@@ -248,7 +248,7 @@ gnome_paper_psheight (const Paper *paper)
  * 
  * 
  * 
- * Return Value: paper specification
+ * Returns: paper specification
  **/
 gdouble
 gnome_paper_lmargin	(const Paper *paper)
@@ -264,7 +264,7 @@ gnome_paper_lmargin	(const Paper *paper)
  * 
  * 
  * 
- * Return Value: size of top margin (in points)
+ * Returns: size of top margin (in points)
  **/
 gdouble
 gnome_paper_tmargin	(const Paper *paper)
@@ -280,7 +280,7 @@ gnome_paper_tmargin	(const Paper *paper)
  * 
  * 
  * 
- * Return Value: size of right margin (in points)
+ * Returns: size of right margin (in points)
  **/
 gdouble
 gnome_paper_rmargin	(const Paper *paper)
@@ -296,7 +296,7 @@ gnome_paper_rmargin	(const Paper *paper)
  * 
  * 
  * 
- * Return Value: size of bottom margin (in points)
+ * Returns: size of bottom margin (in points)
  **/
 gdouble
 gnome_paper_bmargin (const Paper *paper)
@@ -312,7 +312,7 @@ gnome_paper_bmargin (const Paper *paper)
  * grants access to the hardcoded internal list
  * of units
  * 
- * Return Value: internal list of units
+ * Returns: internal list of units
  **/
 GList*
 gnome_unit_name_list (void)
@@ -329,10 +329,10 @@ gnome_unit_name_list (void)
  * searches internal list of units, searching
  * for one with the name 'unitname'
  * 
- * Return Value: Unit with given name or NULL
+ * Returns: Unit with given name or NULL
  **/
-const Unit* 
-gnome_unit_with_name(const gchar* unitname)
+const Unit * 
+gnome_unit_with_name (const gchar *unitname)
 {
   GList	*l;
   
@@ -354,7 +354,7 @@ gnome_unit_with_name(const gchar* unitname)
  * converts from value represented in points
  * to value represented in given units.
  * 
- * Return Value: value in given units
+ * Returns: value in given units
  **/
 double 
 gnome_paper_convert (double psvalue, const Unit *unit)
@@ -368,13 +368,13 @@ gnome_paper_convert (double psvalue, const Unit *unit)
 /**
  * gnome_paper_convert_to_points: convert from other units to points.
  * Needed for gnome-paper-selector.
- * @psvalue: value in points
+ * @othervalue: value in points
  * @unit: unit to convert to
  * 
  * converts from value represented in points
  * to value represented in given units.
  * 
- * Return Value: value in points
+ * Returns: value in points
  **/
 double 
 gnome_paper_convert_to_points (double othervalue, const Unit *unit)

@@ -1461,13 +1461,13 @@ _gnome_config_get_bool_with_default (const char *path, gboolean *def,
 
 /**
  * gnome_config_make_vector:
- * @rr: The stringified vector to decode into 'argcp' and 'argvp'
+ * @string: The stringified vector to decode into 'argcp' and 'argvp'
  * @argcp: Returns the number of elements in 'argvp'
  * @argvp: Returns the array of strings found in 'rr'.
  *
  */
 void
-gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
+gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
 {
 	char *p;
 	int count, esc_spcs;
@@ -1479,7 +1479,7 @@ gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
 	 */
 	count = 2;
 	space_seen = 0;
-	for (p = (char *) rr; *p; ++p) {
+	for (p = (char *) string; *p; ++p) {
 		/* The way that entries are constructed by
 		   gnome_config_set_vector ensures we'll never see an
 		   unpaired `\' at the end of a string.  So this is
@@ -1497,7 +1497,7 @@ gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
 	*argcp = count - 1;
 	*argvp = (char **) g_malloc0 (count * sizeof (char *));
 
-	p = (char *) rr;
+	p = (char *) string;
 	count = 0;
 	do {
 		char *tmp = p;
@@ -1520,6 +1520,8 @@ gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
 /**
  * gnome_config_get_vector:
  * @path: A gnome configuration path to an item.
+ * @argcp: Number of elements in the vector
+ * @argvp: Vector of strings
  *
  * Retrieves & returns the value of a configuration item as a string array.
  * The returned value should be
@@ -1528,6 +1530,8 @@ gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
 /**
  * gnome_config_private_get_vector:
  * @path: A gnome configuration path to an item in the user-private namespace.
+ * @argcp: Number of elements in the vector
+ * @argvp: Vector of strings
  *
  * Retrieves & returns the value of a configuration item as a
  * string. The returned value should be g_free()'d when no longer
@@ -1537,6 +1541,8 @@ gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
 /**
  * gnome_config_get_vector_with_default:
  * @path: A gnome configuration path to an item.
+ * @argcp: Number of elements in the vector
+ * @argvp: Vector of strings
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
@@ -1547,6 +1553,8 @@ gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
 /**
  * gnome_config_private_get_vector_with_default:
  * @path: A gnome configuration path to an item in the user-private namespace.
+ * @argcp: Number of elements in the vector
+ * @argvp: Vector of strings
  * @def: A pointer to a flag that will be set if the default value for the item
  * is returned.
  *
@@ -1578,7 +1586,7 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
  * gnome_config_set_translated_string:
  * @path: a gnome configuration path to a key
  * @value: a string value to set.
- *
+ * 
  * Stores the string value @new_value in the file/section/key defined
  * by the @path on the proper section for the current language set by
  * by the user.
@@ -1787,8 +1795,10 @@ gnome_config_pop_prefix (void)
 
 /**
  * gnome_config_set_set_handler
+ * @func: Obsolete
+ * @data: Obsolete
  *
- * Internal routine
+ * Internal Obsolete.
  */
 void
 gnome_config_set_set_handler(void (*func)(void *),void *data)
@@ -1798,6 +1808,8 @@ gnome_config_set_set_handler(void (*func)(void *),void *data)
 
 /**
  * gnome_config_set_sync_handler
+ * @func: obsolete
+ * @data: obsolete
  *
  * Internal routine
  */

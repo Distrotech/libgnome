@@ -1020,7 +1020,7 @@ got_type:
  * @file: File name
  * @name: Metadata key
  * @size: Return parameter for size of data
- * @data: Return parameter for data
+ * @buffer: Return parameter for data
  *
  * Get a piece of metadata associated with @file.  @size and @buffer
  * are result parameters.  *@buffer is g_malloc()d.
@@ -1043,7 +1043,7 @@ gnome_metadata_get (const char *file, const char *name,
  * @file: File name
  * @name: Metadata key
  * @size: Return parameter for size of data
- * @data: Return parameter for data
+ * @buffer: Return parameter for data
  *
  * Like gnome_metadata_get(), but won't run the `file' command to
  * characterize the file type.
@@ -1149,7 +1149,7 @@ gnome_metadata_copy (const char *from, const char *to)
 }
 
 /**
- * gnome_metadata_copy:
+ * gnome_metadata_delete:
  * @file: File name
  *
  * This function deletes all metadata associated with @file.
@@ -1174,7 +1174,6 @@ gnome_metadata_delete (const char *file)
  * Add a regular expression to the internal list.  This regex is used
  * when matching requests for the metadata @key.
  *
- * Returns nothing.
  */
 void
 gnome_metadata_regex_add (const char *regex, const char *key,
@@ -1190,7 +1189,6 @@ gnome_metadata_regex_add (const char *regex, const char *key,
  *
  * Remove the regular expression from the internal list.
  *
- * Returns nothing.
  */
 void
 gnome_metadata_regex_remove (const char *regex, const char *key)
@@ -1208,7 +1206,6 @@ gnome_metadata_regex_remove (const char *regex, const char *key)
  * Add a file type to the internal list.  This pairing is used
  * when matching requests for the metadata @key.
  *
- * Returns nothing.
  */
 void
 gnome_metadata_type_add (const char *type, const char *key,
@@ -1224,7 +1221,6 @@ gnome_metadata_type_add (const char *type, const char *key,
  *
  * Remove a type/key pairing from the internal list.
  *
- * Returns nothing.
  */
 void
 gnome_metadata_type_remove (const char *type, const char *key)

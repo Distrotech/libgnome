@@ -494,6 +494,7 @@ g_extension_pointer (const char * path)
 
 /**
  * g_copy_vector:
+ * @vec: an array of strings.  NULL terminated
  *
  * Returns a copy of a NULL-terminated string array.
  */
@@ -538,16 +539,28 @@ static const char * const image_extensions[] = {
  * g_is_image_filename:
  * @path: Filename or file path.
  *
- * Extra lame way of figuring if a filename is an image file
+ * Extra lame way of figuring if a filename is an image file.  You
+ * should use the gnome_mime functions and match against "image/".
+ *
+ * Returns: TRUE if the filename is an image.
  */
 gboolean
-g_is_image_filename (const char * path)
+g_is_image_filename (const char *path)
 {
 	const char * s;
 	int i = 0;
 	
 	g_return_val_if_fail (path != NULL, FALSE);
-	
+
+	{
+		static int warn_shown = 0;
+
+		if (!warn_shown){
+			warn_shown = 1;
+			g_warning ("g_is_image_filename called, you "
+				   "should use gnome-mime instead\n");
+		}
+	}
 	s = g_extension_pointer (path);
 	
 	while (image_extensions [i]) {
