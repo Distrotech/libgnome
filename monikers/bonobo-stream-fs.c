@@ -9,6 +9,7 @@
  *   Miguel de Icaza (miguel@gnu.org)
  */
 #include <config.h>
+#include <stdio.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <libgnome/gnome-defs.h>
@@ -30,6 +31,8 @@ fs_write (GnomeStream *stream, const GNOME_Stream_iobuf *buffer,
 
 	if (errno != EINTR){
 		g_warning ("Should signal an exception here");
+		CORBA_exception_set(ev, CORBA_USER_EXCEPTION,
+				    ex_GNOME_Storage_NameExists, NULL);
 		return 0;
 	}
 	return buffer->_length;
@@ -147,15 +150,36 @@ static void
 fs_close (GnomeStream *stream,
 	  CORBA_Environment *ev)
 {
-	g_warning ("Implement fs close");
+	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+
+	if (close (sfs->fd))
+		g_warning ("Close failed");
+	sfs->fd = -1;
 }
 
 static CORBA_boolean
 fs_eos (GnomeStream *stream,
 	CORBA_Environment *ev)
 {
-	g_warning ("Implement fs eos");
+	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	off_t offset;
+	struct stat st;
 
+	if (fstat (sfs->fd, &st)) {
+		g_warning ("fstat failed");
+		return 1;
+	}
+
+	offset = lseek (sfs->fd, 0, SEEK_CUR);
+
+	if (offset == -1) {
+		g_warning ("seek failed");
+		return 1;
+	}
+
+	if (offset == st.st_size)
+		return 1;
+	
 	return 0;
 }
 	
