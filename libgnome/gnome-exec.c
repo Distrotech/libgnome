@@ -348,7 +348,6 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
         int real_argc;
         int i, j;
 	char **term_argv = NULL;
-	const char **temp_argv = NULL;
 	int term_argc = 0;
 	GConfClient *client;
 
@@ -376,14 +375,31 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 	gnome_gconf_lazy_init ();
 
 	client = gconf_client_get_default ();
-	terminal = gconf_client_get_string (client, "/desktop/gnome/applications/terminal", NULL);
+	terminal = gconf_client_get_string (client, "/desktop/gnome/applications/terminal/exec", NULL);
 	g_object_unref (G_OBJECT (client));
 	
 	g_message (G_STRLOC ": |%s|", terminal);
 	if (terminal) {
+		gchar *exec_flag;
+		exec_flag = gconf_client_get_string (client, "/desktop/gnome/applications/terminal/exec_flag", NULL);
+
+		if (exec_flag == NULL) {
+			term_argc = 1;
+			term_argv = g_new0 (char *, 2);
+			term_argv[0] = terminal;
+			term_argv[1] = NULL;
+		} else {
+			term_argc = 2;
+			term_argv = g_new0 (char *, 3);
+			term_argv[0] = terminal;
+			term_argv[1] = exec_flag;
+			term_argv[2] = NULL;
+		}
+#if 0
 	    poptParseArgvString (terminal, &term_argc, &temp_argv);
 	    term_argv = g_strdupv ((gchar **) temp_argv);
 	    g_free (terminal);
+#endif
 	}
 
 	if (term_argv == NULL) {

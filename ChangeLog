@@ -1,3 +1,9 @@
+Mon Jan 14 00:28:40 2002  Jonathan Blandford  <jrb@gnome.org>
+
+	* schemas/desktop_gnome_applications_terminal.schemas: add
+	exec_arg key to separate the command from the arguments.  Somewhat
+	dubious, but then again, so is this key.
+
 2002-01-13  Alexander Larsson  <alla@lysator.liu.se>
 
 	* schemas/desktop_gnome_applications_window_manager.schemas:
@@ -62,8 +68,10 @@ Mon Jan  7 20:40:09 2002  Jonathan Blandford  <jrb@redhat.com>
 
 	* schemas/desktop_gnome_peripherals_mouse.schemas: add
 	locate_pointer value.
+
 	* schemas/desktop_gnome_peripherals_keyboard.schemas: add
 	bell_mode schema. change clickvolume to click_volume.
+
 	* schemas/desktop_gnome_interface.schemas: add cursor_blink and
 	cursor_blink_time.
 
