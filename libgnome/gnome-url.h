@@ -29,13 +29,7 @@
 G_BEGIN_DECLS
 
 typedef enum {
-  GNOME_URL_ERROR_EXEC, /* could not execute handler */
-  GNOME_URL_ERROR_PARSE, /* if the parsing of the handler failed */
-  GNOME_URL_ERROR_PIPE, /* if 'pipe' did not work when getting id,
-			 * handler has not been executed */
-  GNOME_URL_ERROR_NO_ID, /* if id could not be gotten, the handler has however
-			  * been executed */
-  GNOME_URL_ERROR_NO_MOZILLA /* could not find mozilla for gnome-moz-remote */
+  GNOME_URL_ERROR_PARSE /* if the parsing of the handler failed */
 } GnomeURLError;
 
 #define GNOME_URL_ERROR (gnome_url_error_quark ())
@@ -56,6 +50,7 @@ GQuark gnome_url_error_quark (void) G_GNUC_CONST;
  */
 
 /* returns FALSE on error, TRUE if everything went fine */
+/* Errors returned are either the GNOME_URL_ERROR_ ones or G_SPAWN_ERROR_ ones */
 gboolean gnome_url_show(const char *url, GError **error);
 
 G_END_DECLS

@@ -194,32 +194,12 @@ gnome_help_display_uri (const char    *help_uri,
 			GError       **error)
 {
 	GError *err;
+	gboolean ret;
 
 	err = NULL;
-	gnome_url_show (help_uri, &err);
-
-	if (err != NULL) {
-		if (err->code == GNOME_URL_ERROR_PARSE) {
-			g_set_error (error,
-				     GNOME_HELP_ERROR,
-				     GNOME_HELP_ERROR_PARSE,
-				     "%s",
-				     err->message);
-			g_clear_error (&err);
-		} else if (err->code == GNOME_URL_ERROR_EXEC) {
-			g_set_error (error,
-				     GNOME_HELP_ERROR,
-				     GNOME_HELP_ERROR_EXEC,
-				     "%s",
-				     err->message);
-			g_clear_error (&err);
-		} else {
-			g_propagate_error (error, err);
-		}
-		return FALSE;
-	} else {
-		return TRUE;
-	}
+	ret = gnome_url_show (help_uri, &err);
+	g_propagate_error (error, err);
+	return ret;
 }
 
 GQuark

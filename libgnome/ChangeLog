@@ -1,3 +1,10 @@
+Sun Sep 02 14:15:46 2001  George Lebl <jirka@5z.com>
+
+	* gnome-help.[ch], gnome-url.[ch]: fix compilation with popt, remove
+	  some of the duplicated errors and just pass the underlying errors
+	  where appropriate.  Use g_spawn instead of the gnome exec function.
+	  also fix a memory leak.
+
 2001-09-02  Anders Carlsson  <andersca@gnu.org>
 
 	* Makefile.am: Remove compilation of Gnome.idl.
