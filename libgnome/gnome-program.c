@@ -343,7 +343,7 @@ gnome_program_module_addtolist (GnomeModuleInfo **new_list,
     GnomeModuleInfo *new_item;
     int i;
 
-    g_assert (new_item >= 0);
+    g_assert (new_item_idx >= 0);
 
     new_item = g_ptr_array_index (program_modules, new_item_idx);
     if(!new_item)
