@@ -693,6 +693,9 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
     gboolean append_app_id = FALSE;
     GValue value = { 0, };
 
+    if (!program)
+	program = gnome_program_get ();
+
     g_return_val_if_fail (program != NULL, NULL);
     g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
     g_return_val_if_fail (program->_priv->state >= APP_PREINIT_DONE, NULL);

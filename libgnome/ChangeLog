@@ -1,3 +1,12 @@
+2001-08-13  Martin Baulig  <baulig@suse.de>
+
+	* gnome-init.c (bonobo_activation_post_args_parse): Get the
+	Bonobo::ActivationContext here, this avoids some nasty
+	reentrancy problems.
+
+	* gnome-program.c (gnome_program_locate_file): Allow the `program'
+	argument to be NULL, in this case call gnome_program_get().
+
 2001-08-09  Martin Baulig  <baulig@suse.de>
 
 	* gnome-util.h (gnome_*_file, gnome_unconditional_*_file): Put

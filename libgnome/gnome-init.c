@@ -74,8 +74,15 @@ bonobo_activation_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_i
 {
 	int dumb_argc = 1;
 	char *dumb_argv[] = {NULL};
+        BonoboActivationBaseService base_service = {};
 
 	bonobo_activation_postinit (program, mod_info);
+
+        base_service.name = "IDL:Bonobo/ActivationContext:1.0";
+        base_service.session_name = bonobo_activation_session_name_get ();
+        base_service.domain = "session";
+
+        bonobo_activation_service_get (&base_service);
 
 	dumb_argv[0] = program_invocation_name;
 	(void) bonobo_activation_orb_init (&dumb_argc, dumb_argv);
