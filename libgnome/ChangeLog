@@ -1,3 +1,9 @@
+1999-03-09  Miguel de Icaza  <miguel@nuclecu.unam.mx>
+
+	* gnome-mime.c (maybe_reload): Implement mime-information
+	automatic reloading on changes.  There is a timeout of 5 seconds
+	to reload information to avoid excesive stating as usual.
+
 1999-03-11  Jonathan Blandford  <jrb@redhat.com>
 
 	* gnome-mime.c (mime_load_from_dir): We want to open gnome.mime

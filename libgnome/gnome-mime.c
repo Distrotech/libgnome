@@ -7,6 +7,8 @@
 #include <config.h>
 #include <string.h>
 #include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 #include <dirent.h>
 #include <regex.h>
 #include <gtk/gtk.h>
@@ -14,6 +16,8 @@
 #include "gnome-mime.h"
 #include <string.h>
 #include <ctype.h>
+
+static gboolean module_inited = FALSE;
 
 static GHashTable *mime_extensions [2] = { NULL, NULL };
 static GList      *mime_regexs     [2] = { NULL, NULL };
@@ -23,7 +27,16 @@ typedef struct {
 	char    *mime_type;
 } RegexMimePair;
 
-static gboolean module_inited = FALSE;
+typedef struct {
+	char *dirname;
+	struct stat s;
+	unsigned int valid : 1;
+	unsigned int system_dir : 1;
+} mime_dir_source_t;
+
+/* These ones are used to automatically reload mime-types on demand */
+static mime_dir_source_t gnome_mime_dir, user_mime_dir;
+static time_t last_checked;
 
 static char *
 get_priority (char *def, int *priority)
@@ -52,7 +65,6 @@ add_to_key (char *mime_type, char *def)
 {
 	int priority = 1;
 	char *s, *p, *ext;
-	int used;
 	
 	if (strncmp (def, "ext", 3) == 0){
 		char *tokp;
@@ -61,15 +73,11 @@ add_to_key (char *mime_type, char *def)
 		def = get_priority (def, &priority);
 		s = p = g_strdup (def);
 
-		used = 0;
-		
 		while ((ext = strtok_r (s, " \t\n\r,", &tokp)) != NULL){
-			g_hash_table_insert (mime_extensions [priority], ext, mime_type);
-			used = 1;
+			g_hash_table_insert (mime_extensions [priority], g_strdup (ext), g_strdup (mime_type));
 			s = NULL;
 		}
-		if (!used)
-			g_free (p);
+		g_free (p);
 	}
 
 	if (strncmp (def, "regex", 5) == 0){
@@ -89,6 +97,7 @@ add_to_key (char *mime_type, char *def)
 			return;
 		}
 		mp->mime_type = mime_type;
+
 		mime_regexs [priority] = g_list_prepend (mime_regexs [priority], mp);
 	}
 }
@@ -153,21 +162,31 @@ mime_fill_from_file (const char *filename)
 }
 
 static void
-mime_load_from_dir (const char *mime_info_dir, gboolean system_dir)
+mime_load (mime_dir_source_t *source)
 {
 	DIR *dir;
 	struct dirent *dent;
 	const int extlen = sizeof (".mime") - 1;
 	char *filename;
+
+	g_return_if_fail (source != NULL);
+	g_return_if_fail (source->dirname != NULL);
 	
-	dir = opendir (mime_info_dir);
+	if (stat (source->dirname, &source->s) != -1)
+		source->valid = TRUE;
+	else
+		source->valid = FALSE;
+
+	dir = opendir (source->dirname);
 	if (!dir)
 		return;
-	if (system_dir) {
-		filename = g_concat_dir_and_file (mime_info_dir, "gnome.mime");
+	
+	if (source->system_dir){
+		filename = g_concat_dir_and_file (source->dirname, "gnome.mime");
 		mime_fill_from_file (filename);
 		g_free (filename);
 	}
+
 	while ((dent = readdir (dir)) != NULL){
 		
 		int len = strlen (dent->d_name);
@@ -176,21 +195,79 @@ mime_load_from_dir (const char *mime_info_dir, gboolean system_dir)
 			continue;
 		if (strcmp (dent->d_name + len - extlen, ".mime"))
 			continue;
-		if (system_dir && !strcmp (dent->d_name, "gnome.mime"))
+		
+		filename = g_concat_dir_and_file (source->dirname, dent->d_name);
+
+		if (source->system_dir && !strcmp (dent->d_name, "gnome.mime"))
 			continue;
-		if (!system_dir && !strcmp (dent->d_name, "user.mime"))
+		if (!source->system_dir && !strcmp (dent->d_name, "user.mime"))
 			continue;
 		
-		filename = g_concat_dir_and_file (mime_info_dir, dent->d_name);
-		mime_fill_from_file (filename);
-		g_free (filename);
-	}
-	if (!system_dir) {
-		filename = g_concat_dir_and_file (mime_info_dir, "user.mime");
+		filename = g_concat_dir_and_file (source->dirname, dent->d_name);
+
 		mime_fill_from_file (filename);
 		g_free (filename);
 	}
 	closedir (dir);
+
+	if (!source->system_dir) {
+		filename = g_concat_dir_and_file (source->dirname, "user.mime");
+		mime_fill_from_file (filename);
+		g_free (filename);
+	}
+}
+
+static gboolean
+mime_hash_func (gpointer key, gpointer value, gpointer user_data)
+{
+	g_free (key);
+	g_free (value);
+
+	return TRUE;
+}
+
+static void
+maybe_reload (void)
+{
+	time_t now = time (NULL);
+	gboolean need_reload = FALSE;
+	struct stat s;
+	int i;
+	
+	if (last_checked + 5 >= now)
+		return;
+
+	if (stat (gnome_mime_dir.dirname, &s) != -1)
+		if (s.st_mtime != gnome_mime_dir.s.st_mtime)
+			need_reload = TRUE;
+
+	if (stat (user_mime_dir.dirname, &s) != -1)
+		if (s.st_mtime != user_mime_dir.s.st_mtime)
+			need_reload = TRUE;
+
+	if (!need_reload)
+		return;
+
+	for (i = 0; i < 2; i++){
+		GList *l;
+		
+		g_hash_table_foreach_remove (mime_extensions [i], mime_hash_func, NULL);
+
+		for (l = mime_regexs [i]; l; l = l->next){
+			RegexMimePair *mp = l->data;
+
+			g_free (mp->mime_type);
+			regfree (&mp->regex);
+			g_free (mp);
+		}
+		g_list_free (mime_regexs [i]);
+		mime_regexs [i] = NULL;
+	}
+
+	mime_load (&gnome_mime_dir);
+	mime_load (&user_mime_dir);
+
+	last_checked = time (NULL);
 }
 
 static void
@@ -201,14 +278,15 @@ mime_init (void)
 	mime_extensions [0] = g_hash_table_new (g_str_hash, g_str_equal);
 	mime_extensions [1] = g_hash_table_new (g_str_hash, g_str_equal);
 
-	mime_info_dir = gnome_unconditional_datadir_file ("mime-info");
-	mime_load_from_dir (mime_info_dir, TRUE);
-	g_free (mime_info_dir);
+	gnome_mime_dir.dirname = gnome_unconditional_datadir_file ("mime-info");
+	gnome_mime_dir.system_dir = TRUE;
+	
+	user_mime_dir.dirname  = g_concat_dir_and_file (gnome_util_user_home (), ".gnome/mime-info");
+	user_mime_dir.system_dir = FALSE;
+	mime_load (&gnome_mime_dir);
+	mime_load (&user_mime_dir);
 
-	mime_info_dir = g_concat_dir_and_file (gnome_util_user_home (), ".gnome/mime-info");
-	mime_load_from_dir (mime_info_dir, FALSE);
-	g_free (mime_info_dir);
-
+	last_checked = time (NULL);
 	module_inited = TRUE;
 }
 
@@ -239,6 +317,8 @@ gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 	if (!module_inited)
 		mime_init ();
 
+	maybe_reload ();
+	
 	for (priority = 1; priority >= 0; priority--){
 		GList *l;
 		char *res;
