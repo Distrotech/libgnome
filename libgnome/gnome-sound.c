@@ -359,7 +359,10 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
   int confirm = 0;
 
   if(gnome_sound_connection < 0)
-      return -1;
+    return -2;
+
+  if(!filename || !*filename)
+    return -2;
 
 #ifdef HAVE_LIBAUDIOFILE
   s = gnome_sound_sample_load_audiofile(filename);
