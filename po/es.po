@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome2 1.100.0\n"
-"POT-Creation-Date: 2001-08-14 16:01+0200\n"
+"POT-Creation-Date: 2001-09-23 01:57+0200\n"
 "PO-Revision-Date: 2001-06-19 12:54+0200\n"
 "Last-Translator: Héctor García Álvarez <hector@scouts-es.org>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -13,57 +13,31 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: libgnome/gnome-exec.c:406
+#: libgnome/gnome-exec.c:413
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "No pude encontrar un terminal, usando xterm, auncuando puede no funcionar"
 
-#: libgnome/gnome-url.c:131
-#, c-format
-msgid "Error parsing '%s' (empty result)"
-msgstr "Error parseando '%s' (resultado vacio)"
+#: libgnome/gnome-url.c:155
+msgid "Cannot parse: %s"
+msgstr "No puedo parsear: %s"
 
-#: libgnome/gnome-url.c:151
-#, c-format
-msgid "Mozilla not found as '%s'"
-msgstr "No se encontro Mozilla como '%s'"
-
-#: libgnome/gnome-url.c:312 libgnome/gnome-url.c:316
-#, c-format
-msgid "Cannot open a pipe: %s"
-msgstr "No pude abrir una tubería: %s"
-
-#: libgnome/gnome-url.c:326 libgnome/gnome-url.c:384
-#, c-format
-msgid "Cannot parse handler template: %s"
-msgstr "No pude parsear la plantilla del manejador: %s"
-
-#: libgnome/gnome-url.c:336 libgnome/gnome-url.c:340 libgnome/gnome-url.c:389
-#: libgnome/gnome-url.c:393
-#, c-format
-msgid "Cannot execute command '%s'!"
-msgstr "¡No pude ejecutar el comando '%s'!"
-
-#: libgnome/gnome-url.c:372
-#, c-format
-msgid "Command '%s' did not return an ID!"
-msgstr "¡El comando '%s' no devolvio un ID!"
-
+#. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:92
-msgid "Bonobo activation Support"
-msgstr "Soporte para activación de bonobo"
-
-#: libgnome/gnome-init.c:379
 msgid "Bonobo Support"
 msgstr "Soporte para Bonobo"
 
-#: libgnome/gnome-init.c:436 libgnome/gnome-init.c:450
+#: libgnome/gnome-init.c:143
+msgid "Bonobo activation Support"
+msgstr "Soporte para activación de bonobo"
+
+#: libgnome/gnome-init.c:276 libgnome/gnome-init.c:290
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "No pude crear un directorio para la configuración de usuario '%s': %s\n"
 
-#: libgnome/gnome-init.c:459
+#: libgnome/gnome-init.c:299
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -71,54 +45,101 @@ msgid ""
 msgstr ""
 "No pude poner el modo 0700 al directorio de configuración de usuario %s: %s\n"
 
-#: libgnome/gnome-init.c:466
+#: libgnome/gnome-init.c:306
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "No pude crear el directorio de aceleradores gnome `%s': %s\n"
 
-#: libgnome/test-libgnome.c:22
+#: libgnome/gnome-init.c:358
+msgid "Disable sound server usage"
+msgstr "Deshabilitar el uso del servidor de sonido"
+
+#: libgnome/gnome-init.c:361
+msgid "Enable sound server usage"
+msgstr "Habilitar el uso del servidor de sonido"
+
+#: libgnome/gnome-init.c:364
+msgid "Host:port on which the sound server to use is running"
+msgstr "Ordenador:puerto en el que se está ejecuntando el servidor de sonido"
+
+#: libgnome/gnome-init.c:366
+msgid "HOSTNAME:PORT"
+msgstr "ORDENADOR:PUERTO"
+
+#: libgnome/gnome-init.c:384
+msgid "GNOME Virtual Filesystem"
+msgstr "Sistema de archivos virtual de GNOME"
+
+#: libgnome/gnome-init.c:405
+msgid "GNOME Library"
+msgstr "Librería de GNOME"
+
+#: libgnome/test-libgnome.c:24
 msgid "Test option."
 msgstr "Opción de prueba."
 
-#: libgnome/test-libgnome.c:167
+#: libgnome/test-libgnome.c:157
 msgid "The Application Name"
 msgstr "El Nombre de la Aplicación"
 
-#~ msgid "Attempting to launch a non-application"
-#~ msgstr "Intentando ejecutar algo que no es una aplicación"
+#: libgnome/gnome-gconf.c:165
+msgid "GNOME GConf Support"
+msgstr "Soporte para GNOME GConf"
 
-#~ msgid "Trying to execute an item with no 'Exec'"
-#~ msgstr "Intentando ejecutar un elemento sin 'Exec'"
+#: libgnome/gnome-help.c:110 libgnome/gnome-help.c:159
+msgid "Internal error"
+msgstr "Error interno"
 
-#~ msgid "No exec field for this drop"
-#~ msgstr "No hay campo exec para este elemento soltado"
+#: libgnome/gnome-help.c:122 libgnome/gnome-help.c:179
+#, c-format
+msgid "Help document %s for %s not found"
+msgstr "Documento de ayuda %s para %s no encontrado"
 
-#~ msgid "Nothing to replace with a file in the exec string"
-#~ msgstr "Nada a remplazar por una archivo en la cadena exec"
+#: libgnome/gnome-i18n.c:85
+msgid "Too many alias levels for a locale, may indicate a loop"
+msgstr "Demasiados niveles de alias para un locale, puede indicar un bucle"
 
-#~ msgid "There was no argument to replace with dropped files"
-#~ msgstr "No habia argumento para remplazar con este archivo soltado"
+#: libgnome/gnome-program.c:476
+msgid "Human readable name"
+msgstr "Nombre leible por humanos"
 
-#~ msgid "Specify X display to use."
-#~ msgstr "Especifique un display X a usar."
+#: libgnome/gnome-program.c:477
+msgid "Human readable name of this application"
+msgstr "Nombre leible por humanos de esta aplicación"
 
-#~ msgid "Put the X connection in synchronous mode."
-#~ msgstr "Ponga la conexión X en como síncrono,"
+#: libgnome/gnome-program.c:486
+msgid "GNOME path"
+msgstr "Path GNOME"
 
-#~ msgid "Specify the X window ID of Netscape."
-#~ msgstr "Especifique el ID de la ventana X de Netscape."
+#: libgnome/gnome-program.c:487
+msgid "Path in which to look for installed files"
+msgstr "Path en el que buscar archivos instalados"
 
-#~ msgid "Don't raise the Netscape window."
-#~ msgstr "No levantar la ventana de Netscape."
+#: libgnome/gnome-program.c:502
+msgid "App version"
+msgstr "Versión de la aplicación"
 
-#~ msgid "Show the given URL in a new window."
-#~ msgstr "Mostrar la URL dada en una nueva ventana."
+#: libgnome/gnome-program.c:503
+msgid "Version of this application"
+msgstr "Versión de esta aplicación"
 
-#~ msgid "Close the specified window."
-#~ msgstr "Cerrar la ventana espacificada."
+#: libgnome/gnome-program.c:1251
+msgid "Help options"
+msgstr "Opción de ayuda"
 
-#~ msgid "Print the X window ID of the utilized window."
-#~ msgstr "Imprimir el ID de ventana X de la ventana utilizada."
+#: libgnome/gnome-program.c:1256
+msgid "Application options"
+msgstr "Opciones de la aplicación"
 
-#~ msgid "GNOME OAF Support"
-#~ msgstr "Soporte para GNOME OAF"
+#: libgnome/gnome-program.c:1272
+msgid "Dynamic modules to load"
+msgstr "Modulos dinámicos a cargar"
+
+#: libgnome/gnome-program.c:1273
+msgid "MODULE1,MODULE2,..."
+msgstr "MODULE1,MODULE2,..."
+
+#: tests/test-storage.c:474
+msgid "Can not bonobo_init"
+msgstr "No pude hacer bonobo_init"
+
