@@ -11,7 +11,6 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <sys/stat.h>
-#include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
 #include "bonobo-stream-vfs.h"
 #include <errno.h>

@@ -1,3 +1,11 @@
+2001-07-12  Darin Adler  <darin@bentspoon.com>
+
+	* configure.in: Remove duplicate AC_PROG_LEX.
+	* monikers/bonobo-storage-vfs.c: Remove unneeded include.
+	* monikers/bonobo-stream-fs.c: (bonobo_stream_create): Use
+	gnome-vfs MIME calls.
+	* monikers/bonobo-stream-vfs.c: Remove unneeded include.
+
 2001-07-11  Martin Baulig  <baulig@suse.de>
 
 	* configure.in: Don't define ENABLE_ORBIT2, the conditionals

@@ -12,15 +12,14 @@
  * Copyright 2001, Ximian, Inc
  */
 #include <config.h>
+#include "bonobo-stream-fs.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <errno.h>
-#include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
-#include <libgnome/gnome-mime.h>
-#include "bonobo-stream-fs.h"
+#include <libgnomevfs/gnome-vfs-mime.h>
 
 struct _BonoboStreamFSPrivate {
 	gchar *mime_type;
@@ -333,8 +332,8 @@ bonobo_stream_create (int fd, const char *path)
 		return NULL;
 	
 	stream_fs->fd = fd;
-	stream_fs->priv->mime_type = g_strdup (
-		gnome_mime_type_of_file (path));
+	stream_fs->priv->mime_type = g_strdup
+		(gnome_vfs_get_file_mime_type (path, NULL, FALSE));
 
 	return stream_fs;
 }

@@ -8,7 +8,6 @@
 #include <config.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
 #include <bonobo/bonobo-storage.h>
 #include "bonobo-storage-vfs.h"
