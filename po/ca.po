@@ -6,9 +6,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 1.117.1\n"
-"POT-Creation-Date: 2002-05-31 21:20+0300\n"
-"PO-Revision-Date: 2002-05-28 13:03+0200\n"
+"Project-Id-Version: libgnome 1.117.2\n"
+"POT-Creation-Date: 2002-05-31 21:54+0300\n"
+"PO-Revision-Date: 2002-05-31 19:40+0200\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <gnome@softcatala.net>\n"
 "MIME-Version: 1.0\n"
@@ -86,44 +86,43 @@ msgstr ""
 msgid "GNOME GConf Support"
 msgstr "Suport de GConf del GNOME"
 
-# libgnome/gnome-help.c:149
+# libgnome/gnome-help.c:166
 #: libgnome/gnome-help.c:167
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "No s'ha pogut trobar el domini GNOME_FILE_DOMAIN_APP_HELP"
 
-# libgnome/gnome-help.c:149
+# libgnome/gnome-help.c:179
 #: libgnome/gnome-help.c:180
-#, fuzzy
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "No s'ha pogut trobar el domini GNOME_FILE_DOMAIN_APP_HELP"
+msgstr "No s'ha pogut trobar el domini GNOME_FILE_DOMAIN_HELP."
 
-# libgnome/gnome-help.c:175
+# libgnome/gnome-help.c:192 libgnome/gnome-help.c:207
 #: libgnome/gnome-help.c:193 libgnome/gnome-help.c:208
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
-"No es pot mostrar l'ajuda ja que el fitxer %s no és un directori. Açò "
-"implica una instal·lació incorrecta."
+"No es pot mostrar l'ajuda ja que %s no és un directori. Si us plau, "
+"comproveu la vostra instal·lació."
 
-# libgnome/gnome-help.c:175
+# libgnome/gnome-help.c:216 libgnome/gnome-help.c:232
 #: libgnome/gnome-help.c:217 libgnome/gnome-help.c:233
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"No es pot mostrar l'ajuda ja que el fitxer %s no és un directori. Açò "
-"implica una instal·lació incorrecta."
+"No s'ha trobat els fitxers d'ajuda en %s o %s. Si us plau, comproveu la "
+"vostra instal·lació"
 
-# libgnome/gnome-help.c:270
+# libgnome/gnome-help.c:309
 #: libgnome/gnome-help.c:312
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "No s'ha pogut trobar la doc_id %s en la ruta de l'ajuda"
 
-# libgnome/gnome-help.c:291
+# libgnome/gnome-help.c:330
 #: libgnome/gnome-help.c:333
 #, c-format
 msgid "Help document %s/%s not found"
@@ -169,32 +168,32 @@ msgstr ""
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "No s'ha pogut crear el directori d'acceleradors del gnome «%s»: %s\n"
 
-# libgnome/gnome-init.c:357
+# libgnome/gnome-init.c:361
 #: libgnome/gnome-init.c:367
 msgid "Disable sound server usage"
 msgstr "Inhabilita la utilització del servidor de so"
 
-# libgnome/gnome-init.c:360
+# libgnome/gnome-init.c:364
 #: libgnome/gnome-init.c:370
 msgid "Enable sound server usage"
 msgstr "Habilita la utilització del servidor de so"
 
-# libgnome/gnome-init.c:363
+# libgnome/gnome-init.c:367
 #: libgnome/gnome-init.c:373
 msgid "Host:port on which the sound server to use is running"
 msgstr "Ordinador:port on s'està executant el servidor de so a utilitzar"
 
-# libgnome/gnome-init.c:365
+# libgnome/gnome-init.c:369
 #: libgnome/gnome-init.c:375
 msgid "HOSTNAME:PORT"
 msgstr "ORDINADOR:PORT"
 
-# libgnome/gnome-init.c:383
+# libgnome/gnome-init.c:387
 #: libgnome/gnome-init.c:393
 msgid "GNOME Virtual Filesystem"
 msgstr "Sistema de fitxers virtuals del GNOME"
 
-# libgnome/gnome-init.c:404
+# libgnome/gnome-init.c:408
 #: libgnome/gnome-init.c:414
 msgid "GNOME Library"
 msgstr "Biblioteca del GNOME"
@@ -426,7 +425,6 @@ msgstr "Tipus desconegut"
 msgid "Key %s not found in configuration"
 msgstr "La tecla %s no es troba en la configuració"
 
-# libgnome/gnome-help.c:163
 #~ msgid ""
 #~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
 #~ "gnome-libs was compiled incorrectly."
@@ -434,6 +432,5 @@ msgstr "La tecla %s no es troba en la configuració"
 #~ "No s'ha pogut trobar el domini GNOME_FILE_DOMAIN_APP_HELP. Açò implica que "
 #~ "gnome-libs es va compilar incorrectament."
 
-# libgnome/gnome-help.c:193
 #~ msgid "Help document %s for %s not found"
 #~ msgstr "No s'ha trobat el document d'ajuda %s per a %s"
