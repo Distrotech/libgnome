@@ -11,22 +11,13 @@ August 3, 2001:
         libgnome/gnome-init.[ch]
         libgnome/gnome-preferences.[ch]
         libgnome/gnome-i18n.h (*)
+        libgnome/gnome-sound.[ch]
+        libgnome/gnome-triggers.[ch]
+        libgnome/gnome-exec.[ch]
 
-     (*) I need to add one or two new functions to this file.
+  The following files are semi-API frozen:
 
-  The following files are semi-API frozen for GNOME 2.0,
-  but have outstanding issues:
+        libgnome/gnome-url.[ch] - someone needs to have a look at it.
 
-        libgnome/gnome-exec.[ch] (**)
-        libgnome/gnome-sound.[ch] (***)
-        libgnome/gnome-triggers.[ch] (***)
 
-     (**) Need to have a look at the API, but should be ok.
-
-     (***) Should basically be ok.
-
-  The following files are NOT API frozen:
-
-        libgnome/gnome-url.[ch] - someone needs to find out what
-            to do with it.
 
