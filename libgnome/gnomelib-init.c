@@ -18,7 +18,7 @@ char *gnome_user_dir = 0;
 char *gnome_app_id = 0;
 
 void
-gnomelib_init (char *app_id, int *argc, char ***argv)
+gnomelib_init (char *app_id)
 {
 	gnome_user_home_dir = getenv ("HOME");
 	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome"); /* FIXME: never freed */
@@ -29,5 +29,8 @@ gnomelib_init (char *app_id, int *argc, char ***argv)
 	bindtextdomain (PACKAGE, GNOMELOCALEDIR);
 }
 
-
-
+/* Register any command-line arguments we might have.  */
+void
+gnomelib_register_arguments (void)
+{
+}

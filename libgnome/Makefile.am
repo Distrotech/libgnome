@@ -5,7 +5,7 @@ LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 libgnomeincludedir = $(includedir)/libgnome
 
-INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) \
+INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) @SUPPORTINCS@ \
 	-DGNOMELIBDIR=\""$(libdir)"\" \
 	-DGNOMEDATADIR=\""$(datadir)"\" \
 	-DGNOMEBINDIR=\""$(bindir)"\" \
@@ -27,10 +27,11 @@ libgnome_la_SOURCES = \
 	gnome-help.c		\
 	gnome-history.c		\
 	gnome-mime.c		\
+	gnome-parse.c		\
 	gnome-score.c		\
 	gnome-string.c		\
 	gnome-triggers.c
-	
+
 
 libgnomeinclude_HEADERS = \
         gnome-config.h 		\
@@ -44,6 +45,7 @@ libgnomeinclude_HEADERS = \
 	gnome-history.h		\
 	gnome-i18n.h 		\
 	gnome-mime.h		\
+	gnome-parse.h		\
 	gnome-triggers.h 	\
 	gnome-score.h		\
 	gnome-string.h		\

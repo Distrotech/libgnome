@@ -7,6 +7,7 @@
 #include "libgnome/gnome-dl.h"
 #include "libgnome/gnome-hook.h"
 #include "libgnome/gnome-i18n.h"
+#include "libgnome/gnome-parse.h"
 #include "libgnome/gnome-score.h"
 #include "libgnome/gnome-string.h"
 #include "libgnome/gnome-triggers.h"
@@ -16,6 +17,7 @@ extern char *gnome_user_home_dir;
 extern char *gnome_user_dir;
 extern char *gnome_app_id;
 
-void gnomelib_init (char *app_id, int *argc, char ***argv);
+void gnomelib_init (char *app_id);
+void gnomelib_register_arguments (void);
 
 #endif
