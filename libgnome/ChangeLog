@@ -1,6 +1,12 @@
 2001-06-01  Martin Baulig  <baulig@suse.de>
 
 	* gnome-selector.c
+	(PROP_PBAG_ENTRY_TEXT, PROP_PBAG_HISTORY, PROP_PBAG_MAX_HISTORY_LINES): New properties
+	in the PropertyBag.
+
+2001-06-01  Martin Baulig  <baulig@suse.de>
+
+	* gnome-selector.c
 	(gnome_selector_get_property_bag): Renamed to gnome_selector_get_ambient_properties().
 	(PROP_PROPERTY_BAG): Renamed to PROP_AMBIENT_PROPERTIES.
 	(gnome_selector_construct): bonobo_object_add_interface() our Bonobo::EventSource and
