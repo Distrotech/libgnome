@@ -1,5 +1,11 @@
 2001-08-03  Martin Baulig  <baulig@suse.de>
 
+	* libgnome-init.c (libbonobo_post_args_parse): Initialize the
+	config databases in an idle handler as this will improve the
+	startup time of the application.
+
+2001-08-03  Martin Baulig  <baulig@suse.de>
+
 	* Makefile.am: Create gnomesoundplugin_csl.la and install it
 	in $(libdir)/gnome-2.0/sound-plugins/ if we have CSL.
 

@@ -99,6 +99,8 @@ typedef struct {
 typedef struct {
 	gboolean constructed;
 
+	gchar *app_id;
+
 	gchar *config_moniker;
 	Bonobo_ConfigDatabase config_database;
 
@@ -109,14 +111,78 @@ typedef struct {
 static GQuark quark_gnome_program_private_libbonobo = 0;
 static GQuark quark_gnome_program_class_libbonobo = 0;
 
+static gboolean
+libbonobo_delay_init (GnomeProgramPrivate_libbonobo *priv)
+
+{
+	g_message (G_STRLOC ": %p", priv);
+
+	if (priv->constructed)
+	    return FALSE;
+
+	priv->constructed = TRUE;
+
+	if (priv->desktop_config_database == CORBA_OBJECT_NIL) {
+		CORBA_Environment ev;
+
+		g_message (G_STRLOC);
+
+		CORBA_exception_init (&ev);
+		priv->desktop_config_database = bonobo_get_object
+			(priv->desktop_config_moniker,
+			 "Bonobo/ConfigDatabase", &ev);
+		CORBA_exception_free (&ev);
+	}
+
+	if (priv->config_database == CORBA_OBJECT_NIL) {
+		CORBA_Environment ev;
+
+		g_message (G_STRLOC);
+
+		if (!priv->config_moniker)
+			priv->config_moniker = g_strdup_printf
+				("config:/gnome/%s/", priv->app_id);
+
+		g_message (G_STRLOC ": |%s|", priv->config_moniker);
+
+		CORBA_exception_init (&ev);
+		priv->config_database = bonobo_get_object
+			(priv->config_moniker, "Bonobo/ConfigDatabase", &ev);
+		CORBA_exception_free (&ev);
+	}
+
+	if ((priv->config_database != CORBA_OBJECT_NIL) &&
+	    (priv->desktop_config_database != CORBA_OBJECT_NIL)) {
+	    CORBA_Environment ev;
+
+	    CORBA_exception_init (&ev);
+	    Bonobo_ConfigDatabase_addDatabase
+		(priv->config_database,
+		 priv->desktop_config_database,
+		 "/Gnome/",
+		 Bonobo_ConfigDatabase_DEFAULT,
+		 &ev);
+	    CORBA_exception_free (&ev);
+	}
+
+	g_message (G_STRLOC);
+
+	return FALSE;
+}
+
 static Bonobo_ConfigDatabase
 get_db (GnomeProgram *program, const char *key, CORBA_Environment *opt_ev)
 {
 	GValue value = { 0, };
 	Bonobo_ConfigDatabase database;
+	GnomeProgramPrivate_libbonobo *priv;
 
 	g_return_val_if_fail (program != NULL, CORBA_OBJECT_NIL);
 	g_return_val_if_fail (GNOME_IS_PROGRAM (program), CORBA_OBJECT_NIL);
+
+	priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
+	while (!priv->constructed && libbonobo_delay_init (priv))
+	    ;
 
 	g_value_init (&value, G_TYPE_POINTER);
 	g_object_get_property (G_OBJECT (program), key, &value);
@@ -192,6 +258,8 @@ libbonobo_set_property (GObject *object, guint param_id,
 	cdata = g_type_get_qdata (G_OBJECT_TYPE (program), quark_gnome_program_class_libbonobo);
 	priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
 
+	g_message (G_STRLOC ": %d - %d", priv->constructed, param_id);
+
 	if (!priv->constructed) {
 		if (param_id == cdata->config_database_id) {
 			bonobo_object_release_unref (priv->config_database, NULL);
@@ -237,7 +305,7 @@ libbonobo_class_init (GnomeProgramClass *klass, const GnomeModuleInfo *mod_info)
 	cdata->config_moniker_id = gnome_program_install_property
 		(klass, libbonobo_get_property, libbonobo_set_property,
 		 g_param_spec_string (GNOME_PARAM_CONFIG_MONIKER, NULL, NULL,
-				      "config:",
+				      NULL,
 				      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 				       G_PARAM_CONSTRUCT_ONLY)));
 
@@ -278,7 +346,6 @@ libbonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 	int dumb_argc = 1;
 	char *dumb_argv[] = {NULL};
 	GnomeProgramPrivate_libbonobo *priv = g_new0 (GnomeProgramPrivate_libbonobo, 1);
-	CORBA_Environment ev;
 
 	g_message (G_STRLOC);
 
@@ -288,30 +355,9 @@ libbonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 
 	priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
 
-	priv->constructed = TRUE;
+	priv->app_id = g_strdup (program_invocation_short_name);
 
-	g_message (G_STRLOC ": %p - `%s'", priv->config_database, priv->config_moniker);
-
-	CORBA_exception_init (&ev);
-	priv->config_database = bonobo_get_object (priv->config_moniker, "Bonobo/ConfigDatabase", &ev);
-	CORBA_exception_free (&ev);
-
-	CORBA_exception_init (&ev);
-	priv->desktop_config_database = bonobo_get_object (priv->desktop_config_moniker,
-							   "Bonobo/ConfigDatabase", &ev);
-	CORBA_exception_free (&ev);
-
-	if (priv->config_database != CORBA_OBJECT_NIL) {
-	    CORBA_exception_init (&ev);
-	    Bonobo_ConfigDatabase_addDatabase (priv->config_database, priv->desktop_config_database,
-					       "/Gnome/",
-					       Bonobo_ConfigDatabase_DEFAULT,
-					       &ev);
-	    CORBA_exception_free (&ev);
-	}
-
-	g_message (G_STRLOC ": %p - `%s'", priv->config_database, priv->config_moniker);
-	g_message (G_STRLOC ": %p - `%s'", priv->desktop_config_database, priv->desktop_config_moniker);
+	g_idle_add ((GSourceFunc) libbonobo_delay_init, priv);
 }
 
 static GnomeModuleRequirement libbonobo_requirements [] = {
