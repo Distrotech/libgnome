@@ -464,34 +464,29 @@ check_path(char *path, mode_t newmode)
 	struct stat s;
 
 
-	g_return_val_if_fail(path!=NULL, FALSE);
+	g_return_val_if_fail (path != NULL, FALSE);
 
 	if(strchr(path,'/')==NULL)
 		return FALSE;
-	dirpath = g_strdup(path);
-	if(!dirpath)
+
+	dirpath = strcpy (alloca (strlen (path) + 1), path);
+	g_return_val_if_fail (dirpath != NULL, FALSE);
+
+	if (*dirpath == '\0')
+		return FALSE;
+
+	/*not absolute, we refuse to work*/
+	if (dirpath[0] != '/')
 		return FALSE;
 
 	p = strrchr(dirpath,'/');
 		*p='\0';
 
-	if(*dirpath == '\0') {
-		g_free(dirpath);
-		return FALSE;
-	}
-
-	/*not absolute, we refuse to work*/
-	if(dirpath[0]!='/') {
-		g_free(dirpath);
-		return FALSE;
-	}
-
 	/*special case if directory exists, this is probably gonna happen
 	  a lot so we don't want to go though checking it part by part*/
-	if(stat(dirpath,&s)==0) {
-		g_free(dirpath);
+	if (stat(dirpath, &s) == 0) {
 		/*check if a directory*/
-		if(!S_ISDIR(s.st_mode))
+		if (!S_ISDIR(s.st_mode))
 			return FALSE;
 		else
 			return TRUE;
@@ -503,7 +498,7 @@ check_path(char *path, mode_t newmode)
 	while(*p == '/')
 		p++;
 
-	p=strtok(p,"/");
+	p = strtok(p, "/");
 	newpath = g_string_new("");
 	do {
 		newpath = g_string_append_c(newpath,'/');
@@ -511,7 +506,6 @@ check_path(char *path, mode_t newmode)
 		if(stat(newpath->str,&s)==0) {
 			/*check if a directory*/
 			if(!S_ISDIR(s.st_mode)) {
-				g_free(dirpath);
 				g_string_free(newpath,TRUE);
 				return FALSE;
 			}
@@ -520,15 +514,13 @@ check_path(char *path, mode_t newmode)
 			  directory*/
 			if(mkdir(newpath->str,newmode)!=0) {
 				/*error, return false*/
-				g_free(dirpath);
 				g_string_free(newpath,TRUE);
 				return FALSE;
 			}
 		}
 
-	} while((p=strtok(NULL,"/"))!=NULL);
+	} while ((p = strtok(NULL, "/")) != NULL);
 
-	g_free(dirpath);
 	g_string_free(newpath,TRUE);
 
 	return TRUE;
@@ -665,7 +657,7 @@ _gnome_config_clean_file (const char *path, gint priv)
 	if (!path)
 		return;
 
-	fake_path = g_copy_strings (path, "/section/key", NULL);
+	fake_path = g_strconcat (path, "/section/key", NULL);
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 
@@ -720,7 +712,7 @@ _gnome_config_drop_file (const char *path, gint priv)
 	if (!path)
 		return;
 
-	fake_path = g_copy_strings (path, "/section/key", NULL);
+	fake_path = g_strconcat (path, "/section/key", NULL);
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 
@@ -851,7 +843,7 @@ _gnome_config_init_iterator_sections (const char *path, gint priv)
 	iterator_type *iter;
 
 
-	fake_path = g_copy_strings (path, "/section/key", NULL);
+	fake_path = g_strconcat (path, "/section/key", NULL);
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
@@ -1178,8 +1170,8 @@ _gnome_config_get_translated_string_with_default (const char *path,
 		} else {
 			gchar *tkey;
 
-			tkey= g_copy_strings (path, "[", lang, "]", NULL);
-			value= _gnome_config_get_string_with_default (tkey, def, priv);
+			tkey = g_strconcat (path, "[", lang, "]", NULL);
+			value = _gnome_config_get_string_with_default (tkey, def, priv);
 			g_free (tkey);
 
 			if (!value || *value == '\0') {
@@ -1194,9 +1186,9 @@ _gnome_config_get_translated_string_with_default (const char *path,
 				n = strcspn (lang, "@_");
 				if (lang[n]) {
 					char *copy = g_strndup (lang, n);
-					tkey = g_copy_strings (path, "[",
-							       copy, "]",
-							       NULL);
+					tkey = g_strconcat (path, "[",
+							    copy, "]",
+							    NULL);
 					value = _gnome_config_get_string_with_default (tkey, def, priv);
 					g_free (tkey);
 					g_free (copy);
@@ -1351,7 +1343,7 @@ _gnome_config_set_translated_string (const char *path, const char *value,
 	lang= language_list ? language_list->data : NULL;
 
 	if (lang && (strcmp (lang, "C") != 0)) {
-		tkey = g_copy_strings (path, "[", lang, "]", NULL);
+		tkey = g_strconcat (path, "[", lang, "]", NULL);
 		_gnome_config_set_string(tkey, value, priv);
 		g_free (tkey);
 	} else
