@@ -1,3 +1,10 @@
+2003-04-12  Arvind Samptur <arvind.samptur@wipro.com>
+	* libgnome/gnome-exec.c: (gnome_execute_async_with_env_fds):
+	waitpid() could fail due to a interrupted system call, loop till you
+	succeed. #110100
+
+	Reviewed by: Mark McLoughlin <mark@skynet.ie>
+
 2003-04-11  Pasupathi Duraisamy <pasupathi.duraisamy@wipro.com>
 
 	*  libgnome/gnome-url.c (gnome_url_show_with_env): 
