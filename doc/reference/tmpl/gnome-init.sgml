@@ -16,7 +16,16 @@ gnome-init
 
 <!-- ##### MACRO LIBGNOME_MODULE ##### -->
 <para>
+This macro wraps the call to libgnome_module_info_get() and is the usual way of
+retrieving the #GnomeModuleInfo returned by this function.
+</para>
 
+
+
+<!-- ##### MACRO GNOME_BONOBO_MODULE ##### -->
+<para>
+This macro wraps the call to gnome_bonobo_module_info_get() and is the usual
+way of retrieving the #GnomeModuleInfo returned by this function.
 </para>
 
 
@@ -27,13 +36,6 @@ gnome-init
 </para>
 
 @Returns: 
-
-
-<!-- ##### MACRO GNOME_BONOBO_MODULE ##### -->
-<para>
-
-</para>
-
 
 
 <!-- ##### FUNCTION gnome_bonobo_module_info_get ##### -->

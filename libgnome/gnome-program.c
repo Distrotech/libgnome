@@ -689,10 +689,10 @@ gnome_module_info_get_type (void)
 /**
  * gnome_program_get:
  *
- * Returns: an object that stores information on the GNOME application's state.
- * If the object does not exist, %NULL is returned.
- * Other functions assume that this will always return an appobject
- * with state > APP_UNINIT
+ * Returns: An object that stores information on the GNOME application's state.
+ * If the object does not exist, %NULL is returned. Other functions assume that
+ * this will always return a #GnomeProgram object which (if not %NULL) has
+ * already been initialized.
  */
 
 GnomeProgram *
@@ -711,7 +711,7 @@ gnome_program_get (void)
  * human-readable identifier so much as a unique identifier for
  * programs and libraries.
  *
- * Returns: application ID string.
+ * Returns: Application ID string.
  */
 const char *
 gnome_program_get_app_id (GnomeProgram *program)
@@ -725,7 +725,7 @@ gnome_program_get_app_id (GnomeProgram *program)
 
 /**
  * gnome_program_get_app_version
- * @app: The application object
+ * @program: The application object
  *
  * Description:
  * This function returns a pointer to a static string that the
@@ -733,7 +733,7 @@ gnome_program_get_app_id (GnomeProgram *program)
  * human-readable identifier so much as a unique identifier for
  * programs and libraries.
  *
- * Returns: application version string.
+ * Returns: Application version string.
  */
 const char *
 gnome_program_get_app_version (GnomeProgram *program)
@@ -747,15 +747,15 @@ gnome_program_get_app_version (GnomeProgram *program)
 
 /**
  * gnome_program_get_human_readable_name
- * @app: The application object
+ * @program: The application object
  *
  * Description:
  * This function returns a pointer to a static string that the
  * application has provided as a human readable name. The app
- * should provide the name with the GNOME_PARAM_HUMAN_READABLE_NAME
- * init argument. Returns NULL if no name was set.
+ * should provide the name with the #GNOME_PARAM_HUMAN_READABLE_NAME
+ * init argument. Returns %NULL if no name was set.
  *
- * Returns: application human-readable name string.
+ * Returns: Application human-readable name string.
  */
 const char *
 gnome_program_get_human_readable_name (GnomeProgram *program)
@@ -788,8 +788,10 @@ gnome_program_install_property (GnomeProgramClass *pclass,
 
 /**
  * gnome_program_locate_file:
- * @domain: A domain (see GnomeFileDomain in gnome-program.h).
- * @filename: A file name or path inside the 'domain' to find.
+ * @program: A valid #GnomeProgram object or %NULL (in which case the current
+ * application is used).
+ * @domain: A #GnomeFileDomain.
+ * @file_name: A file name or path inside the 'domain' to find.
  * @only_if_exists: Only return a full pathname if the specified file
  *                  actually exists
  * @ret_locations: If this is not %NULL, a list of all the possible locations
@@ -799,16 +801,16 @@ gnome_program_install_property (GnomeProgramClass *pclass,
  * "domain". A domain is a name for a collection of related files.
  * For example, common domains are "libdir", "pixmap", and "config".
  *
- * If @ret_locations is not %NULL, there is no other return value.  That is
- * this function then always returns %NULL.
+ * If @ret_locations is %NULL, there is no other return value.
  *
- * The _APP_ domains are ones for your own application.  However you MUST
- * set the correct attributes for GnomeProgram for the APP specific prefixes.
+ * The GNOME_FILE_DOMAIN_APP_* domains are ones for your own application.
+ * However you MUST set the correct attributes for #GnomeProgram for the APP
+ * specific prefixes (during the initialization part of the application).
  *
  * The @ret_locations list and its contents should be freed by the caller.
  *
  * Returns: The full path to the file (if it exists or only_if_exists is
- *          FALSE) or NULL.
+ *          %FALSE) or %NULL.
  */
 gchar *
 gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
@@ -1118,9 +1120,9 @@ gnome_program_module_registered (const GnomeModuleInfo *module_info)
  *
  * Description:
  * This function is used to register a module to be initialized by the
- * GNOME library framework. The memory pointed to by 'module_info' must be
+ * GNOME library framework. The memory pointed to by @module_info must be
  * valid during the whole application initialization process, and the module
- * described by 'module_info' must only use the 'module_info' pointer to
+ * described by @module_info must only use the @module_info pointer to
  * register itself.
  *
  */

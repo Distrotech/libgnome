@@ -72,6 +72,17 @@ bonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 	bonobo_init (&dumb_argc, dumb_argv);
 }
 
+/**
+* gnome_bonobo_module_info_get:
+*
+* Retrieves the bonobo module version and indicate that it requires the current
+* libgnome and its dependencies (although libbonobo does not depend on
+* libgnome, libbonoboui does and this will also be initialised when
+* initialising a GNOME app).
+*
+* Returns: a new #GnomeModuleInfo structure describing the version of the
+* bonobo modules and its dependents.
+*/
 const GnomeModuleInfo *
 gnome_bonobo_module_info_get (void)
 {
@@ -154,18 +165,41 @@ static char *gnome_user_dir = NULL;
 static char *gnome_user_private_dir = NULL;
 static char *gnome_user_accels_dir = NULL;
 
+/**
+* gnome_user_dir_get:
+*
+* Returns: An absolute path to the user-specific directory for GNOME apps to
+* use.
+*/
 const char *
 gnome_user_dir_get (void)
 {
 	return gnome_user_dir;
 }
 
+/**
+* gnome_user_private_dir_get:
+*
+* Differs from gnome_user_dir_get() in that the directory returned here will
+* have had permissions of 0700 (rwx------) enforced when it was created.  Of
+* course, the permissions may have been altered since creation, so care still
+* needs to be taken.
+*
+* Returns: An absolute path to the user-specific private directory that GNOME
+* apps can use.
+*/
 const char *
 gnome_user_private_dir_get (void)
 {
 	return gnome_user_private_dir;
 }
 
+/**
+* gnome_user_accels_dir_get:
+*
+* Returns: The absolute path to the user-specific directory that stores the
+* keyboard shortcut files for each GNOME app.
+*/
 const char *
 gnome_user_accels_dir_get (void)
 {
@@ -355,7 +389,14 @@ gnome_vfs_module_info_get (void)
 	};
 	return &module_info;
 }
-
+/**
+* libgnome_module_info_get:
+* 
+* Retrieves the current libgnome version and the modules it depends on.
+*
+* Returns: a new #GnomeModuleInfo structure describing the version and
+* the versions of the dependents.
+*/
 const GnomeModuleInfo *
 libgnome_module_info_get (void)
 {

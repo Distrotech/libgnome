@@ -1,6 +1,7 @@
+<INCLUDE>libgnome/libgnome.h</INCLUDE>
+
 <SECTION>
 <FILE>gnome-program</FILE>
-GnomeProgramPrivate
 GnomeFileDomain
 <TITLE>GnomeProgram</TITLE>
 gnome_program_get
@@ -29,7 +30,6 @@ GNOME_PARAM_APP_LIBDIR
 GNOME_PARAM_HUMAN_READABLE_NAME
 GNOME_PARAM_GNOME_PATH
 GNOME_TYPE_MODULE_INFO
-gnome_module_info_get_type
 GnomeModuleInfo
 GnomeModuleRequirement
 GnomeModuleInitHook
@@ -47,6 +47,7 @@ gnome_program_init
 gnome_program_initv
 program_invocation_short_name
 program_invocation_name
+
 <SUBSECTION Standard>
 GNOME_PROGRAM
 GNOME_IS_PROGRAM
@@ -54,6 +55,11 @@ GNOME_TYPE_PROGRAM
 gnome_program_get_type
 GNOME_PROGRAM_CLASS
 GNOME_IS_PROGRAM_CLASS
+gnome_module_info_get_type
+
+<SUBSECTION Private>
+GnomeProgramPrivate
+
 </SECTION>
 
 <SECTION>
@@ -146,10 +152,15 @@ gnome_config_set_sync_handler
 
 <SECTION>
 <FILE>gnome-init</FILE>
+<SUBSECTION>
 LIBGNOME_MODULE
-libgnome_module_info_get
 GNOME_BONOBO_MODULE
+
+<SUBSECTION>
+libgnome_module_info_get
 gnome_bonobo_module_info_get
+
+<SUBSECTION>
 gnome_user_dir_get
 gnome_user_private_dir_get
 gnome_user_accels_dir_get
