@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-06-23 23:17+0200\n"
-"PO-Revision-Date: 2003-06-23 23:17+0200\n"
+"POT-Creation-Date: 2003-06-24 18:32+0200\n"
+"PO-Revision-Date: 2003-06-24 18:33+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -449,7 +449,7 @@ msgstr ""
 "till GNOME-skrivbordet"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
-msgid "Startup Assistive Technology Apps"
+msgid "Startup Assistive Technology Applications"
 msgstr "Starta program för hjälpmedelstekniker"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
@@ -721,7 +721,9 @@ msgid "Toolbar Style"
 msgstr "Verktygsradsstil"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Verktygsradsstil. Giltiga värden är \"both\", \"both_horiz\", \"icon\" och "
 "\"text\""
@@ -751,23 +753,23 @@ msgid "Whether menus should have a tearoff"
 msgstr "Huruvida menyer ska ha en löstagningsflik"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-"Huruvida användaren dynamiskt kan ange en ny snabbtangent när en meny visas"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "Huruvida markören ska blinka"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Huruvida användaren kan ta loss menyrader och flytta runt dem"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Huruvida användaren kan ta loss verktygsrader och flytta runt dem"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"Huruvida användaren dynamiskt kan ange en ny snabbtangent när en meny visas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -786,7 +788,7 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Anpassat filnamn för tangentbordssignal"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "möjliga värden är \"on\", \"off\" och \"custom\"."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -812,14 +814,15 @@ msgstr "Markörtema"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Temanamn för markören. Används endast av Xservrar som stöder Xcursor, som "
 "till exempel XFree86 4.3 och senare. Detta värde propageras endast till X-"
-"serverns start under varje session, så att ändra det mitt under en session "
-"kommer inte att ha någon effekt tills dess att du loggar in nästa gång."
+"servern under starten av varje session, så att ändra det mitt under en "
+"session kommer inte att ha någon effekt till dess att du loggar in nästa "
+"gång."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -843,14 +846,14 @@ msgstr "Tröskelvärde för dragning"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Typsnittsnamn för markören. Om det inte är inställt används "
-"standardtypsnittet. Detta värde propageras endast till X-serverns start "
-"under varje session, så att ändra det mitt under en session kommer inte att "
-"ha någon effekt tills dess att du loggar in nästa gång."
+"standardtypsnittet. Detta värde propageras endast till X-serverstarten för "
+"varje session, så att ändra det mitt under en session kommer inte att ha "
+"någon effekt till dess att du loggar in nästa gång."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -892,7 +895,7 @@ msgid ""
 msgstr ""
 "Storleken för markören som anges av cursor_theme. Detta värde propageras "
 "endast till X-serverns start under varje session, så att ändra det mitt "
-"under en session kommer inte att ha någon effekt tills dess att du loggar in "
+"under en session kommer inte att ha någon effekt till dess att du loggar in "
 "nästa gång."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
@@ -914,6 +917,18 @@ msgstr "Ljud för händelser"
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
 msgstr "Huruvida ljud ska spelas vid användarhändelser."
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr "Inaktivera alla externa skapare av miniatyrbilder"
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+"Ställ till sant för att inaktivera alla externa program som skapar "
+"miniatyrbilder, oavsett om de aktiveras/inaktiveras individuellt."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle ghelp URLs"
@@ -983,14 +998,24 @@ msgstr "URL-hanterare för mansidor"
 msgid "URL handler for trash pages"
 msgstr "URL-hanterare för papperskorgssidor"
 
+#~ msgid "Possible values are \"on\", \"off\", and \"custom\"."
+#~ msgstr "Möjliga värden är \"on\", \"off\" och \"custom\"."
+
+#~ msgid "Startup Assistive Technology Apps"
+#~ msgstr "Starta program för hjälpmedelstekniker"
+
+#~ msgid ""
+#~ "Whether the User can dynamically type a new accelerator when a menu is "
+#~ "popped up"
+#~ msgstr ""
+#~ "Huruvida användaren dynamiskt kan ange en ny snabbtangent när en meny "
+#~ "visas"
+
 #~ msgid "Error showing URL: %s\n"
 #~ msgstr "Fel vid visning av URL: %s\n"
 
 #~ msgid "Error showing address: %s\n"
 #~ msgstr "Fel vid visning av adress: %s\n"
-
-#~ msgid "Startup Assistive Technology Applications"
-#~ msgstr "Starta program för hjälpmedelstekniker"
 
 #~ msgid "Default URL show handler"
 #~ msgstr "Standard-URL-visningshanterare"
@@ -1069,13 +1094,6 @@ msgstr "URL-hanterare för papperskorgssidor"
 
 #~ msgid "URL handler for system-settings pages"
 #~ msgstr "URL-hanterare för systeminställningssidor"
-
-#~ msgid ""
-#~ "Whether the user can dynamically type a new accelerator when a menu is "
-#~ "popped up"
-#~ msgstr ""
-#~ "Huruvida användaren dynamiskt kan ange en ny snabbtangent när en meny "
-#~ "visas"
 
 #~ msgid ""
 #~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
