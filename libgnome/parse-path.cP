@@ -23,7 +23,7 @@ parse_path (const char *path, gint priv)
 	if (*path == '/' || prefix == NULL)
 		p->opath = g_strdup (path);
 	else
-		p->opath = g_copy_strings (prefix, path, NULL);
+		p->opath = g_strconcat (prefix, path, NULL);
 
 	p->path = p->opath;
 
