@@ -38,8 +38,9 @@
 #include "gnome-util.h"
 #include "gnome-init.h"
 #include "gnome-i18n.h"
+#include "gnome-gconfP.h"
+
 #include "gnome-url.h"
-#include "gnome-gconf.h"
 
 #include <popt.h>
 

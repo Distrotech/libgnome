@@ -40,6 +40,7 @@ libgnome_2_la_SOURCES = \
 	gnome-help.c		\
 	gnome-exec.c		\
 	gnome-gconf.c		\
+	gnome-gconfP.h		\
 	gnome-i18n.c		\
 	gnome-i18nP.h		\
 	gnome-url.c		\
@@ -148,7 +149,10 @@ BUILT_SOURCES = \
 	gnome-marshal.h			\
 	gnome-marshal.c			
 
-libgnome_2_la_LDFLAGS = -version-info $(LIB_VERSION)
+libgnome_2_la_LDFLAGS = \
+	-version-info $(LIB_VERSION)	\
+	-export-symbols-regex "^[^_].*"
+
 libgnome_2_la_LIBADD =		\
 	$(LIBGNOME_LIBS)
 

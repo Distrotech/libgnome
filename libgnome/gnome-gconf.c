@@ -27,7 +27,7 @@
 #include <config.h>
 #include <stdlib.h>
 
-#define GCONF_ENABLE_INTERNALS 1
+#define GCONF_ENABLE_INTERNALS
 #include <gconf/gconf.h>
 #include <gconf/gconf-client.h>
 extern struct poptOption gconf_options[];
@@ -35,7 +35,9 @@ extern struct poptOption gconf_options[];
 #include "gnome-i18nP.h"
 
 #include <libgnome/libgnome.h>
+
 #include "gnome-gconf.h"
+#include "gnome-gconfP.h"
 
 /**
  * gnome_gconf_get_gnome_libs_settings_relative:
@@ -111,8 +113,10 @@ gnome_gconf_get_app_settings_relative (GnomeProgram *program, const gchar *subke
  * calls.
  **/
 void
-gnome_gconf_lazy_init (void)
+_gnome_gconf_lazy_init (void)
 {
+	/* Note this is the same as in libgnomeui/libgnomeui/gnome-gconf-ui.c,
+	 * keep this in sync (it's named gnomeui_gconf_lazy_init) */
 	char *argv [] = { "dummy", NULL };
         gchar *settings_dir;
 	GConfClient* client = NULL;
@@ -128,8 +132,8 @@ gnome_gconf_lazy_init (void)
         client = gconf_client_get_default ();
 
         gconf_client_add_dir (client,
-                             "/desktop/gnome",
-                             GCONF_CLIENT_PRELOAD_NONE, NULL);
+			      "/desktop/gnome",
+			      GCONF_CLIENT_PRELOAD_NONE, NULL);
 
         settings_dir = gnome_gconf_get_gnome_libs_settings_relative ("");
 
@@ -142,11 +146,11 @@ gnome_gconf_lazy_init (void)
 }
 
 const GnomeModuleInfo *
-gnome_gconf_module_info_get (void)
+_gnome_gconf_module_info_get (void)
 {
 	static GnomeModuleInfo module_info = {
 		"gnome-gconf",
-		/* FIXME: get this from gconf somehow */"1.1.1",
+		gconf_version,
 		NULL /* description */,
 		NULL /* requirements */,
 		NULL /* instance init */,

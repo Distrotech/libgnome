@@ -23,15 +23,18 @@
   @NOTATION@
 */
 
-#ifndef GNOME_GCONF_H
-#define GNOME_GCONF_H
+#ifndef GNOME_GCONFP_H
+#define GNOME_GCONFP_H
 
-#include <libgnome/gnome-program.h>
+#include "gnome-gconf.h"
 
-/* Get keys relative to the gnome-libs internal per-app directory and the
-   application author per-app directory */
-gchar      *gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey);
-gchar      *gnome_gconf_get_app_settings_relative        (GnomeProgram *program,
-							  const gchar *subkey);
+/* These two methods are very very private to libgnome* only,
+ * do not use them */
 
-#endif /* GNOME_GCONF_H */
+#define gnome_gconf_lazy_init _gnome_gconf_lazy_init
+void			_gnome_gconf_lazy_init		(void);
+
+#define gnome_gconf_module_info_get _gnome_gconf_module_info_get
+const GnomeModuleInfo *	_gnome_gconf_module_info_get	(void) G_GNUC_CONST;
+
+#endif /* GNOME_GCONFP_H */

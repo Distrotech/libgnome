@@ -40,7 +40,7 @@
 #include "gnome-i18nP.h"
 
 #include "gnome-init.h"
-#include "gnome-gconf.h"
+#include "gnome-gconfP.h"
 #include "gnome-util.h"
 #include "gnome-sound.h"
 #include "gnome-triggers.h"
