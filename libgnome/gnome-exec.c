@@ -105,9 +105,11 @@ gnome_execute_async (const char *dir, int argc, char * const argv[])
   return 0;
 }
 
-int gnome_execute_shell (const char *dir, const char *commandline)
+int
+gnome_execute_shell (const char *dir, const char *commandline)
 {
   char * argv[4];
+  int r;
 
   g_return_val_if_fail(commandline != NULL, -1);
 
@@ -117,5 +119,7 @@ int gnome_execute_shell (const char *dir, const char *commandline)
 			    fix it due to execvp()'s signature. */
   argv[3] = NULL;
 
-  return gnome_execute_async (dir, 4, argv);
+  r = gnome_execute_async (dir, 4, argv);
+  free (argv[0]);
+  return r;
 }
