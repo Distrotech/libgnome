@@ -1,3 +1,10 @@
+Thu Aug 23 23:23:42 2001  George Lebl <jirka@5z.com>
+
+	* gnome-exec.c: fix a 64bit issue with a format string (remember
+	  that types that you don't know size (such as gsize) should be
+	  casted when passed to printf since they can be either %d or %ld
+	  or some such.
+
 2001-08-10  Michael Meeks  <michael@ximian.com>
 
 	* gnome-init.c (libgnome_requirements): remove redundant
