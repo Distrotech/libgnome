@@ -1128,3 +1128,46 @@ main ()
 	
 }
 #endif
+
+#ifndef AVOID_THIS_EXTRA_COOL_HACK
+
+/* THIS WILL BE GONE SOON (Can be removed at any time, nothing but old
+ * binaries depends on this).
+ */
+#undef gnome_config_get_string_with_default
+#undef gnome_config_get_translated_string_with_default
+#undef gnome_config_get_int_with_default
+#undef gnome_config_get_bool_with_default
+#undef gnome_config_get_vector_with_default
+
+char *
+gnome_config_get_string_with_default (const char *path, gboolean *def)
+{
+	return _gnome_config_get_string_with_default(path,def,FALSE);
+}
+
+char *
+gnome_config_get_translated_string_with_default (const char *path, gboolean *def)
+{
+	return _gnome_config_get_translated_string_with_default(path, def, FALSE);
+}
+
+gint
+gnome_config_get_int_with_default (const char *path, gboolean *def)
+{
+	return _gnome_config_get_int_with_default(path, def, FALSE);
+}
+
+gboolean
+gnome_config_get_bool_with_default (const char *path, gboolean *def)
+{
+	return _gnome_config_get_bool_with_default (path, def, FALSE);
+}
+
+void
+gnome_config_get_vector_with_default     (const char *path, gint *argcp, char ***argvp, gboolean *def)
+{
+        _gnome_config_get_vector_with_default (path, argcp, argvp, def, FALSE);
+}
+
+#endif
