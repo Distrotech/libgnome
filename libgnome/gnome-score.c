@@ -6,7 +6,6 @@
 #include <config.h>
 #include <unistd.h>
 #include <sys/types.h>
-#include <sys/wait.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -211,7 +210,7 @@ drop_perms (void)
 					 * incantation will also drop the
 					 * saved gid */
    /* see if we can set it back -- if we can, saved id wasnt dropped */
-   if (!setgid (gid))
+   if (!setgid (gid) && getuid())
      {
 	g_warning ("losing saved gid implementation detected, "
 		   "get a real OS :)\n");
