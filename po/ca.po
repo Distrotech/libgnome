@@ -7,8 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.2.2\n"
-"POT-Creation-Date: 2003-06-09 23:13+0200\n"
-"PO-Revision-Date: 2003-01-21 13:22+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-06-25 14:06+0200\n"
+"PO-Revision-Date: 2003-06-25 14:13+0200\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -412,7 +413,7 @@ msgstr "Moniker de GConf"
 # monikers/GNOME_Moniker_std.server.in.in.h:3
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr "configurar moniker indirecte"
+msgstr "configura moniker indirecte"
 
 # monikers/bonobo-config-bag.c:230
 #: monikers/bonobo-config-bag.c:231
@@ -427,7 +428,7 @@ msgstr "La tecla %s no es troba en la configuració"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
-msgstr "Fa «beep» quan es pressiona un modificador"
+msgstr "Fes un avís sonor quan es pressiona un modificador"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
@@ -437,24 +438,27 @@ msgstr "Inhabilita si es pressionen dos tecles a l'hora."
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
-"No accepta una tecla com pressionada si no es manté durant @delay milisegons"
+"No acceptis una tecla com pressionada si no es manté durant @delay milisegons"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr ""
+msgstr "Quants milisegons es tarda en anar de 0 a la velocitat màxima"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
+"Quants milisegons s'ha d'esperar abans de que les tecles de moviment del "
+"ratolí comencen a funcionar"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
-msgstr ""
+msgstr "Quants píxels per segon es mouen a la velocitat màxima"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
 msgstr ""
+"Descarta múltiples pressions de la _mateixa_ tecla en @delay milisegons"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -466,7 +470,7 @@ msgstr "retard inicial en milisegons"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
 msgid "minimum interval in milliseconds"
-msgstr ""
+msgstr "interval mínim en milisegons"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
@@ -474,7 +478,7 @@ msgstr "píxels per segon"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
-msgstr ""
+msgstr "El navegador necessita un terminal"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:2
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
@@ -487,11 +491,11 @@ msgstr "Navegador predeterminat"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:4
 msgid "Default browser for all URLs"
-msgstr ""
+msgstr "Navegador predeterminat per a totes les URL"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr ""
+msgstr "Si el navegador predeterminat necessita una terminal per a executar-se"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
@@ -507,20 +511,23 @@ msgstr "El visor d'ajuda necessita un terminal"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
-msgstr ""
+msgstr "Si el visor d'ajuda predeterminat accepta URL"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
 msgstr ""
+"Si el visor d'ajuda predeterminat necessita una terminal per a executar-se"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
+"L'argument utilitzat per a executar programes al terminal definit per la "
+"clau «exec»."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
-msgstr ""
+msgstr "Arguments d'execució"
 
 # libgnome/gnome-program.c:481
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
@@ -530,143 +537,156 @@ msgstr "Aplicació de terminal"
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
 msgstr ""
+"El programa de terminal utilitzat quan s'inicien aplicacions que necessiten "
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
 msgstr ""
+"Una llista amb noms dels espais de treball del primer gestor de finestres."
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
-msgstr ""
+msgstr "Gestor de finestres de recanvi"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
 msgstr ""
+"Gestor de finestres de recanvi si el gestor de finestres de l'usuari no es "
+"troba"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
-msgstr ""
+msgstr "Noms del espais de treball"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
 msgid "The number of workspaces"
-msgstr ""
+msgstr "Nombre d'espais de treball"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
 msgid "The number of workspaces the window manager should use"
 msgstr ""
+"El nombre d'espais de treball que ha d'utilitzar el gestor de finestres"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager"
-msgstr ""
+msgstr "Gestor de finestres de l'usuari"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid "Window manager to try first"
-msgstr ""
+msgstr "Gestor de finestres a provar primer"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
-msgstr ""
+msgstr "Tipus de ombreig de color"
 
 #: schemas/desktop_gnome_background.schemas.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
+"Determina com es representa la imatge establerta per wallpaper_filename. Els "
+"valors possibles són «none», «wallpaper», «centered», «scaled», «stretched»."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
-msgstr ""
+msgstr "Dibuixa el fons de l'escriptori"
 
 #: schemas/desktop_gnome_background.schemas.in.h:4
 msgid "File to use for the background image"
-msgstr ""
+msgstr "Fitxer a utilitzar per a la imatge de fons"
 
 #: schemas/desktop_gnome_background.schemas.in.h:5
 msgid "Have GNOME draw the desktop background"
-msgstr ""
+msgstr "Fes que GNOME dibuixe el fons de l'escriptori"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
+"Com ombrejar el color de fons. Els valors possibles són «horizontal-"
+"gradient», «vertical-gradient» i «solid»."
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr ""
+"Color esquerre o superior quan es dibuixen gradients, o el color sòlid."
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
-msgstr ""
+msgstr "Opacitat amb la qual dibuixar la imatge de fons"
 
 #: schemas/desktop_gnome_background.schemas.in.h:9
 msgid "Picture Filename"
-msgstr ""
+msgstr "Nom del fitxer de la imatge"
 
 #: schemas/desktop_gnome_background.schemas.in.h:10
 msgid "Picture Opacity"
-msgstr ""
+msgstr "Opacitat de la imatge"
 
 #: schemas/desktop_gnome_background.schemas.in.h:11
 msgid "Picture Options"
-msgstr ""
+msgstr "Opcions de la imatge"
 
 #: schemas/desktop_gnome_background.schemas.in.h:12
 msgid "Primary Color"
-msgstr ""
+msgstr "Color primari"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr ""
+"Color dret o inferior quan es dibuixen gradients, no utilitzat per a colors "
+"sòlids."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
-msgstr ""
+msgstr "Color secundari"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:1
 msgid "File Icon Theme"
-msgstr ""
+msgstr "Tema d'icones de fitxers"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons"
-msgstr ""
+msgstr "Tema utilitzat per a mostrar icones de fitxers"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr ""
+msgstr "Nom base del tema predeterminat utilitzat per gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
-msgstr ""
+msgstr "Es poden canviar els acceleradors"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
-msgstr ""
+msgstr "Parpelleig del cursor"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:4
 msgid "Cursor Blink Time"
-msgstr ""
+msgstr "Temps de parpelleig del cursor"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:5
 msgid "Default font"
-msgstr ""
+msgstr "Tipus de lletra predeterminat"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:6
 msgid "Enable Accessibility"
-msgstr ""
+msgstr "Habilita l'accessibilitat"
 
 # libgnome/gnome-program.c:578
 #: schemas/desktop_gnome_interface.schemas.in.h:7
 msgid "Enable Animations"
 msgstr "Habilita les animacions"
 
+# IM = Input Method. jm
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
-msgstr ""
+msgstr "IM Preedit Style de GTK"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Status Style"
-msgstr ""
+msgstr "IM Status Style de GTK"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:10
 msgid "Gtk+ Theme"
@@ -678,137 +698,148 @@ msgstr "Tema d'icones"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon theme to use for the panel, nautilus etc."
-msgstr ""
+msgstr "Tema d'icones utilitzat per al quadre, nautilus, etc."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Length of the cursor blink cycle, in milleseconds"
-msgstr ""
+msgstr "Duració del cicle de parpelleig del cursor, en milisegons"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Menubar Detachable"
-msgstr ""
+msgstr "La barra de menú es pot desprendre"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:15
 msgid "Menus Have Icons"
-msgstr ""
+msgstr "Els menús tenen icones"
 
+# FIXME Tearoff? jm
 #: schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menus Have Tearoff"
-msgstr ""
+msgstr "Els menús es poden desprendre"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
+msgstr "Nom del mètode d'entrada Preedit Style de GTK+ utilitzat per gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
+msgstr "Nom del mètode d'entrada Status Style de GTK+ utilitzat per gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the default font used by gtk+."
-msgstr ""
+msgstr "Nom del tipus de lletra predeterminat utilitzat per gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Status Bar on Right"
-msgstr ""
+msgstr "La barra d'estat està a la dreta"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "This specifies the size of icons displayed in toolbars"
-msgstr ""
+msgstr "Açò especifica la mida de les icones mostrades a les barres d'eines"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Toolbar Detachable"
-msgstr ""
+msgstr "Les barres d'eines es poden desprendre"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Toolbar Icon Size"
-msgstr ""
+msgstr "Mida de les icones de les barres d'eines"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Toolbar Style"
-msgstr ""
+msgstr "Estil de les barres d'eines"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
 msgstr ""
+"Estil de les barres d'eines. Els valors vàlids són «both», «both_horiz», "
+"«icon» i «text»"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
-msgstr ""
+msgstr "Utilitza un tipus de lletra personalitzat"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Whether Applications should have accessibility support"
-msgstr ""
+msgstr "Si les aplicacions han de tenir suport d'accessibilitat"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
+"Si s'han de mostrar animacions. Nota: aquesta nota és global, canvia el "
+"comportament del gestor de finestres, quadre, etc."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "Si els menus han de mostrar una icona al costat de la entrada del menú"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Whether menus should have a tearoff"
-msgstr ""
+msgstr "Si els menus es poden desprendre"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
+"Si l'usuari pot escriure dinàmicament un nou accelerador quan un menú està "
+"obert"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
-msgstr ""
+msgstr "Si el cursor ha de parpellejar"
 
+# FIXME tearoff
 #: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach menubars and move them around"
-msgstr ""
+msgstr "Si l'usuari pot desprendre barres de menú i moure-les"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach toolbars and move them around"
-msgstr ""
+msgstr "Si l'usuari pot desprendre barres d'eines i moure-les"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
-msgstr ""
+msgstr "Si s'ha de mostrar una mesurador de barra d'estat a la dreta"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr ""
+"Si s'ha d'utilitzar un tipus de lletra personalitzat a aplicacions gtk+."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
-msgstr ""
+msgstr "El nom del fitxer del so de campana a reproduir"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr ""
+msgstr "Fitxer personalitzat de campana de teclat"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are on, off, and custom."
-msgstr ""
+msgstr "els valors possibles són «on», «off» i «custom»."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
+"Multiplicador d'acceleració per al moviment del ratolí. Un valor de -1 és el "
+"predeterminat del sistema."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
-msgstr ""
+msgstr "Tipus de lletra del cursor"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
 msgid "Cursor size"
-msgstr ""
+msgstr "Mida del cursor"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
 msgid "Cursor theme"
-msgstr ""
+msgstr "Tema de cursor"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
@@ -817,61 +848,75 @@ msgid ""
 "of each session, so changing it mid-session won't have an effect until the "
 "next time you log in."
 msgstr ""
+"Nom del tema de cursor. Utilitzat només per servidors d'X que suporten "
+"Xcursor, com XFree86 4.3 i superiors. Aquest valor només es propaga al "
+"servidor d'X al principi de cada sessió, així que canviar-lo en mig de la "
+"sessió no tindrà cap efecte fins que torneu a entrar."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
-msgstr ""
+msgstr "Distància abans de que un arrossegament comença"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
+"Distància en píxels que s'ha de moure el punter abans de que s'active el "
+"moviment accelerat del ratolí. Un valor de -1 és el predeterminat del "
+"sistema."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
-msgstr ""
+msgstr "Temps de doble clic"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
-msgstr ""
+msgstr "Inici de l'arrossegament"
 
+# FIXME Font name
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
 "Font name of the cursor. If unset set, the default font is used. This value "
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
+"Tipus de lletra del cursor. Si no està establert, s'utilitza el tipus de "
+"lletra per defecte. Aquest valor només es propaga al servidor d'X a l'inici "
+"de cada sessió, així que canviar-lo en mig de la sessió no tindrà cap efecte "
+"fins que torneu a entrar."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr ""
+"Resalta la ubicació actual del punter quan es pressiona i es deixa anar la "
+"tecla Control"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
-msgstr ""
+msgstr "Mida d'un clic doble"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
-msgstr ""
+msgstr "Ubica el punter"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
-msgstr ""
+msgstr "Inici del moviment"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
-msgstr ""
+msgstr "Orientació del botó del ratolí"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
-msgstr ""
+msgstr "Clic simple"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
-msgstr ""
+msgstr "Clic simple per a obrir icones"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid ""
@@ -879,10 +924,13 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
+"Mida del cursor referenciat per cursor_theme. Aquest valor només es propaga "
+"al servidor d'X a l'inici de cada sessió, així que canviar-lo en mig de la "
+"sessió no tindrà cap efecte fins que torneu a entrar."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr ""
+msgstr "Intercanvia els botons esquerre i dret per a ratolins per a esquerrans"
 
 # libgnome/gnome-program.c:578
 #: schemas/desktop_gnome_sound.schemas.in.h:1
@@ -900,157 +948,210 @@ msgstr "Sons per a events"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
-msgstr ""
+msgstr "Si s'ha de reproduir sons en events d'usuari."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "Default URL show handler"
-msgstr ""
+msgstr "Gestor d'URL predeterminat"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "How to handle applications URLs"
-msgstr ""
+msgstr "Com gestionar les URL applications"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid "How to handle ghelp URLs"
-msgstr ""
+msgstr "Com gestionar les URL ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle info URLs"
-msgstr ""
+msgstr "Com gestionar les URL info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "How to handle man URLs"
-msgstr ""
+msgstr "Com gestionar les url man"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:6
 msgid "How to handle preferences URLs"
-msgstr ""
+msgstr "Com gestionar les URL preferences"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:7
 msgid "How to handle server-settings URLs"
-msgstr ""
+msgstr "Com gestionar les URL server-settings"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
 msgid "How to handle start-here URLs"
-msgstr ""
+msgstr "Com gestionar les URL start-here"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid "How to handle system-settings URLs"
-msgstr ""
+msgstr "Com gestionar les url system-settings"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
-msgstr ""
+msgstr "Com gestionar les URL trash"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:11
 msgid "How to handle unknown URLs"
-msgstr ""
+msgstr "Com gestionar les URL desconegudes"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:12
 msgid "Run program in terminal"
-msgstr ""
+msgstr "Executa el programa a un terminal"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:13
 msgid ""
 "Set to true to have a program specified in applications/command handle "
 "applications URLs"
-msgstr ""
+msgstr "Estableix a vertader per a que un programa especificat a applications/command gestione les URL application"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid ""
 "Set to true to have a program specified in preferences/command handle "
 "preferences URLs"
-msgstr ""
+msgstr "Estableix a vertader per a que un programa especificat a preferences/command gestione les URL preferences"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid ""
 "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
+"Estableix a vertader per a que un programa especificat a programs/ghelp "
+"gestione les URL ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
 msgid ""
 "Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
+"Estableix a vertader per a que un programa especificat a programs/info "
+"gestione les URL info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:17
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr ""
+"Estableix a vertader per a que un programa especificat a programs/man "
+"gestione les URL man"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid ""
 "Set to true to have a program specified in programs/unknown handle unknown "
 "URLs"
-msgstr ""
+msgstr "Estableix a vertader per a que un programa especificat a programs/unknown gestione les URL desconegudes"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:19
 msgid ""
 "Set to true to have a program specified in server-settings/command handle "
 "server-settings URLs"
-msgstr ""
+msgstr "Estableix a vertader per a que un programa especificat a server-settings/trash gestione les URL server-settings"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid ""
 "Set to true to have a program specified in start-here/command handle start-"
 "here URLs"
-msgstr ""
+msgstr "Estableix a vertader per a que un programa especificat a start-here/command gestione les URL start-here"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:21
 msgid ""
 "Set to true to have a program specified in system-settings/command handle "
 "system-settings URLs"
-msgstr ""
+msgstr "Estableix a vertader per a que un programa especificat a system-settings/command gestione les URL system-settings"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:22
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
+"Estableix a vertader per a que un programa especificat a programs/trash "
+"gestione les URL trash"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:23
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
+"Vertader si el programa que gestiona aquesta URL s'ha d'executar a un "
+"terminal"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:24
 msgid "URL handler for applications pages"
-msgstr ""
+msgstr "Gestor d'URL per a pàgines applications"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:25
 msgid "URL handler for ghelp pages"
-msgstr ""
+msgstr "Gestor d'URL per a pàgines ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:26
 msgid "URL handler for info pages"
-msgstr ""
+msgstr "Gestor d'URL per a pàgines info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:27
 msgid "URL handler for man pages"
-msgstr ""
+msgstr "Gestor d'URL per a pàgines man"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:28
 msgid "URL handler for preferences pages"
-msgstr ""
+msgstr "Gestor d'URL per a pàgines preferences"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:29
 msgid "URL handler for server-settings pages"
-msgstr ""
+msgstr "Gestor d'URL per a pàgines server-settings"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:30
 msgid "URL handler for start-here pages"
-msgstr ""
+msgstr "Gestor d'URL per a pàgines start-here"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:31
 msgid "URL handler for system-settings pages"
-msgstr ""
+msgstr "Gestor d'URL per a pàgines system-settings"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:32
 msgid "URL handler for trash pages"
-msgstr ""
+msgstr "Gestor d'URL per a pàgines trash"
+
+#~ msgid "Unknown internal error while displaying this location."
+#~ msgstr "S'ha produït un error intern en mostrar aquesta ubicació."
+
+#~ msgid "The specified location is invalid."
+#~ msgstr "La ubicació especificada no és vàlida."
 
 #~ msgid ""
-#~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
-#~ "gnome-libs was compiled incorrectly."
+#~ "There was an error parsing the default action command associated with "
+#~ "this location."
 #~ msgstr ""
-#~ "No s'ha pogut trobar el domini GNOME_FILE_DOMAIN_APP_HELP. Açò implica "
-#~ "que gnome-libs es va compilar incorrectament."
+#~ "S'ha produït un error en analitzar l'ordre d'acció predeterminada "
+#~ "associada amb aquesta ubicació."
 
-#~ msgid "Help document %s for %s not found"
-#~ msgstr "No s'ha trobat el document d'ajuda %s per a %s"
+#~ msgid ""
+#~ "There was an error launching the default action command associated with "
+#~ "this location."
+#~ msgstr ""
+#~ "S'ha produït un error en llançar l'ordre d'acció predeterminada associada "
+#~ "amb aquesta ubicació."
+
+#~ msgid "There is no default action associated with this location."
+#~ msgstr "No hi ha cap acció predeterminada associada amb aquesta ubicació."
+
+#~ msgid "The default action does not support this protocol."
+#~ msgstr "L'acció predeterminada no suporta aquest protocol."
+
+#~ msgid "Unknown error code: %d"
+#~ msgstr "Codi d'error desconegut: %d"
+
+#~ msgid "Error showing url: %s\n"
+#~ msgstr "S'ha produït un error en mostrar l'url: %s\n"
+
+#~ msgid ""
+#~ "List of assistive technology applications to start when logging into the "
+#~ "GNOME desktop"
+#~ msgstr ""
+#~ "Llista d'aplicacions de tecnologia assistiva a iniciar quan s'entra a "
+#~ "l'escriptori GNOME"
+
+#~ msgid "Startup Assistive Technology Applications"
+#~ msgstr "Aplicacions de tecnologia assistiva d'inici"
+
+#~ msgid "Disable all external thumbnailers"
+#~ msgstr "Inhabilita tots els creadors de miniatures externs"
+
+#~ msgid ""
+#~ "Set to true to disable all external thumbnailer programs, independent on "
+#~ "whether they are independently disabled/enabled."
+#~ msgstr ""
+#~ "Establiu a vertader per a inhabilitar tots els programes externs de "
+#~ "creació de miniatures, independentment de si estan habilitats o "
+#~ "inhabilitats per la seua banda."
