@@ -37,7 +37,7 @@
 
 #include "libgnomeP.h"
 #include "gnome-mime.h"
-
+#include "gnomesupport.h"
 
 /* Each key in the database has 3 parts: the space, the object, and
    the "key" (confusingly named, I know).  The space is "type" for
