@@ -26,7 +26,9 @@ CFILE_GLOB=$(top_srcdir)/libgnome/*.c
 
 # Header files to ignore when scanning.
 IGNORE_HFILES=			\
+	gnome-gconfP.h		\
 	gnome-i18nP.h		\
+	gnome-preferences.h	\
 	gnome-triggersP.h
 
 # Images to copy into HTML directory.
