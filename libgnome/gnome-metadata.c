@@ -121,7 +121,12 @@ lock (void)
 {
 	if (! lock_count++) {
 		int fd = database->fd (database);
-		flock (fd, LOCK_EX);
+		/* flock (fd, LOCK_EX); */
+		struct flock lbuf;
+		lbuf.l_type = F_WRLCK;
+		lbuf.l_whence = SEEK_SET;
+		lbuf.l_start = lbuf.l_len = 0L; /* Lock the whole file.  */
+		fcntl (fd, F_SETLKW, &lbuf);
 	}
 }
 
@@ -131,9 +136,14 @@ unlock (void)
 {
 	if (! --lock_count) {
 		int fd;
+		struct flock lbuf;
 		database->sync (database, 0);
 		fd = database->fd (database);
-		flock (fd, LOCK_UN);
+		/* flock (fd, LOCK_UN); */
+		lbuf.l_type = F_UNLCK;
+		lbuf.l_whence = SEEK_SET;
+		lbuf.l_start = lbuf.l_len = 0L; /* Unlock the whole file.  */
+		fcntl (fd, F_SETLKW, &lbuf);
 	}
 }
 
