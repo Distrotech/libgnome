@@ -45,6 +45,7 @@ CORBA_SOURCE =			\
 
 idls =							\
 	$(top_srcdir)/idl/Gnome.idl			\
+	$(top_srcdir)/idl/Gnome_Desktop.idl		\
 	$(top_srcdir)/idl/Gnome_Selector.idl
 
 idl_flags = -I $(datadir)/idl -D__GNOME_COMPILATION
