@@ -285,7 +285,7 @@ gnome_dl_findsym(char *symbol_name,
 #if defined( NEED_UNDERSCORE )
   lookup = g_copy_strings("_", symbol_name, NULL);
 #else
-  lookup = g_strdup(name);
+  lookup = g_strdup(symbol_name);
 #endif
 
   symbol = gnome_dl_raw_findsym(lookup, handle);
@@ -315,7 +315,7 @@ gnome_dl_findsym_and_lib(char *symbol_name,
 #if defined( NEED_UNDERSCORE )
   lookup = g_copy_strings("_", symbol_name, NULL);
 #else
-  lookup = g_strdup(name);
+  lookup = g_strdup(symbol_name);
 #endif
 
   for (cur = _libs;
