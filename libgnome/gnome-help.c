@@ -174,6 +174,38 @@ gnome_help_pbox_display (void *ignore, gint page_num, GnomeHelpMenuEntry *ref)
 }
 
 /**
+ * gnome_help_pbox_goto
+ * @ignore: ignored.
+ * @ignore2: also ignored.
+ *
+ * Cause a help viewer to display the help entry defined in ref.  This
+ * function is meant to be connected to the help button of a
+ * GnomePropertyBox, when you don't want any munging of the help path
+ * done.  Most of the time, you can use gnome_help_pbox_display,
+ * though.
+ */
+void
+gnome_help_pbox_goto (void *ignore, int ignore2, GnomeHelpMenuEntry *ref)
+{
+        gchar *file, *url;
+
+	g_assert(ref != NULL);
+	g_assert(ref->path != NULL);
+	g_assert(ref->name != NULL);
+
+	file = gnome_help_file_path (ref->name, ref->path);
+	if (file == NULL)
+	  return;
+	
+	url = alloca (strlen (file)+10);
+	strcpy (url, "file:");
+	strcat (url, file);
+	g_free (file);
+	
+	gnome_help_goto (ignore, url);
+}
+
+/**
  * gnome_help_goto:
  * @ignore: ignored.
  * @file: file to display in the help browser.

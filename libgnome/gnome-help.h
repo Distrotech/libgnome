@@ -20,6 +20,8 @@ void gnome_help_display(void *ignore, GnomeHelpMenuEntry *ref);
 void gnome_help_pbox_display (void *ignore, gint page_num,
 			      GnomeHelpMenuEntry *ref);
 
+void gnome_help_pbox_goto (void *ignore, int ignore2, GnomeHelpMenuEntry *ref);
+
 void gnome_help_goto(void *ignore, gchar *file);
 
 END_GNOME_DECLS
