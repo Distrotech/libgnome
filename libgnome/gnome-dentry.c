@@ -6,6 +6,30 @@
  * Authors: Miguel de Icaza
  *          Federico Mena
  */
+/*
+ * Copyright (C) 1997, 1998, 1999, 2000 Free Software Foundation
+ * All rights reserved.
+ *
+ * This file is part of the Gnome Library.
+ *
+ * The Gnome Library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * The Gnome Library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with the Gnome Library; see the file COPYING.LIB.  If not,
+ * write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ * Boston, MA 02111-1307, USA.
+ */
+/*
+  @NOTATION@
+ */
 
 #include <config.h>
 #include <glib.h>
@@ -211,13 +235,17 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 		/* Sigh, now we need to make them local to the gnome install */
 		if (*icon_base != '/') {
 			if (newitem->is_kde) {
-				gchar *iconname = g_concat_dir_and_file (KDE_ICONDIR, icon_base);
-				if (g_file_exists (iconname))
-					newitem->icon = iconname;
-				else {
-					g_free (iconname);
-					newitem->icon = NULL;
+				gchar *iconname;
+				iconname = g_concat_dir_and_file ("/usr/share/icons/", icon_base);
+				if (!g_file_exists(iconname)) {
+					g_free(iconname);
+					iconname = g_concat_dir_and_file ("/opt/kde/share/icons/", icon_base);
 				}
+				if (!g_file_exists(iconname)) {
+					g_free(iconname);
+					iconname = NULL;
+				}
+				newitem->icon = iconname;
 			} else
 				newitem->icon = gnome_pixmap_file (icon_base);
 			g_free (icon_base);

@@ -1,6 +1,7 @@
-/* gnome-action.h -- Declarations for the Actions module
+/* gnome-mime-info.h
  *
  * Copyright (C) 1998 Miguel de Icaza
+ * All rights reserved.
  *
  * The Gnome Library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public License as
@@ -16,6 +17,9 @@
  * License along with the Gnome Library; see the file COPYING.LIB.  If not,
  * write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA. 
+ */
+/*
+  @NOTATION@
  */
 
 #ifndef GNOME_MIME_INFO_H

@@ -1,6 +1,10 @@
-/* gnome-exec.c - Execute some command.
+/* gnome-exec.h - Execute some command.
 
    Copyright (C) 1998 Tom Tromey
+   Copyright (C) 1999, 2000 Red Hat, Inc.
+   All rights reserved.
+
+   This file is part of the Gnome Library.
 
    The Gnome Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -16,6 +20,9 @@
    License along with the Gnome Library; see the file COPYING.LIB.  If not,
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
+/*
+  @NOTATION@
+ */
 
 #include <glib.h>
 

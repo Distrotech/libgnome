@@ -35,6 +35,9 @@
  *
  * Bugs and commentary to x_cbug@netscape.com.
  */
+/*
+  @NOTATION@
+ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"

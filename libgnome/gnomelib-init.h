@@ -1,4 +1,7 @@
 /* gnomelib-init.h - Export libgnome module
+   Copyright (C) 1997, 1998, 1999 Free Software Foundation
+   Copyright (C) 1999, 2000 Red Hat, Inc.
+   All rights reserved.
 
    The Gnome Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -14,6 +17,9 @@
    License along with the Gnome Library; see the file COPYING.LIB.  If not,
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
+/*
+  @NOTATION@
+ */
 
 #ifndef GNOMELIB_INIT_H
 #define GNOMELIB_INIT_H 1

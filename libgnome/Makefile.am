@@ -35,18 +35,19 @@ libgnome10compatincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/comp
 libgnome_1_0_compat_2_0_a_SOURCES = \
 	gnome10-compat.c	\
 	gnome-help.c		\
+	gnome-dentry.c		\
 	gnome-popt.c
 
 libgnome10compatinclude_HEADERS=\
 	libgnome-compat-1.0.h	\
 	gnome10-compat.h	\
 	gnome-help.h		\
+	gnome-dentry.h		\
 	gnome-popt.h
 endif
 
 libgnome_2_0_la_SOURCES = \
 	gnome-config.c		\
-	gnome-dentry.c          \
 	gnome-ditem.c		\
 	gnome-exec.c		\
 	gnome-fileconvert.c	\
@@ -70,7 +71,6 @@ libgnomeinclude_HEADERS = \
         gnome-config.h 		\
 	gnome-defs.h   		\
 	gnome-fileconvert.h	\
-	gnome-dentry.h 		\
 	gnome-ditem.h		\
 	gnome-exec.h		\
 	gnome-history.h		\
@@ -105,11 +105,10 @@ gnome-config.o: parse-path.cP
 libgnome_2_0_la_LDFLAGS = $(LIBGNOME_LIBS) -version-info $(LIB_VERSION)
 libgnome_2_0_la_LIBADD = ../support/libgnomesupport.la
 
-bin_PROGRAMS = dns-helper gnome-dump-metadata gnome-moz-remote \
-	gconfigger gnome-gen-mimedb
-
-dns_helper_SOURCES = dns-helper.c
-dns_helper_LDADD = $(NSL_LIBS)
+bin_PROGRAMS=			\
+	gnome-dump-metadata	\
+	gnome-moz-remote	\
+	gnome-gen-mimedb
 
 gnome_dump_metadata_SOURCES = gnome-dump.c
 gnome_dump_metadata_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la \
@@ -120,11 +119,6 @@ gnome_moz_remote_SOURCES = gnome-moz-remote2.c vroot.h
 gnome_moz_remote_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la $(LIBGNOME_LIBS) \
 	$(X_LIBS) $(X_PRE_LIBS) -lXext -lX11 $(X_EXTRA_LIBS) $(INTLLIBS)
 
-gconfigger_SOURCES = gconfigger.c
-gconfigger_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la \
-	$(LIBGNOME_LIBS) $(INTLLIBS)
-
-# go ahead and laugh, it's better than exporting internal routines
 gnome_gen_mimedb_SOURCES = gnome-gen-mimedb.c
 gnome_gen_mimedb_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la \
 	$(LIBGNOME_LIBS) $(INTLLIBS)

@@ -24,6 +24,10 @@
 /**    OR PERFORMANCE OF THIS SOFTWARE.                                     **/
 /*****************************************************************************/
 /*
+  @NOTATION@
+ */
+
+/*
  * vroot.h -- Virtual Root Window handling header file
  *
  * This header file redefines the X11 macros RootWindow and DefaultRootWindow,
