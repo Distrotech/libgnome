@@ -4,7 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 0\n"
-"POT-Creation-Date: 2004-02-01 17:10+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-24 11:14+0100\n"
 "PO-Revision-Date: 2004-02-05 23:50+CET\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -129,8 +130,8 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Nisam mogao postaviti postavke 0700 na privatnu mapu gnome korisnika `%"
-"s': %s\n"
+"Nisam mogao postaviti postavke 0700 na privatnu mapu gnome korisnika `%s': %"
+"s\n"
 
 #: libgnome/gnome-init.c:335
 #, c-format
@@ -333,13 +334,17 @@ msgstr "Odrađeno mjesto nije ispravno."
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
-msgstr "Dogodila se greška kod prevođenja uobičajene postupne naredbe povezane s ovim mjestom."
+msgstr ""
+"Dogodila se greška kod prevođenja uobičajene postupne naredbe povezane s "
+"ovim mjestom."
 
 #: libgnome/gnome-url.c:103
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
-msgstr "Dogodila se greška kod pokretanja uobičajene postupne naredbe povezane s ovim mjestom."
+msgstr ""
+"Dogodila se greška kod pokretanja uobičajene postupne naredbe povezane s "
+"ovim mjestom."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
@@ -389,16 +394,22 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Isključi ako su pritisnute dvije tipke istovremeno."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "Ne prihvaća tipku, koji je prosljeđen, osim ako je zadržan za @delay milisekundi."
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr ""
+"Ne prihvaća tipku, koji je prosljeđen, osim ako je zadržan za @delay "
+"milisekundi."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Koliko milisekundi je potrebno da prelazak od 0 do najveće brzine"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "Koliko milisekundi je potrebno čekati prijej nego tipke pokretanja miša počinju raditi"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
+msgstr ""
+"Koliko milisekundi je potrebno čekati prijej nego tipke pokretanja miša "
+"počinju raditi"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -429,8 +440,8 @@ msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
 msgstr ""
-"Popis pomoćnih tehnoloških programa koje se pokreću kod prijavljivanja u"
-"GMOE radnu površinu"
+"Popis pomoćnih tehnoloških programa koje se pokreću kod prijavljivanja uGMOE "
+"radnu površinu"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -478,8 +489,11 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "Koji uobičajeni preglednik pomoći treba pokrenuti treminal"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Argument koji se koristi za izvršavanje programa u terminalu određenom pomoću 'exec' tipke."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"Argument koji se koristi za izvršavanje programa u terminalu određenom "
+"pomoću 'exec' tipke."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -491,7 +505,9 @@ msgstr "Terminalni programi"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr "Terminalni program koji se koristi kod pokretanja programa koji zahtijevaju jedan"
+msgstr ""
+"Terminalni program koji se koristi kod pokretanja programa koji zahtijevaju "
+"jedan"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
@@ -503,7 +519,9 @@ msgstr "Rezervni upravitelj prozora"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr "Rezervni upravitelj prozora ukoliko korisnikov upravitelj prozorima ne može biti pronađen"
+msgstr ""
+"Rezervni upravitelj prozora ukoliko korisnikov upravitelj prozorima ne može "
+"biti pronađen"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -535,7 +553,8 @@ msgid ""
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
 "Određuje kako će se slika, koju je određena imenom, prikazati. Moguće "
-"vrijendosti su \"ništa\", \"tapeta\", \"središnje\", \"u omjeru\", \"rastegnuto\"."
+"vrijendosti su \"ništa\", \"tapeta\", \"središnje\", \"u omjeru\", "
+"\"rastegnuto\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -583,7 +602,9 @@ msgstr "Osnovna boja"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "Desna ili donja boja gdje počinje prijelaz crtanja, ne korisit se za pune boje. "
+msgstr ""
+"Desna ili donja boja gdje počinje prijelaz crtanja, ne korisit se za pune "
+"boje. "
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -666,8 +687,11 @@ msgid "Monospace font"
 msgstr "Monospace pismo"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr "Ime monospaced (nepromjenjive širine) pisma za korištenje na položajima kao što su treminali."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr ""
+"Ime monospaced (nepromjenjive širine) pisma za korištenje na položajima kao "
+"što su treminali."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -749,7 +773,8 @@ msgstr "Koji korisnik može odvojiti trake s alatima i pomicati ih okolo"
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr "Koji korisnik može dimaničko upisati novu kraticu kad je izbornik prikazan"
+msgstr ""
+"Koji korisnik može dimaničko upisati novu kraticu kad je izbornik prikazan"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
@@ -758,6 +783,47 @@ msgstr "Bilo da prikazuje mjeru statuse trake s desne strane"
 #: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "bilo da koristiti vlastito pismo u gtk+ programima."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:1
+msgid "Disable command line"
+msgstr ""
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable print setup"
+msgstr ""
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:3
+msgid "Disable printing"
+msgstr ""
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:4
+msgid "Disable saving files to disk"
+msgstr ""
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:5
+msgid ""
+"Prevent the user from accessing the terminal or specifying a command line to "
+"be executed. For example, this would disable access to the panel's \"Run "
+"Application\" dialog."
+msgstr ""
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all application's \"Print Setup\" dialogs."
+msgstr ""
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:7
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all application's \"Print\" dialogs."
+msgstr ""
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:8
+msgid ""
+"Prevent the user from saving files to disk. For example, this would disable "
+"access to all application's \"Save as\" dialogs."
+msgstr ""
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -776,8 +842,7 @@ msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
-"Množitelj ubrzanja pomaka miša. Vrijednost -1 je zadana vrijesnost "
-"sustava."
+"Množitelj ubrzanja pomaka miša. Vrijednost -1 je zadana vrijesnost sustava."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -798,10 +863,10 @@ msgid ""
 "start of each session, so changing it mid-session won't have an effect until "
 "the next time you log in."
 msgstr ""
-"Ime teme pokazivača. Koriste ju samo poslužitelji X-a koji podržavaju Xcursor, "
-"kao što su XFree86 4.3 i kasniji. Ova vrijednost se prenosi da poslužitelj X-a "
-"samo kod pokretanja svake sesije, stoga izmjene tijekom sesija neće biti "
-"primjenjene do sljedećeg prijavljivanja u sustav."
+"Ime teme pokazivača. Koriste ju samo poslužitelji X-a koji podržavaju "
+"Xcursor, kao što su XFree86 4.3 i kasniji. Ova vrijednost se prenosi da "
+"poslužitelj X-a samo kod pokretanja svake sesije, stoga izmjene tijekom "
+"sesija neće biti primjenjene do sljedećeg prijavljivanja u sustav."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -830,16 +895,17 @@ msgid ""
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Ime pisma pokazivača. Ako nije postavljeno, koristi se uobičajeno pismo. Ova "
-"vrijednost se prenosi samo kad poslužitelj X-a pokreće kod svake sesije, stoga "
-"promjene unutar sesije neće imati utjecaja sve dok se ponovo prijavite u sustav."
+"vrijednost se prenosi samo kad poslužitelj X-a pokreće kod svake sesije, "
+"stoga promjene unutar sesije neće imati utjecaja sve dok se ponovo prijavite "
+"u sustav."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr ""
-"Označava trenutno mjesto pokazivača kad je kontrolna tipka pritisnuta "
-"i puštena"
+"Označava trenutno mjesto pokazivača kad je kontrolna tipka pritisnuta i "
+"puštena"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
@@ -938,4 +1004,3 @@ msgstr "Bilo da je ili ne zaključavanje tipkovince omogućeno."
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Bilo da može ili ne zaslon prekida pisanja biti odgođen."
-
