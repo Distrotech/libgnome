@@ -61,7 +61,7 @@ gnome_string_join(gchar *separator, ...)
 	gint nstrings, i;
 	gchar **strings;
 	gchar *retval;
-	
+
 	/* Count number of strings */
 
 	va_start(l, separator);
@@ -151,7 +151,7 @@ gnome_string_array_free(gchar **strarray)
 {
   int i;
 
-  g_return_if_fail(strarray != NULL);
+  if(strarray == NULL) return; /* Don't use g_warning because this is legal */
 
   for(i = 0; strarray[i]; i++)
     g_free(strarray[i]);
