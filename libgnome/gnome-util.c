@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include <glib.h>
 #include <sys/stat.h>
+#include <pwd.h>
 #include "gnome-defs.h"
 #include "gnome-util.h"
 
@@ -191,4 +192,40 @@ g_concat_dir_and_file (const char *dir, const char *file)
 		return g_copy_strings (dir, PATH_SEP_STR, file, NULL);
 	else
 		return g_copy_strings (dir, file, NULL);
+}
+
+/* DOC: gnome_util_user_shell ()
+ * Returns a newly allocated string that is the path to the user's
+ * preferred shell.
+ */
+char *
+gnome_util_user_shell ()
+{
+	struct passwd *pw;
+	int i;
+	char *shell;
+	static char *shells [] = {
+		"/bin/bash", "/bin/zsh", "/bin/tcsh", "/bin/ksh",
+		"/bin/csh", "/bin/sh", 0
+	};
+
+	if ((shell = getenv ("SHELL"))){
+		return strdup (shell);
+	}
+	pw = getpwuid(getuid());
+	if (pw && pw->pw_shell) {
+		return strdup (pw->pw_shell);
+	} 
+
+	for (i = 0; shells [i]; i++) {
+		if (g_file_exists (shells [i])){
+			return strdup (shells[i]);
+		}
+	}
+
+	/* If /bin/sh doesn't exist, your system is truly broken.  */
+	abort ();
+
+	/* Placate compiler.  */
+	return NULL;
 }

@@ -39,6 +39,9 @@ char *g_concat_dir_and_file (const char *dir, const char *file);
  */
 #define gnome_util_home_file(afile) (g_copy_strings(gnome_util_user_home(), "/.gnome/", (afile), NULL))
 
+/* Find the name of the user's shell.  */
+char *gnome_util_user_shell ();
+
 END_GNOME_DECLS
 
 #endif

@@ -207,6 +207,8 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 {
 	char **argv;
 	int i, argc;
+	char *command;
+	char *uargv[4];
 
 	g_assert (item != NULL);
 
@@ -255,11 +257,17 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		}
 	}
 
+	uargv[0] = gnome_util_user_shell ();
+	uargv[1] = "-c";
+	uargv[2] = gnome_string_join (" ", argv);
+	uargv[3] = NULL;
 	/* FIXME: do something if there's an error.  */
-	gnome_execute_async (NULL, argc, argv);
+	gnome_execute_async (NULL, 4, uargv);
 
 	if (argv != item->exec)
 		g_free ((char *) argv);
+	g_free (uargv[0]);
+	g_free (uargv[2]);
 }
 
 void
