@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-30 16:12+0200\n"
-"PO-Revision-Date: 2004-03-18 14:45+0200\n"
+"POT-Creation-Date: 2004-08-29 12:02+0200\n"
+"PO-Revision-Date: 2004-08-29 14:28+0300\n"
 "Last-Translator: Mişu Moldovan <dumol@go.ro>\n"
 "Language-Team: <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "Click pe butonul de comandă"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Select check box"
-msgstr "Selectaţi căsuţa"
+msgstr "Căsuţă de selectare"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -86,7 +86,7 @@ msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
-"Nu am putut afişa ajutorul deoarece %s nu este un director. Vă rugăm "
+"Nu am putut afişa ajutorul deoarece %s nu este un director. Vă rugăm să "
 "verificaţi instalarea."
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
@@ -95,13 +95,13 @@ msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"Nu găsi fişierele de ajutor nici în %s şi nici în %s. Vă rugăm verificaţi "
-"instalarea."
+"Nu am găsit fişierele de ajutor nici în %s şi nici în %s. Vă rugăm să "
+"verificaţi instalarea."
 
 #: libgnome/gnome-help.c:339
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr "Nu am putut găsi doc_id %s în calea de ajutor"
+msgstr "Nu găsesc doc_id %s în calea de ajutor"
 
 #: libgnome/gnome-help.c:360
 #, c-format
@@ -120,8 +120,7 @@ msgstr "Suport de activare Bonobo"
 #: libgnome/gnome-init.c:324 libgnome/gnome-init.c:338
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr ""
-"Nu am reuşit să creez un director de configurare Gnome specific "
+msgstr "Nu am reuşit să creez un director de configurare Gnome specific "
 "utilizatorului „%s”: %s\n"
 
 #: libgnome/gnome-init.c:347
@@ -130,8 +129,8 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Nu am putut seta modul 0700 pentru directorul privat de configurare Gnome "
-"specifica utilizatorului: „%s”: %s\n"
+"Nu am reuşit să setez modul 0700 pentru directorul privat al setărilor Gnome "
+"specifice utilizatorului: „%s”: %s\n"
 
 #: libgnome/gnome-init.c:354
 #, c-format
@@ -148,7 +147,7 @@ msgstr "Activează utilizarea serverului de sunet"
 
 #: libgnome/gnome-init.c:409
 msgid "Host:port on which the sound server to use is running"
-msgstr "Gazda:portul utilizate de serverul de sunet ESD"
+msgstr "Gazdă:port utilizate de serverul de sunet ESD"
 
 #: libgnome/gnome-init.c:411
 msgid "HOSTNAME:PORT"
@@ -264,7 +263,7 @@ msgstr "Libdir aplicaţie GNOME"
 
 #: libgnome/gnome-program.c:540
 msgid "Library prefix where this application was installed"
-msgstr "Prefixul bibliotecilor acesteo aplicaţii instalate"
+msgstr "Prefixul bibliotecilor acestei aplicaţii instalate"
 
 #: libgnome/gnome-program.c:549
 msgid "GNOME App Datadir"
@@ -280,7 +279,7 @@ msgstr "Sysconfdir aplicaţie GNOME"
 
 #: libgnome/gnome-program.c:560
 msgid "Configuration prefix where this application was installed"
-msgstr "Prefixul fişierele de configurare ale acestei aplicaţii instalate"
+msgstr "Prefixul fişierelor de configurare ale acestei aplicaţii instalate"
 
 #: libgnome/gnome-program.c:569
 msgid "Create Directories"
@@ -397,7 +396,7 @@ msgstr "Dezactivează la apăsarea concomitentă a două taste."
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
-"Nu se acceptă apăsarea unei taste decât dacă este ţinută @delay milisecunde"
+"Nu se acceptă apăsarea unei taste decât dacă este ţinută „@delay” milisecunde"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
@@ -407,7 +406,7 @@ msgstr "În câte milisecunde se ajunge de la 0 la viteza maximă"
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
-"Milisecunde de aşteptare înainte ca tastele pentru mutarea indicatorului de "
+"Milisecunde de aşteptare înainte ca tastele pentru mutarea cursorului de "
 "mouse să fie operaţionale"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
@@ -416,9 +415,8 @@ msgstr "Număr de pixeli pe secundă la viteza maximă"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr ""
-"Ignoră apăsările multiple ale aceleiaşi taste într-un interval de @delay "
-"milisecunde"
+msgstr "Ignoră apăsările multiple ale aceleiaşi taste într-un interval de "
+"„@delay” milisecunde"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -501,7 +499,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
-msgstr "Parametrii „exec”"
+msgstr "Parametri „exec”"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
 msgid "Terminal application"
@@ -555,12 +553,12 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
-"Determină cum imaginea setată de nume_fişier_fundal este afişată. Valori "
+"Determină cum este afişată imaginea setată de „wallpaper_filename”. Valori "
 "posibile sunt „none”, „wallpaper”, „centered”, „scaled”, „stretched”."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
-msgstr "Schimbă fundalul desktopului"
+msgstr "Administrează fundalul desktopului"
 
 #: schemas/desktop_gnome_background.schemas.in.h:4
 msgid "File to use for the background image"
@@ -580,8 +578,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr ""
-"Culoarea unică sau culoarea din marginea stângă sau de sus când se "
+msgstr "Culoarea unică sau culoarea din marginea stângă sau de sus când se "
 "utilizează gradienţi."
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
@@ -606,9 +603,8 @@ msgstr "Culoare primară"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr ""
-"Culoarea din marginea dreaptă sau de jos când se utilizează gradienţi, "
-"nefolosită în cazul unei culori unice."
+msgstr "Culoarea din marginea dreaptă sau de jos când se utilizează gradienţi,"
+" nefolosită în cazul unei culori unice."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -652,11 +648,11 @@ msgstr "Activare animaţii"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
-msgstr "Stil preeditare GTK IM"
+msgstr "Stil GTK IM „preedit”"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Status Style"
-msgstr "Stil stare GTK IM"
+msgstr "Stil GTK IM „status”"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:10
 msgid "Gtk+ Theme"
@@ -711,11 +707,11 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr "Numele metodei de introducere utilizate de GTK+ în stilul pre-editare."
+msgstr "Numele metodei de introducere utilizate de GTK+ în stilul „preedit”."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "Numele metodei de introducere utilizate de GTK+ în stilul stare."
+msgstr "Numele metodei de introducere utilizate de GTK+ în stilul „status”."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Name of the default font used by gtk+."
@@ -756,7 +752,7 @@ msgstr "Utilizează un font personalizat"
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether Applications should have accessibility support"
 msgstr ""
-"Specifiă dacă aplicaţiile ar trebui să aibă suport pentru accesibilitate"
+"Specifică dacă aplicaţiile ar trebui să aibă suport pentru accesibilitate"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid ""
@@ -826,19 +822,17 @@ msgid ""
 msgstr ""
 "Previne accesarea terminalului sau lansarea în execuţie a unei comenzi de "
 "către utilizator. De exemplu, se interzice astfel accesul prin panou la "
-"itemul „Pornire manuală”."
+"itemul „Pornire aplicaţii”."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
-#, fuzzy
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
 "Previne schimbarea de către utilizator a setărilor de tipărire. De exemplu, "
-"se interzice astfel accesul opţiunile de tipărire ale tuturor aplicaţiilor."
+"se interzice astfel accesul la opţiunile de tipărire ale aplicaţiilor."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
-#, fuzzy
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -847,7 +841,6 @@ msgstr ""
 "la comenzile de tipărire ale aplicaţiilor."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
-#, fuzzy
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
@@ -865,14 +858,14 @@ msgstr "Fişier personalizat pentru clopoţelul tastaturii"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "valori posibile sunt „on”, „off”, şi „custom”."
+msgstr "valorile posibile sunt „on”, „off”, şi „custom”."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
-"Multiplicator accelerare pentru indicatorul de mouse. „-1” este valoarea "
+"Multiplicator accelerare la mutarea cursorului de mouse. „-1” este valoarea "
 "implicită a sistemului."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
@@ -897,7 +890,7 @@ msgstr ""
 "Numele temei pentru cursor. Folosit doar de serverele X care suport Xcursor, "
 "precum XFree86 4.3 sau mai recent. Această valoare este comunicată "
 "serverului X doar la pornirea sesiunii, deci pentru ca modificările să intre "
-"în acţiune va trebui să vă autenticaţi din nou."
+"în acţiune va trebui să vă autentificaţi din nou."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -913,7 +906,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
-msgstr "Timp click dublu"
+msgstr "Timp dublu-click"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
@@ -940,7 +933,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
-msgstr "Durata unui click dublu"
+msgstr "Durata unui dublu-click"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -1002,7 +995,7 @@ msgid ""
 "whether they are independently disabled/enabled."
 msgstr ""
 "Setaţi această valoare ca „true” pentru a dezactiva crearea miniaturilor în "
-"toate programele externe, independent de setările lor individuale."
+"toate programele grafice externe, independent de setările lor individuale."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
@@ -1036,6 +1029,3 @@ msgstr "Specifică dacă blocarea tastaturii este activată sau nu."
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Specifică dacă ecranul pauzei de tastare poate fi amânat sau nu."
 
-#~ msgid "Too many alias levels for a locale, may indicate a loop"
-#~ msgstr ""
-#~ "Prea multe niveluri alias pentru o setare „locale”, poate fi o buclă"
