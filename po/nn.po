@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 1.2.7\n"
-"POT-Creation-Date: 2001-08-22 05:19+0200\n"
+"POT-Creation-Date: 2001-09-26 08:36+0200\n"
 "PO-Revision-Date: 2001-08-22 05:19GMT\n"
 "Last-Translator: Roy-Magne Mo <rmo@sunnmore.net>\n"
 "Language-Team: nynorsk <nn@li.org>\n"
@@ -14,58 +14,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 0.9.5\n"
 
-#: libgnome/gnome-exec.c:406
+#: libgnome/gnome-exec.c:413
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Kan ikkje finne terminal, brukar xterm, sjølv om det er mogleg at det ikkje "
 "kjem til å virke"
 
-#: libgnome/gnome-url.c:131
-#, c-format
-msgid "Error parsing '%s' (empty result)"
-msgstr "Feil ved tolking av '%s' (tomt resultat)"
-
-#: libgnome/gnome-url.c:151
-#, c-format
-msgid "Mozilla not found as '%s'"
-msgstr "Mozilla ikkje funne som '%s'"
-
-#: libgnome/gnome-url.c:312 libgnome/gnome-url.c:316
-#, c-format
-msgid "Cannot open a pipe: %s"
+#: libgnome/gnome-url.c:155
+#, fuzzy, c-format
+msgid "Cannot parse: %s"
 msgstr "Kan ikkje opne røyret: %s"
 
-#: libgnome/gnome-url.c:326 libgnome/gnome-url.c:384
-#, c-format
-msgid "Cannot parse handler template: %s"
-msgstr "Kan ikkje tolke handterar mal: %s"
-
-#: libgnome/gnome-url.c:336 libgnome/gnome-url.c:340 libgnome/gnome-url.c:389
-#: libgnome/gnome-url.c:393
-#, c-format
-msgid "Cannot execute command '%s'!"
-msgstr "Kan ikkje utføre kommando '%s'!"
-
-#: libgnome/gnome-url.c:372
-#, c-format
-msgid "Command '%s' did not return an ID!"
-msgstr "Kommando '%s' returnerte ikkje ei gyldig ID!"
-
+#. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:92
-msgid "Bonobo activation Support"
-msgstr "Bonobo aktiverings støtte"
-
-#: libgnome/gnome-init.c:379
 msgid "Bonobo Support"
 msgstr "Bonobo støtte"
 
-#: libgnome/gnome-init.c:436 libgnome/gnome-init.c:450
+#: libgnome/gnome-init.c:143
+msgid "Bonobo activation Support"
+msgstr "Bonobo aktiverings støtte"
+
+#: libgnome/gnome-init.c:276 libgnome/gnome-init.c:290
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Kunne ikkje opprette per-brukar gnome konfigurasjons katalog '%s': %s\n"
 
-#: libgnome/gnome-init.c:459
+#: libgnome/gnome-init.c:299
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -74,15 +49,118 @@ msgstr ""
 "Klarte ikkje å sette modues 0700 på private per-brukar gnome "
 "konfigurasjonskatalogar '%s': %s\n"
 
-#: libgnome/gnome-init.c:466
+#: libgnome/gnome-init.c:306
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Klarte ikkje å opprette gnome aksellerator katalog '%s': %s\n"
 
-#: libgnome/test-libgnome.c:22
+#: libgnome/gnome-init.c:358
+msgid "Disable sound server usage"
+msgstr ""
+
+#: libgnome/gnome-init.c:361
+msgid "Enable sound server usage"
+msgstr ""
+
+#: libgnome/gnome-init.c:365 libgnome/gnome-init.c:367
+msgid "Host:port on which the sound server to use is running"
+msgstr ""
+
+#: libgnome/gnome-init.c:370
+msgid "HOSTNAME:PORT"
+msgstr ""
+
+#: libgnome/gnome-init.c:388
+msgid "GNOME Virtual Filesystem"
+msgstr ""
+
+#: libgnome/gnome-init.c:409
+msgid "GNOME Library"
+msgstr ""
+
+#: libgnome/test-libgnome.c:24
 msgid "Test option."
 msgstr "Test alternativ"
 
-#: libgnome/test-libgnome.c:167
+#: libgnome/test-libgnome.c:157
 msgid "The Application Name"
 msgstr "Applikasjonens navn"
+
+#: libgnome/gnome-gconf.c:165
+#, fuzzy
+msgid "GNOME GConf Support"
+msgstr "Bonobo støtte"
+
+#: libgnome/gnome-help.c:110 libgnome/gnome-help.c:159
+msgid "Internal error"
+msgstr ""
+
+#: libgnome/gnome-help.c:122 libgnome/gnome-help.c:179
+#, c-format
+msgid "Help document %s for %s not found"
+msgstr ""
+
+#: libgnome/gnome-i18n.c:85
+msgid "Too many alias levels for a locale, may indicate a loop"
+msgstr ""
+
+#: libgnome/gnome-program.c:476
+msgid "Human readable name"
+msgstr ""
+
+#: libgnome/gnome-program.c:477
+msgid "Human readable name of this application"
+msgstr ""
+
+#: libgnome/gnome-program.c:486
+msgid "GNOME path"
+msgstr ""
+
+#: libgnome/gnome-program.c:487
+msgid "Path in which to look for installed files"
+msgstr ""
+
+#: libgnome/gnome-program.c:502
+msgid "App version"
+msgstr ""
+
+#: libgnome/gnome-program.c:503
+msgid "Version of this application"
+msgstr ""
+
+#: libgnome/gnome-program.c:1251
+#, fuzzy
+msgid "Help options"
+msgstr "Test alternativ"
+
+#: libgnome/gnome-program.c:1256
+#, fuzzy
+msgid "Application options"
+msgstr "Applikasjonens navn"
+
+#: libgnome/gnome-program.c:1272
+msgid "Dynamic modules to load"
+msgstr ""
+
+#: libgnome/gnome-program.c:1273
+msgid "MODULE1,MODULE2,..."
+msgstr ""
+
+#: tests/test-storage.c:474
+msgid "Can not bonobo_init"
+msgstr ""
+
+#~ msgid "Error parsing '%s' (empty result)"
+#~ msgstr "Feil ved tolking av '%s' (tomt resultat)"
+
+#~ msgid "Mozilla not found as '%s'"
+#~ msgstr "Mozilla ikkje funne som '%s'"
+
+#~ msgid "Cannot parse handler template: %s"
+#~ msgstr "Kan ikkje tolke handterar mal: %s"
+
+#~ msgid "Cannot execute command '%s'!"
+#~ msgstr "Kan ikkje utføre kommando '%s'!"
+
+#~ msgid "Command '%s' did not return an ID!"
+#~ msgstr "Kommando '%s' returnerte ikkje ei gyldig ID!"
