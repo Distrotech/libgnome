@@ -149,7 +149,7 @@ gnome_url_show (const gchar *url, GError **error)
 		protocol = g_new (gchar, pos - url + 1);
 		strncpy (protocol, url, pos - url);
 		protocol[pos - url] = '\0';
-		g_strdown (protocol);
+		g_ascii_strdown (protocol, -1);
 
 		/* init our gconf stuff if necessary */
 		gnome_gconf_lazy_init ();
