@@ -103,10 +103,11 @@ typedef void (*GnomeModuleHook)(/*@in@*/ GnomeProgram *app, /*@in@*/ const Gnome
 
   struct poptOption *options;
 
-  GnomeModuleHook init_pass; /* This gets run before any other preinit
-				stuff to allow the module to register
-				other modules if it wants. The module cannot
-				depend on its required modules being initialized. */
+  GnomeModuleHook init_pass; /* This gets run before the preinit
+				function to allow the module to
+				register other modules as needed. The
+				module cannot assume its required
+				modules are initialized (they aren't). */
 };
 
 /* This function should be called before gnomelib_preinit() - it's an alternative
@@ -129,12 +130,15 @@ gboolean gnome_program_module_registered(/*@in@*/ GnomeProgram *app,
      'B' for "gboolean"
      'F' for all function pointers
      'P' for pointers (aka "miscellaneous hack-ins", inevitably)
+     'A' for string vector appendation - this adds one string onto a string vector.
 
   For libraries wishing to define their own
   LIBNAME_PARAM_... constants, the naming convention is
   "T:modulename/attributename" ("T" being the attribute's type character.)
+  A modulename of '!' is an attribute that's part of the basic framework.
 
-  modulename of '!' is an attribute that's part of the basic framework
+  Attribute type 'A' IS VALID FOR 'set' OPERATIONS ONLY! Libraries should provide
+  separate #define constants for append and set on string vectors.
 */
 #define GNOME_PARAM_POPT_TABLE "P:!/gnomelib_popt_table"
 #define GNOME_PARAM_POPT_FLAGS "I:!/gnomelib_popt_flags"

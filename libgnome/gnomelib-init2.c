@@ -201,6 +201,9 @@ gnome_program_attribute_set(GnomeProgram *app,
 			    const GnomeAttributeValue *value)
 {
   GnomeAttribute *new_value, *stored_value;
+  gboolean do_append;
+  GnomeAttributeType should_be;
+  char *faked_name;
 
   g_return_if_fail(app);
   g_return_if_fail(name);
@@ -211,45 +214,60 @@ gnome_program_attribute_set(GnomeProgram *app,
      without using gnome_program_get(), we're safe. */
 
   if(name[2] == '!')
-    gnome_program_framework_attrs_set(app, name, value);
-  else
     {
-      GnomeAttributeType should_be;
+      gnome_program_framework_attrs_set(app, name, value);
+      return;
+    }
 
-      switch(name[0])
-	{
-	case 'S':
-	  should_be = GNOME_ATTRIBUTE_STRING;
-	  break;
-	case 'V':
-	  should_be = GNOME_ATTRIBUTE_STRING_VECTOR;
-	  break;
-	case 'I':
-	  should_be = GNOME_ATTRIBUTE_INTEGER;
-	  break;
-	case 'D':
-	  should_be = GNOME_ATTRIBUTE_DOUBLE;
-	  break;
-	case 'B':
-	  should_be = GNOME_ATTRIBUTE_BOOLEAN;
-	  break;
-	case 'F': /* Note: To be ANSI-correct, we need a separate case for
-		     function pointers, since they're not guaranteed to be
-		     the same size as data pointers. For now, hack it */
-	case 'P':
-	  should_be = GNOME_ATTRIBUTE_POINTER;
-	  break;
-	default:
-	  should_be = 0;
-	  g_error("Application attribute name \"%s\" is invalid", name);
-	  break;
-	}
+  do_append = FALSE;
+  faked_name = (char *)name;
+  switch(name[0])
+    {
+    case 'A':
+      {
+	do_append = TRUE;
+	faked_name = g_alloca(strlen(name) + 1);
+	strcpy(faked_name, name);
+	faked_name[0] = 'V';
+      }
+    case 'S':
+      should_be = GNOME_ATTRIBUTE_STRING;
+      break;
+    case 'V':
+      should_be = GNOME_ATTRIBUTE_STRING_VECTOR;
+      break;
+    case 'I':
+      should_be = GNOME_ATTRIBUTE_INTEGER;
+      break;
+    case 'D':
+      should_be = GNOME_ATTRIBUTE_DOUBLE;
+      break;
+    case 'B':
+      should_be = GNOME_ATTRIBUTE_BOOLEAN;
+      break;
+    case 'F': /* Note: To be ANSI-correct, we need a separate case for
+		 function pointers, since they're not guaranteed to be
+		 the same size as data pointers. For now, hack it */
+    case 'P':
+      should_be = GNOME_ATTRIBUTE_POINTER;
+      break;
+    default:
+      should_be = 0;
+      g_error("Application attribute name \"%s\" is invalid", name);
+      break;
+    }
 
-      g_return_if_fail(should_be == value->type);
+  g_return_if_fail(should_be == value->type);
 
       /* free old value */
-      stored_value = g_hash_table_lookup(app->attributes, name);
-      if(stored_value)
+  stored_value = g_hash_table_lookup(app->attributes, faked_name);
+  if(stored_value)
+    {
+      if(do_append)
+	{
+	  g_return_if_fail(stored_value->value.type == GNOME_ATTRIBUTE_STRING_VECTOR);
+	}
+      else
 	{
 	  switch(stored_value->value.type) {
 	  case GNOME_ATTRIBUTE_STRING:
@@ -261,18 +279,36 @@ gnome_program_attribute_set(GnomeProgram *app,
 	  default:
 	    break;
 	  }
-	  new_value = stored_value;
-	}
-      else
-	{
-	  new_value = g_new0(GnomeAttribute, 1);
-	  new_value->name = g_strdup(name);
-
-	  g_hash_table_insert(app->attributes, (char *)new_value->name,
-			      new_value);
 	}
 
-      /* store new value */
+      new_value = stored_value;
+    }
+  else
+    {
+      new_value = g_new0(GnomeAttribute, 1);
+      new_value->name = g_strdup(faked_name);
+
+      if(do_append)
+	new_value->value.type = GNOME_ATTRIBUTE_STRING_VECTOR;
+
+      g_hash_table_insert(app->attributes, (char *)new_value->name,
+			  new_value);
+    }
+
+  /* store new value */
+
+  if(do_append)
+    {
+      int i;
+
+      for(i = 0; value->u.string_vector_value && value->u.string_vector_value[i]; i++) /* */;
+
+      new_value->value.u.string_vector_value = g_realloc(new_value->value.u.string_vector_value, sizeof(char *) * (i+2));
+      new_value->value.u.string_vector_value[i] = g_strdup(value->u.string_vector_value[i]);
+      new_value->value.u.string_vector_value[i+1] = NULL;
+    }
+  else
+    {
       new_value->value = *value;
       switch(value->type) {
       case GNOME_ATTRIBUTE_STRING:
@@ -331,6 +367,7 @@ gnome_program_attributes_setv(GnomeProgram *app, va_list args)
 	attr.value.type = GNOME_ATTRIBUTE_POINTER;
 	attr.value.u.pointer_value = va_arg(args, gpointer);
 	break;
+      case 'A':
       case 'S':
 	attr.value.type = GNOME_ATTRIBUTE_STRING;
 	attr.value.u.string_value = va_arg(args, char*);
@@ -382,6 +419,7 @@ gnome_program_attribute_get(GnomeProgram *app,
   g_return_val_if_fail(app, NULL);
   g_return_val_if_fail(name, NULL);
   g_return_val_if_fail(name[1] == ':', NULL);
+  g_return_val_if_fail(name[0] == 'A', NULL);
 
   /* Assumptions: We assume that app->state > APP_UNINIT - as long as
      it is impossible for other modules to get hold of a GnomeProgram
@@ -639,7 +677,7 @@ gnome_program_module_register(GnomeProgram *app,
 
   /* Check that it's not already registered. */
 
-  g_ptr_array_add(app->modules, module_info);
+  g_ptr_array_add(app->modules, (GnomeModuleInfo *)module_info);
 
   if(gnome_program_module_registered(app, module_info))
     return;
@@ -688,11 +726,13 @@ gnome_program_module_register(GnomeProgram *app,
  */
 gboolean
 gnome_program_module_registered(/*@in@*/ GnomeProgram *app,
-				const GnomeModuleInfo *module_info);
+				const GnomeModuleInfo *module_info)
 {
-  g_return_if_fail(app);
-  g_return_if_fail(module_info);
-  g_return_if_fail(app->state >= APP_CREATE_DONE);
+  int i;
+
+  g_return_val_if_fail(app, FALSE);
+  g_return_val_if_fail(module_info, FALSE);
+  g_return_val_if_fail(app->state >= APP_CREATE_DONE, FALSE);
 
   for(i = 0; i < app->modules->len; i++)
     {
@@ -776,6 +816,7 @@ gnome_program_preinitv(GnomeProgram *app,
 	  case 'P':
 	  case 'F':
 	  case 'S':
+	  case 'A':
 	  case 'V':
 	    {
 	      gpointer skipme;
@@ -829,6 +870,7 @@ gnome_program_preinitv(GnomeProgram *app,
 	    attrs[i].value.type = GNOME_ATTRIBUTE_POINTER;
 	    attrs[i].value.u.pointer_value = va_arg(build_args, gpointer);
 	    break;
+	  case 'A':
 	  case 'S':
 	    attrs[i].value.type = GNOME_ATTRIBUTE_STRING;
 	    attrs[i].value.u.string_value = va_arg(build_args, char*);
@@ -972,7 +1014,7 @@ gnome_program_preinita(GnomeProgram *app,
   GnomeModuleInfo *a_module;
   poptContext argctx;
   int popt_flags = 0;
-  int i;
+  int i, n;
 
   g_return_val_if_fail(app, NULL);
   if(app->state != APP_CREATE_DONE)
@@ -1014,6 +1056,20 @@ gnome_program_preinita(GnomeProgram *app,
       if (attrs[i].name[2] == '!') /* is a framework attr */
 	gnome_program_framework_attrs_set(app, attrs[i].name, &attrs[i].value);
     }
+
+  /* 1.(b) call the init_pass functions, including those of modules
+     that get registered from init_pass functions. */
+  for(i = 0, n = app->modules->len; i < app->modules->len; n = app->modules->len)
+    {
+      for (; i < n; i++)
+	{
+	  a_module = g_ptr_array_index(app->modules, i);
+	  
+	  if (a_module && a_module->init_pass)
+	    a_module->init_pass(app, a_module);
+	}
+    }
+
   g_ptr_array_add(app->modules, NULL); /* Make sure the array
 					  is NULL-terminated */
 
