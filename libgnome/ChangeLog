@@ -1,3 +1,10 @@
+2000-10-13  Gediminas Paulauskas  <menesis@delfi.lt>
+
+	* gnome-regex.*: added flags to cache object, so that regexs with
+	different flags are saved separately. This speeds up searching if 
+	flags differ. added gnome_regex_cache_new_with_size (int size) function
+	to create cache with custom number of entries.
+
 2000-09-28  Martin Baulig  <baulig@suse.de>
 
 	* gnome-history.[ch]: Moved to libcompat.
