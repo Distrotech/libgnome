@@ -962,6 +962,7 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
     return retval;
 }
 
+#ifdef NOT_YET_FINISHED
 /* Tenative function, do not take seriously */
 gboolean
 gnome_program_display_app_help (GnomeProgram    *program,
@@ -1081,6 +1082,7 @@ gnome_program_display_help (GnomeProgram    *program,
 		return TRUE;
 	}
 }
+#endif
 
 /******** modules *******/
 

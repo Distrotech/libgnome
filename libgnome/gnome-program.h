@@ -104,6 +104,7 @@ gnome_program_locate_file               (GnomeProgram    *program,
 					 gboolean         only_if_exists,
 					 GSList         **ret_locations);
 
+#ifdef NOT_YET_FINISHED
 /* The errors can come from gnome_url_show */
 /* Note these help functions are in no way final API, do not use!  They're here so
  * that we may admire their beauty! */
@@ -117,6 +118,7 @@ gnome_program_display_help		(GnomeProgram    *program,
 					 const gchar     *filename /* no extension */,
 					 const gchar     *section,
 					 GError         **error);
+#endif
 
 
 #define GNOME_PARAM_MODULE_INFO         "module-info"
