@@ -983,12 +983,6 @@ gnome_file_selector_new (const gchar *history_id,
     GnomeFileSelector *fselector;
 
     fselector = g_object_new (gnome_file_selector_get_type (),
-			      "use_default_entry_widget", TRUE,
-			      "use_default_selector_widget", TRUE,
-			      "use_default_browse_dialog", TRUE,
-			      "want_browse_button", TRUE,
-			      "want_clear_button", FALSE,
-			      "want_default_button", FALSE,
 			      "history_id", history_id,
 			      "dialog_title", dialog_title,
 			       NULL);
