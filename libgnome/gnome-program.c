@@ -1641,9 +1641,6 @@ gnome_program_postinit (GnomeProgram *program)
     /* Note! we cannot kill the program_modules array as that
      * may be needed later */
 
-    g_array_free (program->_priv->top_options_table, TRUE);
-    program->_priv->top_options_table = NULL;
-
     g_blow_chunks(); /* Try to compact memory usage a bit */
 
     program->_priv->state = APP_POSTINIT_DONE;

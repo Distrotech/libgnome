@@ -1,3 +1,10 @@
+2003-07-10  Kjartan Maraas  <kmaraas@gnome.org>
+	(Patch by Jeff Steadfast at Ximian com)
+	* libgnome/gnome-program.c (gnome_program_postinit): Don't free
+	the poptOptions table. The user is allowed to get the poptContext
+	property from us later, and if he/she then tries to parse
+	arguments... popt will end up making reads to free'd memory.
+
 2003-06-30  Anders Carlsson  <andersca@codefactory.se>
  
 	* libgnome/gnome-gconf.h: Add G_BEGIN_DECLS and G_END_DECLS.
