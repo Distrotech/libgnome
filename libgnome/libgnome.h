@@ -46,9 +46,13 @@ extern char *gnome_user_accels_dir;
 extern char *gnome_app_id, *gnome_app_version;
 extern char gnome_do_not_create_directories;
 
+BEGIN_GNOME_DECLS
+
 void gnomelib_init (const char *app_id, const char *app_version);
 
-#endif
+END_GNOME_DECLS
+
+#endif /* LIBGNOME_H */
 
 
 
