@@ -613,7 +613,7 @@ dump_profile (TProfile *p, int one_only)
 	
 
 	/* .ado: p->filename can be empty, it's better to jump over */
-	if (p->filename[0] != (char) 0) {
+	if (p->filename[0] != '\0') {
 
 		/*
 		 * this file was added to after it was cleaned so it doesn't
@@ -627,7 +627,7 @@ dump_profile (TProfile *p, int one_only)
 			unlink(p->filename);
 			/* this already must have been true */
 			/*p->section = 0;*/
-			p->filename [0] = 0;
+			p->filename [0] = '\0';
 			p->written_to = TRUE;
 			p->to_be_deleted = FALSE;
 			if(p==Current)
@@ -797,10 +797,8 @@ _gnome_config_drop_file (const char *path, gint priv)
 			Base = p->link;
 		
 		free_sections (p->section);
-		p->section = NULL;
-		p->filename[0] = '\0';
-		p->written_to = TRUE;
-		p->to_be_deleted = FALSE;
+		g_free(p->filename);
+		g_free(p);
 		release_path (pp);
 		return;
 	}
@@ -1229,8 +1227,10 @@ _gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
 			   def);
 
 	/* It isn't an error if the key is not found.  */
-	if (r == NULL)
+	if (r == NULL) {
+		release_path (pp);
 		return 0;
+	}
 
 	v = atoi (r);
 	release_path (pp);
@@ -1280,8 +1280,10 @@ _gnome_config_get_float_with_default (const char *path, gboolean *def, gint priv
 			   def);
 
 	/* It isn't an error if the key is not found.  */
-	if (r == NULL)
+	if (r == NULL) {
+		release_path (pp);
 		return 0;
+	}
 
 	v = strtod(r, NULL);
 	release_path (pp);
