@@ -1,6 +1,5 @@
 #include <config.h>
-#include <liboaf/liboaf.h>
-#include <bonobo.h>
+#include <libbonobo.h>
 
 #define TESTSIZE (1024*1)
 

@@ -1,5 +1,4 @@
 noinst_PROGRAMS =		\
-	test-any		\
 	test-moniker		\
 	test-properties-server	\
 	test-properties-client	\
@@ -26,8 +25,6 @@ test_properties_client_SOURCES =			\
 	test-properties-client.c
 
 test_storage_SOURCES = test-storage.c
-
-test_any_SOURCES = test-any.c
 
 test_moniker_SOURCES = test-moniker.c
 
