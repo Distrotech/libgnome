@@ -1,5 +1,12 @@
 2001-05-21  Martin Baulig  <baulig@suse.de>
 
+	* gnome-selector-factory.c: Create a BonoboItemHandler so that
+	you can create a new GnomeSelector entirely with monikers.
+
+	* gnome-selector-dialog.[ch]: New files.
+
+2001-05-21  Martin Baulig  <baulig@suse.de>
+
 	* gnome-selector.c (GNOME_TYPE_TRISTATE): New enum type.
 	(PROP_WANT_BROWSE_BUTTON): Use the new tristate enum.
 	(PROP_WANT_CLEAR_BUTTON, PROP_WANT_DEFAULT_BUTTON): Likewise.
