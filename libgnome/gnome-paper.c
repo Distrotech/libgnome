@@ -51,7 +51,7 @@ gchar*		systempapername		(void);
 const Unit*	unit_info		(gchar* unitname);
 */
 
-static Unit units[] = {
+static const Unit units[] = {
   { "Inch",       "in",	1. },
   { "Feet",       "ft",	12. },
   { "Point",      "pt",	1. / 72. },
@@ -73,7 +73,7 @@ paper_init (void)
   void	*config_iterator;
   gchar *name, *size;
   Paper	*paper;
-  Unit	*unit;
+  const Unit *unit;
   gchar *str;
 
   config_iterator = gnome_config_init_iterator("="GNOMESYSCONFDIR"/paper.config=/Paper/");
@@ -95,7 +95,7 @@ paper_init (void)
   }
 
   for (unit=units; unit->name; unit++) {
-    unit_list = g_list_prepend(unit_list, unit);
+    unit_list = g_list_prepend(unit_list, (gpointer) unit);
     unit_name_list = g_list_prepend(unit_name_list, unit->name);
   }
 }
@@ -131,7 +131,7 @@ gnome_paper_with_name (const gchar *papername)
   if (!paper_list)
     paper_init();
 
-  l = g_list_find_custom (paper_list, papername, (GCompareFunc)paper_name_compare);
+  l = g_list_find_custom (paper_list, (gpointer) papername, (GCompareFunc)paper_name_compare);
 
   return l ? l->data : NULL;
 }
@@ -202,7 +202,7 @@ gnome_unit_with_name(const gchar* unitname)
   if (!unit_list)
     paper_init();
 
-  l = g_list_find_custom (unit_list, unitname, (GCompareFunc)unit_name_compare);
+  l = g_list_find_custom (unit_list, (gpointer) unitname, (GCompareFunc)unit_name_compare);
 
   return l ? l->data : NULL;
 }

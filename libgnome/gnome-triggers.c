@@ -72,7 +72,7 @@ static int trigger_msg_sample_ids[] = {
   -1, /* generic */
 };
 
-static GnomeTriggerTypeFunction actiontypes[] =
+static const GnomeTriggerTypeFunction actiontypes[] =
 /* This list should have entries for all the trigger types in
    gnome-triggers.h */
 {

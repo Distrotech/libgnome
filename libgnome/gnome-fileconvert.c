@@ -83,7 +83,7 @@ gnome_file_convert_fd(gint fd, gchar *fromtype, gchar *totype)
 
 /* Probably could use gnome_config routines for this,
    as soon as miguel redoes it */
-GHashTable *
+static GHashTable *
 gfc_read_FileConverters(void)
 {
   gchar aline[512];
@@ -137,7 +137,7 @@ gfc_read_FileConverters(void)
 
 
 /* Used as callback from g_hash_table_foreach */
-void 
+static void 
 gfc_reset_path(gpointer key, FileType *node, gpointer userdata)
 {
   node->best_way_here = NULL;

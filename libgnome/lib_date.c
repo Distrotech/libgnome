@@ -62,27 +62,27 @@ void    annihilate(baseptr buffer);
 /*  MODULE RESOURCES:                                                        */
 /*****************************************************************************/
 
-N_int   month_length[2][13] =
+const N_int   month_length[2][13] =
     {
         { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 },
         { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
     };
 
-N_char  day_name[8][16] =
+const N_char  day_name[8][16] =
     {
         N_("Error"), N_("Monday"), N_("Tuesday"), N_("Wednesday"),
         N_("Thursday"), N_("Friday"), N_("Saturday"), N_("Sunday")
     };
 
-N_char  month_name[13][16] =
+const N_char  month_name[13][16] =
     {
         N_("Error"), N_("January"), N_("February"), N_("March"), N_("April"), N_("May"), N_("June"),
         N_("July"), N_("August"), N_("September"), N_("October"), N_("November"), N_("December")
     };
 
-blockdef(rsrc_date_001,16) = "<no date>"; /* exactly 9 chars long */
-blockdef(rsrc_date_002,32) = "<no date>"; /* short form */
-blockdef(rsrc_date_003,64) = "<no date>"; /* verbose form */
+const blockdef(rsrc_date_001,16) = "<no date>"; /* exactly 9 chars long */
+const blockdef(rsrc_date_002,32) = "<no date>"; /* short form */
+const blockdef(rsrc_date_003,64) = "<no date>"; /* verbose form */
 
 /*****************************************************************************/
 /*  MODULE IMPLEMENTATION:                                                   */
@@ -91,7 +91,7 @@ blockdef(rsrc_date_003,64) = "<no date>"; /* verbose form */
 #define     YEAR0       70              /* year of reference (epoch) */
 #define     CENT0       1900            /* century of reference (epoch) */
 
-static  N_int   days_in_months[2][14] =
+const static  N_int   days_in_months[2][14] =
     {
         { 0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365 },
         { 0, 0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366 }

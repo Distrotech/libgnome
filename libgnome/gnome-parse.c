@@ -39,7 +39,7 @@ static int args_count;
 /* Vector of all registered child argument structures.  */
 static struct argp_child *arguments;
 
-static struct argp_option our_options[] =
+static const struct argp_option our_options[] =
 {
 	{ N_("\nGeneric options"), -1, NULL, OPTION_DOC,   NULL, GROUP },
 	{ NULL, 0, NULL, 0, NULL, 0 }

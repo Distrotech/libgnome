@@ -83,9 +83,9 @@ extern N_char  month_name[13][16];
     };
 */
 
-extern blockdef(rsrc_date_001,16); /* = "<no date>"; exactly 9 chars long */
-extern blockdef(rsrc_date_002,32); /* = "<no date>"; short form */
-extern blockdef(rsrc_date_003,64); /* = "<no date>"; verbose form */
+extern const blockdef(rsrc_date_001,16); /* = "<no date>"; exactly 9 chars long */
+extern const blockdef(rsrc_date_002,32); /* = "<no date>"; short form */
+extern const blockdef(rsrc_date_003,64); /* = "<no date>"; verbose form */
 
 /*****************************************************************************/
 /*  MODULE IMPLEMENTATION:                                                   */

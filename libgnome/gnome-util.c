@@ -355,7 +355,7 @@ char  * g_flatten_vector (const char * separator,
 
 /* FIXME add more? Too many obscure ones will just slow things down.  */
 
-static const char * image_extensions[] = {
+static const char * const image_extensions[] = {
   "png",
   "xpm",
   "jpeg",
