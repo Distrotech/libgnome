@@ -1,3 +1,9 @@
+Mon Mar 20 21:10:53 2000  George Lebl <jirka@5z.com>
+
+	* gnome-ditem.c: if no "C" locale setting found for name, set it
+	  to the filename or "Unknown" when saving.  This prevents problem
+	  with created files.  Also eliminate a possible buffer overrun.
+
 Mon Mar 20 20:36:35 2000  George Lebl <jirka@5z.com>
 
 	* gnome-config.c: Apply patch from miguel made to gnome-libs-1-0,
