@@ -120,19 +120,22 @@ bonobo_activation_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_in
         if (!g_thread_supported ())
 		g_thread_init (NULL);
 
-	bonobo_activation_preinit (program, mod_info);
+	if (!bonobo_activation_is_initialized ())
+		bonobo_activation_preinit (program, mod_info);
 }
 
 static void
 bonobo_activation_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
-	int dumb_argc = 1;
-	char *dumb_argv[] = {NULL};
+	if (!bonobo_activation_is_initialized ()) {
+		int dumb_argc = 1;
+		char *dumb_argv[] = {NULL};
 
-	dumb_argv[0] = program_invocation_name;
-	(void) bonobo_activation_orb_init (&dumb_argc, dumb_argv);
-
-	bonobo_activation_postinit (program, mod_info);
+		dumb_argv[0] = program_invocation_name;
+		(void) bonobo_activation_orb_init (&dumb_argc, dumb_argv);
+		
+		bonobo_activation_postinit (program, mod_info);
+	}
 }
 
 /* No need to make this public, always pulled in */
