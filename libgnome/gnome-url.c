@@ -64,17 +64,28 @@ static gchar *gnome_url_default_handler() {
   return default_handler;
 }
 
-/* display a URL with the appropriate viewer.  The appropriate handler is
- * found by looking in the gnome-config database under the key
- * /Gnome/URL Handlers/<protocol>-show, falling back onthe default_handler
- * variable, which is initialised to the key /Gnome/URL Handlers/default, or
- * DEFAULT_HANDLER variable.  The string can have a %s in it, which is
- * expanded to the URL.
+/**
+ * gnome_url_show
+ * @url: URL to show
  *
- * A URL is defined as a string of the form <protocol>:<string>.  Where
- * <protocol> is a string made up of non colons.  If no colon is found,
- * the default handler is used.
- */
+ * Description:
+ * Loads the given URL in an appropriate viewer.  The viewer is deduced from
+ * the protocol part of the URL.  That is all that the caller should know
+ * about the function.
+ *
+ * Internally, the handler for a given URL is deduced by looking in the
+ * /Gnome/URL Handlers/<protocol>-show key in the user's configuration
+ * files.  The key is a string that will be passed to gnome_execute_shell(),
+ * after the %s is replaced with with the URL.  If that key can't be found,
+ * it falls back to /Gnome/URL Handlers/default-show, and if that isn't
+ * found, uses the contents of the DEFAULT_HANDLER macro in this file.
+ *
+ * If no /Gnome/URL Handlers keys are set, some sensible defaults are added
+ * to the user's configuration files.
+ *
+ * We really need a capplet so a user can configure the behaviour of this
+ * function.
+ **/
 void gnome_url_show(const gchar *url) {
   gint len;
   gchar *pos, *template, *cmd;
