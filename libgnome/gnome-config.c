@@ -309,8 +309,10 @@ load (const char *file)
 			if ((c == ' ' && state != KeyDefOnKey) || c == '\t')
 				break;
 	    
-			if (c == '\n' || overflow) /* Abort Definition */
+			if (c == '\n' || overflow) { /* Abort Definition */
 				next = CharBuffer;
+                                break;
+                        }
 	    
 			if (c == '=' || overflow){
 				TKeys *temp;
