@@ -902,6 +902,18 @@ do_construct_handler (GnomeSelector *selector)
 
     fselector = GNOME_FILE_SELECTOR (selector);
 
+    if (get_value_boolean (fselector, "want_default_behaviour")) {
+	g_object_set (G_OBJECT (fselector),
+		      "want_default_behaviour", FALSE,
+		      "use_default_entry_widget", TRUE,
+		      "use_default_selector_widget", TRUE,
+		      "use_default_browse_dialog", TRUE,
+		      "want_browse_button", TRUE,
+		      "want_clear_button", FALSE,
+		      "want_default_button", FALSE,
+		      NULL);
+    }
+
     /* Create the default browser dialog if requested. */
     if (get_value_boolean (fselector, "use_default_browse_dialog") &&
 	!has_value_widget (fselector, "browse_dialog")) {
@@ -975,6 +987,8 @@ gnome_file_selector_new (const gchar *history_id,
 			      "use_default_selector_widget", TRUE,
 			      "use_default_browse_dialog", TRUE,
 			      "want_browse_button", TRUE,
+			      "want_clear_button", FALSE,
+			      "want_default_button", FALSE,
 			      "history_id", history_id,
 			      "dialog_title", dialog_title,
 			       NULL);
