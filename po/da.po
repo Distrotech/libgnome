@@ -12,8 +12,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
-"PO-Revision-Date: 2003-05-19 20:51+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-06-18 18:51+0200\n"
+"PO-Revision-Date: 2003-06-18 18:52+0200\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
@@ -433,6 +434,16 @@ msgstr "Minimalt interval i millisekunder"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "Punkter pr. sekund"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr "List af assisterende teknologier som skal startes når der logges ind"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Apps"
+msgstr "Assisterende teknologier ved start"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -895,26 +906,70 @@ msgid "Whether to play sounds on user events."
 msgstr "Om der skal afspilles lyde ved brugerhændelser."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Hvordan 'ghelp:'-URL'er skal håndteres"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Hvordan 'info:'-URL'er skal håndteres"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Hvordan 'man:'-URL'er skal håndteres"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Hvordan 'trash:'-URL'er skal håndteres"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Kør program i terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Sæt til sand for at få et program angivet i programs/ghelp til at håndtere "
+"'ghelp:'-URL'er"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Sæt til sand for at få et program angivet i programs/info til at håndtere "
+"'info:'-URL'er"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Sæt til sand for at få et program angivet i programs/man til at håndtere "
+"'man:'-URL'er"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Sæt til sand for at få et program angivet i trash/command til at håndtere "
 "'trash:'-URL'er"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Sand hvis programmet til at håndtere denne URL skal køres i en terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "URL-håndtering for 'ghelp:'-sider"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "URL-håndtering for 'info:'-sider"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "URL-håndtering for 'man:'-sider"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "URL-håndtering for 'trash:'-sider"
 
@@ -923,15 +978,6 @@ msgstr "URL-håndtering for 'trash:'-sider"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Hvordan 'applications:'-URL'er skal håndteres"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Hvordan 'ghelp:'-URL'er skal håndteres"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Hvordan 'info:'-URL'er skal håndteres"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Hvordan 'man:'-URL'er skal håndteres"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Hvordan 'preferences:'-URL'er skal håndteres"
@@ -963,25 +1009,6 @@ msgstr "URL-håndtering for 'trash:'-sider"
 #~ "håndtere 'preferences:'-URL'er"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Sæt til sand for at få et program angivet i programs/ghelp til at "
-#~ "håndtere 'ghelp:'-URL'er"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Sæt til sand for at få et program angivet i programs/info til at håndtere "
-#~ "'info:'-URL'er"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Sæt til sand for at få et program angivet i programs/man til at håndtere "
-#~ "'man:'-URL'er"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -1011,15 +1038,6 @@ msgstr "URL-håndtering for 'trash:'-sider"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "URL-håndtering for 'applications:'-sider"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "URL-håndtering for 'ghelp:'-sider"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "URL-håndtering for 'info:'-sider"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "URL-håndtering for 'man:'-sider"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "URL-håndtering for 'preferences:'-sider"
