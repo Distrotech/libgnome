@@ -1,3 +1,10 @@
+1999-08-26  Federico Mena Quintero  <federico@redhat.com>
+
+	* gnome-mime.c (add_to_key): Bertrand Guiheneuf
+	<Bertrand.Guiheneuf@inria.fr> showed me how big a doofus I am.
+	Duplicate the key as well when we need to store a regex-based
+	definition.
+
 1999-08-23  Herbert Valerio Riedel  <hvr@hvrlab.dhs.org>
 
 	* gnome-mime-info.c: args to strcmp() casted to (char*)

@@ -96,7 +96,7 @@ add_to_key (char *mime_type, char *def)
 			g_free (mp);
 			return;
 		}
-		mp->mime_type = mime_type;
+		mp->mime_type = g_strdup (mime_type);
 
 		mime_regexs [priority] = g_list_prepend (mime_regexs [priority], mp);
 	}
