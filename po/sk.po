@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-07-04 10:50+0200\n"
-"PO-Revision-Date: 2003-06-30 23:48+0200\n"
+"POT-Creation-Date: 2003-07-15 22:18+0200\n"
+"PO-Revision-Date: 2003-07-15 22:23+0200\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -14,48 +14,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
-msgid "Error Messages"
-msgstr "Chybové správy"
+msgid "Error message"
+msgstr "Chybová správa"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
-msgid "GNOME system events"
-msgstr "Systémové udalosti GNOME"
+msgid "Informational message"
+msgstr "Informačná správa"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
-msgid "Informational Messages"
-msgstr "Informačné správy"
-
-#: gnome-data/gnome-2.soundlist.in.h:4
-msgid "Login"
+msgid "Log in"
 msgstr "Prihlásenie"
 
-#: gnome-data/gnome-2.soundlist.in.h:5
-msgid "Logout"
+#: gnome-data/gnome-2.soundlist.in.h:4
+msgid "Log out"
 msgstr "Odhlásenie"
 
-#: gnome-data/gnome-2.soundlist.in.h:6
-msgid "Miscellaneous Messages"
-msgstr "Rôzne správy"
+#: gnome-data/gnome-2.soundlist.in.h:5
+msgid "Miscellaneous message"
+msgstr "Rôzna správa"
 
-#: gnome-data/gnome-2.soundlist.in.h:7
-msgid "Question Dialogs"
+#: gnome-data/gnome-2.soundlist.in.h:6
+msgid "Question dialog"
 msgstr "Dialógové okno s otázkou"
 
+#: gnome-data/gnome-2.soundlist.in.h:7
+msgid "System events"
+msgstr "Systémové udalosti"
+
 #: gnome-data/gnome-2.soundlist.in.h:8
-msgid "Warning Messages"
-msgstr "Upozorňovacie správy"
+msgid "Warning message"
+msgstr "Upozorňovacia správa"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
-msgid "Action button click"
-msgstr "Kliknutie akčného tlačítka"
+msgid "Choose menu item"
+msgstr "Zvoľte položku menu"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
-msgid "Check box toggled"
-msgstr "Prepnuté zaškrtávacie políčko"
+msgid "Click on command button"
+msgstr "Kliknite na príkazové tlačidlo"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
-msgid "Menu item activation"
-msgstr "Aktivovanie položky menu"
+msgid "Select check box"
+msgstr "Označte zaškrtávacie pole"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -677,38 +677,49 @@ msgid "Menus Have Tearoff"
 msgstr "Menu majú odtrhovátko"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
+msgid "Monospace font"
+msgstr "Písmo s rovnakým odstupom"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:18
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr ""
+"Názov písma s rovnakým odstupom (s konštantnou šírkou) pre použitie na "
+"miestach ako terminál."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Názov Preeditovacieho štýlu vstupnej metódy GTK+ použitého gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Názov Stavového štýlu vstupnej metódy GTK+ použitého gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the default font used by gtk+."
 msgstr "Názov predvoleného písma používaného gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Status Bar on Right"
 msgstr "Stavová lišta vpravo"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Toto určuje veľkosť ikon zobrazených v lištách nástrojov"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Toolbar Detachable"
 msgstr "Odpojiteľná lišta nástrojov"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Icon Size"
 msgstr "Veľkosť ikon v lište nástrojov"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Style"
 msgstr "Štýl lišty nástrojov"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
@@ -716,15 +727,15 @@ msgstr ""
 "Štýl lišty nástrojov. Platné hodnoty sú: \"both\", \"both_horiz\", \"icon\" "
 "a \"text\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
 msgstr "Použiť používateľské písmo"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
 msgstr "Či aplikácie majú mať podporu pre postihnutých"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -732,38 +743,38 @@ msgstr ""
 "Či majú byť zobrazované animácie. Poznámka: Toto je globálne nastavenie a "
 "zmení správanie správcu okien, panelu atď."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Či sa v menu môžu zobrazovať ikony vedľa položiek menu"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether menus should have a tearoff"
 msgstr "Či by menu mali mať odtrhovátko"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the cursor should blink"
 msgstr "Či by mal kurzor blikať"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Či používateľ môže odpojiť lišty menu a pohybovať nimi"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Či používateľ može odpojiť lišty nástrojov a pohybovať nimi"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "Či môže používateľ dynamicky zadať nový akcelerátor keď je menu zobrazené"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
 msgstr "Či zobraziť merač stavového riadku vpravo"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Či použiť používateľské písmo v gtk+ aplikáciách."
 
@@ -1013,3 +1024,12 @@ msgstr "URL ovládač pre manuálové stránky"
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "URL ovládač pre stránky koša"
+
+#~ msgid "Action button click"
+#~ msgstr "Kliknutie akčného tlačítka"
+
+#~ msgid "Check box toggled"
+#~ msgstr "Prepnuté zaškrtávacie políčko"
+
+#~ msgid "Menu item activation"
+#~ msgstr "Aktivovanie položky menu"
