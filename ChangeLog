@@ -1,3 +1,8 @@
+2002-02-14  Mark McLoughlin  <mark@skynet.ie>
+
+	* libgnome/gnome-help.c: (gnome_help_display_with_doc_id):
+	don't free the path before using it in g_error_set.
+
 2002-02-11  Anders Carlsson  <andersca@gnu.org>
 
 	* configure.in: Release 1.111.0

@@ -169,12 +169,12 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
 	g_free (global_help_path);
 
 	if (! S_ISDIR (local_help_st.st_mode)) {
-		g_free (local_help_path);
 		g_set_error (error,
 			     GNOME_HELP_ERROR,
 			     GNOME_HELP_ERROR_INTERNAL,
 			     _("Unable to show help as file %s is not a directory.  This implies an incorrect installation."),
 			     local_help_path);
+		g_free (local_help_path);
 		return FALSE;
 	}
 
