@@ -31,6 +31,10 @@
 
 G_BEGIN_DECLS
 
+/* This is where the user specific files are stored under $HOME */
+#define DOT_GNOME		".gnome2/"
+#define DOT_GNOME_PRIVATE	".gnome2_private/"
+
 #define LIBGNOME_MODULE libgnome_module_info_get()
 const GnomeModuleInfo *libgnome_module_info_get (void) G_GNUC_CONST;
 #define GNOME_BONOBO_MODULE gnome_bonobo_module_info_get()

@@ -1,3 +1,11 @@
+2001-12-03  Malcolm Tredinnick <malcolm@commsecure.com.au>
+	* gnome-init.[ch], gnome-util.h, parse-path.cP: replace
+	  references to .gnome and .gnome_private with DOT_GNOME and
+	  DOT_GNOME_PRIVATE respectivly. Define these macros in
+	  gnome-init.h (to be .gnome2 and .gnome2_private for now) and
+	  include this in gnome-util.h, which was the only place that
+	  didn't have it.
+
 Fri Nov 30 16:59:01 2001  George Lebl <jirka@5z.com>
 
 	* gnome-init.c: g_object_set is a vararg function so null terminate

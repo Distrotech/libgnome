@@ -29,6 +29,7 @@
 
 #include <stdlib.h>
 #include <glib.h>
+#include <libgnome/gnome-init.h>
 #include <libgnome/gnome-program.h>
 
 G_BEGIN_DECLS
@@ -48,7 +49,7 @@ const char * g_extension_pointer (const char * path);
 /* very similar to above, but adds $HOME/.gnome/ to beginning
  * This is meant to be the most useful version.
  */
-#define gnome_util_home_file(afile) (g_strconcat(g_get_home_dir(), "/.gnome/", (afile), NULL))
+#define gnome_util_home_file(afile) (g_strconcat(g_get_home_dir(), "/", DOT_GNOME, (afile), NULL))
 
 /* Find the name of the user's shell.  */
 char *gnome_util_user_shell (void);

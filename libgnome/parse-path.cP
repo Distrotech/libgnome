@@ -85,9 +85,9 @@ parse_path (const char *path, gboolean priv)
 			p->file++;
 
 		if (priv){
-			p->file = g_strconcat (g_get_home_dir(), "/.gnome_private/", (p->file), NULL);
+			p->file = g_strconcat (g_get_home_dir(), "/", DOT_GNOME_PRIVATE, (p->file), NULL);
 		} else {
-			p->file = g_strconcat (g_get_home_dir(), "/.gnome/", (p->file), NULL);
+			p->file = g_strconcat (g_get_home_dir(), "/", DOT_GNOME, (p->file), NULL);
 		}
 	}
 	if (p->file    == GNOME_CONFIG_PARSE_ERROR ||
