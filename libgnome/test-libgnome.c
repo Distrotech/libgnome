@@ -140,6 +140,12 @@ test_bonobo (GnomeProgram *program)
 }
 
 static void
+test_exec (void)
+{
+    gnome_execute_terminal_shell ("/gnome/head/INSTALL", "lynx http://www.gnu.org/");
+}
+
+static void
 test_url (void)
 {
     gnome_url_show ("http://www.gnu.org/");
@@ -196,6 +202,8 @@ main (int argc, char **argv)
     test_properties (program);
 
     test_bonobo (program);
+
+    test_exec ();
 
     test_url ();
 
