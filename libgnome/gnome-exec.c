@@ -39,7 +39,7 @@
 #include <string.h>
 #include <signal.h>
 
-#include <libgnome/libgnome-init.h>
+#include <libgnome/gnome-init.h>
 #include <bonobo/bonobo-property-bag-client.h>
 #include <bonobo/bonobo-exception.h>
 

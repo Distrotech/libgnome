@@ -41,6 +41,6 @@
 
 #include <libgnome/Gnome.h>
 
-#include <libgnome/libgnome-init.h>
+#include <libgnome/gnome-init.h>
 
 #endif /* LIBGNOME_H */

@@ -19,7 +19,7 @@
 
 #include <config.h>
 #include <libgnome/gnome-preferences.h>
-#include <libgnome/libgnome-init.h>
+#include <libgnome/gnome-init.h>
 #include <bonobo/bonobo-property-bag-client.h>
 #include <string.h>
 

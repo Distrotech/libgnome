@@ -35,7 +35,7 @@
 #include <bonobo/bonobo-property-bag-client.h>
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>
-#include <libgnome/libgnome-init.h>
+#include <libgnome/gnome-init.h>
 #include <libgnome/gnome-i18n.h>
 #include "gnome-url.h"
 #include <popt.h>

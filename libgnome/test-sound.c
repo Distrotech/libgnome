@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#include <libgnome/libgnome-init.h>
+#include <libgnome/gnome-init.h>
 #include <libgnome/gnome-sound.h>
 #include <libgnome/gnome-triggers.h>
 

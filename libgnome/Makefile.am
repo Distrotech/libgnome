@@ -61,7 +61,7 @@ libgnome_src = \
 	gnome-util.c		\
 	gnome-preferences.c	\
 	gnome-marshal-main.c	\
-	libgnome-init.c
+	gnome-init.c
 
 $(gnome2_src) : $(CORBA_SOURCE)
 CLEANFILES += $(CORBA_SOURCE)
@@ -83,7 +83,7 @@ libgnome_headers = \
 	gnome-util.h   		\
 	gnome-preferences.h	\
 	gnome-marshal.h		\
-	libgnome-init.h
+	gnome-init.h
 
 libgnomeinclude_HEADERS = \
 	Gnome.h			\

@@ -35,7 +35,7 @@
 #include <string.h>
 #include <gmodule.h>
 #include <libgnome/gnome-program.h>
-#include <libgnome/libgnome-init.h>
+#include <libgnome/gnome-init.h>
 #include <libgnome/gnome-i18n.h>
 
 #include <gobject/gboxed.h>
