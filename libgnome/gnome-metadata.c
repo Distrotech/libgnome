@@ -448,10 +448,10 @@ struct app_ent
 
 /* This hash table is used to map regular expressions onto key/value
    lists.  */
-static GHashTable *app_rx_hash;
+static GHashTable *app_rx_hash = NULL;
 
 /* This hash table is used to map type names onto key/value lists.  */
-static GHashTable *app_type_hash;
+static GHashTable *app_type_hash = NULL;
 
 /* Add a new key/value pair to a hash table.  */
 static void
@@ -750,6 +750,9 @@ app_get_by_type (const char *type, const char *key, int *size, char **buffer)
 	GSList *list;
 
 	maybe_scan_app_dir ();
+
+	if(! app_type_hash)
+		return GNOME_METADATA_NOT_FOUND;
 
 	ent = (struct app_ent *) g_hash_table_lookup (app_type_hash, type);
 	if (! ent)

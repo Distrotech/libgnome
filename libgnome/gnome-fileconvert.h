@@ -1,6 +1,8 @@
 #ifndef __GNOME_FILECONVERT_H__
 #define __GNOME_FILECONVERT_H__ 1
 
+/* WARNING ____ IMMATURE API ____ liable to change */
+
 BEGIN_GNOME_DECLS
 
 /* Returns -1 if no conversion is possible */

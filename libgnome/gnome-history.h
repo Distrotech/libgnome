@@ -19,6 +19,8 @@
 #ifndef __GNOME_HISTORY_H__
 #define __GNOME_HISTORY_H__ 1
 
+/* WARNING ____ IMMATURE API ____ liable to change */
+
 BEGIN_GNOME_DECLS
 
 /* One of these structures is created for each file in the history.  */
