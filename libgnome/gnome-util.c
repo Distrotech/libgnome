@@ -89,6 +89,18 @@ gnome_datadir_file (const char *filename)
 }
 
 char *
+gnome_sound_file (const char *filename)
+{
+	return (gnome_dirrelative_file (GNOMEDATADIR "/sounds", "share/sounds", filename, FALSE));
+}
+
+char *
+gnome_unconditional_sound_file (const char *filename)
+{
+	return (gnome_dirrelative_file (GNOMEDATADIR "/sounds", "share/sounds", filename, TRUE));
+}
+
+char *
 gnome_pixmap_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMEDATADIR "/pixmaps", "share/pixmaps", filename, FALSE));

@@ -14,10 +14,12 @@ BEGIN_GNOME_DECLS
    even if the file doesn't exist. */
 
 char *gnome_libdir_file (const char *filename); 
-char *gnome_datadir_file (const char *filename); 
+char *gnome_datadir_file (const char *filename);
+char *gnome_sound_file (const char *filename); 
 char *gnome_pixmap_file (const char *filename); 
 char *gnome_unconditional_libdir_file (const char *filename); 
 char *gnome_unconditional_datadir_file (const char *filename); 
+char *gnome_unconditional_sound_file (const char *filename); 
 char *gnome_unconditional_pixmap_file (const char *filename); 
 
 /* TRUE if the file exists */
