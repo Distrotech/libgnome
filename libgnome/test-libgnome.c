@@ -152,7 +152,7 @@ main (int argc, char **argv)
 				  GNOME_PARAM_HUMAN_READABLE_NAME,
 				  _("The Application Name"),
 				  GNOME_PARAM_CONFIG_MONIKER,
-				  "gconf:/test/foo",
+				  "xmldb:~/work/foo.xml",
 				  NULL);
 
     g_value_init (&value, G_TYPE_STRING);
