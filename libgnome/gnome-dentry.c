@@ -312,6 +312,12 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	gnome_config_push_prefix (prefix);
 	g_free (prefix);
 
+	/* set these two in C locale just to ensure that they will exist */
+	if (dentry->name)
+		gnome_config_set_string ("Name", dentry->name);
+	if (dentry->comment)
+		gnome_config_set_string ("Comment", dentry->comment);
+
 	/*set the names and comments from our i18n list*/
 	i18n_list = gnome_desktop_entry_get_i18n_list(dentry);
 	for (li=i18n_list; li; li=li->next) {

@@ -1475,40 +1475,33 @@ _gnome_config_get_translated_string_with_default (const char *path,
 
 	while (!value && language_list) {
 		const char *lang= language_list->data;
+		gchar *tkey;
 
-		if (strcmp (lang, "C") == 0) {
-			value = _gnome_config_get_string_with_default (path, def, priv);
-			if (value)
-				return value;
-		} else {
-			gchar *tkey;
+		tkey = g_strconcat (path, "[", lang, "]", NULL);
+		value = _gnome_config_get_string_with_default (tkey, def, priv);
+		g_free (tkey);
 
-			tkey = g_strconcat (path, "[", lang, "]", NULL);
-			value = _gnome_config_get_string_with_default (tkey, def, priv);
-			g_free (tkey);
+		if (!value || *value == '\0') {
+			size_t n;
 
-			if (!value || *value == '\0') {
-				size_t n;
+			g_free (value);
+			value= NULL;
 
-				g_free (value);
-				value= NULL;
-
-				/* Sometimes the locale info looks
-				   like `pt_PT@verbose'.  In this case
-				   we want to try `pt' as a backup.  */
-				n = strcspn (lang, "@_");
-				if (lang[n]) {
-					char *copy = g_strndup (lang, n);
-					tkey = g_strconcat (path, "[",
-							    copy, "]",
-							    NULL);
-					value = _gnome_config_get_string_with_default (tkey, def, priv);
-					g_free (tkey);
-					g_free (copy);
-					if (! value || *value == '\0') {
-						g_free (value);
-						value = NULL;
-					}
+			/* Sometimes the locale info looks
+			   like `pt_PT@verbose'.  In this case
+			   we want to try `pt' as a backup.  */
+			n = strcspn (lang, "@_");
+			if (lang[n]) {
+				char *copy = g_strndup (lang, n);
+				tkey = g_strconcat (path, "[",
+						    copy, "]",
+						    NULL);
+				value = _gnome_config_get_string_with_default (tkey, def, priv);
+				g_free (tkey);
+				g_free (copy);
+				if (! value || *value == '\0') {
+					g_free (value);
+					value = NULL;
 				}
 			}
 		}

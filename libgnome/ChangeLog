@@ -1,3 +1,13 @@
+Mon Mar 20 19:40:50 2000  George Lebl <jirka@5z.com>
+
+	* gnome-config.c: we don't need to check the default for "C" locale
+	  if we check the default after the loop.  This is in fact more
+	  correct.
+
+	* gnome-dentry.c: when saving names and comments, save them to the
+	  default (no language) first just in case there was no setting,
+	  fixes first part of #7300
+
 Mon Mar 20 18:35:32 2000  George Lebl <jirka@5z.com>
 
 	* gnome-config.c: fix segfault when loading illegal files by
