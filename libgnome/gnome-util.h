@@ -51,8 +51,6 @@ BEGIN_GNOME_DECLS
 #define gnome_unconditional_config_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_CONFIG, (filename), FALSE, NULL)
 #define gnome_unconditional_help_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_CONFIG, (filename), FALSE, NULL)
 
-#define g_file_exists(filename) g_file_test(filename, G_FILE_TEST_EXISTS)
-
 /* locate a program in $PATH, or return NULL if not found */
 char *gnome_is_program_in_path (const gchar *program);
 

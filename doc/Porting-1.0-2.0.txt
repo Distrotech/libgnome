@@ -159,6 +159,7 @@ libgnome stuff:
   - g_copy_strings()
   - g_unix_error_string():  Removed since glib2 includes equivalents, and
     has for quite a while
+  - g_file_exists():  Use g_file_test(,G_FILE_TEST_EXISTS) instead.
 
   The following functions have been added:
 

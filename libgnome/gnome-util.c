@@ -103,7 +103,7 @@ gnome_util_user_shell (void)
 	} 
 
 	for (i = 0; shells [i]; i++) {
-		if (g_file_exists (shells [i])){
+		if (g_file_test (shells [i], G_FILE_TEST_EXISTS)) {
 			return g_strdup (shells[i]);
 		}
 	}
@@ -201,7 +201,7 @@ gnome_is_program_in_path (const gchar *program)
 	p = paths;
 	while (*p){
 		f = g_strconcat (*p,"/",program, NULL);
-		if (g_file_exists (f))
+		if (g_file_test (f, G_FILE_TEST_EXISTS))
 			return f;
 		g_free (f);
 		p++;
