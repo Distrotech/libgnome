@@ -1,0 +1,12 @@
+Wed Jan 27 15:54:46 EST 1999  Jeff Garzik  <jgarzik@pobox.com>
+
+	* gnome-config.c, gnome-exec.c, gnome-help.c, gnome-metadata.c:
+	Include autoconf incantation for defining alloca.
+	Surround config.h with #ifdef HAVE_CONFIG_H as necessary.
+
+	* gnome-exec.c, gnome-magic.c, gnomelib-init.c:
+	Add break statement to trailing default switch case.
+
+	* gnome-popt.c, gnome-triggers.c:
+	Remove unused alloca.h include.
+

@@ -23,10 +23,6 @@
 #include <sys/wait.h>
 #include <dirent.h>
 
-#ifdef HAVE_ALLOCA_H
-#include <alloca.h>
-#endif /*HAVE_ALLOCA_H*/
-
 /* TYPE DECLARATIONS */
 
 typedef void (*GnomeTriggerTypeFunction)(GnomeTrigger *t, char *msg, char *level, char *supinfo[]);

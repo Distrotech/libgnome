@@ -18,10 +18,6 @@
 #include "gnome-defs.h"
 #include "libgnomeP.h"
 
-#ifdef HAVE_ALLOCA_H
-#include <alloca.h>
-#endif
-
 static GArray *opt_tables = NULL;
 
 /**

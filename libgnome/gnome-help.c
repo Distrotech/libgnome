@@ -4,7 +4,22 @@
  *
  */
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#  include <config.h>
+#endif
+
+/* AIX requires this to be the first thing in the file.  */
+#ifndef __GNUC__
+# if HAVE_ALLOCA_H
+#  include <alloca.h>
+# else
+#  ifdef _AIX
+ #pragma alloca
+#  else
+#   ifndef alloca /* predefined by HP cc +Olibcalls */
+char *alloca ();
+#   endif
+#  endif
+# endif
 #endif
 
 #include <glib.h>
@@ -15,10 +30,6 @@
 #include <errno.h>
 #include <string.h>
 #include <sys/wait.h>
-
-#ifdef HAVE_ALLOCA_H
-#include <alloca.h>
-#endif
 
 #include "gnome-defs.h"
 #include "gnome-help.h"

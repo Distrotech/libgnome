@@ -105,6 +105,8 @@ gnomelib_option_cb(poptContext ctx, enum poptCallbackReason reason,
 #endif
 		break;
 	default:
+		/* do nothing */
+		break;
 	}
 }
 

@@ -257,6 +257,8 @@ gnome_magic_parse(const gchar *filename, gint *nents)
       bsize = 4;
       break;
     default:
+      /* do nothing */
+      break;
     }
 
     if(newent.type == T_STR)
