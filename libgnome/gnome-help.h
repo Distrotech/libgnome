@@ -17,6 +17,9 @@ gchar *gnome_help_file_path(gchar *app, gchar *path);
 
 void gnome_help_display(void *ignore, GnomeHelpMenuEntry *ref);
 
+void gnome_help_pbox_display (void *ignore, gint page_num,
+			      GnomeHelpMenuEntry *ref);
+
 void gnome_help_goto(void *ignore, gchar *file);
 
 END_GNOME_DECLS

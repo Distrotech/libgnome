@@ -108,7 +108,6 @@ gnome_help_file_path(gchar *app, gchar *path)
 	return res;
 }
 
-
 /**
  * gnome_help_display:
  * @ignore: value of this is ignored.  To simplify hooking into clicked
@@ -121,6 +120,10 @@ gnome_help_display (void *ignore, GnomeHelpMenuEntry *ref)
 {
 	gchar *file, *url;
 	
+	g_assert(ref != NULL);
+	g_assert(ref->path != NULL);
+	g_assert(ref->name != NULL);
+
 	file = gnome_help_file_path (ref->name, ref->path);
 	
 	if (!file)
@@ -131,6 +134,43 @@ gnome_help_display (void *ignore, GnomeHelpMenuEntry *ref)
 	strcat (url, file);
 	gnome_help_goto (ignore, url);
 	g_free (file);
+}
+
+/**
+ * gnome_help_pbox_display
+ * @ignore: ignored.
+ * @page_num: The number of the current notebook page in the
+ * properties box.
+ *
+ * Cause a help viewer to display the help entry defined in ref.  This
+ * function is meant to be connected to the "help" signal of a
+ * GnomePropertyBox.  If ref is { "my-app", "properties-blah" }, and
+ * the current page number is 3, then the help viewer will display
+ * my-app/lang/properties-blah-3.html, which can be symlinked to the
+ * appropriate file.
+ */
+void
+gnome_help_pbox_display (void *ignore, gint page_num, GnomeHelpMenuEntry *ref)
+{
+	gchar *file, *url, *path;
+
+	g_assert(ref != NULL);
+	g_assert(ref->path != NULL);
+	g_assert(ref->name != NULL);
+
+	path = g_strdup_printf("%s-%d.html", ref->path, page_num);
+	file = gnome_help_file_path (ref->name, path);
+	g_free (path);
+	
+	if (!file)
+		return;
+	
+	url = alloca (strlen (file)+10);
+	strcpy (url,"file:");
+	strcat (url, file);
+	g_free (file);
+
+	gnome_help_goto (ignore, url);
 }
 
 /**
