@@ -72,6 +72,10 @@ PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.7 gmodule-2.0 >= 1.3.7 gnome-vfs-2.0
 AC_SUBST(LIBGNOME_CFLAGS)
 AC_SUBST(LIBGNOME_LIBS)
 
+PKG_CHECK_MODULES(MONIKER, glib-2.0 >= 1.3.7 gmodule-2.0 >= 1.3.7 gnome-vfs-2.0 >= 1.1 libxml-2.0 >= 2.4.1 libbonobo-2.0 >= 1.100.0 bonobo-config-2.0 >= 0.1.3)
+AC_SUBST(MONIKER_CFLAGS)
+AC_SUBST(MONIKER_LIBS)
+
 GNOME_VFS_VERSION=`$PKG_CONFIG --modversion gnome-vfs-2.0`
 AC_SUBST(GNOME_VFS_VERSION)
 
@@ -91,6 +95,7 @@ idl/Makefile
 tests/Makefile
 libgnome/Makefile
 libgnome/libgnome-2.0.pc
+monikers/Makefile
 ])
 
 cat $srcdir/message-of-doom

@@ -6,6 +6,13 @@ August 28, 2001:
 
   - bug fixes (George).
 
+  - idl/Gnome.idl:
+
+      * removed GNOME::SelectionMode - this was only used internally, so it's better
+        not to have this in the core libraries.
+
+      * added GNOME::ExtraAttributes as alias for Bonobo::PropertySet.
+
 August 11, 2001:
 ===============
 
