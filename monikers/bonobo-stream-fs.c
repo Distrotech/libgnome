@@ -5,8 +5,11 @@
  * This is just a sample file-system based Stream implementation.
  * it is only used for debugging purposes
  *
- * Author:
+ * Authors:
  *   Miguel de Icaza (miguel@gnu.org)
+ *   Michael Meeks   (michael@ximian.com)
+ *
+ * Copyright 2001, Ximian, Inc
  */
 #include <config.h>
 #include <stdio.h>

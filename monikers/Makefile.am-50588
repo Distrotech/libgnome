@@ -39,9 +39,11 @@ CLEANFILES+=GNOME_Moniker_std.oaf GNOME_Moniker_std.oaf.in
 libmoniker_gnome_std_la_SOURCES = \
 	gnome-moniker-std.c		\
 	gnome-moniker-std.h		\
-	bonobo-moniker-extender-file.c	\
 	bonobo-stream-fs.h		\
 	bonobo-stream-fs.c		\
+	bonobo-storage-fs.h		\
+	bonobo-storage-fs.c		\
+	bonobo-moniker-extender-file.c	\
 	bonobo-moniker-file.c
 
 libmoniker_gnome_std_la_LIBADD = \

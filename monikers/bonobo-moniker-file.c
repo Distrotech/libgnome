@@ -16,6 +16,7 @@
 
 #include "gnome-moniker-std.h"
 #include "bonobo-stream-fs.h"
+#include "bonobo-storage-fs.h"
 
 Bonobo_Unknown
 bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
@@ -45,10 +46,13 @@ bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
 		return CORBA_Object_duplicate (BONOBO_OBJREF (stream), ev);
 
 	} else if (!strcmp (requested_interface, "IDL:Bonobo/Storage:1.0")) {
-		BonoboStorage *storage;
+		BonoboObject *storage;
 		
-		storage = bonobo_storage_open ("fs", fname,
-					       Bonobo_Storage_READ, 0664);
+		storage = BONOBO_OBJECT (bonobo_storage_fs_open (
+			fname, Bonobo_Storage_READ, 0664, ev));
+
+		if (BONOBO_EX (ev))
+			return CORBA_OBJECT_NIL;
 
 		if (!storage) {
 			g_warning ("Failed to open storage '%s'", fname);

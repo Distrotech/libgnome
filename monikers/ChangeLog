@@ -1,6 +1,13 @@
 2001-07-10  Michael Meeks  <michael@ximian.com>
 
 	* bonobo-moniker-file.c (bonobo_moniker_file_resolve):
+	upd. to use it.
+
+	* bonobo-storage-fs.c: port to BonoboObject / GObject.
+
+2001-07-10  Michael Meeks  <michael@ximian.com>
+
+	* bonobo-moniker-file.c (bonobo_moniker_file_resolve):
 	use bonobo-stream-fs directly, not via the storage plugin
 	architecture.
 

@@ -5,8 +5,11 @@
  * This is just a sample file-system based Storage implementation.
  * it is only used for debugging purposes
  *
- * Author:
+ * Authors:
  *   Miguel de Icaza (miguel@gnu.org)
+ *   Michael Meeks   (michael@ximian.com)
+ *
+ * Copyright 2001, Ximian, Inc
  */
 #include <config.h>
 #include <stdio.h>
@@ -15,27 +18,32 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include <errno.h>
-#include <storage-modules/bonobo-storage-fs.h>
-#include <storage-modules/bonobo-stream-fs.h>
-#include <bonobo/bonobo-storage-plugin.h>
 
-static BonoboStorageClass *bonobo_storage_fs_parent_class;
+#include <libgnome/gnome-util.h>
+#include <bonobo/bonobo-storage.h>
+
+#include "bonobo-stream-fs.h"
+#include "bonobo-storage-fs.h"
+
+static BonoboObjectClass *bonobo_storage_fs_parent_class;
 
 static void
-bonobo_storage_fs_destroy (GtkObject *object)
+bonobo_storage_fs_finalize (GObject *object)
 {
 	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (object);
 
 	g_free (storage_fs->path);
+	storage_fs->path = NULL;
 }
 
 static Bonobo_StorageInfo*
-fs_get_info (BonoboStorage *storage,
+fs_get_info (PortableServer_Servant storage,
 	     const CORBA_char *path,
 	     const Bonobo_StorageInfoFields mask,
 	     CORBA_Environment *ev)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (
+		bonobo_object (storage));
 	Bonobo_StorageInfo *si;
 	struct stat st;
 	char *full = NULL;
@@ -71,7 +79,8 @@ fs_get_info (BonoboStorage *storage,
 				CORBA_string_dup ("x-symlink/dangling");
 		else
 			si->content_type = 
-				CORBA_string_dup (gnome_mime_type_of_file (full));
+				CORBA_string_dup (
+					gnome_mime_type_of_file (full));
 	}
 
 	g_free (full);
@@ -99,55 +108,75 @@ fs_get_info (BonoboStorage *storage,
 }
 
 static void
-fs_set_info (BonoboStorage *storage,
-	     const CORBA_char *path,
-	     const Bonobo_StorageInfo *info,
+fs_set_info (PortableServer_Servant         storage,
+	     const CORBA_char              *path,
+	     const Bonobo_StorageInfo      *info,
 	     const Bonobo_StorageInfoFields mask,
-	     CORBA_Environment *ev)
+	     CORBA_Environment             *ev)
 {
 	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
 			     ex_Bonobo_Storage_NotSupported, 
 			     NULL);
 }
 
-static BonoboStream *
-fs_open_stream (BonoboStorage *storage, 
-		const CORBA_char *path, 
+static Bonobo_Stream
+fs_open_stream (PortableServer_Servant  storage, 
+		const CORBA_char       *path, 
 		Bonobo_Storage_OpenMode mode, 
-		CORBA_Environment *ev)
+		CORBA_Environment      *ev)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
-	BonoboStream *stream;
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (
+		bonobo_object (storage));
+	BonoboObject *stream;
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = bonobo_stream_fs_open (full, mode, 0644, ev);
+	stream = BONOBO_OBJECT (
+		bonobo_stream_fs_open (full, mode, 0644, ev));
 	g_free (full);
 
-	return stream;
+	return BONOBO_OBJREF (stream);
 }
 
-static BonoboStorage *
-fs_open_storage (BonoboStorage *storage, const CORBA_char *path, 
-		 Bonobo_Storage_OpenMode mode, CORBA_Environment *ev)
+static Bonobo_Storage
+fs_open_storage (PortableServer_Servant  storage,
+		 const CORBA_char       *path, 
+		 Bonobo_Storage_OpenMode mode,
+		 CORBA_Environment      *ev)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
-	BonoboStorage *new_storage;
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (
+		bonobo_object (storage));
+	BonoboObject *new_storage;
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	new_storage = bonobo_storage_fs_open (full, mode, 0644, ev);
+	new_storage = BONOBO_OBJECT (
+		bonobo_storage_fs_open (full, mode, 0644, ev));
 	g_free (full);
 
-	return new_storage;
+	return BONOBO_OBJREF (new_storage);
 }
-
 
 static void
-fs_rename (BonoboStorage *storage, const CORBA_char *path, 
-	   const CORBA_char *new_path, CORBA_Environment *ev)
+fs_copy_to (PortableServer_Servant storage,
+	    Bonobo_Storage         dest,
+	    CORBA_Environment     *ev)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (
+		bonobo_object (storage));
+
+	bonobo_storage_copy_to (
+		BONOBO_OBJREF (storage_fs), dest, ev);
+}
+
+static void
+fs_rename (PortableServer_Servant storage,
+	   const CORBA_char      *path, 
+	   const CORBA_char      *new_path,
+	   CORBA_Environment     *ev)
+{
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (
+		bonobo_object (storage));
 	char *full_old, *full_new;
 
 	full_old = g_concat_dir_and_file (storage_fs->path, path);
@@ -178,24 +207,29 @@ fs_rename (BonoboStorage *storage, const CORBA_char *path,
 }
 
 static void
-fs_commit (BonoboStorage *storage, CORBA_Environment *ev)
+fs_commit (PortableServer_Servant storage,
+	   CORBA_Environment     *ev)
 {
 	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
 			     ex_Bonobo_Stream_NotSupported, NULL);
 }
 
 static void
-fs_revert (BonoboStorage *storage, CORBA_Environment *ev)
+fs_revert (PortableServer_Servant storage,
+	   CORBA_Environment     *ev)
 {
 	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
 			     ex_Bonobo_Stream_NotSupported, NULL);
 }
 
 static Bonobo_Storage_DirectoryList *
-fs_list_contents (BonoboStorage *storage, const CORBA_char *path, 
-		  Bonobo_StorageInfoFields mask, CORBA_Environment *ev)
+fs_list_contents (PortableServer_Servant   storage,
+		  const CORBA_char        *path, 
+		  Bonobo_StorageInfoFields mask,
+		  CORBA_Environment       *ev)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (
+		bonobo_object (storage));
 	Bonobo_Storage_DirectoryList *list = NULL;
 	Bonobo_StorageInfo *buf;
 	struct dirent *de;
@@ -280,7 +314,8 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 		} else { 
 			buf [i].type = Bonobo_STORAGE_TYPE_REGULAR;
 			buf [i].content_type = 
-				CORBA_string_dup (gnome_mime_type_of_file (full));
+				CORBA_string_dup (
+					gnome_mime_type_of_file (full));
 		}
 
 		g_free (full);
@@ -321,11 +356,12 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 }
 
 static void
-fs_erase (BonoboStorage *storage,
-	  const CORBA_char *path,
-	  CORBA_Environment *ev)
+fs_erase (PortableServer_Servant storage,
+	  const CORBA_char      *path,
+	  CORBA_Environment     *ev)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (
+		bonobo_object (storage));
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
@@ -353,52 +389,39 @@ fs_erase (BonoboStorage *storage,
 }
 
 static void
-bonobo_storage_fs_class_init (BonoboStorageFSClass *class)
+bonobo_storage_fs_class_init (BonoboStorageFSClass *klass)
 {
-	GtkObjectClass *object_class = (GtkObjectClass *) class;
-	BonoboStorageClass *sclass = BONOBO_STORAGE_CLASS (class);
+	GObjectClass *object_class = (GObjectClass *) klass;
+
+	POA_Bonobo_Storage__epv *epv = &klass->epv;
 	
 	bonobo_storage_fs_parent_class = 
-		gtk_type_class (bonobo_storage_get_type ());
+		g_type_class_peek_parent (klass);
 
-	sclass->get_info       = fs_get_info;
-	sclass->set_info       = fs_set_info;
-	sclass->open_stream    = fs_open_stream;
-	sclass->open_storage   = fs_open_storage;
-	sclass->copy_to        = NULL; /* use the generic method */
-	sclass->rename         = fs_rename;
-	sclass->commit         = fs_commit;
-	sclass->revert         = fs_revert;
-	sclass->list_contents  = fs_list_contents;
-	sclass->erase          = fs_erase;
+	epv->getInfo       = fs_get_info;
+	epv->setInfo       = fs_set_info;
+	epv->openStream    = fs_open_stream;
+	epv->openStorage   = fs_open_storage;
+	epv->copyTo        = fs_copy_to;
+	epv->rename        = fs_rename;
+	epv->commit        = fs_commit;
+	epv->revert        = fs_revert;
+	epv->listContents  = fs_list_contents;
+	epv->erase         = fs_erase;
 	
-	object_class->destroy = bonobo_storage_fs_destroy;
+	object_class->finalize = bonobo_storage_fs_finalize;
 }
 
 
 static void 
-bonobo_storage_fs_init (GtkObject *object)
+bonobo_storage_fs_init (GObject *object)
 {
 	/* nothing to do */
 }
 
-BONOBO_X_TYPE_FUNC (BonoboStorageFS, 
-		      bonobo_storage_get_type (),
-		      bonobo_storage_fs);
-
-/*
- * Creates the Gtk object and the corba server bound to it
- */
-static BonoboStorage *
-do_bonobo_storage_fs_create (const char *path)
-{
-	BonoboStorageFS *storage_fs;
-
-	storage_fs = gtk_type_new (bonobo_storage_fs_get_type ());
-	storage_fs->path = g_strdup (path);
-
-	return BONOBO_STORAGE (storage_fs);
-}
+BONOBO_TYPE_FUNC (BonoboStorageFS,
+		  bonobo_object_get_type (),
+		  bonobo_storage_fs);
 
 /** 
  * bonobo_storage_fs_open:
@@ -408,10 +431,11 @@ do_bonobo_storage_fs_create (const char *path)
  *
  * Returns a BonoboStorage object that represents the storage at @path
  */
-BonoboStorage *
-bonobo_storage_fs_open (const char *path, gint flags, gint mode,
-			CORBA_Environment *ev)
+BonoboStorageFS *
+bonobo_storage_fs_open (const char *path, gint flags,
+			gint mode, CORBA_Environment *ev)
 {
+	BonoboStorageFS *storage_fs;
 	struct stat st;
 	
 	g_return_val_if_fail (path != NULL, NULL);
@@ -452,21 +476,8 @@ bonobo_storage_fs_open (const char *path, gint flags, gint mode,
 		return NULL;
 	}
 
-	return do_bonobo_storage_fs_create (path);
+	storage_fs = g_object_new (bonobo_storage_fs_get_type (), NULL);
+	storage_fs->path = g_strdup (path);
+
+	return storage_fs;
 }
-
-gint 
-init_storage_plugin (StoragePlugin *plugin)
-{
-	g_return_val_if_fail (plugin != NULL, -1);
-
-	plugin->name = "fs";
-	plugin->description = "Native Filesystem Driver";
-	plugin->version = BONOBO_STORAGE_VERSION;
-	
-	plugin->storage_open = bonobo_storage_fs_open; 
-	plugin->stream_open = bonobo_stream_fs_open; 
-
-	return 0;
-}
-
