@@ -1,6 +1,6 @@
 INCLUDES =						\
 	-I$(top_srcdir)					\
-	$(LIBGNOME_CFLAGS)				
+	$(HELP_VFS_MODULE_CFLAGS)				
 
 modules_LTLIBRARIES=libvfs-help.la
 
@@ -11,6 +11,7 @@ libvfs_help_la_SOURCES = 				\
 	help-method.c		help-method.h		
 
 libvfs_help_la_LDFLAGS = $(module_flags)
+libvfs_help_la_LIBADD = $(HELP_VFS_MODULE_LIBS)
 
 modulesconfdir=$(sysconfdir)/gnome-vfs-2.0/modules
 modulesconf_DATA = help-methods.conf
