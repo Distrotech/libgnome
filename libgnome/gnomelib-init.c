@@ -22,6 +22,7 @@
 
 char *gnome_user_home_dir = 0;
 char *gnome_user_dir = 0;
+char *gnome_user_accels_dir = 0;
 char *gnome_user_private_dir = 0;
 char *gnome_app_id = 0, *gnome_app_version = 0;
 char gnome_do_not_create_directories = 0;
@@ -51,6 +52,12 @@ create_user_gnome_directories (void)
 	   && errno != EEXIST)
 		g_error("Could not create private per-user Gnome directory <%s> - aborting\n",
 			gnome_user_private_dir);
+	if(
+	   mkdir(gnome_user_accels_dir, 0700) /* This is per-user info
+					   - no need for others to see it */
+	   && errno != EEXIST)
+	  g_error("Could not create per-user Gnome directory <%s> - aborting\n",
+		  gnome_user_accels_dir);
 
 	/* change mode to 0700 on the private directory */
 	if (chmod (gnome_user_private_dir, 0700) != 0)
@@ -157,6 +164,7 @@ gnomelib_init (const char *app_id,
 	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome");
 	gnome_user_private_dir = g_concat_dir_and_file (gnome_user_home_dir,
 							".gnome_private");
+	gnome_user_accels_dir = g_concat_dir_and_file (gnome_user_dir, "accels");
 	create_user_gnome_directories ();
 
 	gnomelib_register_options();

@@ -1,3 +1,12 @@
+Tue Mar 16 22:39:04 1999  Tim Janik  <timj@gtk.org>
+
+	* libgnome.h: 
+	* gnomelib-init.c:
+	(gnomelib_init): 
+	(create_user_gnome_directories):
+	setup and mkdir gnome_user_accels_dir as ~/.gnome/accels, this is used
+	for applications to save their accelerators.
+
 1999-03-12  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnome-mime-info.c (context_destroy_and_unlink): Splited from

@@ -41,6 +41,7 @@
 extern char *gnome_user_home_dir;
 extern char *gnome_user_dir;
 extern char *gnome_user_private_dir;
+extern char *gnome_user_accels_dir;
 extern char *gnome_app_id, *gnome_app_version;
 extern char gnome_do_not_create_directories;
 
