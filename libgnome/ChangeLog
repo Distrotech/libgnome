@@ -1,3 +1,9 @@
+1999-04-13  Miguel de Icaza  <miguel@nuclecu.unam.mx>
+
+	* gnome-mime.c (mime_load): Fix memory leak, thanks again for
+	Morten for his careful reading of the source code.   This was a
+	side effect of the gnome.mime and user.mime additions. 
+
 1999-04-12  Jonathan Blandford  <jrb@redhat.com>
 
 	* gnome-util.c (g_file_exists): sanity check to make sure filename

@@ -199,8 +199,6 @@ mime_load (mime_dir_source_t *source)
 		if (strcmp (dent->d_name + len - extlen, ".mime"))
 			continue;
 		
-		filename = g_concat_dir_and_file (source->dirname, dent->d_name);
-
 		if (source->system_dir && !strcmp (dent->d_name, "gnome.mime"))
 			continue;
 		if (!source->system_dir && !strcmp (dent->d_name, "user.mime"))
