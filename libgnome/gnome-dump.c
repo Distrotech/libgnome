@@ -19,7 +19,11 @@
 
 #include <config.h>
 
-#include <db.h>
+#ifdef HAVE_DB_185_H
+# include <db_185.h>
+#else
+# include <db.h>
+#endif
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>

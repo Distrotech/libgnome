@@ -25,7 +25,12 @@
 #include <fcntl.h>
 #include <limits.h>
 #include <string.h>
-#include <db.h>
+
+#ifdef HAVE_DB_185_H
+# include <db_185.h>
+#else
+# include <db.h>
+#endif
 
 #include "libgnomeP.h"
 
