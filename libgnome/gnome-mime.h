@@ -29,6 +29,10 @@ gchar*        gnome_mime_composetyped  (gchar* mime_type);
 gint          gnome_mime_copiousoutput (gchar* mime_type);
 gint          gnome_mime_needsterminal (gchar* mime_type);
 
+GList*        gnome_uri_list_extract_filenames (gchar* uri_list);
+GList*        gnome_uri_list_extract_uris      (gchar* uri_list);
+void          gnome_uri_list_free_strings      (GList *list);
+
 END_GNOME_DECLS
 
 #endif

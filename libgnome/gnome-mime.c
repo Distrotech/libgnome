@@ -260,6 +260,88 @@ gnome_mime_needsterminal (gchar * mime_type)
 	return 0;
 }
 
+/* The following functions process MIME data of the
+ * standard MIME type text/uri-list.
+ */
+GList*        
+gnome_uri_list_extract_uris (gchar* uri_list)
+{
+	char *p, *q;
+	char *retval;
+	GList *result = NULL;
+	
+	g_return_val_if_fail (uri_list != NULL, NULL);
+
+	p = uri_list;
+	
+	/* We don't actually try to validate the URI according to RFC
+	 * 2396, or even check for allowed characters - we just ignore
+	 * comments and trim whitespace off the ends.  We also
+	 * allow LF delimination as well as the specified CRLF.
+	 */
+	while (p) {
+		if (*p != '#') {
+			while (isspace(*p))
+				p++;
+			
+			q = p;
+			while (*q && (*q != '\n') && (*q != '\r'))
+				q++;
+		  
+			if (q > p) {
+			        q--;
+				while (q > p && isspace(*q))
+					q--;
+				
+				retval = g_malloc (q - p + 2);
+				strncpy (retval, p, q - p + 1);
+				retval[q - p + 1] = '\0';
+				
+				result = g_list_prepend (result, retval);
+			}
+		}
+		p = strchr (p, '\n');
+		if (p)
+			p++;
+	}
+	
+	return g_list_reverse (result);
+}
+
+GList*        
+gnome_uri_list_extract_filenames (gchar* uri_list)
+{
+	GList *tmp_list, *node, *result;
+	
+	g_return_val_if_fail (uri_list != NULL, NULL);
+	
+	result = gnome_uri_list_extract_uris (uri_list);
+
+	tmp_list = result;
+	while (tmp_list) {
+		gchar *s = tmp_list->data;
+		
+		node = tmp_list;
+		tmp_list = tmp_list->next;
+
+		if (!strncmp (s, "file:", 5)) {
+			node->data = g_strdup (s+5);
+		} else {
+			result = g_list_remove_link(result, node);
+			g_list_free_1 (node);
+		}
+		g_free (s);
+	}
+	return result;
+}
+
+void          
+gnome_uri_list_free_strings      (GList *list)
+{
+	g_list_foreach (list, (GFunc)g_free, NULL);
+	g_list_free (list);
+}
+
 #ifdef MIMETEST
 
 int main (int argc, char *argv[])

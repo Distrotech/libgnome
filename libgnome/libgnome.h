@@ -29,6 +29,7 @@
 #include "libgnome/gnome-hook.h"
 #include "libgnome/gnome-i18n.h"
 #include "libgnome/gnome-metadata.h"
+#include "libgnome/gnome-mime.h"
 #include "libgnome/gnome-parse.h"
 #include "libgnome/gnome-remote.h"
 #include "libgnome/gnome-score.h"
