@@ -33,13 +33,22 @@
 /* Define the boilerplate type stuff to reduce typos and code size.  Defines
  * the get_type method and the parent_class static variable. */
 #define GNOME_CLASS_BOILERPLATE(type, type_as_function,			\
-				parent_type, parent_type_as_function,	\
-				parent_type_macro)			\
+				parent_type, parent_type_macro)		\
+	GNOME_BOILERPLATE(type, type_as_function, type,			\
+			  parent_type, parent_type_macro,		\
+			  GNOME_REGISTER_TYPE)
+#define GNOME_REGISTER_TYPE(type, type_as_function, corba_type,		\
+			    parent_type, parent_type_macro)		\
+	g_type_register_static (parent_type_macro, #type, &object_info, 0)
+#define GNOME_BOILERPLATE(type, type_as_function, corba_type,		\
+			  parent_type, parent_type_macro,		\
+			  register_type_macro)				\
 static void type_as_function ## _class_init    (type ## Class *klass);	\
 static void type_as_function ## _instance_init (type          *object);	\
 static parent_type ## Class *parent_class = NULL;			\
 static void								\
-_ ## type_as_function ## _class_init (type ## Class *klass)		\
+type_as_function ## _class_init_trampoline (gpointer klass,		\
+					    gpointer data)		\
 {									\
 	parent_class = g_type_class_ref (parent_type_macro);		\
 	type_as_function ## _class_init (klass);			\
@@ -51,17 +60,18 @@ type_as_function ## _get_type (void)					\
 	if (object_type == 0) {						\
 		static const GTypeInfo object_info = {			\
 		    sizeof (type ## Class),				\
-		    (GBaseInitFunc)         NULL,			\
-		    (GBaseFinalizeFunc)     NULL,			\
-		    (GClassInitFunc)        _ ## type_as_function ## _class_init, \
-		    NULL,                   /* class_finalize */	\
-		    NULL,                   /* class_data */		\
+		    NULL,		/* base_init */			\
+		    NULL,		/* base_finalize */		\
+		    type_as_function ## _class_init_trampoline,		\
+		    NULL,		/* class_finalize */		\
+		    NULL,               /* class_data */		\
 		    sizeof (type),					\
-		    0,                      /* n_preallocs */		\
-		    (GInstanceInitFunc)     type_as_function ## _instance_init \
+		    0,                  /* n_preallocs */		\
+		    (GInstanceInitFunc) type_as_function ## _instance_init \
 		};							\
-		object_type = g_type_register_static			\
-		    (parent_type_macro, #type, &object_info, 0);	\
+		object_type = register_type_macro			\
+			(type, type_as_function, corba_type,		\
+			 parent_type, parent_type_macro);		\
 	}								\
 	return object_type;						\
 }

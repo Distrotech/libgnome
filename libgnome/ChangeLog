@@ -1,3 +1,12 @@
+2001-11-12  Darin Adler  <darin@bentspoon.com>
+
+	* gnome-macros.h: Took out unused parameter of the
+	GNOME_CLASS_BOILERPLATE macro. Broke macro into pieces so it can
+	be reused by bonobo.
+	
+	* gnome-program.c: Pass one less argument to
+	GNOME_CLASS_BOILERPLATE.
+
 Tue Nov 06 23:56:12 2001  George Lebl <jirka@5z.com>
 
 	* gnome-macros.h: chain the class_init func so that we get

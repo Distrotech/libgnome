@@ -118,8 +118,6 @@ enum {
     PROP_LAST
 };
 
-static void gnome_program_class_init    (GnomeProgramClass *klass);
-static void gnome_program_instance_init (GnomeProgram      *program);
 static void gnome_program_finalize      (GObject           *object);
 
 static GQuark quark_get_prop = 0;
@@ -136,7 +134,7 @@ static guint last_property_id = PROP_LAST;
 #define	PREALLOC_MODINFOS (8)
 
 GNOME_CLASS_BOILERPLATE (GnomeProgram, gnome_program,
-			 GObject, g_object, G_TYPE_OBJECT)
+			 GObject, G_TYPE_OBJECT)
 
 static void
 gnome_program_set_property (GObject *object, guint param_id,
