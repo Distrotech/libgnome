@@ -870,31 +870,39 @@ _gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
 
 char *
 _gnome_config_get_translated_string_with_default (const char *path,
-						 gboolean *def,
-						 gint priv)
+						  gboolean *def,
+						  gint priv)
 {
-  const char *lang;
-  char *tkey;
-  char *value;
+  GList *language_list;
 
-  lang = gnome_i18n_get_language();
+  char *value= NULL;
 
-  if (lang)
+  language_list= gnome_i18n_get_language_list ("LC_ALL");
+  
+  while (!value && language_list)
     {
-      tkey = g_copy_strings (path, "[", lang, "]", NULL);
-      value = _gnome_config_get_string_with_default (tkey, def, priv);
-      g_free (tkey);
+      const char *lang= language_list->data;
 
-      if(!value || *value == '\0')
+      if (strcmp (lang, "C") == 0)
 	{
-	  g_free(value);
-	  /* Fall back to untranslated case */
-	  value = _gnome_config_get_string_with_default (path, def, priv);
+	  value= _gnome_config_get_string_with_default (path, def, priv);
 	}
-
+      else
+	{
+	  gchar *tkey;
+	  
+	  tkey= g_copy_strings (path, "[", lang, "]", NULL);
+	  value= _gnome_config_get_string_with_default (tkey, def, priv);
+	  g_free (tkey);
+	  
+	  if (!value || *value == '\0')
+	    {
+	      g_free (value);
+	      value= NULL;
+	    }
+	}
+      language_list= language_list->next;
     }
-  else
-    value = _gnome_config_get_string_with_default (path, def, priv);
 
   return value;
 }
@@ -1003,11 +1011,14 @@ void
 _gnome_config_set_translated_string (const char *path, const char *value,
 				     gint priv)
 {
+  GList *language_list;
   const char *lang;
   char *tkey;
 
-  lang = gnome_i18n_get_language();
+  language_list= gnome_i18n_get_language_list("LC_ALL");
 
+  lang= language_list ? language_list->data : NULL;
+  
   if (lang)
     {
       tkey = g_copy_strings (path, "[", lang, "]", NULL);
