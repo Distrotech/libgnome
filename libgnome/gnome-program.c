@@ -860,6 +860,13 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 	} \
 }
 
+    /* Potentially add an absolute path */
+    if (g_path_is_absolute (file_name))
+      {
+        if (!only_if_exists || g_file_test (file_name, G_FILE_TEST_EXISTS))
+          ADD_FILENAME (file_name);
+      }
+    
     switch (domain) {
     case GNOME_FILE_DOMAIN_LIBDIR:
 	prefix_rel = "/lib";
