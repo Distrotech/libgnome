@@ -232,6 +232,9 @@ gnome_program_get_property (GObject *object, guint param_id, GValue *value,
     case PROP_HUMAN_READABLE_NAME:
 	g_value_set_string (value, program->_priv->prop_human_readable_name);
 	break;
+    case PROP_POPT_CONTEXT:
+	g_value_set_pointer (value, program->_priv->arg_context);
+	break;
     case PROP_GNOME_PATH:
 	if (program->_priv->gnome_path)
 	    g_value_set_string (value, g_strjoinv (":", program->_priv->gnome_path));
