@@ -128,7 +128,7 @@ release_path (ParsedPath *p)
 }
 
 static ParsedPath *
-parse_path (char *path)
+parse_path (const char *path)
 {
 	ParsedPath *p = g_malloc (sizeof (ParsedPath));
 	char *sep;
@@ -162,7 +162,7 @@ parse_path (char *path)
 }
 
 static int 
-is_loaded (char *filename, TSecHeader **section)
+is_loaded (const char *filename, TSecHeader **section)
 {
 	TProfile *p = Base;
 	
@@ -242,7 +242,7 @@ escape_string_and_dup (char *s)
 }
 
 static TSecHeader *
-load (char *file)
+load (const char *file)
 {
 	FILE *f;
 	int state;
@@ -344,7 +344,7 @@ load (char *file)
 }
 
 static void 
-new_key (TSecHeader *section, char *key_name, char *value)
+new_key (TSecHeader *section, const char *key_name, const char *value)
 {
 	TKeys *key;
     
@@ -355,9 +355,10 @@ new_key (TSecHeader *section, char *key_name, char *value)
 	section->keys = key;
 }
 
-static char *
-access_config (access_type mode, char *section_name, char *key_name, 
-		   char *def, char *filename, int *def_used)
+static const char *
+access_config (access_type mode, const char *section_name,
+	       const char *key_name, const char *def, const char *filename,
+	       int *def_used)
 {
     
 	TProfile   *New;
@@ -501,7 +502,7 @@ free_profile (TProfile *p)
 }
 
 void 
-gnome_config_clean_file (char *path)
+gnome_config_clean_file (const char *path)
 {
 	TProfile *p;
 	ParsedPath *pp;
@@ -525,7 +526,7 @@ gnome_config_clean_file (char *path)
 }
 
 void *
-gnome_config_init_iterator (char *path)
+gnome_config_init_iterator (const char *path)
 {
 	TProfile   *New;
 	TSecHeader *section;
@@ -565,7 +566,7 @@ gnome_config_iterator_next (void *s, char **key, char **value)
 }
 
 void 
-gnome_config_clean_section (char *path)
+gnome_config_clean_section (const char *path)
 	/* *section_name, char *file */
 {
 	TSecHeader *section;
@@ -591,7 +592,7 @@ gnome_config_clean_section (char *path)
 }
 
 void 
-gnome_config_clean_key (char *path)
+gnome_config_clean_key (const char *path)
 	/* *section_name, char *file */
 {
 	TSecHeader *section;
@@ -619,7 +620,7 @@ gnome_config_clean_key (char *path)
 }
 
 int 
-gnome_config_has_section (char *path)
+gnome_config_has_section (const char *path)
 	/* char *section_name, char *profile */
 {
 	TSecHeader *section;
@@ -648,10 +649,10 @@ gnome_config_drop_all (void)
 }
 
 int
-gnome_config_get_int_with_default (char *path, int *def)
+gnome_config_get_int_with_default (const char *path, int *def)
 {
 	ParsedPath *pp;
-	char *r;
+	const char *r;
 	int  v;
 	
 	pp = parse_path (path);
@@ -666,25 +667,26 @@ gnome_config_get_int_with_default (char *path, int *def)
 }
 
 char *
-gnome_config_get_string_with_default (char *path, int *def)
+gnome_config_get_string_with_default (const char *path, int *def)
 {
 	ParsedPath *pp;
-	char *r;
+	const char *r;
+	char *ret = NULL;
 	
 	pp = parse_path (path);
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
 			   def);
 	if (r)
-		r = strdup (r);
+		ret = strdup (r);
 	release_path (pp);
-	return r;
+	return ret;
 }
 
 int
-gnome_config_get_bool_with_default (char *path, int *def)
+gnome_config_get_bool_with_default (const char *path, int *def)
 {
 	ParsedPath *pp;
-	char *r;
+	const char *r;
 	int  v;
 	
 	pp = parse_path (path);
@@ -706,10 +708,10 @@ gnome_config_get_bool_with_default (char *path, int *def)
 }
 
 void
-gnome_config_set_string (char *path, char *new_value)
+gnome_config_set_string (const char *path, const char *new_value)
 {
 	ParsedPath *pp;
-	char *r;
+	const char *r;
 	
 	pp = parse_path (path);
 	r = access_config (SET, pp->section, pp->key, new_value, pp->file,
@@ -718,11 +720,11 @@ gnome_config_set_string (char *path, char *new_value)
 }
 
 void
-gnome_config_set_int (char *path, int new_value)
+gnome_config_set_int (const char *path, int new_value)
 {
 	ParsedPath *pp;
 	char intbuf [40];
-	char *r;
+	const char *r;
 	
 	pp = parse_path (path);
 	sprintf (intbuf, "%d", new_value);
@@ -732,10 +734,10 @@ gnome_config_set_int (char *path, int new_value)
 }
 
 void
-gnome_config_set_bool (char *path, int new_value)
+gnome_config_set_bool (const char *path, int new_value)
 {
 	ParsedPath *pp;
-	char *r;
+	const char *r;
 	
 	pp = parse_path (path);
 	r = access_config (SET, pp->section, pp->key,
@@ -744,7 +746,7 @@ gnome_config_set_bool (char *path, int new_value)
 }
 
 void
-gnome_config_push_prefix (char *path)
+gnome_config_push_prefix (const char *path)
 {
 	prefix_list_t *p = g_malloc (sizeof (prefix_list_t));
 

@@ -11,9 +11,9 @@ BEGIN_GNOME_DECLS
    default was return, 0 otherwise.  If DEF is NULL then it will not
    be set.  */
 
-char *gnome_config_get_string_with_default    (char *path, int *def);
-int  gnome_config_get_int_with_default        (char *path, int *def);
-int  gnome_config_get_bool_with_default       (char *path, int *def);
+char *gnome_config_get_string_with_default    (const char *path, int *def);
+int  gnome_config_get_int_with_default        (const char *path, int *def);
+int  gnome_config_get_bool_with_default       (const char *path, int *def);
 
 /* Convenience wrappers for the case when you don't care if you see
    the default.  */
@@ -27,15 +27,15 @@ int  gnome_config_get_bool_with_default       (char *path, int *def);
 
 
 /* Set a config variable.  */
-void gnome_config_set_string     (char *path, char *value);
-void gnome_config_set_int        (char *path, int value);
-void gnome_config_set_bool       (char *path, int value);
+void gnome_config_set_string     (const char *path, const char *value);
+void gnome_config_set_int        (const char *path, int value);
+void gnome_config_set_bool       (const char *path, int value);
 
 /* Returns true if /path/section is defined */
-int  gnome_config_has_section    (char *path);
+int  gnome_config_has_section    (const char *path);
 
 /* Returns a pointer for iterating on /file/section contents */
-void *gnome_config_init_iterator (char *path);
+void *gnome_config_init_iterator (const char *path);
 
 /* Get next key and value value from a section */
 void *gnome_config_iterator_next (void *s, char **key, char **value);
@@ -45,16 +45,16 @@ void gnome_config_drop_all       (void);
 void gnome_config_sync           (void);
 
 /* This routine drops the information about /file */
-void gnome_config_clean_file     (char *path);
+void gnome_config_clean_file     (const char *path);
 
 /* This routine drops all of the information related to /file/section */
-void gnome_config_clean_section  (char *path);
+void gnome_config_clean_section  (const char *path);
 
 /* Drops the information for a specific key */
-void gnome_config_clean_key (char *path);
+void gnome_config_clean_key (const char *path);
 
 /* Set an active prefix and remove an active prefix */
-void gnome_config_push_prefix (char *path);
+void gnome_config_push_prefix (const char *path);
 void gnome_config_pop_prefix (void);
 
 END_GNOME_DECLS
