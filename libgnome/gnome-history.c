@@ -70,7 +70,6 @@ write_history(GList *ents)
 {
 	FILE *outfile;
 	gchar *filename = gnome_util_home_file("document_history");
-	GList *t;
 	gint n;
 	
 	outfile = fopen(filename, "w");
