@@ -53,6 +53,10 @@ function set_type (set_type_1)
   gsub ("@", "", tmp);
   type_macro = type_macro toupper (tmp);
   type_ident = "_" tolower (tmp);
+
+  sub ("^G_TYPE_GTK_", "GTK_TYPE_", type_macro);
+  sub ("^G_TYPE_GDK_", "GDK_TYPE_", type_macro);
+  sub ("^G_TYPE_GNOME_", "GNOME_TYPE_", type_macro);
 }
 
 function generate (generate_what)
