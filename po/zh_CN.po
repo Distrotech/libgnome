@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2001-12-11 19:13+0100\n"
+"POT-Creation-Date: 2002-01-10 12:32+0100\n"
 "PO-Revision-Date: 2001-09-19 22:16+0800\n"
 "Last-Translator: Wang Jian <lark@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
@@ -121,45 +121,188 @@ msgstr ""
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "区域设置有太多的别名级别，可能是循环"
 
-#: libgnome/gnome-program.c:464
+#: libgnome/gnome-program.c:420
+msgid "Popt Table"
+msgstr ""
+
+#: libgnome/gnome-program.c:421
+msgid "The table of options for popt"
+msgstr ""
+
+#: libgnome/gnome-program.c:428
+msgid "Popt Flags"
+msgstr ""
+
+#: libgnome/gnome-program.c:429
+msgid "The flags to use for popt"
+msgstr ""
+
+#: libgnome/gnome-program.c:437
+msgid "Popt Context"
+msgstr ""
+
+#: libgnome/gnome-program.c:438
+msgid "The popt context pointer that GnomeProgram is using"
+msgstr ""
+
+#: libgnome/gnome-program.c:446
 msgid "Human readable name"
 msgstr "人可识别名字"
 
-#: libgnome/gnome-program.c:465
+#: libgnome/gnome-program.c:447
 msgid "Human readable name of this application"
 msgstr "该程序的人可识别名字"
 
-#: libgnome/gnome-program.c:474
+#: libgnome/gnome-program.c:456
 msgid "GNOME path"
 msgstr "GNOME 路径"
 
-#: libgnome/gnome-program.c:475
+#: libgnome/gnome-program.c:457
 msgid "Path in which to look for installed files"
 msgstr "搜索安装的文件的路径"
 
-#: libgnome/gnome-program.c:490
+#: libgnome/gnome-program.c:466
+msgid "App ID"
+msgstr ""
+
+#: libgnome/gnome-program.c:467
+#, fuzzy
+msgid "ID string to use for this application"
+msgstr "该程序的版本"
+
+#: libgnome/gnome-program.c:474
 msgid "App version"
 msgstr "程序版本"
 
-#: libgnome/gnome-program.c:491
+#: libgnome/gnome-program.c:475
 msgid "Version of this application"
 msgstr "该程序的版本"
 
-#: libgnome/gnome-program.c:1318
+#: libgnome/gnome-program.c:482
+msgid "GNOME Prefix"
+msgstr ""
+
+#: libgnome/gnome-program.c:483
+msgid "Prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:492
+#, fuzzy
+msgid "GNOME Libdir"
+msgstr "GNOME 库"
+
+#: libgnome/gnome-program.c:493
+msgid "Library prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:502
+#, fuzzy
+msgid "GNOME Datadir"
+msgstr "GNOME 路径"
+
+#: libgnome/gnome-program.c:503
+msgid "Data prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:512
+msgid "GNOME Sysconfdir"
+msgstr ""
+
+#: libgnome/gnome-program.c:513
+msgid "Configuration prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:523
+msgid "GNOME App Prefix"
+msgstr ""
+
+#: libgnome/gnome-program.c:524
+msgid "Prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:532
+#, fuzzy
+msgid "GNOME App Libdir"
+msgstr "GNOME 库"
+
+#: libgnome/gnome-program.c:533
+msgid "Library prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:542
+#, fuzzy
+msgid "GNOME App Datadir"
+msgstr "GNOME 路径"
+
+#: libgnome/gnome-program.c:543
+msgid "Data prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:552
+msgid "GNOME App Sysconfdir"
+msgstr ""
+
+#: libgnome/gnome-program.c:553
+msgid "Configuration prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:562
+msgid "Create Directories"
+msgstr ""
+
+#: libgnome/gnome-program.c:563
+msgid "Create standard GNOME directories on startup"
+msgstr ""
+
+#: libgnome/gnome-program.c:572
+msgid "Enable Sound"
+msgstr ""
+
+#: libgnome/gnome-program.c:573
+#, fuzzy
+msgid "Enable sound on startup"
+msgstr "启用声音服务器"
+
+#: libgnome/gnome-program.c:582
+msgid "Espeaker"
+msgstr ""
+
+#: libgnome/gnome-program.c:583
+msgid "How to connect to esd"
+msgstr ""
+
+#: libgnome/gnome-program.c:1319
 msgid "Help options"
 msgstr "帮助选项"
 
-#: libgnome/gnome-program.c:1323
+#: libgnome/gnome-program.c:1324
 msgid "Application options"
 msgstr "程序选项"
 
-#: libgnome/gnome-program.c:1339
+#: libgnome/gnome-program.c:1340
 msgid "Dynamic modules to load"
 msgstr "要载入的动态模块"
 
-#: libgnome/gnome-program.c:1340
+#: libgnome/gnome-program.c:1341
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1，MODULE2，..."
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:1
+msgid "Extra Moniker factory"
+msgstr ""
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:2
+msgid "GConf moniker"
+msgstr ""
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:3
+msgid "config indirect moniker"
+msgstr ""
+
+#: monikers/bonobo-moniker-conf-indirect.c:44
+#, c-format
+msgid "Key %s not found in configuration"
+msgstr ""
 
 #~ msgid "Can not bonobo_init"
 #~ msgstr "无法进行 bonobo_init"

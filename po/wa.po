@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome2 1.104.0\n"
-"POT-Creation-Date: 2001-12-11 19:13+0100\n"
+"POT-Creation-Date: 2002-01-10 12:32+0100\n"
 "PO-Revision-Date: 1999-03-18 23:11+0100\n"
 "Last-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
 "Language-Team: walon <linux-wa@chanae.alphanet.ch>\n"
@@ -131,45 +131,188 @@ msgstr ""
 "Pår trop di liveas d' alias po ene locåle; çoula pout esse cåze d' on "
 "betchfessî loyén"
 
-#: libgnome/gnome-program.c:464
+#: libgnome/gnome-program.c:420
+msgid "Popt Table"
+msgstr ""
+
+#: libgnome/gnome-program.c:421
+msgid "The table of options for popt"
+msgstr ""
+
+#: libgnome/gnome-program.c:428
+msgid "Popt Flags"
+msgstr ""
+
+#: libgnome/gnome-program.c:429
+msgid "The flags to use for popt"
+msgstr ""
+
+#: libgnome/gnome-program.c:437
+msgid "Popt Context"
+msgstr ""
+
+#: libgnome/gnome-program.c:438
+msgid "The popt context pointer that GnomeProgram is using"
+msgstr ""
+
+#: libgnome/gnome-program.c:446
 msgid "Human readable name"
 msgstr "No lejhåve påzès djins"
 
-#: libgnome/gnome-program.c:465
+#: libgnome/gnome-program.c:447
 msgid "Human readable name of this application"
 msgstr "On no lejhåve påzès djins po ci programe chal"
 
-#: libgnome/gnome-program.c:474
+#: libgnome/gnome-program.c:456
 msgid "GNOME path"
 msgstr "Tchimin di GNOME"
 
-#: libgnome/gnome-program.c:475
+#: libgnome/gnome-program.c:457
 msgid "Path in which to look for installed files"
 msgstr "Li tchimin k' on louke après les astalés programes"
 
-#: libgnome/gnome-program.c:490
+#: libgnome/gnome-program.c:466
+msgid "App ID"
+msgstr ""
+
+#: libgnome/gnome-program.c:467
+#, fuzzy
+msgid "ID string to use for this application"
+msgstr "Li modêye di ci programe chal"
+
+#: libgnome/gnome-program.c:474
 msgid "App version"
 msgstr "Modêye do programe"
 
-#: libgnome/gnome-program.c:491
+#: libgnome/gnome-program.c:475
 msgid "Version of this application"
 msgstr "Li modêye di ci programe chal"
 
-#: libgnome/gnome-program.c:1318
+#: libgnome/gnome-program.c:482
+msgid "GNOME Prefix"
+msgstr ""
+
+#: libgnome/gnome-program.c:483
+msgid "Prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:492
+#, fuzzy
+msgid "GNOME Libdir"
+msgstr "Lîvreye di GNOME"
+
+#: libgnome/gnome-program.c:493
+msgid "Library prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:502
+#, fuzzy
+msgid "GNOME Datadir"
+msgstr "Tchimin di GNOME"
+
+#: libgnome/gnome-program.c:503
+msgid "Data prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:512
+msgid "GNOME Sysconfdir"
+msgstr ""
+
+#: libgnome/gnome-program.c:513
+msgid "Configuration prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:523
+msgid "GNOME App Prefix"
+msgstr ""
+
+#: libgnome/gnome-program.c:524
+msgid "Prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:532
+#, fuzzy
+msgid "GNOME App Libdir"
+msgstr "Lîvreye di GNOME"
+
+#: libgnome/gnome-program.c:533
+msgid "Library prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:542
+#, fuzzy
+msgid "GNOME App Datadir"
+msgstr "Tchimin di GNOME"
+
+#: libgnome/gnome-program.c:543
+msgid "Data prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:552
+msgid "GNOME App Sysconfdir"
+msgstr ""
+
+#: libgnome/gnome-program.c:553
+msgid "Configuration prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:562
+msgid "Create Directories"
+msgstr ""
+
+#: libgnome/gnome-program.c:563
+msgid "Create standard GNOME directories on startup"
+msgstr ""
+
+#: libgnome/gnome-program.c:572
+msgid "Enable Sound"
+msgstr ""
+
+#: libgnome/gnome-program.c:573
+#, fuzzy
+msgid "Enable sound on startup"
+msgstr "Mete èn oûve li sierveu di sons"
+
+#: libgnome/gnome-program.c:582
+msgid "Espeaker"
+msgstr ""
+
+#: libgnome/gnome-program.c:583
+msgid "How to connect to esd"
+msgstr ""
+
+#: libgnome/gnome-program.c:1319
 msgid "Help options"
 msgstr "Tchûzes del aidance"
 
-#: libgnome/gnome-program.c:1323
+#: libgnome/gnome-program.c:1324
 msgid "Application options"
 msgstr "Tchûzes do programe"
 
-#: libgnome/gnome-program.c:1339
+#: libgnome/gnome-program.c:1340
 msgid "Dynamic modules to load"
 msgstr "Modules dinamikes a tcherdjî"
 
-#: libgnome/gnome-program.c:1340
+#: libgnome/gnome-program.c:1341
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:1
+msgid "Extra Moniker factory"
+msgstr ""
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:2
+msgid "GConf moniker"
+msgstr ""
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:3
+msgid "config indirect moniker"
+msgstr ""
+
+#: monikers/bonobo-moniker-conf-indirect.c:44
+#, c-format
+msgid "Key %s not found in configuration"
+msgstr ""
 
 #~ msgid "Can not bonobo_init"
 #~ msgstr "Dji n' pout nén enonder bonobo"
