@@ -87,7 +87,6 @@ static gboolean  check_filename_handler         (GnomeSelector   *selector,
                                                  const gchar     *filename);
 static gboolean  check_directory_handler        (GnomeSelector   *selector,
                                                  const gchar     *directory);
-static void      update_file_list_handler       (GnomeSelector   *selector);
 static void      stop_loading_handler           (GnomeSelector   *selector);
 
 
@@ -121,7 +120,6 @@ gnome_file_selector_class_init (GnomeFileSelectorClass *class)
 
     selector_class->check_filename = check_filename_handler;
     selector_class->check_directory = check_directory_handler;
-    selector_class->update_file_list = update_file_list_handler;
 
     selector_class->stop_loading = stop_loading_handler;
 }
@@ -191,7 +189,7 @@ add_file_async_cb (GnomeVFSAsyncHandle *handle, GList *results,
 	    continue;
 	}
 
-	gtk_signal_emit_by_name (GTK_OBJECT (fselector), "do_add",
+	gtk_signal_emit_by_name (GTK_OBJECT (fselector), "do_add_file",
 				 uri, async_data->position);
 
 	g_free (uri);
@@ -211,8 +209,6 @@ add_file_handler (GnomeSelector *selector, const gchar *uri, gint position)
     g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
     g_return_if_fail (position >= -1);
     g_return_if_fail (uri != NULL);
-
-    g_message (G_STRLOC ": %d - `%s'", position, uri);
 
     fselector = GNOME_FILE_SELECTOR (selector);
 
@@ -287,6 +283,15 @@ add_directory_async_cb (GnomeVFSAsyncHandle *handle, GnomeVFSResult result,
     }
 
     if (result == GNOME_VFS_ERROR_EOF) {
+	gchar *path;
+
+	path = gnome_vfs_uri_to_string (async_data->uri,
+					GNOME_VFS_URI_HIDE_NONE);
+ 	GNOME_CALL_PARENT_HANDLER (GNOME_SELECTOR_CLASS, do_add_directory,
+				   (GNOME_SELECTOR (fselector), path,
+				    async_data->position));
+	g_free (path);
+
 	free_the_async_data (fselector, async_data);
 
 	g_message (G_STRLOC ": %p - async reading completed.", fselector);
@@ -411,11 +416,7 @@ activate_entry_handler (GnomeSelector *selector)
 			       (selector));
 
     text = gnome_selector_get_entry_text (selector);
-
-    g_message (G_STRLOC ": '%s'", text);
-
     gnome_selector_add_file (selector, text, 0, FALSE);
-
     g_free (text);
 }
 
@@ -537,148 +538,6 @@ check_directory_handler (GnomeSelector *selector, const gchar *directory)
     gnome_vfs_uri_unref (uri);
 
     return retval;
-}
-
-static void
-_update_file_list_handler_file (GnomeSelector *selector, const gchar *uri,
-				GnomeVFSDirectoryFilter *filter,
-				gboolean defaultp)
-{
-    GnomeVFSResult result;
-    GnomeVFSFileInfo *info;
-    GnomeVFSURI *vfs_uri;
-
-    g_return_if_fail (selector != NULL);
-    g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
-
-    vfs_uri = gnome_vfs_uri_new (uri);
-
-    info = gnome_vfs_file_info_new ();
-    result = gnome_vfs_get_file_info_uri (vfs_uri, info,
-					  GNOME_VFS_FILE_INFO_DEFAULT);
-
-    if (result != GNOME_VFS_OK) {
-	g_warning (G_STRLOC ": `%s': %s", uri,
-		   gnome_vfs_result_to_string (result));
-	gnome_vfs_file_info_unref (info);
-	gnome_vfs_uri_unref (vfs_uri);
-	return;
-    }
-
-    if (gnome_vfs_directory_filter_apply (filter, info))
-	gtk_signal_emit_by_name (GTK_OBJECT (selector),
-				 defaultp ? "add_file_default" : "add_file",
-				 uri);
-
-    gnome_vfs_file_info_unref (info);
-    gnome_vfs_uri_unref (vfs_uri);
-}
-
-static void
-_update_file_list_handler (GnomeSelector *selector, const gchar *uri,
-			   GnomeVFSDirectoryFilter *filter, gboolean defaultp)
-{
-    GnomeVFSResult result;
-    GnomeVFSDirectoryHandle *handle = NULL;
-    GnomeVFSFileInfo *info;
-    GnomeVFSURI *vfs_uri;
-
-    g_return_if_fail (selector != NULL);
-    g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
-
-    vfs_uri = gnome_vfs_uri_new (uri);
-
-    result = gnome_vfs_directory_open_from_uri (&handle, vfs_uri,
-						GNOME_VFS_FILE_INFO_DEFAULT,
-						filter);
-
-    if (result != GNOME_VFS_OK) {
-	g_warning (G_STRLOC ": `%s': %s", uri,
-		   gnome_vfs_result_to_string (result));
-	gnome_vfs_uri_unref (vfs_uri);
-	return;
-    }
-
-    info = gnome_vfs_file_info_new ();
-
-    for (;;) {
-	GnomeVFSURI *file_uri;
-	gchar *pathname;
-
-	result = gnome_vfs_directory_read_next (handle, info);
-
-	if (result == GNOME_VFS_ERROR_EOF)
-	    break;
-	else if (result != GNOME_VFS_OK) {
-	    g_warning (G_STRLOC ": `%s': %s", uri,
-		       gnome_vfs_result_to_string (result));
-
-	    gnome_vfs_file_info_unref (info);
-	    gnome_vfs_uri_unref (vfs_uri);
-	    return;
-	}
-
-	file_uri = gnome_vfs_uri_append_file_name (vfs_uri, info->name);
-	pathname = gnome_vfs_uri_to_string (file_uri, GNOME_VFS_URI_HIDE_NONE);
-
-	gtk_signal_emit_by_name (GTK_OBJECT (selector),
-				 defaultp ? "add_file_default" : "add_file",
-				 pathname);
-
-	gnome_vfs_uri_unref (file_uri);
-	g_free (pathname);
-    }
-
-    gnome_vfs_file_info_unref (info);
-    gnome_vfs_uri_unref (vfs_uri);
-}
-
-static void
-update_file_list_handler (GnomeSelector *selector)
-{
-    GnomeVFSDirectoryFilter *filter;
-    GSList *c;
-
-    g_return_if_fail (selector != NULL);
-    g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
-
-    g_message (G_STRLOC);
-
-    filter = gnome_vfs_directory_filter_new
-	(GNOME_VFS_DIRECTORY_FILTER_NONE,
-	 GNOME_VFS_DIRECTORY_FILTER_NODIRS |
-	 GNOME_VFS_DIRECTORY_FILTER_NODOTFILES |
-	 GNOME_VFS_DIRECTORY_FILTER_NOSELFDIR |
-	 GNOME_VFS_DIRECTORY_FILTER_NOPARENTDIR,
-	 NULL);
-
-    g_slist_foreach (selector->_priv->total_list, (GFunc) g_free, NULL);
-    g_slist_free (selector->_priv->total_list);
-    selector->_priv->total_list = NULL;
-
-    g_slist_foreach (selector->_priv->default_total_list,
-		     (GFunc) g_free, NULL);
-    g_slist_free (selector->_priv->default_total_list);
-    selector->_priv->default_total_list = NULL;
-
-    for (c = selector->_priv->default_dir_list; c; c = c->next)
-	_update_file_list_handler (selector, c->data, filter, TRUE);
-
-    for (c = selector->_priv->dir_list; c; c = c->next)
-	_update_file_list_handler (selector, c->data, filter, FALSE);
-
-    for (c = selector->_priv->default_file_list; c; c = c->next)
-	_update_file_list_handler_file (selector, c->data, filter, TRUE);
-
-    for (c = selector->_priv->file_list; c; c = c->next)
-	_update_file_list_handler_file (selector, c->data, filter, FALSE);
-
-    selector->_priv->default_total_list =
-	g_slist_reverse (selector->_priv->default_total_list);
-    selector->_priv->total_list =
-	g_slist_reverse (selector->_priv->total_list);
-
-    gnome_vfs_directory_filter_destroy (filter);
 }
 
 
