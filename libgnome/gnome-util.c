@@ -33,8 +33,8 @@ gnome_dirrelative_file (const char *base, const char *sub, const char *filename,
 	char *retval = NULL;
 	
 	/* First try the env GNOMEDIR relative path */
-	if (!gnomedir)
-		gnomedir = getenv ("GNOMEDIR");
+	if(!gnomedir)
+	  gnomedir = getenv ("GNOMEDIR");
 	
 	if (gnomedir) {
 		dir = g_concat_dir_and_file (gnomedir, sub);
@@ -77,6 +77,8 @@ gnome_dirrelative_file (const char *base, const char *sub, const char *filename,
 	}
 
 out:	
+	g_assert(retval || !unconditional);
+
 	g_free (dir); g_free (odir); g_free (fil); g_free (ofil);
 
 	return retval;
