@@ -149,7 +149,6 @@ GnomeLibHandle*
 gnome_dl_exec_handle()
 {
   GnomeLibHandle *handle = gnome_dl_find_lib("<executable>");
-  void *native_handle;
 
   if (handle == NULL)
     {
@@ -213,7 +212,6 @@ int
 gnome_dl_unload(GnomeLibHandle *handle)
 {
   int ret_val = -1;
-  GList *list;
 
   handle->ref_count --;
 
