@@ -125,7 +125,7 @@ load_types_from (GHashTable *file_types, char *fname)
 	FileConverter *newarc;
 	FileType *fromtype, *totype;
 
-	conffile = fopen (fname, "r");
+	conffile = fopen (fname, "rt");
 	
 	if (!conffile)
 		return;
