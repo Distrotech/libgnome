@@ -1631,13 +1631,11 @@ _gnome_config_get_bool_with_default (const char *path, gboolean *def,
 		return 0;
 	}
 
-	if (!strcasecmp (r, "true")){
+	if (tolower(*r) == 't' || tolower(*r) == 'y' || atoi(r)) {
 		v = 1;
-	} else if (!strcasecmp (r, "false")){
-		v = 0;
 	} else {
-	        /* FIXME: what to return?  */
-	        v = 0;
+		/* If it's not true it has to be false :) */
+		v = 0;
 	}
 	release_path (pp);
 	return v;
