@@ -1,12 +1,8 @@
-# translation of es.po to Spanish
-# translation of libgnome.HEAD.po to Spanish
-# translation of libgnome.HEAD.es.po to Spanish
 # Translation into spanish of libgnome.
 # Copyright © 2001-2002 Free Software Foundation, Inc.
 # Héctor García Álvarez <hector@scouts-es.org>, 2001-2002.
 # Pablo Gonzalo del Campo <pablodc@bigfoot.com>, 2002.
 # Q&A, Germán Poo-Caamaño <gpoo@ubiobio.cl>, 2003.
-# Francisco Javier F. Serrador <serrador@arrakis.es>, 2003.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004.
 #
 msgid ""
@@ -14,7 +10,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-02-24 11:14+0100\n"
-"PO-Revision-Date: 2004-02-13 00:27+0100\n"
+"PO-Revision-Date: 2004-03-06 19:57+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -118,8 +114,7 @@ msgstr "Documento de ayuda %s/%s no encontrado"
 
 #: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
-"Demasiados niveles de alias para una localización, puede indicar un bucle"
+msgstr "Demasiados niveles de alias para una localización, puede indicar un bucle"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -133,8 +128,7 @@ msgstr "Soporte para activación de bonobo"
 #: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr ""
-"No se ha podido crear un directorio de configuración por usuario  «%s»: %s\n"
+msgstr "No se ha podido crear un directorio de configuración por usuario  «%s»: %s\n"
 
 #: libgnome/gnome-init.c:328
 #, c-format
@@ -152,11 +146,11 @@ msgstr "No se ha podido crear el directorio de aceleradores gnome «%s»: %s\n"
 
 #: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
-msgstr "Deshabilitar el uso del servidor de sonido"
+msgstr "Desactivar el uso del servidor de sonido"
 
 #: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
-msgstr "Habilitar el uso del servidor de sonido"
+msgstr "Activar el uso del servidor de sonido"
 
 #: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
@@ -304,11 +298,11 @@ msgstr "Crear directorios estándar de GNOME en el arranque"
 
 #: libgnome/gnome-program.c:579
 msgid "Enable Sound"
-msgstr "Habilitar sonido"
+msgstr "Activar sonido"
 
 #: libgnome/gnome-program.c:580
 msgid "Enable sound on startup"
-msgstr "Habilitar sonido al arrancar"
+msgstr "Activar sonido al arrancar"
 
 #: libgnome/gnome-program.c:589
 msgid "Espeaker"
@@ -403,11 +397,10 @@ msgstr "Emitir un sonido cuando se presiona un modificador"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
-msgstr "Deshabilitar si se presionan dos teclas al mismo tiempo."
+msgstr "Desactivar si se presionan dos teclas al mismo tiempo."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
 "No aceptar una tecla como pulsada a no ser que se mantenga presionada "
 "durante @delay milisegundos"
@@ -417,8 +410,7 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Tiempo en milisegundos que lleva ir desde 0 hasta la velocidad máxima"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Tiempo en milisegundos a esperar antes que las teclas de movimiento del "
 "ratón empiecen a funcionar"
@@ -429,8 +421,7 @@ msgstr "Cantidad de píxeles por segundo para mover a la velocidad máxima"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr ""
-"Ignorar múltiples pulsaciones de la _misma_ tecla durante @delay milisegundos"
+msgstr "Ignorar múltiples pulsaciones de la _misma_ tecla durante @delay milisegundos"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -479,8 +470,7 @@ msgstr "Navegador predeterminado para todas las URLs"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr ""
-"Indica si el navegador predeterminado necesita una terminal para ejecutarse"
+msgstr "Indica si el navegador predeterminado necesita una terminal para ejecutarse"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
@@ -505,8 +495,7 @@ msgstr ""
 "ejecutarse"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Argumento utilizado para ejecutar programas en la terminal definida por la "
 "clave «exec»."
@@ -521,13 +510,11 @@ msgstr "Aplicación de terminal"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr ""
-"Programa de terminal a usar cuando se inician aplicaciones que necesitan una"
+msgstr "Programa de terminal a usar cuando se inician aplicaciones que necesitan una"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr ""
-"Una lista de nombres del primer área de trabajo del gestor de ventanas."
+msgstr "Una lista de nombres del primer área de trabajo del gestor de ventanas."
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
@@ -657,11 +644,11 @@ msgstr "Tipografía predeterminada"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:6
 msgid "Enable Accessibility"
-msgstr "Habilitar accesibilidad"
+msgstr "Activar accesibilidad"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:7
 msgid "Enable Animations"
-msgstr "Habilitar animaciones"
+msgstr "Activar animaciones"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
@@ -704,21 +691,18 @@ msgid "Monospace font"
 msgstr "Tipografía monoespaciada"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
-msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Nombre de una tipografía monoespaciada (ancho fijo) para usar en sitios como "
 "terminales."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
-"Nombre del método de entrada del estilo de preedit de GTK usado por GTK+."
+msgstr "Nombre del método de entrada del estilo de preedit de GTK usado por GTK+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
-"Nombre del método de entrada del estilo de estado de GTK+ usado por gtk+."
+msgstr "Nombre del método de entrada del estilo de estado de GTK+ usado por gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the default font used by gtk+."
@@ -730,12 +714,11 @@ msgstr "Barra de estado a la derecha"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "This specifies the size of icons displayed in toolbars"
-msgstr ""
-"Esto especifica el tamaño de los iconos mostrados en la barra de herramientas"
+msgstr "Esto especifica el tamaño de los iconos mostrados en la barra de herramientas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Toolbar Detachable"
-msgstr "Barra de herramientas desacoplable"
+msgstr "Barra de herramientas desprendible"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Icon Size"
@@ -989,11 +972,11 @@ msgstr ""
 
 #: schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Enable ESD"
-msgstr "Habilitar ESD"
+msgstr "Activar ESD"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:2
 msgid "Enable sound server startup."
-msgstr "Habilitar el inicio del servidor de sonido."
+msgstr "Activar el inicio del servidor de sonido."
 
 #: schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Sounds for events"
@@ -1005,15 +988,15 @@ msgstr "Define si reproducir sonidos en los eventos del usuario."
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
-msgstr "Deshabilitar todos los miniaturizadores externos"
+msgstr "Desactivar todos los miniaturizadores externos"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
-"Establecer a «true» para deshabilitar todos los programas miniaturizadores "
-"externos, independientemente de sí estos están habilitados o inhabilitados "
+"Establecer a «true» para desactivar todos los programas miniaturizadores "
+"externos, independientemente de sí estos están activados o desactivados "
 "independientemente."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
@@ -1027,12 +1010,12 @@ msgstr "Tiempo de descanso"
 #: schemas/desktop_gnome_typing_break.schemas.in.h:3
 msgid "Number of minutes of typing time before break mode starts."
 msgstr ""
-"Cantidad de minutos del tiempo de escritura antes de que el modo de descanso "
+"Número de minutos del tiempo de escritura antes de que el modo de descanso "
 "se active."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:4
 msgid "Number of minutes that the typing break should last."
-msgstr "Cantidad de minutos que descanso de escritura debería durar."
+msgstr "Número de minutos que descanso de escritura debería durar."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:5
 msgid "Type time"
@@ -1048,8 +1031,7 @@ msgstr "Define si el bloqueo del teclado está habilitado."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr ""
-"Define si la pantalla de descanso de escritura puede o no ser pospuesta."
+msgstr "Define si la pantalla de descanso de escritura puede o no ser pospuesta."
 
 #~ msgid "How to handle ghelp URLs"
 #~ msgstr "Cómo manejar las URLS de ghelp"
@@ -1215,3 +1197,4 @@ msgstr ""
 
 #~ msgid "URL handler for system-settings pages"
 #~ msgstr "Manejador de URL para las páginas de «system-settings»"
+
