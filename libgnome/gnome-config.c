@@ -978,23 +978,11 @@ _gnome_config_get_bool_with_default (const char *path, gboolean *def,
 }
 
 void
-_gnome_config_get_vector_with_default (const char *path, int *argcp,
-				       char ***argvp, gboolean *def, gint priv)
+gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
 {
-	ParsedPath *pp;
 	char *p;
-	const char *rr;
 	int count, esc_spcs;
 	int space_seen;
-	
-	pp = parse_path (path, priv);
-	rr = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file, def);
-
-	if (rr == NULL) {
-		*argvp = NULL;
-		*argcp = 0;
-		return;
-	}
 
 	/* Figure out how large to make return vector.  Start at 2
 	 * because we want to make NULL-terminated array, and because
@@ -1033,12 +1021,28 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 			p++;
 		}
 
- 		(*argvp)[count++] = strndup (tmp, p - tmp);
+ 		(*argvp)[count++] = (char *) strndup (tmp, p - tmp);
 
 		while (*p && *p == ' ')
 			p++;
 	} while (*p);
+}
 
+void
+_gnome_config_get_vector_with_default (const char *path, int *argcp,
+				       char ***argvp, gboolean *def, gint priv)
+{
+	ParsedPath *pp;
+	const char *rr;
+	
+	pp = parse_path (path, priv);
+	rr = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file, def);
+
+	if (rr == NULL) {
+		*argvp = NULL;
+		*argcp = 0;
+	} else
+		gnome_config_make_vector (rr, argcp, argvp);
 	release_path (pp);
 }
 
@@ -1102,12 +1106,9 @@ _gnome_config_set_bool (const char *path, gboolean new_value, gint priv)
 	release_path (pp);
 }
 
-void
-_gnome_config_set_vector (const char *path, int argc,
-			  const char *const argv[],
-			  gint priv)
+char *
+gnome_config_assemble_vector (int argc, const char *const argv [])
 {
-	ParsedPath *pp;
 	char *value, *p;
 	const char *s;
 	int i, len;
@@ -1130,9 +1131,21 @@ _gnome_config_set_vector (const char *path, int argc,
 	}
 	*p = '\0';
 
+	return value;
+}
+
+void
+_gnome_config_set_vector (const char *path, int argc,
+			  const char *const argv[],
+			  gint priv)
+{
+	ParsedPath *pp;
+	char *s;
+
 	pp = parse_path (path, priv);
-	access_config (SET, pp->section, pp->key, value, pp->file, NULL);
-	g_free (value);
+	s = gnome_config_assemble_vector (argc, argv);
+	access_config (SET, pp->section, pp->key, s, pp->file, NULL);
+	g_free (s);
 	release_path (pp);
 }
 

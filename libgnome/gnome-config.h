@@ -215,6 +215,12 @@ void _gnome_config_clean_key (const char *path, gint priv);
 void gnome_config_push_prefix (const char *path);
 void gnome_config_pop_prefix (void);
 
+/* Internal routines that we export
+ * Used to go from string->vector and from vector->string
+ */
+void gnome_config_make_vector (const char *string, int *argcp, char ***argvp);
+char *gnome_config_assemble_vector (int argc, const char *const argv []);
+
 END_GNOME_DECLS
 
 #endif
