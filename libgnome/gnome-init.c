@@ -420,10 +420,16 @@ static struct poptOption gnomelib_options [] = {
 	{ NULL, '\0', 0, NULL, 0 }
 };
 
+static void
+gnome_vfs_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+	gnome_vfs_init ();
+}
+
 GnomeModuleInfo gnome_vfs_module_info = {
 	"gnome-vfs", GNOMEVFSVERSION, "GNOME Virtual Filesystem",
 	NULL, NULL,
-	(GnomeModuleHook) gnome_vfs_preinit, (GnomeModuleHook) gnome_vfs_postinit,
+	gnome_vfs_pre_args_parse, NULL,
 	NULL,
 	(GnomeModuleInitHook) gnome_vfs_loadinit,
 	NULL

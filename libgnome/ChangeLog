@@ -1,5 +1,10 @@
 2001-05-15  Martin Baulig  <baulig@suse.de>
 
+	* libgnome-init.c (gnome_vfs_pre_args_parse): Call gnome_vfs_init()
+	and use this as pre-args-parse function for the gnome-vfs module.
+
+2001-05-15  Martin Baulig  <baulig@suse.de>
+
 	* Makefile.am (ORBIT_IDL): Use @ORBIT_IDL@ rather than
 	hardcoding `orbit-idl'.
 
