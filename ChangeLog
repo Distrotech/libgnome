@@ -1,5 +1,13 @@
 2004-05-02  Anders Carlsson  <andersca@gnome.org>
 
+	* gnome-data/Makefile.am:
+	* libgnome/gnome-program.c: (gnome_program_preinit):
+	* libgnome/gnome-util.c: (gnome_unsetenv):
+	* schemas/Makefile.am:
+	A couple of portability fixes (#131394, The Written Word)
+	
+2004-05-02  Anders Carlsson  <andersca@gnome.org>
+
 	* libgnome/gnome-program.c: (gnome_program_get_property):
 	Fix memory leak. (#135773, Christian Persche)
 	

@@ -1339,8 +1339,9 @@ gnome_program_preinit (GnomeProgram *program,
 		   * NOT EVEN FUNNY.  For some reason it passes 'descrip'
 		   * as 'data' to the callback, and there is no other way
 		   * to pass data.  Fun, eh? */
-		  (const char *)program,
-		  NULL };
+		  NULL, NULL };
+
+	callback.descrip = (const char *)program;
 
 	program->_priv->top_options_table = g_array_new
 	    (TRUE, TRUE, sizeof (struct poptOption));

@@ -189,7 +189,7 @@ gnome_setenv (const char *name, const char *value, gboolean overwrite)
 void
 gnome_unsetenv (const char *name)
 {
-#if defined (HAVE_SETENV)
+#if defined (HAVE_UNSETENV)
 	unsetenv (name);
 #else
 	extern char **environ;
