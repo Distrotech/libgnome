@@ -50,7 +50,7 @@ libgnomeinclude_HEADERS = \
 
 
 libgnome_la_LDFLAGS = -version-info 0:0:0 -rpath $(libdir)
-libgnome_la_LIBADD = -lgdk -lglib -lm $(INTLLIBS) $(DL_LIB)
+libgnome_la_LIBADD = -lgdk -lglib -lm $(DL_LIB)
 
 bin_PROGRAMS = gnome-score-helper dns-helper
 
