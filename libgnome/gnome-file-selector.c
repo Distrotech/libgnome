@@ -691,7 +691,9 @@ static void
 activate_entry_handler (GnomeSelector *selector)
 {
     GnomeFileSelector *fselector;
+#ifdef FIXME
     gchar *text;
+#endif
 
     g_return_if_fail (selector != NULL);
     g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
@@ -701,9 +703,11 @@ activate_entry_handler (GnomeSelector *selector)
     GNOME_CALL_PARENT_HANDLER (GNOME_SELECTOR_CLASS, activate_entry,
 			       (selector));
 
+#ifdef FIXME
     text = gnome_selector_get_entry_text (selector);
     gnome_selector_add_uri (selector, NULL, text, 0, FALSE, NULL, NULL);
     g_free (text);
+#endif
 }
 
 static void
