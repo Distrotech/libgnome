@@ -1,3 +1,13 @@
+Tue Oct 09 18:22:34 2001  George Lebl <jirka@5z.com>
+
+	* libgnome.schema, Makefile.am: schemas for preferences, this
+	  replaces gnome-preferences API which is supposed to be gone
+	  (And will be soon)
+
+	* gnome-macros.h: also add prototypes for class_init and
+	  instance_init to the macro, so that they can be just declared
+	  sometime later without having to mess with forward declarations
+
 2001-10-06 Malcolm Tredinnick <malcolm@commsecure.com.au>
 
 	* gnome-program.c, gnome-triggers.c, gnome-triggers.h:

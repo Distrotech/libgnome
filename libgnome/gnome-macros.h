@@ -35,6 +35,8 @@
 #define GNOME_CLASS_BOILERPLATE(type, type_as_function,			\
 				parent_type, parent_type_as_function,	\
 				parent_type_macro)			\
+static void type_as_function ## _class_init    (type ## Class *klass);	\
+static void type_as_function ## _instance_init (type          *object);	\
 static parent_type ## Class *parent_class = NULL;			\
 GType									\
 type_as_function ## _get_type (void)					\
