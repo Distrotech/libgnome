@@ -25,7 +25,7 @@ void gnome_desktop_entry_save (GnomeDesktopEntry *dentry);
 void gnome_desktop_entry_free (GnomeDesktopEntry *item);
 void gnome_desktop_entry_launch (GnomeDesktopEntry *item);
 
-int gnome_is_program_in_path (char *progname);
+char *gnome_is_program_in_path (char *progname);
 
 END_GNOME_DECLS
 

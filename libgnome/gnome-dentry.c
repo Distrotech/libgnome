@@ -22,13 +22,12 @@
 /* g_free already checks if x is NULL */
 #define free_if_empty(x) g_free (x)
 
-int
+char *
 gnome_is_program_in_path (char *program)
 {
 	static char **paths = NULL;
 	char **p;
 	char *f;
-	gboolean program_file_exists;
 	
 	if (!paths)
 	  paths = gnome_string_split(getenv("PATH"), ":", -1);
@@ -36,10 +35,9 @@ gnome_is_program_in_path (char *program)
 	p = paths;
 	while (*p){
 		f = g_concat_dir_and_file (*p, program);
-		program_file_exists = g_file_exists(f);
+		if (g_file_exists(f))
+			return f;
 		g_free(f);
-		if (program_file_exists)
-		  return 1;
 		p++;
 	}
 	return 0;
@@ -53,6 +51,7 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	char *name, *type;
 	char *exec_file, *try_file;
 	char *icon_base;
+	char *p;
 	
 	g_assert (file != NULL);
 
@@ -76,18 +75,21 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	type      = gnome_config_get_string ("Type");
 	exec_file = gnome_config_get_string ("Exec");
 	try_file  = gnome_config_get_string ("TryExec");
-
-	if (!type || (strcmp (type, "Directory") != 0)) {
-	  if(!exec_file || (try_file && !gnome_is_program_in_path(try_file)))
-	    {
-	      free_if_empty (name);
-	      free_if_empty (type);
-	      free_if_empty (exec_file);
-	      free_if_empty (try_file);
-	      
-	      gnome_config_pop_prefix ();
-	      return NULL;
-	    }
+	p = 0;
+	
+	if (!type || (strcmp (type, "Directory") != 0)){
+		if(!exec_file || (try_file && !(p = gnome_is_program_in_path(try_file)))){
+			free_if_empty (p);
+			free_if_empty (name);
+			free_if_empty (type);
+			free_if_empty (exec_file);
+			free_if_empty (try_file);
+			
+			gnome_config_pop_prefix ();
+			return NULL;
+		}
+		if (p)
+			g_free (p);
 	}
 	
 	newitem = g_new (GnomeDesktopEntry, 1);
