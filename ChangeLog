@@ -1,3 +1,10 @@
+2002-03-18 John Fleck <jfleck@inkstain.net>
+
+	* configure.in, help-converters/docbook/Makefile.am
+	patch from Glynn Foster to speed up docbook converter
+	by pkg-config-ing converter makefile so it only links
+	against the libraries it needs
+
 2002-03-18  Anders Carlsson  <andersca@gnu.org>
 
 	* configure.in: Up to 1.113.0
