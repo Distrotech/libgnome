@@ -1,4 +1,4 @@
 SUBDIRS = libgnome po doc
 
-EXTRA_DIST = message-of-doom
+EXTRA_DIST = message-of-doom COPYING.LIB
 
