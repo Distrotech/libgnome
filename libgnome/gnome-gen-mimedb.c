@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	  return 0;
   }
 
-  out_filename = g_copy_strings(filename, ".dat", NULL);
+  out_filename = g_strconcat(filename, ".dat", NULL);
 
   f = fopen (out_filename, "w");
   if (f == NULL){

@@ -44,7 +44,7 @@ gnome_remote_get_command (const char *host, gint *argcp, char ***argvp)
 
   if (host)
     {
-      gchar *path = g_copy_strings (BASE, host, NULL);
+      gchar *path = g_strconcat (BASE, host, NULL);
       gnome_config_get_vector_with_default (path, argcp, argvp, &def);
       g_free (path);
     }
@@ -83,7 +83,7 @@ gnome_remote_set_command (const char *host, gint argc, const char * const argv[]
   gchar *path;
 
   if (host)
-    path = g_copy_strings (BASE, host, NULL);
+    path = g_strconcat (BASE, host, NULL);
   else
     path = BASE DEFAULT;
 

@@ -53,11 +53,11 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 	char **exec_vector;
 	int exec_length;
 	char *icon_base;
-	char *p;
+	char *p = NULL;
 	
 	g_assert (file != NULL);
 
-	prefix = g_copy_strings ("=", file, "=/Desktop Entry/", NULL);
+	prefix = g_strconcat ("=", file, "=/Desktop Entry/", NULL);
 
 	gnome_config_push_prefix (prefix);
 	g_free (prefix);
@@ -77,7 +77,6 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 	type      = gnome_config_get_string ("Type");
 	gnome_config_get_vector ("Exec", &exec_length, &exec_vector);
 	try_file  = gnome_config_get_string ("TryExec");
-	p = 0;
 
 	if (!type || (strcmp (type, "Directory") != 0)){
 		if(!unconditional && ( !exec_vector || (try_file && !(p = gnome_is_program_in_path(try_file))))){
@@ -124,7 +123,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 	gnome_config_pop_prefix ();
 	
 	if (clean_from_memory){
-		prefix = g_copy_strings ("=", file, "=", NULL);
+		prefix = g_strconcat ("=", file, "=", NULL);
 		gnome_config_drop_file (prefix);
 		g_free (prefix);
 	}
@@ -159,7 +158,7 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	g_assert (dentry != NULL);
 	g_assert (dentry->location != NULL);
 
-	prefix = g_copy_strings ("=", dentry->location, "=/Desktop Entry/", NULL);
+	prefix = g_strconcat ("=", dentry->location, "=/Desktop Entry/", NULL);
 	gnome_config_clean_section (prefix);
 	gnome_config_push_prefix (prefix);
 	g_free (prefix);
@@ -194,7 +193,7 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 
 	gnome_config_pop_prefix ();
 	gnome_config_sync ();
-	prefix = g_copy_strings ("=", dentry->location, "=", NULL);
+	prefix = g_strconcat ("=", dentry->location, "=", NULL);
 	gnome_config_drop_file(prefix);
 	g_free(prefix);
 }
@@ -308,7 +307,7 @@ gnome_desktop_entry_destroy (GnomeDesktopEntry *item)
       if (!item)
 	      return;
       
-      prefix = g_copy_strings ("=", item->location, "=", NULL);
+      prefix = g_strconcat ("=", item->location, "=", NULL);
       gnome_config_clean_file (prefix);
       g_free (prefix);
       gnome_desktop_entry_free (item);

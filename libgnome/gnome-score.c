@@ -47,11 +47,10 @@ static gchar *
 gnome_get_score_file_name (const gchar * progname, const gchar * level)
 {
    if (level)
-     return g_copy_strings (SCORE_PATH "/",
+     return g_strconcat (SCORE_PATH "/",
 			    progname, ".", level, ".scores", NULL);
    else
-     return g_copy_strings (SCORE_PATH "/",
-			    progname, ".scores", NULL);
+     return g_strconcat (SCORE_PATH "/", progname, ".scores", NULL);
 }
 
 static void
