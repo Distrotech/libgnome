@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
-"POT-Creation-Date: 2001-09-26 08:37+0200\n"
+"POT-Creation-Date: 2001-11-03 12:20+0100\n"
 "PO-Revision-Date: 2001-09-19 18:06+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -18,7 +18,7 @@ msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Kan ikke finne en terminal, bruker xterm selv om den kanskje ikke virker"
 
-#: libgnome/gnome-url.c:155
+#: libgnome/gnome-url.c:181
 #, c-format
 msgid "Cannot parse: %s"
 msgstr "Kan ikke tolke: %s"
@@ -28,16 +28,16 @@ msgstr "Kan ikke tolke: %s"
 msgid "Bonobo Support"
 msgstr "Bonobo støtte"
 
-#: libgnome/gnome-init.c:143
+#: libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Bonobo aktiveringsstøtte"
 
-#: libgnome/gnome-init.c:276 libgnome/gnome-init.c:290
+#: libgnome/gnome-init.c:279 libgnome/gnome-init.c:293
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Kunn ikke opprette per-bruker gnome konfigurasjonskatalog `%s': %s\n"
 
-#: libgnome/gnome-init.c:299
+#: libgnome/gnome-init.c:302
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -46,32 +46,32 @@ msgstr ""
 "Kunne ikke sette modus 0700 på privat per-bruker gnome konfigurasjonskatalog "
 "`%s': %s\n"
 
-#: libgnome/gnome-init.c:306
+#: libgnome/gnome-init.c:309
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Kunne ikke opprette gnome akselleratorkatalog `%s': %s\n"
 
-#: libgnome/gnome-init.c:358
+#: libgnome/gnome-init.c:361
 msgid "Disable sound server usage"
 msgstr "Slå av bruk av lydtjener"
 
-#: libgnome/gnome-init.c:361
+#: libgnome/gnome-init.c:364
 msgid "Enable sound server usage"
 msgstr "Slå på bruk av lydtjener"
 
-#: libgnome/gnome-init.c:365 libgnome/gnome-init.c:367
+#: libgnome/gnome-init.c:367
 msgid "Host:port on which the sound server to use is running"
 msgstr "Vert:port hvor lydtjeneren som skal brukes kjører"
 
-#: libgnome/gnome-init.c:370
+#: libgnome/gnome-init.c:369
 msgid "HOSTNAME:PORT"
 msgstr "VERTSNAVN:PORT"
 
-#: libgnome/gnome-init.c:388
+#: libgnome/gnome-init.c:387
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME virtuelt filsystem"
 
-#: libgnome/gnome-init.c:409
+#: libgnome/gnome-init.c:408
 msgid "GNOME Library"
 msgstr "GNOME bibliotek"
 
@@ -83,66 +83,92 @@ msgstr "Test-alternativ."
 msgid "The Application Name"
 msgstr "Applikasjonens navn"
 
-#: libgnome/gnome-gconf.c:165
+#: libgnome/gnome-gconf.c:172
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf støtte"
 
-#: libgnome/gnome-help.c:110 libgnome/gnome-help.c:159
-msgid "Internal error"
-msgstr "Intern feil"
+#: libgnome/gnome-help.c:149
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr ""
 
-#: libgnome/gnome-help.c:122 libgnome/gnome-help.c:179
+#: libgnome/gnome-help.c:163
+msgid ""
+"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
+"libs was compiled incorrectly."
+msgstr ""
+
+#: libgnome/gnome-help.c:176
+#, c-format
+msgid ""
+"Unable to show help as file %s is not a directory.  This implies an "
+"incorrect installation."
+msgstr ""
+
+#: libgnome/gnome-help.c:193
 #, c-format
 msgid "Help document %s for %s not found"
+msgstr "Hjelpdokument %s for %s ble ikke funnet"
+
+#: libgnome/gnome-help.c:270
+#, c-format
+msgid "Unable to find doc_id %s in the help path"
+msgstr ""
+
+#: libgnome/gnome-help.c:291
+#, fuzzy, c-format
+msgid "Help document %s/%s not found"
 msgstr "Hjelpdokument %s for %s ble ikke funnet"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "For mange aliasnivåer for et lokale, kan indikere en løkke"
 
-#: libgnome/gnome-program.c:476
+#: libgnome/gnome-program.c:470
 msgid "Human readable name"
 msgstr "Lesbart navn"
 
-#: libgnome/gnome-program.c:477
+#: libgnome/gnome-program.c:471
 msgid "Human readable name of this application"
 msgstr "Lebart navn for denne applikasjonen"
 
-#: libgnome/gnome-program.c:486
+#: libgnome/gnome-program.c:480
 msgid "GNOME path"
 msgstr "GNOME sti"
 
-#: libgnome/gnome-program.c:487
+#: libgnome/gnome-program.c:481
 msgid "Path in which to look for installed files"
 msgstr "Sti hvor det skal letes etter installerte filer"
 
-#: libgnome/gnome-program.c:502
+#: libgnome/gnome-program.c:496
 msgid "App version"
 msgstr "Versjon av applikasjon"
 
-#: libgnome/gnome-program.c:503
+#: libgnome/gnome-program.c:497
 msgid "Version of this application"
 msgstr "Versjon for denne applikasjonen"
 
-#: libgnome/gnome-program.c:1251
+#: libgnome/gnome-program.c:1318
 msgid "Help options"
 msgstr "Hjelp-alternativ"
 
-#: libgnome/gnome-program.c:1256
+#: libgnome/gnome-program.c:1323
 msgid "Application options"
 msgstr "Applikasjonsalternativer"
 
-#: libgnome/gnome-program.c:1272
+#: libgnome/gnome-program.c:1339
 msgid "Dynamic modules to load"
 msgstr "Dynamiske moduler som skal lastes"
 
-#: libgnome/gnome-program.c:1273
+#: libgnome/gnome-program.c:1340
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
 #: tests/test-storage.c:474
 msgid "Can not bonobo_init"
 msgstr "Kan ikke kjøre bonobo_init"
+
+#~ msgid "Internal error"
+#~ msgstr "Intern feil"
 
 #~ msgid "Error parsing '%s' (empty result)"
 #~ msgstr "Feil under tolking av '%s' (tomt resultat)"

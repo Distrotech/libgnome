@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 1.96.0\n"
-"POT-Creation-Date: 2001-08-14 16:01+0200\n"
+"POT-Creation-Date: 2001-11-03 12:20+0100\n"
 "PO-Revision-Date: 2001-05-30 12:25+0200\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: Gnome French Team <gnomefr@gnomefr.traduc.org>\n"
@@ -13,59 +13,34 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: libgnome/gnome-exec.c:406
+#: libgnome/gnome-exec.c:413
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Ne peut trouver un terminal, utilise xterm, même si il peut ne pas "
 "fonctionner"
 
-#: libgnome/gnome-url.c:131
-#, c-format
-msgid "Error parsing '%s' (empty result)"
-msgstr "Erreur d'analyse de « %s » (résultat vide)"
-
-#: libgnome/gnome-url.c:151
-#, c-format
-msgid "Mozilla not found as '%s'"
-msgstr "Mozilla n'a pas été trouvé comme « %s »"
-
-#: libgnome/gnome-url.c:312 libgnome/gnome-url.c:316
-#, c-format
-msgid "Cannot open a pipe: %s"
+#: libgnome/gnome-url.c:181
+#, fuzzy, c-format
+msgid "Cannot parse: %s"
 msgstr "Ne peut ouvrir un tube : %s"
 
-#: libgnome/gnome-url.c:326 libgnome/gnome-url.c:384
-#, c-format
-msgid "Cannot parse handler template: %s"
-msgstr "ne peut analyser le modèle du gestionnaire : %s"
-
-#: libgnome/gnome-url.c:336 libgnome/gnome-url.c:340 libgnome/gnome-url.c:389
-#: libgnome/gnome-url.c:393
-#, c-format
-msgid "Cannot execute command '%s'!"
-msgstr "Ne peut exécuter la commande « %s » !"
-
-#: libgnome/gnome-url.c:372
-#, c-format
-msgid "Command '%s' did not return an ID!"
-msgstr "La commande « %s » n'a pas retourné d'ID !"
-
+#. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:92
+msgid "Bonobo Support"
+msgstr "Support Bonobo"
+
+#: libgnome/gnome-init.c:146
 #, fuzzy
 msgid "Bonobo activation Support"
 msgstr "Support Bonobo"
 
-#: libgnome/gnome-init.c:379
-msgid "Bonobo Support"
-msgstr "Support Bonobo"
-
-#: libgnome/gnome-init.c:436 libgnome/gnome-init.c:450
+#: libgnome/gnome-init.c:279 libgnome/gnome-init.c:293
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Ne peut créer un répertoire de configuration par utilisateur « %s » : %s\n"
 
-#: libgnome/gnome-init.c:459
+#: libgnome/gnome-init.c:302
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -74,18 +49,144 @@ msgstr ""
 "Ne peut définir le mode à 0700 sur le répertoire de configuration privé par "
 "utilisateur « %s » : %s\n"
 
-#: libgnome/gnome-init.c:466
+#: libgnome/gnome-init.c:309
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Ne peut créer le répertoire d'accélérateurs gnome « %s » : %s\n"
 
-#: libgnome/test-libgnome.c:22
+#: libgnome/gnome-init.c:361
+msgid "Disable sound server usage"
+msgstr ""
+
+#: libgnome/gnome-init.c:364
+msgid "Enable sound server usage"
+msgstr ""
+
+#: libgnome/gnome-init.c:367
+msgid "Host:port on which the sound server to use is running"
+msgstr ""
+
+#: libgnome/gnome-init.c:369
+msgid "HOSTNAME:PORT"
+msgstr ""
+
+#: libgnome/gnome-init.c:387
+msgid "GNOME Virtual Filesystem"
+msgstr ""
+
+#: libgnome/gnome-init.c:408
+msgid "GNOME Library"
+msgstr ""
+
+#: libgnome/test-libgnome.c:24
 msgid "Test option."
 msgstr "Option de test."
 
-#: libgnome/test-libgnome.c:167
+#: libgnome/test-libgnome.c:157
 msgid "The Application Name"
 msgstr "La nom de l'application"
+
+#: libgnome/gnome-gconf.c:172
+#, fuzzy
+msgid "GNOME GConf Support"
+msgstr "Support GNOME OAF"
+
+#: libgnome/gnome-help.c:149
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr ""
+
+#: libgnome/gnome-help.c:163
+msgid ""
+"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
+"libs was compiled incorrectly."
+msgstr ""
+
+#: libgnome/gnome-help.c:176
+#, c-format
+msgid ""
+"Unable to show help as file %s is not a directory.  This implies an "
+"incorrect installation."
+msgstr ""
+
+#: libgnome/gnome-help.c:193
+#, c-format
+msgid "Help document %s for %s not found"
+msgstr ""
+
+#: libgnome/gnome-help.c:270
+#, c-format
+msgid "Unable to find doc_id %s in the help path"
+msgstr ""
+
+#: libgnome/gnome-help.c:291
+#, c-format
+msgid "Help document %s/%s not found"
+msgstr ""
+
+#: libgnome/gnome-i18n.c:85
+msgid "Too many alias levels for a locale, may indicate a loop"
+msgstr ""
+
+#: libgnome/gnome-program.c:470
+msgid "Human readable name"
+msgstr ""
+
+#: libgnome/gnome-program.c:471
+msgid "Human readable name of this application"
+msgstr ""
+
+#: libgnome/gnome-program.c:480
+msgid "GNOME path"
+msgstr ""
+
+#: libgnome/gnome-program.c:481
+msgid "Path in which to look for installed files"
+msgstr ""
+
+#: libgnome/gnome-program.c:496
+msgid "App version"
+msgstr ""
+
+#: libgnome/gnome-program.c:497
+msgid "Version of this application"
+msgstr ""
+
+#: libgnome/gnome-program.c:1318
+#, fuzzy
+msgid "Help options"
+msgstr "Option de test."
+
+#: libgnome/gnome-program.c:1323
+#, fuzzy
+msgid "Application options"
+msgstr "La nom de l'application"
+
+#: libgnome/gnome-program.c:1339
+msgid "Dynamic modules to load"
+msgstr ""
+
+#: libgnome/gnome-program.c:1340
+msgid "MODULE1,MODULE2,..."
+msgstr ""
+
+#: tests/test-storage.c:474
+msgid "Can not bonobo_init"
+msgstr ""
+
+#~ msgid "Error parsing '%s' (empty result)"
+#~ msgstr "Erreur d'analyse de « %s » (résultat vide)"
+
+#~ msgid "Mozilla not found as '%s'"
+#~ msgstr "Mozilla n'a pas été trouvé comme « %s »"
+
+#~ msgid "Cannot parse handler template: %s"
+#~ msgstr "ne peut analyser le modèle du gestionnaire : %s"
+
+#~ msgid "Cannot execute command '%s'!"
+#~ msgstr "Ne peut exécuter la commande « %s » !"
+
+#~ msgid "Command '%s' did not return an ID!"
+#~ msgstr "La commande « %s » n'a pas retourné d'ID !"
 
 #~ msgid "Unknown desktop file"
 #~ msgstr "Fichier de bureau inconnu"
@@ -129,6 +230,3 @@ msgstr "La nom de l'application"
 
 #~ msgid "Print the X window ID of the utilized window."
 #~ msgstr "Affiche l'ID de la fenêtre X de la fenêtre utilisée."
-
-#~ msgid "GNOME OAF Support"
-#~ msgstr "Support GNOME OAF"

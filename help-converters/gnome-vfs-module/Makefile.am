@@ -1,4 +1,5 @@
 INCLUDES =						\
+	-I$(top_srcdir)					\
 	$(LIBGNOME_CFLAGS)				
 
 modules_LTLIBRARIES=libvfs-help.la

@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome2 1.104.0\n"
-"POT-Creation-Date: 2001-10-05 16:58+0200\n"
+"POT-Creation-Date: 2001-11-03 12:20+0100\n"
 "PO-Revision-Date: 1999-03-18 23:11+0100\n"
 "Last-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
 "Language-Team: walon <linux-wa@chanae.alphanet.ch>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Dji n' a savou trover li terminå; «xterm» srè-st eployî, mins çoula poreut "
 "n' nén aler."
 
-#: libgnome/gnome-url.c:179
+#: libgnome/gnome-url.c:181
 #, fuzzy, c-format
 msgid "Cannot parse: %s"
 msgstr "Dji n' sai drovî ene bûze: %s"
@@ -34,16 +34,16 @@ msgstr "Dji n' sai drovî ene bûze: %s"
 msgid "Bonobo Support"
 msgstr "Sopoirt bonobo"
 
-#: libgnome/gnome-init.c:143
+#: libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Sopoirt pol activaedje bonobo"
 
-#: libgnome/gnome-init.c:276 libgnome/gnome-init.c:290
+#: libgnome/gnome-init.c:279 libgnome/gnome-init.c:293
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Dji n' a savu fé li ridant d' apontiaedje par ûzeu di gnome «%s»: %s\n"
 
-#: libgnome/gnome-init.c:299
+#: libgnome/gnome-init.c:302
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -52,32 +52,32 @@ msgstr ""
 "Dji n' a savu mete li môde a 0700 pol ridant d' apontiaedje par ûzeu di "
 "gnome «%s»: %s\n"
 
-#: libgnome/gnome-init.c:306
+#: libgnome/gnome-init.c:309
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Dji n' a savu fé li ridant des accelerateus di gnome «%s»: %s\n"
 
-#: libgnome/gnome-init.c:358
+#: libgnome/gnome-init.c:361
 msgid "Disable sound server usage"
 msgstr "Essocter li sierveu di sons"
 
-#: libgnome/gnome-init.c:361
+#: libgnome/gnome-init.c:364
 msgid "Enable sound server usage"
 msgstr "Mete èn oûve li sierveu di sons"
 
-#: libgnome/gnome-init.c:364
+#: libgnome/gnome-init.c:367
 msgid "Host:port on which the sound server to use is running"
 msgstr "Lodjeu: pôrt do sierveu di sons"
 
-#: libgnome/gnome-init.c:366
+#: libgnome/gnome-init.c:369
 msgid "HOSTNAME:PORT"
 msgstr "LODJEU:PÔRT"
 
-#: libgnome/gnome-init.c:384
+#: libgnome/gnome-init.c:387
 msgid "GNOME Virtual Filesystem"
 msgstr "Forveyou sistinme di fitchîs di GNOME"
 
-#: libgnome/gnome-init.c:405
+#: libgnome/gnome-init.c:408
 msgid "GNOME Library"
 msgstr "Lîvreye di GNOME"
 
@@ -93,13 +93,36 @@ msgstr "No do programe"
 msgid "GNOME GConf Support"
 msgstr "Sopoirt di Gnome GConf"
 
-#: libgnome/gnome-help.c:129 libgnome/gnome-help.c:196
-msgid "Internal error"
-msgstr "Divintrinne aroke"
+#: libgnome/gnome-help.c:149
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr ""
 
-#: libgnome/gnome-help.c:141 libgnome/gnome-help.c:216
+#: libgnome/gnome-help.c:163
+msgid ""
+"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
+"libs was compiled incorrectly."
+msgstr ""
+
+#: libgnome/gnome-help.c:176
+#, c-format
+msgid ""
+"Unable to show help as file %s is not a directory.  This implies an "
+"incorrect installation."
+msgstr ""
+
+#: libgnome/gnome-help.c:193
 #, c-format
 msgid "Help document %s for %s not found"
+msgstr "Li documint d' aidance %s po %s n' a nén stî trové."
+
+#: libgnome/gnome-help.c:270
+#, c-format
+msgid "Unable to find doc_id %s in the help path"
+msgstr ""
+
+#: libgnome/gnome-help.c:291
+#, fuzzy, c-format
+msgid "Help document %s/%s not found"
 msgstr "Li documint d' aidance %s po %s n' a nén stî trové."
 
 #: libgnome/gnome-i18n.c:85
@@ -108,46 +131,49 @@ msgstr ""
 "Pår trop di liveas d' alias po ene locåle; çoula pout esse cåze d' on "
 "betchfessî loyén"
 
-#: libgnome/gnome-program.c:478
+#: libgnome/gnome-program.c:470
 msgid "Human readable name"
 msgstr "No lejhåve påzès djins"
 
-#: libgnome/gnome-program.c:479
+#: libgnome/gnome-program.c:471
 msgid "Human readable name of this application"
 msgstr "On no lejhåve påzès djins po ci programe chal"
 
-#: libgnome/gnome-program.c:488
+#: libgnome/gnome-program.c:480
 msgid "GNOME path"
 msgstr "Tchimin di GNOME"
 
-#: libgnome/gnome-program.c:489
+#: libgnome/gnome-program.c:481
 msgid "Path in which to look for installed files"
 msgstr "Li tchimin k' on louke après les astalés programes"
 
-#: libgnome/gnome-program.c:504
+#: libgnome/gnome-program.c:496
 msgid "App version"
 msgstr "Modêye do programe"
 
-#: libgnome/gnome-program.c:505
+#: libgnome/gnome-program.c:497
 msgid "Version of this application"
 msgstr "Li modêye di ci programe chal"
 
-#: libgnome/gnome-program.c:1298
+#: libgnome/gnome-program.c:1318
 msgid "Help options"
 msgstr "Tchûzes del aidance"
 
-#: libgnome/gnome-program.c:1303
+#: libgnome/gnome-program.c:1323
 msgid "Application options"
 msgstr "Tchûzes do programe"
 
-#: libgnome/gnome-program.c:1319
+#: libgnome/gnome-program.c:1339
 msgid "Dynamic modules to load"
 msgstr "Modules dinamikes a tcherdjî"
 
-#: libgnome/gnome-program.c:1320
+#: libgnome/gnome-program.c:1340
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
 #: tests/test-storage.c:474
 msgid "Can not bonobo_init"
 msgstr "Dji n' pout nén enonder bonobo"
+
+#~ msgid "Internal error"
+#~ msgstr "Divintrinne aroke"

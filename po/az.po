@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome2 1.104.0\n"
-"POT-Creation-Date: 2001-10-05 16:58+0200\n"
+"POT-Creation-Date: 2001-11-03 12:20+0100\n"
 "PO-Revision-Date: 2001-10-03 18:31GMT +0200\n"
 "Last-Translator: Vasif İsmayıloğlu MD <azerb_linux@hotmail.com>\n"
 "Language-Team: Azerbaijani Turkish <linuxaz@azerimal.net>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "Terminal tapıla bilmədi, əgər işə düþməzsə xterm işlədilir"
 
-#: libgnome/gnome-url.c:179
+#: libgnome/gnome-url.c:181
 #, c-format
 msgid "Cannot parse: %s"
 msgstr "Darana bilmir: %s"
@@ -28,49 +28,49 @@ msgstr "Darana bilmir: %s"
 msgid "Bonobo Support"
 msgstr "Bonobo Dəstəyi"
 
-#: libgnome/gnome-init.c:143
+#: libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Bonobo fəallaşdırma Dəstəyi"
 
-#: libgnome/gnome-init.c:276 libgnome/gnome-init.c:290
+#: libgnome/gnome-init.c:279 libgnome/gnome-init.c:293
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "İsitafadəçilər üçün xas quraşdırma qovluqları yaradıla bilmədi `%s':%s\n"
 
-#: libgnome/gnome-init.c:299
+#: libgnome/gnome-init.c:302
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr "Şəxsi gnome quraşdırma qovluğu üçün 0700 modu verilə bilmədi `%s':%s\n"
 
-#: libgnome/gnome-init.c:306
+#: libgnome/gnome-init.c:309
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Gnome sür'ətləndiriciləri qovluğu yaradıla bilmədi `%s':%s\n"
 
-#: libgnome/gnome-init.c:358
+#: libgnome/gnome-init.c:361
 msgid "Disable sound server usage"
 msgstr "Səs vericisi istifadəsini bağla"
 
-#: libgnome/gnome-init.c:361
+#: libgnome/gnome-init.c:364
 msgid "Enable sound server usage"
 msgstr "Səs vericisi istifadəsini aç"
 
-#: libgnome/gnome-init.c:364
+#: libgnome/gnome-init.c:367
 msgid "Host:port on which the sound server to use is running"
 msgstr "Qovşaq:istifadə ediləcək səs vericisi qapısı"
 
-#: libgnome/gnome-init.c:366
+#: libgnome/gnome-init.c:369
 msgid "HOSTNAME:PORT"
 msgstr "QOVŞAQADI:QAPI"
 
-#: libgnome/gnome-init.c:384
+#: libgnome/gnome-init.c:387
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Virtual Fayl Sistemi"
 
-#: libgnome/gnome-init.c:405
+#: libgnome/gnome-init.c:408
 msgid "GNOME Library"
 msgstr "GNOME Kitabxanası"
 
@@ -86,59 +86,85 @@ msgstr "Proqram Tə'minatı Adı"
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf Dəstəyi"
 
-#: libgnome/gnome-help.c:129 libgnome/gnome-help.c:196
-msgid "Internal error"
-msgstr "Daxili xəta"
+#: libgnome/gnome-help.c:149
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr ""
 
-#: libgnome/gnome-help.c:141 libgnome/gnome-help.c:216
+#: libgnome/gnome-help.c:163
+msgid ""
+"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
+"libs was compiled incorrectly."
+msgstr ""
+
+#: libgnome/gnome-help.c:176
+#, c-format
+msgid ""
+"Unable to show help as file %s is not a directory.  This implies an "
+"incorrect installation."
+msgstr ""
+
+#: libgnome/gnome-help.c:193
 #, c-format
 msgid "Help document %s for %s not found"
+msgstr "%s yardım faylı %s üçün tapıla bilmədi"
+
+#: libgnome/gnome-help.c:270
+#, c-format
+msgid "Unable to find doc_id %s in the help path"
+msgstr ""
+
+#: libgnome/gnome-help.c:291
+#, fuzzy, c-format
+msgid "Help document %s/%s not found"
 msgstr "%s yardım faylı %s üçün tapıla bilmədi"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "Lokal üçün həddindən artıq ləqəb səviyyəsi lupa işarət edə bilər"
 
-#: libgnome/gnome-program.c:478
+#: libgnome/gnome-program.c:470
 msgid "Human readable name"
 msgstr "İnsannın oxuyabiləcəyi ad"
 
-#: libgnome/gnome-program.c:479
+#: libgnome/gnome-program.c:471
 msgid "Human readable name of this application"
 msgstr "Bu proqramın insanın oxuyabiləcəyi adı"
 
-#: libgnome/gnome-program.c:488
+#: libgnome/gnome-program.c:480
 msgid "GNOME path"
 msgstr "GNOME cığırı"
 
-#: libgnome/gnome-program.c:489
+#: libgnome/gnome-program.c:481
 msgid "Path in which to look for installed files"
 msgstr "Qurulu faylların axtarılacağı cığır"
 
-#: libgnome/gnome-program.c:504
+#: libgnome/gnome-program.c:496
 msgid "App version"
 msgstr "Prq buraxılışı"
 
-#: libgnome/gnome-program.c:505
+#: libgnome/gnome-program.c:497
 msgid "Version of this application"
 msgstr "Bu təminatın buraxılışı"
 
-#: libgnome/gnome-program.c:1298
+#: libgnome/gnome-program.c:1318
 msgid "Help options"
 msgstr "Yardım seçənəkləri"
 
-#: libgnome/gnome-program.c:1303
+#: libgnome/gnome-program.c:1323
 msgid "Application options"
 msgstr "Təminat seçənəkləri"
 
-#: libgnome/gnome-program.c:1319
+#: libgnome/gnome-program.c:1339
 msgid "Dynamic modules to load"
 msgstr "Yüklənəcək dinamik modullar"
 
-#: libgnome/gnome-program.c:1320
+#: libgnome/gnome-program.c:1340
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
 #: tests/test-storage.c:474
 msgid "Can not bonobo_init"
 msgstr "bonobo_init aparıla bilmir"
+
+#~ msgid "Internal error"
+#~ msgstr "Daxili xəta"

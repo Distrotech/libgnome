@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome2 1.100.0\n"
-"POT-Creation-Date: 2001-09-23 01:57+0200\n"
+"POT-Creation-Date: 2001-11-03 12:20+0100\n"
 "PO-Revision-Date: 2001-06-19 12:54+0200\n"
 "Last-Translator: Héctor García Álvarez <hector@scouts-es.org>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -18,7 +18,8 @@ msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "No pude encontrar un terminal, usando xterm, auncuando puede no funcionar"
 
-#: libgnome/gnome-url.c:155
+#: libgnome/gnome-url.c:181
+#, c-format
 msgid "Cannot parse: %s"
 msgstr "No puedo parsear: %s"
 
@@ -27,17 +28,17 @@ msgstr "No puedo parsear: %s"
 msgid "Bonobo Support"
 msgstr "Soporte para Bonobo"
 
-#: libgnome/gnome-init.c:143
+#: libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Soporte para activación de bonobo"
 
-#: libgnome/gnome-init.c:276 libgnome/gnome-init.c:290
+#: libgnome/gnome-init.c:279 libgnome/gnome-init.c:293
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "No pude crear un directorio para la configuración de usuario '%s': %s\n"
 
-#: libgnome/gnome-init.c:299
+#: libgnome/gnome-init.c:302
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -45,32 +46,32 @@ msgid ""
 msgstr ""
 "No pude poner el modo 0700 al directorio de configuración de usuario %s: %s\n"
 
-#: libgnome/gnome-init.c:306
+#: libgnome/gnome-init.c:309
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "No pude crear el directorio de aceleradores gnome `%s': %s\n"
 
-#: libgnome/gnome-init.c:358
+#: libgnome/gnome-init.c:361
 msgid "Disable sound server usage"
 msgstr "Deshabilitar el uso del servidor de sonido"
 
-#: libgnome/gnome-init.c:361
+#: libgnome/gnome-init.c:364
 msgid "Enable sound server usage"
 msgstr "Habilitar el uso del servidor de sonido"
 
-#: libgnome/gnome-init.c:364
+#: libgnome/gnome-init.c:367
 msgid "Host:port on which the sound server to use is running"
 msgstr "Ordenador:puerto en el que se está ejecuntando el servidor de sonido"
 
-#: libgnome/gnome-init.c:366
+#: libgnome/gnome-init.c:369
 msgid "HOSTNAME:PORT"
 msgstr "ORDENADOR:PUERTO"
 
-#: libgnome/gnome-init.c:384
+#: libgnome/gnome-init.c:387
 msgid "GNOME Virtual Filesystem"
 msgstr "Sistema de archivos virtual de GNOME"
 
-#: libgnome/gnome-init.c:405
+#: libgnome/gnome-init.c:408
 msgid "GNOME Library"
 msgstr "Librería de GNOME"
 
@@ -82,60 +83,83 @@ msgstr "Opción de prueba."
 msgid "The Application Name"
 msgstr "El Nombre de la Aplicación"
 
-#: libgnome/gnome-gconf.c:165
+#: libgnome/gnome-gconf.c:172
 msgid "GNOME GConf Support"
 msgstr "Soporte para GNOME GConf"
 
-#: libgnome/gnome-help.c:110 libgnome/gnome-help.c:159
-msgid "Internal error"
-msgstr "Error interno"
+#: libgnome/gnome-help.c:149
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr ""
 
-#: libgnome/gnome-help.c:122 libgnome/gnome-help.c:179
+#: libgnome/gnome-help.c:163
+msgid ""
+"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
+"libs was compiled incorrectly."
+msgstr ""
+
+#: libgnome/gnome-help.c:176
+#, c-format
+msgid ""
+"Unable to show help as file %s is not a directory.  This implies an "
+"incorrect installation."
+msgstr ""
+
+#: libgnome/gnome-help.c:193
 #, c-format
 msgid "Help document %s for %s not found"
+msgstr "Documento de ayuda %s para %s no encontrado"
+
+#: libgnome/gnome-help.c:270
+#, c-format
+msgid "Unable to find doc_id %s in the help path"
+msgstr ""
+
+#: libgnome/gnome-help.c:291
+#, fuzzy, c-format
+msgid "Help document %s/%s not found"
 msgstr "Documento de ayuda %s para %s no encontrado"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "Demasiados niveles de alias para un locale, puede indicar un bucle"
 
-#: libgnome/gnome-program.c:476
+#: libgnome/gnome-program.c:470
 msgid "Human readable name"
 msgstr "Nombre leible por humanos"
 
-#: libgnome/gnome-program.c:477
+#: libgnome/gnome-program.c:471
 msgid "Human readable name of this application"
 msgstr "Nombre leible por humanos de esta aplicación"
 
-#: libgnome/gnome-program.c:486
+#: libgnome/gnome-program.c:480
 msgid "GNOME path"
 msgstr "Path GNOME"
 
-#: libgnome/gnome-program.c:487
+#: libgnome/gnome-program.c:481
 msgid "Path in which to look for installed files"
 msgstr "Path en el que buscar archivos instalados"
 
-#: libgnome/gnome-program.c:502
+#: libgnome/gnome-program.c:496
 msgid "App version"
 msgstr "Versión de la aplicación"
 
-#: libgnome/gnome-program.c:503
+#: libgnome/gnome-program.c:497
 msgid "Version of this application"
 msgstr "Versión de esta aplicación"
 
-#: libgnome/gnome-program.c:1251
+#: libgnome/gnome-program.c:1318
 msgid "Help options"
 msgstr "Opción de ayuda"
 
-#: libgnome/gnome-program.c:1256
+#: libgnome/gnome-program.c:1323
 msgid "Application options"
 msgstr "Opciones de la aplicación"
 
-#: libgnome/gnome-program.c:1272
+#: libgnome/gnome-program.c:1339
 msgid "Dynamic modules to load"
 msgstr "Modulos dinámicos a cargar"
 
-#: libgnome/gnome-program.c:1273
+#: libgnome/gnome-program.c:1340
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
@@ -143,3 +167,5 @@ msgstr "MODULE1,MODULE2,..."
 msgid "Can not bonobo_init"
 msgstr "No pude hacer bonobo_init"
 
+#~ msgid "Internal error"
+#~ msgstr "Error interno"
