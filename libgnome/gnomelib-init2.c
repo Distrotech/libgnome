@@ -30,6 +30,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <gmodule.h>
 #include "libgnome/gnome-defs.h"
 #include "libgnome/gnome-i18nP.h"
