@@ -43,6 +43,11 @@
 
 extern int xmlLoadExtDtdDefaultValue;
 
+void print_err (const gchar *string) 
+{
+        /* Don't output anything */
+}
+
 int
 main(int argc, char **argv) {
 
@@ -61,6 +66,9 @@ main(int argc, char **argv) {
 	has_rootid = FALSE; 
 	gdb_doc = NULL;
 	gdb_rootid = NULL;
+
+        /* Don't output garbage */
+        g_set_printerr_handler (print_err);
 
 	/* stylesheet location based on Linux Standard Base      *
 	 * http://www.linuxbase.org/spec/gLSB/gLSB/sgmlr002.html */

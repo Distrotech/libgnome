@@ -1,5 +1,8 @@
 2002-03-03  Mikael Hallendal  <micke@codefactory.se>
 
+	* help-converters/docbook/gnome-db2html3.c:
+	(print_err): add dummy printerr-function. Don't output anything.
+
 	* help-converters/info/html.c:
 	(dump_html_for_node): add a &nbsp; in anchor tag, otherwise
 	  gtkhtml2 won't be able to jump to it.
