@@ -1,6 +1,8 @@
 #ifndef GNOME_CONFIG_H
 #define GNOME_CONFIG_H
 
+#include <glib.h>
+
 BEGIN_GNOME_DECLS
 
 /* Prototypes for the profile management functions */
