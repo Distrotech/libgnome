@@ -19,7 +19,8 @@ INCLUDES = -I.. -I$(srcdir)/.. $(SUPPORTINCS) \
 	-DGNOMEBINDIR=\""$(bindir)"\" \
 	-DGNOMELOCALSTATEDIR=\""$(localstatedir)"\" \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\"
+	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\" \
+	-DVERSION=\""$(VERSION)"\"
 
 libgnome_la_SOURCES = \
 	gnome-config.c		\
@@ -83,7 +84,7 @@ soundlist_DATA = gnome.soundlist
 libgnome_la_LDFLAGS = -version-info 30:0:30 -rpath $(libdir)
 libgnome_la_LIBADD = $(GLIB_LIBS) -lm $(DL_LIB)
 
-bin_PROGRAMS = dns-helper gnome-dump-metadata gnome-moz-remote
+bin_PROGRAMS = dns-helper gnome-dump-metadata gnome-moz-remote gconfigger
 
 dns_helper_SOURCES = dns-helper.c
 dns_helper_LDADD = $(NSL_LIBS)
@@ -97,6 +98,9 @@ gnome_moz_remote_SOURCES = gnome-moz-remote.c vroot.h
 gnome_moz_remote_LDADD = libgnome.la $(LIBSUPPORT) $(LIBGNOME_LIBS) \
 	$(X_LIBS) $(X_PRE_LIBS) -lXmu -lXext -lXt -lX11 $(X_EXTRA_LIBS) $(INTLLIBS)
 
+gconfigger_SOURCES = gconfigger.c
+gconfigger_LDADD = libgnome.la $(LIBSUPPORT) \
+	$(LIBGNOME_LIBS) $(INTLLIBS)
 
 install-data-local:
 	$(mkinstalldirs) $(scoredir)

@@ -28,7 +28,7 @@ BEGIN_GNOME_DECLS
 extern int gnome_sound_connection;
 
 /* Initialize esd connection */
-void gnome_sound_init(char *hostname);
+void gnome_sound_init(const char *hostname);
 
 /* Closes esd connection */
 void gnome_sound_shutdown(void);

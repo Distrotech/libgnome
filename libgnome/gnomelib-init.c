@@ -49,7 +49,7 @@ create_user_gnome_directories (void)
 
 }
 
-static gboolean disable_sound = FALSE;
+static gboolean disable_sound = FALSE, enable_sound = FALSE;
 static char *esound_host = NULL;
 
 static void
@@ -57,9 +57,12 @@ gnomelib_option_cb(poptContext ctx, enum poptCallbackReason reason,
 		   const struct poptOption *opt, const char *arg,
 		   void *data)
 {
+  gboolean real_enable_sound;
   switch(reason) {
     case POPT_CALLBACK_REASON_POST:
-      if(!disable_sound) {
+      real_enable_sound = disable_sound?FALSE:enable_sound?TRUE:gnome_config_get_bool("/sound/system/settings/start_esd");
+
+      if(real_enable_sound) {
 	if(esound_host)
 	  gnome_sound_init(esound_host);
 	else if(getenv("ESOUNDHOST"))
@@ -70,8 +73,6 @@ gnomelib_option_cb(poptContext ctx, enum poptCallbackReason reason,
 
       gnome_triggers_init();
       break;
-    case POPT_CALLBACK_REASON_OPTION:
-      break;
   }
 }
 
@@ -80,6 +81,8 @@ static const struct poptOption gnomelib_options[] = {
    gnomelib_option_cb, 0, NULL, NULL},
   {"disable-sound", '\0', POPT_ARG_NONE,
    &disable_sound, 0, N_("Disable sound server usage"), NULL},
+  {"enable-sound", '\0', POPT_ARG_NONE,
+   &enable_sound, 0, N_("Enable sound server usage"), NULL},
   {"esound-host", '\0', POPT_ARG_STRING,
    &esound_host, 0, N_("Host on which the sound server to use is running"),
    N_("HOSTNAME")},

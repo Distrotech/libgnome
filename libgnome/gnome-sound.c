@@ -358,7 +358,8 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
   int size;
   int confirm = 0;
 
-  if(gnome_sound_connection < 0) return -1;
+  if(gnome_sound_connection < 0)
+      return -1;
 
 #ifdef HAVE_LIBAUDIOFILE
   s = gnome_sound_sample_load_audiofile(filename);
@@ -418,7 +419,7 @@ gnome_sound_play (const char * filename)
   if(gnome_sound_connection < 0) return;
 
   srand(time(NULL));
-  snprintf(buf, sizeof(buf), "%d-%d", getpid(), rand());
+  g_snprintf(buf, sizeof(buf), "%d-%d", getpid(), rand());
   sample = gnome_sound_sample_load (buf, filename);
 
   esd_sample_play(gnome_sound_connection, sample);
@@ -428,17 +429,18 @@ gnome_sound_play (const char * filename)
 }
 
 /* Initialize esd connection */
-void gnome_sound_init(char *host)
+void gnome_sound_init(const char *hostname)
 {
 #ifdef HAVE_ESD
   if(gnome_sound_connection < 0)
-    gnome_sound_connection = esd_open_sound(host);
+    gnome_sound_connection = esd_open_sound(hostname);
 #endif
 }
 
 void gnome_sound_shutdown(void)
 {
 #ifdef HAVE_ESD
-  esd_close(gnome_sound_connection);
+  if(gnome_sound_connection >= 0)
+    esd_close(gnome_sound_connection);
 #endif
 }
