@@ -24,9 +24,7 @@ gnomelib_init (int *argc, char ***argv)
 	mkdir (gnome_user_dir, 0755);
 
 	setlocale (LC_ALL, "");
-#ifdef HAVE_LIBINTL
 	bindtextdomain (PACKAGE, GNOMELOCALEDIR);
-#endif
 }
 
 
