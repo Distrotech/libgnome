@@ -15,6 +15,7 @@
 #include <bonobo/bonobo-moniker-util.h>
 
 #include "gnome-moniker-std.h"
+#include "bonobo-stream-fs.h"
 
 Bonobo_Unknown
 bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
@@ -26,10 +27,10 @@ bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
 	Bonobo_Unknown retval;
 
 	if (!strcmp (requested_interface, "IDL:Bonobo/Stream:1.0")) {
-		BonoboStream *stream;
+		BonoboObject *stream;
 		
-		stream = bonobo_stream_open ("fs", fname,
-					     Bonobo_Storage_READ, 0664, ev);
+		stream = BONOBO_OBJECT (bonobo_stream_fs_open (
+			fname, Bonobo_Storage_READ, 0664, ev));
 
 		if (BONOBO_EX (ev))
 			return CORBA_OBJECT_NIL;

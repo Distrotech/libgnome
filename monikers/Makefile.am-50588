@@ -40,6 +40,8 @@ libmoniker_gnome_std_la_SOURCES = \
 	gnome-moniker-std.c		\
 	gnome-moniker-std.h		\
 	bonobo-moniker-extender-file.c	\
+	bonobo-stream-fs.h		\
+	bonobo-stream-fs.c		\
 	bonobo-moniker-file.c
 
 libmoniker_gnome_std_la_LIBADD = \
