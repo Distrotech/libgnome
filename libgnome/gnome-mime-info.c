@@ -20,8 +20,8 @@
 #include <config.h>
 #include <glib.h>
 #include <string.h>
-#include <dirent.h>
 #include <sys/types.h>
+#include <dirent.h>
 #include "libgnomeP.h"
 #include "gnome-mime.h"
 #include "gnome-regex.h"

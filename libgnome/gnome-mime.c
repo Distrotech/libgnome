@@ -6,8 +6,8 @@
 
 #include <config.h>
 #include <string.h>
-#include <dirent.h>
 #include <sys/types.h>
+#include <dirent.h>
 #include <regex.h>
 #include <gtk/gtk.h>
 #include "libgnomeP.h"
