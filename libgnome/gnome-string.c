@@ -1,9 +1,9 @@
 #include "gnome-string.h"
 #include <string.h>
-
 #include <glib.h>
 #include <string.h>
 #include <limits.h>
+#include <ctype.h>
 
 gchar **gnome_split_string(gchar *string, gchar *delim, gint max_tokens)
 {
@@ -89,4 +89,22 @@ gnome_join_vstrings(gchar *separator, gchar **strings)
 	}
 
 	return retval;
+}
+
+inline
+gchar *
+gnome_chomp_string(gchar *astring, gboolean in_place)
+{
+	int i;
+	gchar *retval;
+
+	g_return_val_if_fail(astring != NULL, NULL);
+
+	if(in_place == FALSE)
+		retval = g_strdup(astring);
+	else
+		retval = astring;
+
+	i = strlen(retval) - 1;
+	while(isspace(retval[i])) retval[i--] = '\0';
 }
