@@ -1422,17 +1422,17 @@ gnome_program_postinit (GnomeProgram *program)
 
 /**
  * gnome_program_init:
- * @app_id: Application ID string
- * @app_version: Application version string
- * @module_info: The module to init with this program
- * @argc: The number of commmand line arguments contained in 'argv'
- * @argv: A string array of command line arguments
- * @...: a NULL-terminated list of attribute name/value pairs
+ * @app_id: Application ID string.
+ * @app_version: Application version string.
+ * @module_info: The module to init with this program.
+ * @argc: The number of commmand line arguments contained in @argv.
+ * @argv: A string array of command line arguments.
+ * @first_property_name: The first item in a %NULL-terminated list of attribute
+ * name/value.
+ * @...: The continuation of a %NULL-terminated list of attribute name/value
+ * pairs.
  *
- * Description:
- * Performs application initialization.  It will load the specified
- * @module_info, which is normally LIBGNOME_MODULE or LIBGNOMEUI_MODULE
- * and it pulls in all the dependencies
+ * Returns: A #GnomeProgram instance representing the current application.
  */
 GnomeProgram *
 gnome_program_init (const char *app_id, const char *app_version,
@@ -1454,7 +1454,26 @@ gnome_program_init (const char *app_id, const char *app_version,
     return program;
 }
 
-GnomeProgram *
+/**
+ * gnome_program_initv:
+ * @type: The type of application to be initialized (usually
+ * #GNOME_TYPE_PROGRAM).
+ * @app_id: Application ID string.
+ * @app_version: Application version string.
+ * @module_info: The modules to init with the application.
+ * @argc: The number of command line arguments contained in @argv.
+ * @argv: A string array of command line arguments.
+ * @first_property_name: The first item in a %NULL-terminated list of attribute
+ * name/value.
+ * @args: The remaining elements in the %NULL terminated list (of which
+ * @first_property_name is the first element).
+ *
+ * Provides a non-varargs form of gnome_program_init(). Users will rarely need
+ * to call this function directly.
+ *
+ * Returns: A #GnomeProgram instance representing the current application.
+ */
+GnomeProgram*
 gnome_program_initv (GType type,
 		     const char *app_id, const char *app_version,
 		     const GnomeModuleInfo *module_info,
