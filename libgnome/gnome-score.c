@@ -238,8 +238,10 @@ gnome_score_child (void)
    setfsgid (gid);
 #endif
    realname = g_strdup (g_get_real_name ());
-   if (strlen (realname) == 0)
+   if (strcmp (realname, "Unknown") == 0) {
+     g_free (realname);
      realname = g_strdup (g_get_user_name ());
+   }
 
    while (read (STDIN_FILENO, &cmd, sizeof cmd) == sizeof(cmd)) {
 	level = g_new (char, cmd.level);
