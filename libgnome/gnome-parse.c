@@ -15,12 +15,11 @@
    License along with the Gnome Library; see the file COPYING.LIB.  If not,
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
+
 #include <config.h>
 #include <stdlib.h>
-#ifndef __FreeBSD__
-#include <malloc.h>
-#endif
 #include <glib.h>
+
 #include "gnome-defs.h"
 #include "gnome-parse.h"
 #include "gnome-i18nP.h"
