@@ -11,10 +11,7 @@
 #include <glib.h>
 #include "gnome-defs.h"
 #include "gnome-util.h"
-
-#ifdef HAVE_LIBINTL
-#include "libintl.h"
-#endif
+#include "gnome-i18n.h"
 
 char *gnome_user_home_dir = 0;
 char *gnome_user_dir = 0;

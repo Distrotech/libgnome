@@ -8,8 +8,10 @@
 
 BEGIN_GNOME_DECLS
 
-#ifdef HAVE_LIBINTL_H
-#    include <libintl.h>
+#ifdef ENABLE_NLS
+#    ifdef HAVE_LIBINTL_H
+#       include <libintl.h>
+#    endif
 #    define _(String) gettext (String)
 #    ifdef gettext_noop
 #        define N_(String) gettext_noop (String)
