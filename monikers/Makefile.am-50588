@@ -51,7 +51,7 @@ libstorage_vfs_la_SOURCES =	\
 libstorage_vfs_la_CFLAGS =	\
 	$(VFS_CFLAGS)
 
-libstorage_vfs_la_LIBS = 	\
+libstorage_vfs_la_LIBADD = 	\
 	$(VFS_LIBS)
 endif
 

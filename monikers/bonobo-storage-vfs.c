@@ -88,9 +88,44 @@ static Bonobo_Storage_directory_list *
 fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 		  CORBA_Environment *ev)
 {
-	g_error ("Not yet implemented");
+	BonoboStorageVfs              *storage_vfs;
+	Bonobo_Storage_directory_list *list = NULL;
+	GnomeVFSResult                 result;
+	GnomeVFSDirectoryList         *dir_list;
+	GnomeVFSFileInfo              *info;
+	char                          *uri;
+	int                            len, i;
 
-	return NULL;
+	storage_vfs = BONOBO_STORAGE_VFS (storage);
+
+	uri = g_concat_dir_and_file (storage_vfs->path, path);
+
+	result = gnome_vfs_directory_list_load (
+		&dir_list, uri, GNOME_VFS_FILE_INFO_DEFAULT,
+		NULL, NULL);
+	if (result != GNOME_VFS_OK) {
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NotFound, NULL);
+		g_free (uri);
+		return NULL;
+	}
+
+	len  = gnome_vfs_directory_list_get_num_entries (dir_list);
+	list = Bonobo_Storage_directory_list__alloc     ();
+	list->_buffer = CORBA_sequence_CORBA_string_allocbuf (len);
+	list->_length = len;
+	CORBA_sequence_set_release (list, TRUE); 
+
+	i = 0;
+	for (info = gnome_vfs_directory_list_first (dir_list);
+	     info; info = gnome_vfs_directory_list_next (dir_list))
+		list->_buffer [i++] = CORBA_string_dup (info->name);
+
+	gnome_vfs_directory_list_destroy (dir_list);
+
+	g_free (uri);
+
+	return list;
 }
 
 static void
@@ -180,7 +215,7 @@ create_bonobo_storage_vfs (BonoboObject *object)
  * Creates the Gtk object and the corba server bound to it
  */
 static BonoboStorage *
-do_bonobo_storage_vfs_create (char *path)
+do_bonobo_storage_vfs_create (const char *path)
 {
 	BonoboStorageVfs *storage_vfs;
 	Bonobo_Storage corba_storage;
@@ -210,37 +245,57 @@ do_bonobo_storage_vfs_create (char *path)
 BonoboStorage *
 bonobo_storage_vfs_open (const char *path, gint flags, gint mode)
 {
-	struct stat s;
-	int v;
+	GnomeVFSHandle   *handle;
+	GnomeVFSResult    result;
+	GnomeVFSFileInfo *info;
+	gboolean          create = FALSE;
 	
 	g_return_val_if_fail (path != NULL, NULL);
 
-	if (flags & BONOBO_SS_CREATE){
-		if (mkdir (path, mode) == -1){
+	info = gnome_vfs_file_info_new ();
+	result = gnome_vfs_get_file_info (
+		path, info, GNOME_VFS_FILE_INFO_DEFAULT, NULL);
+
+	if (result == GNOME_VFS_ERROR_NOT_FOUND &&
+	    (flags & BONOBO_SS_CREATE))
+		create = TRUE;
+	    
+	else if (flags & BONOBO_SS_READ) {
+		if (result != GNOME_VFS_OK) {
+			g_warning ("Error getting info on '%s'", path);
+			return NULL;
+		}
+
+		if ((info->valid_fields & GNOME_VFS_FILE_INFO_FIELDS_TYPE) &&
+		    (info->type != GNOME_VFS_FILE_TYPE_DIRECTORY)) {
+			g_warning ("Not a storage: '%s'", path);
+			return NULL;
+		}
+
+	} else if (flags & (BONOBO_SS_RDWR | BONOBO_SS_WRITE)) {
+		if (result == GNOME_VFS_ERROR_NOT_FOUND)
+			create = TRUE;
+		else
+			if ((info->valid_fields & GNOME_VFS_FILE_INFO_FIELDS_TYPE) &&
+			    (info->type != GNOME_VFS_FILE_TYPE_DIRECTORY)) {
+				g_warning ("Not a storage: '%s'", path);
+				return NULL;
+			}
+	}
+	gnome_vfs_file_info_unref (info);
+
+	if (create ||
+	    (flags & BONOBO_SS_CREATE)) {
+		result = gnome_vfs_create (
+			&handle, path, GNOME_VFS_OPEN_READ | GNOME_VFS_OPEN_WRITE,
+			TRUE, S_IRUSR | S_IWUSR);
+		if (result != GNOME_VFS_OK) {
+			g_warning ("Error creating: '%s'", path);
 			return NULL;
 		}
 	}
 
-	v = stat (path, &s);
-
-	if (flags & BONOBO_SS_READ) {
-		if (v == -1)
-			return NULL;
-		
-		if (!S_ISDIR (s.st_mode))
-			return NULL;
-
-	} else if (flags & (BONOBO_SS_RDWR|BONOBO_SS_WRITE)){
-		if (v == -1) {
-			if (mkdir (path, 0777) == -1)
-				return NULL;
-		} else {
-			if (!S_ISDIR (s.st_mode))
-				return NULL;
-		}
-	}
-
-	return do_bonobo_storage_vfs_create (g_strdup (path));
+	return do_bonobo_storage_vfs_create (path);
 }
 
 /*
@@ -249,6 +304,11 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode)
 BonoboStorage *
 bonobo_storage_driver_open (const char *path, gint flags, gint mode)
 {
+	static int init = 0;
+	if (!init) {
+		gnome_vfs_init ();
+		init = 1;
+	}
 	return bonobo_storage_vfs_open (path, flags, mode);
 }
 

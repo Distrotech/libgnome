@@ -180,7 +180,7 @@ create_bonobo_storage_fs (BonoboObject *object)
  * Creates the Gtk object and the corba server bound to it
  */
 static BonoboStorage *
-do_bonobo_storage_fs_create (char *path)
+do_bonobo_storage_fs_create (const char *path)
 {
 	BonoboStorageFS *storage_fs;
 	Bonobo_Storage corba_storage;
@@ -240,7 +240,7 @@ bonobo_storage_fs_open (const char *path, gint flags, gint mode)
 		}
 	}
 
-	return do_bonobo_storage_fs_create (g_strdup (path));
+	return do_bonobo_storage_fs_create (path);
 }
 
 /*
