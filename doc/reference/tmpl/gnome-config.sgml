@@ -58,11 +58,11 @@ values for the configuration parameters to simply client code.
         could be used to retrieve the setting for whether 'myapp'
         should display its toolbox or not.  In this example "myapp" is
         the file name (which is stored in
-        <filename>~/.gnome</filename> directory), "toolbox" is the
+        <filename>~/.gnome2</filename> directory), "toolbox" is the
         section and "showit" is the key.</para>
 
         <para>If you want to access an absolute file instead of a
-        <filename>~/.gnome</filename>-relative file, then you need to
+        <filename>~/.gnome2</filename>-relative file, then you need to
         surround the filename with equal signs, for example, to access
         the key "mykey" from the section "mysection" in a
         configuration file located in
@@ -75,11 +75,11 @@ values for the configuration parameters to simply client code.
 
       <listitem><para><emphasis>private configuration data:</emphasis>
         Normally, config item data is located in files under the
-	<filename>~user/.gnome</filename> directory in a .ini-like format.
+	<filename>~user/.gnome2</filename> directory in a .ini-like format.
 	These files are world-readable. Items that have security or privacy
 	implications are stored and retrieved using the "private" versions of
 	the gnome-config routines, and the data for these items is stored in
-	files under the <filename>~user/.gnome_private</filename> directory,
+	files under the <filename>~user/.gnome2_private</filename> directory,
 	which is not accessable by anyone except that user and the system
 	administrator.</para></listitem>
 
@@ -103,7 +103,7 @@ values for the configuration parameters to simply client code.
 <para>
     The gnome-config module has a versatile method of storing config items.
     When a config item is written by a program, it is written to a file under
-    the <filename>~/.gnome</filename> hierarchy.  However, when config items
+    the <filename>~/.gnome2</filename> hierarchy.  However, when config items
     are read, the process is a little more complicated.  There are a number of
     places that are searched.  If the config item is not found in one, then the
     next place is checked, finally falling back to the default value provided
@@ -141,10 +141,10 @@ values for the configuration parameters to simply client code.
 <para>
 Every function in this module comes in at least two forms. There is the
 <function>gnome_config_get_foo()</function> version which retrieves the
-configuration data from the <filename>~/.gnome</filename> directory (unless an
+configuration data from the <filename>~/.gnome2</filename> directory (unless an
 absolute configuration key is given, as defined above). Then there is the
 <function>gnome_config_private_get_foo()</function> version, which retrieves
-the information from the user's <filename>~/.gnome-private</filename>
+the information from the user's <filename>~/.gnome2-private</filename>
 directory.
 </para>
 

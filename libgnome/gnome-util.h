@@ -41,12 +41,12 @@ const char * g_extension_pointer (const char * path);
 
 /* pass in a string, and it will add the users home dir ie,
  * pass in .gnome/bookmarks.html and it will return
- * /home/imain/.gnome/bookmarks.html
+ * /home/imain/.gnome2/bookmarks.html
  * 
  * Remember to g_free() returned value! */
 #define gnome_util_prepend_user_home(x) (g_build_filename (g_get_home_dir(), (x), NULL))
 
-/* very similar to above, but adds $HOME/.gnome/ to beginning
+/* very similar to above, but adds $HOME/.gnome2/ to beginning
  * This is meant to be the most useful version.
  */
 #define gnome_util_home_file(afile) (g_strconcat(g_get_home_dir(), "/", GNOME_DOT_GNOME, (afile), NULL))

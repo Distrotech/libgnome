@@ -48,19 +48,19 @@ Prepends the home directory of the user to a filename.
 </para>
 
 @x: A relative filename in the user's home directory.
-Returns: A string containing @x with the user's home directory path prepended.
+@Returns: A string containing @x with the user's home directory path prepended.
 The string should be freed with g_free() when no longer required.
 
 
 <!-- ##### MACRO gnome_util_home_file ##### -->
 <para>
-Similar to gnome_util_prepend_user_home, except that "/home/fred/.gnome",
+Similar to gnome_util_prepend_user_home(), except that "/home/fred/.gnome2",
 instead of just "/home/fred/" is put on the front.
 </para>
 
-@afile:  A filename relative to the user's .gnome directory.
+@afile:  A filename relative to the user's .gnome2 directory.
 Returns: A string containing @afile with the user's home directory path  and
-"/.gnome" prepended. The string should be freed with g_free() when no longer
+"/.gnome2" prepended. The string should be freed with g_free() when no longer
 required.
 
 
