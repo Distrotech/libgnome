@@ -21,12 +21,7 @@ INCLUDES = \
 	-I..					\
 	-I$(srcdir)/..				\
 	$(WARN_CFLAGS)				\
-	$(GLIB_CFLAGS)				\
-	$(LIBGNOMESUPPORT_CFLAGS)		\
-	$(LIBBONOBO_CFLAGS)			\
-	$(OAF_CFLAGS)				\
-	$(LIBXML_CFLAGS)			\
-	$(GNOME_VFS_CFLAGS)			\
+	$(LIBGNOME_CFLAGS)			\
 	-DLIBGNOME_PREFIX=\""$(prefix)"\"		\
 	-DLIBGNOME_LIBDIR=\""$(libdir)"\"		\
 	-DLIBGNOME_DATADIR=\""$(datadir)"\"		\
@@ -179,12 +174,7 @@ BUILT_SOURCES = \
 
 libgnome_2_la_LDFLAGS = -version-info $(LIB_VERSION)
 libgnome_2_la_LIBADD =		\
-	$(LIBGNOMESUPPORT_LIBS)	\
-	$(OAF_LIBS)		\
-	$(LIBXML_LIBS)		\
-	$(GNOME_VFS_LIBS)	\
-	$(LIBBONOBO_LIBS)	\
-	$(GLIB_LIBS)
+	$(LIBGNOME_LIBS)
 
 noinst_PROGRAMS = \
 	test-libgnome
