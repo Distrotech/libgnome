@@ -44,7 +44,7 @@ char *alloca ();
  * @app: Name of this application
  * @path: File that contains the help document
  *
- * Returns a fully resolved file name for path.  Use needs to g_fee the path when
+ * Returns a fully resolved file name for path.  Use needs to g_free the path when
  * done.  It looks in LANG, then unser C if LANG is not set
  *
  * I added this because I didnt want to break all apps using 
@@ -60,7 +60,7 @@ gnome_help_file_find_file (gchar *app, gchar *path)
 	gchar *res= NULL;
 	gchar *p, c = 0;
 	
-	language_list= gnome_i18n_get_language_list ("LC_ALL");
+	language_list= gnome_i18n_get_language_list ("LC_MESSAGES");
 	
 	while (!res && language_list)
 	{
@@ -100,7 +100,7 @@ gnome_help_file_find_file (gchar *app, gchar *path)
  * @app: Name of this application
  * @path: File that contains the help document
  *
- * Returns a fully resolved file name for path.  Use needs to g_fee the path when
+ * Returns a fully resolved file name for path.  Use needs to g_free the path when
  * done.  It looks in LANG, then unser C if LANG is not set
  */
 gchar *

@@ -1,3 +1,12 @@
+Sat Jan 01 18:45:26 2000  George Lebl <jirka@5z.com>
+
+	* gnome-config.c,gnome-help.c,gnome-mime-info.c: Use LC_MESSAGES
+	  instead of LC_ALL to get the language to use for translating
+	  messages.  LC_ALL is used as a fallback inside gnome-i18n anyway
+	  and messages need to use LC_MESSAGES if it's set
+
+	* gnome-help.c: s/g_fee/g_free/ in the inline docs for two functions
+
 Mon Dec 13 23:53:20 1999  George Lebl <jirka@5z.com>
 
 	* gnome-mime-info.c: current_lang is a list of languages.  Also
