@@ -16,9 +16,6 @@ schema_DATA = \
 	desktop_gnome_background.schemas			\
 	desktop_gnome_url_handlers.schemas
 
-desktop_gnome_background.schemas: desktop_gnome_background.schemas.in
-	cat desktop_gnome_background.schemas.in | sed -e "s:@PREFIX@:$(prefix):" > desktop_gnome_background.schemas
-
 # don't do this if we are building in eg. rpm
 install-data-local:
 	if test -z "$(DESTDIR)" ; then \
