@@ -1,3 +1,10 @@
+2000-07-26  John Sullivan  <sullivan@eazel.com>
+
+	* libgnome/gnome-sound.c: 
+	(use_sound): Moved this function out of a #ifndef HAVE_LIBAUDIOFILE
+	and into #ifdef HAVE_ESD. This fixes the build breakage caused
+	earlier today by Miguel's change.
+
 2000-07-26  Jacob "Ulysses" Berkman  <jacob@helixcode.com>
 
 	* gnomelib-init.c (gnomelib_option_cb): default to not starting
