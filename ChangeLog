@@ -1,3 +1,9 @@
+2002-05-23  Federico Mena Quintero  <federico@ximian.com>
+
+	* help-converters/man/gnome-man2html.c (scan_troff): Do not
+	convert characters with the most significant bit set.  Hopefully
+	fixes #79071.
+
 2002-05-22  jacob berkman  <jacob@ximian.com>
 
 	* help-converters/man/gnome-man2html.c (main): fix last commit
