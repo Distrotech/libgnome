@@ -28,8 +28,15 @@
 
 G_BEGIN_DECLS
 
+/**
+ * GnomeURLError:
+ * @GNOME_URL_ERROR_PARSE: The parsing of the handler failed.
+ *
+ * The errors that can be returned due to bad parameters being pass to
+ * gnome_url_show().
+ */
 typedef enum {
-  GNOME_URL_ERROR_PARSE /* if the parsing of the handler failed */
+  GNOME_URL_ERROR_PARSE
 } GnomeURLError;
 
 #define GNOME_URL_ERROR (gnome_url_error_quark ())

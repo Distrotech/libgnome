@@ -28,11 +28,15 @@
 
 G_BEGIN_DECLS
 
-
+/**
+ * GnomeHelpError:
+ * @GNOME_HELP_ERROR_INTERNAL: Something went wrong interally. This should
+ * never happen (could possibly be caused by lack of memory).
+ * @GNOME_HELP_ERROR_NOT_FOUND: Help file does not exist.
+ **/
 typedef enum {
-  GNOME_HELP_ERROR_INTERNAL, /* something went wrong inside, should never happen
-			      * really.  Could be caused by lack of memory */
-  GNOME_HELP_ERROR_NOT_FOUND /* Help file doesn't exist */
+  GNOME_HELP_ERROR_INTERNAL, 
+  GNOME_HELP_ERROR_NOT_FOUND
 } GnomeHelpError;
 
 #define GNOME_HELP_ERROR (gnome_help_error_quark ())
