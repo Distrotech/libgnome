@@ -1,0 +1,24 @@
+ *** IMPORTANT *** 
+
+This is a development version of gnome-libs.  You should be using a stable
+version, which is available at ftp://ftp.gnome.org/pub/GNOME/stable/sources/gnome-libs/
+The version you just configured is meant for developers of gnome-libs only:
+
+  * You should not base ANY software on this version of gnome-libs.
+
+Distributions should *NOT* ship a development package of this gnome-libs.
+Do not ship the headers and do not ship the gnome-config script. These
+things will conflict with the stable 1.0 series.  Package only enough
+to satisfy the requirements of some other package.  Package only the
+library itself.  Doing otherwise will do no favors to the community.
+
+ *** You should be using gnome-libs 1.0 instead. ***
+
+If you are using this source tree from CVS, please run:
+	cvs update -r gnome-libs-1-0"
+now.
+
+			....
+     Do not bother the mailing lists, IRC channels, or other forums if you cannot
+     figure out how to build gnome-libs HEAD. It is not in working condition.
+			....
