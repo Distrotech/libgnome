@@ -23,12 +23,6 @@ BEGIN_GNOME_DECLS
 
 #include <argp.h>
 
-/* If sent in the flags field of gnome_parse_arguments, then pass the
-   extra argument as the user data field of argp_parse, which can be
-   accessed as state->input from the argp parse callback.  This must
-   not conflict with any of the real ARGP flags.  */
-#define ARGP_INPUT	0x1000
-
 /* Call this to register some command-line arguments with the central
    parser.  Typically this will be called by a library's
    initialization routine to have some library-specific command-line
@@ -42,7 +36,12 @@ extern void gnome_parse_register_arguments (const struct argp *parser);
 extern error_t gnome_parse_arguments (struct argp *parser,
 				      int argc, char **argv,
 				      unsigned int flags,
-				      int *arg_index, ...);
+				      int *arg_index);
+extern error_t gnome_parse_arguments_with_data (struct argp *parser,
+						int argc, char **argv,
+						unsigned int flags,
+						int *arg_index,
+						void *user_data);
 
 END_GNOME_DECLS
 

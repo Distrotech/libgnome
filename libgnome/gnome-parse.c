@@ -17,7 +17,6 @@
    Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
-#include <stdarg.h>
 #include <stdlib.h>
 #include <glib.h>
 
@@ -120,15 +119,12 @@ gnome_parse_register_arguments (const struct argp *parser)
 }
 
 error_t
-gnome_parse_arguments (struct argp *parser,
-		       int argc, char **argv,
-		       unsigned int flags,
-		       int *arg_index, ...)
+gnome_parse_arguments_with_data (struct argp *parser,
+				 int argc, char **argv,
+				 unsigned int flags,
+				 int *arg_index,
+				 void *user_data)
 {
-  va_list args;
-  error_t retval;
-  void *user_data = NULL;
-  
   gnome_parse_register_arguments (&help_parser);
   /* A hack to make --help output look right.  */
   arguments[args_count - 1].header = NULL;
@@ -138,13 +134,15 @@ gnome_parse_arguments (struct argp *parser,
     parser = &default_parser;
   parser->children = arguments;
   
-  va_start (args, arg_index);
-  if (flags & ARGP_INPUT) {
-	  user_data = (void *) va_arg (args, char *);
-	  flags &= ~ARGP_INPUT;
-  }
-  retval = argp_parse (parser, argc, argv, flags, arg_index, user_data);
-  va_end (args);
+  return argp_parse (parser, argc, argv, flags, arg_index, user_data);
+}
 
-  return retval;
+error_t
+gnome_parse_arguments (struct argp *parser,
+		       int argc, char **argv,
+		       unsigned int flags,
+		       int *arg_index)
+{
+	return gnome_parse_arguments_with_data (parser, argc, argv,
+						flags, arg_index, NULL);
 }
