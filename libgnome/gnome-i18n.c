@@ -6,6 +6,13 @@
 /* Name of config key we use when looking up preferred language.   */
 #define LANGKEY "/Gnome/i18n/LANG"
 
+/**
+ * gnome_i18n_get_language:
+ * 
+ * Returns current language (contents of "LANG" environment variable).
+ * 
+ * Return value: 
+ **/
 const char *
 gnome_i18n_get_language(void)
 {
@@ -52,6 +59,18 @@ guess_category_value (const gchar *categoryname)
 static GHashTable *category_table= NULL;
 
 
+/**
+ * gnome_i18n_get_language_list:
+ * @category_name: Name of category to look up, e.g. "LC_MESSAGES".
+ * 
+ * This computes a list of language strings.  It searches in the
+ * standard environment variables to find the list, which is sorted
+ * in order from most desirable to least desirable.  The `C' locale
+ * is appended to the list if it does not already appear.
+ * If @category_name is %NULL, then LC_ALL is assumed.
+ * 
+ * Return value: the list of languages
+ **/
 GList *
 gnome_i18n_get_language_list (const gchar *category_name)
 {
@@ -113,12 +132,29 @@ gnome_i18n_get_language_list (const gchar *category_name)
   return list;
 }
 
+/**
+ * gnome_i18n_set_preferred_language:
+ * @val: Preferred language
+ * 
+ * This sets the user's preferred language in the Gnome config
+ * database.  This value can always be overridden by the standard
+ * environment variables.  It exists so that a config applet which
+ * chooses the preferred language has a standard place to put the
+ * resulting information.
+ **/
 void
 gnome_i18n_set_preferred_language (const char *val)
 {
   gnome_config_set_string (LANGKEY, val);
 }
 
+/**
+ * gnome_i18n_init:
+ * 
+ * Initialize the i18n environment variables (if not already set) from
+ * the Gnome config database.  Ordinarily this should not be called by
+ * user code.
+ **/
 void
 gnome_i18n_init (void)
 {
@@ -145,6 +181,11 @@ gnome_i18n_init (void)
     }
 }
 
+/**
+ * gnome_i18n_get_preferred_language:
+ * 
+ * Return value: the preferred language as set in the Gnome config database.
+ **/
 const char *
 gnome_i18n_get_preferred_language (void)
 {
