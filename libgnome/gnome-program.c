@@ -669,7 +669,7 @@ gnome_program_finalize (GObject* object)
 	g_free (self->_priv);
 	self->_priv = NULL;
 
-	GNOME_CALL_PARENT_HANDLER (G_OBJECT_CLASS, finalize, (object));
+	GNOME_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
 }
 
 static gpointer

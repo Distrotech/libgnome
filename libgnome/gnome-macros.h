@@ -80,13 +80,13 @@ type_as_function ## _get_type (void)					\
  * named parent_class that points to the (duh!) parent class.  Note that
  * this macro is not to be used with things that return something, use
  * the _WITH_DEFAULT version for that */
-#define GNOME_CALL_PARENT_HANDLER(parent_class_cast, name, args)	\
+#define GNOME_CALL_PARENT(parent_class_cast, name, args)		\
 	((parent_class_cast(parent_class)->name != NULL) ?		\
 	 parent_class_cast(parent_class)->name args : (void)0)
 
 /* Same as above, but in case there is no implementation, it evaluates
  * to def_return */
-#define GNOME_CALL_PARENT_HANDLER_WITH_DEFAULT(parent_class_cast,	\
+#define GNOME_CALL_PARENT_WITH_DEFAULT(parent_class_cast,		\
 					       name, args, def_return)	\
 	((parent_class_cast(parent_class)->name != NULL) ?		\
 	 parent_class_cast(parent_class)->name args : def_return)
