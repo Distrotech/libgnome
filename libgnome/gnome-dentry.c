@@ -173,7 +173,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 				continue;
 			}
 
-			dnd = g_list_append(dnd,argv);
+			dnd = g_list_prepend(dnd,argv);
 		}
 		g_free(key);
 		g_free(value);
