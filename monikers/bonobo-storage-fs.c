@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 /*
- * gnome-storage-fs.c: Sample file-system based Storage implementation
+ * bonobo-storage-fs.c: Sample file-system based Storage implementation
  *
  * This is just a sample file-system based Storage implementation.
  * it is only used for debugging purposes
@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
-#include <storage-modules/gnome-storage-fs.h>
+#include <storage-modules/bonobo-storage-fs.h>
 #include <bonobo/bonobo-stream-fs.h>
 
 static BonoboStorageClass *bonobo_storage_fs_parent_class;

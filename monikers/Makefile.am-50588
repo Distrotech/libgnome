@@ -15,10 +15,10 @@ common_ldflags = -avoid-version
 # EFS storage module
 #
 libstorage_efs_la_SOURCES = 	\
-	gnome-storage-efs.c	\
-	gnome-storage-efs.h	\
-	gnome-stream-efs.c	\
-	gnome-stream-efs.h
+	bonobo-storage-efs.c	\
+	bonobo-storage-efs.h	\
+	bonobo-stream-efs.c	\
+	bonobo-stream-efs.h
 
 libstorage_efs_la_LDFLAGS = 			\
 	$(common_ldflags) 			\
@@ -29,8 +29,8 @@ libstorage_efs_la_LDFLAGS = 			\
 # File-system based storage
 #
 libstorage_fs_la_SOURCES =	\
-	gnome-storage-fs.c	\
-	gnome-storage-fs.h
+	bonobo-storage-fs.c	\
+	bonobo-storage-fs.h
 
 libstorage_fs_la_LDFLAGS = 	\
 	$(common_ldflags)
