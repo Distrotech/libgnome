@@ -1200,7 +1200,7 @@ gnome_program_preinita(GnomeProgram *app,
 
     /* Put the special popt table in first */
     includer.arg = poptHelpOptions;
-    includer.descrip = "Help options";
+    includer.descrip = N_("Help options");
     g_array_append_val (app->top_options_table, includer);
 
     for (i = 0; (a_module = g_ptr_array_index(app->modules, i)); i++)
