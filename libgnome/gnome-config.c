@@ -96,6 +96,23 @@ static TProfile *Current = 0;
  */
 static TProfile *Base = 0;
 
+/* a set handler is a function which is called every time a gnome_config_set_*
+   function is called, this can be used by the app to say guarantee a sync,
+   apps using libgnomeui should not call this, libgnomeui already provides
+   this, this would be for non-gui apps and apps that use a different toolkit
+   then gtk*/
+static void (*set_handler)(void *data) = NULL;
+static void *set_handler_data;
+
+#define CALL_SET_HANDLER() { if(set_handler) (*set_handler)(set_handler_data); }
+
+/* same as above for a "sync" handler */
+static void (*sync_handler)(void *data) = NULL;
+static void *sync_handler_data;
+
+#define CALL_SYNC_HANDLER() { if(sync_handler) (*sync_handler)(sync_handler_data); }
+
+
 static void
 release_path (ParsedPath *p)
 {
@@ -571,6 +588,7 @@ void
 gnome_config_sync (void)
 {
 	dump_profile (Base);
+	CALL_SYNC_HANDLER();
 }
 
 static void 
@@ -881,62 +899,55 @@ _gnome_config_get_translated_string_with_default (const char *path,
 						  gboolean *def,
 						  gint priv)
 {
-  GList *language_list;
+	GList *language_list;
 
-  char *value= NULL;
+	char *value= NULL;
 
-  language_list= gnome_i18n_get_language_list ("LC_ALL");
-  
-  while (!value && language_list)
-    {
-      const char *lang= language_list->data;
+	language_list= gnome_i18n_get_language_list ("LC_ALL");
 
-      if (strcmp (lang, "C") == 0)
-	{
-	  value = _gnome_config_get_string_with_default (path, def, priv);
-	  if (value)
-	    return value;
-	  else
-	    {
-	      /* FIXME: this "else" block should go away in some time.
-	       * We use it to handle the old broken files that were
-	       * written by the old buggy set_translated_string
-	       * function, which *did* append the "[C]" suffix.
-	       */
+	while (!value && language_list) {
+		const char *lang= language_list->data;
 
-	      gchar *tkey;
+		if (strcmp (lang, "C") == 0) {
+			value = _gnome_config_get_string_with_default (path, def, priv);
+			if (value)
+				return value;
+			else {
+				/* FIXME: this "else" block should go away in some time.
+				 * We use it to handle the old broken files that were
+				 * written by the old buggy set_translated_string
+				 * function, which *did* append the "[C]" suffix.
+				 */
 
-	      tkey = g_copy_strings (path, "[C]", NULL);
-	      value = _gnome_config_get_string_with_default (tkey, def, priv);
-	      g_free (tkey);
+				gchar *tkey;
 
-	      if (!value || *value == '\0')
-		{
-		  g_free (value);
-		  value = NULL;
+				tkey = g_copy_strings (path, "[C]", NULL);
+				value = _gnome_config_get_string_with_default (tkey, def, priv);
+				g_free (tkey);
+
+				if (!value || *value == '\0') {
+					g_free (value);
+					value = NULL;
+				}
+
+				return value;
+			}
+		} else {
+			gchar *tkey;
+
+			tkey= g_copy_strings (path, "[", lang, "]", NULL);
+			value= _gnome_config_get_string_with_default (tkey, def, priv);
+			g_free (tkey);
+
+			if (!value || *value == '\0') {
+				g_free (value);
+				value= NULL;
+			}
 		}
-
-	      return value;
-	    }
+		language_list= language_list->next;
 	}
-      else
-	{
-	  gchar *tkey;
-	  
-	  tkey= g_copy_strings (path, "[", lang, "]", NULL);
-	  value= _gnome_config_get_string_with_default (tkey, def, priv);
-	  g_free (tkey);
-	  
-	  if (!value || *value == '\0')
-	    {
-	      g_free (value);
-	      value= NULL;
-	    }
-	}
-      language_list= language_list->next;
-    }
 
-  return value;
+	return value;
 }
 
 char *
@@ -1055,22 +1066,21 @@ void
 _gnome_config_set_translated_string (const char *path, const char *value,
 				     gint priv)
 {
-  GList *language_list;
-  const char *lang;
-  char *tkey;
+	GList *language_list;
+	const char *lang;
+	char *tkey;
 
-  language_list= gnome_i18n_get_language_list("LC_ALL");
+	language_list= gnome_i18n_get_language_list("LC_ALL");
 
-  lang= language_list ? language_list->data : NULL;
-  
-  if (lang && (strcmp (lang, "C") != 0))
-    {
-      tkey = g_copy_strings (path, "[", lang, "]", NULL);
-      _gnome_config_set_string(tkey, value, priv);
-      g_free (tkey);
-    }
-  else
-    _gnome_config_set_string (path, value, priv);
+	lang= language_list ? language_list->data : NULL;
+
+	if (lang && (strcmp (lang, "C") != 0)) {
+		tkey = g_copy_strings (path, "[", lang, "]", NULL);
+		_gnome_config_set_string(tkey, value, priv);
+		g_free (tkey);
+	} else
+		_gnome_config_set_string (path, value, priv);
+	CALL_SET_HANDLER();
 }
 
 void
@@ -1083,6 +1093,7 @@ _gnome_config_set_string (const char *path, const char *new_value, gint priv)
 	r = access_config (SET, pp->section, pp->key, new_value, pp->file,
 			   NULL);
 	release_path (pp);
+	CALL_SET_HANDLER();
 }
 
 void
@@ -1097,6 +1108,7 @@ _gnome_config_set_int (const char *path, int new_value, gint priv)
 	r = access_config (SET, pp->section, pp->key, intbuf, pp->file,
 			   NULL);
 	release_path (pp);
+	CALL_SET_HANDLER();
 }
 
 void
@@ -1109,6 +1121,7 @@ _gnome_config_set_bool (const char *path, gboolean new_value, gint priv)
 	r = access_config (SET, pp->section, pp->key,
 			   new_value ? "true" : "false", pp->file, NULL);
 	release_path (pp);
+	CALL_SET_HANDLER();
 }
 
 char *
@@ -1152,22 +1165,22 @@ _gnome_config_set_vector (const char *path, int argc,
 	access_config (SET, pp->section, pp->key, s, pp->file, NULL);
 	g_free (s);
 	release_path (pp);
+	CALL_SET_HANDLER();
 }
 
 void
 gnome_config_push_prefix (const char *path)
 {
-  prefix_list = g_slist_prepend(prefix_list, g_strdup(path));
+	prefix_list = g_slist_prepend(prefix_list, g_strdup(path));
 }
 
 void
 gnome_config_pop_prefix (void)
 {
-  if(prefix_list)
-    {
-      g_free(prefix_list->data);
-      prefix_list = g_slist_remove_link(prefix_list, prefix_list);
-    }
+	if(prefix_list) {
+		g_free(prefix_list->data);
+		prefix_list = g_slist_remove_link(prefix_list, prefix_list);
+	}
 }
 
 GSList *
@@ -1184,6 +1197,20 @@ gnome_config_set_prefix_list (GSList *list)
 	while(prefix_list)
 		gnome_config_pop_prefix();
 	prefix_list = list;
+}
+
+void
+gnome_config_set_set_handler(void (*func)(void *),void *data)
+{
+	set_handler = func;
+	set_handler_data = data;
+}
+	
+void
+gnome_config_set_sync_handler(void (*func)(void *),void *data)
+{
+	sync_handler = func;
+	sync_handler_data = data;
 }
 
 #ifdef TEST
