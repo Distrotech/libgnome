@@ -88,10 +88,12 @@ static void
 print_ascore (struct ascore_t *ascore, FILE * outfile)
 {
    /* make sure we write values to files in a consistent manner */
-   char *old_locale = setlocale (LC_NUMERIC, "C");
+   char *old_locale = g_strdup (setlocale (LC_NUMERIC, NULL));
+   setlocale (LC_NUMERIC, "C");
    fprintf (outfile, "%f %ld %s\n", ascore->score,
 	    (long int) ascore->scoretime, ascore->username);
    setlocale (LC_NUMERIC, old_locale);
+   g_free (old_locale);
 }
 
 static void
@@ -135,7 +137,8 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
    if (infile)
      {
        /* make sure we read values from files in a consistent manner */
-       char *old_locale = setlocale (LC_NUMERIC, "C");
+       char *old_locale = g_strdup (setlocale (LC_NUMERIC, NULL));
+       setlocale (LC_NUMERIC, "C");
        while(fgets(buf, sizeof(buf), infile))
 	 {
 	     long ltime;
@@ -153,6 +156,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 	     scores = g_list_append (scores, (gpointer) anitem);
 	  }
         setlocale (LC_NUMERIC, old_locale);
+	g_free (old_locale);
 	fclose (infile);
      }
    
@@ -417,7 +421,8 @@ gnome_score_get_notable (gchar * gamename,
    
    if (infile)
      {
-        char *old_locale = setlocale (LC_NUMERIC, "C");
+        char *old_locale = g_strdup (setlocale (LC_NUMERIC, NULL));
+        setlocale (LC_NUMERIC, "C");
 
 	*names = g_malloc ((NSCORES + 1) * sizeof (gchar *));
 	*scores = g_malloc ((NSCORES + 1) * sizeof (gfloat));
@@ -441,6 +446,7 @@ gnome_score_get_notable (gchar * gamename,
 	(*scores)[retval] = 0.0;
 
         setlocale (LC_NUMERIC, old_locale);
+	g_free (old_locale);
 	fclose (infile);
      }
    else
