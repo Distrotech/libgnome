@@ -53,6 +53,7 @@ struct _GnomeProgramPrivate {
     /* Construction properties */
     GnomeModuleInfo *prop_module_info;
     gchar *prop_module_list;
+    int prop_popt_flags;
     struct poptOptions *prop_popt_table;
     gchar *prop_human_readable_name;
     gchar *prop_app_prefix;
@@ -96,6 +97,8 @@ enum {
     PROP_APP_SYSCONFDIR,
     PROP_CREATE_DIRECTORIES,
     PROP_POPT_TABLE,
+    PROP_POPT_FLAGS,
+    PROP_POPT_CONTEXT,
     PROP_LAST
 };
 
@@ -162,6 +165,9 @@ gnome_program_set_property (GObject *object, guint param_id,
 	break;
     case PROP_POPT_TABLE:
 	program->_priv->prop_popt_table = g_value_peek_pointer (value);
+	break;
+    case PROP_POPT_FLAGS:
+	program->_priv->prop_popt_flags = g_value_get_int (value);
 	break;
     case PROP_HUMAN_READABLE_NAME:
 	program->_priv->prop_human_readable_name = g_value_dup_string (value);
@@ -449,7 +455,7 @@ gnome_program_constructor (GType type, guint n_construct_properties,
 	for (i = 0; i < program_modules->len; i++) {
 	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
-	    if (a_module && a_module->init_pass)
+	    if (a_module && a_module->constructor)
 		a_module->constructor (type, n_cparams, cparams, a_module);
 	}
     }
@@ -501,6 +507,19 @@ gnome_program_class_init (GnomeProgramClass *class)
 	 PROP_POPT_TABLE,
 	 g_param_spec_pointer (GNOME_PARAM_POPT_TABLE, NULL, NULL,
 			       (G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY)));
+
+    g_object_class_install_property
+	(object_class,
+	 PROP_POPT_FLAGS,
+	 g_param_spec_int (GNOME_PARAM_POPT_FLAGS, NULL, NULL,
+			   G_MININT, G_MAXINT, 0,
+			   (G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY)));
+
+    g_object_class_install_property
+	(object_class,
+	 PROP_POPT_CONTEXT,
+	 g_param_spec_pointer (GNOME_PARAM_POPT_CONTEXT, NULL, NULL,
+			       (G_PARAM_READABLE)));
 
     g_object_class_install_property
 	(object_class,
@@ -1073,7 +1092,6 @@ gnome_program_preinit (GnomeProgram *program,
 {
     GnomeModuleInfo *a_module;
     poptContext argctx;
-    int popt_flags = 0;
     int i;
 
     g_return_val_if_fail (program != NULL, NULL);
@@ -1157,7 +1175,7 @@ gnome_program_preinit (GnomeProgram *program,
     argctx = program->_priv->arg_context = poptGetContext
 	(program->_priv->app_id, argc, (const char **) argv,
 	 (struct poptOption *) program->_priv->top_options_table->data,
-	 popt_flags);
+	 program->_priv->prop_popt_flags);
   
     /* 7. Cleanup/return */
     program->_priv->state = APP_PREINIT_DONE;
