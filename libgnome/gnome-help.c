@@ -291,13 +291,14 @@ gnome_help_display_desktop (GnomeProgram  *program,
 			     file_name);
 		return FALSE;
 	}
-	g_free (file);
 
 	if (link_id != NULL) {
 		url = g_strconcat ("ghelp://", file, "?", link_id, NULL); 
 	} else {
 		url = g_strconcat ("ghelp://", file, NULL);
 	}
+
+	g_free (file);
 
 	retval = gnome_help_display_uri (url, error);
 

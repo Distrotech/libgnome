@@ -1,6 +1,8 @@
 2002-05-03  Mikael Hallendal  <micke@codefactory.se>
 
 	* libgnome/gnome-help.c
+	(gnome_help_display_desktop): don't free the variables before
+	  using them, thanks Satyajit
 	- Fixes #79870
 	(gnome_help_display_with_doc_id): 
 	- always send the full uri to the help browsers. 
