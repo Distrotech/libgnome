@@ -28,50 +28,19 @@
       </locale>
     </schema>
 
-    <schema>
-      <key>/schemas/desktop/gnome/typing_break/warn_time</key>
-      <applyto>/desktop/gnome/typing_break/warn_time</applyto>
-      <owner>gnome</owner>
-      <type>int</type>
-      <default>5</default>
-      <locale name="C">
-         <short>Warn time</short>
-         <long>
-          Number of minutes before a typing break that user is informed
-	  that the break is coming up.
-         </long>
-      </locale>
-    </schema>
-
   <schema>
-      <key>/schemas/desktop/gnome/typing_break/allow_unlock</key>
-      <applyto>/desktop/gnome/typing_break/allow_unlock</applyto>
+      <key>/schemas/desktop/gnome/typing_break/allow_postpone</key>
+      <applyto>/desktop/gnome/typing_break/allow_postpone</applyto>
       <owner>gnome</owner>
       <type>bool</type>
       <default>false</default>
       <locale name="C">
-         <short>Allow unlocking the typing break screen</short>
+         <short>Allow postponing of breaks</short>
          <long>
-           Whether or not the typing break screen can be unlocked.  If
-           true, then the break can be ended early with an optional
-           passphrase to trigger it.
+          Whether or not the typing break screen can be postponed.
          </long>
       </locale>
-    </schema>
-
-  <schema>
-      <key>/schemas/desktop/gnome/typing_break/unlock_phrase</key>
-      <applyto>/desktop/gnome/typing_break/unlock_phrase</applyto>
-      <owner>gnome</owner>
-      <type>string</type>
-      <default></default>
-      <locale name="C">
-         <short>A phrase used to unlock the break screen with</short>
-         <long>
-	  A phrase used to unlock the break screen with.
-         </long>
-      </locale>
-    </schema>
+   </schema>
 
    <schema>
       <key>/schemas/desktop/gnome/typing_break/enabled</key>
