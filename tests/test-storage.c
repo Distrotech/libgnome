@@ -1,10 +1,6 @@
 #include <config.h>
-#include <gnome.h>
 #include <liboaf/liboaf.h>
-
-#include <gdk/gdkprivate.h>
-#include <gdk/gdkx.h>
-#include <bonobo/bonobo.h>
+#include <bonobo.h>
 
 #define TESTSIZE (1024*1)
 
