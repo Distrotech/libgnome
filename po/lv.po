@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-16 13:00+0100\n"
+"POT-Creation-Date: 2004-03-22 01:50+0100\n"
 "PO-Revision-Date: 2003-01-21 10:39+0200\n"
 "Last-Translator: Artis Trops <hornet@navigator.lv>\n"
 "Language-Team: Latvian <ll10nt@os.lv>\n"
@@ -688,62 +688,72 @@ msgid "Menus Have Tearoff"
 msgstr "Izvēlnes Ir Pārceļamas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
-msgid "Monospace font"
+msgid "Module for GtkFileChooser"
 msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
+msgid "Monospace font"
+msgstr ""
+
+#: schemas/desktop_gnome_interface.schemas.in.h:20
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr ""
+
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "GTK+ ievades metodes Pirmsrediģēšanas Stila nosaukums, ko lieto gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "GTK+ ievades metodes Statusa Stila nosaukums, ko lieto gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Name of the default font used by gtk+."
 msgstr "Noklusētā fonta nosaukums, ko lieto gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Status Bar on Right"
 msgstr "Statusjosla pa Labi"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Šis nosaka rīkjoslās parādāmo ikonu izmēru"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Detachable"
 msgstr "Rīkjoslas Atdalāmas"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Toolbar Icon Size"
 msgstr "Rīkjoslas Ikonas Izmērs"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Toolbar Style"
 msgstr "Rīkjoslas Stils"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 #, fuzzy
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
 msgstr "Rīkjoslas Stils. Derīgas vērtības ir both, both_horiz, icon un text"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Use Custom Font"
 msgstr "Lietot Pašizvēles Fontu"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether Applications should have accessibility support"
 msgstr "Vai Aplikācijās nepieciešams pieejamības atbalsts"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -751,27 +761,27 @@ msgstr ""
 "Vai būtu jāattēlo animācijas. Piezīme: Šī ir globāla atslēga, tā izmaina "
 "logu pārvaldnieka, paneļa u.c. uzvedību"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Vai izvēlnes var attēlot ikonas blakus izvēlnes ierakstam"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether menus should have a tearoff"
 msgstr "Vai izvēlnēm būtu jābūt pārceļamām"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the cursor should blink"
 msgstr "Vai kursoram būtu jāmirgo"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Vai lietotājs var atdalīt izvēļņjoslas un pārvietot tās apkārt"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Vai lietotājs var atdalīt rīkjoslas un pārvietot tās apkārt"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 #, fuzzy
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
@@ -780,11 +790,11 @@ msgstr ""
 "Vai Lietotājs var dinamiski ierakstīt jaunu paātrinātāju, kad izvēlne ir "
 "uznirusi"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:37
+#: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether to display a status bar meter on the right"
 msgstr "Vai parādīt statusjoslas mērītāju pa labi"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:38
+#: schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Vai lietot pašizvēles fontu gtk+ aplikācijās."
 
