@@ -464,7 +464,7 @@ main (int argc, char *argv [])
 	BonoboStorage *bonobo_storage1, *bonobo_storage2;
 	CORBA_Environment ev;
 	CORBA_Object storage1, storage2;
-	gchar *driver_list[] = { "efs", "fs", NULL };
+	gchar *driver_list[] = { /* "efs", */ "fs", NULL };
 	gchar *driver;
 	gint dn = 0;
 
