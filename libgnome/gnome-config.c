@@ -547,6 +547,7 @@ access_config_extended (access_type mode, const char *section_name,
 		/* fall through to the system wide config default tree */
 		tmp = g_concat_dir_and_file ("gnome/config", rel_file);
 		filename = gnome_config_file (tmp);
+		g_free (tmp);
 		if (filename) {
 			/* the file exists */
 			ret_val = access_config (mode, section_name, key_name,

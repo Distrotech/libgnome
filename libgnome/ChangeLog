@@ -1,5 +1,8 @@
 1999-04-08  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
+	* gnome-config.c (access_config_extended): Memory leak fix.
+	Thanks to Morten Wellinder for pointing this out again.
+
 	* gnome-help.c (gnome_help_file_find_file): Do not overwrite freed
 	memory. 
 
