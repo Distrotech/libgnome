@@ -41,7 +41,7 @@ static char *
 locate_help_file (const char *path, const char *doc_name)
 {
 	int i;
-	char *exts[] = { ".xml", ".docbook", ".sgml", ".html", "", NULL };
+	char *exts[] = { "", ".xml", ".docbook", ".sgml", ".html", NULL };
 	const GList *lang_list = gnome_i18n_get_language_list ("LC_MESSAGES");
 
 	for (;lang_list != NULL; lang_list = lang_list->next) {

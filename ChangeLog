@@ -1,5 +1,8 @@
 2004-05-02  Anders Carlsson  <andersca@gnome.org>
 
+	* libgnome/gnome-help.c (locate_help_file): First try locating
+	the file without appending an extension (#136242, Toshio Kuratomi)
+
 	* libgnome/gnome-score.c (gnome_score_get_notable): Set
 	scoretimes to NULL, (#117305, Steve Chaplin).
 
