@@ -55,46 +55,6 @@ if test "x$enable_rebuilds" = "xyes" && \
 fi
 AC_SUBST(REBUILD)
 
-AC_ARG_ENABLE(prefer-db1, [  --enable-prefer-db1     Prefer Berkeley DB 1.x],[prefer_db1="$enableval"],[prefer_db1=yes])
-dnl
-dnl Check for db stuff (gnome-metadata)
-dnl
-DB_LIB=
-AC_CHECK_FUNC(dbopen, [],
-if test "$prefer_db1" = "yes"; then
- AC_CHECK_LIB(db1, dbopen, DB_LIB="-ldb1",
-  AC_CHECK_LIB(db, dbopen, DB_LIB="-ldb",
-   AC_CHECK_LIB(db-3, __db185_open, DB_LIB="-ldb-3",
-    AC_MSG_ERROR([Your db library is missing db 1.85 compatibility mode])
-   )
-  )
- )
-else
- AC_CHECK_LIB(db, dbopen, DB_LIB="-ldb",
-  AC_CHECK_LIB(db1, dbopen, DB_LIB="-ldb1",
-   AC_CHECK_LIB(db-3, __db185_open, DB_LIB="-ldb-3",
-    AC_MSG_ERROR([Your db library is missing db 1.85 compatibility mode])
-   )
-  )
- )
-fi
-)
-
-dnl look for db headers
-if test "$prefer_db1" = "yes"; then
-	AC_CHECK_HEADERS(db_185.h db1/db.h)
-	if test "$ac_cv_header_db_185_h$ac_cv_header_db1_db_h" = nono; then
-	  AC_MSG_ERROR([Berkeley db library required for Gnome])
-	fi
-	AC_DEFINE(PREFER_DB1)
-else
-	AC_CHECK_HEADERS(db.h db_185.h db1/db.h)
-
-	if test "$ac_cv_header_db_h$ac_cv_header_db_185_h$ac_cv_header_db1_db_h" = nonono; then
-	  AC_MSG_ERROR([Berkeley db library required for Gnome])
-	fi
-fi
-
 dnl
 dnl Start of pkg-config checks
 dnl
