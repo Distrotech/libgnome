@@ -1063,6 +1063,8 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 	gchar *type;
 	const gchar *type_c;
 
+	type = NULL;
+
 	/* Phase 1: see if data exists in database.  */
 	if (! metadata_get ("file", file, name, size, buffer))
 		return 0;
