@@ -42,7 +42,7 @@ main (int argc, char *argv [])
 #endif
 	
 	if (bonobo_init (orb, NULL, NULL) == FALSE)
-		g_error (_("Can not bonobo_init\n"));
+		g_error (_("Can not bonobo_init"));
 
 	unlink (file);
 	storage = bonobo_storage_open("efs", file, BONOBO_SS_RDWR|BONOBO_SS_CREATE,0664);
