@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-07-19 23:21-0400\n"
-"PO-Revision-Date: 2004-03-10 19:35+0200\n"
+"PO-Revision-Date: 2004-08-03 14:10+0200\n"
 "Last-Translator: Maxim Dziumanenko <mvd@mylinux.com.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -280,7 +280,7 @@ msgstr "Префікс шляху, за яким було встановлено
 
 #: libgnome/gnome-program.c:559
 msgid "GNOME App Sysconfdir"
-msgstr "Каталог настройок додатків GNOME"
+msgstr "Каталог параметрів додатків GNOME"
 
 #: libgnome/gnome-program.c:560
 msgid "Configuration prefix where this application was installed"
@@ -804,7 +804,7 @@ msgstr "Вимкнути командний рядок"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable print setup"
-msgstr "Вимкнути настройку друку"
+msgstr "Вимкнути налаштовування друку"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable printing"
@@ -824,16 +824,14 @@ msgstr ""
 "доступ до діалогового вікна панелі \"Виконання програми\" буде вимкнено."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
-#, fuzzy
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
-"Забороняє користувачу змінювати настройки друку. Наприклад, доступ до "
-"діалогового вікна \"Настройка друку\" буде вимкнено у всіх програмах."
+"Забороняє користувачу змінювати параметри друку. Наприклад, доступ до "
+"діалогового вікна \"Налаштовування друку\" буде вимкнено у всіх програмах."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
-#, fuzzy
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -842,7 +840,6 @@ msgstr ""
 "буде вимкнено у всіх програмах."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
-#, fuzzy
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
@@ -962,7 +959,7 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
-"Розмір курсора, що визначається темою курсора. Це значення передається "
+"Розмір курсора, що визначається темою курсора(cursor_theme). Це значення передається "
 "системі X Window лише на початку кожного сеансу, так що зміни, внесені "
 "протягом сеансу, не матимуть ефекту до наступного входу в сеанс."
 
