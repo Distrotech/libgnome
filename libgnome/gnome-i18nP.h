@@ -32,7 +32,6 @@
 #ifndef __GNOME_I18NP_H__
 #define __GNOME_I18NP_H__ 1
 
-#include <config.h>
 #ifndef GNOME_EXPLICIT_TRANSLATION_DOMAIN
 #  define GNOME_EXPLICIT_TRANSLATION_DOMAIN PACKAGE
 #endif

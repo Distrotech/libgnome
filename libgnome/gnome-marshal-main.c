@@ -24,6 +24,8 @@
   @NOTATION@
  */
 
+#include <config.h>
+
 #include <libgnome/libgnome.h>
 
 #include <gobject/genums.h>
