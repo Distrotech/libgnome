@@ -1,5 +1,5 @@
 /* gnome-macros.h
- *   Macros for making GTK+ objects to avoid typos and reduce code size
+ *   Macros for making GObject objects to avoid typos and reduce code size
  * Copyright (C) 2000  Eazel, Inc.
  *
  * Authors: George Lebl <jirka@5z.com>
@@ -33,36 +33,39 @@
 /* Define the boilerplate type stuff to reduce typos and code size.  Defines
  * the get_type method and the parent_class static variable. */
 #define GNOME_CLASS_BOILERPLATE(type, type_as_function,			\
-				parent_type, parent_type_as_function)	\
-static parent_type ## Class *parent_class = NULL;				\
-GtkType									\
+				parent_type, parent_type_as_function,	\
+				parent_type_macro)			\
+static parent_type ## Class *parent_class = NULL;			\
+GType									\
 type_as_function ## _get_type (void)					\
 {									\
-	static GtkType object_type = 0;					\
+	static GType object_type = 0;					\
 	if (object_type == 0) {						\
-		GtkType type_of_parent;					\
-		static const GtkTypeInfo object_info = {		\
-			#type,						\
-			sizeof (type),					\
-			sizeof (type ## Class),				\
-			(GtkClassInitFunc) type_as_function ## _class_init, \
-			(GtkObjectInitFunc) type_as_function ## _init,	\
-			/* reserved_1 */ NULL,				\
-			/* reserved_2 */ NULL,				\
-			(GtkClassInitFunc) NULL				\
+		static const GTypeInfo object_info = {			\
+		    sizeof (type ## Class),				\
+		    (GBaseInitFunc)         NULL,			\
+		    (GBaseFinalizeFunc)     NULL,			\
+		    (GClassInitFunc)        type_as_function ## _class_init, \
+		    NULL,                   /* class_finalize */	\
+		    NULL,                   /* class_data */		\
+		    sizeof (type),					\
+		    0,                      /* n_preallocs */		\
+		    (GInstanceInitFunc)     type_as_function ## _instance_init \
 		};							\
-		type_of_parent = parent_type_as_function ## _get_type (); \
-		object_type = gtk_type_unique (type_of_parent, &object_info); \
-		parent_class = gtk_type_class (type_of_parent);		\
+		object_type = g_type_register_static			\
+		    (parent_type_macro, #type, &object_info, 0);	\
+		parent_class = g_type_class_ref (parent_type_macro);	\
 	}								\
 	return object_type;						\
 }
 
 /* Just call the parent handler.  This assumes that there is a variable
- * named parent_class that points to the (duh!) parent class */
+ * named parent_class that points to the (duh!) parent class.  Note that
+ * this macro is not to be used with things that return something, use
+ * the _WITH_DEFAULT version for that */
 #define GNOME_CALL_PARENT_HANDLER(parent_class_cast, name, args)	\
 	((parent_class_cast(parent_class)->name != NULL) ?		\
-	 parent_class_cast(parent_class)->name args : 0)
+	 parent_class_cast(parent_class)->name args : (void)0)
 
 /* Same as above, but in case there is no implementation, it evaluates
  * to def_return */

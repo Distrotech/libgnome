@@ -35,6 +35,8 @@
 
 #include <libgnome/gnome-help.h>
 
+#include <libgnome/gnome-macros.h>
+
 #include <libgnome/gnome-triggers.h>
 #include <libgnome/gnome-sound.h>
 

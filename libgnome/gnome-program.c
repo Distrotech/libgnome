@@ -30,6 +30,8 @@
    initialization and command line parsing */
 
 #include <config.h>
+#include "gnome-macros.h"
+
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,11 +41,11 @@
 
 #include "gnome-i18nP.h"
 
-#include <libgnome/gnome-program.h>
-#include <libgnome/gnome-util.h>
-#include <libgnome/gnome-init.h>
-#include <libgnome/gnome-i18n.h>
-#include <libgnome/gnome-url.h>
+#include "gnome-program.h"
+#include "gnome-util.h"
+#include "gnome-init.h"
+#include "gnome-i18n.h"
+#include "gnome-url.h"
 
 #include <gobject/gboxed.h>
 #include <gobject/gvaluearray.h>
@@ -135,35 +137,12 @@ static gboolean program_initialized = FALSE;
 static GnomeProgram *global_program = NULL;
 
 static guint last_property_id = PROP_LAST;
-static gpointer parent_class = NULL;
 
 #define	PREALLOC_CPARAMS (8)
 #define	PREALLOC_MODINFOS (8)
 
-GType
-gnome_program_get_type (void)
-{
-    static GType program_type = 0;
-
-    if (!program_type) {
-	static const GTypeInfo program_info = {
-	    sizeof (GnomeProgramClass),
-	    (GBaseInitFunc)         NULL,
-	    (GBaseFinalizeFunc)     NULL,
-	    (GClassInitFunc)        gnome_program_class_init,
-	    NULL,                   /* class_finalize */
-	    NULL,                   /* class_data */
-	    sizeof (GnomeProgram),
-	    0,                      /* n_preallocs */
-	    (GInstanceInitFunc)     gnome_program_instance_init
-	};
-
-	program_type = g_type_register_static
-	    (G_TYPE_OBJECT, "GnomeProgram", &program_info, 0);
-    }
-
-    return program_type;
-}
+GNOME_CLASS_BOILERPLATE (GnomeProgram, gnome_program,
+			 GObject, g_object, G_TYPE_OBJECT)
 
 static void
 gnome_program_set_property (GObject *object, guint param_id,
@@ -654,11 +633,13 @@ gnome_program_finalize (GObject* object)
 	(* G_OBJECT_CLASS (parent_class)->finalize) (object);
 }
 
+/* UNUSED
 static gpointer
 gnome_module_info_init (void)
 {
     return g_new0 (GnomeModuleInfo, 1);
 }
+*/
 
 static gpointer
 gnome_module_info_copy (gpointer boxed)
@@ -1603,8 +1584,8 @@ gnome_program_initv (GType type,
 	}
     }
 
-    program = g_object_new_valist (type,
-				   first_property_name, args);
+    program = (GnomeProgram *)g_object_new_valist (type,
+						   first_property_name, args);
 
     if (!program_initialized) {
 	global_program = program;

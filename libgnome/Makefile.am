@@ -61,6 +61,7 @@ libgnome_headers = \
 	gnome-url.h		\
 	gnome-util.h   		\
 	gnome-preferences.h	\
+	gnome-macros.h		\
 	gnome-marshal.h		\
 	gnome-score.h		\
 	gnome-init.h		\
