@@ -161,10 +161,28 @@ libgnome stuff:
     has for quite a while
   - g_file_exists():  Use g_file_test(,G_FILE_TEST_EXISTS) instead.
 
+  - gnome_libdir_file, gnome_datadir_file, gnome_sound_file, gnome_pixmap_file,
+  gnome_config_file, gnome_help_file, gnome_app_help_file,
+  gnome_unconditional_libdir_file, gnome_unconditional_datadir_file,
+  gnome_unconditional_sound_file, gnome_unconditional_pixmap_file,
+  gnome_unconditional_config_file, gnome_unconditional_help_file: Removed.
+
+  On the GNOME 1.x platform, this functions have extensively been abused to
+  locate files which are installed by your application.
+
+  If your applicatoin `foo' has a pixmap `foo.png', define FOOPIXMAPDIR in
+  your Makefile.am and use `FOOPIXMAPDIR "/foo.png"'.
+
+  If you want to locate a _system installed_ file, such as a file which has
+  been installed by libgnomeui-2 or another library which is part of the
+  GNOME 2 platform, use the new gnome_program_locate_file().
+
   The following functions have been added:
 
-  - gnome_file_locate():  A more flexible file location functions which
-    attempts to solve the issues of gnome_*_file functions.
+  - gnome_program_locate_file():  A more flexible file location functions which
+    attempts to solve the issues of gnome_*_file functions.  This function is
+    to locate a system installed file, not a file which is installed by your
+    application.
 
 * gnomelib-init, gnomelib-init2 - UNKNOWN
 
