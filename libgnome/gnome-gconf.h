@@ -26,10 +26,7 @@
 #ifndef GNOME_GCONF_H
 #define GNOME_GCONF_H
 
-#include <gconf/gconf-client.h>
-
 #include <libgnome/gnome-program.h>
-#include <libgnome/gnome-init.h>
 
 /* Get keys relative to the gnome-libs internal per-app directory and the
    application author per-app directory */

@@ -88,10 +88,12 @@ static const GnomeTriggerTypeFunction actiontypes[] =
 };
 
 /* IMPLEMENTATIONS */
+#if 0
 void
 gnome_triggers_init(void)
 {
 }
+#endif
 
 #if 0
 /* snarfed almost directly from sound-properties. */

@@ -57,9 +57,6 @@ struct _GnomeTrigger {
 };
 typedef struct _GnomeTrigger GnomeTrigger;
 
-void gnome_triggers_init     (void);
-gint gnome_triggers_readfile (const char *infilename);
-
 /*
  * The optional arguments in some of these functions are just
  * a list of strings that help us know
