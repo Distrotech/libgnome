@@ -186,7 +186,7 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 	struct dirent *de;
 	struct stat st;
 	DIR *dir = NULL;
-	gint i, max, v;
+	gint i, max, v, num_entries = 0;
 	gchar *full;
 
 	if (!(dir = opendir (storage_fs->path)))
@@ -204,6 +204,11 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 	
 	for (i = 0; (de = readdir (dir)) && (i < max); i++) {
 		
+		if ((de->d_name[0] == '.' && de->d_name[1] == '\0') ||
+		    (de->d_name[0] == '.' && de->d_name[1] == '.' 
+		     && de->d_name[2] == '\0'))
+			continue; /* Ignore . and .. */
+
 		buf [i].name = CORBA_string_dup (de->d_name);
 		buf [i].size = 0;
 		buf [i].content_type = NULL; 
@@ -226,9 +231,11 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 			buf [i].content_type = 
 				CORBA_string_dup ("application/octet-stream");
 		}
+
+		num_entries++;
 	}
 
-	list->_length = i;
+	list->_length = num_entries; 
 
 	closedir (dir);
 	
