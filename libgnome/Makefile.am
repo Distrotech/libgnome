@@ -4,6 +4,9 @@
 # Targets
 #
 
+GNOME_MAKEENUMS = $(top_srcdir)/tools/gnome-makeenums.pl
+GNOME_MAKETYPES = $(top_builddir)/tools/gnome-maketypes.awk
+
 LIB_VERSION=0:0:0
 LIB_VERSION_NUM=0.0.0
 
@@ -17,7 +20,6 @@ INCLUDES = \
 	-I..					\
 	-I$(srcdir)/..				\
 	$(WARN_CFLAGS)				\
-	$(LIBGNOMEBASE_CFLAGS)			\
 	$(GLIB_CFLAGS)				\
 	$(OAF_CFLAGS)				\
 	$(GCONF_CFLAGS)				\
@@ -122,7 +124,6 @@ gnome-config.o: parse-path.cP
 
 libgnome_2_la_LDFLAGS = -version-info $(LIB_VERSION)
 libgnome_2_la_LIBADD =		\
-	$(LIBGNOMEBASE_LIBS)	\
 	$(OAF_LIBS)		\
 	$(GCONF_LIBS)		\
 	$(LIBXML_LIBS)		\
