@@ -28,7 +28,6 @@
 /* By Elliot Lee */
 
 #include "gnome-triggers.h"
-#include "gnome-triggersP.h"
 #include "gnome-util.h"
 #include "gnome-sound.h"
 
@@ -44,6 +43,17 @@
 #include <dirent.h>
 
 /* TYPE DECLARATIONS */
+
+/* Yes, this mechanism is lame, that's why it's hidden :) */
+typedef struct _GnomeTriggerList GnomeTriggerList;
+
+struct _GnomeTriggerList {
+  char *nodename;
+  GnomeTriggerList **subtrees;
+  GnomeTrigger **actions;
+  gint numsubtrees;
+  gint numactions;
+};
 
 typedef void (*GnomeTriggerTypeFunction)(GnomeTrigger *t, char *msg, char *level, char *supinfo[]);
 

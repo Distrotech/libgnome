@@ -90,9 +90,6 @@ libgnomeinclude_HEADERS = \
 	libgnometypebuiltins.h	\
 	$(libgnome_headers)
 
-noinst_HEADERS = \
-	gnome-triggersP.h
-
 if HAVE_CSL
 cslmodules = gnomesoundplugin_csl.la
 else
