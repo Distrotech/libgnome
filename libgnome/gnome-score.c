@@ -11,8 +11,10 @@
 #include "gnome-score-helper.c"
 #undef GNOME_SCORE_C
 
-gboolean /* Returns TRUE if it was a notable (top ten) score */
-gnome_score_log(gfloat score, gchar *level, int ordering)
+gint
+gnome_score_log(gfloat score,
+		gchar *level,
+		gboolean higher_to_lower_score_order)
 {
   int exitstatus;
   char buf[64];
@@ -23,9 +25,9 @@ gnome_score_log(gfloat score, gchar *level, int ordering)
     {
       /* We are the child */
       snprintf(buf, sizeof(buf), "%f", score);
-      snprintf(buf2, sizeof(buf2), "%d", ordering);
+      snprintf(buf2, sizeof(buf2), "%d", higher_to_lower_score_order);
       execlp("gnome-score-helper", "gnome-score-helper",
-	     buf, level, buf2, NULL);
+	     buf, level?level:"", buf2, NULL);
       exit(99);
     }
 
@@ -35,7 +37,7 @@ gnome_score_log(gfloat score, gchar *level, int ordering)
   else
     {
       g_warning("Scorekeeping failed\n");
-      return FALSE;
+      return 0;
     }
 }
 
@@ -47,6 +49,7 @@ gnome_score_get_notable(gchar *gamename,
 			time_t **scoretimes)
 {
   gchar *realname, buf[512], *buf2;
+  gchar *infile_name;
   FILE *infile;
   gint retval;
 
@@ -60,25 +63,32 @@ gnome_score_get_notable(gchar *gamename,
   if(!realname)
     return -1;
 
-  snprintf(buf, sizeof(buf), "%s/%s.%s.scores", SCORE_PATH, realname, level);
+  infile_name = gnome_get_score_file_name(realname, level);
 
-  infile = fopen(buf, "r");
+  infile = fopen(infile_name, "r");
+  g_free(infile_name);
+  g_free(realname);
+
   if(infile)
     {
-    *names = g_malloc(NSCORES*sizeof(gchar*));
-    *scores = g_malloc(NSCORES*sizeof(gfloat));
-    *scoretimes = g_malloc(NSCORES*sizeof(time_t));
-
-    for(retval = 0; fgets(buf, sizeof(buf), infile) && retval < NSCORES; 
-    							     retval++) { 
-	buf[strlen(buf)-1]=0;
-	buf2 = strtok(buf, " ");
-	(*scores)[retval] = atof(buf2);
-	buf2 = strtok(NULL, " ");
-	(*scoretimes)[retval] = atoi(buf2);
-	buf2 = strtok(NULL, "\n");
-	(*names)[retval] = strdup(buf2);
-      }
+      *names = g_malloc((NSCORES + 1) * sizeof(gchar*));
+      *scores = g_malloc((NSCORES + 1) * sizeof(gfloat));
+      *scoretimes = g_malloc((NSCORES + 1) * sizeof(time_t));
+      
+      for(retval = 0;
+	  fgets(buf, sizeof(buf), infile) && retval < NSCORES; 
+	  retval++)
+	{ 
+	  buf[strlen(buf)-1]=0;
+	  buf2 = strtok(buf, " ");
+	  (*scores)[retval] = atof(buf2);
+	  buf2 = strtok(NULL, " ");
+	  (*scoretimes)[retval] = atoi(buf2);
+	  buf2 = strtok(NULL, "\n");
+	  (*names)[retval] = g_strdup(buf2);
+	}
+      (*names)[retval] = NULL;
+      (*scores)[retval] = 0.0;
       fclose(infile);
     }
   else
@@ -87,8 +97,6 @@ gnome_score_get_notable(gchar *gamename,
       *scores = NULL;
       retval = 0;
     }
-
-  g_free(realname);
 
   return retval;
 }

@@ -4,11 +4,15 @@
 #include <time.h>
 
 BEGIN_GNOME_DECLS
-gboolean /* Returns the position in the top-ten starting from 1, or 0 if it isn't
-	in the table */
-gnome_score_log(gfloat score, 
-		gchar *level,
-		int ordering);
+/* Returns the position in the top-ten starting from 1, or 0 if it isn't in the table */
+gint
+gnome_score_log(gfloat score,
+		gchar *level, /* Pass in NULL unless you want to keep
+				 per-level scores for the game */
+		/* Pass in TRUE if higher scores are "better"
+		   in the game */
+		gboolean higher_to_lower_score_order);
+
 
 gint /* Returns number of items in the arrays */
 gnome_score_get_notable(gchar *gamename, /* Will be auto-determined if NULL */
