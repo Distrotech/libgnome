@@ -8,6 +8,13 @@
 #pragma inhibit push
 #endif
 
+module GNOME {
+
+    typedef sequence<string> stringlist;
+
+};
+
+#include <Gnome_Desktop.idl>
 #include <Gnome_Selector.idl>
 
 #if !defined(__GNOME_COMPILATION) && defined(__ORBIT_IDL__)
