@@ -5,6 +5,13 @@
 
 G_BEGIN_DECLS
 
+/* All-purpose padding. If you always use these instead of making up 
+   some arbitrary padding number that looks good on your screen, 
+   people can change the "spaciousness" of the GUI globally. */
+#define GNOME_PAD          8
+#define GNOME_PAD_SMALL    4
+#define GNOME_PAD_BIG      12
+
 /* Whether to use the statusbar instead of dialogs when possible:
    TRUE means use the statusbar */
 gboolean          gnome_preferences_get_statusbar_dialog     (void);
