@@ -362,7 +362,7 @@ static struct poptOption gnomelib_options [] = {
 
 	{ "espeaker", '\0', POPT_ARG_STRING,                                    
 	  NULL, ARG_ESPEAKER, N_("Host:port on which the sound server to use is"
-				 "running"),
+				 " running"),
 	  N_("HOSTNAME:PORT")},                                                 
 
 	{"version", '\0', POPT_ARG_NONE, NULL, },
