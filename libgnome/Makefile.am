@@ -7,10 +7,10 @@
 LIB_VERSION=0:0:0
 LIB_VERSION_NUM=0.0.0
 
-lib_LTLIBRARIES = libgnome-2.0.la
+lib_LTLIBRARIES = libgnome-2.la
 
 if COMPILE_GNOME_COMPAT
-lib_LIBRARIES = libgnome-1.0-compat-2.0.a
+lib_LIBRARIES = libgnome-1-compat-2.a
 endif
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
@@ -30,9 +30,9 @@ INCLUDES = -I.. -I$(srcdir)/.. \
 	-DG_LOG_DOMAIN=\"Gnome\"
 
 if COMPILE_GNOME_COMPAT
-libgnome10compatincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/compat/1.0/libgnome
+libgnome10compatincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/compat/1/libgnome
 
-libgnome_1_0_compat_2_0_a_SOURCES = \
+libgnome_1_compat_2_a_SOURCES = \
 	gnome10-compat.c	\
 	gnome-help.c		\
 	gnome-dentry.c		\
@@ -46,7 +46,7 @@ libgnome10compatinclude_HEADERS=\
 	gnome-popt.h
 endif
 
-libgnome_2_0_la_SOURCES = \
+libgnome_2_la_SOURCES = \
 	gnome-config.c		\
 	gnome-ditem.c		\
 	gnome-exec.c		\
@@ -102,8 +102,8 @@ BUILT_SOURCES=gnome-portability.h
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP
 
-libgnome_2_0_la_LDFLAGS = $(LIBGNOME_LIBS) -version-info $(LIB_VERSION)
-libgnome_2_0_la_LIBADD = ../support/libgnomesupport.la
+libgnome_2_la_LDFLAGS = $(LIBGNOME_LIBS) -version-info $(LIB_VERSION)
+libgnome_2_la_LIBADD = ../support/libgnomesupport.la
 
 bin_PROGRAMS=			\
 	gnome-dump-metadata	\

@@ -31,10 +31,12 @@
 #include "gnome-triggersP.h"
 #include "gnome-config.h"
 #include "gnome-util.h"
+#if 0
 #include "gnome-sound.h"
 
 #ifdef HAVE_ESD
 #include <esd.h>
+#endif
 #endif
 
 #include <unistd.h>
@@ -410,7 +412,7 @@ gnome_triggers_do(const char *msg, const char *level, ...)
 static void
 gnome_triggers_play_sound(const char *sndname)
 {
-#ifdef HAVE_ESD
+#if defined(HAVE_ESD) && 0
   int sid;
   static GHashTable *sound_ids = NULL;
 
@@ -591,7 +593,7 @@ gnome_trigger_do_mediaplay(GnomeTrigger* t,
 			   const char *level,
 			   const char *supinfo[])
 {
-#ifdef HAVE_ESD
+#if defined(HAVE_ESD) && 0
   if(gnome_sound_connection == -1)
     return;
 
@@ -601,4 +603,3 @@ gnome_trigger_do_mediaplay(GnomeTrigger* t,
     gnome_sound_play(t->u.media.file);
 #endif
 }
-

@@ -41,7 +41,6 @@
 #include "libgnome/gnome-paper.h"
 #include "libgnome/gnome-remote.h"
 #include "libgnome/gnome-score.h"
-#include "libgnome/gnome-sound.h"
 #include "libgnome/gnome-triggers.h"
 #include "libgnome/gnome-util.h"
 #include "libgnome/gnome-url.h"
