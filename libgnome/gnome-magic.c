@@ -119,6 +119,7 @@ read_string_val(char *curpos, char *intobuf, guchar max_len, guchar *into_len)
       }
       break;
     default:
+      break;
       /* already setup c/moved curpos */
     }
     if (intobuf<intobufend) {
