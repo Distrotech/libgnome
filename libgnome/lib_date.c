@@ -11,6 +11,8 @@
 #include <string.h>                                 /*  MODULE TYPE:  (sys)  */
 #include <ctype.h>                                  /*  MODULE TYPE:  (sys)  */
 #include <stdio.h>
+#include <config.h>
+#include "libgnome.h"
 #include "lib_defs.h"                               /*  MODULE TYPE:  (dat)  */
 /*****************************************************************************/
 /*  MODULE INTERFACE:                                                        */
@@ -68,14 +70,14 @@ N_int   month_length[2][13] =
 
 N_char  day_name[8][16] =
     {
-        "Error", "Monday", "Tuesday", "Wednesday",
-        "Thursday", "Friday", "Saturday", "Sunday"
+        N_("Error"), N_("Monday"), N_("Tuesday"), N_("Wednesday"),
+        N_("Thursday"), N_("Friday"), N_("Saturday"), N_("Sunday")
     };
 
 N_char  month_name[13][16] =
     {
-        "Error", "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
+        N_("Error"), N_("January"), N_("February"), N_("March"), N_("April"), N_("May"), N_("June"),
+        N_("July"), N_("August"), N_("September"), N_("October"), N_("November"), N_("December")
     };
 
 blockdef(rsrc_date_001,16) = "<no date>"; /* exactly 9 chars long */
