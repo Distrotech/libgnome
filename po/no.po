@@ -1,16 +1,16 @@
-# Norwegian translation of gnome-libs (bokmål dialect).
+# Norwegian translation of gnome-libs (bokmÃ¥l dialect).
 # Copyright (C) 1998,1999,2000 Free Software Foundation, Inc.
 # Kjartan Maraas <kmaraas@gnome.org>, 1998,1999,2000
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
-"POT-Creation-Date: 2002-01-26 18:15+0100\n"
+"POT-Creation-Date: 2002-02-11 20:00+0100\n"
 "PO-Revision-Date: 2002-02-10 11:46+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
 #: libgnome/gnome-exec.c:429
@@ -26,16 +26,16 @@ msgstr "Kan ikke tolke: %s"
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
 msgid "Bonobo Support"
-msgstr "Bonobo støtte"
+msgstr "Bonobo stÃ¸tte"
 
 #: libgnome/gnome-init.c:142
 msgid "Bonobo activation Support"
-msgstr "Bonobo aktiveringsstøtte"
+msgstr "Bonobo aktiveringsstÃ¸tte"
 
 #: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Kunn ikke opprette per-bruker gnome konfigurasjonskatalog «%s»: %s\n"
+msgstr "Kunn ikke opprette per-bruker gnome konfigurasjonskatalog Â«%sÂ»: %s\n"
 
 #: libgnome/gnome-init.c:298
 #, c-format
@@ -43,35 +43,35 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Kunne ikke sette modus 0700 på privat per-bruker gnome konfigurasjonskatalog "
-"«%s»: %s\n"
+"Kunne ikke sette modus 0700 pÃ¥ privat per-bruker gnome konfigurasjonskatalog "
+"Â«%sÂ»: %s\n"
 
 #: libgnome/gnome-init.c:305
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Kunne ikke opprette gnome akselleratorkatalog «%s»: %s\n"
+msgstr "Kunne ikke opprette gnome akselleratorkatalog Â«%sÂ»: %s\n"
 
-#: libgnome/gnome-init.c:357
+#: libgnome/gnome-init.c:358
 msgid "Disable sound server usage"
-msgstr "Slå av bruk av lydtjener"
+msgstr "SlÃ¥ av bruk av lydtjener"
 
-#: libgnome/gnome-init.c:360
+#: libgnome/gnome-init.c:361
 msgid "Enable sound server usage"
-msgstr "Slå på bruk av lydtjener"
+msgstr "SlÃ¥ pÃ¥ bruk av lydtjener"
 
-#: libgnome/gnome-init.c:363
+#: libgnome/gnome-init.c:364
 msgid "Host:port on which the sound server to use is running"
-msgstr "Vert:port hvor lydtjeneren som skal brukes kjører"
+msgstr "Vert:port hvor lydtjeneren som skal brukes kjÃ¸rer"
 
-#: libgnome/gnome-init.c:365
+#: libgnome/gnome-init.c:366
 msgid "HOSTNAME:PORT"
 msgstr "VERTSNAVN:PORT"
 
-#: libgnome/gnome-init.c:383
+#: libgnome/gnome-init.c:384
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME virtuelt filsystem"
 
-#: libgnome/gnome-init.c:404
+#: libgnome/gnome-init.c:405
 msgid "GNOME Library"
 msgstr "GNOME bibliotek"
 
@@ -85,7 +85,7 @@ msgstr "Applikasjonens navn"
 
 #: libgnome/gnome-gconf.c:173
 msgid "GNOME GConf Support"
-msgstr "GNOME GConf støtte"
+msgstr "GNOME GConf stÃ¸tte"
 
 #: libgnome/gnome-help.c:149
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
@@ -125,7 +125,7 @@ msgstr "Hjelpdokument %s/%s ble ikke funnet"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "For mange aliasnivåer for et lokale, kan indikere en løkke"
+msgstr "For mange aliasnivÃ¥er for et lokale, kan indikere en lÃ¸kke"
 
 #: libgnome/gnome-program.c:419
 msgid "Popt Table"
@@ -302,7 +302,8 @@ msgstr "config indirekt moniker"
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr "Nøkkel %s ble ikke funnet i konfigurasjonen"
+msgstr "NÃ¸kkel %s ble ikke funnet i konfigurasjonen"
 
-#~ msgid "Unknown type"
-#~ msgstr "Ukjent type"
+#: monikers/bonobo-config-bag.c:216
+msgid "Unknown type"
+msgstr "Ukjent type"
