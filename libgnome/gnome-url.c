@@ -59,11 +59,18 @@ gnome_url_default_handler (void)
 	static gchar *default_handler = NULL;
 	
 	if (!default_handler) {
-		gchar *str;
+		gchar *str, *app;
 		gboolean def;
 		str = gnome_config_get_string_with_default ("/Gnome/URL Handlers/default-show",
 							    &def);
 		if (def) {
+			app = gnome_is_program_in_path ("nautilus");
+			if (app) {
+				g_free (app);
+				app = "nautilus \"%s\"";
+			} else
+				app = "gnome-help-browser \"%s\"";
+
 			/* first time gnome_url_show is run -- set up some useful defaults */
 			default_handler = DEFAULT_HANDLER;
 			gnome_config_set_string ("/Gnome/URL Handlers/default-show", default_handler);
@@ -71,16 +78,16 @@ gnome_url_default_handler (void)
 			g_free (gnome_config_get_string_with_default(
 				"/Gnome/URL Handlers/info-show", &def));
 			if (def)
-				gnome_config_set_string ("/Gnome/URL Handlers/info-show", INFO_HANDLER);
+				gnome_config_set_string ("/Gnome/URL Handlers/info-show", app);
 			g_free (gnome_config_get_string_with_default(
 				"/Gnome/URL Handlers/man-show", &def));
 			if (def)
-				gnome_config_set_string ("/Gnome/URL Handlers/man-show", MAN_HANDLER);
+				gnome_config_set_string ("/Gnome/URL Handlers/man-show", app);
 			g_free (gnome_config_get_string_with_default(
 				"/Gnome/URL Handlers/ghelp-show", &def));
 			if (def)
-				gnome_config_set_string ("/Gnome/URL Handlers/ghelp-show",
-							 GHELP_HANDLER);
+				gnome_config_set_string ("/Gnome/URL Handlers/ghelp-show", app);
+
 			gnome_config_sync_file ("/Gnome/");
 		} else
 			default_handler = str;
