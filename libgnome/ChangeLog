@@ -1,6 +1,19 @@
+2001-05-20  Martin Baulig  <baulig@suse.de>
+
+	* gnome-selector.h
+	(gnome_selector_construct): Added `Bonobo_PropertyBag pbag' argument.
+	(gnome_selector_get_property_bag): New function.
+	(gnome_selector_get_history_id): Removed.
+	(gnome_selector_set_history_id): Removed.
+
+	* gnome-selector.c (PROP_HISTORY_ID): Removed this property.
+	(PROP_PROPERTY_BAG): New property.
+
+	* gnome-selector-factory.[ch]: New files.
+
 2001-05-16  Mark Murnane  <Mark.Murnane@ireland.sun.com>
 
-	* Changes to eliminate any potential problems on 64-bit platforms.
+	Changes to eliminate any potential problems on 64-bit platforms.
 	
 	* gnome-config.c (gnome_config_assemble_vector): Modified type
 	of len to match return type of strlen().
