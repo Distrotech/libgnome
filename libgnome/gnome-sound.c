@@ -34,11 +34,8 @@ int gnome_sound_connection = -1;
 
 typedef struct _sample
   {
-    int rate;
-    int format;
-    int samples;
+    int rate, format, samples, id, size;
     short *data;
-    int id;
   }
 GnomeSoundSample;
 
@@ -344,6 +341,10 @@ gnome_sound_sample_load_audiofile(const char *file)
   frames_read = afReadFrames(in_file, AF_DEFAULT_TRACK, s->data,
 			     frame_count * in_channels);
 
+  g_assert(frames_read == (frame_count * in_channels));
+
+  afCloseFile(in_file);
+
   return s;
 }
 #endif
@@ -386,8 +387,8 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
 	  /* "name" of all samples is currently "E", should be name of sound 
 	   * file, or event type, for later identification */
 	  s->id = esd_sample_cache (gnome_sound_connection, s->format, s->rate,
-				    size * 2, (char *)sample_name);
-	  write (gnome_sound_connection, s->data, size * 2);
+				    size, (char *)sample_name);
+	  write (gnome_sound_connection, s->data, size);
 	  confirm = esd_confirm_sample_cache (gnome_sound_connection);
 	  if (s->id <= 0 || confirm != s->id)
 	    {
@@ -433,7 +434,7 @@ void gnome_sound_init(const char *hostname)
 {
 #ifdef HAVE_ESD
   if(gnome_sound_connection < 0)
-    gnome_sound_connection = esd_open_sound(hostname);
+    gnome_sound_connection = esd_open_sound((char *)hostname);
 #endif
 }
 
