@@ -1167,7 +1167,8 @@ gnome_program_parse_args(GnomeProgram *app)
     return;
 
   ctx = app->arg_context_val.u.pointer_value;
-  while((nextopt = poptGetNextOpt(ctx)) > 0)
+  while((nextopt = poptGetNextOpt(ctx)) > 0
+	|| nextopt == POPT_ERROR_BADOPT)
     /* do nothing */ ;
 
   if(nextopt != -1) {
