@@ -1,5 +1,9 @@
 2001-06-10  Martin Baulig  <baulig@suse.de>
 
+	If someone wants to hack on this stuff, have a look at the desktop entry spec at
+	http://www.freedesktop.org/standards/desktop-entry-spec/desktop-entry-spec.html
+	and add the missing fields to the GNOME::DesktopEntry.
+
 	* Gnome_Desktop.idl (GNOME::ExtraAttributes): New typedef. This is an alias
 	for Bonobo::PropertySet, but it has a "magic" meaning: if a struct contains
 	a member of this type, the ditem moniker fills it with all fields which are
