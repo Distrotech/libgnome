@@ -123,7 +123,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 	
 	if (clean_from_memory){
 		prefix = g_copy_strings ("=", file, "=", NULL);
-		gnome_config_clean_file (prefix);
+		gnome_config_drop_file (prefix);
 		g_free (prefix);
 	}
 	

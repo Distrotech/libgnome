@@ -23,6 +23,7 @@
 #include <config.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>	/* unlink() */
 #include <stdlib.h>	/* atoi() */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -74,6 +75,7 @@ typedef struct TProfile {
 	char *filename;
 	time_t mtime;
 	int written_to;
+	int to_be_deleted;
 	TSecHeader *section;
 	struct TProfile *link;
 } TProfile;
@@ -194,10 +196,32 @@ static int
 is_loaded (const char *filename, TSecHeader **section)
 {
 	TProfile *p = Base;
+	TProfile *lastp = NULL;
 	struct stat st;
 	
+	/*if the last one we accessed was this one we don't want to
+	  search*/
+	if(Current && strcasecmp (filename, Current->filename) == 0){
+		if (stat (filename, &st) == -1)
+			st.st_mtime = 0;
+		if (Current->mtime != st.st_mtime)
+			return 0;
+		*section = Current->section;
+		return 1;
+	}
+	
 	while (p){
-		if (strcasecmp (filename, p->filename) == 0){
+		/*search and destroy empty nodes*/
+		if (p->filename[0]=='\0') {
+			TProfile *next = p->link;
+			if(lastp)
+				lastp->link = next;
+			else /*the next one is the first one actually*/
+				Base = next;
+			g_free(p->filename);
+			g_free(p);
+			p = next;
+		} else if (strcasecmp (filename, p->filename) == 0){
 			if (stat (filename, &st) == -1)
 				st.st_mtime = 0;
 			if (p->mtime != st.st_mtime)
@@ -205,8 +229,10 @@ is_loaded (const char *filename, TSecHeader **section)
 			Current = p;
 			*section = p->section;
 			return 1;
+		} else {
+			lastp = p;
+			p = p->link;
 		}
-		p = p->link;
 	}
 	return 0;
 }
@@ -416,6 +442,7 @@ access_config (access_type mode, const char *section_name,
 		New->section = load (filename);
 		New->mtime = st.st_mtime;
 		New->written_to = FALSE;
+		New->to_be_deleted = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -571,42 +598,6 @@ check_path(char *path, mode_t newmode)
 }
 
 static void 
-dump_profile (TProfile *p)
-{
-	FILE *profile;
-    
-	if (!p)
-		return;
-	dump_profile (p->link);
-	
-	/*was this profile written to?, if not it's not necessary to dump
-	  it to disk*/
-	if(!p->written_to)
-		return;
-
-	/* .ado: p->filename can be empty, it's better to jump over */
-	if (p->filename[0] != (char) 0)
-		if (check_path(p->filename,0755) &&
-		    (profile = fopen (p->filename, "w")) != NULL){
-			dump_sections (profile, p->section);
-			fclose (profile);
-		}
-	
-	/*mark this to not be dumped any more*/
-	p->written_to = FALSE;
-}
-
-/*
- * Must be called at the end.
-*/
-void 
-gnome_config_sync (void)
-{
-	dump_profile (Base);
-	CALL_SYNC_HANDLER();
-}
-
-static void 
 free_keys (TKeys *p)
 {
 	if (!p)
@@ -635,10 +626,66 @@ free_profile (TProfile *p)
 {
 	if (!p)
 		return;
+	if(Current == p)
+		Current = NULL;
 	free_profile (p->link);
 	free_sections (p->section);
 	g_free (p->filename);
 	g_free (p);
+}
+
+
+static void 
+dump_profile (TProfile *p)
+{
+	FILE *profile;
+    
+	if (!p)
+		return;
+	dump_profile (p->link);
+	
+	/*was this profile written to?, if not it's not necessary to dump
+	  it to disk*/
+	if(!p->written_to)
+		return;
+	
+
+	/* .ado: p->filename can be empty, it's better to jump over */
+	if (p->filename[0] != (char) 0) {
+		/*this file was added to after it was cleaned so it doesn't
+		  want to be deleted*/
+		if(p->to_be_deleted && p->section)
+			p->to_be_deleted = FALSE;
+		if(p->to_be_deleted) {
+			/*remove the file and remove all it's ramaints
+			  from memory*/
+			unlink(p->filename);
+			/* this already must have been true */
+			/*p->section = 0;*/
+			p->filename [0] = 0;
+			p->written_to = TRUE;
+			p->to_be_deleted = FALSE;
+			if(p==Current)
+				Current = NULL;
+		} else if (check_path(p->filename,0755) &&
+		    (profile = fopen (p->filename, "w")) != NULL){
+			dump_sections (profile, p->section);
+			fclose (profile);
+		}
+	}
+	
+	/*mark this to not be dumped any more*/
+	p->written_to = FALSE;
+}
+
+/*
+ * Must be called at the end.
+*/
+void 
+gnome_config_sync (void)
+{
+	dump_profile (Base);
+	CALL_SYNC_HANDLER();
 }
 
 void 
@@ -654,6 +701,57 @@ _gnome_config_clean_file (const char *path, gint priv)
 	fake_path = g_copy_strings (path, "/section/key", NULL);
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
+
+	/*this is the current so don't look no further*/
+	if (Current && strcmp (pp->file, Current->filename) == 0) {
+		free_sections (Current->section);
+		Current->section = 0;
+		Current->written_to = TRUE;
+		Current->to_be_deleted = TRUE;
+		Current = NULL;
+		release_path (pp);
+		return;
+	}
+	
+	for (p = Base; p; p = p->link){
+		if (strcmp (pp->file, p->filename) != 0)
+			continue;
+		
+		free_sections (p->section);
+		p->section = 0;
+		p->written_to = TRUE;
+		p->to_be_deleted = TRUE;
+		release_path (pp);
+		return;
+	}
+	release_path (pp);
+}
+
+void 
+_gnome_config_drop_file (const char *path, gint priv)
+{
+	TProfile *p;
+	ParsedPath *pp;
+	char *fake_path;
+	
+	if (!path)
+		return;
+
+	fake_path = g_copy_strings (path, "/section/key", NULL);
+	pp = parse_path (fake_path, priv);
+	g_free (fake_path);
+
+	/*this is the current so don't look no further*/
+	if (Current && strcmp (pp->file, Current->filename) == 0) {
+		free_sections (Current->section);
+		Current->section = 0;
+		Current->filename [0] = 0;
+		Current->written_to = TRUE;
+		Current->to_be_deleted = FALSE;
+		Current = NULL;
+		release_path (pp);
+		return;
+	}
 	
 	for (p = Base; p; p = p->link){
 		if (strcmp (pp->file, p->filename) != 0)
@@ -663,6 +761,7 @@ _gnome_config_clean_file (const char *path, gint priv)
 		p->section = 0;
 		p->filename [0] = 0;
 		p->written_to = TRUE;
+		p->to_be_deleted = FALSE;
 		release_path (pp);
 		return;
 	}
@@ -693,6 +792,7 @@ _gnome_config_init_iterator (const char *path, gint priv)
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
 		New->written_to = FALSE;
+		New->to_be_deleted = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -734,6 +834,7 @@ _gnome_config_init_iterator_sections (const char *path, gint priv)
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
 		New->written_to = FALSE;
+		New->to_be_deleted = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -801,6 +902,7 @@ _gnome_config_clean_section (const char *path, gint priv)
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
 		New->written_to = FALSE;
+		New->to_be_deleted = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -838,6 +940,7 @@ _gnome_config_clean_key (const char *path, gint priv)
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
 		New->written_to = FALSE;
+		New->to_be_deleted = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -878,6 +981,7 @@ _gnome_config_has_section (const char *path, gint priv)
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
 		New->written_to = FALSE;
+		New->to_be_deleted = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;

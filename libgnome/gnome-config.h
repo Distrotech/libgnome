@@ -201,21 +201,32 @@ void gnome_config_drop_all       (void);
 
 void gnome_config_sync           (void);
 
-/* This routine drops the information about /file */
+/* This routine drops the information about /file, meaning changes
+   done to this file will be dropped, it will no delete the file */
+void _gnome_config_drop_file     (const char *path, gint priv);
+#define gnome_config_drop_file(Path) \
+	(_gnome_config_drop_file((Path),FALSE))
+#define gnome_config_private_drop_file(Path) \
+	(_gnome_config_drop_file((Path),TRUE))
+
+/* This routine actually removes /file on sync (not right away, you
+   can still save it by dropping it)*/
 void _gnome_config_clean_file     (const char *path, gint priv);
 #define gnome_config_clean_file(Path) \
 	(_gnome_config_clean_file((Path),FALSE))
 #define gnome_config_private_clean_file(Path) \
 	(_gnome_config_clean_file((Path),TRUE))
 
-/* This routine drops all of the information related to /file/section */
+/* This routine drops all of the information related to /file/section 
+   this will actually remove the section */
 void _gnome_config_clean_section  (const char *path, gint priv);
 #define gnome_config_clean_section(Path) \
 	(_gnome_config_clean_section((Path),FALSE))
 #define gnome_config_private_clean_section(Path) \
 	(_gnome_config_clean_section((Path),TRUE))
 
-/* Drops the information for a specific key */
+/* Drops the information for a specific key, this will actually remove
+   the key */
 void _gnome_config_clean_key (const char *path, gint priv);
 #define gnome_config_clean_key(Path) \
 	(_gnome_config_clean_key((Path),FALSE))
