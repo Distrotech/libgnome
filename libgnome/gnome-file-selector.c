@@ -38,7 +38,7 @@
 #include <gtk/gtklistitem.h>
 #include <gtk/gtksignal.h>
 #include "gnome-macros.h"
-#include "libgnome/libgnomeP.h"
+#include "gnome-i18nP.h"
 #include "gnome-file-selector.h"
 #include "gnome-selectorP.h"
 #include "gnome-entry.h"
@@ -733,7 +733,7 @@ browse_dialog_ok (GtkWidget *widget, gpointer data)
 {
     GnomeFileSelector *fselector;
     GtkFileSelection *fs;
-    gchar *filename;
+    const gchar *filename;
 
     g_assert (GNOME_IS_FILE_SELECTOR (data));
 
