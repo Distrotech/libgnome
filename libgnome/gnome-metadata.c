@@ -760,8 +760,17 @@ app_get_by_type (const char *type, const char *key, int *size, char **buffer)
 
 
 
-/* Set metadata associated with FILE.  Returns 0 on success, or an
-   error code.  */
+/**
+ * gnome_metadata_set:
+ * @file: File with which metadata will be associated
+ * @name: Metadata key.
+ * @size: Size in bytes of data
+ * @data: Data to be stored.
+ *
+ * Sets metadata associated with FILE and NAME.
+ *
+ * Returns 0 on success or an error code.
+ */
 int
 gnome_metadata_set (const char *file, const char *name,
 		    int size, const char *data)
@@ -769,19 +778,31 @@ gnome_metadata_set (const char *file, const char *name,
 	return metadata_set ("file", file, name, size, data);
 }
 
-/* Remove a piece of metadata associated with FILE.  Returns 0 on
-   success, or an error code.  */
+/**
+ * gnome_metadata_remove:
+ * @file: File name
+ * @name: Metadata key.
+ *
+ * Remove a piece of metadata associated with the file.
+ *
+ * Returns 0 on success, or an error code.
+ */
 int
 gnome_metadata_remove (const char *file, const char *name)
 {
 	return metadata_remove ("file", file, name);
 }
 
-/* Return an array of all metadata keys associated with FILE.  The
-   array is NULL terminated.  The result value can be freed with
-   gnome_string_array_free.  This only returns keys for which there is
-   a particular association with FILE.  It will not return keys for
-   which a regex or other match succeeds.  */
+/**
+ * gnome_metadata_list
+ * @file: File name.
+ *
+ * Returns an array of all metadata keys associated with FILE.  The
+ * array is NULL terminated.  The result can be freed with
+ * gnome_string_array_free.  This only returns keys for which there is
+ * a particular association with FILE.  It will not return keys for
+ * which a regex or other match succeeds.
+ */
 char **
 gnome_metadata_list (const char *file)
 {
@@ -929,9 +950,18 @@ got_type:
 	return r;
 }
 
-/* Get a piece of metadata associated with FILE.  SIZE and BUFFER are
-   result parameters.  *BUFFER is malloc()d.  Returns 0, or an error
-   code.  On error *BUFFER will be set to NULL.  */
+/**
+ * gnome_metadata_get:
+ * @file: File name
+ * @name: Metadata key
+ * @size: Return parameter for size of data
+ * @data: Return parameter for data
+ *
+ * Get a piece of metadata associated with FILE.  SIZE and BUFFER are
+ * result parameters.  *BUFFER is malloc()d.
+ *
+ * Returns 0, or an error code.  On error *BUFFER will be set to NULL.
+ */
 int
 gnome_metadata_get (const char *file, const char *name,
 		    int *size, char **buffer)
@@ -943,8 +973,18 @@ gnome_metadata_get (const char *file, const char *name,
 	return r;
 }
 
-/* Like gnome_metadata_get, but won't run the `file' command to
-   characterize the file type.  Returns 0, or an error code.  */
+/**
+ * gnome_metadata_get_fast:
+ * @file: File name
+ * @name: Metadata key
+ * @size: Return parameter for size of data
+ * @data: Return parameter for data
+ *
+ * Like gnome_metadata_get, but won't run the `file' command to
+ * characterize the file type.
+ * 
+ * Returns 0, or an error code.  On error *BUFFER will be set to NULL.
+ */
 int
 gnome_metadata_get_fast (const char *file, const char *name,
 			 int *size, char **buffer)
@@ -1010,24 +1050,47 @@ worker (const char *from, const char *to, int op)
 	return ret;
 }
 
-/* Convenience function.  Call this when a file is renamed.  Returns 0
-   on success, or an error code.  */
+/**
+ * gnome_metadata_rename:
+ * @from: Source file name
+ * @to: Destination file name
+ *
+ * This function moves metadata associated with file FROM to file TO.
+ * It should be called after a file is renamed.
+ *
+ * Returns 0 on success, or an error code.
+ */
 int
 gnome_metadata_rename (const char *from, const char *to)
 {
 	return worker (from, to, RENAME);
 }
 
-/* Convenience function.  Call this when a file is copied.  Returns 0
-   on success, or an error code.  */
+/**
+ * gnome_metadata_copy:
+ * @from: Source file name
+ * @to: Destination file name
+ *
+ * This function copies metadata associated with file FROM to file TO.
+ * It should be called after a file is copied.
+ *
+ * Returns 0 on success, or an error code.
+ */
 int
 gnome_metadata_copy (const char *from, const char *to)
 {
 	return worker (from, to, COPY);
 }
 
-/* Convenience function.  Call this when a file is deleted.  Returns 0
-   on success, or an error code.  */
+/**
+ * gnome_metadata_copy:
+ * @file: File name
+ *
+ * This function deletes all metadata associated with FILE.
+ * It should be called after a file is deleted.
+ *
+ * Returns 0 on success, or an error code.
+ */
 int
 gnome_metadata_delete (const char *file)
 {
@@ -1035,8 +1098,18 @@ gnome_metadata_delete (const char *file)
 }
 
 
-/* Add a regular expression to the internal list.  This regex is used
-   when matching requests for the metadata KEY.  */
+/**
+ * gnome_metadata_regex_add:
+ * @regex: The regular expression.
+ * @key: The metadata key.
+ * @size: Size of data in bytes.
+ * @data: The data.
+ *
+ * Add a regular expression to the internal list.  This regex is used
+ * when matching requests for the metadata KEY.
+ *
+ * Returns nothing.
+ */
 void
 gnome_metadata_regex_add (const char *regex, const char *key,
 			   int size, const char *data)
@@ -1044,14 +1117,33 @@ gnome_metadata_regex_add (const char *regex, const char *key,
 	metadata_set ("regex", regex, key, size, data);
 }
 
-/* Remove a regular expression from the internal list.  */
+/**
+ * gnome_metadata_regex_remove:
+ * @regex: The regular expression.
+ * @key: The metadata key.
+ *
+ * Remove the regular expression from the internal list.
+ *
+ * Returns nothing.
+ */
 void
 gnome_metadata_regex_remove (const char *regex, const char *key)
 {
 	metadata_remove ("regex", regex, key);
 }
 
-/* Add a file type to the internal list.  */
+/**
+ * gnome_metadata_type_add:
+ * @type: File type
+ * @key: The metadata key.
+ * @size: Size of data in bytes.
+ * @data: The data.
+ *
+ * Add a file type to the internal list.  This pairing is used
+ * when matching requests for the metadata KEY.
+ *
+ * Returns nothing.
+ */
 void
 gnome_metadata_type_add (const char *type, const char *key,
 			 int size, const char *data)
@@ -1059,7 +1151,15 @@ gnome_metadata_type_add (const char *type, const char *key,
 	metadata_set ("type", type, key, size, data);
 }
 
-/* Remove a file type from the internal list.  */
+/**
+ * gnome_metadata_type_remove:
+ * @type: The file type.
+ * @key: The metadata key.
+ *
+ * Remove a type/key pairing from the internal list.
+ *
+ * Returns nothing.
+ */
 void
 gnome_metadata_type_remove (const char *type, const char *key)
 {
