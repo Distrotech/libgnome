@@ -212,7 +212,7 @@ gnome_metadata_lock ()
 }
 
 /**
- * gnome_metadata_lock:
+ * gnome_metadata_unlock:
  *
  * Unlocks the metadata system.  Used if you are going to invoke
  * many metadata operations to speed up metadata access.
