@@ -105,6 +105,8 @@ gnome_dl_load(char *libpath, int bind_lazy)
 {
   GnomeLibHandle *handle = gnome_dl_find_lib(libpath);
 
+  printf ("gnome_dl is obsolete -- use gmodule instead.\n");
+
   if (handle == NULL)
     {
       void *native_handle;
