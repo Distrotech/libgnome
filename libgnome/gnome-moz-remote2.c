@@ -1,6 +1,46 @@
 /******
- *
+ * gnome-moz-remote2.c:
+ *   A netscape remote control. Written by Elliot Lee, with lots of code stolen from the original gnome-moz-remote
+ *   (by jamesh, I think).
+ *   My changes are under the GPL, Copyright (C) 1999 Red Hat Software.
  ******/
+/* gnome-moz-remote.c -- open a URL in a current netscape, or start a new
+ *    copy of netscape, pointing at the given page.
+ * This is a modified version of http://home.netscape.com/newsref/std/remote.c
+ * You can find documentation of --remote commands at
+ *   http://home.netscape.com/newsref/std/x-remote.html
+ * My changes fall under the GPL2 (where the previous license allows).  The
+ * original copyright message follows:
+ */
+/* remote.c --- remote control of Netscape Navigator for Unix.
+ * version 1.1.3, for Netscape Navigator 1.1 and newer.
+ *
+ * Copyright © 1996 Netscape Communications Corporation, all rights reserved.
+ * Created: Jamie Zawinski <jwz@netscape.com>, 24-Dec-94.
+ *
+ * Permission to use, copy, modify, distribute, and sell this software and its
+ * documentation for any purpose is hereby granted without fee, provided that
+ * the above copyright notice appear in all copies and that both that
+ * copyright notice and this permission notice appear in supporting
+ * documentation.  No representations are made about the suitability of this
+ * software for any purpose.  It is provided "as is" without express or 
+ * implied warranty.
+ *
+ * To compile:
+ *
+ *    cc -o netscape-remote remote.c -DSTANDALONE -lXmu -lX11
+ *
+ * To use:
+ *
+ *    netscape-remote -help
+ *
+ * Documentation for the protocol which this code implements may be found at:
+ *
+ *    http://home.netscape.com/newsref/std/x-remote.html
+ *
+ * Bugs and commentary to x_cbug@netscape.com.
+ */
+
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -13,6 +53,7 @@
 
 #include "gnomesupport.h"
 #include <libgnome/libgnome.h>
+#include <libgnome/gnomelib-init2.h>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 
@@ -24,18 +65,22 @@
  */
 #include "vroot.h"
 
+#define CMD_TIMEOUT 10000
+
 typedef struct {
   Window cmd_window, result_window;
 
   Display *dpy;
   GMainLoop *ml;
-  enum { STARTING_PROCESS, SENT_COMMAND, PROCESSING, FINISHED } state;
+  enum { LOCK_WAIT, STARTING_PROCESS, SENT_COMMAND, PROCESSING, FINISHED } state;
   gboolean got_response;
+
+  guint timeout_tag;
 } AppContext;
 
 static AppContext global_ctx = {0};
 static char *dpy_name;
-static int dpy_sync = 0, win_noraise=0, win_new=0, win_ids_print;
+static int dpy_sync = 0, win_noraise=0, win_new=0, win_ids_print=-1, win_close = 0;
 static char *win_id = NULL;
 
 static struct poptOption options[] = {
@@ -45,38 +90,116 @@ static struct poptOption options[] = {
   
   {"noraise", '\0', POPT_ARG_NONE, &win_noraise, 0, N_("Don't raise the Netscape window."), NULL},
   {"newwin", '\0', POPT_ARG_NONE, &win_new, 0, N_("Show the given URL in a new window"), NULL},
-  {"print-id", '\0', POPT_ARG_NONE, &win_ids_print, 0, N_("Print the X window ID of the utilized window"), NULL},
+  {"closewin", '\0', POPT_ARG_NONE, &win_close, 0, N_("Close the specified window"), NULL},
+  {"print-id", '\0', POPT_ARG_INT, &win_ids_print, 0, N_("Print the X window ID of the utilized window"), NULL},
   {NULL}
 };
 
-static void mozilla_remote_check_window (Display *dpy, Window window);
 static Window mozilla_remote_find_window (Display *dpy);
 static void mozilla_remote_init_atoms (Display *dpy);
 static gboolean mozilla_handle_xevents(GIOChannel *source, GIOCondition condition, gpointer data);
-static int mozilla_remote_check_window (Display *dpy, Window window);
+static gboolean mozilla_remote_check_window (Display *dpy, Window window);
+static void mozilla_remote_obtain_lock (Display *dpy, Window window);
+static void mozilla_remote_free_lock (Display *dpy, Window window);
+static Window mozilla_remote_command (Display *dpy, Window window, const char *command, Bool raise_p);
+static int handle_xerror(Display *dpy, XErrorEvent *ev);
 
-static Window
-mozilla_loop_run(AppContext *ctx, Window cmd_window, int state)
+static gboolean
+do_main_quit(gpointer data)
 {
-  ctx->state = STARTING_PROCESS;
-  ctx->result_window = 0;
-  ctx->cmd_window = 0;
-  ctx->got_response = FALSE;
-  g_main_run(ctx->ml);
+  AppContext *ctx = (AppContext *) data;
+  gboolean retval;
 
-  return global_ctx.result_window;
+  g_main_quit(ctx->ml);
+
+  retval = FALSE;
+  ctx->timeout_tag = 0;
+
+  return retval;
 }
 
-static void
-mozilla_loop_quit(AppContext *ctx)
+static Window
+mozilla_loop_run(AppContext *ctx, Window cmd_window, Window result_window, int state)
 {
-  /* Do "check if we should quit main loop" stuff here */
+  Window retval;
+
+  ctx->state = state;
+  ctx->result_window = result_window;
+  ctx->cmd_window = cmd_window;
+  ctx->got_response = FALSE;
+  if(!ctx->ml)
+    ctx->ml = g_main_new(FALSE);
+
+  if(cmd_window)
+    XSelectInput(ctx->dpy, cmd_window, (PropertyChangeMask|StructureNotifyMask));
+  XSelectInput(ctx->dpy, DefaultRootWindow(ctx->dpy), (PropertyChangeMask|SubstructureNotifyMask));
+  XFlush(ctx->dpy);
+
+  if(!ctx->timeout_tag)
+    ctx->timeout_tag = g_timeout_add(CMD_TIMEOUT, do_main_quit, ctx);
+
+  g_main_run(ctx->ml);
+
+  if(ctx->timeout_tag)
+    {
+      g_source_remove(ctx->timeout_tag); ctx->timeout_tag = 0;
+    }
+
+  if(global_ctx.result_window == -1)
+    retval = 0;
+  else
+    {
+      retval = global_ctx.result_window;
+      if(retval)
+	XSelectInput(ctx->dpy, retval, 0);
+    }
+
+  return retval;
 }
 
 static gboolean
-mozilla_process_start(AppContext *ctx)
+mozilla_loop_quit(AppContext *ctx)
 {
-  /* XXX exec mozilla here */
+  switch(ctx->state)
+    {
+    case STARTING_PROCESS:
+      if(ctx->result_window != 0)
+	g_main_quit(ctx->ml);
+      break;
+    case SENT_COMMAND:
+      if(ctx->result_window && ctx->got_response)
+	{
+	  g_main_quit(ctx->ml);
+	}
+      break;
+    case LOCK_WAIT:
+      if(ctx->got_response)
+	{
+	  ctx->result_window = ctx->cmd_window;
+	  g_main_quit(ctx->ml);
+	}
+      break;
+    case PROCESSING:
+    case FINISHED:
+      g_warning("Main loop running in illegal state");
+      g_main_quit(ctx->ml);
+      break;
+    }
+
+  return FALSE;
+}
+
+static gboolean
+mozilla_process_start(gpointer data)
+{
+  char *argv[2];
+
+  argv[0] = gnome_config_get_string("/gnome-moz-remote/Mozilla/filename=netscape");
+  argv[1] = NULL;
+
+  gnome_execute_async(NULL, 1, argv);
+
+  g_free(argv[0]);
 
   return FALSE;
 }
@@ -85,15 +208,17 @@ static Window
 mozilla_window_spawn(Display *dpy)
 {
   g_idle_add(mozilla_process_start, &global_ctx);
-  return mozilla_loop_run(&global_ctx, 0, STARTING_PROCESS);
+  return mozilla_loop_run(&global_ctx, 0, 0, STARTING_PROCESS);
 }
 
 /* We need to escape all ',' characters in the URL */
 static char *
-escape_url (char *url) 
+escape_url (const char *url) 
 {
   gint n_escaped = 0;
-  char *escaped_url, *p, *q;
+  char *escaped_url;
+  const char *p;
+  char *q;
   
   p = url;
   while ((p = strchr (p, ','))) {
@@ -116,20 +241,7 @@ escape_url (char *url)
   }
   strcpy (q, url);
 
-  if(!strncmp("ghelp:", escaped_url, strlen("ghelp:"))) {
-    /* Try to do some fixups so we can display ghelp: URL's */
-    char *retval;
-
-    /* This is really bad-hacky, and won't work for a bunch of ghelp:
-       URL's (e.g. the ones that don't have absolute filenames). Oh
-       well */
-    retval = g_strdup_printf("file:%s", escaped_url + 6);
-
-    g_free(escaped_url);
-
-    return retval;
-  } else
-    return escaped_url;
+  return escaped_url;
 }
 
 static Window
@@ -137,13 +249,16 @@ mozilla_window_goto(Display *dpy, Window winid, const char *url)
 {
   char command[2048], *escaped_url;
   if(!winid)
-    winid = mozilla_window_find(dpy);
+    winid = mozilla_remote_find_window(dpy);
   if(!winid)
-    winid = mozilla_window_spawn(dpy);
+    {
+      winid = mozilla_window_spawn(dpy);
+      win_new = 0;
+    }
   if(!winid)
     return 0;
 
-  escaped_url = escaped_url(url);
+  escaped_url = escape_url(url);
   g_snprintf(command, sizeof(command), "openURL(%s%s%s)", escaped_url, win_new?", new-window":"", win_noraise?", noraise":"");
   winid = mozilla_remote_command(dpy, winid, command, !win_noraise);
   g_free(escaped_url);
@@ -153,65 +268,93 @@ mozilla_window_goto(Display *dpy, Window winid, const char *url)
 
 int main(int argc, char **argv)
 {
-  const char **args;
+  char **args;
   poptContext ctx;
   int i;
   Display *dpy;
 
   dpy_name = getenv("DISPLAY");
 
-  gnome_program_init("gnome_moz_remote", VERSION, argc, argv, GNOME_PARAM_POPT_TABLE, options, NULL);
+  gnome_program_init("gnome_moz_remote", VERSION, argc, argv, GNOME_PARAM_POPT_TABLE, options, LIBGNOME_INIT, NULL);
 
-  gnome_attributes_get(gnome_program_get(), GNOME_PARAM_POPT_CONTEXT, &ctx, NULL);
+  gnome_program_attributes_get(gnome_program_get(), GNOME_PARAM_POPT_CONTEXT, &ctx, NULL);
 
   args = poptGetArgs(ctx);
-  if(!args || !args[0])
-    return 0; /* Nothing to do */
 
   dpy = XOpenDisplay(dpy_name);
+  XSetErrorHandler(handle_xerror);
 
   if (!dpy)
     return 1;
+
+  g_io_add_watch(g_io_channel_unix_new(ConnectionNumber(dpy)), G_IO_IN, mozilla_handle_xevents, &global_ctx);
 
   mozilla_remote_init_atoms(dpy);
 
   if(dpy_sync)
     XSynchronize (dpy, True);
 
-  g_io_add_watch(g_io_channel_unix_new(ConnectionNumber(dpy)), G_IO_IN, mozilla_handle_xevents, dpy);
-
   global_ctx.dpy = dpy;
 
-  if(args[1] && !win_new)
+  if(args && args[1])
     {
-      g_print("%s: You must specify --newwin on the command line when passing multiple URLs\n", argv[0]);
-      return 1;
+      g_print("%s: Only one URL on the cmdline\n", argv[0]);
+      goto out;
     }
+  if((!args || !args[0]) && !win_close)
+    return 0; /* Nothing to do */
 
-  if(win_id)
-    {
-      global_ctx.cmd_window = strtol(win_id, NULL, 0);
-      if(!mozilla_remote_check_window(dpy, global_ctx.cmd_window))
-	global_ctx.cmd_window = 0;
-    }
-  else
-    global_ctx.cmd_window = mozilla_remote_find_window(dpy);
+  if(win_new)
+    win_noraise = TRUE; /* This makes the new window wind up on the current screen, at least with NSCP 4.7 */
 
-  if (!global_ctx.cmd_window);
+  mozilla_remote_obtain_lock(dpy, DefaultRootWindow(dpy));
 
-  for(i = 0; args[i]; i++)
+  if(win_close)
     {
       Window utwin;
 
+      if(!win_id)
+	goto out;
 
-      utwin = mozilla_window_goto(dpy, utwin, args[i]);
-      if(win_ids_print && utwin)
-	{
-	  g_print("%#x\n", utwin);
-	}
-      if(!utwin)
-	break;
+      utwin = strtol(win_id, NULL, 0);
+
+      mozilla_remote_command(dpy, utwin, "close", FALSE);
     }
+  else
+    {
+      if(win_id)
+	{
+	  global_ctx.cmd_window = strtol(win_id, NULL, 0);
+	  if(!mozilla_remote_check_window(dpy, global_ctx.cmd_window))
+	    global_ctx.cmd_window = 0;
+	}
+      else
+	global_ctx.cmd_window = mozilla_remote_find_window(dpy);
+
+      if (!global_ctx.cmd_window)
+	global_ctx.cmd_window = mozilla_window_spawn(dpy);
+
+      for(i = 0; args[i]; i++)
+	{
+	  Window utwin;
+
+	  utwin = mozilla_window_goto(dpy, global_ctx.cmd_window, args[i]);
+	  if((win_ids_print >= 0) && utwin)
+	    {
+	      static FILE *fh = NULL;
+
+	      if(!fh)
+		fh = fdopen(win_ids_print, "w");
+	      fprintf(fh, "%#lx\n", utwin);
+	    }
+
+	  if(!utwin)
+	    break;
+	}
+    }
+
+ out:
+  mozilla_remote_free_lock(dpy, DefaultRootWindow(dpy));
 
   return 0;
 }
@@ -263,7 +406,7 @@ mozilla_remote_init_atoms (Display *dpy)
 static Bool
 gnomewm_check_wm(Display *dpy)
 {
-  Window root = RootWindowOfScreen (DefaultScreenOfDisplay (dpy));
+  Window root = DefaultRootWindow(dpy);
   Atom r_type;
   int r_format;
   unsigned long count, i;
@@ -355,10 +498,12 @@ mozilla_remote_find_window_recurse(Display *dpy, Window win)
 
   XGetWindowProperty(dpy, win, XA_WM_STATE, 0, 0, False, AnyPropertyType,
 		     &r_type, &r_format, &count, &after, &data);
+
   if (r_type) {
     /* this is a client window */
     XFree(data);
-    if (mozilla_remote_test_window(dpy, win, isLocal))
+
+    if (mozilla_remote_check_window(dpy, win))
       return win;
     else
       return 0;
@@ -369,15 +514,16 @@ mozilla_remote_find_window_recurse(Display *dpy, Window win)
     if (XQueryTree(dpy, win, &ret_root, &ret_parent,
 		   &ret_children, &ret_nchildren) != True)
       return 0;
+
     for (i = 0; i < ret_nchildren; i++) {
-      Window check = mozilla_remote_find_window_recurse(dpy, ret_children[i],
-							isLocal);
+      Window check = mozilla_remote_find_window_recurse(dpy, ret_children[i]);
       if (check) {
 	XFree(ret_children);
 	return check;
       }
     }
   }
+
   return 0;
 }
 
@@ -385,20 +531,17 @@ mozilla_remote_find_window_recurse(Display *dpy, Window win)
  * hints or querying the X window heirachy) and returns it
  */
 static Window
-mozilla_remote_find_window (Display *dpy, Bool isLocal)
+mozilla_remote_find_window (Display *dpy)
 {
   Window root = RootWindowOfScreen (DefaultScreenOfDisplay (dpy));
 
-  if (isLocal && gethostname(localhostname, sizeof(localhostname)) < 0)
-    return 0;
-
   if (gnomewm_check_wm(dpy))
-    return gnomewm_find_window(dpy, isLocal);
+    return gnomewm_find_window(dpy);
   else
-    return mozilla_remote_find_window_recurse(dpy, root, isLocal);
+    return mozilla_remote_find_window_recurse(dpy, root);
 }
 
-static int
+static gboolean
 mozilla_remote_check_window (Display *dpy, Window window)
 {
   Atom type;
@@ -406,30 +549,24 @@ mozilla_remote_check_window (Display *dpy, Window window)
   unsigned long nitems, bytesafter;
   unsigned char *version = 0;
 
-  g_return_if_fail(window != 0);
+  g_return_val_if_fail(window != 0, 0);
   status = XGetWindowProperty (dpy, window, XA_MOZILLA_VERSION,
 				   0, (65536 / sizeof (long)),
 				   False, XA_STRING,
 				   &type, &format, &nitems, &bytesafter,
 				   &version);
   if (status != Success || !version)
-    {
-      g_printerr("gnome-moz-remote: window 0x%x is not a Netscape window.\n",
-		 (unsigned int) window);
-      return 1;
-    }
+    return FALSE;
+
   XFree (version);
-  return 0;
+
+  return TRUE;
 }
 
 static Window
 mozilla_remote_command (Display *dpy, Window window, const char *command,
 			Bool raise_p)
 {
-  int result = 0;
-  Bool done = False;
-  char *new_command = NULL;
-
   g_return_val_if_fail(window != 0, 0);
 
 #ifdef DEBUG_PROPS
@@ -440,133 +577,8 @@ mozilla_remote_command (Display *dpy, Window window, const char *command,
   XChangeProperty (dpy, window, XA_MOZILLA_COMMAND, XA_STRING, 8,
 		   PropModeReplace, (unsigned char *) command,
 		   strlen (command));
-  global_ctx.cmd_window = window;
-  global_ctx.result_window = 0;
-  global_ctx.state = SENT_COMMAND;
 
-  g_main_run(global_ctx.ml);
-
-  while (!done)
-    {
-      XEvent event;
-      XNextEvent (dpy, &event);
-      if (event.xany.type == DestroyNotify &&
-	  event.xdestroywindow.window == window)
-	{
-	  /* Print to warn user...*/
-	  g_printerr("gnome-moz-remote: window 0x%x was destroyed.\n",
-		     (unsigned int) window);
-	  result = 6;
-	  goto DONE;
-	}
-      else if (event.xany.type == PropertyNotify &&
-	       event.xproperty.state == PropertyNewValue &&
-	       event.xproperty.window == window &&
-	       event.xproperty.atom == XA_MOZILLA_RESPONSE)
-	{
-	  Atom actual_type;
-	  int actual_format;
-	  unsigned long nitems, bytes_after;
-	  unsigned char *data = 0;
-
-	  result = XGetWindowProperty (dpy, window, XA_MOZILLA_RESPONSE,
-				       0, (65536 / sizeof (long)),
-				       True, /* atomic delete after */
-				       XA_STRING,
-				       &actual_type, &actual_format,
-				       &nitems, &bytes_after,
-				       &data);
-#ifdef DEBUG_PROPS
-	  if (result == Success && data && *data)
-	    {
-	      g_printerr("gnome-moz-remote: (server sent "MOZILLA_RESPONSE_PROP
-			 " \"%s\" to 0x%x.)\n",
-			 data, (unsigned int) window);
-	    }
-#endif
-
-	  if (result != Success)
-	    {
-	      g_printerr("gnome-moz-remote: failed reading "
-			 MOZILLA_RESPONSE_PROP " from window 0x%0x.\n",
-			 (unsigned int) window);
-	      result = 6;
-	      done = True;
-	    }
-	  else if (!data || strlen((char *) data) < 5)
-	    {
-	      g_printerr("gnome-moz-remote: invalid data on "
-			 MOZILLA_RESPONSE_PROP " property of window 0x%0x.\n",
-			 (unsigned int) window);
-	      result = 6;
-	      done = True;
-	    }
-	  else if (*data == '1')	/* positive preliminary reply */
-	    {
-	      g_printerr("gnome-moz-remote: %s\n", data + 4);
-	      /* keep going */
-	      done = False;
-	    }
-#if 1
-	  else if (!strncmp ((char *)data, "200", 3)) /* positive completion */
-	    {
-	      result = 0;
-	      done = True;
-	    }
-#endif
-	  else if (*data == '2')		/* positive completion */
-	    {
-	      g_printerr("gnome-moz-remote: %s\n", data + 4);
-	      result = 0;
-	      done = True;
-	    }
-	  else if (*data == '3')	/* positive intermediate reply */
-	    {
-	      g_printerr("gnome-moz-remote: internal error: "
-			 "server wants more information?  (%s)\n",
-			 data);
-	      result = 3;
-	      done = True;
-	    }
-	  else if (*data == '4' ||	/* transient negative completion */
-		   *data == '5')	/* permanent negative completion */
-	    {
-	      g_printerr("gnome-moz-remote: %s\n", data + 4);
-	      result = (*data - '0');
-	      done = True;
-	    }
-	  else
-	    {
-	      g_printerr(
-		       "gnome-moz-remote: unrecognised " MOZILLA_RESPONSE_PROP
-		       " from window 0x%x: %s\n",
-		       (unsigned int) window, data);
-	      result = 6;
-	      done = True;
-	    }
-
-	  if (data)
-	    XFree (data);
-	}
-#ifdef DEBUG_PROPS
-      else if (event.xany.type == PropertyNotify &&
-	       event.xproperty.window == window &&
-	       event.xproperty.state == PropertyDelete &&
-	       event.xproperty.atom == XA_MOZILLA_COMMAND)
-	{
-	  g_printerr("gnome-moz-remote: (server 0x%x has accepted "
-		   MOZILLA_COMMAND_PROP ".)\n",
-		   (unsigned int) window);
-	}
-#endif /* DEBUG_PROPS */
-    }
-
- DONE:
-
-  if (new_command)
-    free (new_command);
-
-  return result;
+  return mozilla_loop_run(&global_ctx, window, win_new?0:window, SENT_COMMAND);
 }
 
 static gboolean
@@ -574,30 +586,279 @@ mozilla_handle_xevents(GIOChannel *source, GIOCondition condition, gpointer data
 {
   XEvent ev;
   AppContext *ctx = (AppContext *)data;
+  Window tmpwin;
 
   XNextEvent(ctx->dpy, &ev);
 
   switch(ev.xany.type)
     {
-    case CreateNotify:
+    case MapNotify:
+      if ((ctx->state != SENT_COMMAND || ctx->result_window)
+	  && ctx->state != STARTING_PROCESS)
+	break;
+
+      tmpwin = mozilla_remote_find_window_recurse(ctx->dpy, ev.xmap.window);
+      if(tmpwin)
+	{
+	  ctx->result_window = tmpwin;
+	  mozilla_loop_quit(ctx);
+	}
       break;
     case DestroyNotify:
-      
+      if(ev.xdestroywindow.window != ctx->cmd_window)
+	break;
+
+      ctx->got_response = TRUE;
+      ctx->result_window = -1;
+      mozilla_loop_quit(ctx);
       break;
     case PropertyNotify:
-      if (global_ctx.state != SENT_COMMAND)
+      if (ctx->state != SENT_COMMAND && ctx->state != LOCK_WAIT)
 	break;
-      if(event.xproperty.atom != XA_MOZILLA_COMMAND)
+      if(ev.xproperty.atom != XA_MOZILLA_COMMAND
+	 && ev.xproperty.atom != XA_MOZILLA_LOCK)
 	break;
-      switch(event.xproperty.state)
+      if(ev.xproperty.window != ctx->cmd_window)
+	break;
+      switch(ev.xproperty.state)
 	{
 	case PropertyNewValue:
+	  if (ev.xproperty.atom == XA_MOZILLA_COMMAND) {
+	    Atom actual_type;
+	    int actual_format;
+	    unsigned long nitems, bytes_after;
+	    unsigned char *data = 0;
+	    int result;
+
+	    result = XGetWindowProperty (ctx->dpy, ctx->cmd_window, XA_MOZILLA_RESPONSE,
+					 0, (65536 / sizeof (long)),
+					 True, /* atomic delete after */
+					 XA_STRING,
+					 &actual_type, &actual_format,
+					 &nitems, &bytes_after,
+					 &data);
+
+#ifdef DEBUG_PROPS
+	    if (result == Success && data && *data)
+	      {
+		g_printerr("gnome-moz-remote: (server sent "MOZILLA_RESPONSE_PROP
+			   " \"%s\" to 0x%x.)\n",
+			   data, (unsigned int) window);
+	      }
+#endif
+
+	    if (result != Success)
+	      {
+		g_printerr("gnome-moz-remote: failed reading "
+			   MOZILLA_RESPONSE_PROP " from window 0x%0x.\n",
+			   (unsigned int) ctx->cmd_window);
+		result = 6;
+		ctx->got_response = TRUE;
+	      }
+	    else if (!data || strlen((char *) data) < 5)
+	      {
+		g_printerr("gnome-moz-remote: invalid data on "
+			   MOZILLA_RESPONSE_PROP " property of window 0x%0x.\n",
+			   (unsigned int) ctx->cmd_window);
+		ctx->result_window = -1;
+		ctx->got_response = TRUE;
+	      }
+	    else if (*data == '1')	/* positive preliminary reply */
+	      {
+		g_printerr("gnome-moz-remote: %s\n", data + 4);
+	      }
+	    else if (!strncmp ((char *)data, "200", 3)) /* positive completion */
+	      {
+		result = 0;
+		ctx->got_response = TRUE;
+	      }
+	    else if (*data == '2')		/* positive completion */
+	      {
+		g_printerr("gnome-moz-remote: %s\n", data + 4);
+		ctx->got_response = TRUE;
+	      }
+	    else if (*data == '3')	/* positive intermediate reply */
+	      {
+		g_printerr("gnome-moz-remote: internal error: "
+			   "server wants more information?  (%s)\n",
+			   data);
+		ctx->got_response = TRUE;
+	      }
+	    else if (*data == '4' ||	/* transient negative completion */
+		     *data == '5')	/* permanent negative completion */
+	      {
+		g_printerr("gnome-moz-remote: %s\n", data + 4);
+		result = (*data - '0');
+		ctx->got_response = TRUE;
+		ctx->result_window = -1;
+	      }
+	    else
+	      {
+		g_printerr(
+			   "gnome-moz-remote: unrecognised " MOZILLA_RESPONSE_PROP
+			   " from window 0x%x: %s\n",
+			   (unsigned int) ctx->cmd_window, data);
+		ctx->got_response = TRUE;
+		ctx->result_window = -1;
+	      }
+
+	    if (data)
+	      XFree (data);
+
+	    mozilla_loop_quit(ctx);
+	  }
 	  break;
 	case PropertyDelete:
-	  ctx->got_response = TRUE;
-	  mozilla_loop_quit(ctx);
+	  if(ev.xproperty.atom == XA_MOZILLA_COMMAND)
+	    {
+	      ctx->got_response = TRUE;
+	      mozilla_loop_quit(ctx);
+	    }
+	  else if(ctx->state == LOCK_WAIT
+		  && ev.xproperty.atom == XA_MOZILLA_LOCK)
+	    {
+	      ctx->got_response = TRUE;
+	      mozilla_loop_quit(ctx);
+	    }
 	  break;
 	}      
       break;
     }
+
+  return TRUE;
+}
+
+/****** locking *******/
+static char *lock_data = NULL;
+
+static void
+mozilla_remote_obtain_lock (Display *dpy, Window window)
+{
+  Bool locked = False;
+  Bool waited = False;
+
+  g_return_if_fail(window != 0);
+  if (! lock_data)
+    {
+      lock_data = (char *) malloc (255);
+      g_snprintf (lock_data, 255, "pid%d@", getpid ());
+
+      if (gethostname (lock_data + strlen (lock_data), 100))
+	{
+	  perror ("gethostname");
+	  mozilla_remote_free_lock(dpy, window);
+	  exit(1);
+	}
+    }
+
+  do
+    {
+      int result;
+      Atom actual_type;
+      int actual_format;
+      unsigned long nitems, bytes_after;
+      unsigned char *data = 0;
+
+      XGrabServer (dpy);   /* ################################# DANGER! */
+
+      result = XGetWindowProperty (dpy, window, XA_MOZILLA_LOCK,
+				   0, (65536 / sizeof (long)),
+				   False, /* don't delete */
+				   XA_STRING,
+				   &actual_type, &actual_format,
+				   &nitems, &bytes_after,
+				   &data);
+      if (result != Success || actual_type == None)
+	{
+	  /* It's not now locked - lock it. */
+#ifdef DEBUG_PROPS
+	  g_printerr("gnome-moz-remote: (writing " MOZILLA_LOCK_PROP
+		     " \"%s\" to 0x%x)\n"
+		     lock_data, (unsigned int) window);
+#endif
+	  XChangeProperty (dpy, window, XA_MOZILLA_LOCK, XA_STRING, 8,
+			   PropModeReplace, (unsigned char *) lock_data,
+			   strlen (lock_data));
+	  locked = True;
+	}
+
+      XUngrabServer (dpy); /* ################################# danger over */
+      XSync (dpy, False);
+
+      if (! locked)
+	{
+	  /* We tried to grab the lock this time, and failed because someone
+	     else is holding it already.  So, wait for a PropertyDelete event
+	     to come in, and try again. */
+
+	  g_printerr("gnome-moz-remote: window 0x%x is locked by %s; waiting...\n",
+		     (unsigned int) window, data);
+	  waited = True;
+
+	  mozilla_loop_run(&global_ctx, window, window, LOCK_WAIT);
+	}
+      if (data)
+	XFree (data);
+    }
+  while (! locked);
+
+  if (waited)
+    g_printerr("gnome-moz-remote: obtained lock.\n");
+}
+
+
+static void
+mozilla_remote_free_lock (Display *dpy, Window window)
+{
+  int result;
+  Atom actual_type;
+  int actual_format;
+  unsigned long nitems, bytes_after;
+  unsigned char *data = 0;
+
+  g_return_if_fail(window != 0);
+#ifdef DEBUG_PROPS
+  g_printerr("gnome-moz-remote: (deleting " MOZILLA_LOCK_PROP
+	     " \"%s\" from 0x%x)\n",
+	     lock_data, (unsigned int) window);
+#endif
+
+  result = XGetWindowProperty (dpy, window, XA_MOZILLA_LOCK,
+			       0, (65536 / sizeof (long)),
+			       True, /* atomic delete after */
+			       XA_STRING,
+			       &actual_type, &actual_format,
+			       &nitems, &bytes_after,
+			       &data);
+  if (result != Success)
+    {
+      g_printerr("gnome-moz-remote: unable to read and delete "
+		 MOZILLA_LOCK_PROP " property\n");
+      return;
+    }
+  else if (!data || !*data)
+    {
+      g_printerr("gnome-moz-remote: invalid data on " MOZILLA_LOCK_PROP
+		 " of window 0x%x.\n",
+		 (unsigned int) window);
+      return;
+    }
+  else if (strcmp ((char *) data, lock_data))
+    {
+      g_printerr("gnome-moz-remote: " MOZILLA_LOCK_PROP
+		 " was stolen!  Expected \"%s\", saw \"%s\"!\n",
+		 lock_data, data);
+      return;
+    }
+
+  if (data)
+    XFree (data);
+}
+
+static int
+handle_xerror(Display *dpy, XErrorEvent *ev)
+{
+  mozilla_remote_free_lock(dpy, DefaultRootWindow(dpy));
+
+  exit(1);
 }

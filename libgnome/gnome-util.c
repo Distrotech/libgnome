@@ -34,6 +34,8 @@ const char gnome_file_domain_datadir[]="datadir";
 const char gnome_file_domain_sound[]="sound";
 const char gnome_file_domain_pixmap[]="pixmap";
 const char gnome_file_domain_config[]="config";
+const char gnome_file_domain_help[]="help";
+const char gnome_file_domain_app_help[]="help";
 
 /**
  * gnome_file_locate:
@@ -101,6 +103,14 @@ gnome_file_locate (const char *domain, const char *filename, gboolean only_if_ex
       prefix_rel = "etc";
       attr_name = LIBGNOME_PARAM_APP_SYSCONFDIR;
       attr_rel = NULL;
+      break;
+    case 'h':
+      if(strcmp(domain, gnome_file_domain_help))
+	break;
+      dir = GNOMEDATADIR "/gnome/help";
+      prefix_rel = "share/gnome/help";
+      attr_name = LIBGNOME_PARAM_APP_DATADIR;
+      attr_rel = "gnome/help";
       break;
     }
 

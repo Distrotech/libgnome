@@ -29,11 +29,13 @@ if COMPILE_GNOME_COMPAT
 libgnome10compatincludedir = $(includedir)/libgnome/compat10
 
 libgnome10compat_a_SOURCES =\
-	gnome10-compat.c
+	gnome10-compat.c \
+	gnome-help.c
 
 libgnome10compatinclude_HEADERS =\
 	libgnome10compat.h \
-	gnome10-compat.h
+	gnome10-compat.h \
+	gnome-help.h
 endif
 
 libgnome_la_SOURCES = \
@@ -42,7 +44,6 @@ libgnome_la_SOURCES = \
 	gnome-ditem.c		\
 	gnome-exec.c		\
 	gnome-fileconvert.c	\
-	gnome-help.c		\
 	gnome-history.c		\
 	gnome-i18n.c		\
 	gnome-magic.c		\
@@ -66,7 +67,6 @@ libgnomeinclude_HEADERS = \
 	gnome-dentry.h 		\
 	gnome-ditem.h		\
 	gnome-exec.h		\
-	gnome-help.h		\
 	gnome-history.h		\
 	gnome-i18n.h 		\
 	gnome-magic.h		\
@@ -110,7 +110,7 @@ gnome_dump_metadata_LDADD = libgnome.la \
 	$(LIBGNOME_LIBS) $(INTLLIBS)
 gnome_dump_metadata_LDFLAGS = $(GLIB_LIBS)
 
-gnome_moz_remote_SOURCES = gnome-moz-remote.c vroot.h
+gnome_moz_remote_SOURCES = gnome-moz-remote2.c vroot.h
 gnome_moz_remote_LDADD = libgnome.la $(LIBGNOME_LIBS) \
 	$(X_LIBS) $(X_PRE_LIBS) -lXext -lX11 $(X_EXTRA_LIBS) $(INTLLIBS)
 

@@ -164,7 +164,12 @@ gnome_program_framework_attrs_set(GnomeProgram *app,
     }
   else if (!strcmp(name, GNOME_PARAM_POPT_CONTEXT))
     {
-      g_error("The poptContext for a GnomeProgram object can only be set internally");
+      if(app->arg_context_val.type != GNOME_ATTRIBUTE_NONE)
+	{
+	  poptFreeContext(app->arg_context_val.u.pointer_value);
+	  app->arg_context_val.type = GNOME_ATTRIBUTE_NONE;
+	  app->arg_context_val.u.pointer_value = NULL;
+	}
     }
   else
     g_error("Unknown framework attribute '%s'", name);
@@ -1010,8 +1015,8 @@ gnome_program_modules_order(GnomeProgram *app)
  */
 poptContext
 gnome_program_preinita(GnomeProgram *app,
-		  const char *app_id, const char *app_version,
-		  int argc, char **argv, GnomeAttribute *attrs)
+		       const char *app_id, const char *app_version,
+		       int argc, char **argv, GnomeAttribute *attrs)
 {
   GnomeModuleInfo *a_module;
   poptContext argctx;
@@ -1200,12 +1205,10 @@ gnome_program_postinit(GnomeProgram *app)
     }
 
   /* Free up stuff we don't need to keep around for the lifetime of the app */
-  poptFreeContext(app->arg_context_val.u.pointer_value);
-  app->arg_context_val.type = GNOME_ATTRIBUTE_NONE;
-  app->arg_context_val.u.pointer_value = NULL;
-
+#if 0
   g_ptr_array_free(app->modules, TRUE);
   app->modules = NULL;
+#endif
 
   g_array_free(app->top_options_table, TRUE);
   app->top_options_table = NULL;

@@ -35,6 +35,20 @@ BEGIN_GNOME_DECLS
  *  4) call gnome_execute_shell, with this expanded command as the second
  *     argument.
  */
+typedef struct _GnomeURLDisplayContext *GnomeURLDisplayContext;
+typedef enum {
+  GNOME_URL_DISPLAY_CLOSE_ATEXIT = 1<<0,
+  GNOME_URL_DISPLAY_CLOSE = 1<<1,
+  GNOME_URL_DISPLAY_NO_RETURN_CONTEXT = 1<<2,
+  GNOME_URL_DISPLAY_NEWWIN = 1<<3
+} GnomeURLDisplayFlags;
+
+GnomeURLDisplayContext gnome_url_show_full(GnomeURLDisplayContext display_context,
+					   const char *url,
+					   const char *url_type,
+					   GnomeURLDisplayFlags flags);
+void gnome_url_display_context_free(GnomeURLDisplayContext display_context, GnomeURLDisplayFlags flags);
+
 void gnome_url_show(const char *url);
 
 END_GNOME_DECLS

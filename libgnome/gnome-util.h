@@ -23,17 +23,21 @@ extern const char gnome_file_domain_datadir[];
 extern const char gnome_file_domain_sound[];
 extern const char gnome_file_domain_pixmap[];
 extern const char gnome_file_domain_config[];
+extern const char gnome_file_domain_help[];
 
 #define gnome_libdir_file(filename) gnome_file_locate(gnome_file_domain_libdir, (filename), TRUE)
 #define gnome_datadir_file(filename) gnome_file_locate(gnome_file_domain_datadir, (filename), TRUE)
 #define gnome_sound_file(filename) gnome_file_locate(gnome_file_domain_sound, (filename), TRUE)
 #define gnome_pixmap_file(filename) gnome_file_locate(gnome_file_domain_pixmap, (filename), TRUE)
 #define gnome_config_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), TRUE)
+#define gnome_help_file(filename) gnome_file_locate(gnome_file_domain_help, (filename), TRUE)
+#define gnome_app_help_file(filename) gnome_file_locate(gnome_file_domain_help, (filename), TRUE)
 #define gnome_unconditional_libdir_file(filename) gnome_file_locate(gnome_file_domain_libdir, (filename), FALSE)
 #define gnome_unconditional_datadir_file(filename) gnome_file_locate(gnome_file_domain_datadir, (filename), FALSE)
 #define gnome_unconditional_sound_file(filename) gnome_file_locate(gnome_file_domain_sound, (filename), FALSE)
 #define gnome_unconditional_pixmap_file(filename) gnome_file_locate(gnome_file_domain_pixmap, (filename), FALSE)
 #define gnome_unconditional_config_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), FALSE)
+#define gnome_unconditional_help_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), FALSE)
 
 enum {
 	G_FILE_TEST_ISFILE=1<<0,

@@ -1,3 +1,14 @@
+1999-11-09  Elliot Lee  <sopwith@redhat.com>
+
+	* gnome-i18n.c: Add a comment about implementation behaviour.
+	* gnome-moz-remote2.c: Finish implementation of new gnome-moz-remote
+	* gnome-url.[ch]: Support new API with GnomeURLDisplayContext's, change gnome_url_show to just use this.
+	* gnome-util.[ch]: Add a "help" file domain, for looking up help files.
+	* gnome10-compat.[ch]: No change, stupid CVS.
+	* libgnome{,10compat}.h: Move gnome-help into 1.0 compat library.
+	* gnomelib-init2.c: Don't free the popt context unless that is specifically requested - programs need a sane way
+	to get to the args.
+
 1999-10-30  Dick Porter <dick@acm.org>
 
 	* Allow gnome-moz-remote to launch a netscape as a last resort, if
