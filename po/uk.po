@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-01-14 21:15+0100\n"
-"PO-Revision-Date: 2001-12-05 11:05+0200\n"
-"Last-Translator: Yuriy Syrota <rasta@renome.rovno.ua>\n"
+"POT-Creation-Date: 2002-01-21 16:15+0200\n"
+"PO-Revision-Date: 2002-01-21 18:49+0200\n"
+"Last-Translator: Yuriy Syrota <yuri@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -15,8 +15,7 @@ msgstr ""
 
 #: libgnome/gnome-exec.c:429
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr ""
-"Неможливо знайти термінал, використовується xterm, навіть якщо він не працює"
+msgstr "Неможливо знайти термінал, використовується xterm, навіть якщо він не працює"
 
 #: libgnome/gnome-url.c:182
 #, c-format
@@ -32,25 +31,33 @@ msgstr "Підтримка Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Підтримка активізації Bonobo"
 
-#: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
+#: libgnome/gnome-init.c:275
+#: libgnome/gnome-init.c:289
 #, c-format
-msgid "Could not create per-user gnome configuration directory `%s': %s\n"
+msgid ""
+"Could not create per-user gnome configuration directory `%s': %s\n"
+""
 msgstr ""
 "Не вдалось створити окремий конфіґураційний каталог користувача \"%s\": %s\n"
+""
 
 #: libgnome/gnome-init.c:298
 #, c-format
 msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory `%"
-"s': %s\n"
+"Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
+""
 msgstr ""
-"Не вдалось встановити режим доступу 0700 на окремому приваткому "
-"конфіґураційному каталозі користувача \"%s\": %s\n"
+"Не вдалось встановити режим доступу 0700 на окремому приваткому конфіґураційному каталозі користувача \"%s\": %s\n"
+""
 
 #: libgnome/gnome-init.c:305
 #, c-format
-msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Не вдалось створити каталог комбінацій клавіш GNOME \"%s\": %s\n"
+msgid ""
+"Could not create gnome accelerators directory `%s': %s\n"
+""
+msgstr ""
+"Не вдалось створити каталог комбінацій клавіш GNOME \"%s\": %s\n"
+""
 
 #: libgnome/gnome-init.c:357
 msgid "Disable sound server usage"
@@ -93,21 +100,13 @@ msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Неможливо віднайти домен GNOME_FILE_DOMAIN_APP_HELP"
 
 #: libgnome/gnome-help.c:163
-msgid ""
-"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
-"libs was compiled incorrectly."
-msgstr ""
-"Неможливо віднайти домен GNOME_FILE_DOMAIN_APP_HELP.  Це може означати, що "
-"gnome-libs скомпільовано не коректно."
+msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-libs was compiled incorrectly."
+msgstr "Неможливо віднайти домен GNOME_FILE_DOMAIN_APP_HELP.  Це може означати, що gnome-libs скомпільовано не коректно."
 
 #: libgnome/gnome-help.c:176
 #, c-format
-msgid ""
-"Unable to show help as file %s is not a directory.  This implies an "
-"incorrect installation."
-msgstr ""
-"Неможливо відобразити довідку, бо файл %s не є каталогом.  Це може означати "
-"некоректне встановлення."
+msgid "Unable to show help as file %s is not a directory.  This implies an incorrect installation."
+msgstr "Неможливо відобразити довідку, бо файл %s не є каталогом.  Це може означати некоректне встановлення."
 
 #: libgnome/gnome-help.c:193
 #, c-format
@@ -130,11 +129,11 @@ msgstr ""
 
 #: libgnome/gnome-program.c:420
 msgid "Popt Table"
-msgstr ""
+msgstr "Таблиця Popt"
 
 #: libgnome/gnome-program.c:421
 msgid "The table of options for popt"
-msgstr ""
+msgstr "Таблиця параметрів Popt"
 
 #: libgnome/gnome-program.c:428
 msgid "Popt Flags"
@@ -173,9 +172,8 @@ msgid "App ID"
 msgstr ""
 
 #: libgnome/gnome-program.c:467
-#, fuzzy
 msgid "ID string to use for this application"
-msgstr "Версія цієї програми"
+msgstr "Ідентифікаційний рядок програми"
 
 #: libgnome/gnome-program.c:474
 msgid "App version"
@@ -187,25 +185,23 @@ msgstr "Версія цієї програми"
 
 #: libgnome/gnome-program.c:482
 msgid "GNOME Prefix"
-msgstr ""
+msgstr "Префікс GNOME"
 
 #: libgnome/gnome-program.c:483
 msgid "Prefix where GNOME was installed"
-msgstr ""
+msgstr "Префікс, куди встановлено GNOME"
 
 #: libgnome/gnome-program.c:492
-#, fuzzy
 msgid "GNOME Libdir"
-msgstr "Бібліотека GNOME"
+msgstr "Каталог бібліотек GNOME"
 
 #: libgnome/gnome-program.c:493
 msgid "Library prefix where GNOME was installed"
 msgstr ""
 
 #: libgnome/gnome-program.c:502
-#, fuzzy
 msgid "GNOME Datadir"
-msgstr "Шлях GNOME"
+msgstr "Каталог даних GNOME"
 
 #: libgnome/gnome-program.c:503
 msgid "Data prefix where GNOME was installed"
@@ -228,18 +224,16 @@ msgid "Prefix where this application was installed"
 msgstr ""
 
 #: libgnome/gnome-program.c:532
-#, fuzzy
 msgid "GNOME App Libdir"
-msgstr "Бібліотека GNOME"
+msgstr "Каталог бібліотек програм GNOME"
 
 #: libgnome/gnome-program.c:533
 msgid "Library prefix where this application was installed"
 msgstr ""
 
 #: libgnome/gnome-program.c:542
-#, fuzzy
 msgid "GNOME App Datadir"
-msgstr "Шлях GNOME"
+msgstr "Каталог даних програм GNOME"
 
 #: libgnome/gnome-program.c:543
 msgid "Data prefix where this application was installed"
@@ -255,20 +249,19 @@ msgstr ""
 
 #: libgnome/gnome-program.c:562
 msgid "Create Directories"
-msgstr ""
+msgstr "Створити каталоги"
 
 #: libgnome/gnome-program.c:563
 msgid "Create standard GNOME directories on startup"
-msgstr ""
+msgstr "Створити типові каталоги GNOME під час запуску"
 
 #: libgnome/gnome-program.c:572
 msgid "Enable Sound"
-msgstr ""
+msgstr "Увімкнути звук"
 
 #: libgnome/gnome-program.c:573
-#, fuzzy
 msgid "Enable sound on startup"
-msgstr "Увімкнути використання звукового сервера"
+msgstr "Увімкнути звук під час запуску"
 
 #: libgnome/gnome-program.c:582
 msgid "Espeaker"
@@ -276,7 +269,7 @@ msgstr ""
 
 #: libgnome/gnome-program.c:583
 msgid "How to connect to esd"
-msgstr ""
+msgstr "Як з'єднуватись з esd"
 
 #: libgnome/gnome-program.c:1319
 msgid "Help options"
@@ -294,19 +287,8 @@ msgstr "Динамічні модулі до завантаження"
 msgid "MODULE1,MODULE2,..."
 msgstr "МОДУЛЬ1,МОДУЛЬ2..."
 
-#: monikers/GNOME_Moniker_std.server.in.in.h:1
-msgid "Extra Moniker factory"
-msgstr ""
-
-#: monikers/GNOME_Moniker_std.server.in.in.h:2
-msgid "GConf moniker"
-msgstr ""
-
-#: monikers/GNOME_Moniker_std.server.in.in.h:3
-msgid "config indirect moniker"
-msgstr ""
-
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr ""
+msgstr "Ключа %s не знайдено в конфіґурації"
+
