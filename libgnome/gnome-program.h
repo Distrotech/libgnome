@@ -34,6 +34,7 @@
 #include <glib.h>
 #include <popt.h>
 #include <stdarg.h>
+#include <errno.h>
 
 #include <gobject/gobject.h>
 
@@ -223,10 +224,15 @@ gnome_program_initv (GType type,
 		     int argc, char **argv,
 		     const char *first_property_name, va_list args);
 
+
 /* Some systems, like Red Hat 4.0, define these but don't declare
    them.  Hopefully it is safe to always declare them here.  */
-extern char *program_invocation_short_name;
-extern char *program_invocation_name;
+#ifndef program_invocation_short_name
+char *program_invocation_short_name;
+#endif
+#ifndef program_invocation_name
+char *program_invocation_name;
+#endif
 
 G_END_DECLS
 

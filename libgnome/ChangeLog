@@ -1,3 +1,11 @@
+2001-09-19  Frank Belew <frb@ximian.com>
+
+	* gnome-init.c (gnomelib_options): add quotation marks to continued 
+	string in initializer
+
+	* gnome-program.h: define program_invocation_short_name and
+	program_invocation_name if not already defined in errno.h
+
 2001-09-18  Havoc Pennington  <hp@redhat.com>
 
 	* libgnome-2.0.pc.in (Requires): add gnome-vfs
