@@ -309,7 +309,6 @@ bonobo_stream_fs_class_init (BonoboStreamFSClass *klass)
         sclass->commit   = fs_commit;
         sclass->revert   = fs_revert;
 
-
 	oclass->destroy = fs_destroy;
 }
 

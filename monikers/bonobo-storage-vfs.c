@@ -11,34 +11,39 @@
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
 #include <storage-modules/bonobo-storage-vfs.h>
-#include "bonobo-stream-vfs.h"
+#include <storage-modules/bonobo-stream-vfs.h>
+#include <bonobo/bonobo-storage-plugin.h>
 
 static BonoboStorageClass *bonobo_storage_vfs_parent_class;
 
+static Bonobo_StorageInfo*
+vfs_get_info (BonoboStorage *storage,
+	      const CORBA_char *path,
+	      const Bonobo_StorageInfoFields mask,
+	      CORBA_Environment *ev)
+{
+	g_warning ("FIXME: get_info not yet implemented");
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+			     ex_Bonobo_Storage_NoPermission, 
+			     NULL);
+	return CORBA_OBJECT_NIL;
+}
+
 static void
-bonobo_storage_vfs_destroy (GtkObject *object)
+vfs_set_info (BonoboStorage *storage,
+	      const CORBA_char *path,
+	      const Bonobo_StorageInfo *info,
+	      const Bonobo_StorageInfoFields mask,
+	      CORBA_Environment *ev)
 {
-	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (object);
-
-	g_free (storage_vfs->path);
+	g_warning ("FIXME: set_info not yet implemented");
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+			     ex_Bonobo_Storage_NoPermission, 
+			     NULL);
 }
 
 static BonoboStream *
-fs_create_stream (BonoboStorage *storage, const CORBA_char *path, CORBA_Environment *ev)
-{
-	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (storage);
-	BonoboStream *stream;
-	char *full;
-
-	full = g_concat_dir_and_file (storage_vfs->path, path);
-	stream = bonobo_stream_vfs_create (full);
-	g_free (full);
-
-	return stream;
-}
-
-static BonoboStream *
-fs_open_stream (BonoboStorage *storage, const CORBA_char *path,
+vfs_open_stream (BonoboStorage *storage, const CORBA_char *path,
 		Bonobo_Storage_OpenMode mode, CORBA_Environment *ev)
 {
 	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (storage);
@@ -46,7 +51,7 @@ fs_open_stream (BonoboStorage *storage, const CORBA_char *path,
 	char *full;
 
 	full = g_concat_dir_and_file (storage_vfs->path, path);
-	stream = bonobo_stream_vfs_open (full, mode);
+	stream = bonobo_stream_vfs_open (full, mode, 0664, ev);
 	g_free (full);
 
 	return stream;
@@ -76,29 +81,34 @@ do_bonobo_storage_vfs_create (const char *path)
 }
 
 static void
-fs_copy_to (BonoboStorage *storage, Bonobo_Storage target, CORBA_Environment *ev)
-{
-	g_warning ("Not yet implemented");
-}
-
-static void
-fs_rename (BonoboStorage *storage, const CORBA_char *path,
+vfs_rename (BonoboStorage *storage, const CORBA_char *path,
 	   const CORBA_char *new_path, CORBA_Environment *ev)
 {
 	g_warning ("Not yet implemented");
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+			     ex_Bonobo_Stream_IOError, NULL);
 }
 
 static void
-fs_commit (BonoboStorage *storage, CORBA_Environment *ev)
+vfs_commit (BonoboStorage *storage, CORBA_Environment *ev)
 {
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+			     ex_Bonobo_Stream_NotSupported, NULL);
 }
 
-static Bonobo_Storage_directory_list *
-fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
-		  CORBA_Environment *ev)
+static void
+vfs_revert (BonoboStorage *storage, CORBA_Environment *ev)
+{
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+			     ex_Bonobo_Stream_NotSupported, NULL);
+}
+
+static Bonobo_Storage_DirectoryList *
+vfs_list_contents (BonoboStorage *storage, const CORBA_char *path, 
+		   Bonobo_StorageInfoFields mask, CORBA_Environment *ev)
 {
 	BonoboStorageVfs              *storage_vfs;
-	Bonobo_Storage_directory_list *list = NULL;
+	Bonobo_Storage_DirectoryList  *list = NULL;
 	GnomeVFSResult                 result;
 	GnomeVFSDirectoryList         *dir_list;
 	GnomeVFSFileInfo              *info;
@@ -120,36 +130,27 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 	}
 
 	len  = gnome_vfs_directory_list_get_num_entries (dir_list);
-	list = Bonobo_Storage_directory_list__alloc     ();
-	list->_buffer = CORBA_sequence_CORBA_string_allocbuf (len);
+	list = Bonobo_Storage_DirectoryList__alloc      ();
+	list->_buffer = CORBA_sequence_Bonobo_StorageInfo_allocbuf (len);
 	list->_length = len;
 	CORBA_sequence_set_release (list, TRUE); 
 
 	i = 0;
 	for (info = gnome_vfs_directory_list_first (dir_list);
-	     info; info = gnome_vfs_directory_list_next (dir_list))
-		list->_buffer [i++] = CORBA_string_dup (info->name);
+	     info; info = gnome_vfs_directory_list_next (dir_list)) {
+		list->_buffer [i].name = CORBA_string_dup (info->name);
+	       
+		/* FIXME: pre-borked */
+		list->_buffer [i].size = 0;
+		list->_buffer [i].content_type = CORBA_string_dup ("");
+		i++;
+	}
 
 	gnome_vfs_directory_list_destroy (dir_list);
 
 	g_free (uri);
 
 	return list;
-}
-
-BonoboStorage *
-bonobo_storage_vfs_construct (BonoboStorageVfs *storage,
-			      Bonobo_Storage corba_storage,
-			      const char *path, const char *open_mode)
-{
-	g_return_val_if_fail (storage != NULL, NULL);
-	g_return_val_if_fail (BONOBO_IS_STORAGE (storage), NULL);
-	g_return_val_if_fail (corba_storage != CORBA_OBJECT_NIL, NULL);
-
-	bonobo_storage_construct (
-		BONOBO_STORAGE (storage), corba_storage);
-
-	return BONOBO_STORAGE (storage);
 }
 
 /** 
@@ -160,8 +161,9 @@ bonobo_storage_vfs_construct (BonoboStorageVfs *storage,
  *
  * Returns a BonoboStorage object that represents the storage at @path
  */
-BonoboStorage *
-bonobo_storage_vfs_open (const char *path, gint flags, gint mode)
+static BonoboStorage *
+bonobo_storage_vfs_open (const char *path, gint flags, gint mode,
+			 CORBA_Environment *ev)
 {
 	GnomeVFSResult    result;
 	GnomeVFSFileInfo *info;
@@ -174,10 +176,10 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode)
 		path, info, GNOME_VFS_FILE_INFO_DEFAULT);
 
 	if (result == GNOME_VFS_ERROR_NOT_FOUND &&
-	    (flags & BONOBO_SS_CREATE))
+	    (flags & Bonobo_Storage_CREATE))
 		create = TRUE;
 	    
-	else if (flags & BONOBO_SS_READ) {
+	else if (flags & Bonobo_Storage_READ) {
 		if (result != GNOME_VFS_OK) {
 			g_warning ("Error getting info on '%s'", path);
 			return NULL;
@@ -189,7 +191,7 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode)
 			return NULL;
 		}
 
-	} else if (flags & (BONOBO_SS_RDWR | BONOBO_SS_WRITE)) {
+	} else if (flags & (Bonobo_Storage_WRITE)) {
 		if (result == GNOME_VFS_ERROR_NOT_FOUND)
 			create = TRUE;
 		else
@@ -202,8 +204,10 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode)
 	gnome_vfs_file_info_unref (info);
 
 	if (create) {
-		result = gnome_vfs_make_directory (path, GNOME_VFS_PERM_USER_ALL |
-						   GNOME_VFS_PERM_GROUP_ALL);
+		result = gnome_vfs_make_directory (
+			path, GNOME_VFS_PERM_USER_ALL |
+			GNOME_VFS_PERM_GROUP_ALL);
+
 		if (result != GNOME_VFS_OK) {
 			g_warning ("Error creating: '%s'", path);
 			return NULL;
@@ -214,26 +218,10 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode)
 }
 
 static BonoboStorage *
-fs_create_storage (BonoboStorage *storage, const CORBA_char *path, CORBA_Environment *ev)
-{
-	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (storage);
-	BonoboStorage *new_storage;
-	char *full;
-
-	full = g_concat_dir_and_file (storage_vfs->path, path);
-	if (gnome_vfs_make_directory (full, GNOME_VFS_PERM_USER_ALL) == GNOME_VFS_OK)
-		new_storage = do_bonobo_storage_vfs_create (full);
-	else
-		new_storage = NULL;
-	g_free (full);
-
-	return new_storage;
-}
-
-static BonoboStorage *
-fs_open_storage (BonoboStorage *storage,
-		 const CORBA_char *path,
-		 CORBA_Environment *ev)
+vfs_open_storage (BonoboStorage *storage,
+		  const CORBA_char *path,
+		  Bonobo_Storage_OpenMode mode,
+		  CORBA_Environment *ev)
 {
 	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (storage);
 	BonoboStorage    *new_storage;
@@ -253,6 +241,26 @@ fs_open_storage (BonoboStorage *storage,
 }
 
 static void
+vfs_erase (BonoboStorage *storage,
+	   const CORBA_char *path,
+	   CORBA_Environment *ev)
+{
+	g_warning ("FIXME: erase not yet implemented");
+
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+			     ex_Bonobo_Storage_NoPermission, 
+			     NULL);
+}
+
+static void
+bonobo_storage_vfs_destroy (GtkObject *object)
+{
+	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (object);
+
+	g_free (storage_vfs->path);
+}
+
+static void
 bonobo_storage_vfs_class_init (BonoboStorageVfsClass *class)
 {
 	GtkObjectClass *object_class = (GtkObjectClass *) class;
@@ -260,21 +268,18 @@ bonobo_storage_vfs_class_init (BonoboStorageVfsClass *class)
 	
 	bonobo_storage_vfs_parent_class = gtk_type_class (bonobo_storage_get_type ());
 
-	sclass->create_stream  = fs_create_stream;
-	sclass->open_stream    = fs_open_stream;
-	sclass->create_storage = fs_create_storage;
-	sclass->open_storage   = fs_open_storage;
-	sclass->copy_to        = fs_copy_to;
-	sclass->rename         = fs_rename;
-	sclass->commit         = fs_commit;
-	sclass->list_contents  = fs_list_contents;
-	
-	object_class->destroy = bonobo_storage_vfs_destroy;
-}
+	sclass->get_info       = vfs_get_info;
+	sclass->set_info       = vfs_set_info;
+	sclass->open_stream    = vfs_open_stream;
+	sclass->open_storage   = vfs_open_storage;
+	sclass->copy_to        = NULL; /* use the generic method */
+	sclass->rename         = vfs_rename;
+	sclass->commit         = vfs_commit;
+	sclass->revert         = vfs_revert;
+	sclass->list_contents  = vfs_list_contents;
+	sclass->erase          = vfs_erase;
 
-static void
-bonobo_storage_init (BonoboObject *object)
-{
+	object_class->destroy = bonobo_storage_vfs_destroy;
 }
 
 GtkType
@@ -288,7 +293,7 @@ bonobo_storage_vfs_get_type (void)
 			sizeof (BonoboStorageVfs),
 			sizeof (BonoboStorageVfsClass),
 			(GtkClassInitFunc) bonobo_storage_vfs_class_init,
-			(GtkObjectInitFunc) bonobo_storage_init,
+			(GtkObjectInitFunc) NULL,
 			NULL, /* reserved 1 */
 			NULL, /* reserved 2 */
 			(GtkClassInitFunc) NULL
@@ -300,16 +305,17 @@ bonobo_storage_vfs_get_type (void)
 	return type;
 }
 
-/*
- * Shared library entry point
- */
-BonoboStorage *
-bonobo_storage_driver_open (const char *path, gint flags, gint mode)
+gint 
+init_storage_plugin (StoragePlugin *plugin)
 {
-	static int init = 0;
-	if (!init) {
-		gnome_vfs_init ();
-		init = 1;
-	}
-	return bonobo_storage_vfs_open (path, flags, mode);
+	g_return_val_if_fail (plugin != NULL, -1);
+
+	plugin->name = "vfs";
+	plugin->description = "Gnome Virtual Filesystem Driver";
+	plugin->version = BONOBO_STORAGE_VERSION;
+	
+	plugin->storage_open = bonobo_storage_vfs_open; 
+	plugin->stream_open  = bonobo_stream_vfs_open; 
+
+	return 0;
 }

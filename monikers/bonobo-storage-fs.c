@@ -211,7 +211,7 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 
 		buf [i].name = CORBA_string_dup (de->d_name);
 		buf [i].size = 0;
-		buf [i].content_type = NULL; 
+		buf [i].content_type = NULL;
 
 		full = g_concat_dir_and_file (storage_fs->path, de->d_name);
 		v = stat (full, &st);

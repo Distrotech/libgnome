@@ -44,7 +44,6 @@ libstorage_fs_la_LDFLAGS = 	\
 #
 # VFS storage module - disabled for now.
 #
-if HAVE_VFS
 libstoragedir = $(PLUGIN_DIR)
 libstorage_LTLIBRARIES =	\
 	libstorage_vfs.la
@@ -57,5 +56,4 @@ libstorage_vfs_la_SOURCES =	\
 
 libstorage_vfs_la_LIBADD = 	\
 	$(VFS_LIBS)
-endif
 

@@ -22,13 +22,7 @@ typedef struct {
 } BonoboStorageVfsClass;
 
 GtkType         bonobo_storage_vfs_get_type     (void);
-BonoboStorage  *bonobo_storage_vfs_construct    (BonoboStorageVfs *storage,
-						 Bonobo_Storage corba_storage,
-						 const char *path, const char *open_mode);
-BonoboStorage  *bonobo_storage_vfs_open         (const char *path,
-						 gint flags, gint mode);
-BonoboStorage  *bonobo_storage_vfs_create       (BonoboStorageVfs *storage_vfs,
-						 const CORBA_char *path);
+
 END_GNOME_DECLS
 
 #endif /* _BONOBO_STORAGE_VFS_H_ */

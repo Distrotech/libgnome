@@ -20,7 +20,6 @@ typedef struct _BonoboStreamVfsPrivate BonoboStreamVfsPrivate;
 struct _BonoboStreamVfs {
 	BonoboStream    stream;
 	GnomeVFSHandle *handle;
-	gboolean        got_eof;
 
 	BonoboStreamVfsPrivate *priv;
 };
@@ -29,12 +28,10 @@ typedef struct {
 	BonoboStreamClass parent_class;
 } BonoboStreamVfsClass;
 
-GtkType          bonobo_stream_vfs_get_type     (void);
-BonoboStream    *bonobo_stream_vfs_open         (const CORBA_char *path,
-						 Bonobo_Storage_OpenMode mode);
-BonoboStream    *bonobo_stream_vfs_create       (const CORBA_char *path);
-BonoboStream    *bonobo_stream_vfs_construct    (BonoboStreamVfs *stream,
-						 Bonobo_Stream corba_stream);
+GtkType       bonobo_stream_vfs_get_type (void);
+BonoboStream *bonobo_stream_vfs_open     (const char *path,
+					  gint flags, gint mode,
+					  CORBA_Environment *ev);
 	
 END_GNOME_DECLS
 
