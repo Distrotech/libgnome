@@ -15,8 +15,7 @@ schema_in_files = \
 	desktop_gnome_peripherals_keyboard.schemas.in		\
 	desktop_gnome_sound.schemas.in				\
 	desktop_gnome_typing_break.schemas.in			\
-	desktop_gnome_thumbnailers.schemas.in			\
-	desktop_gnome_url_handlers.schemas.in
+	desktop_gnome_thumbnailers.schemas.in
 
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 
