@@ -70,7 +70,7 @@ gnome_score_get_notable(gchar *gamename,
 	realname, ".scores=", "/",
 	level ? level : "Top Ten",
 	"/", NULL);
-  l_scores = read_scores (game_score_section);
+/*  l_scores = read_scores (game_score_section); */
   g_free(realname);
   g_free(game_score_section);
 

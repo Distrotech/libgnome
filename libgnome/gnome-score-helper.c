@@ -112,13 +112,13 @@ gnome_get_program_name(gint pid)
 	return NULL;
 #endif
 }
-
-#ifndef GNOME_SCORE_C
 struct ascore_t {
 	gchar *username;
 	time_t scoretime;
 	gfloat score;
 };
+
+#ifndef GNOME_SCORE_C
 
 void
 print_ascore(struct ascore_t *ascore, FILE *outfile)
