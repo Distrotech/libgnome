@@ -140,8 +140,39 @@ static void
 fs_commit   (GnomeStream *stream,
 	     CORBA_Environment *ev)
 {
-	g_warning ("Implement me");
+	g_warning ("Implement fs commit");
 }
+
+static void
+fs_close (GnomeStream *stream,
+	  CORBA_Environment *ev)
+{
+	g_warning ("Implement fs close");
+}
+
+static CORBA_boolean
+fs_eos (GnomeStream *stream,
+	CORBA_Environment *ev)
+{
+	g_warning ("Implement fs eos");
+
+	return 0;
+}
+	
+static CORBA_long
+fs_length (GnomeStream *stream,
+	   CORBA_Environment *ev)
+{
+	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	struct stat st;
+
+	if (fstat (sfs->fd, &st)) {
+		g_warning ("Fstat failed");
+		return 0;
+	} else 
+		return st.st_size;
+}
+	   
 
 static void
 gnome_stream_fs_class_init (GnomeStreamFSClass *class)
@@ -156,6 +187,9 @@ gnome_stream_fs_class_init (GnomeStreamFSClass *class)
 	sclass->truncate = fs_truncate;
 	sclass->copy_to  = fs_copy_to;
 	sclass->commit   = fs_commit;
+	sclass->close    = fs_close;
+	sclass->eos      = fs_eos;
+	sclass->length   = fs_length;
 }
 
 /**
@@ -314,7 +348,6 @@ gnome_stream_fs_open (const CORBA_char *path, GNOME_Storage_OpenMode mode)
 GnomeStream *
 gnome_stream_fs_create (const CORBA_char *path)
 {
-	char *full;
 	int fd;
 
 	g_return_val_if_fail (path != NULL, NULL);
