@@ -1,3 +1,9 @@
+2001-12-18  jacob berkman  <jacob@ximian.com>
+
+	* schemas/Makefile.am (install-data-local): don't do the schema
+	rule if DESTDIR is set.  i can't think of a reason why this would
+	be broken.
+
 2001-12-17  jacob berkman  <jacob@ximian.com>
 
 	* schemas/Makefile.am (EXTRA_DIST): add $(schama_DATA)
