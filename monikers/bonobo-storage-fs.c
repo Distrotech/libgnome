@@ -333,36 +333,16 @@ bonobo_storage_fs_class_init (BonoboStorageFSClass *class)
 	object_class->destroy = bonobo_storage_fs_destroy;
 }
 
-static void
-bonobo_storage_init (BonoboObject *object)
+
+static void 
+bonobo_storage_fs_init (GtkObject *object)
 {
+	/* nothing to do */
 }
 
-GtkType
-bonobo_storage_fs_get_type (void)
-{
-	static GtkType type = 0;
-
-	if (!type) {
-		GtkTypeInfo info = {
-			"IDL:GNOME/StorageFS:1.0",
-			sizeof (BonoboStorageFS),
-			sizeof (BonoboStorageFSClass),
-			(GtkClassInitFunc) bonobo_storage_fs_class_init,
-			(GtkObjectInitFunc) bonobo_storage_init,
-			NULL, /* reserved 1 */
-			NULL, /* reserved 2 */
-			(GtkClassInitFunc) NULL
-		};
-
-		type = bonobo_x_type_unique (
-			bonobo_storage_get_type (),
-			NULL, NULL, 0,
-			&info);
-	}
-
-	return type;
-}
+BONOBO_GTK_TYPE_FUNC (BonoboStorageFS, 
+		      bonobo_storage_get_type (),
+		      bonobo_storage_fs);
 
 /*
  * Creates the Gtk object and the corba server bound to it
