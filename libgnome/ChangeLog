@@ -1,9 +1,3 @@
-1999-09-17  Anders Carlsson  <anders.carlsson@tordata.se>
-
-	* gnome-i18n.c (gnome_i18n_init): Set LC_CTYPE to en_US if it isn't
-	  already set. This prevents falling back to the "C" locale which
-	  doesn't support 8-bit characters
-
 Mon Sep 13 22:01:29 1999  George Lebl  <jirka@5z.com>
 
 	* gnome-i18n.c: gnome_i18n_get_language_list now also tries to
