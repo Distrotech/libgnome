@@ -1,4 +1,4 @@
-SUBDIRS= docbook gnome-customization
+SUBDIRS= gnome-customization
 
 INCLUDES = \
         -DGNOMELOCALEDIR=\""$(datadir)/locale"\"        \
