@@ -204,9 +204,9 @@ entry_activated_cb (GtkWidget *widget, gpointer data)
     gnome_selector_freeze (selector);
 
     if (g_file_test (text, G_FILE_TEST_ISFILE)) {
-	gnome_selector_append_file (selector, text);
+	gnome_selector_append_file (selector, text, FALSE);
     } else if (g_file_test (text, G_FILE_TEST_ISDIR)) {
-	gnome_selector_append_directory (selector, text);
+	gnome_selector_append_directory (selector, text, FALSE);
     }
 
     gnome_selector_thaw (selector);
@@ -349,14 +349,16 @@ gnome_file_selector_construct (GnomeFileSelector *fselector,
  */
 GtkWidget *
 gnome_file_selector_new (const gchar *history_id,
-			 const gchar *dialog_title)
+			 const gchar *dialog_title,
+			 guint32 flags)
 {
     GnomeFileSelector *fselector;
-    guint32 flags;
+
+    g_return_val_if_fail ((flags & ~GNOME_SELECTOR_USER_FLAGS) == 0, NULL);
 
     fselector = gtk_type_new (gnome_file_selector_get_type ());
 
-    flags = GNOME_SELECTOR_DEFAULT_ENTRY_WIDGET |
+    flags |= GNOME_SELECTOR_DEFAULT_ENTRY_WIDGET |
 	GNOME_SELECTOR_DEFAULT_SELECTOR_WIDGET |
 	GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG |
 	GNOME_SELECTOR_WANT_BROWSE_BUTTON;
@@ -420,4 +422,3 @@ gnome_file_selector_finalize (GObject *object)
     if (G_OBJECT_CLASS (parent_class)->finalize)
 	(* G_OBJECT_CLASS (parent_class)->finalize) (object);
 }
-
