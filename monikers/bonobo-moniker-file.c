@@ -7,7 +7,10 @@
  *	Michael Meeks (michael@helixcode.com)
  */
 #include <config.h>
+#include <bonobo/bonobo-storage.h>
+#include <bonobo/bonobo-exception.h>
 #include <bonobo/bonobo-moniker.h>
+#include <bonobo/bonobo-moniker-extender.h>
 #include <bonobo/bonobo-moniker-util.h>
 #include <libgnome/gnome-mime.h>
 #include <liboaf/liboaf.h>
@@ -66,88 +69,48 @@ file_resolve (BonoboMoniker               *moniker,
 
 		return CORBA_Object_duplicate (
 			bonobo_object_corba_objref (BONOBO_OBJECT (stream)), ev);
-	} else {
-		const char    *mime_type;
-		char          *oaf_requirements;
-		Bonobo_Unknown object;
-		Bonobo_Persist persist;
-		OAF_ActivationID ret_id;
-
-		mime_type = gnome_mime_type (fname);
-
-		oaf_requirements = g_strdup_printf (
-			"bonobo:supported_mime_types.has ('%s') AND repo_ids.has ('%s') AND "
-			"repo_ids.has_one (['IDL:Bonobo/PersistFile:1.0', 'IDL:Bonobo/PersistStream:1.0'])",
-			mime_type, requested_interface);
+	} else if (!strcmp (requested_interface, "IDL:Bonobo/Storage:1.0")) {
+		BonoboStorage *storage;
 		
-		object = oaf_activate (oaf_requirements, NULL, 0, &ret_id, ev);
-		g_warning ("Attempt activate object satisfying '%s': %p",
-			   oaf_requirements, object);
-		g_free (oaf_requirements);
+		storage = bonobo_storage_open ("fs", fname,
+					       Bonobo_Storage_READ, 0664);
 
-		if (ev->_major != CORBA_NO_EXCEPTION)
-			return CORBA_OBJECT_NIL;
-		
-		if (object == CORBA_OBJECT_NIL) {
-			g_warning ("Can't find object satisfying requirements");
+		if (!storage) {
+			g_warning ("Failed to open storage '%s'", fname);
 			CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
 					     ex_Bonobo_Moniker_InterfaceNotFound, NULL);
 			return CORBA_OBJECT_NIL;
 		}
 
-		persist = Bonobo_Unknown_queryInterface (
-			object, "IDL:Bonobo/PersistFile:1.0", ev);
+		return CORBA_Object_duplicate (
+			bonobo_object_corba_objref (BONOBO_OBJECT (storage)), ev);
+	} else {
+		Bonobo_Unknown extender;
+		Bonobo_Unknown object;
+		CORBA_Object corba_moniker;
 
-		if (ev->_major != CORBA_NO_EXCEPTION)
+		extender = bonobo_moniker_find_extender ("file", 
+							 requested_interface, 
+							 ev);
+	
+		if (BONOBO_EX (ev) || !extender) {
+			g_warning ("Can't find moniker extender");
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+					     ex_Bonobo_Moniker_InterfaceNotFound, NULL);
 			return CORBA_OBJECT_NIL;
-
-		if (persist != CORBA_OBJECT_NIL) {
-			Bonobo_PersistFile_load (persist, fname, ev);
-
-			bonobo_object_release_unref (persist, ev);
-
-			return bonobo_moniker_util_qi_return (
-				object, requested_interface, ev);
 		}
+
+		corba_moniker = 
+			bonobo_object_corba_objref (BONOBO_OBJECT (moniker));
 		
-		persist = Bonobo_Unknown_queryInterface (
-			object, "IDL:Bonobo/PersistStream:1.0", ev);
+		object = Bonobo_MonikerExtender_resolve (extender, 
+							 corba_moniker, 
+							 "??", 
+							 requested_interface, 
+							 ev);
+		bonobo_object_release_unref (extender, ev);
 
-		if (ev->_major != CORBA_NO_EXCEPTION)
-			goto unref_object_exception;
-
-		if (persist != CORBA_OBJECT_NIL) {
-			BonoboStream *stream;
-
-			stream = bonobo_stream_open ("fs", fname, 
-						     Bonobo_Storage_READ, 
-						     0664);
-
-			if (!stream) {
-				g_warning ("Failed to open stream '%s'", fname);
-				CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
-						     ex_Bonobo_Moniker_InterfaceNotFound, NULL);
-				return CORBA_OBJECT_NIL;
-			}
-
-			Bonobo_PersistStream_load (
-				persist, 
-				bonobo_object_corba_objref (BONOBO_OBJECT (stream)),
-				(const Bonobo_Persist_ContentType)mime_type, ev);
-
-			bonobo_object_release_unref (persist, ev);
-
-			return bonobo_moniker_util_qi_return (
-				object, requested_interface, ev);
-		}
-
-		/* FIXME: so perhaps here we need to start doing in-file storages etc. */
-		CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
-				     ex_Bonobo_Moniker_InterfaceNotFound, NULL);
-
-	unref_object_exception:
-		bonobo_object_release_unref (object, ev);
-		return CORBA_OBJECT_NIL;
+		return object;
 	}
 }
 
