@@ -93,7 +93,7 @@ enum { ARG_VERSION=1 };
 static struct poptOption gnomelib_options[] = {
         { NULL, '\0', POPT_ARG_INTL_DOMAIN, PACKAGE, 0, NULL, NULL},
 
-	{ NULL, '\0', POPT_ARG_CALLBACK, libgnome_option_cb, 0, NULL, NULL},
+	{ NULL, '\0', POPT_ARG_CALLBACK, (void *) libgnome_option_cb, 0, NULL, NULL},
 
 	{"version", '\0', POPT_ARG_NONE, NULL, },
 
