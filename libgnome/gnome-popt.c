@@ -50,6 +50,7 @@ gnomelib_parse_args(int argc, char *argv[],
 		    int popt_flags)
 {
   poptContext retval;
+  int nextopt;
 
   /* On non-glibc systems, this is not set up for us.  */
   if (!program_invocation_name) {
@@ -67,8 +68,16 @@ gnomelib_parse_args(int argc, char *argv[],
 
   poptReadDefaultConfig(retval, TRUE);
 
-  while(poptGetNextOpt(retval) > 0)
+  while((nextopt = poptGetNextOpt(retval)) > 0)
     /* do nothing */ ;
+
+  if(nextopt != -1) {
+    printf(_("Error on option %s: %s.\nRun '%s --help' to see a full list of available command line options.\n"),
+	   poptBadOption(retval, 0),
+	   poptStrerror(nextopt),
+	   argv[0]);
+    exit(1);
+  }
 
   g_array_free(opt_tables, TRUE); opt_tables = NULL;
 
