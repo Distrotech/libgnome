@@ -1,3 +1,17 @@
+2000-08-07  Martin Baulig  <baulig@suse.de>
+
+	Moved all deprecated files (i.e the ones that were linked into
+	libgnome-1-compat and not into libgnome) into their own
+	subdirectory (../libcompat).
+
+	* gnome-dentry.c, gnome-dentry.h, gnome-help.c, gnome-help.h,
+	gnome-popt.c, gnome-popt.h, gnome10-compat.c, gnome10-compat.h,
+	libgnome-compat-1.0.h: Moved to ../libcompat/.
+
+	* gnome-ditem.c: #include <popt.h> directly and not the deprecated
+	"gnome-popt.h"
+	* gnome-url.c: Likewise.
+
 2000-07-31  Karl Eichwalder  <ke@suse.de>
 
 	* gnome-moz-remote2.c: Add missing dots.

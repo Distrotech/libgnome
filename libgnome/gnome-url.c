@@ -36,9 +36,9 @@
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-portability.h>
-#include "gnome-popt.h" /* poptParseArgvString */
 #include "gnome-url.h"
 #include "gnome-i18nP.h"
+#include <popt.h>
 
 #define DEFAULT_HANDLER "gnome-moz-remote \"%s\""
 #define INFO_HANDLER  "gnome-help-browser \"%s\""

@@ -9,10 +9,6 @@ LIB_VERSION_NUM=0.0.0
 
 lib_LTLIBRARIES = libgnome-2.la
 
-if COMPILE_GNOME_COMPAT
-lib_LIBRARIES = libgnome-1-compat-2.a
-endif
-
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 libgnomeincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/libgnome
@@ -28,23 +24,6 @@ INCLUDES = -I.. -I$(srcdir)/.. \
 	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\" \
 	-DVERSION=\""$(VERSION)"\" \
 	-DG_LOG_DOMAIN=\"Gnome\"
-
-if COMPILE_GNOME_COMPAT
-libgnome10compatincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/compat/1/libgnome
-
-libgnome_1_compat_2_a_SOURCES = \
-	gnome10-compat.c	\
-	gnome-help.c		\
-	gnome-dentry.c		\
-	gnome-popt.c
-
-libgnome10compatinclude_HEADERS=\
-	libgnome-compat-1.0.h	\
-	gnome10-compat.h	\
-	gnome-help.h		\
-	gnome-dentry.h		\
-	gnome-popt.h
-endif
 
 libgnome_2_la_SOURCES = \
 	gnome-config.c		\
