@@ -641,6 +641,7 @@ error_idle_func(gpointer data)
         iter = pending_errors;
         while (iter != NULL) {
                 GError *error = iter->data;
+                iter->data = NULL;
 
                 fprintf(stderr, _("GConf error details: %s\n"), error->message);
 
