@@ -1,8 +1,5 @@
 INCLUDES =						\
-	-I$(top_srcdir)					\
-	-I$(includedir)					\
-	$(YELP_CFLAGS)					\
-	-DG_LOG_DOMAIN=\"Yelp\"
+	$(LIBGNOME_CFLAGS)				
 
 modules_LTLIBRARIES=libvfs-help.la
 
@@ -13,7 +10,6 @@ libvfs_help_la_SOURCES = 				\
 	help-method.c		help-method.h		
 
 libvfs_help_la_LDFLAGS = $(module_flags)
-libvfs_help_la_LIBADD  = $(YELP_LIBS)
 
 modulesconfdir=$(sysconfdir)/gnome-vfs-2.0/modules
 modulesconf_DATA = help-methods.conf

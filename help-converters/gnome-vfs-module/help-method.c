@@ -57,6 +57,10 @@ typedef struct {
 } HelpURI;
 
 
+#define DOCBOOK_TO_HTML_COMMAND "gnome2-db2html"
+#define MAN_TO_HTML_COMMAND "gnome2-man2html"
+#define INFO_TO_HTML_COMMAND "gnome2-info2html"
+
 static gboolean file_in_info_path (const char *file);
 
 /* This is a copy of eel_shell_quote. The best thing to do is to
@@ -119,11 +123,8 @@ help_uri_to_string (HelpURI *help_uri)
 
 	switch (help_uri->type) {
 	case SGML_FILE: case XML_FILE:
-#ifdef USE_GNOME_DB2HTML3
-		command = "gnome-db2html3";
-#else
-                command = "gnome-db2html2";
-#endif
+		command = DOCBOOK_TO_HTML_COMMAND;
+
 		if (help_uri->section != NULL) {
                         parameter = g_strconcat (help_uri->file, "?", help_uri->section, NULL);
                 } else {
@@ -131,11 +132,11 @@ help_uri_to_string (HelpURI *help_uri)
                 }
 		break;
 	case MAN_FILE:
-                command = "gnome-man2html2";
+                command = MAN_TO_HTML_COMMAND;
                 parameter = g_strdup (help_uri->file);
 		break;
 	case INFO_FILE:
-                command = "gnome-info2html2";
+                command = INFO_TO_HTML_COMMAND;
                 parameter = g_strdup (help_uri->file);
 		break;
 	case HTML_FILE:

@@ -1,1 +1,1 @@
-SUBDIRS = man info docbook
+SUBDIRS = man info docbook gnome-vfs-module
