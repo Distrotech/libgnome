@@ -111,9 +111,6 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 	     if(sscanf(buf, "%f %ld %s", &ascore, &atime, name) != 3)
 	       break;
 
-	     g_message("Got score %f time %ld name %s",
-		       ascore, atime, name);
-
 	     anitem = g_new(struct ascore_t, 1);
 	     anitem->score = ascore;
 	     anitem->username = g_strdup (name);
