@@ -39,6 +39,7 @@
 #include "gnome-i18nP.h"
 
 #include <libgnome/gnome-program.h>
+#include <libgnome/gnome-util.h>
 #include <libgnome/gnome-init.h>
 #include <libgnome/gnome-i18n.h>
 
@@ -61,6 +62,10 @@ struct _GnomeProgramPrivate {
     int prop_popt_flags;
     struct poptOptions *prop_popt_table;
     gchar *prop_human_readable_name;
+    gchar *prop_gnome_prefix;
+    gchar *prop_gnome_libdir;
+    gchar *prop_gnome_sysconfdir;
+    gchar *prop_gnome_datadir;
     gchar *prop_app_prefix;
     gchar *prop_app_libdir;
     gchar *prop_app_sysconfdir;
@@ -98,6 +103,10 @@ enum {
     PROP_APP_VERSION,
     PROP_HUMAN_READABLE_NAME,
     PROP_GNOME_PATH,
+    PROP_GNOME_PREFIX,
+    PROP_GNOME_LIBDIR,
+    PROP_GNOME_DATADIR,
+    PROP_GNOME_SYSCONFDIR,
     PROP_APP_PREFIX,
     PROP_APP_LIBDIR,
     PROP_APP_DATADIR,
@@ -192,6 +201,22 @@ gnome_program_set_property (GObject *object, guint param_id,
 	    program->_priv->gnome_path = g_strsplit
 		(g_value_get_string (value), ":", -1);
 	break;
+    case PROP_GNOME_PREFIX:
+	g_free (program->_priv->prop_gnome_prefix);
+	program->_priv->prop_gnome_prefix = g_value_dup_string (value);
+	break;
+    case PROP_GNOME_SYSCONFDIR:
+	g_free (program->_priv->prop_gnome_sysconfdir);
+	program->_priv->prop_gnome_sysconfdir = g_value_dup_string (value);
+	break;
+    case PROP_GNOME_DATADIR:
+	g_free (program->_priv->prop_gnome_datadir);
+	program->_priv->prop_gnome_datadir = g_value_dup_string (value);
+	break;
+    case PROP_GNOME_LIBDIR:
+	g_free (program->_priv->prop_gnome_libdir);
+	program->_priv->prop_gnome_libdir = g_value_dup_string (value);
+	break;
     case PROP_APP_PREFIX:
 	g_free (program->_priv->prop_app_prefix);
 	program->_priv->prop_app_prefix = g_value_dup_string (value);
@@ -261,6 +286,18 @@ gnome_program_get_property (GObject *object, guint param_id, GValue *value,
 	    g_value_set_string (value, g_strjoinv (":", program->_priv->gnome_path));
 	else
 	    g_value_set_string (value, NULL);
+	break;
+    case PROP_GNOME_PREFIX:
+	g_value_set_string (value, program->_priv->prop_gnome_prefix);
+	break;
+    case PROP_GNOME_SYSCONFDIR:
+	g_value_set_string (value, program->_priv->prop_gnome_sysconfdir);
+	break;
+    case PROP_GNOME_DATADIR:
+	g_value_set_string (value, program->_priv->prop_gnome_datadir);
+	break;
+    case PROP_GNOME_LIBDIR:
+	g_value_set_string (value, program->_priv->prop_gnome_libdir);
 	break;
     case PROP_APP_PREFIX:
 	g_value_set_string (value, program->_priv->prop_app_prefix);
@@ -487,6 +524,38 @@ gnome_program_class_init (GnomeProgramClass *class)
 
     g_object_class_install_property
 	(object_class,
+	 PROP_GNOME_PREFIX,
+	 g_param_spec_string (GNOME_PARAM_GNOME_PREFIX, NULL, NULL,
+			      LIBGNOME_PREFIX,
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
+			       G_PARAM_CONSTRUCT_ONLY)));
+
+    g_object_class_install_property
+	(object_class,
+	 PROP_GNOME_LIBDIR,
+	 g_param_spec_string (GNOME_PARAM_GNOME_LIBDIR, NULL, NULL,
+			      LIBGNOME_LIBDIR,
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
+			       G_PARAM_CONSTRUCT_ONLY)));
+
+    g_object_class_install_property
+	(object_class,
+	 PROP_GNOME_DATADIR,
+	 g_param_spec_string (GNOME_PARAM_GNOME_DATADIR, NULL, NULL,
+			      LIBGNOME_DATADIR,
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
+			       G_PARAM_CONSTRUCT_ONLY)));
+
+    g_object_class_install_property
+	(object_class,
+	 PROP_GNOME_SYSCONFDIR,
+	 g_param_spec_string (GNOME_PARAM_GNOME_SYSCONFDIR, NULL, NULL,
+			      LIBGNOME_SYSCONFDIR,
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
+			       G_PARAM_CONSTRUCT_ONLY)));
+
+    g_object_class_install_property
+	(object_class,
 	 PROP_APP_PREFIX,
 	 g_param_spec_string (GNOME_PARAM_APP_PREFIX, NULL, NULL,
 			      LIBGNOME_PREFIX,
@@ -497,7 +566,7 @@ gnome_program_class_init (GnomeProgramClass *class)
 	(object_class,
 	 PROP_APP_LIBDIR,
 	 g_param_spec_string (GNOME_PARAM_APP_LIBDIR, NULL, NULL,
-			      LIBGNOME_LIBDIR,
+			      NULL,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
 
@@ -505,7 +574,7 @@ gnome_program_class_init (GnomeProgramClass *class)
 	(object_class,
 	 PROP_APP_DATADIR,
 	 g_param_spec_string (GNOME_PARAM_APP_DATADIR, NULL, NULL,
-			      LIBGNOME_DATADIR,
+			      NULL,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
 
@@ -513,7 +582,7 @@ gnome_program_class_init (GnomeProgramClass *class)
 	(object_class,
 	 PROP_APP_SYSCONFDIR,
 	 g_param_spec_string (GNOME_PARAM_APP_SYSCONFDIR, NULL, NULL,
-			      LIBGNOME_SYSCONFDIR,
+			      NULL,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
 
@@ -565,6 +634,9 @@ static void
 gnome_program_finalize (GObject* object)
 {
     GnomeProgram *program = GNOME_PROGRAM (object);
+
+    /* FIXME! free everything, but perhaps this is
+     * useless, we never get finalized */
 
     g_free (program->_priv);
     program->_priv = NULL;
@@ -712,12 +784,17 @@ gnome_program_install_property (GnomeProgramClass *pclass,
  * @filename: A file name or path inside the 'domain' to find.
  * @only_if_exists: Only return a full pathname if the specified file
  *                  actually exists
- * @ret_locations: If this is not NULL, a list of all the possible locations
+ * @ret_locations: If this is not %NULL, a list of all the possible locations
  *                 of the file will be returned.
  *
  * This function finds the full path to a file located in the specified
  * "domain". A domain is a name for a collection of related files.
  * For example, common domains are "libdir", "pixmap", and "config".
+ *
+ * If @ret_locations is not %NULL, there is no other return value.  That is
+ * this function then always returns %NULL.
+ *
+ * FIXME!
  *
  *   NOTE: This function is to locate system-wide files, such as files which
  *         have been installed by libgnomeui-2 or another platform library.
@@ -727,7 +804,7 @@ gnome_program_install_property (GnomeProgramClass *pclass,
  *         load a pixmap `foo.png' which it installs, define FOOPIXMAPDIR
  *         in your app's Makefile.am and use FOOPIXMAPDIR "/foo.png".
  *
- * The ret_locations list and its contents should be freed by the caller.
+ * The @ret_locations list and its contents should be freed by the caller.
  *
  * Returns: The full path to the file (if it exists or only_if_exists is
  *          FALSE) or NULL.
@@ -738,11 +815,12 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 			   GSList **ret_locations)
 {
     gchar *prefix_rel = NULL, *attr_name = NULL, *attr_rel = NULL;
-    gchar fnbuf [PATH_MAX], *retval = NULL, *lastval = NULL, **ptr;
+    gchar *prefix_name = NULL;
+    gchar fnbuf [PATH_MAX], *retval = NULL, **ptr;
     gboolean append_app_id = FALSE;
     GValue value = { 0, };
 
-    if (!program)
+    if (program == NULL)
 	program = gnome_program_get ();
 
     g_return_val_if_fail (program != NULL, NULL);
@@ -751,45 +829,85 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
     g_return_val_if_fail (file_name != NULL, NULL);
 
 #define ADD_FILENAME(x) { \
-lastval = (x); \
-if(lastval) { if(ret_locations) *ret_locations = g_slist_append(*ret_locations, lastval); \
-if(!retval && !ret_locations) retval = lastval; } \
+	if (x != NULL) { \
+		if (ret_locations != NULL) \
+			*ret_locations = g_slist_append (*ret_locations, g_strdup (x)); \
+		if (retval == NULL && ret_locations == NULL) \
+			retval = g_strdup (x); \
+	} \
 }
 
     switch (domain) {
     case GNOME_FILE_DOMAIN_LIBDIR:
 	prefix_rel = "/lib";
-	attr_name = GNOME_PARAM_APP_LIBDIR;
+	attr_name = GNOME_PARAM_GNOME_LIBDIR;
+	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "";
 	break;
     case GNOME_FILE_DOMAIN_DATADIR:
 	prefix_rel = "/share";
-	attr_name = GNOME_PARAM_APP_DATADIR;
+	attr_name = GNOME_PARAM_GNOME_DATADIR;
+	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "";
 	break;
     case GNOME_FILE_DOMAIN_SOUND:
 	prefix_rel = "/share/sounds";
-	attr_name = GNOME_PARAM_APP_DATADIR;
+	attr_name = GNOME_PARAM_GNOME_DATADIR;
+	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "/sounds";
 	break;
     case GNOME_FILE_DOMAIN_PIXMAP:
 	prefix_rel = "/share/pixmaps";
-	attr_name = GNOME_PARAM_APP_DATADIR;
+	attr_name = GNOME_PARAM_GNOME_DATADIR;
+	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "/pixmaps";
 	break;
     case GNOME_FILE_DOMAIN_CONFIG:
 	prefix_rel = "/etc";
-	attr_name = GNOME_PARAM_APP_SYSCONFDIR;
+	attr_name = GNOME_PARAM_GNOME_SYSCONFDIR;
+	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "";
 	break;
     case GNOME_FILE_DOMAIN_HELP:
 	prefix_rel = "/share/gnome/help";
-	attr_name = GNOME_PARAM_APP_DATADIR;
+	attr_name = GNOME_PARAM_GNOME_DATADIR;
+	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "/gnome/help";
+	break;
+    case GNOME_FILE_DOMAIN_APP_LIBDIR:
+	prefix_rel = "/lib";
+	attr_name = GNOME_PARAM_APP_LIBDIR;
+	prefix_name = GNOME_PARAM_APP_PREFIX;
+	attr_rel = "";
+	break;
+    case GNOME_FILE_DOMAIN_APP_DATADIR:
+	prefix_rel = "/share";
+	attr_name = GNOME_PARAM_APP_DATADIR;
+	prefix_name = GNOME_PARAM_APP_PREFIX;
+	attr_rel = "";
+	break;
+    case GNOME_FILE_DOMAIN_APP_SOUND:
+	prefix_rel = "/share/sounds";
+	attr_name = GNOME_PARAM_APP_DATADIR;
+	prefix_name = GNOME_PARAM_APP_PREFIX;
+	attr_rel = "/sounds";
+	break;
+    case GNOME_FILE_DOMAIN_APP_PIXMAP:
+	prefix_rel = "/share/pixmaps";
+	attr_name = GNOME_PARAM_APP_DATADIR;
+	prefix_name = GNOME_PARAM_APP_PREFIX;
+	attr_rel = "/pixmaps";
+	break;
+    case GNOME_FILE_DOMAIN_APP_CONFIG:
+	prefix_rel = "/etc";
+	attr_name = GNOME_PARAM_APP_SYSCONFDIR;
+	prefix_name = GNOME_PARAM_APP_PREFIX;
+	attr_rel = "";
 	break;
     case GNOME_FILE_DOMAIN_APP_HELP:
 	prefix_rel = "/share/gnome/help";
 	attr_name = GNOME_PARAM_APP_DATADIR;
+	prefix_name = GNOME_PARAM_APP_PREFIX;
 	attr_rel = "/gnome/help";
 	append_app_id = TRUE;
 	break;
@@ -798,14 +916,31 @@ if(!retval && !ret_locations) retval = lastval; } \
 	return NULL;
     }
 
-    if (attr_name) {
-	const gchar *dir;
+    if (attr_name != NULL) {
+	gchar *dir;
 
 	g_value_init (&value, G_TYPE_STRING);
 	g_object_get_property (G_OBJECT (program), attr_name, &value);
-	dir = g_value_get_string (&value);
+	dir = g_value_dup_string (&value);
+	g_value_unset (&value);
 
-	if (dir) {
+	/* use the prefix */
+	if (dir == NULL) {
+		g_value_init (&value, G_TYPE_STRING);
+		g_object_get_property (G_OBJECT (program), prefix_name, &value);
+
+		/* Assertion, there is ALWAYS a prefix,
+		 * if not we are screwed anyway, perhaps this
+		 * should be a g_error*/
+		g_assert (g_value_get_string (&value) != NULL);
+
+		dir = g_concat_dir_and_file (g_value_get_string (&value),
+					     prefix_rel);
+
+		g_value_unset (&value);
+	}
+
+	if (dir != NULL) {
 	    if (append_app_id)
 		g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s/%s",
 			    dir, attr_rel, program->_priv->app_id, file_name);
@@ -816,8 +951,6 @@ if(!retval && !ret_locations) retval = lastval; } \
 	    if (!only_if_exists || g_file_test (fnbuf, G_FILE_TEST_EXISTS))
 		ADD_FILENAME (g_strdup (fnbuf));
 	}
-
-	g_value_unset (&value);
     }
     if (retval && !ret_locations)
 	goto out;
@@ -836,6 +969,8 @@ if(!retval && !ret_locations) retval = lastval; } \
     }
     if (retval && !ret_locations)
 	goto out;
+
+#undef ADD_FILENAME
 
  out:
     return retval;

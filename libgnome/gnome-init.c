@@ -568,7 +568,7 @@ gnome_vfs_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 }
 
 GnomeModuleInfo gnome_vfs_module_info = {
-	"gnome-vfs", GNOMEVFSVERSION, "GNOME Virtual Filesystem",
+	"gnome-vfs", GNOMEVFSVERSION, N_("GNOME Virtual Filesystem"),
 	NULL, NULL,
 	gnome_vfs_pre_args_parse, NULL,
 	NULL,
@@ -584,7 +584,7 @@ static GnomeModuleRequirement libgnome_requirements [] = {
 };
 
 GnomeModuleInfo libgnome_module_info = {
-	"libgnome", VERSION, "GNOME Library",
+	"libgnome", VERSION, N_("GNOME Library"),
 	libgnome_requirements, NULL,
 	NULL, libgnome_post_args_parse,
 	gnomelib_options,
