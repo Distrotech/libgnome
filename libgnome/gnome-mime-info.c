@@ -358,8 +358,8 @@ gnome_mime_init ()
  * the given GnomeMimeContext.  The string is private, you
  * should not free the result.
  */
-char *
-gnome_mime_get_value (char *mime_type, char *key)
+const char *
+gnome_mime_get_value (const char *mime_type, char *key)
 {
 	char *value, *generic_type, *p;
 	GnomeMimeContext *context;
@@ -411,7 +411,7 @@ assemble_list (gpointer key, gpointer value, gpointer user_data)
  * associated with the @mime_type.  
  */
 GList *
-gnome_mime_get_keys (char *mime_type)
+gnome_mime_get_keys (const char *mime_type)
 {
 	char *p, *generic_type;
 	GnomeMimeContext *context;
@@ -463,8 +463,8 @@ gnome_mime_get_keys (char *mime_type)
  *
  * Returns the program intended to be loaded for this given mime-type
  */
-gchar *
-gnome_mime_program (gchar * mime_type)
+const char *
+gnome_mime_program (const char *mime_type)
 {
 	return gnome_mime_get_value (mime_type, "open");
 }
@@ -475,8 +475,8 @@ gnome_mime_program (gchar * mime_type)
  *
  * Returns the description for this mime-type
  */
-gchar *
-gnome_mime_description (gchar * mime_type)
+const char *
+gnome_mime_description (const char *mime_type)
 {
 	return gnome_mime_get_value (mime_type, "description");
 }
@@ -488,8 +488,8 @@ gnome_mime_description (gchar * mime_type)
  * Returns the command to be executed on the file before considering
  * the file to match this mime_type.
  */
-gchar *
-gnome_mime_test (gchar * mime_type)
+const char *
+gnome_mime_test (const char *mime_type)
 {
 	return gnome_mime_get_value (mime_type, "test");
 }
@@ -501,16 +501,16 @@ gnome_mime_test (gchar * mime_type)
  * Returns the command to be executed to compose a message of
  * the given mime_type
  */
-gchar *
-gnome_mime_composetyped (gchar * mime_type)
+const char *
+gnome_mime_composetyped (const char *mime_type)
 {
 	return gnome_mime_get_value (mime_type, "compose");
 }
 
 static gboolean
-gnome_mime_flag (gchar *mime_type, gchar *flag)
+gnome_mime_flag (const char *mime_type, gchar *flag)
 {
-	char *str;
+	const char *str;
 	
 	str = gnome_mime_get_value (mime_type, flag);
 	if (str){
@@ -529,7 +529,7 @@ gnome_mime_flag (gchar *mime_type, gchar *flag)
  * command will produce lots of output
  */
 gboolean 
-gnome_mime_copiousoutput (gchar * mime_type, gchar *key)
+gnome_mime_copiousoutput (const char *mime_type, gchar *key)
 {
 	return gnome_mime_flag (mime_type, "copiousoutput");
 }
@@ -543,7 +543,7 @@ gnome_mime_copiousoutput (gchar * mime_type, gchar *key)
  * command will required a terminal.
  */
 gboolean
-gnome_mime_needsterminal (gchar * mime_type, gchar *key)
+gnome_mime_needsterminal (const char *mime_type, gchar *key)
 {
 	return gnome_mime_flag (mime_type, "needsterminal");
 }
