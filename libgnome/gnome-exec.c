@@ -134,7 +134,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 	}
 	close(0);
 	/* Open stdin as being nothingness, so that if someone tries to
-	   read from this they don't hang up the whole GNOME session */
+	   read from this they don't hang up the whole GNOME session. BUGFIX #1548 */
 	stdinfd = open("/dev/null", O_RDONLY);
 	g_assert(stdinfd >= 0);
 	if(stdinfd != 0) {
