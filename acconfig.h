@@ -1,1 +1,0 @@
-#undef GNOME_ENABLE_DEBUG
