@@ -282,6 +282,8 @@ gnome_gconf_gnome_color_picker_get (GnomeColorPicker *picker,
 				    GConfValueType    type)
 {
 	GConfValue *retval;
+	gushort r, g, b, a;
+	gchar color[14];
 
 	g_return_val_if_fail (picker != NULL, NULL);
 	g_return_val_if_fail (GNOME_IS_COLOR_PICKER (picker), NULL);
@@ -290,7 +292,9 @@ gnome_gconf_gnome_color_picker_get (GnomeColorPicker *picker,
 	retval = gconf_value_new (type);
 	switch (type) {
 	case GCONF_VALUE_STRING:
-		
+		gnome_color_picker_get_i16 (picker, &r, &g, &b, &a);
+		g_snprintf (color, 13, "#%04X%04X%04X", r, g, b);
+		gconf_value_set_string (retval, color);
 		break;
 	default:
 		g_assert_not_reached ();
@@ -304,3 +308,4 @@ gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
 {
 	
 }
+
