@@ -1,17 +1,20 @@
+# translation of cs.po to Czech
 # Czech translation of libgnome
 # This file is distributed under the same license as the libgnome package.
 # Miloslav Trmac <mitr@volny.cz>, 2002.
+# Michal Bukovjan <bukm@centrum.cz>, 2003
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.0\n"
-"POT-Creation-Date: 2003-01-21 10:34+0100\n"
-"PO-Revision-Date: 2002-12-06 12:32+0100\n"
-"Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
+"Project-Id-Version: cs\n"
+"POT-Creation-Date: 2003-01-22 20:52+0100\n"
+"PO-Revision-Date: 2003-01-22 21:08GMT\n"
+"Last-Translator: Michal Bukovjan <bukm@centrum.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error Messages"
@@ -323,7 +326,7 @@ msgstr "MODUL1,MODUL2,..."
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr "Extra factory Moniker"
+msgstr "Generátor Extra Moniker"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
@@ -340,7 +343,7 @@ msgstr "Neznámý typ"
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr "V konfiguraci nenalezen klíč %s"
+msgstr "V nastavení nenalezen klíč %s"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
@@ -351,8 +354,7 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Zakázat, jsou-li zároveň stisknuty dvě klávesy."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr "Nepřijmout klávesu jako stisknutou, není-li podržena @delay milisekund"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
@@ -360,8 +362,7 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Kolik milisekund trvá přejít z 0 na maximální rychlost"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr "Kolik milisekund počkat, než začnou fungovat klávesy pro pohyb myši"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
@@ -430,8 +431,7 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "Jestli implicitní prohlížeč nápovědy potřebuje k běhu terminál"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Argument používaný pro spuštění programů v terminálu definovaném v klíči "
 "'exec'."
@@ -446,8 +446,7 @@ msgstr "Aplikace terminálu"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr ""
-"Terminálový program, který použít pro start aplikací, který jej vyžadují"
+msgstr "Terminálový program, který použít pro start aplikací, který jej vyžadují"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
@@ -540,8 +539,7 @@ msgstr "Primární barva"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr ""
-"Pravá nebo dolní barva při kreslení přechodů, nepoužito pro jedinou barvu."
+msgstr "Pravá nebo dolní barva při kreslení přechodů, nepoužito pro jedinou barvu."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -673,11 +671,11 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr "Jestli moho menu zobrazovat ikonu vedle položky menu"
+msgstr "Jestli mohou menu zobrazovat ikonu vedle položky menu"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Whether menus should have a tearoff"
-msgstr "Jestly mají menu mít úchyt"
+msgstr "Jestli mají menu mít úchyt"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid ""
@@ -709,7 +707,7 @@ msgstr "Jestli použít vlastní písmo v aplikacích gtk+."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
-msgstr "Jméno soubouru se zvukem zvonku, který přehrávat"
+msgstr "Jméno souboru se zvukem zvonku, který přehrávat"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -730,26 +728,24 @@ msgid "Cursor font"
 msgstr "Písmo kurzoru"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
-#, fuzzy
 msgid "Cursor size"
-msgstr "Blikání kurzoru"
+msgstr "Velikost kurzoru"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
-#, fuzzy
 msgid "Cursor theme"
-msgstr "Písmo kurzoru"
+msgstr "Téma kurzoru"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later. This value is only propagated to the X server start "
 "of each session, so changing it mid-session won't have an effect until the "
 "next time you log in."
 msgstr ""
-"Jméno písma kurzoru. Není-li nastaveno, používá se implicitní písmo. Tato "
-"hodnota je předána X serveru jen při startu každého sezení, takže její změna "
-"v době sezení nebude mít, dokud se znovu nepřihlásíte."
+"Název tématu kurzoru. Je použit pouze X serverem podporujícím Xcursor, "
+"například XFree86 4.3 nebo pozdější. Tato hodnota je předána X serveru "
+"pouze při startu každého sezení, takže její změna uprostřed sezení nebude "
+"mít vliv do příštího přihlášení."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -777,16 +773,16 @@ msgid ""
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"Jméno písma kurzoru. Není-li nastaveno, používá se implicitní písmo. Tato "
+"Název písma kurzoru. Není-li nastaveno, používá se implicitní písmo. Tato "
 "hodnota je předána X serveru jen při startu každého sezení, takže její změna "
-"v době sezení nebude mít, dokud se znovu nepřihlásíte."
+"v době sezení nebude mít vliv, dokud se znovu nepřihlásíte."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr ""
-"Zvýrazní současné umístění ukazetele, když je stisknuta a uvolněna klávesa "
+"Zvýrazní současné umístění ukazatele, když je stisknuta a uvolněna klávesa "
 "Control"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
@@ -814,15 +810,14 @@ msgid "Single click to open icons"
 msgstr "Jednoduché kliknutí otevírá ikony"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-#, fuzzy
 msgid ""
 "Size of the cursor referenced by cursor_theme. This value is only propagated "
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
-"Jméno písma kurzoru. Není-li nastaveno, používá se implicitní písmo. Tato "
-"hodnota je předána X serveru jen při startu každého sezení, takže její změna "
-"v době sezení nebude mít, dokud se znovu nepřihlásíte."
+"Velikost kurzoru odkazovaného přes cursor_theme. Tato hodnota je předána X serveru "
+"pouze při startu každého sezení, takže její změna uprostřed sezení nebude "
+"mít vliv do příštího přihlášení."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -909,21 +904,16 @@ msgstr ""
 "preferences"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr ""
-"Nastaveno na true, aby program určený v programs/ghelp obsluhoval URL ghelp"
+msgid "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr "Nastaveno na true, aby program určený v programs/ghelp obsluhoval URL ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
-msgstr ""
-"Nastaveno na true, aby program určený v programs/info obsluhoval URL info"
+msgid "Set to true to have a program specified in programs/info handle info URLs"
+msgstr "Nastaveno na true, aby program určený v programs/info obsluhoval URL info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:17
 msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr ""
-"Nastaveno na true, aby program určený v programs/man obsluhoval URL man"
+msgstr "Nastaveno na true, aby program určený v programs/man obsluhoval URL man"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid ""
@@ -958,10 +948,8 @@ msgstr ""
 "URL system-settings"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:22
-msgid ""
-"Set to true to have a program specified in trash/command handle trash URLs"
-msgstr ""
-"Nastaveno na true, aby program určený v trash/command obsluhoval URL trash"
+msgid "Set to true to have a program specified in trash/command handle trash URLs"
+msgstr "Nastaveno na true, aby program určený v trash/command obsluhoval URL trash"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:23
 msgid "True if the program to handle this URL should be run in a terminal"
@@ -1002,3 +990,4 @@ msgstr "Obsluha URL pro stránky system-settings"
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:32
 msgid "URL handler for trash pages"
 msgstr "Obsluha URL pro stránky trash"
+
