@@ -5,6 +5,8 @@ typedef struct {
 	char *path, *opath;
 } ParsedPath;
 
+const char * GNOME_CONFIG_PARSE_ERROR = "__(null)__";
+
 static void
 release_path (ParsedPath *p)
 {
@@ -25,22 +27,27 @@ parse_path (const char *path, gint priv)
 	else
 		p->opath = g_strconcat (prefix, path, NULL);
 
-	p->path = p->opath;
+	p->path    = p->opath;
+	p->file    = GNOME_CONFIG_PARSE_ERROR;
+	p->section = GNOME_CONFIG_PARSE_ERROR;
+	p->key     = GNOME_CONFIG_PARSE_ERROR;
 
 	if (*p->path == '='){
+		char *token;
 		/* If it is an absolute path name */
 		p->path++;
-		p->file    = g_strdup (strtok (p->path, "="));
-		p->section = strtok (NULL, "/=");
-		p->key     = strtok (NULL, "=");
+		if ((token = strtok (p->path, "=")))
+			p->file    = g_strdup (token);
+		if ((token = strtok (NULL, "/=")))
+			p->section = token;
+		if ((token = strtok (NULL, "=")))
+			p->key     = token;
 		p->def     = strtok (NULL, "=");
 	} else {
 		char *end;
 
 		p->file    = p->path;
 		p->def     = NULL;
-		p->section = NULL;
-		p->key     = NULL;
 		if ((end = strchr (p->path, '='))) {
 			*end = 0;
 			p->def = end + 1;
@@ -76,6 +83,11 @@ parse_path (const char *path, gint priv)
 			p->file = g_concat_dir_and_file (gnome_user_dir,
 							 p->file);
 		}
+	}
+	if (p->file    == GNOME_CONFIG_PARSE_ERROR ||
+	    p->section == GNOME_CONFIG_PARSE_ERROR ||
+	    p->section == GNOME_CONFIG_PARSE_ERROR) {
+		g_warning ("invalid gnome config path \'%s\'\n", path);
 	}
 	return p;
 }
