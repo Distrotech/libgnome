@@ -549,7 +549,7 @@ error_idle_func(gpointer data)
 
         pending_errors = NULL;
         
-        gtk_object_unref(GTK_OBJECT(eid.client));
+        g_object_unref(G_OBJECT(eid.client));
         eid.client = NULL;
 
         return FALSE;
@@ -559,10 +559,10 @@ static void
 gnome_default_gconf_client_error_handler (GConfClient                  *client,
                                           GError                       *error)
 {
-        gtk_object_ref(GTK_OBJECT(client));
+        g_object_ref(G_OBJECT(client));
         
         if (eid.client) {
-                gtk_object_unref(GTK_OBJECT(eid.client));
+                g_object_unref(G_OBJECT(eid.client));
         }
         
         eid.client = client;
