@@ -1,3 +1,9 @@
+2001-10-23  jacob berkman  <jacob@ximian.com>
+
+	* gnome-program.c (gnome_program_initv): register the
+	libgnome_module if it wasn't passed in.  this isn't the gross hack
+	it was when gtk didn't have gdk_threads_init().
+
 2001-10-19  jacob berkman  <jacob@ximian.com>
 
 	* gnome-preferences.c (do_warning): don't be so damn annoying

@@ -1543,6 +1543,7 @@ gnome_program_initv (GType type,
 
     if (!program_initialized) {
 	const char *ctmp;
+	const GnomeModuleInfo *libgnome_module;
 
 	program_module_list = g_ptr_array_new ();
 	program_modules = g_ptr_array_new ();
@@ -1550,11 +1551,15 @@ gnome_program_initv (GType type,
 	/* keep array NULL terminated */
 	g_ptr_array_add (program_modules, NULL);
 
-	/* Always register libgnome. */
-	gnome_program_module_register (libgnome_module_info_get ());
-
 	/* Register the requested modules. */
 	gnome_program_module_register (module_info);
+
+	/* 
+	 * make sure libgnome is always registered.
+	 */
+	libgnome_module = libgnome_module_info_get ();
+	if (!gnome_program_module_registered (libgnome_module))
+		gnome_program_module_register (libgnome_module);
 
 	/* Only load shlib modules and do all that other good
 	 * stuff when not setuid/setgid, for obvious reasons */
