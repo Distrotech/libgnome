@@ -32,9 +32,6 @@ bonobo_moniker_config_resolve (BonoboMoniker *moniker,
 
 		bonobo_exception_set (ev, ex_Bonobo_Moniker_InterfaceNotFound);
 	}
-	else if (!strcmp (requested_interface, "IDL:Bonobo/Control:1.0")) {
-		/* FIXME */
-	}
 	else
 		bonobo_exception_set (ev, ex_Bonobo_Moniker_InterfaceNotFound);
 
