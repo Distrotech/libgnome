@@ -67,7 +67,7 @@ function generate (generate_what)
     {
       printf ("  { \"%s\", &%s,\n", type_name, type_macro);
       if (generate_what == "BOXED")
-	printf ("    GTK_TYPE_%s, %s, %s, },\n", generate_what, boxed_init, boxed_copy, boxed_free, is_refcounted);
+	printf ("    GTK_TYPE_%s, %s, %s, %s, %s },\n", generate_what, boxed_init, boxed_copy, boxed_free, is_refcounted);
       else
 	printf ("    GTK_TYPE_%s, %s_values },\n", generate_what, type_ident);
     }
@@ -138,14 +138,21 @@ function generate (generate_what)
 	  } while ($0 ~ /^[ \t]*$/);
 	  tmp_var4 = $1;
 	  sub ("\).*", "", tmp_var4);
-	  if (tmp_var1 ~ /^[_A-Za-z][_A-Za-z0-9]*$/ &&
+	  if (tmp_var1 ~ /^(\#[fF])|([_A-Za-z][_A-Za-z0-9]*)$/ &&
 	      tmp_var2 ~ /^[_A-Za-z][_A-Za-z0-9]*$/ &&
-	      tmp_var3 ~ /^[_A-Za-z][_A-Za-z0-9]*$/)
+	      tmp_var3 ~ /^[_A-Za-z][_A-Za-z0-9]*$/ &&
+	      tmp_var4 ~ /^(\#[tfTF])$/)
 	      {
-		  boxed_init = tmp_var1;
+		  if (tmp_var1 ~ /^(\#[fF])$/)
+		     boxed_init = "NULL";
+		  else
+		     boxed_init = tmp_var1;
 		  boxed_copy = tmp_var2;
 		  boxed_free = tmp_var3;
-		  is_refcounted = tmp_var4;
+		  if (tmp_var4 ~ /^(\#[tT])$/)
+		     is_refcounted = "TRUE";
+		  else
+		     is_refcounted = "FALSE";
 		  # printf ("read boxed funcs: %s %s %s\n", boxed_init, boxed_copy, boxed_free) > "/dev/stderr";
 	      }
 	  generate("BOXED");
