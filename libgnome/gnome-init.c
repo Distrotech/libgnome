@@ -346,6 +346,10 @@ libgnome_post_args_parse (GnomeProgram *program,
 	setlocale (LC_ALL, "");
 	/* XXX todo - handle multiple installation dirs */
 	bindtextdomain (GETTEXT_PACKAGE, LIBGNOME_LOCALEDIR);
+#ifdef HAVE_BIND_TEXTDOMAIN_CODESET
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+#endif
+
 }
 
 static struct poptOption gnomelib_options [] = {
