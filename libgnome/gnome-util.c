@@ -185,7 +185,7 @@ int
 gnome_setenv (const char *name, const char *value, gboolean overwrite)
 {
 #if defined (HAVE_SETENV)
-	return setenv (name, value, overwrite);
+	return setenv (name, value != NULL ? value : "", overwrite);
 #else
 	char *string;
 	

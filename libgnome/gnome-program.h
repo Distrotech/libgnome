@@ -81,6 +81,10 @@ struct _GnomeProgram
 struct _GnomeProgramClass
 {
     GObjectClass object_class;
+
+    /* we may want to add stuff in the future */
+    gpointer padding1;
+    gpointer padding2;
 };
 
 GType
