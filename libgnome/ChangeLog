@@ -1,3 +1,8 @@
+Fri Jan 11 15:01:56 2002  George Lebl <jirka@5z.com>
+
+	* gnome-init.c: when setting values as GValue's, use
+	  g_object_set_property, and not g_object_set
+
 2002-01-08  Richard Hestilow  <hestilow@ximian.com>
 
 	* gnome-sound.c (use_sound): Check to see if NULL is really
