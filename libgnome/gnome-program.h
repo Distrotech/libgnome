@@ -104,6 +104,21 @@ gnome_program_locate_file               (GnomeProgram    *program,
 					 gboolean         only_if_exists,
 					 GSList         **ret_locations);
 
+/* The errors can come from gnome_url_show */
+/* Note these help functions are in no way final API, do not use!  They're here so
+ * that we may admire their beauty! */
+gboolean
+gnome_program_display_app_help		(GnomeProgram    *program,
+					 const gchar     *filename /* no extension */,
+					 const gchar     *section,
+					 GError         **error);
+gboolean
+gnome_program_display_help		(GnomeProgram    *program,
+					 const gchar     *filename /* no extension */,
+					 const gchar     *section,
+					 GError         **error);
+
+
 #define GNOME_PARAM_MODULE_INFO         "module-info"
 #define GNOME_PARAM_MODULES             "modules"
 #define GNOME_PARAM_POPT_TABLE          "popt-table"

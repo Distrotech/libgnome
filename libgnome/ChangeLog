@@ -1,3 +1,15 @@
+Tue Aug 28 23:40:23 2001  George Lebl <jirka@5z.com>
+
+	* gnome-program.c: app prefix defaults to NULL, which will cause
+	  a g_warning (maybe should be g_error) when locate_file is used
+	  for an app relative domain.  Also don't search the path for
+	  app relative files.
+
+	* gnome-program.[ch]:  Add a proposal of functions implementation
+	  for displaying app and system help.  This is not part of the
+	  API people should use.  It's just for people to leer at for
+	  now.
+
 Tue Aug 28 22:45:44 2001  George Lebl <jirka@5z.com>
 
 	* gnome-program.[ch]: To make help file (and other files) location

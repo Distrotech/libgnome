@@ -42,6 +42,7 @@
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-init.h>
 #include <libgnome/gnome-i18n.h>
+#include <libgnome/gnome-url.h>
 
 #include <gobject/gboxed.h>
 #include <gobject/gvaluearray.h>
@@ -558,7 +559,7 @@ gnome_program_class_init (GnomeProgramClass *class)
 	(object_class,
 	 PROP_APP_PREFIX,
 	 g_param_spec_string (GNOME_PARAM_APP_PREFIX, NULL, NULL,
-			      LIBGNOME_PREFIX,
+			      NULL,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
 
@@ -815,9 +816,9 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 			   GSList **ret_locations)
 {
     gchar *prefix_rel = NULL, *attr_name = NULL, *attr_rel = NULL;
-    gchar *prefix_name = NULL;
     gchar fnbuf [PATH_MAX], *retval = NULL, **ptr;
     gboolean append_app_id = FALSE;
+    gboolean search_path = TRUE;
     GValue value = { 0, };
 
     if (program == NULL)
@@ -841,75 +842,69 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
     case GNOME_FILE_DOMAIN_LIBDIR:
 	prefix_rel = "/lib";
 	attr_name = GNOME_PARAM_GNOME_LIBDIR;
-	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "";
 	break;
     case GNOME_FILE_DOMAIN_DATADIR:
 	prefix_rel = "/share";
 	attr_name = GNOME_PARAM_GNOME_DATADIR;
-	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "";
 	break;
     case GNOME_FILE_DOMAIN_SOUND:
 	prefix_rel = "/share/sounds";
 	attr_name = GNOME_PARAM_GNOME_DATADIR;
-	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "/sounds";
 	break;
     case GNOME_FILE_DOMAIN_PIXMAP:
 	prefix_rel = "/share/pixmaps";
 	attr_name = GNOME_PARAM_GNOME_DATADIR;
-	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "/pixmaps";
 	break;
     case GNOME_FILE_DOMAIN_CONFIG:
 	prefix_rel = "/etc";
 	attr_name = GNOME_PARAM_GNOME_SYSCONFDIR;
-	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "";
 	break;
     case GNOME_FILE_DOMAIN_HELP:
 	prefix_rel = "/share/gnome/help";
 	attr_name = GNOME_PARAM_GNOME_DATADIR;
-	prefix_name = GNOME_PARAM_GNOME_PREFIX;
 	attr_rel = "/gnome/help";
 	break;
     case GNOME_FILE_DOMAIN_APP_LIBDIR:
 	prefix_rel = "/lib";
 	attr_name = GNOME_PARAM_APP_LIBDIR;
-	prefix_name = GNOME_PARAM_APP_PREFIX;
 	attr_rel = "";
+	search_path = FALSE;
 	break;
     case GNOME_FILE_DOMAIN_APP_DATADIR:
 	prefix_rel = "/share";
 	attr_name = GNOME_PARAM_APP_DATADIR;
-	prefix_name = GNOME_PARAM_APP_PREFIX;
 	attr_rel = "";
+	search_path = FALSE;
 	break;
     case GNOME_FILE_DOMAIN_APP_SOUND:
 	prefix_rel = "/share/sounds";
 	attr_name = GNOME_PARAM_APP_DATADIR;
-	prefix_name = GNOME_PARAM_APP_PREFIX;
 	attr_rel = "/sounds";
+	search_path = FALSE;
 	break;
     case GNOME_FILE_DOMAIN_APP_PIXMAP:
 	prefix_rel = "/share/pixmaps";
 	attr_name = GNOME_PARAM_APP_DATADIR;
-	prefix_name = GNOME_PARAM_APP_PREFIX;
 	attr_rel = "/pixmaps";
+	search_path = FALSE;
 	break;
     case GNOME_FILE_DOMAIN_APP_CONFIG:
 	prefix_rel = "/etc";
 	attr_name = GNOME_PARAM_APP_SYSCONFDIR;
-	prefix_name = GNOME_PARAM_APP_PREFIX;
 	attr_rel = "";
+	search_path = FALSE;
 	break;
     case GNOME_FILE_DOMAIN_APP_HELP:
 	prefix_rel = "/share/gnome/help";
 	attr_name = GNOME_PARAM_APP_DATADIR;
-	prefix_name = GNOME_PARAM_APP_PREFIX;
 	attr_rel = "/gnome/help";
 	append_app_id = TRUE;
+	search_path = FALSE;
 	break;
     default:
 	g_warning (G_STRLOC ": unknown file domain %d", domain);
@@ -926,18 +921,9 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 
 	/* use the prefix */
 	if (dir == NULL) {
-		g_value_init (&value, G_TYPE_STRING);
-		g_object_get_property (G_OBJECT (program), prefix_name, &value);
-
-		/* Assertion, there is ALWAYS a prefix,
-		 * if not we are screwed anyway, perhaps this
-		 * should be a g_error*/
-		g_assert (g_value_get_string (&value) != NULL);
-
-		dir = g_concat_dir_and_file (g_value_get_string (&value),
-					     prefix_rel);
-
-		g_value_unset (&value);
+		g_warning (G_STRLOC ": Directory properties not set correctly.  "
+			   "Cannot locate application specific files.");
+		return NULL;
 	}
 
 	if (dir != NULL) {
@@ -956,7 +942,7 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 	goto out;
 
     /* Now check the GNOME_PATH. */
-    for (ptr = program->_priv->gnome_path; ptr && *ptr; ptr++) {
+    for (ptr = program->_priv->gnome_path; search_path && ptr && *ptr; ptr++) {
 	if (append_app_id)
 	    g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s/%s",
 			*ptr, prefix_rel, program->_priv->app_id, file_name);
@@ -974,6 +960,126 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 
  out:
     return retval;
+}
+
+/* Tenative function, do not take seriously */
+gboolean
+gnome_program_display_app_help (GnomeProgram    *program,
+				const gchar     *filename /* no extension */,
+				const gchar     *section,
+				GError         **error)
+{
+	char *file;
+	char *url;
+	int i;
+	char *exts[] = { ".sgml", ".html", NULL };
+	GError *err = NULL;
+
+	file = gnome_program_locate_file (program,
+					  GNOME_FILE_DOMAIN_APP_HELP,
+					  filename,
+					  FALSE /* only_if_exists */,
+					  NULL /* ret_locations */);
+
+	if (file == NULL)
+		return FALSE;
+
+	url = NULL;
+
+	for (i = 0; exts[i] != NULL; i++) {
+		char *full = g_strconcat (file, exts[i], NULL);
+		if (g_file_test (full, G_FILE_TEST_EXISTS)) {
+			url = g_strconcat ("ghelp:", full,
+					   "?", section, NULL);
+			g_free (full);
+			break;
+		}
+		g_free (full);
+	}
+
+	g_free (file);
+
+	if (url == NULL) {
+		return FALSE;
+	}
+
+	gnome_url_show_full (NULL /* display_context */,
+			     url /* url to show */,
+			     "help" /* url type */,
+			     GNOME_URL_DISPLAY_NO_RETURN_CONTEXT,
+			     &err);
+
+	g_free (url);
+
+	if (err != NULL) {
+		*error = err;
+		return FALSE;
+	} else {
+		return TRUE;
+	}
+}
+
+/* Tenative function, do not take seriously */
+gboolean
+gnome_program_display_help (GnomeProgram    *program,
+			    const gchar     *filename /* no extension */,
+			    const gchar     *section,
+			    GError         **error)
+{
+	char *url;
+	int i;
+	char *exts[] = { ".sgml", ".html", NULL };
+	GError *err = NULL;
+	GSList *ret_locations = NULL, *li;
+
+	gnome_program_locate_file (program,
+				   GNOME_FILE_DOMAIN_HELP,
+				   filename,
+				   FALSE /* only_if_exists */,
+				   &ret_locations);
+
+	if (ret_locations == NULL)
+		return FALSE;
+
+	url = NULL;
+
+	for (li = ret_locations; li != NULL; li = li->next) {
+		char *file = li->data;
+		for (i = 0; exts[i] != NULL; i++) {
+			char *full = g_strconcat (file, exts[i], NULL);
+			if (g_file_test (full, G_FILE_TEST_EXISTS)) {
+				url = g_strconcat ("ghelp:", full,
+						   "?", section, NULL);
+				g_free (full);
+				break;
+			}
+			g_free (full);
+		}
+		if (url != NULL)
+			break;
+	}
+
+	g_slist_foreach (ret_locations, (GFunc) g_free, NULL);
+	g_slist_free (ret_locations);
+
+	if (url == NULL) {
+		return FALSE;
+	}
+
+	gnome_url_show_full (NULL /* display_context */,
+			     url /* url to show */,
+			     "help" /* url type */,
+			     GNOME_URL_DISPLAY_NO_RETURN_CONTEXT,
+			     &err);
+
+	g_free (url);
+
+	if (err != NULL) {
+		*error = err;
+		return FALSE;
+	} else {
+		return TRUE;
+	}
 }
 
 /******** modules *******/
