@@ -37,6 +37,7 @@
 #include <gtk/gtklist.h>
 #include <gtk/gtklistitem.h>
 #include <gtk/gtksignal.h>
+#include "gnome-macros.h"
 #include "libgnome/libgnomeP.h"
 #include "gnome-file-selector.h"
 #include "gnome-selectorP.h"
@@ -90,31 +91,14 @@ static void      update_file_list_handler       (GnomeSelector   *selector);
 static void      stop_loading_handler           (GnomeSelector   *selector);
 
 
-static GnomeEntryClass *parent_class;
-
-guint
-gnome_file_selector_get_type (void)
-{
-    static guint fselector_type = 0;
-
-    if (!fselector_type) {
-	GtkTypeInfo fselector_info = {
-	    "GnomeFileSelector",
-	    sizeof (GnomeFileSelector),
-	    sizeof (GnomeFileSelectorClass),
-	    (GtkClassInitFunc) gnome_file_selector_class_init,
-	    (GtkObjectInitFunc) gnome_file_selector_init,
-	    NULL,
-	    NULL,
-	    NULL
-	};
-
-	fselector_type = gtk_type_unique 
-	    (gnome_entry_get_type (), &fselector_info);
-    }
-
-    return fselector_type;
-}
+/**
+ * gnome_file_selector_get_type
+ *
+ * Returns the type assigned to the GnomeFileSelector widget.
+ **/
+/* The following defines the get_type */
+GNOME_CLASS_BOILERPLATE (GnomeFileSelector, gnome_file_selector,
+			 GnomeEntry, gnome_entry)
 
 static void
 gnome_file_selector_class_init (GnomeFileSelectorClass *class)
@@ -126,8 +110,6 @@ gnome_file_selector_class_init (GnomeFileSelectorClass *class)
     selector_class = (GnomeSelectorClass *) class;
     object_class = (GtkObjectClass *) class;
     gobject_class = (GObjectClass *) class;
-
-    parent_class = gtk_type_class (gnome_entry_get_type ());
 
     object_class->destroy = gnome_file_selector_destroy;
     gobject_class->finalize = gnome_file_selector_finalize;
@@ -372,8 +354,7 @@ stop_loading_handler (GnomeSelector *selector)
 
     /* it's important to always call the parent handler of this signal
      * since the parent class may have pending async operations as well. */
-    if (GNOME_SELECTOR_CLASS (parent_class)->stop_loading)
-	(* GNOME_SELECTOR_CLASS (parent_class)->stop_loading) (selector);
+    GNOME_CALL_PARENT_HANDLER (GNOME_SELECTOR_CLASS, stop_loading, (selector));
 }
 
 void
@@ -423,8 +404,8 @@ activate_entry_handler (GnomeSelector *selector)
 
     fselector = GNOME_FILE_SELECTOR (selector);
 
-    if (GNOME_SELECTOR_CLASS (parent_class)->activate_entry)
-	(* GNOME_SELECTOR_CLASS (parent_class)->activate_entry) (selector);
+    GNOME_CALL_PARENT_HANDLER (GNOME_SELECTOR_CLASS, activate_entry,
+			       (selector));
 
     text = gnome_selector_get_entry_text (selector);
 
@@ -660,11 +641,6 @@ update_file_list_handler (GnomeSelector *selector)
 
     g_message (G_STRLOC);
 
-#if 0
-    if (GNOME_SELECTOR_CLASS (parent_class)->update_file_list)
-	(* GNOME_SELECTOR_CLASS (parent_class)->update_file_list) (selector);
-#endif
-
     filter = gnome_vfs_directory_filter_new
 	(GNOME_VFS_DIRECTORY_FILTER_NONE,
 	 GNOME_VFS_DIRECTORY_FILTER_NODIRS |
@@ -831,8 +807,7 @@ gnome_file_selector_destroy (GtkObject *object)
 
     fselector = GNOME_FILE_SELECTOR (object);
 
-    if (GTK_OBJECT_CLASS (parent_class)->destroy)
-	(* GTK_OBJECT_CLASS (parent_class)->destroy) (object);
+    GNOME_CALL_PARENT_HANDLER (GTK_OBJECT_CLASS, destroy, (object));
 }
 
 static void
@@ -848,6 +823,5 @@ gnome_file_selector_finalize (GObject *object)
     g_free (fselector->_priv);
     fselector->_priv = NULL;
 
-    if (G_OBJECT_CLASS (parent_class)->finalize)
-	(* G_OBJECT_CLASS (parent_class)->finalize) (object);
+    GNOME_CALL_PARENT_HANDLER (G_OBJECT_CLASS, finalize, (object));
 }
