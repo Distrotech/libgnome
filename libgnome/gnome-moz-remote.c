@@ -45,6 +45,7 @@
 #include <unistd.h>
 #include <string.h>
 
+#include "gnomesupport.h"
 #include <libgnome/libgnome.h>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
