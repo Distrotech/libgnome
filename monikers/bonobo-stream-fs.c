@@ -162,7 +162,7 @@ gnome_stream_fs_class_init (GnomeStreamFSClass *class)
 /**
  * gnome_stream_fs_get_type:
  *
- * Returns the GtkType for a GnomeStreamFS interface object.
+ * Returns the GtkType for the GnomeStreamFS class.
  */
 GtkType
 gnome_stream_fs_get_type (void)
@@ -313,9 +313,14 @@ gnome_stream_fs_open (GnomeStorageFS *parent, const CORBA_char *path, GNOME_Stor
  * @fs: A storage file system object.
  * @path: The path to the file to be opened.
  *
- * Creates a new GnomeStream which is bound to the file specified by @path.
- * If @fs is not %NULL, @path is taken to be relative to the storage provided
- * in @fs.
+ * Creates a new GnomeStreamFS object which is bound to the file
+ * specified by @path.  If @fs is not %NULL, @path is taken to be
+ * relative to the storage provided in @fs.  When data is read out of
+ * or written into the returned GnomeStream object, the read() and
+ * write() operations are mapped to the corresponding operations on
+ * the specified file.
+ *
+ * Returns: the constructed GnomeStream object which is bound to the specified file.
  */
 GnomeStream *
 gnome_stream_fs_create (GnomeStorageFS *fs, const CORBA_char *path)
