@@ -1,3 +1,26 @@
+2004-05-05  James Henstridge  <james@daa.com.au>
+
+	* Makefile.am: get rid of intltool files on "make distclean".
+
+	* gnome-data/Makefile.am (CLEANFILES): get rid of .soundlist files
+	on "make clean".
+
+	* schemas/Makefile.am (CLEANFILES): get rid of .schemas files in
+	"make clean".
+
+	* monikers/Makefile.am (CLEANFILES): don't use += before =.
+
+	* doc/reference/Makefile.am: update to use gtk-doc.make
+	boilerplate.
+
+	* Makefile.am: require Automake >= 1.7, pass --enable-gtk-doc
+	during "make distcheck".
+
+	* configure.in: update to use more modern autoconf features.  Use
+	GTK_DOC_CHECK macro to find gtk-doc.
+
+	* autogen.sh (REQUIRED_AUTOMAKE_VERSION): require Automake >= 1.7
+
 2004-05-02  Anders Carlsson  <andersca@gnome.org>
 
 	* libgnome/gnome-init.c: (safe_mkdir), (libgnome_userdir_setup):

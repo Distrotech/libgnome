@@ -22,6 +22,9 @@ schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 
 @INTLTOOL_SCHEMAS_RULE@
 
+# get rid of schemas during clean
+CLEANFILES = $(schema_DATA)
+
 if GCONF_SCHEMAS_INSTALL
 # don't do this if we are building in eg. rpm
 install-data-local:

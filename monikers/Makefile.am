@@ -7,7 +7,7 @@ INCLUDES = \
 GNOME_Moniker_std.server.in: GNOME_Moniker_std.server.in.in
 	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir)|" $< > $@
 
-CLEANFILES+=GNOME_Moniker_std.server GNOME_Moniker_std.server.in
+CLEANFILES = GNOME_Moniker_std.server GNOME_Moniker_std.server.in
 
 serverdir = $(libdir)/bonobo/servers
 server_DATA = GNOME_Moniker_std.server

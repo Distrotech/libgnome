@@ -1,34 +1,57 @@
-AC_INIT(libgnome)
+AC_PREREQ(2.54)
 
 # Making releases:
-#   LIBGNOME_MICRO_VERSION += 1;
-#   LIBGNOME_INTERFACE_AGE += 1;
-# if any functions have been added, set LIBGNOME_INTERFACE_AGE to 0.
+#   libgnome_micro_version += 1;
+#   libgnome_interface_age += 1;
+# if any functions have been added, set libgnome_interface_age to 0.
 # if backwards compatibility has been broken,
 # set LIBGNOME_BINARY_AGE and LIBGNOME_INTERFACE_AGE to 0.
 #
-LIBGNOME_MAJOR_VERSION=2
-LIBGNOME_MINOR_VERSION=6
-LIBGNOME_MICRO_VERSION=1
-LIBGNOME_INTERFACE_AGE=1
+m4_define([libgnome_major_version], [2])
+m4_define([libgnome_minor_version], [6])
+m4_define([libgnome_micro_version], [1])
+m4_define([libgnome_interface_age], [1])
 # If you need a modifier for the version number. 
 # Normally empty, but can be used to make "fixup" releases.
-LIBGNOME_EXTRAVERSION=.1
+m4_define([libgnome_extraversion], [.1])
+
+dnl required versions of other tools.
+m4_define([audiofile_required_version], [0.2.3])
+m4_define([esound_required_version],    [0.2.26])
+m4_define([gconf_required_version],     [1.1.11])
+m4_define([glib_required_version],      [2.0.3])
+m4_define([gnome_vfs_required_version], [2.5.3])
+m4_define([libbonobo_required_version], [2.0.0])
+
 
 dnl libtool versioning from libgnome
+m4_define([libgnome_current], [m4_eval(100 * libgnome_minor_version + libgnome_micro_version - libgnome_interface_age)])
+m4_define([libgnome_binary_age], [m4_eval(100 * libgnome_minor_version + libgnome_micro_version)])
+m4_define([libgnome_revision], [libgnome_interface_age])
+m4_define([libgnome_age], [m4_eval(libgnome_binary_age - libgnome_interface_age)])
+m4_define([libgnome_version], [libgnome_major_version().libgnome_minor_version().libgnome_micro_version()libgnome_extraversion()])
 
-LIBGNOME_CURRENT=`expr 100 '*' $LIBGNOME_MINOR_VERSION + $LIBGNOME_MICRO_VERSION - $LIBGNOME_INTERFACE_AGE`
-LIBGNOME_BINARY_AGE=`expr 100 '*' $LIBGNOME_MINOR_VERSION + $LIBGNOME_MICRO_VERSION`
-LIBGNOME_REVISION=$LIBGNOME_INTERFACE_AGE
-LIBGNOME_AGE=`expr $LIBGNOME_BINARY_AGE - $LIBGNOME_INTERFACE_AGE`
-LIBGNOME_VERSION=$LIBGNOME_MAJOR_VERSION.$LIBGNOME_MINOR_VERSION.$LIBGNOME_MICRO_VERSION$LIBGNOME_EXTRAVERSION
+AC_INIT([libgnome], [libgnome_version],
+        [http://bugzilla.gnome.org/enter_bug.cgi?product=libgnome])
+AC_CONFIG_SRCDIR([libgnome/libgnome.h])
+
+LIBGNOME_MAJOR_VERSION=libgnome_major_version
+LIBGNOME_MINOR_VERSION=libgnome_minor_version
+LIBGNOME_MICRO_VERSION=libgnome_micro_version
+LIBGNOME_INTERFACE_AGE=libgnome_interface_age
+
+LIBGNOME_CURRENT=libgnome_current
+LIBGNOME_BINARY_AGE=libgnome_binary_age
+LIBGNOME_REVISION=libgnome_revision
+LIBGNOME_AGE=libgnome_age
+LIBGNOME_VERSION=libgnome_version
 
 AC_SUBST(LIBGNOME_CURRENT)
 AC_SUBST(LIBGNOME_REVISION)
 AC_SUBST(LIBGNOME_AGE)
 
+AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(libgnome, $LIBGNOME_VERSION)
 
 AM_MAINTAINER_MODE
 
@@ -84,13 +107,6 @@ if test "x$enable_rebuilds" = "xyes" && \
 fi
 AC_SUBST(REBUILD)
 
-AUDIOFILE_REQUIRED_VERSION=0.2.3
-ESOUND_REQUIRED_VERSION=0.2.26
-GCONF_REQUIRED_VERSION=1.1.11
-GLIB_REQUIRED_VERSION=2.0.3
-GNOME_VFS_REQUIRED_VERSION=2.5.3
-LIBBONOBO_REQUIRED_VERSION=2.0.0
-
 dnl
 dnl Start of pkg-config checks
 dnl
@@ -98,71 +114,28 @@ dnl We first check for esound and audiofile (which has conditional
 dnl support built in)
 dnl
 
-AUDIOFILE_MODULE="audiofile >= $AUDIOFILE_REQUIRED_VERSION"
-ESOUND_MODULE="esound >= $ESOUND_REQUIRED_VERSION"
-PKG_CHECK_MODULES(SOUND_TEST, $ESOUND_MODULE $AUDIOFILE_MODULE, [
-	AC_DEFINE(HAVE_LIBAUDIOFILE, 1, [Compile with audiofile support])
-	AC_DEFINE(HAVE_ESD, 1, [Compile with esd support])
+SOUND_MODULES="esound >= esound_required_version dnl
+ audiofile >= audiofile_required_version"
+PKG_CHECK_MODULES(SOUND_TEST, [$SOUND_MODULES],
+[
+  AC_DEFINE(HAVE_LIBAUDIOFILE,, [Compile with audiofile support])
+  AC_DEFINE(HAVE_ESD,, [Compile with esd support])
 ],[
-	AUDIOFILE_MODULE=""
-	ESOUND_MODULE=""
+  SOUND_MODULES=""
 ])
 
-PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= $GLIB_REQUIRED_VERSION gmodule-2.0 >= $GLIB_REQUIRED_VERSION gnome-vfs-2.0 >= $GNOME_VFS_REQUIRED_VERSION \
-libbonobo-2.0 >= $LIBBONOBO_REQUIRED_VERSION gconf-2.0 >= $GCONF_REQUIRED_VERSION \
-$AUDIOFILE_MODULE $ESOUND_MODULE)
+PKG_CHECK_MODULES(LIBGNOME, dnl
+ [glib-2.0 >= glib_required_version dnl
+  gmodule-2.0 >= glib_required_version dnl
+  gnome-vfs-2.0 >= gnome_vfs_required_version dnl
+  libbonobo-2.0 >= libbonobo_required_version dnl
+  gconf-2.0 >= gconf_required_version dnl
+  $SOUND_MODULES])
 
 dnl
 dnl Check for gtk-doc
 dnl
-AC_ARG_WITH(html-dir, [  --with-html-dir=PATH path to installed docs ])
-
-if test "x$with_html_dir" = "x" ; then
-  HTML_DIR='${datadir}/gtk-doc/html'
-else
-  HTML_DIR=$with_html_dir
-fi
-
-AC_SUBST(HTML_DIR)
-
-AC_CHECK_PROG(GTKDOC, gtkdoc-mkdb, true, false)
-
-gtk_doc_min_version=0.6
-if $GTKDOC ; then 
-    gtk_doc_version=`gtkdoc-mkdb --version`
-    AC_MSG_CHECKING([gtk-doc version ($gtk_doc_version) >= $gtk_doc_min_version])
-
-    IFS="${IFS= 	}"; gtk_save_IFS="$IFS"; IFS="."
-    set $gtk_doc_version
-    for min in $gtk_doc_min_version ; do
-        cur=$1; shift
-        if test -z $min ; then break; fi
-        if test -z $cur ; then GTKDOC=false; break; fi
-        if test $cur -gt $min ; then break ; fi
-        if test $cur -lt $min ; then GTKDOC=false; break ; fi
-    done
-    IFS="$gtk_save_IFS"
-
-   if $GTKDOC ; then
-      AC_MSG_RESULT(yes)
-   else
-      AC_MSG_RESULT(no)
-      GTKDOC=false
-   fi
-fi
-
-dnl Let people disable the gtk-doc stuff.
-AC_ARG_ENABLE(gtk-doc, [  --enable-gtk-doc  Use gtk-doc to build documentation [default=auto]], enable_gtk_doc="$enableval", enable_gtk_doc=auto)
-
-if test x$enable_gtk_doc = xauto ; then
-  if test x$GTKDOC = xtrue ; then
-    enable_gtk_doc=yes
-  else
-    enable_gtk_doc=no 
-  fi
-fi
-
-AM_CONDITIONAL(ENABLE_GTK_DOC, test x$enable_gtk_doc = xyes)
+GTK_DOC_CHECK([1.0])
 
 dnl Specify the gconf configuration source, 
 dnl default to xml::$(sysconfdir)/gconf/gconf.xml.defaults
@@ -182,16 +155,13 @@ AM_GCONF_SOURCE_2
 dnl
 dnl Substitute these
 dnl
-AC_SUBST(LIBGNOME_CFLAGS)
-AC_SUBST(LIBGNOME_LIBS)
-
 GNOME_VFS_VERSION=`$PKG_CONFIG --modversion gnome-vfs-2.0`
 AC_SUBST(GNOME_VFS_VERSION)
 
 AC_CHECK_LIB(popt, poptStrippedArgv,, AC_MSG_ERROR([popt 1.5 or newer is required to build
 libgnome. You can download the latest version from ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/]))
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 po/Makefile.in
 libgnome/Makefile
@@ -205,4 +175,4 @@ doc/reference/Makefile
 doc/reference/version.xml
 ])
 
-
+AC_OUTPUT
