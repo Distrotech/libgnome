@@ -4,7 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2004-07-13 04:52+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-08-30 16:12+0200\n"
 "PO-Revision-Date: 2004-08-29 19:09+0545\n"
 "Last-Translator: Pawan Chitrakar <pawan@nplinux.org>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -76,16 +77,18 @@ msgstr "आधिपत्यक्षेत्रमा जीनोम_फा�
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "आधिपत्यक्षेत्रमा जीनोम_फाइल_क्षेत्र_प्रयोग_सहायता पत्ता लाउन सकिएन"
 
-#: libgnome/gnome-help.c:185
-#: libgnome/gnome-help.c:200
+#: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
 #, c-format
-msgid "Unable to show help as %s is not a directory.  Please check your installation."
+msgid ""
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
 msgstr "जडानकार्य जाँच्नुहोस्.खोजिएको  %s निर्देशिका देखाउन सकिएन"
 
-#: libgnome/gnome-help.c:209
-#: libgnome/gnome-help.c:225
+#: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, c-format
-msgid "Unable to find the help files in either %s or %s.  Please check your installation"
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
 msgstr "जडानकार्य जाँच्नुहोस्.खोजिएको  %s वा %s निर्देशिका भेट्टाउन सकिएन"
 
 #: libgnome/gnome-help.c:339
@@ -98,11 +101,8 @@ msgstr "सहायता पथमा मिसिल_आईडी  %s भे�
 msgid "Help document %s/%s not found"
 msgstr " सहायता मिसिल  %s/%s पाइएन"
 
-#: libgnome/gnome-i18n.c:86
-msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "स्थानीयताका धेरै अस्थायी तहहरु छन्,एउटा सम्बन्ध शृङ्खला खोज्नु पर्ला"
-
 #  FIXME: get this from bonobo
+#. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
 msgid "Bonobo Support"
 msgstr "बोनोबो सहायता"
@@ -111,16 +111,20 @@ msgstr "बोनोबो सहायता"
 msgid "Bonobo activation Support"
 msgstr "बोनोबो सक्रियता सहायता"
 
-#: libgnome/gnome-init.c:324
-#: libgnome/gnome-init.c:338
+#: libgnome/gnome-init.c:324 libgnome/gnome-init.c:338
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "प्रत्येक प्रयोगकर्ताका लागि जीनोम समायोजन निर्देशिका `%s': %s तयार गर्न सकिएन \n"
+msgstr ""
+"प्रत्येक प्रयोगकर्ताका लागि जीनोम समायोजन निर्देशिका `%s': %s तयार गर्न सकिएन \n"
 
 #: libgnome/gnome-init.c:347
 #, c-format
-msgid "Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
-msgstr "प्रत्येक प्रयोगकर्ताका लागि जीनोम समायोजन निर्देशिका `%s': %s को मोड ०७०० स्थापना गर्न सकिएन \n"
+msgid ""
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
+msgstr ""
+"प्रत्येक प्रयोगकर्ताका लागि जीनोम समायोजन निर्देशिका `%s': %s को मोड ०७०० स्थापना "
+"गर्न सकिएन \n"
 
 #: libgnome/gnome-init.c:354
 #, c-format
@@ -320,11 +324,15 @@ msgid "The specified location is invalid."
 msgstr "निश्चित गरिएको स्थान अबैधानिक"
 
 #: libgnome/gnome-url.c:95
-msgid "There was an error parsing the default action command associated with this location."
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
 msgstr "वर्णानुक्रमका लागि निश्चित आदेश गरिएको स्थानमा गल्ती छ"
 
 #: libgnome/gnome-url.c:103
-msgid "There was an error launching the default action command associated with this location."
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
 msgstr "उद्घाटनका लागि निश्चित आदेश गरिएको स्थानमा गल्ती छ"
 
 #: libgnome/gnome-url.c:111
@@ -375,7 +383,8 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "एकै पटकमा दुईवटा साँचाको बटन दबाउँदा केही काम गर्दैन"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr " @ढिलाइ मिलिसेकेणड नराखिकन बटन दबायो भने स्वीकार गर्दैन"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
@@ -383,7 +392,8 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "शून्वदेखि अधिकतम चाँडो दगुर्न कति मिलिस्केणड समय लिएला"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
 msgstr " कामशुरु गर्न माउस हलचल बटन दबाउनुभन्दा पहिले कति मिलिस्केणड समय पर्खनु पर्ला"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
@@ -411,7 +421,9 @@ msgid "pixels per seconds"
 msgstr "प्रति सेकेण्ड पिक्सेल"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
-msgid "List of assistive technology applications to start when logging into the GNOME desktop"
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
 msgstr "जीनोम मंडलामा प्रवेशका लागि सहयोगी प्रविधिको सूची "
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
@@ -460,8 +472,10 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "जब मोड संचालन गर्न पूर्वनिर्धारित सहयोगी द्रष्टाको आबस्यकता पर्छ"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "'कार्यान्वित 'बटनले परिभाषित गरेको मोडमा कार्यक्रम कार्यान्वयन गर्न प्रयोग गरिएको तर्क "
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"'कार्यान्वित 'बटनले परिभाषित गरेको मोडमा कार्यक्रम कार्यान्वयन गर्न प्रयोग गरिएको तर्क "
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -512,8 +526,12 @@ msgid "Color Shading Type"
 msgstr "रङ्ग ओझेल पार्ने तरिका"
 
 #: schemas/desktop_gnome_background.schemas.in.h:2
-msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr "भित्तेकागज_मिसिल नामले बनाएको प्रतिबवम्ब कसरी चित्रित भएको छ भन्ने निर्क्योलका लागि संभावित मूल्यहरु \"छैन\", \"भित्तेकागज\", \"केन्द्रक\", \"मापन\", \"फराकिलो\"."
+msgid ""
+"Determines how the image set by wallpaper_filename is rendered. Possible "
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+msgstr ""
+"भित्तेकागज_मिसिल नामले बनाएको प्रतिबवम्ब कसरी चित्रित भएको छ भन्ने निर्क्योलका लागि "
+"संभावित मूल्यहरु \"छैन\", \"भित्तेकागज\", \"केन्द्रक\", \"मापन\", \"फराकिलो\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -528,8 +546,12 @@ msgid "Have GNOME draw the desktop background"
 msgstr " जीनोमले मंडलाको पृष्टभूमिलाई खिचेको छ"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
-msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
-msgstr "पृष्टभूमिको रङ्गलाई कसरी ओझेल पार्ने.संभावित मूल्यहरु\"तेर्सो-अनुपात\", \"ठाडो-अनुपात\", र \"ठोस\""
+msgid ""
+"How to shade the background color. Possible values are \"horizontal-gradient"
+"\", \"vertical-gradient\", and \"solid\""
+msgstr ""
+"पृष्टभूमिको रङ्गलाई कसरी ओझेल पार्ने.संभावित मूल्यहरु\"तेर्सो-अनुपात\", \"ठाडो-अनुपात\", र "
+"\"ठोस\""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -640,7 +662,9 @@ msgid "Module for GtkFileChooser"
 msgstr "जिटिके फाइल चयकका लागि नमूना"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
-msgid "Module to use as the filesystem model for the GtkFileChooser widget. Possible values are \"gnome-vfs\" and \"gtk+\"."
+msgid ""
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr "जिटिके फाइल चयकऔजारको नमूना संभावित मूल्यहरु\"gnome-vfs\"  र \"gtk+\" हुन्"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
@@ -648,7 +672,8 @@ msgid "Monospace font"
 msgstr "निश्चित आयतनको लिपि"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "मोडहरुमा प्रयोग हुने निश्चित आयतनको लिपिको नाम"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
@@ -684,7 +709,9 @@ msgid "Toolbar Style"
 msgstr "शीर्षरेखाको शैली"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
-msgid "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and \"text\""
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr "शीर्षरेखाको शैलीका स्वीकृत मूल्यहरु\"दुबै\", \"दुबै_तर्सा\", \"चित्र\", र \"पाठ\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
@@ -696,8 +723,12 @@ msgid "Whether Applications should have accessibility support"
 msgstr "यदि प्रयोगमा संभावित उपलब्धताको सहयोग छ भने"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
-msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
-msgstr "यदि रङ्गचित्राङ्कन देखाउनु छ भने याद राख्नुहोस्:यो सर्बब्यापी बटन हो,यसले विण्डो प्रबन्धकको ब्यहोरा तथा समूहमा परिवर्तन गरिदिन्छ "
+msgid ""
+"Whether animations should be displayed. Note: This is a global key, it "
+"changes the behaviour of the window manager, the panel etc."
+msgstr ""
+"यदि रङ्गचित्राङ्कन देखाउनु छ भने याद राख्नुहोस्:यो सर्बब्यापी बटन हो,यसले विण्डो प्रबन्धकको "
+"ब्यहोरा तथा समूहमा परिवर्तन गरिदिन्छ "
 
 #: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether menus may display an icon next to a menu entry"
@@ -720,7 +751,9 @@ msgid "Whether the user can detach toolbars and move them around"
 msgstr "कर्ताले शीर्षरेखा नाघेर त्यसलाई अन्यत्र सार्नसक्छ"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:38
-msgid "Whether the user can dynamically type a new accelerator when a menu is popped up"
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
 msgstr "अचानक सूची देखापर्‍यो भने कर्ताले सघनरुपले नयाँ प्रवेग टंकण गर्नसक्छ"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:39
@@ -748,20 +781,37 @@ msgid "Disable saving files to disk"
 msgstr "डिस्कमा भण्डारण गरेको मिसिल निष्क्रिय पार्नुहोस्"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:5
-msgid "Prevent the user from accessing the terminal or specifying a command line to be executed. For example, this would disable access to the panel's \"Run Application\" dialog."
-msgstr "कर्तालाई अन्तिम मोडमा जने सुविधाबाट वा निश्चित निर्देशन सञ्चालन हूनबाट रोक .उदाहरणका लागि यसले समूहको \"दौड प्रयोग\" संवाद. आदि लाई निष्क्रिय पार्छ"
+msgid ""
+"Prevent the user from accessing the terminal or specifying a command line to "
+"be executed. For example, this would disable access to the panel's \"Run "
+"Application\" dialog."
+msgstr ""
+"कर्तालाई अन्तिम मोडमा जने सुविधाबाट वा निश्चित निर्देशन सञ्चालन हूनबाट रोक .उदाहरणका "
+"लागि यसले समूहको \"दौड प्रयोग\" संवाद. आदि लाई निष्क्रिय पार्छ"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
-msgid "Prevent the user from modifying print settings. For example, this would disable access to all applications' \"Print Setup\" dialogs."
-msgstr "कर्तालाई टंकण मिलान कार्यमा संशोधन गर्नबाट रोक . उदाहरणका लागि यसले संपूर्ण  \"टंकण जडान\" वार्ता \"आदिको सुविधालाई निष्क्रिय बनाउँछ"
+msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all applications' \"Print Setup\" dialogs."
+msgstr ""
+"कर्तालाई टंकण मिलान कार्यमा संशोधन गर्नबाट रोक . उदाहरणका लागि यसले संपूर्ण  \"टंकण "
+"जडान\" वार्ता \"आदिको सुविधालाई निष्क्रिय बनाउँछ"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
-msgid "Prevent the user from printing. For example, this would disable access to all applications' \"Print\" dialogs."
-msgstr "कर्तालाई टंकण गर्नबाट रोक उदाहरणका लागि यसले संपूर्ण \"टंकण\" वार्ताको सुविधालाई निष्क्रिय पार्छ."
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all applications' \"Print\" dialogs."
+msgstr ""
+"कर्तालाई टंकण गर्नबाट रोक उदाहरणका लागि यसले संपूर्ण \"टंकण\" वार्ताको सुविधालाई "
+"निष्क्रिय पार्छ."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
-msgid "Prevent the user from saving files to disk. For example, this would disable access to all applications' \"Save as\" dialogs."
-msgstr "कर्तालाई मिसिल भणडारण गर्नबाट रोक उदाहरणका लागि यसले संपूर्ण \"यसमा भणडारण गर\" वार्ताको सुविधालाई निष्क्रिय पार्छ"
+msgid ""
+"Prevent the user from saving files to disk. For example, this would disable "
+"access to all applications' \"Save as\" dialogs."
+msgstr ""
+"कर्तालाई मिसिल भणडारण गर्नबाट रोक उदाहरणका लागि यसले संपूर्ण \"यसमा भणडारण गर\" "
+"वार्ताको सुविधालाई निष्क्रिय पार्छ"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -776,7 +826,9 @@ msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "संभावित मूल्यहरु \"खुला\", \"बन्द\", र \"प्रचलन\"हुन्"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
-msgid "Acceleration multiplier for mouse motion. A value of -1 is the system default."
+msgid ""
+"Acceleration multiplier for mouse motion. A value of -1 is the system "
+"default."
 msgstr "माउस संचालनको गुणक प्रबेग.-१ को मूल्य पूर्वनिर्धारित पद्धति हो"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
@@ -792,16 +844,27 @@ msgid "Cursor theme"
 msgstr "कर्सरको सोच"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-msgid "Cursor theme name. Used only by Xservers that support Xcursor, such as XFree86 4.3 and later. This value is only propagated to the X server at the start of each session, so changing it mid-session won't have an effect until the next time you log in."
-msgstr "कर्सरसोचको नाम.Xकर्सरको सहयोगका लागि Xसेवादायकमात्र प्रयोग गर्नुहोस् जस्तै Xस्वतन्त्र ८६ .३ र त्योभन्दा पछि.यो मूल्यले प्रत्येक सेशनको शुरुमा Xसेवादायकलाई मात्र जनाउँछ,दोश्रो पटक मिसिल नखोलेसम्म यसले मध्यान्तरमा केही असर पार्दैन"
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
+msgstr ""
+"कर्सरसोचको नाम.Xकर्सरको सहयोगका लागि Xसेवादायकमात्र प्रयोग गर्नुहोस् जस्तै Xस्वतन्त्र "
+"८६ .३ र त्योभन्दा पछि.यो मूल्यले प्रत्येक सेशनको शुरुमा Xसेवादायकलाई मात्र जनाउँछ,दोश्रो "
+"पटक मिसिल नखोलेसम्म यसले मध्यान्तरमा केही असर पार्दैन"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
 msgstr "खिच्नुभन्दा पहिलेको दूरी "
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
-msgid "Distance in pixels the pointer must move before accelerated mouse motion is activated. A value of -1 is the system default."
-msgstr "माउसको सञ्चालन प्रबेग सक्रिय हुनुभन्दा पहिलेको दूरी पिक्सेलमा.-१ को मूल्य पूर्वनिर्धारित पद्धति हो "
+msgid ""
+"Distance in pixels the pointer must move before accelerated mouse motion is "
+"activated. A value of -1 is the system default."
+msgstr ""
+"माउसको सञ्चालन प्रबेग सक्रिय हुनुभन्दा पहिलेको दूरी पिक्सेलमा.-१ को मूल्य पूर्वनिर्धारित "
+"पद्धति हो "
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -812,11 +875,19 @@ msgid "Drag Threshold"
 msgstr "न्यूनतम सीमा खिच्नुहोस्"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-msgid "Font name of the cursor. If unset, the default font is used. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in."
-msgstr "कर्सरको लिपिनाम कायम गरिएको छैनभने पूर्वनिर्धारित लिपिको प्रयोग हुन्छ यो मूल्यले प्रत्येक सेशनको शुरुमा X सेवादायकलाई मात्र जनाउँछ,दोश्रो पटक मिसिल नखोलेसम्म यसले मध्यान्तरमा केही असर पार्दैन"
+msgid ""
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
+"session won't have an effect until the next time you log in."
+msgstr ""
+"कर्सरको लिपिनाम कायम गरिएको छैनभने पूर्वनिर्धारित लिपिको प्रयोग हुन्छ यो मूल्यले प्रत्येक "
+"सेशनको शुरुमा X सेवादायकलाई मात्र जनाउँछ,दोश्रो पटक मिसिल नखोलेसम्म यसले मध्यान्तरमा केही "
+"असर पार्दैन"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
-msgid "Highlights the current location of the pointer when the Control key is pressed and released"
+msgid ""
+"Highlights the current location of the pointer when the Control key is "
+"pressed and released"
 msgstr "नियन्त्रण बटन थिचिएको वा खोलिएको छ भने संकेतकको वर्मान अवस्थालाई गाढा पार्नुहोस्"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
@@ -844,8 +915,13 @@ msgid "Single click to open icons"
 msgstr "चित्रहरु खोल्न एकपटकमात्र क्लिक गर्नुहोस्"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid "Size of the cursor referenced by cursor_theme. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in."
-msgstr "कर्सर_सोचका आधारमा सिफारिस गरिएको कर्सरको आकार.यो मूल्यले प्रत्येक सेशनको शुरुमा Xसेवादायकलाई मात्र जनाउँछ,दोश्रो पटक मिसिल नखोलेसम्म यसले मध्यान्तरमा केही असर पार्दैन"
+msgid ""
+"Size of the cursor referenced by cursor_theme. This value is only propagated "
+"to the X server start of each session, so changing it mid-session won't have "
+"an effect until the next time you log in."
+msgstr ""
+"कर्सर_सोचका आधारमा सिफारिस गरिएको कर्सरको आकार.यो मूल्यले प्रत्येक सेशनको शुरुमा "
+"Xसेवादायकलाई मात्र जनाउँछ,दोश्रो पटक मिसिल नखोलेसम्म यसले मध्यान्तरमा केही असर पार्दैन"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -872,8 +948,12 @@ msgid "Disable all external thumbnailers"
 msgstr "संपूर्ण बाह्य हस्तचालकलाई निश्क्रिय पार्नुहोस्"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
-msgid "Set to true to disable all external thumbnailer programs, independent on whether they are independently disabled/enabled."
-msgstr "तिनीहरु स्वतन्त्र रुपले सक्रिय/निष्क्रिय छन् भने यसलाई ठीक गर्न संपूर्ण बाह्य हस्तचालक कार्यलाई निश्क्रिय पार्नुहोस्,स्वतन्त्र होउन्"
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+"तिनीहरु स्वतन्त्र रुपले सक्रिय/निष्क्रिय छन् भने यसलाई ठीक गर्न संपूर्ण बाह्य हस्तचालक "
+"कार्यलाई निश्क्रिय पार्नुहोस्,स्वतन्त्र होउन्"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
@@ -907,3 +987,5 @@ msgstr "कीबोर्डबन्द सक्रिय छैन क्य
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "टंकण-रोकावट पर्दा स्थगन गर्न सकिँदै क्यारे"
 
+#~ msgid "Too many alias levels for a locale, may indicate a loop"
+#~ msgstr "स्थानीयताका धेरै अस्थायी तहहरु छन्,एउटा सम्बन्ध शृङ्खला खोज्नु पर्ला"

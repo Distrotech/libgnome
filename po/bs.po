@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.bs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-25 21:00+0200\n"
+"POT-Creation-Date: 2004-08-30 16:12+0200\n"
 "PO-Revision-Date: 2004-07-31 01:36+0200\n"
 "Last-Translator: Kenan Hadžiavdić <kenan@bgnett.no>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
@@ -110,10 +110,6 @@ msgstr "Ne mogu pronaći doc_id %s u putanji pomoći"
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "Pomoćni dokument %s/%s nije pronađen"
-
-#: libgnome/gnome-i18n.c:86
-msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "Previše alternativnih nivoa za locale, može ukazivati na petlju"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -401,7 +397,8 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Isključi ako su dvije tipke istovremeno pritisnute."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
 "Nemoj prihvatiti pritisak tipke ukoliko nije držana pritisnuta @delay "
 "milisekundi"
@@ -411,7 +408,8 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Koliko milisekundi traje ubrzanje od 0 do maksimalne brzine"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Koliko milisekundi čekati prije nego tipke za pomjeranje kursora počnu "
 "djelovati"
@@ -494,7 +492,8 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "Da li uobičajeni preglednik pomoći treba terminal za pokretanje"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Argument koji se koristi za pokretanje programa u terminalu definiran u "
 "'exec' ključu."
@@ -523,7 +522,8 @@ msgstr "Rezervni upravitelj prozora"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr "Rezervni upravitelj prozora ako korisnikov upravitelj ne može biti pronađen"
+msgstr ""
+"Rezervni upravitelj prozora ako korisnikov upravitelj ne može biti pronađen"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -604,7 +604,8 @@ msgstr "Glavna boja"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "Desna ili donja boja kod crtanja gradijenta, ne koristi se pri čistoj boji."
+msgstr ""
+"Desna ili donja boja kod crtanja gradijenta, ne koristi se pri čistoj boji."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -699,8 +700,10 @@ msgid "Monospace font"
 msgstr "Monospace font"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr "Ime monospace (nepromjenljiva širina) fonta za korištenje u npr. terminalima."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr ""
+"Ime monospace (nepromjenljiva širina) fonta za korištenje u npr. terminalima."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -782,7 +785,8 @@ msgstr "Da li korisnik može odvojiti trake s alatima i pomjerati ih"
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr "Da li korisnik može navesti novi akcelerator dinamično kada je meni otvoren"
+msgstr ""
+"Da li korisnik može navesti novi akcelerator dinamično kada je meni otvoren"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether to display a status bar meter on the right"
@@ -857,7 +861,8 @@ msgstr "moguće vrijednosti su \"on\", \"off\" i \"custom\"."
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr "Faktor ubrzanja pomjeranja miša. Vrijednost -1 je uobičajeno za sistem."
+msgstr ""
+"Faktor ubrzanja pomjeranja miša. Vrijednost -1 je uobičajeno za sistem."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -917,7 +922,8 @@ msgstr ""
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
-msgstr "Označava trenutnu poziciju pokazivača kada je tipka Ctrl pritisnuta i puštena"
+msgstr ""
+"Označava trenutnu poziciju pokazivača kada je tipka Ctrl pritisnuta i puštena"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
@@ -1017,13 +1023,15 @@ msgstr "Da li je omogućeno zaključavanje tastature."
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Da li ekran za pauzu od kucanja može biti odgođen."
 
-msgid ""
-"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
-"libs was compiled incorrectly."
-msgstr ""
-"Ne mogu pronaći GNOME_FILE_DOMAIN_HELP domenu.  Ovo znači da gnome-libs nisu "
-"pravilno kompajlirane."
+#~ msgid "Too many alias levels for a locale, may indicate a loop"
+#~ msgstr "Previše alternativnih nivoa za locale, može ukazivati na petlju"
 
-msgid "Help document %s for %s not found"
-msgstr "Dokument s pomoći %s za %s nije pronađen"
+#~ msgid ""
+#~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
+#~ "gnome-libs was compiled incorrectly."
+#~ msgstr ""
+#~ "Ne mogu pronaći GNOME_FILE_DOMAIN_HELP domenu.  Ovo znači da gnome-libs "
+#~ "nisu pravilno kompajlirane."
 
+#~ msgid "Help document %s for %s not found"
+#~ msgstr "Dokument s pomoći %s za %s nije pronađen"
