@@ -1,34 +1,34 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
-#ifndef _GNOME_STORAGE_FS_H_
-#define _GNOME_STORAGE_FS_H_
+#ifndef _BONOBO_STORAGE_FS_H_
+#define _BONOBO_STORAGE_FS_H_
 
-#include <bonobo/gnome-storage.h>
+#include <bonobo/bonobo-storage.h>
 
 BEGIN_GNOME_DECLS
 
-#define GNOME_STORAGE_FS_TYPE        (gnome_storage_fs_get_type ())
-#define GNOME_STORAGE_FS(o)          (GTK_CHECK_CAST ((o), GNOME_STORAGE_FS_TYPE, GnomeStorageFS))
-#define GNOME_STORAGE_FS_CLASS(k)    (GTK_CHECK_CLASS_CAST((k), GNOME_STORAGE_FS_TYPE, GnomeStorageFSClass))
-#define GNOME_IS_STORAGE_FS(o)       (GTK_CHECK_TYPE ((o), GNOME_STORAGE_FS_TYPE))
-#define GNOME_IS_STORAGE_FS_CLASS(k) (GTK_CHECK_CLASS_TYPE ((k), GNOME_STORAGE_FS_TYPE))
+#define BONOBO_STORAGE_FS_TYPE        (bonobo_storage_fs_get_type ())
+#define BONOBO_STORAGE_FS(o)          (GTK_CHECK_CAST ((o), BONOBO_STORAGE_FS_TYPE, BonoboStorageFS))
+#define BONOBO_STORAGE_FS_CLASS(k)    (GTK_CHECK_CLASS_CAST((k), BONOBO_STORAGE_FS_TYPE, BonoboStorageFSClass))
+#define BONOBO_IS_STORAGE_FS(o)       (GTK_CHECK_TYPE ((o), BONOBO_STORAGE_FS_TYPE))
+#define BONOBO_IS_STORAGE_FS_CLASS(k) (GTK_CHECK_CLASS_TYPE ((k), BONOBO_STORAGE_FS_TYPE))
 
 typedef struct {
-	GnomeStorage storage;
+	BonoboStorage storage;
 	char *path;
-} GnomeStorageFS;
+} BonoboStorageFS;
 
 typedef struct {
-	GnomeStorageClass parent_class;
-} GnomeStorageFSClass;
+	BonoboStorageClass parent_class;
+} BonoboStorageFSClass;
 
-GtkType         gnome_storage_fs_get_type     (void);
-GnomeStorage   *gnome_storage_fs_construct    (GnomeStorageFS *storage,
-					       GNOME_Storage corba_storage,
+GtkType         bonobo_storage_fs_get_type     (void);
+BonoboStorage   *bonobo_storage_fs_construct    (BonoboStorageFS *storage,
+					       Bonobo_Storage corba_storage,
 					       const char *path, const char *open_mode);
-GnomeStorage   *gnome_storage_fs_open         (const char *path,
+BonoboStorage   *bonobo_storage_fs_open         (const char *path,
 					       gint flags, gint mode);
-GnomeStorage   *gnome_storage_fs_create       (GnomeStorageFS *storage_fs,
+BonoboStorage   *bonobo_storage_fs_create       (BonoboStorageFS *storage_fs,
 					       const CORBA_char *path);
 END_GNOME_DECLS
 
-#endif /* _GNOME_STORAGE_FS_H_ */
+#endif /* _BONOBO_STORAGE_FS_H_ */
