@@ -32,6 +32,7 @@
 
 /* Should this be in gnome-print? */
 #include "libgnome/gnome-paper.h"
+#include "libgnome/gnome-popt.h" /* temporary so it will compile */
 #include "libgnome/gnome-remote.h"
 #include "libgnome/gnome-score.h"
 #include "libgnome/gnome-sound.h"
