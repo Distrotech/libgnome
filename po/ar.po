@@ -10,14 +10,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.ar\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-22 20:39+0100\n"
+"POT-Creation-Date: 2003-11-24 11:15+0100\n"
 "PO-Revision-Date: 2004-01-09 22:56+0100\n"
 "Last-Translator:  <lumina@silverpen.de>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -95,7 +95,8 @@ msgstr "لا يمكن عرض المساعدة لأن %s ليس دليلا. ال�
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr "لا يمكن العثور على ملفات المساعدة في %s أو %s. الرجاء التأكد من تثبيتك."
+msgstr ""
+"لا يمكن العثور على ملفات المساعدة في %s أو %s. الرجاء التأكد من تثبيتك."
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -389,7 +390,8 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "إلغاء عند نقر زران في آن واحد."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr "لا تقبل زرا كمكبوس إلا عند ضغطه لـ @delay مليثانية"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
@@ -397,7 +399,8 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "كم يستغرق التسريع من 0 حتى السرعة القصوى بالمليثانية"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
 msgstr "كم مليثانية يجب الإنتظار حتى تبدأ أزرار حركات الفأرة العمل"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
@@ -476,8 +479,10 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "ما إذا كان عارض المساعدة الإفتراضي يحتاج شاشة طرفية للعمل"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "العامل المستعمل لتشغيل البرامج ·المعرفة·بمفتاح 'exec' في الشاشة الطرفية."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"العامل المستعمل لتشغيل البرامج ·المعرفة·بمفتاح 'exec' في الشاشة الطرفية."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -664,7 +669,8 @@ msgid "Monospace font"
 msgstr "خط ذي عرض ثابت"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "اسم الخط ذي العرض الثابت للاستخدام في مواقع مثل الشاشات الطرفية."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
@@ -747,7 +753,8 @@ msgstr "فيما إذا يمكن للمستخدم قلع أعمدة الأدوا
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr "ما اذا كان يمكن للمستخدم كتابة مفتاح اختصار جديد ديناميكيا عند ابراز قائمة"
+msgstr ""
+"ما اذا كان يمكن للمستخدم كتابة مفتاح اختصار جديد ديناميكيا عند ابراز قائمة"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
@@ -926,82 +933,100 @@ msgstr "فيما اذا يجب قفل لوحة المحارف أم لا."
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "ما إذا يمكن تأجيل شاشة إستراحة الكتابة."
 
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "كيفية معالجة عناوين ghelp"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "كيفية معالجة عناوين ghelp"
 
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 #, fuzzy
-#~ msgid "How to handle http URLs"
-#~ msgstr "كيفية معالجة عناوين ghelp"
+msgid "How to handle http URLs"
+msgstr "كيفية معالجة عناوين ghelp"
 
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 #, fuzzy
-#~ msgid "How to handle https URLs"
-#~ msgstr "كيفية معالجة عناوين ghelp"
+msgid "How to handle https URLs"
+msgstr "كيفية معالجة عناوين ghelp"
 
-#~ msgid "How to handle info URLs"
-#~ msgstr "كيفية معالجة معلومات العناوينة"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+msgid "How to handle info URLs"
+msgstr "كيفية معالجة معلومات العناوينة"
 
-#~ msgid "How to handle man URLs"
-#~ msgstr "كيفية معالجة عناوين man"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+msgid "How to handle man URLs"
+msgstr "كيفية معالجة عناوين man"
 
-#~ msgid "How to handle trash URLs"
-#~ msgstr "كيفية معالجة عناوين سلة المهملات"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid "How to handle trash URLs"
+msgstr "كيفية معالجة عناوين سلة المهملات"
 
-#~ msgid "Run program in terminal"
-#~ msgstr "تشغيل برنامج في الشاشة الطرفية"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid "Run program in terminal"
+msgstr "تشغيل برنامج في الشاشة الطرفية"
 
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
 #, fuzzy
-#~ msgid "Set to true to have a program specified in command handle http URLs"
-#~ msgstr ""
-#~ "ضبط كصحيح للحصول على برنامج مخصص في سلة المهملاتجأمرل يعالجلعناوينسلة "
-#~ "المهملاتة"
+msgid "Set to true to have a program specified in command handle http URLs"
+msgstr ""
+"ضبط كصحيح للحصول على برنامج مخصص في سلة المهملاتجأمرل يعالجلعناوينسلة "
+"المهملاتة"
 
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 #, fuzzy
-#~ msgid "Set to true to have a program specified in command handle https URLs"
-#~ msgstr ""
-#~ "ضبط كصحيح للحصول على برنامج مخصص في سلة المهملاتجأمرل يعالجلعناوينسلة "
-#~ "المهملاتة"
+msgid "Set to true to have a program specified in command handle https URLs"
+msgstr ""
+"ضبط كصحيح للحصول على برنامج مخصص في سلة المهملاتجأمرل يعالجلعناوينسلة "
+"المهملاتة"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr "ضبط كصحيح للحصول على برنامج مخصص في برامج/ghelp يعالج عناوين ghelp"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr "ضبط كصحيح للحصول على برنامج مخصص في برامج/ghelp يعالج عناوين ghelp"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr "p"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr "p"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr "ضبط كصحيح للحصول على برنامج مخصص في برامج/man يعالج عناوين man"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr "ضبط كصحيح للحصول على برنامج مخصص في برامج/man يعالج عناوين man"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in trash/command handle trash URLs"
-#~ msgstr ""
-#~ "ضبط كصحيح للحصول على برنامج مخصص في سلة المهملاتجأمرل يعالجلعناوينسلة "
-#~ "المهملاتة"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid ""
+"Set to true to have a program specified in trash/command handle trash URLs"
+msgstr ""
+"ضبط كصحيح للحصول على برنامج مخصص في سلة المهملاتجأمرل يعالجلعناوينسلة "
+"المهملاتة"
 
-#~ msgid "True if the program to handle this URL should be run in a terminal"
-#~ msgstr "صحيح أذا وجب تشغيل برنامج معالجة هذا العنوان في شاشة طرفية"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
+msgid "True if the program to handle this URL should be run in a terminal"
+msgstr "صحيح أذا وجب تشغيل برنامج معالجة هذا العنوان في شاشة طرفية"
 
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "معالج العناوين لصفحات ghelp"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
+msgid "URL handler for ghelp pages"
+msgstr "معالج العناوين لصفحات ghelp"
 
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
 #, fuzzy
-#~ msgid "URL handler for http uris"
-#~ msgstr "معالج العناوين لصفحات ghelp"
+msgid "URL handler for http uris"
+msgstr "معالج العناوين لصفحات ghelp"
 
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
 #, fuzzy
-#~ msgid "URL handler for https uris"
-#~ msgstr "معالج العناوين لصفحات ghelp"
+msgid "URL handler for https uris"
+msgstr "معالج العناوين لصفحات ghelp"
 
-#~ msgid "URL handler for info pages"
-#~ msgstr "معالج العناوين لصفحات المعلومات"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
+msgid "URL handler for info pages"
+msgstr "معالج العناوين لصفحات المعلومات"
 
-#~ msgid "URL handler for man pages"
-#~ msgstr "معالج العناوين لصفحات man"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
+msgid "URL handler for man pages"
+msgstr "معالج العناوين لصفحات man"
 
-#~ msgid "URL handler for trash pages"
-#~ msgstr "معالج العناوين لصفحات سلة المهملات"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
+msgid "URL handler for trash pages"
+msgstr "معالج العناوين لصفحات سلة المهملات"
 
 #~ msgid "Action button click"
 #~ msgstr "نقر زر الحدث"
