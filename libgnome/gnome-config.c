@@ -87,7 +87,7 @@ typedef struct TProfile {
 
 #define prefix (prefix_list ? prefix_list->data : NULL)
 
-static GSList *prefix_list;
+static GSList *prefix_list = NULL;
 
 static TProfile *Current = 0;
 
@@ -713,6 +713,7 @@ void
 _gnome_config_drop_file (const char *path, gint priv)
 {
 	TProfile *p;
+	TProfile *last;
 	ParsedPath *pp;
 	char *fake_path;
 	
@@ -735,15 +736,18 @@ _gnome_config_drop_file (const char *path, gint priv)
 		return;
 	}
 	
-	for (p = Base; p; p = p->link){
+	for (last = NULL,p = Base; p; last = p, p = p->link){
 		if (strcmp (pp->file, p->filename) != 0)
 			continue;
 		
+		if(last)
+			last->link = p->link;
+		else
+			Base = p->link;
+		
 		free_sections (p->section);
-		p->section = 0;
-		p->filename [0] = 0;
-		p->written_to = TRUE;
-		p->to_be_deleted = FALSE;
+		g_free(p->filename);
+		g_free(p);
 		release_path (pp);
 		return;
 	}
@@ -1526,8 +1530,10 @@ void
 gnome_config_pop_prefix (void)
 {
 	if(prefix_list) {
+		GSList *plist = prefix_list;
 		g_free(prefix_list->data);
-		prefix_list = g_slist_remove_link(prefix_list, prefix_list);
+		prefix_list = prefix_list->next;
+		g_slist_free_1(plist);
 	}
 }
 

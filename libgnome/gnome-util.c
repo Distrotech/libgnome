@@ -22,52 +22,62 @@ static char *
 gnome_dirrelative_file (const char *base, const char *sub, const char *filename, int unconditional)
 {
         static char *gnomedir = NULL;
-	char *f, *t, *u, *v;
+	char *f = NULL, *t = NULL, *u = NULL, *v = NULL;
+	char *retval = NULL;
 	
 	/* First try the env GNOMEDIR relative path */
 	if (!gnomedir)
 		gnomedir = getenv ("GNOMEDIR");
 	
-	if (gnomedir){
+	if (gnomedir) {
 		t = g_concat_dir_and_file (gnomedir, sub);
 		u = g_copy_strings (t, "/", filename, NULL);
-		g_free (t);
+		g_free (t); t = NULL;
 		
-		if (g_file_exists (u))
-			return u;
+		if (g_file_exists (u)) {
+			retval = u; u = NULL; goto out;
+		}
 
 		t = g_concat_dir_and_file (gnome_util_user_home (), sub);
 		v = g_copy_strings (t, "/", filename, NULL);
-		g_free (t);
+		g_free (t); t = NULL;
 
 		if (g_file_exists (v)){
-			g_free (u);
-			return v;
+			retval = v; v = NULL; goto out;
 		}
 
-		g_free (v);
-		if (unconditional)
-			return u;
+		if (unconditional) {
+			retval = u; u = NULL; goto out;
+		}
 		
-		g_free (u);
 	}
 
-	/* Then try the hardcoded path */
-	f = g_concat_dir_and_file (base, filename);
+	g_free(t); t = NULL;
+	if(gnomedir)
+		t = g_concat_dir_and_file (gnomedir, sub);
+	else
+		t = g_concat_dir_and_file (gnome_util_user_home (), sub);
+	if(t && strcmp(base, t)) {
+		/* Then try the hardcoded path */
+		f = g_concat_dir_and_file (base, filename);
 	
-	if (g_file_exists (f) || unconditional)
-		return f;
-	
-	g_free (f);
+		if (g_file_exists (f) || unconditional) {
+			retval = f; f = NULL; goto out;
+		}
+	}
 	
 	/* Finally, attempt to find it in the current directory */
+	g_free (f);
 	f = g_concat_dir_and_file (".", filename);
 	
-	if (g_file_exists (f))
-		return f;
-	
-	g_free (f);
-	return NULL;
+	if (g_file_exists (f)) {
+		retval = f; f = NULL; goto out;
+	}
+
+out:	
+	g_free(f); g_free(t); g_free(v); g_free(u);
+
+	return retval;
 }
 
 /**
