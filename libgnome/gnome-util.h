@@ -64,11 +64,10 @@ char ** g_copy_vector    (char ** vec);
 #define g_flatten_vector g_strjoinv
 
 /* returns the home directory of the user
- * This one is NOT to be free'd as it points into the 
- * env structure.
+ * This one is NOT to be free'd or changed.
  * 
  */
-#define gnome_util_user_home() getenv("HOME")
+#define gnome_util_user_home() g_get_home_dir()
 
 /* pass in a string, and it will add the users home dir ie,
  * pass in .gnome/bookmarks.html and it will return
