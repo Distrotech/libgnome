@@ -1660,6 +1660,10 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
 	for (p = (char *) string; *p; ++p) {
 	        if (*p == '\\' && *(p+1)) {
 			++p;
+			if (space_seen){
+				count++;
+				space_seen = 0;
+			}
 		} else if (*p == ' ') {
 			space_seen = 1;
 		} else if (space_seen){
@@ -1688,11 +1692,12 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
 
 		(*argvp)[count++] = tmp = s;
 
-		do {
+		while (*s) {
 			if (*s == '\\') 
 				s++;				
+			if (!*s) break;
 			*tmp++ = *s++;
-		} while (*s);
+		}
 		*tmp = '\0';
 
 		while (*p && *p == ' ')

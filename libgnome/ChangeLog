@@ -1,3 +1,13 @@
+1999-11-11  Jacob Berkman  <jberkman@andrew.cmu.edu>
+
+	* gnome-config.c (gnome_config_make_vector): correctly
+	handle the "a \b c" case (escaped character between 2
+	spaces)
+	(gnome_config_make_vector): george also suggested this
+	fix
+
+	Fixes bug #3475
+
 1999-10-27  Elliot Lee  <sopwith@redhat.com>
 	* gnome-util.c: Use g_strdup not strdup.
 
