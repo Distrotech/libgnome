@@ -6,6 +6,53 @@
 /* Name of config key we use when looking up preferred language.   */
 #define LANGKEY "/Gnome/i18n/LANG"
 
+static GHashTable *alias_table = NULL;
+
+/*read an alias file for the locales*/
+static void
+read_aliases (char *file)
+{
+  FILE *fp;
+  char buf[256];
+  if (!alias_table)
+    alias_table = g_hash_table_new (g_str_hash, g_str_equal);
+  fp = fopen (file,"r");
+  if (!fp)
+    return;
+  while (fgets (buf,256,fp))
+    {
+      char *p;
+      g_strstrip(buf);
+      if (buf[0]=='#' || buf[0]=='\0')
+        continue;
+      p = strtok (buf,"\t ");
+      if (!p)
+	continue;
+      p = strtok (NULL,"\t ");
+      if(!p)
+	continue;
+      g_hash_table_insert (alias_table, g_strdup(buf), g_strdup(p));
+    }
+  fclose (fp);
+}
+
+/*return the un-aliased language as a newly allocated string*/
+static char *
+unalias_lang (char *lang)
+{
+  char *p;
+  if (!alias_table)
+    {
+      read_aliases ("/usr/share/locale/locale.alias");
+      read_aliases ("/usr/local/share/locale/locale.alias");
+      read_aliases ("/usr/lib/X11/locale/locale.alias");
+      read_aliases ("/usr/openwin/lib/locale/locale.alias");
+    }
+  while ((p=g_hash_table_lookup(alias_table,lang)))
+    lang = p;
+  return lang;
+}
+
 /**
  * gnome_i18n_get_language:
  * 
@@ -234,6 +281,8 @@ gnome_i18n_get_language_list (const gchar *category_name)
 	      
 	      category_memory[0]= '\0'; 
 	      category_memory++;
+	      
+	      cp = unalias_lang(cp);
 	      
 	      if (strcmp (cp, "C") == 0)
 		c_locale_defined= TRUE;
