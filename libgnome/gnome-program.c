@@ -682,9 +682,8 @@ gnome_module_info_get_type (void)
 /**
  * gnome_program_get:
  *
- * Returns an object that stores information on the GNOME application's state.
- * If the object does not exist, it is created.
- *
+ * Returns: an object that stores information on the GNOME application's state.
+ * If the object does not exist, %NULL is returned.
  * Other functions assume that this will always return an appobject
  * with state > APP_UNINIT
  */

@@ -145,7 +145,8 @@ const GnomeModuleInfo *
 gnome_gconf_module_info_get (void)
 {
 	static GnomeModuleInfo module_info = {
-		"gnome-gconf", VERSION,
+		"gnome-gconf",
+		/* FIXME: get this from gconf somehow */"1.1.1",
 		NULL /* description */,
 		NULL /* requirements */,
 		NULL /* instance init */,

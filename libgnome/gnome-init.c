@@ -52,6 +52,7 @@
 #include <gobject/gvaluetypes.h>
 
 #include <bonobo-activation/bonobo-activation.h>
+#include <bonobo-activation/bonobo-activation-version.h>
 
 #include <libgnomevfs/gnome-vfs-init.h>
 
@@ -81,12 +82,24 @@ bonobo_activation_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_i
 }
 
 /* No need to make this public, always pulled in */
-static GnomeModuleInfo gnome_bonobo_activation_module_info = {
-	"bonobo-activation", VERSION, N_("Bonobo activation Support"),
-	NULL, NULL,
-	bonobo_activation_pre_args_parse, bonobo_activation_post_args_parse,
-	bonobo_activation_popt_options
-};
+static const GnomeModuleInfo *
+gnome_bonobo_activation_module_info_get (void)
+{
+	static GnomeModuleInfo module_info = {
+		"bonobo-activation", NULL, N_("Bonobo activation Support"),
+		NULL, NULL,
+		bonobo_activation_pre_args_parse, bonobo_activation_post_args_parse,
+		bonobo_activation_popt_options
+	};
+	if (module_info.version == NULL) {
+		module_info.version = g_strdup_printf
+			("%d.%d.%d",
+			 BONOBO_ACTIVATION_MAJOR_VERSION,
+			 BONOBO_ACTIVATION_MINOR_VERSION,
+			 BONOBO_ACTIVATION_MICRO_VERSION);
+	}
+	return &module_info;
+}
 
 /*****************************************************************************
  * libgnome
@@ -286,14 +299,19 @@ gnome_vfs_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 }
 
 /* No need for this to be public */
-static GnomeModuleInfo gnome_vfs_module_info = {
-	"gnome-vfs", GNOMEVFSVERSION, N_("GNOME Virtual Filesystem"),
-	NULL, NULL,
-	NULL, gnome_vfs_post_args_parse,
-	NULL,
-	NULL,
-	NULL
-};
+static const GnomeModuleInfo *
+gnome_vfs_module_info_get (void)
+{
+	static GnomeModuleInfo module_info = {
+		"gnome-vfs", GNOMEVFSVERSION, N_("GNOME Virtual Filesystem"),
+		NULL, NULL,
+		NULL, gnome_vfs_post_args_parse,
+		NULL,
+		NULL,
+		NULL
+	};
+	return &module_info;
+}
 
 const GnomeModuleInfo *
 libgnome_module_info_get (void)
@@ -309,13 +327,13 @@ libgnome_module_info_get (void)
 	if (module_info.requirements == NULL) {
 		static GnomeModuleRequirement req[4];
 
-		req[0].required_version = VERSION;
-		req[0].module_info = &gnome_bonobo_activation_module_info;
+		req[0].required_version = "0.9.1";
+		req[0].module_info = gnome_bonobo_activation_module_info_get ();
 
 		req[1].required_version = "0.3.0";
-		req[1].module_info = &gnome_vfs_module_info;
+		req[1].module_info = gnome_vfs_module_info_get ();
 
-		req[2].required_version = VERSION;
+		req[2].required_version = "1.1.1";
 		req[2].module_info = gnome_gconf_module_info_get ();
 
 		req[3].required_version = NULL;
