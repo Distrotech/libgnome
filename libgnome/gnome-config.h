@@ -177,7 +177,7 @@ void _gnome_config_set_vector     (const char *path,
 gboolean  _gnome_config_has_section    (const char *path, gint priv);
 #define gnome_config_has_section(path) \
 	(_gnome_config_has_section((path),FALSE))
-#define gnome_config_private_has_section(Path) \
+#define gnome_config_private_has_section(path) \
 	(_gnome_config_has_section((path),TRUE))
 
 /* Returns a pointer for iterating on /file/section contents */
@@ -229,7 +229,7 @@ void _gnome_config_clean_file     (const char *path, gint priv);
 void _gnome_config_clean_section  (const char *path, gint priv);
 #define gnome_config_clean_section(path) \
 	(_gnome_config_clean_section((path),FALSE))
-#define gnome_config_private_clean_section(Path) \
+#define gnome_config_private_clean_section(path) \
 	(_gnome_config_clean_section((path),TRUE))
 
 /* Drops the information for a specific key, this will actually remove

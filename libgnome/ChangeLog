@@ -1,3 +1,10 @@
+1999-06-28  Miroslav Silovic  <silovic@zesoi.fer.hr>
+
+	* gnome-config.h (gnome_config_private_clean_section):
+	(gnome_config_private_has_section): replaced Path with path. This
+ 	seems like an obvious typo, and made apps that call these with any
+ 	input paremeter other than path fail to compile
+
 1999-06-20  Michael Zucchi  <mzucchi@zedzone.mmc.com.au>
 
 	* gnome-magic.c (read_string_val): Add a limit on the buffer size
