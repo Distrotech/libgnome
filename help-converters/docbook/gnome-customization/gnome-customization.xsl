@@ -88,7 +88,6 @@
     <xsl:value-of select="$gdb_pathname"/>
     <xsl:text>/</xsl:text>
       <xsl:value-of select="$filename"/>
-	<xsl:text>.png</xsl:text>
     </xsl:attribute>
 
     <xsl:if test="$align != ''">
