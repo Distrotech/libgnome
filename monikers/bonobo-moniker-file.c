@@ -7,8 +7,9 @@
  *	Michael Meeks (michael@helixcode.com)
  */
 #include <config.h>
-#include <gnome.h>
-#include <bonobo/bonobo.h>
+#include <bonobo/bonobo-moniker.h>
+#include <bonobo/bonobo-moniker-util.h>
+#include <libgnome/gnome-mime.h>
 #include <liboaf/liboaf.h>
 
 #include "bonobo-moniker-file.h"
