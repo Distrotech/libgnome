@@ -24,7 +24,7 @@
 #include "libgnomeP.h"
 #include "gnome-regex.h"
 
-#define DEFAULT_SIZE 5
+#define DEFAULT_SIZE 96
 
 /**
  * gnome_regex_cache_new:
@@ -151,7 +151,7 @@ gnome_regex_cache_compile (GnomeRegexCache *rxc, const char *pattern,
 	memcpy (&rxc->patterns[rxc->next], &rx, sizeof (regex_t));
 
 	i = rxc->next;
-	if (++rxc->next > rxc->size)
+	if (++rxc->next >= rxc->size)
 		rxc->next = 0;
 
 	return &rxc->patterns[i];
