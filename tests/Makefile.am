@@ -8,7 +8,7 @@ noinst_PROGRAMS =		\
 INCLUDES =	\
         -DGNOMELOCALEDIR=\""$(datadir)/locale"\"        \
 	-I$(srcdir) -I$(top_srcdir) 			\
-	-I. -I$(top_srcdir)/bonobo			\
+	-I.						\
         -I$(includedir)                                 \
 	$(WARN_CFLAGS)					\
 	$(GLIB_CFLAGS)					\
