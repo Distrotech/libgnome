@@ -23,22 +23,12 @@ static void libgnome_option_cb(poptContext ctx, enum poptCallbackReason reason,
 			       void *data);
 static void libgnome_userdir_setup(gboolean create_dirs);
 
-enum { ARG_DISABLE_SOUND=1, ARG_ENABLE_SOUND, ARG_ESPEAKER, ARG_VERSION };
+enum { ARG_VERSION=1 };
 
 static struct poptOption gnomelib_options[] = {
         { NULL, '\0', POPT_ARG_INTL_DOMAIN, PACKAGE, 0, NULL, NULL},
 
 	{ NULL, '\0', POPT_ARG_CALLBACK, libgnome_option_cb, 0, NULL, NULL},
-
-	{ "disable-sound", '\0', POPT_ARG_NONE,
-	  NULL, ARG_DISABLE_SOUND, N_("Disable sound server usage"), NULL},
-
-	{ "enable-sound", '\0', POPT_ARG_NONE,
-	  NULL, ARG_ENABLE_SOUND, N_("Enable sound server usage"), NULL},
-
-	{ "espeaker", '\0', POPT_ARG_STRING,
-	  NULL, ARG_ESPEAKER, N_("Host:port on which the sound server to use is running"),
-	  N_("HOSTNAME:PORT")},
 
 	{"version", '\0', POPT_ARG_NONE, NULL, },
 
@@ -58,27 +48,18 @@ libgnome_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
   /* Provide default settings */
   gnome_program_attributes_set(app,
 			       LIBGNOME_PARAM_CREATE_DIRECTORIES, TRUE,
-			       LIBGNOME_PARAM_ENABLE_SOUND, TRUE,
 			       NULL);
 }
 
 static void
 libgnome_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
 {
-  gboolean enable_val = TRUE, create_dirs_val = TRUE;
-  char *espeaker_val = NULL;
+  gboolean create_dirs_val = TRUE;
 
   gnome_program_attributes_get(app,
 			  LIBGNOME_PARAM_CREATE_DIRECTORIES, &create_dirs_val,
-			  LIBGNOME_PARAM_ENABLE_SOUND, &enable_val,
-			  LIBGNOME_PARAM_ESPEAKER, &espeaker_val,
 			  NULL);
 			  
-  if(enable_val)
-    {
-      gnome_sound_init(espeaker_val);
-    }
-
   gnome_triggers_init ();
 
   libgnome_userdir_setup(create_dirs_val);
@@ -101,15 +82,6 @@ libgnome_option_cb(poptContext ctx, enum poptCallbackReason reason,
     {
     case POPT_CALLBACK_REASON_OPTION:
       switch(opt->val) {
-      case ARG_ESPEAKER:
-	gnome_program_attributes_set(app, LIBGNOME_PARAM_ESPEAKER, opt->arg, NULL);
-	break;
-      case ARG_DISABLE_SOUND:
-	gnome_program_attributes_set(app, LIBGNOME_PARAM_ENABLE_SOUND, FALSE, NULL);
-	break;
-      case ARG_ENABLE_SOUND:
-	gnome_program_attributes_set(app, LIBGNOME_PARAM_ENABLE_SOUND, TRUE, NULL);
-	break;
       case ARG_VERSION:
 	g_print ("Gnome %s %s\n", gnome_program_get_name(app), gnome_program_get_version(app));
 	exit(0);

@@ -55,7 +55,6 @@ libgnome_la_SOURCES = \
 	gnome-regex.c		\
 	gnome-remote.c		\
 	gnome-score.c		\
-	gnome-sound.c		\
 	gnome-triggers.c	\
 	gnome-url.c		\
 	gnome-util.c		\
@@ -80,7 +79,6 @@ libgnomeinclude_HEADERS = \
 	gnome-regex.h		\
 	gnome-remote.h		\
 	gnome-score.h		\
-	gnome-sound.h		\
 	gnome-triggers.h 	\
 	gnome-url.h		\
 	gnome-util.h   		\
@@ -94,7 +92,6 @@ noinst_HEADERS =				\
 	gnome-i18nP.h				\
 	gnome-triggersP.h			\
 	libgnomeP.h
-
 
 EXTRA_DIST = parse-path.cP gnome-portability.h.in
 BUILT_SOURCES=gnome-portability.h
