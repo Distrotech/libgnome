@@ -1,10 +1,14 @@
 #ifndef __GNOME_POPT_H__
 #define __GNOME_POPT_H__ 1
 
-#include <popt-gnome.h>
+
 #include "gnome-defs.h"
 
 BEGIN_GNOME_DECLS
+
+/* This is here because it does not have its own #ifdef __cplusplus */
+#include <popt-gnome.h>
+
 void gnomelib_register_popt_table(const struct poptOption *options,
 				  const char *description);
 
