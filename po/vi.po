@@ -6,18 +6,106 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome VERSION\n"
-"POT-Creation-Date: 2002-05-27 16:29+0200\n"
-"PO-Revision-Date: 2002-05-03 17:39-0400\n"
+"POT-Creation-Date: 2002-05-30 05:23+0200\n"
+"PO-Revision-Date: 2002-05-31 21:41+0700\n"
 "Last-Translator: pclouds <pclouds@gmx.net>\n"
 "Language-Team: GnomeVI <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: gnome-data/gnome-2.soundlist.in.h:1
+msgid "Error Messages"
+msgstr "Thông báo lỗi"
+
+#: gnome-data/gnome-2.soundlist.in.h:2
+msgid "GNOME system events"
+msgstr "Sự kiện hệ thống GNOME"
+
+#: gnome-data/gnome-2.soundlist.in.h:3
+msgid "Informational Messages"
+msgstr "Thông báo"
+
+#: gnome-data/gnome-2.soundlist.in.h:4
+msgid "Login"
+msgstr "Đăng nhập"
+
+#: gnome-data/gnome-2.soundlist.in.h:5
+msgid "Logout"
+msgstr "Đăng xuất"
+
+#: gnome-data/gnome-2.soundlist.in.h:6
+msgid "Miscellaneous Messages"
+msgstr "Thông báo linh tinh"
+
+#: gnome-data/gnome-2.soundlist.in.h:7
+msgid "Question Dialogs"
+msgstr "Hộp thoại hỏi"
+
+#: gnome-data/gnome-2.soundlist.in.h:8
+msgid "Warning Messages"
+msgstr "Thông điệp cảnh báo"
+
+#: gnome-data/gtk-events-2.soundlist.in.h:1
+msgid "Action button click"
+msgstr "Hành động nhấn nút"
+
+#: gnome-data/gtk-events-2.soundlist.in.h:2
+msgid "Check box toggled"
+msgstr "Đã đánh dấu hộp kiểm"
+
+#: gnome-data/gtk-events-2.soundlist.in.h:3
+msgid "Menu item activation"
+msgstr "Kích hoạt menu"
+
+#: gnome-data/gtk-events-2.soundlist.in.h:4
+msgid "User interface events"
+msgstr "Sự kiện UI"
+
 #: libgnome/gnome-exec.c:438
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Không thể tìm thấy terminal. Sẽ dùng xterm, bất kể nó có làm việc hay không"
+
+#: libgnome/gnome-gconf.c:174
+msgid "GNOME GConf Support"
+msgstr "Hỗ trợ GNOME GConf"
+
+#: libgnome/gnome-help.c:167
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr "Không thể tìm thấy vùng GNOME_FILE_DOMAIN_APP_HELP"
+
+#: libgnome/gnome-help.c:180
+msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
+msgstr "Không thể tìm thấy vùng GNOME_FILE_DOMAIN_HELP."
+
+#: libgnome/gnome-help.c:193 libgnome/gnome-help.c:208
+#, c-format
+msgid ""
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
+msgstr "Không thể xem trợ giúp vì %s không phải là thư mục. Vui lòng kiểm tra lại bản cài đặt."
+
+#: libgnome/gnome-help.c:217 libgnome/gnome-help.c:233
+#, c-format
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
+msgstr "Không thể tìm thấy tập tin trợ giúp trong %s cũng như trong %s. Vui lòng kiểm tra lại bản cài đặt."
+
+#: libgnome/gnome-help.c:312
+#, c-format
+msgid "Unable to find doc_id %s in the help path"
+msgstr "Không tìm thấy doc_id %s trong đường dẫn help"
+
+#: libgnome/gnome-help.c:333
+#, c-format
+msgid "Help document %s/%s not found"
+msgstr "Không tìm thấy tài liệu trợ giúp %s/%s"
+
+#: libgnome/gnome-i18n.c:85
+msgid "Too many alias levels for a locale, may indicate a loop"
+msgstr "Có quá nhiều mức bí danh cho một locale, có thể tạo ra vòng lặp"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -28,12 +116,12 @@ msgstr "Hỗ trợ Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Hỗ trợ Bonobo activation"
 
-#: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
+#: libgnome/gnome-init.c:281 libgnome/gnome-init.c:295
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Không thể tạo thư mục cấu hình GNOME của người dùng `%s': %s\n"
 
-#: libgnome/gnome-init.c:298
+#: libgnome/gnome-init.c:304
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -42,79 +130,34 @@ msgstr ""
 "Không thể thiết lập quyền 0700 cho thư mục cấu hình GNOME của người dùng `%"
 "s': %s\n"
 
-#: libgnome/gnome-init.c:305
+#: libgnome/gnome-init.c:311
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Không thể tạo thư mục GNOME accelerator `%s': %s\n"
 
-#: libgnome/gnome-init.c:361
+#: libgnome/gnome-init.c:367
 msgid "Disable sound server usage"
 msgstr "Tắt server âm thanh"
 
-#: libgnome/gnome-init.c:364
+#: libgnome/gnome-init.c:370
 msgid "Enable sound server usage"
 msgstr "Mở server âm thanh"
 
-#: libgnome/gnome-init.c:367
+#: libgnome/gnome-init.c:373
 msgid "Host:port on which the sound server to use is running"
 msgstr "Host:port mà server âm thanh định dùng đã bị sử dụng"
 
-#: libgnome/gnome-init.c:369
+#: libgnome/gnome-init.c:375
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: libgnome/gnome-init.c:387
+#: libgnome/gnome-init.c:393
 msgid "GNOME Virtual Filesystem"
 msgstr "Hệ thống tập tin ảo GNOME"
 
-#: libgnome/gnome-init.c:408
+#: libgnome/gnome-init.c:414
 msgid "GNOME Library"
 msgstr "GNOME Library"
-
-#: libgnome/gnome-gconf.c:174
-msgid "GNOME GConf Support"
-msgstr "Hỗ trợ GNOME GConf"
-
-#: libgnome/gnome-help.c:166
-msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr "Không thể tìm thấy vùng GNOME_FILE_DOMAIN_APP_HELP"
-
-#: libgnome/gnome-help.c:179
-#, fuzzy
-msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "Không thể tìm thấy vùng GNOME_FILE_DOMAIN_APP_HELP"
-
-#: libgnome/gnome-help.c:192 libgnome/gnome-help.c:207
-#, fuzzy, c-format
-msgid ""
-"Unable to show help as %s is not a directory.  Please check your "
-"installation."
-msgstr ""
-"Không thể xem trợ giúp vì %s không phải là thư mục. Có lẽ quá trình cài đặt "
-"sai."
-
-#: libgnome/gnome-help.c:216 libgnome/gnome-help.c:232
-#, fuzzy, c-format
-msgid ""
-"Unable to find the help files in either %s or %s.  Please check your "
-"installation"
-msgstr ""
-"Không thể xem trợ giúp vì %s không phải là thư mục. Có lẽ quá trình cài đặt "
-"sai."
-
-#: libgnome/gnome-help.c:309
-#, c-format
-msgid "Unable to find doc_id %s in the help path"
-msgstr "Không tìm thấy doc_id %s trong đường dẫn help"
-
-#: libgnome/gnome-help.c:330
-#, c-format
-msgid "Help document %s/%s not found"
-msgstr "Không tìm thấy tài liệu trợ giúp %s/%s"
-
-#: libgnome/gnome-i18n.c:85
-msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "Có quá nhiều mức bí danh cho một locale, có thể tạo ra vòng lặp"
 
 #: libgnome/gnome-program.c:426
 msgid "Popt Table"
@@ -260,19 +303,19 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Kết nối với esd như thế nào"
 
-#: libgnome/gnome-program.c:1335
+#: libgnome/gnome-program.c:1352
 msgid "Help options"
 msgstr "Tuỳ chọn trợ giúp"
 
-#: libgnome/gnome-program.c:1340
+#: libgnome/gnome-program.c:1357
 msgid "Application options"
 msgstr "Tùy chọn ứng dụng"
 
-#: libgnome/gnome-program.c:1356
+#: libgnome/gnome-program.c:1373
 msgid "Dynamic modules to load"
 msgstr "Module động cần nạp"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1374
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
@@ -288,62 +331,20 @@ msgstr "Moniker GConf"
 msgid "config indirect moniker"
 msgstr "moniker cấu hình gián tiếp"
 
+#: monikers/bonobo-config-bag.c:230
+msgid "Unknown type"
+msgstr "Kiểu lạ"
+
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
 msgstr "Không tìm thấy phím %s trong cấu hình"
 
-#: monikers/bonobo-config-bag.c:230
-msgid "Unknown type"
-msgstr "Kiểu lạ"
+#~ msgid "Test option."
+#~ msgstr "Kiểm tra tuỳ chọn."
 
-#: gnome-data/gnome-2.soundlist.in.h:1
-msgid "Error Messages"
-msgstr ""
-
-#: gnome-data/gnome-2.soundlist.in.h:2
-msgid "GNOME system events"
-msgstr ""
-
-#: gnome-data/gnome-2.soundlist.in.h:3
-msgid "Informational Messages"
-msgstr ""
-
-#: gnome-data/gnome-2.soundlist.in.h:4
-msgid "Login"
-msgstr ""
-
-#: gnome-data/gnome-2.soundlist.in.h:5
-msgid "Logout"
-msgstr ""
-
-#: gnome-data/gnome-2.soundlist.in.h:6
-msgid "Miscellaneous Messages"
-msgstr ""
-
-#: gnome-data/gnome-2.soundlist.in.h:7
-msgid "Question Dialogs"
-msgstr ""
-
-#: gnome-data/gnome-2.soundlist.in.h:8
-msgid "Warning Messages"
-msgstr ""
-
-#: gnome-data/gtk-events-2.soundlist.in.h:1
-msgid "Action button click"
-msgstr ""
-
-#: gnome-data/gtk-events-2.soundlist.in.h:2
-msgid "Check box toggled"
-msgstr ""
-
-#: gnome-data/gtk-events-2.soundlist.in.h:3
-msgid "Menu item activation"
-msgstr ""
-
-#: gnome-data/gtk-events-2.soundlist.in.h:4
-msgid "User interface events"
-msgstr ""
+#~ msgid "The Application Name"
+#~ msgstr "Tên ứng dụng"
 
 #~ msgid ""
 #~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
@@ -354,9 +355,3 @@ msgstr ""
 
 #~ msgid "Help document %s for %s not found"
 #~ msgstr "Không tìm thấy tài liệu trợ giúp %s cho %s."
-
-#~ msgid "Test option."
-#~ msgstr "Kiểm tra tuỳ chọn."
-
-#~ msgid "The Application Name"
-#~ msgstr "Tên ứng dụng"
