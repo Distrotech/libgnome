@@ -215,5 +215,3 @@ test_libgnome_LDADD = \
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libgnome-2.0.pc
 
-gnomesysconfdir = $(sysconfdir)/gnome-2.0
-gnomesysconf_DATA = gnome-desktop.xmldb
