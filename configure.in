@@ -1,7 +1,7 @@
 AC_INIT(libgnome)
 
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(libgnome, 2.1.90)
+AM_INIT_AUTOMAKE(libgnome, $LIBGNOME_VERSION)
 
 AM_MAINTAINER_MODE
 
@@ -26,19 +26,26 @@ GETTEXT_PACKAGE=libgnome-2.0
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [The gettext package])
 
+# Making releases:
+#   LIBGNOME_MICRO_VERSION += 1;
+#   LIBGNOME_INTERFACE_AGE += 1;
+#   LIBGNOME_BINARY_AGE += 1;
+# if any functions have been added, set LIBGNOME_INTERFACE_AGE to 0.
+# if backwards compatibility has been broken,
+# set LIBGNOME_BINARY_AGE and LIBGNOME_INTERFACE_AGE to 0.
+#
+LIBGNOME_MAJOR_VERSION=2
+LIBGNOME_MINOR_VERSION=2
+LIBGNOME_MICRO_VERSION=0
+LIBGNOME_INTERFACE_AGE=0
+LIBGNOME_BINARY_AGE=200
+
 dnl libtool versioning from libgnome
 
-dnl increment if the interface has additions, changes, removals.
-LIBGNOME_CURRENT=0
-
-dnl increment any time the source you changes; set to
-dnl 0 if you uncrement CURRENT
-LIBGNOME_REVISION=0
-
-dnl increment if any interfaces have been added; set to 0
-dnl  if any interfaces have been removed. removasl has
-dnl  precedence over adding, so set to 0 if both happened.
-LIBGNOME_AGE=0
+LIBGNOME_CURRENT=`expr 100 '*' $LIBGNOME_MINOR_VERSION + $LIBGNOME_MICRO_VERSION - $LIBGNOME_INTERFACE_AGE`
+LIBGNOME_REVISION=$LIBGNOME_INTERFACE_AGE
+LIBGNOME_AGE=`expr $LIBGNOME_BINARY_AGE - $LIBGNOME_INTERFACE_AGE`
+LIBGNOME_VERSION=$LIBGNOME_MAJOR_VERSION.$LIBGNOME_MINOR_VERSION.$LIBGNOME_MICRO_VERSION
 
 AC_SUBST(LIBGNOME_CURRENT)
 AC_SUBST(LIBGNOME_REVISION)
