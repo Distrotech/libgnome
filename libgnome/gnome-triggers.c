@@ -22,7 +22,10 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <dirent.h>
+
+#ifdef HAVE_ALLOCA_H
 #include <alloca.h>
+#endif /*HAVE_ALLOCA_H*/
 
 /* TYPE DECLARATIONS */
 
