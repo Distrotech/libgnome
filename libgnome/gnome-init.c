@@ -50,8 +50,38 @@ extern struct poptOption gconf_options[];
 #include <gobject/gvaluetypes.h>
 
 #include <liboaf/liboaf.h>
+#include <bonobo/libbonobo.h>
 
 #include <libgnomevfs/gnome-vfs-init.h>
+
+/*****************************************************************************
+ * oaf
+ *****************************************************************************/
+
+static void
+gnome_oaf_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+    oaf_preinit (program, mod_info);
+}
+
+static void
+gnome_oaf_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+    int dumb_argc = 1;
+    char *dumb_argv[] = {NULL};
+
+    oaf_postinit (program, mod_info);
+
+    dumb_argv[0] = program_invocation_name;
+    (void) oaf_orb_init (&dumb_argc, dumb_argv);
+}
+
+GnomeModuleInfo gnome_oaf_module_info = {
+    "gnome-oaf", VERSION, N_("GNOME OAF Support"),
+    NULL,
+    gnome_oaf_pre_args_parse, gnome_oaf_post_args_parse,
+    oaf_popt_options
+};
 
 /*****************************************************************************
  * gconf
@@ -244,6 +274,32 @@ GnomeModuleInfo gnome_gconf_module_info = {
     gconf_options,
     NULL, gnome_gconf_constructor,
     NULL, NULL
+};
+
+/*****************************************************************************
+ * libbonobo
+ *****************************************************************************/
+
+static void
+libbonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+    CORBA_ORB orb;
+
+    orb = oaf_orb_get ();
+
+    bonobo_init (orb, CORBA_OBJECT_NIL, CORBA_OBJECT_NIL);
+}
+
+static GnomeModuleRequirement libbonobo_requirements[] = {
+    { VERSION, &gnome_oaf_module_info },
+    { NULL, NULL }
+};
+
+GnomeModuleInfo libbonobo_module_info = {
+    "libbonobo", VERSION, N_("Bonobo"),
+    libbonobo_requirements,
+    NULL, libbonobo_post_args_parse, NULL,
+    NULL, NULL, NULL, NULL
 };
 
 /*****************************************************************************
