@@ -128,6 +128,20 @@ static TProfile *Current = 0;
  */
 static TProfile *Base = 0;
 
+static char *
+config_concat_dir_and_key (const char *dir, const char *key)
+{
+	g_return_val_if_fail (dir != NULL, NULL);
+	g_return_val_if_fail (key != NULL, NULL);
+
+        /* If the directory name doesn't have a / on the end, we need
+	   to add one so we get a proper path to the file */
+	if (dir[0] != '\0' && dir [strlen(dir) - 1] != '/')
+		return g_strconcat (dir, "/", key, NULL);
+	else
+		return g_strconcat (dir, key, NULL);
+}
+
 /* The `release_path' and `parsed_path' routines are inside the
    following file.  It is in a separate file to allow the test-suite
    to get at it, without needing to export special symbols.
@@ -565,7 +579,7 @@ access_config_extended (access_type mode, const char *section_name,
  			if (cache_overrride_filename)
 				g_free (cache_overrride_filename);
 
- 			tmp = g_concat_dir_and_file ("gnome/config-override",rel_file);
+ 			tmp = config_concat_dir_and_key ("gnome/config-override",rel_file);
  			filename = gnome_program_locate_file
 			    (gnome_program_get (), GNOME_FILE_DOMAIN_CONFIG,
 			     tmp, TRUE, NULL);
@@ -575,7 +589,7 @@ access_config_extended (access_type mode, const char *section_name,
  			if (cache_global_filename)
 				g_free (cache_global_filename);
 
-			tmp = g_concat_dir_and_file ("gnome/config", rel_file);
+			tmp = config_concat_dir_and_key ("gnome/config", rel_file);
  			filename = gnome_program_locate_file
 			    (gnome_program_get (), GNOME_FILE_DOMAIN_CONFIG,
 			     tmp, TRUE, NULL);
@@ -848,7 +862,7 @@ _gnome_config_sync_file (char *path, gboolean priv)
 	if (!path)
 		return ret;
 
-	fake_path = g_concat_dir_and_file (path, "section/key");
+	fake_path = config_concat_dir_and_key (path, "section/key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 
@@ -895,7 +909,7 @@ _gnome_config_clean_file (const char *path, gboolean priv)
 	if (!path)
 		return;
 
-	fake_path = g_concat_dir_and_file (path, "section/key");
+	fake_path = config_concat_dir_and_key (path, "section/key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 
@@ -941,7 +955,7 @@ _gnome_config_drop_file (const char *path, gboolean priv)
 	if (!path)
 		return;
 
-	fake_path = g_concat_dir_and_file (path, "section/key");
+	fake_path = config_concat_dir_and_key (path, "section/key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 
@@ -997,7 +1011,7 @@ _gnome_config_init_iterator (const char *path, gboolean priv)
 	iterator_type *iter;
 
 
-	fake_path = g_concat_dir_and_file (path, "key");
+	fake_path = config_concat_dir_and_key (path, "key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
@@ -1066,7 +1080,7 @@ _gnome_config_init_iterator_sections (const char *path, gboolean priv)
 	iterator_type *iter;
 
 
-	fake_path = g_concat_dir_and_file (path, "section/key");
+	fake_path = config_concat_dir_and_key (path, "section/key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
@@ -1186,7 +1200,7 @@ _gnome_config_clean_section (const char *path, gboolean priv)
 	ParsedPath *pp;
 	char *fake_path;
 	
-	fake_path = g_concat_dir_and_file (path, "key");
+	fake_path = config_concat_dir_and_key (path, "key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
@@ -1306,7 +1320,7 @@ _gnome_config_has_section (const char *path, gboolean priv)
 	ParsedPath *pp;
 	char *fake_path;
 
-	fake_path = g_concat_dir_and_file (path, "key");
+	fake_path = config_concat_dir_and_key (path, "key");
 	pp = parse_path (fake_path,priv);
 	g_free (fake_path);
 	

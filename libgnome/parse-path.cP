@@ -27,7 +27,6 @@ parse_path (const char *path, gboolean priv)
 		p->opath = g_strdup (path);
 	else
 		p->opath = g_strconcat (prefix, path,NULL);
-		/*p->opath = g_concat_dir_and_file (prefix, path);*/
 
 	p->path    = p->opath;
 	p->file    = (char *)GNOME_CONFIG_PARSE_ERROR;
@@ -43,7 +42,7 @@ parse_path (const char *path, gboolean priv)
 				p->file = g_strdup (token);
 			else {
 				char *cwd = g_get_current_dir();
-				p->file = g_concat_dir_and_file(cwd,token);
+				p->file = config_concat_dir_and_key (cwd,token);
 				g_free(cwd);
 			}
 		}
