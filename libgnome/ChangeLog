@@ -1,3 +1,8 @@
+Fri Nov 30 16:59:01 2001  George Lebl <jirka@5z.com>
+
+	* gnome-init.c: g_object_set is a vararg function so null terminate
+	  the argument list.  Yay for no typesafety and corrupted stacks.
+
 Tue Nov 27 15:41:43 2001  George Lebl <jirka@5z.com>
 
 	* gnome-util.[ch], gnome-exec.c, gnome-url.c: move

@@ -222,7 +222,8 @@ libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
 			g_value_init (&value, G_TYPE_STRING);
 			g_value_set_string (&value, opt->arg);
 			g_object_set (G_OBJECT (program),
-				      GNOME_PARAM_ESPEAKER, &value);
+				      GNOME_PARAM_ESPEAKER, &value,
+				      NULL);
 			g_value_unset (&value);
 			break;
 
@@ -230,7 +231,8 @@ libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
 			g_value_init (&value, G_TYPE_BOOLEAN);
 			g_value_set_boolean (&value, FALSE);
 			g_object_set (G_OBJECT (program),
-				      GNOME_PARAM_ENABLE_SOUND, &value);
+				      GNOME_PARAM_ENABLE_SOUND, &value,
+				      NULL);
 			g_value_unset (&value);
 			break;
 
@@ -238,7 +240,8 @@ libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
 			g_value_init (&value, G_TYPE_BOOLEAN);
 			g_value_set_boolean (&value, TRUE);
 			g_object_set (G_OBJECT (program),
-				      GNOME_PARAM_ENABLE_SOUND, &value);
+				      GNOME_PARAM_ENABLE_SOUND, &value,
+				      NULL);
 			g_value_unset (&value);
 			break;
 
