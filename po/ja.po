@@ -1,17 +1,17 @@
 # libgnome ja.po.
-# Copyright (C) 1998-2003 Free Software Foundation, Inc.
+# Copyright (C) 1998-2004 Free Software Foundation, Inc.
 # Yukihiro Nakai <Nakai@abricot.co.jp>, 1998,2001.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1999.
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 1999-2002.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
-# Takeshi AIHANA <aihana@gnome.gr.jp>, 2003.
+# Takeshi AIHANA <aihana@gnome.gr.jp>, 2003-2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-24 11:14+0100\n"
-"PO-Revision-Date: 2003-08-26 06:48+0900\n"
+"POT-Creation-Date: 2004-02-25 00:36+0900\n"
+"PO-Revision-Date: 2004-02-25 00:34+0900\n"
 "Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -779,19 +779,19 @@ msgstr "GTK+ アプリケーションでカスタム・フォントを使用す�
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
-msgstr ""
+msgstr "コマンドラインを利用不可にする"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable print setup"
-msgstr ""
+msgstr "印刷設定を利用不可にする"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable printing"
-msgstr ""
+msgstr "印刷機能を利用不可にする"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable saving files to disk"
-msgstr ""
+msgstr "ファイル保存の機能を利用不可にする"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid ""
@@ -799,24 +799,34 @@ msgid ""
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
 msgstr ""
+"ユーザからの端末のアクセス、または実行コマンド・ラインの指定を利用不可にしま"
+"す。たとえば、これはパネルの \"アプリケーションの実行\" ダイアログへのアクセ"
+"スを利用できなくします。"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all application's \"Print Setup\" dialogs."
 msgstr ""
+"ユーザからの印刷設定の変更を利用不可にします。たとえば、これは全てのアプリ"
+"ケーションが提供する \"印刷設定\" ダイアログへのアクセスを利用できなくしま"
+"す。"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all application's \"Print\" dialogs."
 msgstr ""
+"ユーザからの印刷実行を利用不可にします。たとえば、全てのアプリケーションが提"
+"供する \"印刷\" ダイアログへのアクセスを利用できなくします。"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all application's \"Save as\" dialogs."
 msgstr ""
+"ユーザによるファイルの保存を利用不可にします。たとえば、全てのアプリケーショ"
+"ンが提供する \"別名で保存\" ダイアログへのアクセスを利用できなくします。"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -994,82 +1004,3 @@ msgstr "キーボードのロックを有効にするかどうかを設定しま
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "一休みする時間を延長できるかどうかを指定します。"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "ghelp ページの URL の扱い方"
-
-#~ msgid "How to handle http URLs"
-#~ msgstr "HTTP ページの URL の扱い方"
-
-#~ msgid "How to handle https URLs"
-#~ msgstr "HTTPS ページの URL の扱い方"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "info ページの URL の扱い方"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "man ページの URL の扱い方"
-
-#~ msgid "How to handle trash URLs"
-#~ msgstr "ゴミ箱 URL の扱い方"
-
-#~ msgid "Run program in terminal"
-#~ msgstr "ターミナル内で実行"
-
-#~ msgid "Set to true to have a program specified in command handle http URLs"
-#~ msgstr ""
-#~ "ゴミ箱/コマンド に指定したプログラムに HTTP の URL を扱わせる場合は TRUE "
-#~ "を設定します"
-
-#~ msgid "Set to true to have a program specified in command handle https URLs"
-#~ msgstr ""
-#~ "ゴミ箱/コマンド に指定したプログラムに HTTPS の URL を扱わせる場合は TRUE "
-#~ "を設定します"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "プログラム/ghelp に指定したプログラムに ghelp ページの URL を扱わせる場合"
-#~ "は TRUE を設定します"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "プログラム/info に指定したプログラムに info ページの URL を扱わせる場合は "
-#~ "TRUE を設定します"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "プログラム/man に指定したプログラムに man ページの URL を扱わせる場合は "
-#~ "TRUE を設定します"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in trash/command handle trash URLs"
-#~ msgstr ""
-#~ "ゴミ箱/コマンド に指定したプログラムにゴミ箱の URL を扱わせる場合は TRUE "
-#~ "を設定します"
-
-#~ msgid "True if the program to handle this URL should be run in a terminal"
-#~ msgstr ""
-#~ "この URL を扱うプログラムを端末で実行しなければならない場合は TRUE を設定"
-#~ "します"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "ghelp の URL ハンドラ"
-
-#~ msgid "URL handler for http uris"
-#~ msgstr "HTTP の URL ハンドラ"
-
-#~ msgid "URL handler for https uris"
-#~ msgstr "HTTPS の URL ハンドラ"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "info ページの URL ハンドラ"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "man ページの URL ハンドラ"
-
-#~ msgid "URL handler for trash pages"
-#~ msgstr "ゴミ箱の URL ハンドラ"
