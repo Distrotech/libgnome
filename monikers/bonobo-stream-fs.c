@@ -29,7 +29,8 @@ fs_write (GnomeStream *stream, const GNOME_Stream_iobuf *buffer,
 	while (write (sfs->fd, buffer->_buffer, buffer->_length) == -1 
 	       && errno == EINTR);
 
-	if (errno != EINTR) {
+	if (errno != EINTR){
+		g_warning ("Should signal an exception here");
 		CORBA_exception_set(ev, CORBA_USER_EXCEPTION,
 				    ex_GNOME_Storage_NameExists, NULL);
 		return 0;
