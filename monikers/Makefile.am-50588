@@ -62,9 +62,6 @@ libmoniker_gnome_std_la_LIBADD = \
 gnomesysconfdir = $(sysconfdir)/gnome-2.0
 gnomesysconf_DATA = gnome-desktop.xmldb
 
-install-data-local:
-	-./desktop-item-boot
-
 # DItem moniker
 
 Bonobo_Moniker_ditem.oaf : $(srcdir)/Bonobo_Moniker_ditem.oaf.in $(top_builddir)/config.status
