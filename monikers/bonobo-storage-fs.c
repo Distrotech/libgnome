@@ -20,6 +20,7 @@
 #include <errno.h>
 
 #include <libgnome/gnome-util.h>
+#include <libgnomevfs/gnome-vfs-mime.h>
 #include <bonobo/bonobo-storage.h>
 
 #include "bonobo-stream-fs.h"
@@ -80,7 +81,7 @@ fs_get_info (PortableServer_Servant storage,
 		else
 			si->content_type = 
 				CORBA_string_dup (
-					gnome_mime_type_of_file (full));
+					gnome_vfs_mime_type_from_name (full));
 	}
 
 	g_free (full);
@@ -317,7 +318,7 @@ fs_list_contents (PortableServer_Servant   storage,
 			buf [i].type = Bonobo_STORAGE_TYPE_REGULAR;
 			buf [i].content_type = 
 				CORBA_string_dup (
-					gnome_mime_type_of_file (full));
+					gnome_vfs_mime_type_from_name (full));
 		}
 
 		g_free (full);

@@ -13,7 +13,7 @@
 #include <bonobo/bonobo-moniker.h>
 #include <bonobo/bonobo-moniker-extender.h>
 #include <bonobo/bonobo-moniker-util.h>
-/* #include <libgnome/gnome-mime.h> */
+#include <libgnomevfs/gnome-vfs-mime.h>
 #include <liboaf/liboaf.h>
 
 #include "gnome-moniker-std.h"
@@ -42,7 +42,7 @@ bonobo_file_extender_resolve (BonoboMonikerExtender *extender,
 
 	g_warning ("Filename : '%s'", fname);
 
-	mime_type = gnome_mime_type (fname);
+	mime_type = gnome_vfs_mime_type_from_name (fname);
 
 	oaf_requirements = g_strdup_printf (
 		"bonobo:supported_mime_types.has ('%s') AND repo_ids.has ('%s') AND "
@@ -60,7 +60,7 @@ bonobo_file_extender_resolve (BonoboMonikerExtender *extender,
 
 	CORBA_free (result);
 
-	object = bonobo_url_lookup (oafiid, display_name, ev);
+	object = bonobo_url_lookup (oafiid, (gchar *) display_name, ev);
 	if (!BONOBO_EX (ev) && object != CORBA_OBJECT_NIL) {
 		g_free (oafiid);
 		Bonobo_Unknown_ref (object, ev);

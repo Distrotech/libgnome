@@ -1,3 +1,11 @@
+2001-07-11  Martin Baulig  <baulig@suse.de>
+
+	* bonobo-storage-fs.c, bonobo-moniker-extender-file: Use
+	gnome_vfs_mime_type_from_name(), not gnome_mime_type_from_file().
+
+	* bonobo-config-ditem-utils.c: Removed ORBit2 conditionals,
+	always use ORBit2.
+
 2001-07-10  Michael Meeks  <michael@ximian.com>
 
 	* bonobo-moniker-vfs.c: add.

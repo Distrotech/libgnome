@@ -16,6 +16,7 @@
 
 #include "gnome-moniker-std.h"
 #include "bonobo-stream-vfs.h"
+#include "bonobo-storage-vfs.h"
 
 Bonobo_Unknown
 bonobo_moniker_vfs_resolve (BonoboMoniker               *moniker,
