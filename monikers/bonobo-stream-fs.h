@@ -25,7 +25,7 @@ typedef struct _BonoboStreamFS BonoboStreamFS;
 typedef struct _BonoboStreamFSPrivate BonoboStreamFSPrivate;
 
 struct _BonoboStreamFS {
-	BonoboStream stream;
+	BonoboObject stream;
 	int fd;
 	char *path;
 
@@ -33,7 +33,7 @@ struct _BonoboStreamFS {
 };
 
 typedef struct {
-	BonoboStreamClass parent_class;
+	BonoboObjectClass parent_class;
 } BonoboStreamFSClass;
 
 GtkType          bonobo_stream_fs_get_type     (void);

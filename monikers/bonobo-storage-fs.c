@@ -15,9 +15,6 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include <errno.h>
-#include <libgnome/gnome-defs.h>
-#include <libgnome/gnome-util.h>
-#include <libgnome/gnome-mime.h>
 #include <storage-modules/bonobo-storage-fs.h>
 #include <storage-modules/bonobo-stream-fs.h>
 #include <bonobo/bonobo-storage-plugin.h>
