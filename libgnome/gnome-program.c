@@ -1229,7 +1229,7 @@ gnome_program_init (const char *app_id, const char *app_version,
     GnomeProgram *program;
     va_list args;
 
-    libgnome_type_init ();
+    g_type_init (G_TYPE_DEBUG_NONE);
 
     va_start(args, first_property_name);
     program = gnome_program_initv (GNOME_TYPE_PROGRAM,
@@ -1250,7 +1250,7 @@ gnome_program_initv (GType type,
     GnomeProgram *program;
     int i;
 
-    libgnome_type_init ();
+    g_type_init (G_TYPE_DEBUG_NONE);
 
     if (!program_initialized) {
 	GnomeProgramClass *klass;

@@ -1,5 +1,16 @@
 2001-04-29  Martin Baulig  <baulig@suse.de>
 
+	* Makefile.am: Use the new glib-mkenums instead of our own
+	gnome-makeenums.pl and gnome-maketypes.awk.
+
+	* libgnometypebuiltins.[ch]: New generated files; provide a
+	type installation routine for each enum and flags type.
+
+	* gnome-program.c, libgnomeP.h (libgnome_type_init): This
+	function no longer exists.
+
+2001-04-29  Martin Baulig  <baulig@suse.de>
+
 	* libgnome-init.[ch]
 	(GNOME_PARAM_DESKTOP_CONFIG_DATABASE): New property.
 	(GNOME_PARAM_DESKTOP_CONFIG_MONIKER): Likewise.
