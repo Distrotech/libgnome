@@ -52,7 +52,7 @@ static gint gnome_triggers_read_path(const char *config_path);
 
 /* FILEWIDE VARIABLES */
 
-GnomeTriggerList* gnome_triggerlist_topnode = NULL;
+static GnomeTriggerList* gnome_triggerlist_topnode = NULL;
 static int trigger_msg_sample_ids[] = {
   -1, /* info */
   -1, /* warning */
@@ -72,60 +72,15 @@ static const GnomeTriggerTypeFunction actiontypes[] =
   (GnomeTriggerTypeFunction)NULL
 };
 
+static GHashTable *sound_ids = NULL;
+
 /* IMPLEMENTATIONS */
 void
 gnome_triggers_init(void)
 {
-  char *fn;
-  char *val;
-  int n;
-
-#if 0
-  fn = gnome_datadir_file("gnome/triggers/list");
-  if(fn) {
-    gnome_triggers_readfile(fn);
-    g_free(fn);
-  }
-
-  fn = gnome_util_home_file("triggers/list");
-  if(fn) {
-    gnome_triggers_readfile(fn);
-    g_free(fn);
-  }
-#endif
-
-  if(gnome_sound_connection >= 0
-     && gnome_config_get_bool("/sound/system/settings/event_sounds=true")) {
-
-#ifdef HAVE_ESD
-#define DO_SAMPLE_LOAD(n, name) \
-  trigger_msg_sample_ids[n] = esd_sample_getid(gnome_sound_connection, name); \
-  if(trigger_msg_sample_ids[n] <= 0) { \
-    if((val = gnome_config_get_string("/sound/events/gnome/events/" name)) \
-       || (val = gnome_sound_file(name ".wav"))) \
-      trigger_msg_sample_ids[n] = gnome_sound_sample_load(name, val); \
-    g_free(val); \
-  }
-
-    DO_SAMPLE_LOAD(0, "info");
-    DO_SAMPLE_LOAD(1, "warning");
-    DO_SAMPLE_LOAD(2, "error");
-    DO_SAMPLE_LOAD(3, "question");
-    DO_SAMPLE_LOAD(4, "generic");
-#endif
-
-    val = gnome_config_file("/sound/events");
-    if(val)
-      gnome_triggers_read_path(val);
-    g_free(val);
-
-    val = gnome_util_home_file("/sound/events");
-    if(val)
-      gnome_triggers_read_path(val);
-    g_free(val);
-  }
 }
 
+#if 0
 /* snarfed almost directly from sound-properties. */
 static gint
 gnome_triggers_read_path(const char *config_path)
@@ -174,7 +129,7 @@ gnome_triggers_read_path(const char *config_path)
 	g_free(sample_name);
 	continue;
       }
-	
+
       if(*sample_file != '/') {
 	char *tmp = gnome_sound_file(sample_file);
 	g_free(sample_file);
@@ -257,6 +212,7 @@ gnome_triggers_readfile(gchar *infilename)
 
   return 0;
 }
+#endif
 
 void gnome_triggers_add_trigger(GnomeTrigger* nt, ...)
 {
@@ -272,7 +228,7 @@ void gnome_triggers_add_trigger(GnomeTrigger* nt, ...)
   
   /* Build list */
   
-  strings = g_new(gchar *, nstrings + 1);
+  strings = g_new_a(gchar *, nstrings + 1);
   
   va_start(l, nt);
   
@@ -285,7 +241,6 @@ void gnome_triggers_add_trigger(GnomeTrigger* nt, ...)
   /* And pass them to the real function */
   
   gnome_triggers_vadd_trigger(nt, strings);
-  g_free(strings);
 }
 
 static GnomeTrigger*
@@ -377,7 +332,7 @@ gnome_triggers_do(const char *msg, const char *level, ...)
   
   /* Build list */
   
-  strings = g_new(gchar *, nstrings + 1);
+  strings = g_new_a(gchar *, nstrings + 1);
   
   va_start(l, level);
   
@@ -390,7 +345,30 @@ gnome_triggers_do(const char *msg, const char *level, ...)
   /* And pass them to the real function */
   
   gnome_triggers_vdo(msg, level, (const char **)strings);
-  g_free(strings);
+}
+
+/* The "add one to the sample ID" is because sample ID's start at 0,
+   and we need a way to distinguish between "not found in sound_ids"
+   and "sample #0" */
+static void
+gnome_triggers_play_sound(const char *sndname)
+{
+  int sid;
+
+  if(!sound_ids)
+    sound_ids = g_hash_table_new(g_str_hash, g_str_equal);
+
+  sid = GPOINTER_TO_INT(g_hash_table_lookup(sound_ids, sndname));
+
+  if(!sid) {
+    sid = esd_sample_getid(gnome_sound_connection, sndname);
+    if(sid >= 0) sid++;
+    g_hash_table_insert(sound_ids, g_strdup(sndname), GINT_TO_POINTER(sid));
+  }
+
+  if(sid < 0) return;
+  sid--;
+  esd_sample_play(gnome_sound_connection, sid);
 }
 
 void
@@ -398,26 +376,19 @@ gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 {
   GnomeTriggerList* curnode = gnome_triggerlist_topnode;
   int i, j;
-
-#ifdef HAVE_ESD
-  int level_num = -1;
+  char buf[256], *ctmp;
 
   if(level) {
-    if(!strcmp(level, "info")) level_num = 0;
-    else if(!strcmp(level, "warning")) level_num = 1;
-    else if(!strcmp(level, "error")) level_num = 2;
-    else if(!strcmp(level, "question")) level_num = 3;
-    else if(!strcmp(level, "generic")) level_num = 4;
-
-    if(level_num >= 0
-       && trigger_msg_sample_ids[level_num] >= 0)
-      esd_sample_play(gnome_sound_connection,
-		      trigger_msg_sample_ids[level_num]);
+    g_snprintf(buf, sizeof(buf), "gnome/%s", level);
+    gnome_triggers_play_sound(buf);
   }
-#endif
 
   if(!supinfo)
     return;
+
+  ctmp = g_strjoinv("/", (char **)supinfo);
+  gnome_triggers_play_sound(ctmp);
+  g_free(ctmp);
 
   for(i = 0; curnode && supinfo[i]; i++)
     {
@@ -458,6 +429,8 @@ gnome_triggers_destroy(void)
   g_return_if_fail(gnome_triggerlist_topnode != NULL);
   gnome_triggerlist_free(gnome_triggerlist_topnode);
   gnome_triggerlist_topnode = NULL;
+  g_hash_table_foreach_remove(sound_ids, (GHRFunc)g_free, NULL);
+  g_hash_table_destroy(sound_ids);
 }
 
 static void

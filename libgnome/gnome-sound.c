@@ -468,7 +468,7 @@ gnome_sound_init(const char *hostname)
 /** 
  * gnome_sound_shutdown:
  *
- * shutdowns the gnome sounds support
+ * shuts down the gnome sound support
  */
 void
 gnome_sound_shutdown(void)
