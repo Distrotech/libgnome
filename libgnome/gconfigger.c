@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <gnome.h>
+#include <libgnomeP.h>
 
 static void
 do_option(poptContext ctx, enum poptCallbackReason reason,
