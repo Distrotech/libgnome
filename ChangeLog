@@ -1,3 +1,12 @@
+2005-03-01  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-program.c: (gnome_program_init_paramv):
+	Minimal fix to get things building again on 64-bit.
+	Patch from James Henstridge which is partly a revert to
+	the first fix plus being a bit more strict about arguments
+	passed in there. Closes bug #168387. Thanks to Benoît Dejean,
+	Joe Marcus Clarke, Jean Bréfort and James for this fix.
+
 2005-02-14  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-program.c: (gnome_program_init_paramv):

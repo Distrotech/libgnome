@@ -1928,7 +1928,9 @@ gnome_program_init_paramv (GType type,
                            int argc, char **argv,
                            guint nparams, GParameter *params)
 {
-    va_list args = 0;
+    va_list args;
+
+    g_return_val_if_fail (nparams >= 0, NULL);
 
     return gnome_program_init_common (type, app_id, app_version, module_info,
 				      argc, argv, NULL, args, nparams, params);
