@@ -47,6 +47,10 @@
 #include <liboaf/liboaf.h>
 #include <libbonobo.h>
 
+#ifdef HAVE_GNOMESUPPORT
+#include <gnomesupport.h>
+#endif
+
 #include <libgnomevfs/gnome-vfs-init.h>
 
 /*****************************************************************************

@@ -1,3 +1,13 @@
+2001-05-18  Martin Baulig  <baulig@suse.de>
+
+	* configure.in: Optionally depend on libgnomesupport (from
+	the libgnomebase module).
+
+	* acconfig.h (HAVE_GNOMESUPPORT): Added.
+
+	* libgnome/libgnome-init.c: #include <gnomesupport.h> if we
+	HAVE_GNOMESUPPORT.
+
 2001-04-30  Martin Baulig  <baulig@suse.de>
 
 	* idl/: New directory.

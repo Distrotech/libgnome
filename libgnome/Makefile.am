@@ -20,6 +20,7 @@ INCLUDES = \
 	-I$(srcdir)/..				\
 	$(WARN_CFLAGS)				\
 	$(GLIB_CFLAGS)				\
+	$(LIBGNOMESUPPORT_CFLAGS)		\
 	$(LIBBONOBO_CFLAGS)			\
 	$(OAF_CFLAGS)				\
 	$(GCONF_CFLAGS)				\
@@ -194,6 +195,7 @@ gnome-config.o: parse-path.cP
 
 libgnome_2_la_LDFLAGS = -version-info $(LIB_VERSION)
 libgnome_2_la_LIBADD =		\
+	$(LIBGNOMESUPPORT_LIBS)	\
 	$(OAF_LIBS)		\
 	$(GCONF_LIBS)		\
 	$(LIBXML_LIBS)		\
