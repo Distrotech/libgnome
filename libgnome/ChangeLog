@@ -1,3 +1,8 @@
+1999-03-08  Miguel de Icaza  <miguel@nuclecu.unam.mx>
+
+	* gnome-exec.c (gnome_execute_async_with_env_fds): Set SIGPIPE to
+	point to SIG_IGN here.
+
 1999-03-07  Raja R Harinath  <harinath@cs.umn.edu>
 
 	* gnome-util.c (gnome_dirrelative_file): Rationalize.  Fix a bug

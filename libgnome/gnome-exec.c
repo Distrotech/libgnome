@@ -48,6 +48,7 @@ char *alloca ();
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <string.h>
+#include <signal.h>
 
 #include <errno.h>
 #ifndef errno
@@ -131,6 +132,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 	  fcntl(i, F_SETFD, 1);
 	}
       }
+      signal (SIGPIPE, SIG_DFL);
       /* doit */
       execvp(cpargv[0], cpargv);
 
