@@ -450,6 +450,83 @@ dump_sections (FILE *profile, TSecHeader *p)
 	}
 }
 
+/*check the path and if we need to create directories create them with
+  mode newmode, it needs an absolute path name or it will fail, it
+  needs to be passed the dir and the filename since it will take the
+  filename off*/
+static gint
+check_path(char *path, mode_t newmode)
+{
+	gchar *dirpath;
+	gchar *p;
+	GString *newpath;
+
+	g_return_if_fail(path!=NULL);
+
+	if(strchr(path,'/')==NULL)
+		return FALSE;
+	dirpath = g_strdup(path);
+	if(!dirpath)
+		return FALSE;
+
+	p = strrchr(dirpath,'/');
+		*p='\0';
+
+	if(*dirpath == '\0') {
+		g_free(dirpath);
+		return FALSE;
+	}
+
+	if(strcmp(dirpath,".")==0) {
+		g_free(dirpath);
+		return TRUE;
+	}
+
+	/*not absolute, we refuse to work*/
+	if(dirpath[0]!='/') {
+		g_free(dirpath);
+		return FALSE;
+	}
+
+
+	/*skip leading '/'*/
+	p = dirpath;
+	while(*p == '/')
+		p++;
+
+	p=strtok(p,"/");
+	newpath = g_string_new("");
+	do {
+		struct stat s;
+
+		newpath = g_string_append_c(newpath,'/');
+		newpath = g_string_append(newpath,p);
+		if(stat(newpath->str,&s)==0) {
+			/*check if a directory*/
+			if(!S_ISDIR(s.st_mode)) {
+				g_free(dirpath);
+				g_string_free(newpath,TRUE);
+				return FALSE;
+			}
+		} else {
+			/*we couldn't stat it .. let's try making the
+			  directory*/
+			if(mkdir(newpath->str,newmode)!=0) {
+				/*error, return false*/
+				g_free(dirpath);
+				g_string_free(newpath,TRUE);
+				return FALSE;
+			}
+		}
+
+	} while((p=strtok(NULL,"/"))!=NULL);
+
+	g_free(dirpath);
+	g_string_free(newpath,TRUE);
+
+	return TRUE;
+}
+
 static void 
 dump_profile (TProfile *p)
 {
@@ -461,7 +538,8 @@ dump_profile (TProfile *p)
 
 	/* .ado: p->filename can be empty, it's better to jump over */
 	if (p->filename[0] != (char) 0)
-		if ((profile = fopen (p->filename, "w")) != NULL){
+		if (check_path(p->filename,0755) &&
+		    (profile = fopen (p->filename, "w")) != NULL){
 			dump_sections (profile, p->section);
 			fclose (profile);
 		}
