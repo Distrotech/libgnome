@@ -22,55 +22,33 @@
 
 #include "libgnomeP.h"
 
-struct _Paper {
+struct _Paper
+{
   char* name;
   double pswidth, psheight;
   double lmargin, tmargin, rmargin, bmargin;
 };
 
-struct _Unit {
+struct _Unit
+{
   char* name;
   char* unit;
   float factor;
 };
 
-/*
-const Paper*	paper_info		(gchar *papername);
-const char*	paper_name		(const Paper*);
-double		paper_ps_width		(const Paper*);
-double		paper_ps_height		(const Paper*);
 
-Paper*		paper_with_size		(const double pswidth, 
-					 const double psheight);
-double		paper_width_with_unit	(const Paper* paper, 
-					 const Unit* unit);
-double		paper_height_with_unit	(const Paper* spaper, 
-					 const Unit* sunit);
+static const Unit units[] =
+{
+  /* XXX does anyone *really* measure paper size in feet?  meters? */
 
-gchar*		systempapername		(void);
-
-const Unit*	unit_info		(gchar* unitname);
-*/
-
-static const Unit units[] = {
-  /*
-  { "Inch",       "in",	1. },
-  { "Feet",       "ft",	12. },
-  { "Point",      "pt",	1. / 72. },
-  { "Meter",      "m",  100. / 2.54 },
-  { "Decimeter",  "dm",	10. / 2.54 },
-  { "Centimeter", "cm",	1. / 2.54 },
-  { "Millimeter", "mm",	.1 / 2.54 },
-  { 0 }
-  */
-
-  { "Inch",       "in",	1. / 72. },
-  { "Feet",       "ft",	1. / (72. * 12.) },
+  /* human name, abreviation, points per unit */
+  { "Feet",       "ft",	866.4 },
+  { "Meter",      "m",  2540 },
+  { "Decimeter",  "dm",	254.0 },
+  { "Millimeter", "mm",	2.54 },
   { "Point",      "pt",	1. },
-  { "Meter",      "m",  100. / 2.54 }, /* XXX fix metric */
-  { "Decimeter",  "dm",	10. / 2.54 },
-  { "Centimeter", "cm",	1. / 2.54 },
-  { "Millimeter", "mm",	.1 / 2.54 },
+  { "Centimeter", "cm",	25.4 },
+  { "Inch",       "in",	72.2 },
   { 0 }
 };
 
@@ -79,6 +57,10 @@ static GList* unit_list = NULL;
 static GList* paper_name_list = NULL;
 static GList* unit_name_list = NULL;
 
+/**
+ * paper_init: initialize paper data structures
+ * 
+ **/
 static void
 paper_init (void)
 {
@@ -113,10 +95,11 @@ paper_init (void)
       paper_name_list = g_list_prepend(paper_name_list, paper->name);
     }
 
-  for (unit=units; unit->name; unit++) {
-    unit_list = g_list_prepend(unit_list, (gpointer) unit);
-    unit_name_list = g_list_prepend(unit_name_list, unit->name);
-  }
+  for (unit=units; unit->name; unit++)
+    {
+      unit_list = g_list_prepend(unit_list, (gpointer) unit);
+      unit_name_list = g_list_prepend(unit_name_list, unit->name);
+    }
 }
 
 static int 
@@ -132,8 +115,13 @@ unit_name_compare (const Unit* a, const gchar *b)
 }
 
 
-
-
+/**
+ * gnome_paper_name_list: get internal list of paper specifications
+ * 
+ * grants access to the hardcoded internal list of paper specifications
+ *
+ * Return Value: internal list of paper specifications
+ **/
 GList*
 gnome_paper_name_list (void)
 {
@@ -142,6 +130,15 @@ gnome_paper_name_list (void)
   return paper_name_list;
 }
 
+/**
+ * gnome_paper_with_name: get paper specification by name
+ * @papername: human name of desired paper type
+ * 
+ * searches internal list of paper sizes, searching
+ * for one with the name 'papername'
+ * 
+ * Return Value: paper specification with given name, or NULL
+ **/
 const Paper*
 gnome_paper_with_name (const gchar *papername)
 {
@@ -150,11 +147,22 @@ gnome_paper_with_name (const gchar *papername)
   if (!paper_list)
     paper_init();
 
-  l = g_list_find_custom (paper_list, (gpointer) papername, (GCompareFunc)paper_name_compare);
+  l = g_list_find_custom (paper_list,
+			  (gpointer) papername,
+			  (GCompareFunc)paper_name_compare);
 
   return l ? l->data : NULL;
 }
 
+/**
+ * gnome_paper_with_size: create paper specification with size
+ * @pswidth: width of paper
+ * @psheight: height of paper
+ * 
+ * create a custom paper type with given dimensions
+ * 
+ * Return Value: paper specification
+ **/
 const Paper*
 gnome_paper_with_size (const double pswidth, const double psheight)
 {
@@ -173,6 +181,11 @@ gnome_paper_with_size (const double pswidth, const double psheight)
   return NULL;
 }
 
+/**
+ * gnome_paper_name_default: get the name of the default paper
+ * 
+ * Return Value: human readable name for default paper type
+ **/
 const gchar*
 gnome_paper_name_default(void)
 {
@@ -181,6 +194,14 @@ gnome_paper_name_default(void)
   return systempapername;
 }
 
+/**
+ * gnome_paper_name: get name of paper
+ * @paper: paper specification
+ * 
+ * 
+ * 
+ * Return Value: human readable name for paper type
+ **/
 const gchar*
 gnome_paper_name (const Paper *paper)
 {
@@ -189,6 +210,14 @@ gnome_paper_name (const Paper *paper)
   return paper->name;
 }
 
+/**
+ * gnome_paper_pswidth: get width of paper
+ * @paper: paper specification
+ * 
+ * returns the width of the paper, including the margins
+ * 
+ * Return Value: width of paper (in points)
+ **/
 gdouble
 gnome_paper_pswidth (const Paper *paper)
 {
@@ -197,6 +226,14 @@ gnome_paper_pswidth (const Paper *paper)
   return paper->pswidth;
 }
 
+/**
+ * gnome_paper_psheight: get height of paper
+ * @paper: paper specification
+ * 
+ * returns the height of the paper, including the margins
+ * 
+ * Return Value: height of paper (in points)
+ **/
 gdouble
 gnome_paper_psheight (const Paper *paper)
 {
@@ -205,6 +242,14 @@ gnome_paper_psheight (const Paper *paper)
   return paper->psheight;
 }
 
+/**
+ * gnome_paper_lmargin: get size of left margin
+ * @paper: paper specification
+ * 
+ * 
+ * 
+ * Return Value: paper specification
+ **/
 gdouble
 gnome_paper_lmargin	(const Paper *paper)
 {
@@ -213,6 +258,14 @@ gnome_paper_lmargin	(const Paper *paper)
   return paper->lmargin;
 }
 
+/**
+ * gnome_paper_tmargin: get size of top margin
+ * @paper: paper specification
+ * 
+ * 
+ * 
+ * Return Value: size of top margin (in points)
+ **/
 gdouble
 gnome_paper_tmargin	(const Paper *paper)
 {
@@ -221,6 +274,14 @@ gnome_paper_tmargin	(const Paper *paper)
   return paper->tmargin;
 }
 
+/**
+ * gnome_paper_rmargin: get size of right margin
+ * @paper: paper specification
+ * 
+ * 
+ * 
+ * Return Value: size of right margin (in points)
+ **/
 gdouble
 gnome_paper_rmargin	(const Paper *paper)
 {
@@ -229,14 +290,30 @@ gnome_paper_rmargin	(const Paper *paper)
   return paper->rmargin;
 }
 
+/**
+ * gnome_paper_bmargin: get size of bottom margin
+ * @paper: paper specification
+ * 
+ * 
+ * 
+ * Return Value: size of bottom margin (in points)
+ **/
 gdouble
-gnome_paper_bmargin	(const Paper *paper)
+gnome_paper_bmargin (const Paper *paper)
 {
   g_return_val_if_fail(paper, 0.0);
   
   return paper->bmargin;
 }
 
+/**
+ * gnome_unit_name_list: get internal list of units
+ * 
+ * grants access to the hardcoded internal list
+ * of units
+ * 
+ * Return Value: internal list of units
+ **/
 GList*
 gnome_unit_name_list (void)
 {
@@ -245,6 +322,15 @@ gnome_unit_name_list (void)
   return unit_name_list;
 }
 
+/**
+ * gnome_unit_with_name: get Unit by name
+ * @unitname: name of desired unit
+ * 
+ * searches internal list of units, searching
+ * for one with the name 'unitname'
+ * 
+ * Return Value: Unit with given name or NULL
+ **/
 const Unit* 
 gnome_unit_with_name(const gchar* unitname)
 {
@@ -253,16 +339,28 @@ gnome_unit_with_name(const gchar* unitname)
   if (!unit_list)
     paper_init();
 
-  l = g_list_find_custom (unit_list, (gpointer) unitname, (GCompareFunc)unit_name_compare);
+  l = g_list_find_custom (unit_list,
+			  (gpointer) unitname,
+			  (GCompareFunc)unit_name_compare);
 
   return l ? l->data : NULL;
 }
 
+/**
+ * gnome_paper_convert: convert from points to other units
+ * @psvalue: value in points
+ * @unit: unit to convert to
+ * 
+ * converts from value represented in points
+ * to value represented in given units.
+ * 
+ * Return Value: value in given units
+ **/
 double 
-gnome_paper_convert (double psvalue, const Unit* unit)
+gnome_paper_convert (double psvalue, const Unit *unit)
 {
-  g_return_val_if_fail(unit, psvalue);
-  
-  /*return psvalue * unit->factor * 72;*/
-  return psvalue * unit->factor;
+  g_return_val_if_fail (unit, psvalue);
+  g_return_val_if_fail (unit->factor, psvalue);
+
+  return psvalue / unit->factor;
 }
