@@ -112,7 +112,7 @@ gnome_storage_fs_class_init (GnomeStorageFSClass *class)
 }
 
 static void
-gnome_storage_init (GnomeUnknown *object)
+gnome_storage_init (GnomeObject *object)
 {
 }
 
@@ -155,12 +155,12 @@ gnome_storage_fs_construct (GnomeStorageFS *storage,
 }
 
 static GNOME_Storage
-create_gnome_storage_fs (GnomeUnknown *object)
+create_gnome_storage_fs (GnomeObject *object)
 {
 	POA_GNOME_Storage *servant;
 	CORBA_Object o;
 
-	servant = (POA_GNOME_Storage *) g_new0 (GnomeUnknownServant, 1);
+	servant = (POA_GNOME_Storage *) g_new0 (GnomeObjectServant, 1);
 	servant->vepv = &gnome_storage_vepv;
 	POA_GNOME_Storage__init ((PortableServer_Servant) servant, &object->ev);
 	if (object->ev._major != CORBA_NO_EXCEPTION){
@@ -168,7 +168,7 @@ create_gnome_storage_fs (GnomeUnknown *object)
                 return CORBA_OBJECT_NIL;
         }
 
-	return (GNOME_Storage) gnome_unknown_activate_servant (object, servant);
+	return (GNOME_Storage) gnome_object_activate_servant (object, servant);
 }
 
 /*
@@ -184,7 +184,7 @@ do_gnome_storage_fs_create (char *path)
 	storage_fs->path = g_strdup (path);
 	
 	corba_storage = create_gnome_storage_fs (
-		GNOME_UNKNOWN (storage_fs));
+		GNOME_OBJECT (storage_fs));
 	if (corba_storage == CORBA_OBJECT_NIL){
 		gtk_object_destroy (GTK_OBJECT (storage_fs));
 		return NULL;
