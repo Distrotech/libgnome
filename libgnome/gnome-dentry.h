@@ -34,6 +34,19 @@ void gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc
 
 GnomeDesktopEntry *gnome_desktop_entry_copy (GnomeDesktopEntry * source);
 
+/*hacks to make the i18n thing working*/
+
+typedef struct _GnomeDesktopEntryI18N GnomeDesktopEntryI18N;
+struct _GnomeDesktopEntryI18N {
+	char *lang;
+	char *name;
+	char *comment;
+};
+
+/*hash of GList's of the GnomeDesktopEntryI18N's, hashed by the pointer to
+  a GnomeDesktopEntry*/
+extern GHashTable *gnome_desktop_entry_i18n_ht;
+
 END_GNOME_DECLS
 
 #endif

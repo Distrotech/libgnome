@@ -22,6 +22,96 @@
 /* g_free already checks if x is NULL */
 #define free_if_empty(x) g_free (x)
 
+/*hash of GList's of the GnomeDesktopEntryI18N's, hashed by the pointer to
+  a GnomeDesktopEntry*/
+GHashTable *gnome_desktop_entry_i18n_ht = NULL;
+
+/* find language in a list of GnomeDesktopEntryI18N's*/
+static GnomeDesktopEntryI18N *
+find_lang(GList *list, char *lang)
+{
+	for(;list;list=list->next) {
+		GnomeDesktopEntryI18N *e = list->data;
+		if((!lang && !e->lang) ||
+		   (lang && e->lang && strcmp(e->lang,lang)==0)) {
+			return e;
+		}
+	}
+	return NULL;
+}
+
+/* add a comment or name to a language list */
+static GList *
+add_comment_or_name(GList *list, char *lang, char *name, char *comment)
+{
+	GnomeDesktopEntryI18N *entry;
+	
+	entry = find_lang(list,lang);
+	if(!entry) {
+		entry = g_new0(GnomeDesktopEntryI18N,1);
+		entry->lang = g_strdup(lang);
+		list = g_list_prepend(list,entry);
+	}
+	
+	if(name) {
+		if(entry->name)
+			g_free(entry->name);
+		entry->name = g_strdup(name);
+	}
+	if(comment) {
+		if(entry->comment)
+			g_free(entry->comment);
+		entry->comment = g_strdup(comment);
+	}
+	return list;
+}
+
+/*get the lang out of key, (modifies key!) */
+#define GET_LANG(lang,key,len) 				\
+	if(key[len]=='[') {				\
+		char *p = strchr(&key[(len)+1],']');	\
+		if(p) {					\
+			*p = '\0';			\
+			lang = &key[(len)+1];		\
+		}					\
+	}
+
+/*read the names and comments from the desktop file*/
+static GList *
+read_names_and_comments(const char *file, int is_kde)
+{
+	GList *i18n_list = NULL;
+	
+	gpointer iterator;
+	char *key,*value;
+	char *prefix;
+	
+	gnome_config_push_prefix ("");
+	if(!is_kde) {
+		prefix = g_strconcat ("=", file, "=/Desktop Entry", NULL);
+	} else {
+		prefix = g_strconcat ("=", file, "=/KDE Desktop Entry", NULL);
+	}
+	iterator = gnome_config_init_iterator(prefix);
+	g_free(prefix);
+	gnome_config_pop_prefix ();
+	/*it HAS to be there*/
+	g_assert(iterator);
+	while ((iterator = gnome_config_iterator_next(iterator, &key, &value))) {
+		if(strncmp(key,"Name",4)==0) {
+			char *lang = NULL;
+			GET_LANG(lang,key,4)
+			i18n_list = add_comment_or_name(i18n_list,lang,value,NULL);
+		} else if(strncmp(key,"Comment",7)==0) {
+			char *lang = NULL;
+			GET_LANG(lang,key,7)
+			i18n_list = add_comment_or_name(i18n_list,lang,NULL,value);
+		}
+		g_free(key);
+		g_free(value);
+	}
+	return i18n_list;
+}
 
 /**
  * gnome_desktop_entry_load_flags_conditional:
@@ -54,7 +144,13 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 	char *p = NULL;
 	gboolean is_kde = FALSE;
 	
+	GList *i18n_list = NULL;
+	
 	g_assert (file != NULL);
+	
+	/*create the i18n hash table if it isn't done yet*/
+	if(!gnome_desktop_entry_i18n_ht)
+		gnome_desktop_entry_i18n_ht = g_hash_table_new(NULL,NULL);
 
 	prefix = g_strconcat ("=", file, "=/Desktop Entry/", NULL);
 	gnome_config_push_prefix (prefix);
@@ -102,7 +198,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 			g_free (p);
 	}
 	
-	newitem = g_new (GnomeDesktopEntry, 1);
+	newitem = g_new0 (GnomeDesktopEntry, 1);
 
 	newitem->name          = name;
 	newitem->comment       = gnome_config_get_translated_string ("Comment");
@@ -144,9 +240,14 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 		if(icon_base) g_free(icon_base);
 		newitem->icon = NULL;
 	}
-	gnome_config_pop_prefix ();
 	
-	if (clean_from_memory_after_load){
+	gnome_config_pop_prefix ();
+
+	/*get us the Names and comments of different languages*/
+	i18n_list = read_names_and_comments (file, is_kde);
+	g_hash_table_insert (gnome_desktop_entry_i18n_ht, newitem, i18n_list);
+	
+	if (clean_from_memory_after_load) {
 		prefix = g_strconcat ("=", file, "=", NULL);
 		gnome_config_drop_file (prefix);
 		g_free (prefix);
@@ -209,6 +310,7 @@ void
 gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 {
 	char *prefix;
+	GList *i18n_list = NULL,*li;
 	
 /* XXX:this should have same clean_from_memory logic as above maybe??? */
 	
@@ -222,9 +324,36 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	gnome_config_push_prefix (prefix);
 	g_free (prefix);
 
+	/*create the i18n hash table if it isn't done yet*/
+	if(!gnome_desktop_entry_i18n_ht)
+		gnome_desktop_entry_i18n_ht = g_hash_table_new(NULL,NULL);
+	
+	/*set the names and comments from our i18n list*/
+	i18n_list = g_hash_table_lookup(gnome_desktop_entry_i18n_ht,dentry);
+	for (li=i18n_list; li; li=li->next) {
+		GnomeDesktopEntryI18N *e = li->data;
+		if (e->name) {
+			char *key;
+			if (e->lang)
+				key = g_strdup_printf("Name[%s]",e->lang);
+			else
+				key = g_strdup("Name");
+			gnome_config_set_string (key, e->name);
+			g_free(key);
+		}
+		if (e->comment) {
+			char *key;
+			if (e->lang)
+				key = g_strdup_printf("Comment[%s]",e->lang);
+			else
+				key = g_strdup("Comment");
+			gnome_config_set_string (key, e->comment);
+		}
+	}
+
+	/*set these two as well, just to override potential conflicts*/
 	if (dentry->name)
 		gnome_config_set_translated_string ("Name", dentry->name);
-
 	if (dentry->comment)
 		gnome_config_set_translated_string ("Comment", dentry->comment);
 
@@ -268,7 +397,8 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 void
 gnome_desktop_entry_free (GnomeDesktopEntry *item)
 {
-	if(item){
+	if (item) {
+		GList *i18n_list,*li;
 		free_if_empty (item->name);
 		free_if_empty (item->comment);
 		g_strfreev (item->exec);
@@ -279,6 +409,22 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
 		free_if_empty (item->location);
 		free_if_empty (item->geometry);
 		g_free (item);
+
+		/*there are no i18n entries, weird*/
+		if(!gnome_desktop_entry_i18n_ht)
+			return;
+
+		/*get and free our i18n list*/
+		i18n_list = g_hash_table_lookup(gnome_desktop_entry_i18n_ht,item);
+		for (li=i18n_list; li; li=li->next) {
+			GnomeDesktopEntryI18N *e = li->data;
+			free_if_empty (e->lang);
+			free_if_empty (e->name);
+			free_if_empty (e->comment);
+			g_free(e);
+		}
+		if(i18n_list) g_list_free(i18n_list);
+		g_hash_table_remove(gnome_desktop_entry_i18n_ht,item);
 	}
 }
 
@@ -491,8 +637,16 @@ GnomeDesktopEntry *
 gnome_desktop_entry_copy (GnomeDesktopEntry * source)
 {
 	GnomeDesktopEntry * newitem;
+	GList *i18n_list = NULL;
+	GList *new_i18n_list = NULL;
+	GList *li;
 	
 	g_return_val_if_fail (source != NULL, NULL);
+	
+	/*create the i18n hash table if it isn't done yet*/
+	if(!gnome_desktop_entry_i18n_ht)
+		gnome_desktop_entry_i18n_ht = g_hash_table_new(NULL,NULL);
+
 	newitem = g_new (GnomeDesktopEntry, 1);
 	
 	newitem->name          = g_strdup (source->name);
@@ -508,6 +662,17 @@ gnome_desktop_entry_copy (GnomeDesktopEntry * source)
 	newitem->location      = g_strdup (source->location);
 	newitem->icon          = g_strdup (source->icon);
 	newitem->is_kde	       = source->is_kde;
+
+	i18n_list = g_hash_table_lookup(gnome_desktop_entry_i18n_ht,source);
+	for (li=i18n_list; li; li=li->next) {
+		GnomeDesktopEntryI18N *e = li->data;
+		GnomeDesktopEntryI18N *ne = g_new0(GnomeDesktopEntryI18N,1);
+		ne->lang = g_strdup (e->lang);
+		ne->name = g_strdup (e->name);
+		ne->comment = g_strdup (e->comment);
+		new_i18n_list = g_list_prepend(new_i18n_list,ne);
+	}
+	g_hash_table_insert(gnome_desktop_entry_i18n_ht,newitem,new_i18n_list);
 	
 	return newitem;
 }
