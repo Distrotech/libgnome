@@ -28,7 +28,9 @@
 #include <glib.h>
 #include "libgnomeP.h"
 
-#ifndef HAVE_STRNDUP
+#ifdef HAVE_STRNDUP
+#include <string.h>
+#else
 /* Like strdup, but only copy N chars.  */
 extern char *strndup (const char *s, size_t n);
 #endif

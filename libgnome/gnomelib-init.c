@@ -16,14 +16,14 @@ char *gnome_user_home_dir = 0;
 char *gnome_user_dir = 0;
 char *gnome_user_private_dir = 0;
 char *gnome_app_id = 0;
+char gnome_do_not_create_directories = 0;
 
-void
-gnomelib_init (char *app_id)
+static void
+create_user_gnome_directories (void)
 {
-	gnome_user_home_dir = getenv ("HOME");
-	/* never freed - gnome_config currently uses this, and it's better
-	   to figure it out once than to repeatedly get it */
-	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome");
+	if (gnome_do_not_create_directories)
+		return;
+	
 	if(
 	   mkdir(gnome_user_dir, 0700) /* This is per-user info
 					   - no need for others to see it */
@@ -46,6 +46,17 @@ gnomelib_init (char *app_id)
 	if(chmod(gnome_user_private_dir,0700)!=0)
 		g_error("Could not set mode 0700 on private per-user Gnome directory <%s> - aborting\n",
 		        gnome_user_private_dir);
+
+}
+
+void
+gnomelib_init (char *app_id)
+{
+	gnome_user_home_dir = getenv ("HOME");
+	/* never freed - gnome_config currently uses this, and it's better
+	   to figure it out once than to repeatedly get it */
+	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome");
+	create_user_gnome_directories ();
 
 	gnome_app_id = app_id;
 
