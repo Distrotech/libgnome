@@ -1,3 +1,9 @@
+1999-04-30  Owen Taylor  <otaylor@redhat.com>
+
+	* gnome-moz-remote.c (escape_url): Escape ',' characters
+	in URLs as %2c, since ',' characters are used to
+	separate the parameters to OpenURL.
+
 1999-04-27  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnome-history.c (gnome_history_get_recently_used): Remove "rt"

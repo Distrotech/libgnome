@@ -798,6 +798,37 @@ parseAnArg(poptContext ctx,
   }
 }
 
+/* We need to escape all ',' characters in the URL */
+static char *
+escape_url (char *url) 
+{
+  gint n_escaped = 0;
+  char *escaped_url, *p, *q;
+  
+  p = url;
+  while ((p = strchr (p, ','))) {
+    n_escaped++;
+    p++;
+  }
+  
+  escaped_url = g_new (char, strlen(url) + 2 * n_escaped + 1);
+  
+  p = url;
+  q = escaped_url;
+  while ((p = strchr (p, ','))) {
+    strncpy (q, url, p-url);
+    q += p-url;
+    strcpy (q, "%2c");
+    q += 3;
+
+    p++;
+    url = p;
+  }
+  strcpy (q, url);
+
+  return escaped_url;
+}
+
 int
 main (int argc, char **argv)
 {
@@ -817,18 +848,21 @@ main (int argc, char **argv)
     XSynchronize (dpy, True);
 
   if (url_string) {
-    char buf[512], *argv[3];
+    char *argv[3];
+    char *buf, *escaped_url;
 
-    if (!g_strncasecmp(url_string, "file:", 5))
+    escaped_url = escape_url (url_string);
+
+    if (!g_strncasecmp(escaped_url, "file:", 5))
       isLocal = True;;
-    g_snprintf(buf, sizeof(buf), "openURL(%s%s)", url_string,
-	       new_window ? ",new-window" : "");
+    buf = g_strdup_printf("openURL(%s%s)",
+			  escaped_url, new_window ? ",new-window" : "");
     if (!mozilla_remote_cmd(dpy, (Window) remote_window, buf,
 			    raise_p, isLocal))
       exit(0);
 
     argv[0] = gnome_config_get_string("/gnome-moz-remote/Mozilla/filename=netscape");
-    argv[1] = url_string;
+    argv[1] = escaped_url;
     argv[2] = NULL;
     return (gnome_execute_async(NULL, 2, argv) >= 0);
   } else
