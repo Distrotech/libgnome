@@ -8,8 +8,20 @@
       <type>bool</type>
       <default>false</default>
       <locale name="C">
-        <short>Accessibility</short>
-        <long>Programs have accessibility support</long>
+        <short>Enable Accessibility</short>
+        <long>Whether Applications should have accessibility support</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/gnome/interface/enable_animations</key>
+      <applyto>/desktop/gnome/interface/enable_animations</apply>
+      <owner>gnome</owner>
+      <default>true</default>
+      <locale name="C">
+        <short>Enable Animations</short>
+	<long>Whether animations should be displayed. Note: This is a global
+	key, it changes the behaviour of the window manager, the panel etc.
+	</long>
       </locale>
     </schema>
     <schema>
@@ -20,7 +32,7 @@
       <default>false</default>
       <locale name="C">
         <short>Menus Have Tearoff</short>
-        <long>Menus Have Tearoff</long>
+        <long>Whether menus should have a tearoff</long>
       </locale>
     </schema>
     <schema>
@@ -31,8 +43,8 @@
       <default>false</default>
       <locale name="C">
         <short>Can Change Accels</short>
-        <long>User can dynamically type a new accelerator when a menu is
-        popped up</long>
+        <long>Whether the User can dynamically type a new accelerator when a
+	menu is popped up</long>
       </locale>
     </schema>
     <schema>
@@ -43,7 +55,8 @@
       <default>both</default>
       <locale name="C">
         <short>Toolbar Style</short>
-        <long>Toolbar Style. Valid values are both, both_horiz, icon, and text</long>
+        <long>Toolbar Style. Valid values are both, both_horiz, icon, and
+	text</long>
       </locale>
     </schema>
     <schema>
@@ -54,7 +67,7 @@
       <default>true</default>
       <locale name="C">
         <short>Menus Have Icons</short>
-        <long>Menus Have Icons</long>
+        <long>Whether menus may display an icon next to a menu entry</long>
       </locale>
     </schema>
     <schema>
@@ -65,7 +78,7 @@
       <default>false</default>
       <locale name="C">
         <short>Menubar Detachable</short>
-        <long>Menubar Detachable</long>
+        <long>Whether the user can detach menubars and move them around</long>
       </locale>
     </schema>
     <schema>
@@ -76,7 +89,7 @@
       <default>true</default>
       <locale name="C">
         <short>Toolbar Detachable</short>
-        <long>Toolbar Detachable</long>
+        <long>Whether the user can detach toolbars and move them around</long>
 	</locale>
     </schema>
     <schema>
@@ -86,7 +99,7 @@
       <type>int</type>
       <locale name="C">
         <short>Toolbar Icon Size</short>
-        <long>Toolbar Icon Size</long>
+        <long>This specifies the size of icons displayed in toolbars</long>
 	</locale>
     </schema>
     <schema>
@@ -118,7 +131,7 @@
       <type>string</type>
       <default>gnome</default>
       <locale name="C">
-        <short>Name of icon theme</short>
+        <short>Icon Theme</short>
         <long>Icon theme to use for the panel, nautilus etc.</long>
       </locale>
     </schema>
@@ -129,7 +142,7 @@
       <type>string</type>
       <default>Default</default>
       <locale name="C">
-	<short>Gtk+ theme</short>
+	<short>Gtk+ Theme</short>
 	<long>Basename of the default theme used by gtk+.</long>
       </locale>
     </schema>
@@ -140,7 +153,7 @@
       <type>string</type>
       <default>Default</default>
       <locale name="C">
-	<short>Gtk+ theme</short>
+	<short>Gtk+ Theme</short>
 	<long>Basename of the default theme used by gtk+.</long>
       </locale>
     </schema>
@@ -184,19 +197,19 @@
       <type>bool</type>
       <default>false</default>
       <locale name="C">
-	<short>Use a custom font.</short>
+	<short>Use Custom Font</short>
 	<long>Whether to use a custom font in gtk+ applications.</long>
       </locale>
     </schema>
     <schema>
-      <key>/schemas/desktop/gnome/interface/use_custom_font</key>
+      <key>/schemas/desktop/gnome/interface/status_bar_meter_on_right</key>
       <applyto>/desktop/gnome/interface/status_bar_meter_on_right</applyto>
       <owner>gnome</owner>
       <type>bool</type>
       <default>false</default>
       <locale name="C">
-	<short>Status bar on right</short>
-	<long>Whether to use have a status bar meter on the right</long>
+	<short>Status Bar on Right</short>
+	<long>Whether to display a status bar meter on the right</long>
       </locale>
     </schema>
   </schemalist>
