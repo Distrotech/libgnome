@@ -22,4 +22,4 @@ help-methods.conf: $(srcdir)/help-methods.conf.in
 
 	
 
-EXTRA_DIST=help-methods.conf
+EXTRA_DIST=help-methods.conf.in
