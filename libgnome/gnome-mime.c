@@ -2,7 +2,8 @@
  * Copyright 1997 Paolo Molaro 
  *  This is LGPL'ed code.
  */
-#include "gnome.h"
+#include <gtk/gtk.h>
+#include "libgnome.h"
 #include "gnome-mime.h"
 #include <string.h>
 #include <ctype.h>
