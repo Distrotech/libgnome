@@ -7,13 +7,7 @@
 
 BEGIN_GNOME_DECLS
 
-struct _BonoboStreamVfs;
 typedef struct _BonoboStreamVfs BonoboStreamVfs;
-
-#ifndef _BONOBO_STORAGE_VFS_H_
-struct _BonoboStorageFS;
-typedef struct _BonoboStorageFS BonoboStorageFS;
-#endif
 
 #define BONOBO_STREAM_VFS_TYPE        (bonobo_stream_vfs_get_type ())
 #define BONOBO_STREAM_VFS(o)          (GTK_CHECK_CAST ((o), BONOBO_STREAM_VFS_TYPE, BonoboStreamVfs))
