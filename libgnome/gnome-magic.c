@@ -170,13 +170,13 @@ static char *read_num_val(char *curpos, int bsize, char *intobuf)
   return curpos;
 }
 
-GnomeMagicEntry *gnome_magic_parse(const char *filename, int *nents)
+GnomeMagicEntry *gnome_magic_parse(const gchar *filename, gint *nents)
 {
   GArray *array;
   GnomeMagicEntry newent, *retval;
   FILE *infile;
-  char *infile_name;
-  int bsize;
+  const char *infile_name;
+  int bsize = 0;
   char aline[256];
   char *curpos;
 
@@ -370,14 +370,14 @@ gnome_magic_db_load(void)
 
   fstat(fd, &sbuf);
 
-  retval = mmap(NULL, sbuf.st_size, PROT_READ, MAP_SHARED, fd, 0);
+  retval = (GnomeMagicEntry*) mmap(NULL, sbuf.st_size, PROT_READ, MAP_SHARED, fd, 0);
 
   close(fd);
 
   return retval;
 }
 
-const char *gnome_mime_type_from_magic(const char *filename)
+const char *gnome_mime_type_from_magic(const gchar *filename)
 {
   FILE *fh;
   static GnomeMagicEntry *ents = NULL;

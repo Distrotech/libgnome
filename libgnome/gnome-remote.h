@@ -31,7 +31,7 @@ void gnome_remote_get_command (const char *host, gint *argcp, char ***argvp);
 /* Set the command which should be used to run a program on HOST.  If
    ARGC is 0, then any current binding for HOST is removed.  If HOST
    is NULL, the default command is set.  */
-void gnome_remote_set_command (const char *host, gint argc, char **argv);
+void gnome_remote_set_command (const char *host, gint argc, const char * const argv[]);
 
 END_GNOME_DECLS
 

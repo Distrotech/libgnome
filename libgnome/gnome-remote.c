@@ -78,7 +78,7 @@ gnome_remote_get_command (const char *host, gint *argcp, char ***argvp)
  * If @argc is %0, then this instance of the command is deleted.
  **/
 void
-gnome_remote_set_command (const char *host, gint argc, char **argv)
+gnome_remote_set_command (const char *host, gint argc, const char * const argv[])
 {
   gchar *path;
 
