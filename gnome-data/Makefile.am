@@ -1,19 +1,11 @@
-@INTLTOOL_SOUNDLIST_RULE@
+soundlistdir = $(sysconfdir)/sound/events
 
 soundlist_in_files = \
-		gnome-2.soundlist.in		\
-		gtk-events-2.soundlist.in
+	gnome-2.soundlist.in
+	gtk-events-2.soundlist.in
 
+soundlist_DATA = $(soundlist_in_files:.soundlist.in=.soundlist)
 
-soundlist_files=$(soundlist_in_files:.soundlist.in=.soundlist)
+@INTLTOOL_SOUNDLIST_RULE@
 
-soundlistdir = $(sysconfdir)/sound/events
-soundlist_DATA = \
-		gnome-2.soundlist 		\
-		gtk-events-2.soundlist
-
-EXTRA_DIST = \
-		$(soundlist_DATA)		\
-		$(soundlist_in_files)
-
-
+EXTRA_DIST = $(soundlist_DATA)
