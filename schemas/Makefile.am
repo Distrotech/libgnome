@@ -3,6 +3,7 @@
 schemadir   = $(GCONF_SCHEMA_FILE_DIR)
 schema_in_files = \
 	desktop_gnome_accessibility_keyboard.schemas.in		\
+	desktop_gnome_accessibility_startup.schemas.in		\
 	desktop_gnome_applications_browser.schemas.in		\
 	desktop_gnome_applications_help_viewer.schemas.in		\
 	desktop_gnome_applications_terminal.schemas.in		\
