@@ -1,3 +1,9 @@
+2001-04-20  Martin Baulig  <baulig@suse.de>
+
+	* libgnome-init.c (gnome_oaf_module_info): Put this back.
+	(libbonobo_module_info): Depend of gnome_oaf_module_info; moved
+	oaf_popt_options to gnome_oaf_module_info.
+
 2001-04-18  Michael Meeks  <michael@ximian.com>
 
 	* libgnome-init.c (gnome_oaf_module_info): kill,

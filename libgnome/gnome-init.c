@@ -53,6 +53,39 @@ extern struct poptOption gconf_options[];
 
 #include <libgnomevfs/gnome-vfs-init.h>
 
+/*****************************************************************************
+ * oaf
+ *****************************************************************************/
+
+static void
+gnome_oaf_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+    oaf_preinit (program, mod_info);
+}
+
+static void
+gnome_oaf_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+    int dumb_argc = 1;
+    char *dumb_argv[] = {NULL};
+
+    oaf_postinit (program, mod_info);
+
+    dumb_argv[0] = program_invocation_name;
+    (void) oaf_orb_init (&dumb_argc, dumb_argv);
+}
+
+GnomeModuleInfo gnome_oaf_module_info = {
+    "gnome-oaf", VERSION, N_("GNOME OAF Support"),
+    NULL,
+    gnome_oaf_pre_args_parse, gnome_oaf_post_args_parse,
+    oaf_popt_options
+};
+
+/*****************************************************************************
+ * libbonobo
+ *****************************************************************************/
+
 static void
 libbonobo_post_args_parse (GnomeProgram    *program,
 			   GnomeModuleInfo *mod_info)
@@ -65,10 +98,17 @@ libbonobo_post_args_parse (GnomeProgram    *program,
     bonobo_init (&dumb_argc, dumb_argv);
 }
 
+static GnomeModuleRequirement libbonobo_requirements[] = {
+    {VERSION, &gnome_oaf_module_info},
+    {NULL}
+};
+
 GnomeModuleInfo libbonobo_module_info = {
     "libbonobo", VERSION, N_("Bonobo Support"),
-    NULL, NULL, libbonobo_post_args_parse,
-    oaf_popt_options
+    libbonobo_requirements,
+    NULL, libbonobo_post_args_parse,
+    NULL,
+    NULL, NULL, NULL, NULL
 };
 
 /*****************************************************************************
