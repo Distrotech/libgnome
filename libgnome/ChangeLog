@@ -1,3 +1,21 @@
+Sat Sep 01 17:26:44 2001  George Lebl <jirka@5z.com>
+
+	* gnome-init.c: don't run the gnome_triggers_init, it's an empty
+	  function
+
+	* gnome-sound.c: actually do on demand esd startup and not on init,
+	  and fix the issue with possible sound sample conflicts if they were
+	  loaded at the same second.  Perhaps this code is weird, need more
+	  investigation.
+
+	* gnome-triggers.[ch]: comment out the init function, and whack the
+	  prototypes from the .h file that weren't implemented at all anyway
+
+	* gnome-util.[ch]:  use G_DIR_SEPARATOR(_S), deprecate g_copy_vector,
+	  and mark all the deprecation macros as deprecated.  Add deprecated
+	  macro for g_file_exists, g_unix_error_string and
+	  gnome_util_user_home as well.
+
 Sat Sep 01 15:24:54 2001  George Lebl <jirka@5z.com>
 
 	* gnome-program.c: in the _init function only reregister a module if

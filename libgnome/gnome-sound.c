@@ -463,14 +463,23 @@ void
 gnome_sound_play (const char * filename)
 {
 #ifdef HAVE_ESD
-  char buf[23];
+  char buf[256];
   int sample;
+  static guint cookie = 0;
 
   if(!use_sound ())
     return;
 
-  srand(time(NULL));
-  g_snprintf(buf, sizeof(buf), "%d-%d", getpid(), rand());
+  if (cookie == 0)
+	  cookie = rand ();
+
+  g_snprintf(buf, sizeof(buf), "%d-%u-%d",
+	     getpid(), cookie++, rand ());
+ 
+  /* overflow, make sure we don't reinit with rand again */
+  if (cookie == 0)
+	  cookie = 1;
+
   sample = gnome_sound_sample_load (buf, filename);
 
   esd_sample_play(gnome_sound_connection, sample);
@@ -489,11 +498,9 @@ void
 gnome_sound_init(const char *hostname)
 {
 #ifdef HAVE_ESD
-  if (gnome_sound_connection < 0) {
-	  g_free (esound_hostname);
-	  esound_hostname = g_strdup (hostname);
-	  gnome_sound_connection = esd_open_sound((char *)hostname);
-  }
+	srand(time(NULL));
+	g_free (esound_hostname);
+	esound_hostname = g_strdup (hostname);
 #endif
 }
 
@@ -506,11 +513,11 @@ void
 gnome_sound_shutdown(void)
 {
 #ifdef HAVE_ESD
+	g_free (esound_hostname);
+	esound_hostname = NULL;
 	if(gnome_sound_connection >= 0){
 		esd_close(gnome_sound_connection);
 		gnome_sound_connection = -1;
-		g_free (esound_hostname);
-		esound_hostname = NULL;
 	}
 #endif
 }

@@ -531,8 +531,6 @@ libgnome_post_args_parse (GnomeProgram *program,
 		gnome_sound_init(espeaker_val);
 	}
 
-	gnome_triggers_init ();
-
 	libgnome_userdir_setup (create_dirs_val);
 
 	setlocale (LC_ALL, "");

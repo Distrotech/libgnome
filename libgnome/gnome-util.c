@@ -52,9 +52,6 @@
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-util.h>
 
-#define PATH_SEP '/'
-#define PATH_SEP_STR "/"
-
 /**
  * g_concat_dir_and_file:
  * @dir:  directory name
@@ -71,8 +68,8 @@ g_concat_dir_and_file (const char *dir, const char *file)
 
         /* If the directory name doesn't have a / on the end, we need
 	   to add one so we get a proper path to the file */
-	if (dir[0] != '\0' && dir [strlen(dir) - 1] != PATH_SEP)
-		return g_strconcat (dir, PATH_SEP_STR, file, NULL);
+	if (dir[0] != '\0' && dir [strlen(dir) - 1] != G_DIR_SEPARATOR)
+		return g_strconcat (dir, G_DIR_SEPARATOR_S, file, NULL);
 	else
 		return g_strconcat (dir, file, NULL);
 }
@@ -161,30 +158,8 @@ g_extension_pointer (const char * path)
  *
  * Returns a copy of a NULL-terminated string array.
  */
-char **
-g_copy_vector (const char **vec)
-{
-	char ** new_vec;
-	int size = 0;
-	
-	if (vec == NULL)
-	    return NULL;
-
-	while (vec [size] != NULL){
-		++size;
-	}
-	
-	new_vec = g_malloc (sizeof(char *) * (size + 1));
-	
-	size = 0;
-	while (vec [size]){
-		new_vec [size] = g_strdup (vec [size]);
-		++size;
-	}
-	new_vec [size] = NULL;
-	
-	return new_vec;
-}
+/* FIXME: how does this doc stuff work for macros again?
+ *   -George*/
 
 /**
  * gnome_is_program_in_path:
