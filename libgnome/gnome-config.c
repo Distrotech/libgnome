@@ -895,7 +895,7 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
 {
 	iterator_type *iter = iterator_handle;
 
-	if(!s) return NULL; /* g_return_if_fail is not appropriate
+	if(!iterator_handle) return NULL; /* g_return_if_fail is not appropriate
 			       since this is not really a failure, but
 			       passing in an "empty" iterator
 			       (we return NULL at times) */
