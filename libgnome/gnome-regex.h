@@ -1,6 +1,7 @@
 /* gnome-regex.h - Regular expression cache object.
 
    Copyright (C) 1998 Tom Tromey
+   All rights reserved.
 
    The Gnome Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -16,32 +17,34 @@
    License along with the Gnome Library; see the file COPYING.LIB.  If not,
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
+/*
+  @NOTATION@
+ */
 
 #ifndef GNOME_REGEX_H
 #define GNOME_REGEX_H
-
-#include <libgnome/gnome-defs.h>
 
 BEGIN_GNOME_DECLS
 
 #include <sys/types.h>
 #include <regex.h>
 
-typedef struct {
-	int size;		/* Total number of cache slots.  */
-	int next;		/* Next available slot.  */
+typedef struct _GnomeRegexCache GnomeRegexCache;
+struct _GnomeRegexCache {
 	char **regexs;		/* Regular expression strings.  */
 	regex_t *patterns;	/* Compiled expressions.  */
-	int *flags;		/* Compilation flags for each expression */
-} GnomeRegexCache;
+	int size;		/* Total number of cache slots.  */
+	int next;		/* Next available slot.  */
+	/* FIXME: probably should cache compilation flags along with
+	   regex and use those to determine caching.  For now we
+	   assume that the flags never change.  Another option would
+	   be to put the flag info into this structure and just not
+	   let the user ever change it.  */
+};
 
 /* Create a new regular expression cache with default number of
    items.  */
 GnomeRegexCache *gnome_regex_cache_new (void);
-
-/* Create a new regular expression cache with specified number of
-   items.  */
-GnomeRegexCache *gnome_regex_cache_new_with_size (int size);
 
 /* Free a regular expression cache.  */
 void gnome_regex_cache_destroy (GnomeRegexCache *rxc);
