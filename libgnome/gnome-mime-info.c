@@ -30,6 +30,11 @@
 #endif
 #include "gnome-mime-info.h"
 
+typedef struct {
+	char       *mime_type;
+	GHashTable *keys;
+} GnomeMimeContext;
+
 static char *current_lang;
 
 static gboolean gnome_mime_type_inited = FALSE;
@@ -344,7 +349,8 @@ gnome_mime_type_init ()
  * @key: A key to lookup for the given mime-type
  *
  * This function retrieves the value associated with @key in 
- * the given GnomeMimeContext
+ * the given GnomeMimeContext.  The string is private, you
+ * should not free the result.
  */
 char *
 gnome_mime_type_get_value (char *mime_type, char *key)
@@ -449,6 +455,7 @@ gnome_mime_type_get_keys (char *mime_type)
 	return list;
 }
 
+#if 0
 int
 main ()
 {
@@ -467,3 +474,4 @@ main ()
 	
 	return 0;
 }
+#endif

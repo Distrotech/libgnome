@@ -28,6 +28,7 @@
 #include "libgnome/gnome-i18n.h"
 #include "libgnome/gnome-metadata.h"
 #include "libgnome/gnome-mime.h"
+#include "libgnome/gnome-mime-info.h"
 #include "libgnome/gnome-paper.h"
 #include "libgnome/gnome-popt.h"
 #include "libgnome/gnome-remote.h"

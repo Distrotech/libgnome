@@ -23,20 +23,8 @@
 
 BEGIN_GNOME_DECLS
 
-typedef struct {
-	char       *mime_type;
-	GHashTable *keys;
-} GnomeMimeContext;
-
-typedef struct {
-	
-} GnomeMimeInfo;
-
-typedef GList GnomeMimeInfoList;
-
-GnomeMimeContext  *gnome_mime_type_get_info (char *mime_type);
-GnomeMimeInfoList *gnome_mime_context_fetch (GnomeMimeContext *context,
-					     char *keys);
+char      *gnome_mime_type_get_value (char *mime_type, char *key);
+GList     *gnome_mime_type_get_keys  (char *mime_type);
 
 END_GNOME_DECLS
 

@@ -31,6 +31,7 @@ libgnome_la_SOURCES = \
 	gnome-magic.c		\
 	gnome-metadata.c	\
 	gnome-mime.c		\
+	gnome-mime-info.c	\
 	gnome-popt.c		\
 	gnome-regex.c		\
 	gnome-remote.c		\
@@ -54,6 +55,7 @@ libgnomeinclude_HEADERS = \
 	gnome-i18n.h 		\
 	gnome-metadata.h	\
 	gnome-mime.h		\
+	gnome-mime-info.h	\
 	gnome-popt.h		\
 	gnome-regex.h		\
 	gnome-remote.h		\
