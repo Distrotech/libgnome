@@ -222,8 +222,8 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 		gnome_config_set_string ("Type", dentry->type);
 
 	gnome_config_pop_prefix ();
-	gnome_config_sync ();
 	prefix = g_strconcat ("=", dentry->location, "=", NULL);
+	gnome_config_sync_file (prefix);
 	gnome_config_drop_file (prefix);
 	g_free (prefix);
 }
@@ -366,9 +366,9 @@ gnome_desktop_entry_destroy (GnomeDesktopEntry *item)
       
       prefix = g_strconcat ("=", item->location, "=", NULL);
       gnome_config_clean_file (prefix);
-      g_free (prefix);
       gnome_desktop_entry_free (item);
-      gnome_config_sync();
+      gnome_config_sync_file (prefix);
+      g_free (prefix);
 }
 
 /**

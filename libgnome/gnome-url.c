@@ -60,7 +60,7 @@ gnome_url_default_handler ()
 			if (def)
 				gnome_config_set_string ("/Gnome/URL Handlers/ghelp-show",
 							 GHELP_HANDLER);
-			gnome_config_sync ();
+			gnome_config_sync_file ("/Gnome/");
 		} else
 			default_handler = str;
 	}
