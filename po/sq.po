@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome.HEAD\n"
+"Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-16 13:00+0100\n"
-"PO-Revision-Date: 2004-02-20 12:22+0100\n"
+"POT-Creation-Date: 2004-03-17 20:14+0100\n"
+"PO-Revision-Date: 2004-03-17 20:17+0100\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -96,8 +96,7 @@ msgstr ""
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr ""
-"E pamundur gjetja e files së ndihmës tek %s apo %s. Kontrollo instalimin"
+msgstr "E pamundur gjetja e files së ndihmës tek %s apo %s. Kontrollo instalimin"
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -399,20 +398,17 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Ç'aktivo nëse shtypen njëkohësisht dy pulsante"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
 "Mos prano një pulsant nëse nuk është mbajtur i shtypur për të paktën @delay "
 "milisekonda"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr ""
-"Për sa millisekonda ka nevojë për të shkuar nga 0 në shpejtësinë maksimum"
+msgstr "Për sa millisekonda ka nevojë për të shkuar nga 0 në shpejtësinë maksimum"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Sa millisekonda duhet pritur përpara se pulsantët për lëvizjen e mouse të "
 "hyjnë në aksion"
@@ -501,8 +497,7 @@ msgstr ""
 "të zbatohet"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Argumenti i përdorur për të ndjekur programe në terminal i përcaktuar nga "
 "çelsi 'exec'."
@@ -523,8 +518,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr ""
-"Një listë me emrat e hapësirave të punës së organizuesit kryesor të dritareve"
+msgstr "Një listë me emrat e hapësirave të punës së organizuesit kryesor të dritareve"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
@@ -546,8 +540,7 @@ msgstr "Numri i hapësirave të punës"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
 msgid "The number of workspaces the window manager should use"
-msgstr ""
-"Numri i hapësirave të punës që organizuesi i dritareve duhet të përdorë"
+msgstr "Numri i hapësirave të punës që organizuesi i dritareve duhet të përdorë"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager"
@@ -699,49 +692,60 @@ msgid "Menus Have Tearoff"
 msgstr "Menu me shkëputës"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
-msgid "Monospace font"
-msgstr "Monospace font"
+msgid "Module for GtkFileChooser"
+msgstr "Moduli për GtkFileChooser"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gnome-vfs\" and \"gtk+\"."
+msgstr ""
+"Moduli që duhet përdorur si model i filesistemit për instrumentin GtkFileChooser. "
+"Vlerat e mundëshme janë \"gnome-vfs\" dhe \"gtk+\"."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
+msgid "Monospace font"
+msgstr "Monospace font"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:20
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Emri i një shkronje monospace (me gjërësi të fiksuar) për t'u përdorur në "
 "pozicionet si p.sh. terminalët"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Emri i metodës së input të GTK+ input method Preedit Style e përdorur."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Emri i metodës së input të GTK+ input method Status Style e përdorur."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Name of the default font used by gtk+."
 msgstr "Emri i tipit të gërmave të përdorura si të prezgjedhura nga gtk+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Status Bar on Right"
 msgstr "Paneli i gjendjes djathtas"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Specifikon madhësinë e ikonave të përdorura tek paneli i instrumentëve"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Detachable"
 msgstr "Paneli i instrumentëve i shkëputshëm"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Toolbar Icon Size"
 msgstr "Madhësia e ikonave të panelit të instrumentëve"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Toolbar Style"
 msgstr "Stili i panelit të instrumentëve"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
@@ -749,15 +753,15 @@ msgstr ""
 "Stili i panelit të instrumentëve. Vlera të vlefshme janë \"both\", "
 "\"both_horiz\", \"icon\", dhe \"text\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Use Custom Font"
 msgstr "Përdor gërmat e personalizuara"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether Applications should have accessibility support"
 msgstr "Përcakton nëse programet duhet të kenë suportin e hyrjes së lehtësuar"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -765,31 +769,31 @@ msgstr ""
 "Përcakton nëse duhen shfaqur animimet. Shënim: Ky është një kyç global, "
 "lejon ndryshimin e sjelljes së manazhuesit të dritareve, panelit, etj."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Përcakton nëse duhet shfaqur ikona krahas zërave të menusë"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether menus should have a tearoff"
 msgstr "Përcakton nëse menutë duhet të kenë një shkëputës"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the cursor should blink"
 msgstr "Përcakton nëse kursori duhet të pulsojë"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
 "Përcakton nëse përdoruesit i jepet mundësia të shkëpusë panelët e menusë dhe "
 "t'i lëvizë sipas dëshirës "
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 "Përcakton nëse përdoruesit i jepet mundësia të shkëpusë panelët e "
 "instrumentëve dhe t'i lëvizë sipas dëshirës"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -797,11 +801,11 @@ msgstr ""
 "Përcakton nëse përdoruesi mund të shkruaj dinamikisht një përshpejtues të ri "
 "kur një menu është ç'rrotulluar"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:37
+#: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether to display a status bar meter on the right"
 msgstr "Tregon nëse duhet vendosur djathtas treguesi tek paneli i gjendjes"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:38
+#: schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Tregon nëse duhen përdorur gërmat e personalizuara tek programet gtk+"
 
@@ -1038,3 +1042,4 @@ msgstr "Tregon nëse bllokimi i tastierës është aktiv."
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Tregon nëse ekrani i bllokimit të shkrimit mund të shtyhet."
+
