@@ -404,7 +404,7 @@ gnome_score_log (gfloat score,
  *
  * Fetches the most notable players on @gamename at level @level.
  *
- * Returns: the number of scores returned.  The @names, @scores and @scoretime
+ * Returns: The number of scores returned.  The @names, @scores and @scoretime
  * pointers point to regions that were allocated with g_malloc() with the
  * contents.
  */

@@ -77,7 +77,7 @@ gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
  * @subkey: key part below the gnome desktop settings directory
  *
  * Description:  Gets the full key name for an application specific
- * setting.  That is "/apps/<application_id>/<subkey>".
+ * setting.  That is "/apps/&lt;application_id&gt;/@subkey".
  *
  * Returns:  A newly allocated string
  **/

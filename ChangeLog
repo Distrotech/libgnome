@@ -1,3 +1,16 @@
+2002-06-01  Malcolm Tredinnick <malcolm@tredinnick.org>
+	* doc/reference/libgnome-sections.txt,
+	  doc/reference/tmpl/gnome-score.sgml, libgnome/gnome-score.c,
+	  libgnome/gnome-score.h:
+	  Finally worked out why gnome_score_get_notable() was not being
+	  included in the documentation and fixed that problem (stoopid
+	  gtk-doc).
+
+	* libgnome/gnome-gconf.c: Fixed a problem with not using &lt;
+	  entities in one of the functions. Kills a build warning, too.
+
+	* libgnome/gnome-i18n.c: Fixed a couple of typos.
+
 2002-05-31  Malcolm Tredinnick <malcolm@tredinnick.org>
 	* doc/reference/tmpl/gnome-init.sgml: Add a short description.
 

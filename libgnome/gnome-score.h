@@ -50,8 +50,8 @@ gnome_score_log(gfloat score,
 		   in the game */
 		gboolean higher_to_lower_score_order);
 
-
-gint /* Returns number of items in the arrays */
+/* Returns number of items in the arrays */
+gint
 gnome_score_get_notable(const gchar *gamename, /* Will be auto-determined if NULL */
 			const gchar *level,
 			gchar ***names,

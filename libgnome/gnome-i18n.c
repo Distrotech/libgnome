@@ -335,9 +335,9 @@ static char *numeric_locale = NULL;
  * gnome_i18n_push_c_numeric_locale:
  *
  * Description:  Saves the current LC_NUMERIC locale and sets it to "C"
- * This way you can safely read write flaoting point numbers all in the
+ * This way you can safely read write floating point numbers all in the
  * same format.  You should make sure that code between
- * #gnome_i18n_push_c_numeric_locale and #gnome_i18n_pop_c_numeric_locale
+ * gnome_i18n_push_c_numeric_locale() and gnome_i18n_pop_c_numeric_locale()
  * doesn't do any setlocale calls or locale may end up in a strange setting.
  * Also make sure to always pop the c numeric locale after you've pushed it.
  * The calls can be nested.
@@ -357,9 +357,9 @@ gnome_i18n_push_c_numeric_locale (void)
  * gnome_i18n_pop_c_numeric_locale:
  *
  * Description:  Restores the LC_NUMERIC locale to what it was 
- * before the matching #gnome_i18n_pop_c_numeric_locale.  If these calls
+ * before the matching gnome_i18n_push_c_numeric_locale(). If these calls
  * were nested, then this is a no-op until we get to the most outermost
- * layer.  Code in between these should not do any setlocale calls
+ * layer. Code in between these should not do any setlocale calls
  * to change the LC_NUMERIC locale or things may come out very strange.
  **/
 void
