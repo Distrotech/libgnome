@@ -9,6 +9,8 @@ libgnomeincludedir = $(includedir)/libgnome
 INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) \
 	-DGNOMELIBDIR=\""$(libdir)"\" \
 	-DGNOMEDATADIR=\""$(datadir)"\" \
+	-DGNOMEBINDIR=\""$(bindir)\"" \ 
+	-DGNOMELOCALSTATEDIR=\""$(localstatedirir)\"" \ 
 	-DGNOMELOCALEDIR=\""$(libdir)/locale\"" \
 	-I$(top_srcdir)/intl \
 	 -I$(srcdir)/../programs
