@@ -1,3 +1,14 @@
+Sat Sep 23 17:28:25 2000  George Lebl <jirka@5z.com>
+
+	* gnome-i18n.[ch]:  Add gnome_i18n_push_c_numeric_locale and
+	  gnome_i18n_pop_c_numeric_locale functions that do the job of
+	  pushing and poping "C" locale to make float<->string conversions
+	  work right in other locales.
+
+	* gnome-scores.c, gnome-config.c: use the above
+
+	* gnome-ditem.c: include gnome-url.h to avoid warning
+
 Fri Sep 15 18:47:06 2000  George Lebl <jirka@5z.com>
 
 	* gnome-ditem.[ch]: Launch Type=URL entries, and slight

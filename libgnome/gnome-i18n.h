@@ -100,6 +100,16 @@ void		gnome_i18n_set_preferred_language	(const char *val);
    name.  It will return NULL if no preference is set.  */
 char *		gnome_i18n_get_preferred_language	(void);
 
+/* Push "C" numeric locale.  Do this before doing any floating
+ * point to/from string conversions, if those are to be done in
+ * a portable manner.  This is a hack really, and there is
+ * no need to generalize it to other cathegories.  But it is
+ * needed whenever things like printing scanning floats from or
+ * to files or other places where you'd like to read them back
+ * later. */
+void		gnome_i18n_push_c_numeric_locale	(void);
+void		gnome_i18n_pop_c_numeric_locale		(void);
+
 /* `gnome_i18n_init' initializes the i18n environment variables from
    the preferences in the config database.  It ordinarily should not
    be called by user code.  */

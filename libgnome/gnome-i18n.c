@@ -25,6 +25,7 @@
 
 #include <config.h>
 #include <string.h>
+#include <locale.h>	/* setlocale() */
 
 #include "libgnomeP.h"
 
@@ -123,4 +124,52 @@ char *
 gnome_i18n_get_preferred_language (void)
 {
   return gnome_config_get_string (LANGKEY);
+}
+
+static GList *numeric_locale_stack = NULL;
+
+/**
+ * gnome_i18n_push_c_numeric_locale:
+ *
+ * Description:  Pushes the current LC_NUMERIC locale onto a stack, then 
+ * sets LC_NUMERIC to "C".  This way you can safely read write flaoting
+ * point numbers all in the same format.  You should make sure that
+ * code between #gnome_i18n_push_c_numeric_locale and
+ * #gnome_i18n_pop_c_numeric_locale doesn't do any setlocale calls or locale
+ * may end up in a strange setting.  Also make sure to always pop the
+ * c numeric locale after you've pushed it.
+ **/
+void
+gnome_i18n_push_c_numeric_locale (void)
+{
+	char *current;
+
+	current = g_strdup (setlocale (LC_NUMERIC, NULL));
+	numeric_locale_stack = g_list_prepend (numeric_locale_stack,
+					       current);
+	setlocale (LC_NUMERIC, "C");
+}
+
+/**
+ * gnome_i18n_pop_c_numeric_locale:
+ *
+ * Description:  Pops the last LC_NUMERIC locale from the stack (where
+ * it was put with #gnome_i18n_push_c_numeric_locale).  Then resets the
+ * current locale to that one.
+ **/
+void
+gnome_i18n_pop_c_numeric_locale (void)
+{
+	char *old;
+
+	if (numeric_locale_stack == NULL)
+		return;
+
+	old = numeric_locale_stack->data;
+
+	setlocale (LC_NUMERIC, old);
+
+	numeric_locale_stack = g_list_remove (numeric_locale_stack, old);
+
+	g_free (old);
 }

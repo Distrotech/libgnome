@@ -47,6 +47,7 @@
 #include "gnome-defs.h"
 #include "gnome-score.h"
 #include "gnome-util.h"
+#include "gnome-i18nP.h"
 
 #ifndef NSCORES
 #define NSCORES 10
@@ -87,13 +88,11 @@ gnome_get_score_file_name (const gchar * progname, const gchar * level)
 static void
 print_ascore (struct ascore_t *ascore, FILE * outfile)
 {
-   /* make sure we write values to files in a consistent manner */
-   char *old_locale = g_strdup (setlocale (LC_NUMERIC, NULL));
-   setlocale (LC_NUMERIC, "C");
-   fprintf (outfile, "%f %ld %s\n", ascore->score,
-	    (long int) ascore->scoretime, ascore->username);
-   setlocale (LC_NUMERIC, old_locale);
-   g_free (old_locale);
+	/* make sure we write values to files in a consistent manner */
+	gnome_i18n_push_c_numeric_locale ();
+	fprintf (outfile, "%f %ld %s\n", ascore->score,
+		 (long int) ascore->scoretime, ascore->username);
+	gnome_i18n_pop_c_numeric_locale ();
 }
 
 static void
@@ -137,8 +136,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
    if (infile)
      {
        /* make sure we read values from files in a consistent manner */
-       char *old_locale = g_strdup (setlocale (LC_NUMERIC, NULL));
-       setlocale (LC_NUMERIC, "C");
+       gnome_i18n_push_c_numeric_locale ();
        while(fgets(buf, sizeof(buf), infile))
 	 {
 	     long ltime;
@@ -155,8 +153,8 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 	     anitem->scoretime = (time_t)ltime;
 	     scores = g_list_append (scores, (gpointer) anitem);
 	  }
-        setlocale (LC_NUMERIC, old_locale);
-	g_free (old_locale);
+        gnome_i18n_pop_c_numeric_locale ();
+
 	fclose (infile);
      }
    
@@ -421,13 +419,12 @@ gnome_score_get_notable (const gchar * gamename,
    
    if (infile)
      {
-        char *old_locale = g_strdup (setlocale (LC_NUMERIC, NULL));
-        setlocale (LC_NUMERIC, "C");
-
 	*names = g_malloc ((NSCORES + 1) * sizeof (gchar *));
 	*scores = g_malloc ((NSCORES + 1) * sizeof (gfloat));
 	*scoretimes = g_malloc ((NSCORES + 1) * sizeof (time_t));
 	
+        gnome_i18n_push_c_numeric_locale ();
+
 	for (retval = 0;
 	     fgets (buf, sizeof (buf), infile) && retval < NSCORES;
 	     retval++)
@@ -445,8 +442,8 @@ gnome_score_get_notable (const gchar * gamename,
 	(*names)[retval] = NULL;
 	(*scores)[retval] = 0.0;
 
-        setlocale (LC_NUMERIC, old_locale);
-	g_free (old_locale);
+        gnome_i18n_pop_c_numeric_locale ();
+
 	fclose (infile);
      }
    else
