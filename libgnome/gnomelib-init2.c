@@ -948,10 +948,12 @@ gnome_program_module_addtolist(GnomeProgram *app,
     {
       for(i = 0; new_item->requirements[i].required_version; i++)
 	{
+	  int n;
+	  n = find_pointer_in_array(new_item->requirements[i].module_info,
+				    app->modules->pdata);
+	  g_assert(n >= 0);
 	  gnome_program_module_addtolist
-	    (app, new_list, times_visited, num_items_used,
-	     find_pointer_in_array(new_item->requirements[i].module_info,
-				   app->modules->pdata));
+	    (app, new_list, times_visited, num_items_used, n);
 	}
     }
 
