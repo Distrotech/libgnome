@@ -3,7 +3,7 @@
 
 #include "libgnomeP.h"
 
-/* Name of config key we use when looking up preferred language.   */
+/* Name of config key we use when looking up preferred language. */
 #define LANGKEY "/Gnome/i18n/LANG"
 
 static GHashTable *alias_table = NULL;
