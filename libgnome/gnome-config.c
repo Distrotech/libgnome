@@ -618,7 +618,6 @@ free_keys (TKeys *p)
 	free_keys (p->link);
 	g_free (p->key_name);
 	g_free (p->value);
-	g_free (p->file);
 	g_free (p);
 }
 
