@@ -69,7 +69,6 @@ libgnome_src = \
 	gnome-regex.c		\
 	gnome-url.c		\
 	gnome-util.c		\
-	gnome-paper.c		\
 	gnome-preferences.c	\
 	gnome-marshal-main.c	\
 	libgnome-init.c
@@ -92,7 +91,6 @@ libgnome_headers = \
 	gnome-triggers.h 	\
 	gnome-url.h		\
 	gnome-util.h   		\
-	gnome-paper.h		\
 	gnome-preferences.h	\
 	gnome-marshal.h		\
 	gnome-selector.h	\

@@ -32,7 +32,6 @@
 #include <libgnome/gnome-exec.h>
 
 /* Should this be in gnome-print? */
-#include <libgnome/gnome-paper.h>
 #include <libgnome/gnome-triggers.h>
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-url.h>
