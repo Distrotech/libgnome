@@ -391,9 +391,11 @@ static struct poptOption gnomelib_options [] = {
 				 " running"),
 	  N_("HOSTNAME:PORT")},                                                 
 
-	{"version", '\0', POPT_ARG_NONE, NULL, ARG_VERSION },
+	{"version", '\0', POPT_ARG_NONE,
+	 NULL, ARG_VERSION, VERSION, NULL},
 
-	{ NULL, '\0', 0, NULL, 0 }
+	{ NULL, '\0', 0,
+	  NULL, 0 , NULL, NULL}
 };
 
 static void
