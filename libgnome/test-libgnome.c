@@ -12,7 +12,7 @@
 #include <gobject/gvaluetypes.h>
 #include <gobject/gparamspecs.h>
 
-#include <bonobo/libbonobo.h>
+#include <libbonobo.h>
 
 static int foo = 0;
 
