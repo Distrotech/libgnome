@@ -33,9 +33,6 @@
 
 G_BEGIN_DECLS
 
-/* locate a program in $PATH, or return NULL if not found */
-char *gnome_is_program_in_path (const gchar *program);
-
 /* Return pointer to the character after the last .,
    or "" if no dot. */
 const char * g_extension_pointer (const char * path);
@@ -73,6 +70,7 @@ void	gnome_clearenv (void);
 #define g_copy_vector(vec)		g_strdupv ((vec))
 #define g_concat_dir_and_file(dir,file)	g_build_filename ((dir), (file), NULL)
 
+#define gnome_is_program_in_path(program)	g_find_program_in_path((program))
 
 #define gnome_libdir_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_LIBDIR,  (f), TRUE, NULL))
 #define gnome_datadir_file(f) (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_DATADIR, (f), TRUE, NULL))

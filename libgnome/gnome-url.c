@@ -71,7 +71,7 @@ gnome_url_default_handler (void)
 			/* It's the first time gnome_url_show is run, so up some useful defaults */
 
 			/* FIXME: Should we remove gnome-help-browser here? */
-			app = gnome_is_program_in_path ("nautilus");
+			app = g_find_program_in_path ("nautilus");
 			if (app) {
 				g_free (app);
 				app = "nautilus \"%s\"";

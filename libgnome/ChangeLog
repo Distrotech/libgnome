@@ -1,3 +1,10 @@
+Tue Nov 27 15:41:43 2001  George Lebl <jirka@5z.com>
+
+	* gnome-util.[ch], gnome-exec.c, gnome-url.c: move
+	  gnome_is_program_in_path to deprecated and make it a macro
+	  that just resolves to g_find_program_in_path which is
+	  smarter and all that good stuff.
+
 2001-11-21  Michael Meeks  <michael@ximian.com>
 
 	* gnome-program.c (gnome_program_preinit),

@@ -392,7 +392,7 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 		term_argc = 2;
 		term_argv = g_new0 (char *, 3);
 
-		check = gnome_is_program_in_path("gnome-terminal");
+		check = g_find_program_in_path ("gnome-terminal");
 		if (check != NULL) {
 			term_argv[0] = check;
 			/* Note that gnome-terminal takes -x and
@@ -400,15 +400,15 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 			term_argv[1] = g_strdup ("-x");
 		} else {
 			if (check == NULL)
-				check = gnome_is_program_in_path("nxterm");
+				check = g_find_program_in_path ("nxterm");
 			if (check == NULL)
-				check = gnome_is_program_in_path("color-xterm");
+				check = g_find_program_in_path ("color-xterm");
 			if (check == NULL)
-				check = gnome_is_program_in_path("rxvt");
+				check = g_find_program_in_path ("rxvt");
 			if (check == NULL)
-				check = gnome_is_program_in_path("xterm");
+				check = g_find_program_in_path ("xterm");
 			if (check == NULL)
-				check = gnome_is_program_in_path("dtterm");
+				check = g_find_program_in_path ("dtterm");
 			if (check == NULL) {
 				g_warning (_("Cannot find a terminal, using "
 					     "xterm, even if it may not work"));

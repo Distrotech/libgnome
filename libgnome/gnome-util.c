@@ -131,39 +131,6 @@ g_extension_pointer (const char * path)
 }
 
 /**
- * gnome_is_program_in_path:
- * @program: A program name.
- *
- * Looks for @program in the PATH, if it is found, a g_strdup()
- * string with the full path name is returned.
- *
- * Returns: %NULL if program is not on the path or a string 
- * allocated with g_malloc() with the full path name of the program
- * found.
- */
-char *
-gnome_is_program_in_path (const gchar *program)
-{
-	gchar **paths = NULL;
-	gchar **p;
-	gchar *f;
-	
-	paths = g_strsplit (g_getenv ("PATH"), ":", -1);
-
-	for (p = paths; *p != NULL; p++) {
-		f = g_strconcat (*p,"/", program, NULL);
-		if (access (f, X_OK) == 0) {
-			g_strfreev (paths);
-			return f;
-		}
-		g_free (f);
-	}
-
-	g_strfreev (paths);
-	return NULL;
-}
-
-/**
  * gnome_setenv:
  * @name: An environment variable name.
  * @value: The value to assign to the environment variable.
@@ -258,3 +225,17 @@ gnome_clearenv (void)
 	environ[0] = NULL;
 #endif
 }
+
+
+/* Deprecated: */
+/**
+ * gnome_is_program_in_path:
+ * @program: A program name.
+ *
+ * Deprecated, use #g_find_program_in_path
+ *
+ * Returns: %NULL if program is not on the path or a string 
+ * allocated with g_malloc() with the full path name of the program
+ * found.
+ */
+
