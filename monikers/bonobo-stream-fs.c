@@ -190,19 +190,19 @@ gnome_stream_fs_construct (GnomeStreamFS *stream,
 	g_return_val_if_fail (GNOME_IS_STREAM (stream), NULL);
 	g_return_val_if_fail (corba_stream != CORBA_OBJECT_NIL, NULL);
 
-	gnome_object_construct (
-		GNOME_OBJECT (stream), corba_stream);
+	gnome_unknown_construct (
+		GNOME_UNKNOWN (stream), corba_stream);
 
 	return GNOME_STREAM (stream);
 }
 
 static GNOME_Stream
-create_gnome_stream_fs (GnomeObject *object)
+create_gnome_stream_fs (GnomeUnknown *object)
 {
 	POA_GNOME_Stream *servant;
 	CORBA_Object o;
 
-	servant = (POA_GNOME_Stream *) g_new0 (GnomeObjectServant, 1);
+	servant = (POA_GNOME_Stream *) g_new0 (GnomeUnknownServant, 1);
 	servant->vepv = &gnome_stream_vepv;
 	POA_GNOME_Stream__init ((PortableServer_Servant) servant, &object->ev);
 	if (object->ev._major != CORBA_NO_EXCEPTION){
@@ -210,7 +210,7 @@ create_gnome_stream_fs (GnomeObject *object)
                 return CORBA_OBJECT_NIL;
         }
 
-	return (GNOME_Stream) gnome_object_activate_servant (object, servant);
+	return (GNOME_Stream) gnome_unknown_activate_servant (object, servant);
 }
 
 static GnomeStream *
@@ -227,7 +227,7 @@ gnome_stream_create (GnomeStorageFS *parent, int fd)
 	stream_fs->parent = parent;
 	
 	corba_stream = create_gnome_stream_fs (
-		GNOME_OBJECT (stream_fs));
+		GNOME_UNKNOWN (stream_fs));
 
 	if (corba_stream == CORBA_OBJECT_NIL){
 		gtk_object_destroy (GTK_OBJECT (stream_fs));
