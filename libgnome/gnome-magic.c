@@ -30,7 +30,7 @@
  * Written by:
  *    James Youngman (jay@gnu.org)
  *
- * Adatped to the GNOME needs by:
+ * Adapted to the GNOME needs by:
  *    Elliot Lee (sopwith@cuc.edu)
  */
 
