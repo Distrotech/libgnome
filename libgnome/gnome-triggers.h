@@ -44,7 +44,7 @@ struct _GnomeTrigger {
 	union {
 		/*
 		 * These will be passed the same info as
-		 * gnome_triggers_do got
+		 * gnome_triggers_do was given.
 		 */
 		GnomeTriggerActionFunction function;
 		gchar *command;

@@ -250,10 +250,9 @@ gnome_triggers_readfile(const char *infilename)
 /**
  * gnome_triggers_add_trigger:
  * @nt: Information on the new trigger to be added.
- * @...: the 'section' to add the trigger under (see gnome_triggers_readfile())
+ * @...: The section to add the trigger under.
  *
- * Similar to gnome_triggers_readfile(), but gets the trigger information
- * from the file 'nt' structure and the varargs, instead of from a file.
+ * Adds a new #GnomeTrigger instance to the event hierarchy.
  */
 void gnome_triggers_add_trigger(GnomeTrigger* nt, ...)
 {
@@ -324,10 +323,11 @@ gnome_triggerlist_new(char *nodename)
 /**
  * gnome_triggers_vadd_trigger:
  * @nt: Information on the new trigger to be added.
- * @supinfo: the 'section' to add the trigger under (see gnome_triggers_readfile())
+ * @supinfo: The section to add the trigger under.
  *
- * Similar to gnome_triggers_readfile(), but gets the trigger information
- * from the file 'nt' structure and 'supinfo', instead of from a file.
+ * This does the same as gnome_triggers_add_trigger(), except the section is
+ * stored in the %NULL terminated array @supinfo instead of as a variable
+ * length argument list.
  */
 void gnome_triggers_vadd_trigger(GnomeTrigger* nt,
 				 char *supinfo[])
@@ -371,11 +371,12 @@ void gnome_triggers_vadd_trigger(GnomeTrigger* nt,
 
 /**
  * gnome_triggers_do:
- * @msg: The human-readable message describing the event. (Can be NULL).
- * @level: The level of severity of the event, or NULL.
+ * @msg: The human-readable message describing the event (can be %NULL).
+ * @level: The level of severity of the event, or %NULL.
  * @...: The classification of the event.
  *
- * Notifies GNOME about an event happening, so GNOME can do cool things.
+ * Notifies GNOME about an event happening, so that any appropriate handlers
+ * can be run.
  */
 void
 gnome_triggers_do(const char *msg, const char *level, ...)
@@ -440,11 +441,13 @@ gnome_triggers_play_sound(const char *sndname)
 
 /**
  * gnome_triggers_vdo:
- * @msg: The human-readable message describing the event. (Can be NULL).
- * @level: The level of severity of the event, or NULL.
- * @supinfo: The classification of the event (NULL terminated array).
+ * @msg: The human-readable message describing the event (can be %NULL).
+ * @level: The level of severity of the event, or %NULL.
+ * @supinfo: The classification of the event (%NULL terminated array).
  *
- * Notifies GNOME about an event happening, so GNOME can do cool things.
+ * Notifies GNOME about an event happening, so that any appropriate handlers
+ * can be run. This does the same as gnome_trigger_do() except that it takes a
+ * %NULL terminated array instead of a varargs list.
  */
 void
 gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
