@@ -63,7 +63,8 @@ fs_create_storage (BonoboStorage *storage, const CORBA_char *path, CORBA_Environ
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	new_storage = bonobo_storage_fs_create (BONOBO_STORAGE_FS (storage), path);
+	new_storage = bonobo_storage_fs_open (path, 
+					      Bonobo_Storage_CREATE, 0644);
 	g_free (full);
 
 	return new_storage;
