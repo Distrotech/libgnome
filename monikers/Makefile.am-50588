@@ -12,10 +12,22 @@ INCLUDES = \
 	-DLIBGNOME_LOCALEDIR=\""$(gnomelocaledir)"\"	\
 	-DLIBGNOME_SYSCONFDIR=\""$(sysconfdir)"\"	\
 	-DVERSION=\""$(VERSION)"\"			\
+	-DMONIKER_SRCDIR=\""$(MONIKER_SRCDIR)"\"	\
 	-DG_LOG_DOMAIN=\"GnomeMonikers\"
 
 EXTRA_DIST = \
 	Bonobo_Moniker_ditem.server.in
+
+CORBA_SRCLIST = \
+	Foo-stubs.c Foo-skels.c Foo-common.c Foo.h
+
+# try to make these get cleaned properly
+CLEANFILES += $(CORBA_SRCLIST)
+
+$(CORBA_SRCLIST): $(srcdir)/Foo.idl $(ORBIT_IDL)
+	$(ORBIT_IDL) -I $(BONOBO_IDLDIR) -I $(top_srcdir)/idl $(srcdir)/Foo.idl
+
+BUILT_SOURCES = $(CORBA_SRCLIST)
 
 Bonobo_Moniker_ditem.server.in: Bonobo_Moniker_ditem.server.in.in
 	sed -e "s|\@MONIKER_BINDIR\@|$(bindir)|" $< > $@
@@ -32,9 +44,7 @@ server_DATA = Bonobo_Moniker_ditem.server
 bonobo_moniker_ditem_SOURCES =	 		\
 	bonobo-moniker-ditem.c 			\
 	bonobo-config-ditem.c			\
-	bonobo-config-ditem.h			\
-	bonobo-config-ditem-utils.c		\
-	bonobo-config-ditem-utils.h
+	bonobo-config-ditem.h
 
 bonobo_moniker_ditem_LDADD =			\
 	../libgnome/libgnome-2.la		\
@@ -45,13 +55,24 @@ bonobo_moniker_ditem_LDADD =			\
 noinst_PROGRAMS = test-ditem
 
 test_ditem_SOURCES = \
+	$(CORBA_SRCLIST)			\
 	bonobo-config-ditem.c			\
 	bonobo-config-ditem.h			\
-	bonobo-config-ditem-utils.c		\
-	bonobo-config-ditem-utils.h		\
 	test-ditem.c
 
 test_ditem_LDADD = \
 	../libgnome/libgnome-2.la		\
 	$(MONIKER_LIBS)
+
+foo.xml: foo-dist.xml
+	-rm -f foo.xml
+	cp $< $@
+
+foo.desktop: foo-dist.desktop
+	-rm -f foo.desktop
+	cp $< $@
+
+CLEANFILES += foo.xml foo.desktop
+
+test-ditem: foo.xml foo.desktop
 
