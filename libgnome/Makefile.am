@@ -84,6 +84,7 @@ dns_helper_LDADD = $(NSL_LIBS)
 gnome_dump_metadata_SOURCES = gnome-dump.c
 gnome_dump_metadata_LDADD = libgnome.la $(LIBSUPPORT) \
 	$(LIBGNOME_LIBS) $(INTLLIBS)
+gnome_dump_metadata_LDFLAGS = `glib-config --libs`
 
 install-data-local:
 	$(mkinstalldirs) $(scoredir)
