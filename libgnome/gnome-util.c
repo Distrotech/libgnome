@@ -355,8 +355,12 @@ g_extension_pointer (const char * path)
 	
 	g_return_val_if_fail(path != NULL, NULL);
 
-	t = g_basename(path);
-	s = strrchr(t, '.');
+	/* get the dot in the last element of the path */
+	t = strrchr(path, G_DIR_SEPARATOR);
+	if (t != NULL)
+		s = strrchr(t, '.');
+	else
+		s = strrchr(path, '.');
 	
 	if (s == NULL)
 		return path + strlen(path); /* There is no extension. */

@@ -1089,7 +1089,7 @@ gnome_program_preinita(GnomeProgram *app,
   /* On non-glibc systems, this is not set up for us.  */
   if (!program_invocation_name) {
     program_invocation_name = argv[0];
-    program_invocation_short_name = g_basename(program_invocation_name);
+    program_invocation_short_name = g_path_basename(program_invocation_name);
   }
 
   /* 0. Misc setup */
