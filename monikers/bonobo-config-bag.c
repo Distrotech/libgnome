@@ -126,6 +126,7 @@ impl_Bonobo_PropertyBag_getType (PortableServer_Servant  servant,
 			CORBA_Object_duplicate ((CORBA_Object) BONOBO_ARG_BOOLEAN, ev);
 	default :
 		/* FIXME */
+		break;
 	}
 
 	return CORBA_OBJECT_NIL;
@@ -483,7 +484,7 @@ bonobo_config_bag_new (const gchar *path)
 
 	m = g_strconcat ("Bonobo/ConfigDatabase:change", cb->path, ":", NULL);
 
-	//bonobo_event_source_client_add_listener (db, notify_cb, m, NULL, cb);
+	/* bonobo_event_source_client_add_listener (db, notify_cb, m, NULL, cb); */
 
 	g_free (m);
 
