@@ -3,15 +3,19 @@
 #
 # Targets
 #
-lib_LTLIBRARIES = libgnome.la
+
+LIB_VERSION=0:0:0
+LIB_VERSION_NUM=0.0.0
+
+lib_LTLIBRARIES = libgnome-2.0.la
 
 if COMPILE_GNOME_COMPAT
-lib_LIBRARIES = libgnome10compat.a
+lib_LIBRARIES = libgnome-1.0-compat-2.0.a
 endif
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-libgnomeincludedir = $(includedir)/libgnome
+libgnomeincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/libgnome
 
 INCLUDES = -I.. -I$(srcdir)/.. $(SUPPORTINCS) \
 	-I$(top_srcdir)/intl -I$(top_builddir)/intl \
@@ -26,21 +30,21 @@ INCLUDES = -I.. -I$(srcdir)/.. $(SUPPORTINCS) \
 	-DG_LOG_DOMAIN=\"Gnome\"
 
 if COMPILE_GNOME_COMPAT
-libgnome10compatincludedir = $(includedir)/libgnome/compat10
+libgnome10compatincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/compat/1.0/libgnome
 
-libgnome10compat_a_SOURCES =	\
+libgnome_1_0_compat_2_0_a_SOURCES = \
 	gnome10-compat.c	\
 	gnome-help.c		\
 	gnome-popt.c
 
 libgnome10compatinclude_HEADERS=\
-	libgnome10compat.h	\
+	libgnome-compat-1.0.h	\
 	gnome10-compat.h	\
 	gnome-help.h		\
 	gnome-popt.h
 endif
 
-libgnome_la_SOURCES = \
+libgnome_2_0_la_SOURCES = \
 	gnome-config.c		\
 	gnome-dentry.c          \
 	gnome-ditem.c		\
@@ -98,8 +102,8 @@ BUILT_SOURCES=gnome-portability.h
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP
 
-libgnome_la_LDFLAGS = $(LIBGNOME_LIBS) -version-info 36:0:0 #-rpath $(libdir)
-libgnome_la_LIBADD = ../support/libgnomesupport.la
+libgnome_2_0_la_LDFLAGS = $(LIBGNOME_LIBS) -version-info $(LIB_VERSION)
+libgnome_2_0_la_LIBADD = ../support/libgnomesupport.la
 
 bin_PROGRAMS = dns-helper gnome-dump-metadata gnome-moz-remote \
 	gconfigger gnome-gen-mimedb
@@ -108,19 +112,19 @@ dns_helper_SOURCES = dns-helper.c
 dns_helper_LDADD = $(NSL_LIBS)
 
 gnome_dump_metadata_SOURCES = gnome-dump.c
-gnome_dump_metadata_LDADD = libgnome.la \
+gnome_dump_metadata_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la \
 	$(LIBGNOME_LIBS) $(INTLLIBS)
 gnome_dump_metadata_LDFLAGS = $(GLIB_LIBS)
 
 gnome_moz_remote_SOURCES = gnome-moz-remote2.c vroot.h
-gnome_moz_remote_LDADD = libgnome.la $(LIBGNOME_LIBS) \
+gnome_moz_remote_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la $(LIBGNOME_LIBS) \
 	$(X_LIBS) $(X_PRE_LIBS) -lXext -lX11 $(X_EXTRA_LIBS) $(INTLLIBS)
 
 gconfigger_SOURCES = gconfigger.c
-gconfigger_LDADD = libgnome.la \
+gconfigger_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la \
 	$(LIBGNOME_LIBS) $(INTLLIBS)
 
 # go ahead and laugh, it's better than exporting internal routines
 gnome_gen_mimedb_SOURCES = gnome-gen-mimedb.c
-gnome_gen_mimedb_LDADD = libgnome.la \
+gnome_gen_mimedb_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la \
 	$(LIBGNOME_LIBS) $(INTLLIBS)
