@@ -103,7 +103,7 @@ put_translated_string (char *key, char *string)
 }
 	      
 GnomeDesktopEntry *
-gnome_desktop_entry_load (char *file)
+gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 {
 	GnomeDesktopEntry *newitem;
 	char *prefix;
@@ -166,6 +166,7 @@ gnome_desktop_entry_load (char *file)
 	newitem->docpath       = gnome_config_get_string ("DocPath");
 	newitem->terminal      = gnome_config_get_bool   ("Terminal=0");
 	newitem->type          = gnome_config_get_string ("Type");
+	newitem->geometry      = gnome_config_get_string ("Geometry");
 	newitem->need_arg      = gnome_config_get_bool   ("NeedArg=0");
 	newitem->multiple_args = gnome_config_get_bool ("MultipleArgs=0");
 	newitem->location      = g_strdup (file);
@@ -203,11 +204,20 @@ gnome_desktop_entry_load (char *file)
 			newitem->opaque_icon = 0;
 	}
 	gnome_config_pop_prefix ();
-	prefix = g_copy_strings ("=", file, "=", NULL);
-	gnome_config_clean_file (prefix);
-	g_free (prefix);
+	
+	if (clean_from_memory){
+		prefix = g_copy_strings ("=", file, "=", NULL);
+		gnome_config_clean_file (prefix);
+		g_free (prefix);
+	}
 	
 	return newitem;
+}
+
+GnomeDesktopEntry *
+gnome_desktop_entry_load (char *file)
+{
+	return gnome_desktop_entry_load_flags (file, 1);
 }
 
 void

@@ -3,6 +3,7 @@
 
 #include <time.h>
 #include <glib.h>
+#include <glib.h>
 
 BEGIN_GNOME_DECLS
 /*
