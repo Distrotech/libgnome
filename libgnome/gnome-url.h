@@ -23,6 +23,8 @@
 
 #ifndef GNOME_URL_H
 #define GNOME_URL_H
+
+#include <glib.h>
 #include <libgnome/gnome-defs.h>
 
 BEGIN_GNOME_DECLS

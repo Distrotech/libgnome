@@ -31,6 +31,9 @@
 #ifndef __GNOME_I18N_H__
 #define __GNOME_I18N_H__ 1
 
+#include <glib.h>
+#include <libgnome/gnome-defs.h>
+
 BEGIN_GNOME_DECLS
 
 #if !defined(__GNOME_I18NP_H__)

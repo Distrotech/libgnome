@@ -26,8 +26,9 @@
 #ifndef __GNOME_SOUND_H__
 #define __GNOME_SOUND_H__ 1
 
-#include "gnome-defs.h"
 #include <glib.h>
+#include <libgnome/gnome-defs.h>
+
 BEGIN_GNOME_DECLS
 
 /* Use this with the Esound functions */

@@ -27,6 +27,7 @@
 #define GNOME_CONFIG_H
 
 #include <glib.h>
+#include <libgnome/gnome-defs.h>
 
 BEGIN_GNOME_DECLS
 

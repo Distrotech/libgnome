@@ -24,10 +24,11 @@
   @NOTATION@
  */
 
-#include <glib.h>
-
 #ifndef GNOME_EXEC_H
 #define GNOME_EXEC_H
+
+#include <glib.h>
+#include <libgnome/gnome-defs.h>
 
 BEGIN_GNOME_DECLS
 

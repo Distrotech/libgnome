@@ -26,8 +26,9 @@
 #ifndef __GNOME_TRIGGERS_H__
 #define __GNOME_TRIGGERS_H__
 
-#include "gnome-defs.h"
 #include <glib.h>
+#include <libgnome/gnome-defs.h>
+
 BEGIN_GNOME_DECLS
 
 typedef enum {

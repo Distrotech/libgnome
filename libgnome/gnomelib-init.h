@@ -24,6 +24,9 @@
 #ifndef GNOMELIB_INIT_H
 #define GNOMELIB_INIT_H 1
 
+#include <glib.h>
+#include <libgnome/gnome-defs.h>
+
 BEGIN_GNOME_DECLS
 
 extern GnomeModuleInfo libgnome_module_info;

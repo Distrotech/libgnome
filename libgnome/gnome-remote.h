@@ -24,6 +24,9 @@
 #ifndef GNOME_REMOTE_H
 #define GNOME_REMOTE_H
 
+#include <glib.h>
+#include <libgnome/gnome-defs.h>
+
 BEGIN_GNOME_DECLS
 
 /* Return a command which should be used to run a program on HOST.
