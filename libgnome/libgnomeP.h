@@ -34,4 +34,6 @@
 #define PATH_SEP '/'
 #define PATH_SEP_STR "/"
 
+void libgnome_type_init (void);
+
 #endif /* LIBGNOMEP_H */
