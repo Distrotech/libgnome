@@ -1,3 +1,13 @@
+1999-08-28  Tom Tromey  <tromey@cygnus.com>
+
+	* gnome-metadata.c (database_mu): Now an ordinary static mutex.
+	(TLOCK): Removed.
+	(TUNLOCK): Likewise.
+	(lock): Removed `thread' argument.
+	(unlock): Likewise.
+	(Various): All mutex locking now done around body of exported
+	functions.
+
 Sat Aug 28 10:33:28 1999  George Lebl  <jirka@5z.com>
 
 	* gnome-dentry.c: fix warnings
