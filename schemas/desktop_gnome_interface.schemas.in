@@ -225,5 +225,18 @@
 	<long>Whether to display a status bar meter on the right</long>
       </locale>
     </schema>
+    <schema>
+      <key>/schemas/desktop/gnome/interface/file_chooser_backend</key>
+      <applyto>/desktop/gnome/interface/file_chooser_backend</applyto>
+      <owner>gnome</owner>
+      <type>string</type>
+      <default>gnome-vfs</default>
+      <locale name="C">
+	<short>Module for GtkFileChooser</short>
+	<long>Module to use as the filesystem model for the
+	GtkFileChooser widget.  Possible values are "gnome-vfs" and
+	"gtk+".</long>
+      </locale>
+    </schema>
   </schemalist>
 </gconfschemafile>
