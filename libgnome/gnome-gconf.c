@@ -347,13 +347,6 @@ void
 gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
 				    GConfValue       *value)
 {
-<<<<<<< gnome-gconf.c
-	g_return_if_fail (picker != NULL);
-	g_return_if_fail (GNOME_IS_COLOR_PICKER (picker));
-	g_return_if_fail (value->type == GCONF_VALUE_STRING);
-
-        
-=======
 	gushort r, g, b, a;
 	gchar *color;
 
@@ -372,7 +365,6 @@ gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
 	r = strtol (color  + 1, (char **)NULL, 16);
 	gnome_color_picker_set_i16 (picker, r, g, b, a);
 	g_free (color);
->>>>>>> 1.14
 }
 
 GConfValue *
