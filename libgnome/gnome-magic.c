@@ -91,39 +91,44 @@ read_hex_str(char **pos)
 }
 
 static char *
-read_string_val(char *curpos, char *intobuf, guchar *into_len)
+read_string_val(char *curpos, char *intobuf, guchar max_len, guchar *into_len)
 {
+  char *intobufend = intobuf+max_len-1;
+  char c;
+
   *into_len = 0;
 
-  while(1) {
-    if(!*curpos || isspace(*curpos)) {
-      *intobuf = '\0';
-      return curpos;
-    }
+  while (*curpos && !isspace(*curpos)) {
 
-    switch(*curpos) {
+    c = *curpos;
+    curpos++;
+    switch(c) {
     case '\\':
-      curpos++;
       switch(*curpos) {
       case 'x': /* read hex value */
 	curpos++;
-	*(intobuf++) = read_hex_str(&curpos);
+	c = read_hex_str(&curpos);
 	break;
       case '0': case '1':
 	/* read octal value */
-	*(intobuf++) = read_octal_str(&curpos);
+	c = read_octal_str(&curpos);
 	break;
-      case 'n': *(intobuf++) = '\n'; curpos++; break;
-      case ' ': *(intobuf++) = ' '; curpos++; break;
-      case '\\': *(intobuf++) = '\\'; curpos++; break;
+      case 'n': c = '\n'; curpos++; break;
+      default:			/* everything else is a literal */
+	c = *curpos; curpos++; break;
       }
       break;
     default:
-      *(intobuf++) = *curpos;
-      curpos++;
+      /* already setup c/moved curpos */
     }
-    (*into_len)++;
+    if (intobuf<intobufend) {
+      *intobuf++=c;
+      (*into_len)++;
+    }
   }
+
+  *intobuf = '\0';
+  return curpos;
 }
 
 static char *read_num_val(char *curpos, int bsize, char *intobuf)
@@ -262,7 +267,7 @@ gnome_magic_parse(const gchar *filename, gint *nents)
     }
 
     if(newent.type == T_STR)
-      curpos = read_string_val(curpos, newent.test, &newent.test_len);
+      curpos = read_string_val(curpos, newent.test, sizeof(newent.test), &newent.test_len);
     else {
       newent.test_len = bsize;
       curpos = read_num_val(curpos, bsize, newent.test);

@@ -1,5 +1,10 @@
 1999-06-20  Michael Zucchi  <mzucchi@zedzone.mmc.com.au>
 
+	* gnome-magic.c (read_string_val): Add a limit on the buffer size
+	we will read into, and rewritten to be a little more robust.
+	Too long records will be truncated silently.
+	See bug  #657, #933, #1018 and #591.
+
 	* Makefile.am (INCLUDES): Added ADIOFILE_CFLAGS and ESD_CFLAGS to
 	includes list, to allow different installation location.
 	(see bug #748)
