@@ -26,6 +26,7 @@ typedef struct _BonoboStreamVfsPrivate BonoboStreamVfsPrivate;
 struct _BonoboStreamVfs {
 	BonoboStream    stream;
 	GnomeVFSHandle *handle;
+	gboolean        got_eof;
 
 	BonoboStreamVfsPrivate *priv;
 };
