@@ -5,17 +5,18 @@ schema_in_files = \
 	desktop_gnome_accessibility_keyboard.schemas.in		\
 	desktop_gnome_accessibility_startup.schemas.in		\
 	desktop_gnome_applications_browser.schemas.in		\
-	desktop_gnome_applications_help_viewer.schemas.in		\
+	desktop_gnome_applications_help_viewer.schemas.in	\
 	desktop_gnome_applications_terminal.schemas.in		\
 	desktop_gnome_applications_window_manager.schemas.in	\
-	desktop_gnome_file_views.schemas.in			\
-	desktop_gnome_interface.schemas.in				\
-	desktop_gnome_peripherals_mouse.schemas.in			\
-	desktop_gnome_peripherals_keyboard.schemas.in		\
-	desktop_gnome_sound.schemas.in                             \
 	desktop_gnome_background.schemas.in			\
-	desktop_gnome_url_handlers.schemas.in	\
-	desktop_gnome_thumbnailers.schemas.in	
+	desktop_gnome_file_views.schemas.in			\
+	desktop_gnome_interface.schemas.in			\
+	desktop_gnome_peripherals_mouse.schemas.in		\
+	desktop_gnome_peripherals_keyboard.schemas.in		\
+	desktop_gnome_sound.schemas.in				\
+	desktop_gnome_typing_break.schemas.in			\
+	desktop_gnome_thumbnailers.schemas.in			\
+	desktop_gnome_url_handlers.schemas.in
 
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 
