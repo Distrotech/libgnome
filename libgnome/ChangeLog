@@ -1,3 +1,13 @@
+1999-11-24  James Henstridge  <james@daa.com.au>
+
+	* gnome-paper.h: added prototypes for new functions.
+
+	* gnome-paper.c (gnome_unit_with_abbrev): new function to find a
+	GnomeUnit by its abbreviation.
+	(gnome_unit_convert): convert from one set of units to another.
+	(gnome_unit_name): accessor for the name of a GnomeUnit.
+	(gnome_unit_abbrev): accessor for abbreviation of GnomeUnit.
+
 1999-11-17  Iain Holmes  <ih@csd.abdn.ac.uk>
 
 	* gnomelib-init.h: Removed gnomelib_init.

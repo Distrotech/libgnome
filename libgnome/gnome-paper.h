@@ -53,9 +53,16 @@ const gchar	 *gnome_paper_name_default	(void);
 
 GList*		 gnome_unit_name_list	(void);
 const GnomeUnit	 *gnome_unit_with_name	(const gchar *unitname);
+const GnomeUnit  *gnome_unit_with_abbrev(const gchar *abbreviation);
+
+const gchar      *gnome_unit_name       (const GnomeUnit *unit);
+const gchar      *gnome_unit_abbrev     (const GnomeUnit *unit);
 
 gdouble		 gnome_paper_convert	(double psvalue, const GnomeUnit *unit);
 double           gnome_paper_convert_to_points (double othervalue, const GnomeUnit *unit);
+double           gnome_unit_convert     (double othervalue,
+					 const GnomeUnit *from,
+					 const GnomeUnit *to);
 
 END_GNOME_DECLS
 

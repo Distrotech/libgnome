@@ -117,6 +117,11 @@ unit_name_compare (const GnomeUnit* a, const gchar *b)
   return (g_strcasecmp(a->name, b));
 }
 
+static int
+unit_abbrev_compare (const GnomeUnit *a, const gchar *b)
+{
+  return (g_strcasecmp(a->unit, b));
+}
 
 /**
  * gnome_paper_name_list: get internal list of paper specifications
@@ -350,6 +355,62 @@ gnome_unit_with_name (const gchar *unitname)
 }
 
 /**
+ * gnome_unit_with_abbrev: get Unit by name
+ * @unitname: name of desired unit
+ * 
+ * searches internal list of units, searching
+ * for one with the name 'unitname'
+ * 
+ * Returns: Unit with given name or NULL
+ **/
+const GnomeUnit * 
+gnome_unit_with_abbrev (const gchar *abbreviation)
+{
+  GList	*l;
+  
+  if (!unit_list)
+    paper_init();
+
+  l = g_list_find_custom (unit_list,
+			  (gpointer) abbreviation,
+			  (GCompareFunc)unit_abbrev_compare);
+
+  return l ? l->data : NULL;
+}
+
+/**
+ * gnome_unit_name: get name of unit
+ * @unit: unit name
+ * 
+ * 
+ * 
+ * Returns: human readable name for unit
+ **/
+const gchar*
+gnome_unit_name (const GnomeUnit *unit)
+{
+  g_return_val_if_fail(unit != NULL, NULL);
+  
+  return unit->name;
+}
+
+/**
+ * gnome_unit_abbrev: get abbreviation of unit
+ * @unit: unit name
+ * 
+ * 
+ * 
+ * Returns: abbreviated name for unit
+ **/
+const gchar*
+gnome_unit_abbrev (const GnomeUnit *unit)
+{
+  g_return_val_if_fail(unit != NULL, NULL);
+  
+  return unit->unit;
+}
+
+/**
  * gnome_paper_convert: convert from points to other units
  * @psvalue: value in points
  * @unit: unit to convert to
@@ -385,4 +446,25 @@ gnome_paper_convert_to_points (double othervalue, const GnomeUnit *unit)
   g_return_val_if_fail (unit, othervalue);
 
   return othervalue * unit->factor;
+}
+
+/**
+ * gnome_unit_convert: convert from one set of units to another
+ * @value: the value in the `from' units
+ * @from: the unit to convert from
+ * @to: the unit to convert to
+ *
+ * Convert from one set of units to another set.
+ *
+ * Returns: the value in the `to' units
+ **/
+double 
+gnome_unit_convert (double othervalue, const GnomeUnit *from,
+		    const GnomeUnit *to)
+{
+  g_return_val_if_fail (from != NULL, othervalue);
+  g_return_val_if_fail (to != NULL, othervalue);
+  g_return_val_if_fail (to->factor != 0, othervalue);
+
+  return othervalue * from->factor / to->factor;
 }
