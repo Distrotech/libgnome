@@ -353,6 +353,7 @@ gnome_triggers_do(const char *msg, const char *level, ...)
 static void
 gnome_triggers_play_sound(const char *sndname)
 {
+#ifdef HAVE_ESD
   int sid;
 
   if(!sound_ids)
@@ -369,6 +370,11 @@ gnome_triggers_play_sound(const char *sndname)
   if(sid < 0) return;
   sid--;
   esd_sample_play(gnome_sound_connection, sid);
+#else
+  g_warning("Request to play sound name %s - esound support not available\n",
+	    sndname);
+#endif
+
 }
 
 void
