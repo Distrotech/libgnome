@@ -125,6 +125,7 @@ PKG_CHECK_MODULES(SOUND_TEST, [$SOUND_MODULES],
 PKG_CHECK_MODULES(LIBGNOME, dnl
  [glib-2.0 >= glib_required_version dnl
   gmodule-2.0 >= glib_required_version dnl
+  gobject-2.0 >= glib_required_version dnl
   gnome-vfs-2.0 >= gnome_vfs_required_version dnl
   libbonobo-2.0 >= libbonobo_required_version dnl
   gconf-2.0 >= gconf_required_version dnl
