@@ -23,7 +23,6 @@ INCLUDES = \
 	$(LIBGNOMESUPPORT_CFLAGS)		\
 	$(LIBBONOBO_CFLAGS)			\
 	$(OAF_CFLAGS)				\
-	$(GCONF_CFLAGS)				\
 	$(LIBXML_CFLAGS)			\
 	$(GNOME_VFS_CFLAGS)			\
 	-DLIBGNOME_PREFIX=\""$(prefix)"\"		\
@@ -187,7 +186,6 @@ libgnome_2_la_LDFLAGS = -version-info $(LIB_VERSION)
 libgnome_2_la_LIBADD =		\
 	$(LIBGNOMESUPPORT_LIBS)	\
 	$(OAF_LIBS)		\
-	$(GCONF_LIBS)		\
 	$(LIBXML_LIBS)		\
 	$(GNOME_VFS_LIBS)	\
 	$(LIBBONOBO_LIBS)	\
