@@ -21,6 +21,8 @@
 
 #include "gnome-sound.h"
 
+#include <stdio.h>
+
 #ifdef HAVE_ESD
 #include <esd.h>
 #endif
