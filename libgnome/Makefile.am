@@ -57,7 +57,7 @@ bin_PROGRAMS = gnome-score-helper dns-helper
 gnome_score_helper_SOURCES = gnome-score-helper.c
 gnome_score_helper_LDADD = \
 	$(top_builddir)/libgnome/libgnome.la \
-	-lgdk -lglib $(X_LIBS) $(x_libs) $(INTLLIBS)
+	-lgdk -lglib $(X_LIBS) $(x_libs) $(INTLLIBS) -ldl
 
 dns_helper_SOURCES = dns-helper.c
 
