@@ -16,7 +16,8 @@
 #include <sys/stat.h>
 #include <pwd.h>
 #include "gnome-defs.h"
-#include "libgnomeP.h"
+#include "gnomelib-init2.h"
+#include "gnome-popt.h"
 
 static GArray *opt_tables = NULL;
 

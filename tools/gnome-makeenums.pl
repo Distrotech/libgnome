@@ -51,7 +51,8 @@ sub parse_entries {
 	# Handle include files
 	if (/^\#include\s*<([^>]*)>/ ) {
             my $file= "../$1";
-	    open NEWFILE, $file or die "Cannot open include file $file: $!\n";
+	    open NEWFILE, $file or next;
+#die "Cannot open include file $file: $!\n";
 	    
 	    if (parse_entries (\*NEWFILE)) {
 		return 1;
@@ -89,7 +90,7 @@ sub parse_entries {
 		push @entries, [ $name ];
 	    }
 	} else {
-	    print STDERR "Can't understand: $_\n";
+#	    print STDERR "Can't understand: $_\n";
 	}
     }
     return 0;
@@ -121,106 +122,110 @@ if ($gen_defs) {
 }
 
 ENUMERATION:
-foreach $afile(@ARGV) {
-open(STDIN, $afile);
-while (<>) {
-    if (eof || /\sDEPRECATED/) {
+for ($filecounter = 0; $filecounter < scalar @ARGV; $filecounter++) {
+  $afile = $ARGV[$filecounter];
+  open(STDIN, $afile);
+  $startsize = scalar @ARGV;
+
+  while ($amainline = <STDIN>) {
+    if (eof || $amainline =~ /\sDEPRECATED/) {
       $firstenum = 1;		# Flag to print filename at next enum
       last;
     }
-
-    if (m@^\s*typedef\s+enum\s*
-           ({)?\s*
-           (?:/\*<
-             (([^*]|\*(?!/))*)
-            >\*/)?
-         @x) {
-	if (defined $2) {
-	    my %options = parse_options($2);
-	    $prefix = $options{prefix};
-	    $flags = $options{flags};
-	} else {
-	    $prefix = undef;
-	    $flags = undef;
+    
+    if ($amainline =~ m@^\s*typedef\s+enum\s*({)?\s*(?:/\*<(([^*]|\*(?!/))*)>\*/)?@x) {
+      if (defined $2) {
+	my  %options = parse_options($2);
+	$prefix	     = $options{prefix};
+	$flags	     = $options{flags};
+      } else {
+	$prefix	     = undef;
+	$flags	     = undef;
+      }
+      # Didn't have trailing '{' look on next lines
+      if (!defined $1) {
+	while (<STDIN>) {
+	  if (s/^\s*\{//) {
+	    last;
+	  }
 	}
-	# Didn't have trailing '{' look on next lines
-	if (!defined $1) {
-	    while (<>) {
-		if (s/^\s*\{//) {
-		    last;
-		}
-	    }
+      }
+      
+      $seenbitshift = 0;
+      @entries = ();
+      $entry = undef;
+      $enumname = undef;
+
+      # Now parse the entries
+      parse_entries (\*STDIN);
+
+      if(! $enumname) { next; }
+      
+      # figure out if this was a flags or enums enumeration
+      
+      if (!defined $flags) {
+	$flags	     = $seenbitshift;
+      }
+      
+      # Autogenerate a prefix
+      
+      if (!defined $prefix) {
+	for	     (@entries) {
+	  my $name = $_->[0];
+	  if (defined $prefix) {
+	    my $tmp = ~ ($name ^ $prefix);
+	    ($tmp) = $tmp =~ /(^\xff*)/;
+	    $prefix = $prefix & $tmp;
+	  } else {
+	    $prefix = $name;
+	  }
 	}
-
-	$seenbitshift = 0;
-	@entries = ();
-
-	# Now parse the entries
-	parse_entries (\*ARGV);
-
-	# figure out if this was a flags or enums enumeration
-
-	if (!defined $flags) {
-	    $flags = $seenbitshift;
+	#	     Trim so that it ends in an underscore
+	$prefix	     =~ s/_[^_]*$/_/;
+      }
+      
+      for $entry (@entries) {
+	my	     ($name,$nick) = @{$entry};
+	if	     (!defined $nick) {
+	  ($nick = $name) =~ s/^$prefix//;
+	  $nick =~ tr/_/-/;
+	  $nick = lc($nick);
+	  @{$entry} = ($name, $nick);
 	}
-
-	# Autogenerate a prefix
-
-	if (!defined $prefix) {
-	    for (@entries) {
-		my $name = $_->[0];
-		if (defined $prefix) {
-		    my $tmp = ~ ($name ^ $prefix);
-		    ($tmp) = $tmp =~ /(^\xff*)/;
-		    $prefix = $prefix & $tmp;
-		} else {
-		    $prefix = $name;
-		}
-	    }
-	    # Trim so that it ends in an underscore
-	    $prefix =~ s/_[^_]*$/_/;
+      }
+      
+      # Spit out the output
+      
+      if ($gen_defs) {
+	if	     ($firstenum) {
+	  print qq(\n; enumerations from "$afile"\n);
+	  $firstenum = 0;
 	}
 	
-	for $entry (@entries) {
-	    my ($name,$nick) = @{$entry};
-            if (!defined $nick) {
- 	        ($nick = $name) =~ s/^$prefix//;
-	        $nick =~ tr/_/-/;
-	        $nick = lc($nick);
-	        @{$entry} = ($name, $nick);
-            }
+	print	     "\n(define-".($flags ? "flags" : "enum")." $enumname";
+	
+	for	     (@entries) {
+	  my ($name,$nick) = @{$_};
+	  print "\n   ($nick $name)";
 	}
-
-	# Spit out the output
-
-	if ($gen_defs) {
-	    if ($firstenum) {
-		print qq(\n; enumerations from "$ARGV"\n);
-		$firstenum = 0;
-	    }
-	    
-	    print "\n(define-".($flags ? "flags" : "enum")." $enumname";
-
-	    for (@entries) {
-		my ($name,$nick) = @{$_};
-		print "\n   ($nick $name)";
-	    }
-	    print ")\n";
-
-	} else {
-	    ($valuename = $enumname) =~ s/([A-Z][a-z])/_$1/g;
-	    $valuename =~ s/([a-z])([A-Z])/$1_$2/g;
-	    $valuename = lc($valuename);
-
-	    print "static const GtkEnumValue $ {valuename}_values[] = {\n";
-	    for (@entries) {
-		my ($name,$nick) = @{$_};
-		print qq(  { $name, "$name", "$nick" },\n);
-	    }
-	    print "  { 0, NULL, NULL }\n";
-	    print "};\n";
+	print	     ")\n";
+	
+      } else {
+	($valuename  = $enumname) =~ s/([A-Z][a-z])/_$1/g;
+	$valuename   =~ s/([a-z])([A-Z])/$1_$2/g;
+	$valuename   = lc($valuename);
+	
+	print	     "static const GtkEnumValue $ {valuename}_values[] = {\n";
+	for	     (@entries) {
+	  my ($name,$nick) = @{$_};
+	  print qq(  { $name, "$name", "$nick" },\n);
 	}
+	print	     "  { 0, NULL, NULL }\n";
+	print	     "};\n";
+      }
     }
-}
-close (STDIN);		# reset line numbering
+  }
+  $endsize = scalar @ARGV;
+  $endsize == $startsize || die("$endsize != $startsize");
+  close (STDIN);		# reset line numbering
 }
