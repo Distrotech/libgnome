@@ -1,3 +1,9 @@
+Fri Apr 23 01:18:57 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-config.c: minor doc fixes, and in make vector, don't
+	  assume that the '\' has a character after it. This function
+	  uses external data and shouldn't assume they are 100% correct
+
 Tue Apr 20 21:03:24 1999  George Lebl  <jirka@5z.com>
 
 	* gnome-util.c: (g_file_exists) fix warning by returning FALSE from
