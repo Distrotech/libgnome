@@ -60,6 +60,8 @@ extern struct poptOption gconf_options[];
 static void
 gnome_oaf_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
+    g_thread_init (NULL);
+
     oaf_preinit (program, mod_info);
 }
 
