@@ -34,18 +34,6 @@
 extern int errno;
 #endif
 
-static void
-report_errno (int fd)
-{
-  int n = errno;
-
-  /* fprintf (stderr, "failure %d\n", errno); */
-  /* We don't really care if the write fails.  There's nothing we can
-     do about it.  */
-  write (fd, &n, sizeof n);
-  _exit (1);
-}
-
 /* Fork and execute some program in the background.  Returns -1 on
  * error.  Returns PID on success.  Should correctly report errno returns
  * from a failing child invocation.  DIR is the directory in which to
@@ -56,76 +44,75 @@ int
 gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
 			      int envc, char * const envv[])
 {
-  int pid;
-  int status, count, dummy;
-  int p[2];
+  int comm_pipes[2];
+  int child_errno, itmp;
+  pid_t child_pid, immediate_child_pid; /* XXX this routine assumes
+					   pid_t is signed */
 
-  if (pipe (p) == -1)
+  if(pipe(comm_pipes))
     return -1;
 
-  pid = fork ();
-  if (pid == (pid_t) -1)
+  child_pid = immediate_child_pid = fork();
+
+  switch(child_pid) {
+  case -1:
     return -1;
 
-  if (pid == 0)
-    {
-      /* Child.  Fork again so child won't become a zombie.  */
-      close (p[0]);
-      pid = fork ();
-      if (pid == (pid_t) -1)
-	report_errno (p[1]);
+  case 0: /* START PROCESS 1: child */
+    close(comm_pipes[0]);
+    child_pid = fork();
 
-      if (pid != 0) {
+    switch(child_pid) {
+    case -1:
+      itmp = errno;
+      child_pid = -1; /* simplify parent code */
+      write(comm_pipes[1], &child_pid, sizeof(child_pid));
+      write(comm_pipes[1], &itmp, sizeof(itmp));
 
-	if(waitpid(pid, &status, WNOHANG) > 0) {
-	  /* lame!!!! */
-	  status *= -1;
-	  write(p[1], &status, sizeof(status));
-	} else
-	  write(p[1], &pid, sizeof(pid));
+    default:
+      _exit(0); break;      /* END PROCESS 1: monkey in the middle dies */
 
-	_exit (0);
+    case 0:                 /* START PROCESS 2: child of child */
+      /* pre-exec setup */
+      fcntl(comm_pipes[1], F_SETFD, 1); /* Make the FD close if
+					   executing the program succeeds */
+
+      child_pid = getpid();
+      write(comm_pipes[1], &child_pid, sizeof(child_pid));
+
+      if(envv) {
+	for(itmp = 0; itmp < envc; itmp++)
+	  putenv(envv[itmp]);
       }
 
-      /* Child of the child.  */
-      fcntl (p[1], F_SETFD, 1);
+      if(dir) chdir(dir);
 
-      /* Try to go to the right directory.  If we fail, hopefully it
-	 will still be ok.  */
-      if (dir)
-	chdir (dir);
+      /* doit */
+      execvp(argv[0], argv);
 
-      if (envv)
-	{
-	  int i;
-
-	  for (i = 0; i < envc; ++i)
-	    putenv (envv[i]);
-	}
-
-      execvp (argv[0], argv);
-      _exit(errno); /* xxx lamehack */
+      /* failed */
+      itmp = errno;
+      write(comm_pipes[1], &itmp, sizeof(itmp));
+      _exit(1); break;      /* END PROCESS 2 */
     }
+    break;
 
-  close (p[1]);
+  default: /* parent process */
+  }
 
-  /* Ignore errors.  FIXME: maybe only ignore EOFs.  */
-  count = read (p[0], &status, sizeof(status));
+  close(comm_pipes[1]);
 
-  /* Wait for the child, since we know it will exit shortly.  */
-  if (waitpid (pid, &dummy, 0) == -1)
-    return -1;
+  if(read(comm_pipes[0], &child_pid, sizeof(child_pid)) != sizeof(child_pid))
+    return -1; /* really weird things happened */
+  if(read(comm_pipes[0], &child_errno, sizeof(child_errno))
+     == sizeof(child_errno))
+    errno = child_errno;
 
-  if (count == sizeof(status))
-    {
+  /* do this after the read's in case some OS's handle blocking on pipe writes
+     differently */
+  waitpid(immediate_child_pid, &itmp, 0); /* eat zombies */
 
-      if(status <= 0) {
-	/* the child failed.  STATUS is the errno value.  */
-	errno = status;
-	return -1;
-      } else
-	return status;
-    }
+  return child_pid;
 }
 
 int

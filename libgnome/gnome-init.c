@@ -65,10 +65,8 @@ gnomelib_option_cb(poptContext ctx, enum poptCallbackReason reason,
       if(real_enable_sound) {
 	if(esound_host)
 	  gnome_sound_init(esound_host);
-	else if(getenv("ESOUNDHOST"))
-	  gnome_sound_init(getenv("ESOUNDHOST"));
 	else
-	  gnome_sound_init("localhost");
+	  gnome_sound_init(NULL);
       }
 
       gnome_triggers_init();
@@ -83,9 +81,9 @@ static const struct poptOption gnomelib_options[] = {
    &disable_sound, 0, N_("Disable sound server usage"), NULL},
   {"enable-sound", '\0', POPT_ARG_NONE,
    &enable_sound, 0, N_("Enable sound server usage"), NULL},
-  {"esound-host", '\0', POPT_ARG_STRING,
-   &esound_host, 0, N_("Host on which the sound server to use is running"),
-   N_("HOSTNAME")},
+  {"espeaker", '\0', POPT_ARG_STRING,
+   &esound_host, 0, N_("Host:port on which the sound server to use is running"),
+   N_("HOSTNAME:PORT")},
   {NULL, '\0', 0, NULL, 0}
 };
 
