@@ -39,6 +39,7 @@ INCLUDES = \
 
 libgnome_2_la_SOURCES = \
 	gnome-program.c		\
+	gnome-gconf.c		\
 	gnome-config.c		\
 	gnome-ditem.c		\
 	gnome-exec.c		\
@@ -56,6 +57,7 @@ libgnome_2_la_SOURCES = \
 
 libgnome_headers = \
 	gnome-program.h		\
+	gnome-gconf.h		\
         gnome-config.h 		\
 	gnome-defs.h   		\
 	gnome-fileconvert.h	\

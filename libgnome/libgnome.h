@@ -29,6 +29,9 @@
 #include <libgnome/gnome-portability.h>
 #include <libgnome/gnome-defs.h>
 
+#include <libgnome/gnome-program.h>
+#include <libgnome/gnome-gconf.h>
+
 #include <libgnome/gnome-config.h>
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-i18n.h>
@@ -40,7 +43,6 @@
 #include <libgnome/gnome-triggers.h>
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-url.h>
-#include <libgnome/gnome-program.h>
 #include <libgnome/gnome-ditem.h>
 
 extern GnomeModuleInfo libgnome_module_info;
