@@ -43,9 +43,9 @@ struct _GnomeDesktopEntryI18N {
 	char *comment;
 };
 
-/*hash of GList's of the GnomeDesktopEntryI18N's, hashed by the pointer to
-  a GnomeDesktopEntry*/
-extern GHashTable *gnome_desktop_entry_i18n_ht;
+GList * gnome_desktop_entry_get_i18n_list (GnomeDesktopEntry *item);
+void gnome_desktop_entry_set_i18n_list (GnomeDesktopEntry *item, GList *list);
+void gnome_desktop_entry_free_i18n_list (GList *list);
 
 END_GNOME_DECLS
 

@@ -22,10 +22,6 @@
 /* g_free already checks if x is NULL */
 #define free_if_empty(x) g_free (x)
 
-/*hash of GList's of the GnomeDesktopEntryI18N's, hashed by the pointer to
-  a GnomeDesktopEntry*/
-GHashTable *gnome_desktop_entry_i18n_ht = NULL;
-
 /* find language in a list of GnomeDesktopEntryI18N's*/
 static GnomeDesktopEntryI18N *
 find_lang(GList *list, char *lang)
@@ -148,10 +144,6 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 	
 	g_assert (file != NULL);
 	
-	/*create the i18n hash table if it isn't done yet*/
-	if(!gnome_desktop_entry_i18n_ht)
-		gnome_desktop_entry_i18n_ht = g_hash_table_new(NULL,NULL);
-
 	prefix = g_strconcat ("=", file, "=/Desktop Entry/", NULL);
 	gnome_config_push_prefix (prefix);
 	g_free (prefix);
@@ -245,7 +237,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 
 	/*get us the Names and comments of different languages*/
 	i18n_list = read_names_and_comments (file, is_kde);
-	g_hash_table_insert (gnome_desktop_entry_i18n_ht, newitem, i18n_list);
+	gnome_desktop_entry_set_i18n_list (newitem, i18n_list);
 	
 	if (clean_from_memory_after_load) {
 		prefix = g_strconcat ("=", file, "=", NULL);
@@ -324,12 +316,8 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	gnome_config_push_prefix (prefix);
 	g_free (prefix);
 
-	/*create the i18n hash table if it isn't done yet*/
-	if(!gnome_desktop_entry_i18n_ht)
-		gnome_desktop_entry_i18n_ht = g_hash_table_new(NULL,NULL);
-	
 	/*set the names and comments from our i18n list*/
-	i18n_list = g_hash_table_lookup(gnome_desktop_entry_i18n_ht,dentry);
+	i18n_list = gnome_desktop_entry_get_i18n_list(dentry);
 	for (li=i18n_list; li; li=li->next) {
 		GnomeDesktopEntryI18N *e = li->data;
 		if (e->name) {
@@ -408,23 +396,9 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
 		free_if_empty (item->type);
 		free_if_empty (item->location);
 		free_if_empty (item->geometry);
+		gnome_desktop_entry_free_i18n_list (gnome_desktop_entry_get_i18n_list(item));
+		g_dataset_destroy (item);
 		g_free (item);
-
-		/*there are no i18n entries, weird*/
-		if(!gnome_desktop_entry_i18n_ht)
-			return;
-
-		/*get and free our i18n list*/
-		i18n_list = g_hash_table_lookup(gnome_desktop_entry_i18n_ht,item);
-		for (li=i18n_list; li; li=li->next) {
-			GnomeDesktopEntryI18N *e = li->data;
-			free_if_empty (e->lang);
-			free_if_empty (e->name);
-			free_if_empty (e->comment);
-			g_free(e);
-		}
-		if(i18n_list) g_list_free(i18n_list);
-		g_hash_table_remove(gnome_desktop_entry_i18n_ht,item);
 	}
 }
 
@@ -501,6 +475,33 @@ gnome_desktop_entry_sub_kde_arg (GnomeDesktopEntry *item, gchar *arg)
 		return NULL;
 }
 
+static char *
+join_with_quotes(char *argv[])
+{
+	int i;
+	char *ret;
+	GString *gs = g_string_new("");
+	for(i=0;argv[i];i++) {
+		char *p = strchr(argv[i],'\'');
+		if(!p) {
+			g_string_sprintfa(gs,"%s'%s'",i==0?"":" ",argv[i]);
+		} else {
+			char *s = g_strdup(argv[i]);
+			g_string_sprintfa(gs,"%s'",i==0?"":" ");
+			while((p = strchr(s,'\''))) {
+				*p='\0';
+				g_string_sprintfa(gs,"%s'\\''",s);
+				s = p+1;
+			}
+			g_string_sprintfa(gs,"%s'",s);
+			g_free(s);
+		}
+	}
+	ret = gs->str;
+	g_string_free(gs,FALSE);
+	return ret;
+}
+
 /**
  * gnome_desktop_entry_launch_with_args:
  * @item: a gnome desktop entry.
@@ -568,7 +569,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		
 		argv[argc] = NULL;
 		
-		exec_str = g_strjoinv (" ", (char **)argv);
+		exec_str = join_with_quotes ((char **)argv);
 		
 		/* clean up */
 		if (term_argc && term_argv != xterm_argv)
@@ -631,7 +632,9 @@ gnome_desktop_entry_destroy (GnomeDesktopEntry *item)
  * gnome_desktop_entry_copy:
  * @source: a GnomeDesktop entry.
  *
- * Returns a copy of the @source GnomeDesktopEntry
+ * Description: Makes a copy of a @source GnomeDesktopEntry
+ *
+ * Returns: A copy of the @source GnomeDesktopEntry
  */
 GnomeDesktopEntry *
 gnome_desktop_entry_copy (GnomeDesktopEntry * source)
@@ -643,10 +646,6 @@ gnome_desktop_entry_copy (GnomeDesktopEntry * source)
 	
 	g_return_val_if_fail (source != NULL, NULL);
 	
-	/*create the i18n hash table if it isn't done yet*/
-	if(!gnome_desktop_entry_i18n_ht)
-		gnome_desktop_entry_i18n_ht = g_hash_table_new(NULL,NULL);
-
 	newitem = g_new (GnomeDesktopEntry, 1);
 	
 	newitem->name          = g_strdup (source->name);
@@ -663,7 +662,7 @@ gnome_desktop_entry_copy (GnomeDesktopEntry * source)
 	newitem->icon          = g_strdup (source->icon);
 	newitem->is_kde	       = source->is_kde;
 
-	i18n_list = g_hash_table_lookup(gnome_desktop_entry_i18n_ht,source);
+	i18n_list = gnome_desktop_entry_get_i18n_list(source);
 	for (li=i18n_list; li; li=li->next) {
 		GnomeDesktopEntryI18N *e = li->data;
 		GnomeDesktopEntryI18N *ne = g_new0(GnomeDesktopEntryI18N,1);
@@ -672,7 +671,67 @@ gnome_desktop_entry_copy (GnomeDesktopEntry * source)
 		ne->comment = g_strdup (e->comment);
 		new_i18n_list = g_list_prepend(new_i18n_list,ne);
 	}
-	g_hash_table_insert(gnome_desktop_entry_i18n_ht,newitem,new_i18n_list);
+	gnome_desktop_entry_set_i18n_list(source, new_i18n_list);
 	
 	return newitem;
+}
+
+/**
+ * gnome_desktop_entry_get_i18n_list:
+ * @item: a GnomeDesktopEntry.
+ *
+ * Description: Gets a list of the GnomeDesktopEntryI18N structures
+ * with the translations for @item. It's the actual one that's stored
+ * with the entry, not a copy. If you modify it you need to do a
+ * #gnome_desktop_entry_set_i18n_list.
+ *
+ * Returns: A GList * of GnomeDesktopEntryI18N's
+ */
+GList *
+gnome_desktop_entry_get_i18n_list(GnomeDesktopEntry *item)
+{
+	return g_dataset_get_data(item,"i18n_list");
+}
+
+/**
+ * gnome_desktop_entry_get_i18n_list:
+ * @item: a GnomeDesktopEntry.
+ * @list: a list of GnomeDesktopEntryI18N's
+ *
+ * Description: Sets the list of translations associated with this
+ * particular entry to @list. It does not free the current one, so
+ * if you want to free that one use #gnome_desktop_entry_get_i18n_list
+ * and #gnome_desktop_entry_free_i18n_list, first. This is so that
+ * you can get the list with #gnome_desktop_entry_get_i18n_list, modify
+ * it and set it back.
+ *
+ * Returns:
+ */
+void
+gnome_desktop_entry_set_i18n_list(GnomeDesktopEntry *item, GList *list)
+{
+	g_dataset_set_data(item,"i18n_list",list);
+}
+
+/**
+ * gnome_desktop_entry_free_i18n_list:
+ * @list: a list of GnomeDesktopEntryI18N's
+ *
+ * Description: A utility function for freeing a GList of
+ * GnomeDesktopEntryI18N's.
+ *
+ * Returns:
+ */
+void
+gnome_desktop_entry_free_i18n_list(GList *list)
+{
+	GList *li;
+	for (li=list; li; li=li->next) {
+		GnomeDesktopEntryI18N *e = li->data;
+		free_if_empty (e->lang);
+		free_if_empty (e->name);
+		free_if_empty (e->comment);
+		g_free(e);
+	}
+	if(list) g_list_free(list);
 }
