@@ -1,42 +1,42 @@
-# Galician translation of gnome-libs.
-# Copyright (C) 1999, 2000 Jesus Bravo Alvarez
-# Jesus Bravo Alvarez <jba@pobox.com>, 1999, 2000.
+# Galician translation of libgnome.
+# Copyright (C) 1999-2002 Jesus Bravo Alvarez
+# Jesus Bravo Alvarez <suso@trasno.net>, 1999-2002.
 #
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
-# colaborar connosco, podes atopar máis información en http://trasno.gpul.org
+# colaborar connosco, podes atopar máis información en http://www.trasno.net
 #
-# Conclusion Date: 1999-08-30 17:48+0200
-# Based on es.po by Pablo Saratxaga <srtxg@chanae.alphanet.ch>
-# and pt.po by Nuno Ferreira <nmrf@rnl.ist.utl.pt>
+# First Version: 1999-08-30 17:48+0200
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-libs\n"
-"POT-Creation-Date: 2002-04-16 14:49+0200\n"
-"PO-Revision-Date: 2002-04-16 14:49+0200\n"
-"Last-Translator: Jesus Bravo Alvarez <jba@pobox.com>\n"
-"Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
+"Project-Id-Version: libgnome\n"
+"POT-Creation-Date: 2002-05-26 01:22+0200\n"
+"PO-Revision-Date: 2002-06-02 23:39+0200\n"
+"Last-Translator: Jesus Bravo Alvarez <suso@trasno.net>\n"
+"Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: libgnome/gnome-exec.c:438
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr ""
+msgstr "Non se pode atopar un terminal, usando o xterm, mesmo se non funciona"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
 msgid "Bonobo Support"
-msgstr ""
+msgstr "Soporte de Bonobo"
 
 #: libgnome/gnome-init.c:142
 msgid "Bonobo activation Support"
-msgstr ""
+msgstr "Soporte de activación de Bonobo"
 
 #: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
+"Non foi posible crear o directorio do usuario de configuración de gnome `%"
+"s': %s\n"
 
 #: libgnome/gnome-init.c:298
 #, c-format
@@ -44,266 +44,264 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
+"Non foi posible establecer o modo 0700 no directorio privado do usuario de "
+"configuración de gnome `%s': %s\n"
 
 #: libgnome/gnome-init.c:305
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr ""
+msgstr "Non foi posible crear o directorio de atallos de gnome `%s': %s\n"
 
-#: libgnome/gnome-init.c:357
+#: libgnome/gnome-init.c:361
 msgid "Disable sound server usage"
-msgstr "Desactivar o servidor de son"
+msgstr "Deshabilitar o uso do servidor de son"
 
-#: libgnome/gnome-init.c:360
+#: libgnome/gnome-init.c:364
 msgid "Enable sound server usage"
-msgstr "Activar o servidor de son"
+msgstr "Habilitar o uso do servidor de son"
 
-#: libgnome/gnome-init.c:363
+#: libgnome/gnome-init.c:367
 msgid "Host:port on which the sound server to use is running"
-msgstr "Máquina:porto onde se atopa o servidor de son para usar"
+msgstr "Máquina:porto onde se atopa o servidor de son utilizado"
 
-#: libgnome/gnome-init.c:365
+#: libgnome/gnome-init.c:369
 msgid "HOSTNAME:PORT"
 msgstr "MÁQUINA:PORTO"
 
-#: libgnome/gnome-init.c:383
+#: libgnome/gnome-init.c:387
 msgid "GNOME Virtual Filesystem"
-msgstr ""
+msgstr "Sistema de ficheiros virtual de GNOME"
 
-#: libgnome/gnome-init.c:404
+#: libgnome/gnome-init.c:408
 msgid "GNOME Library"
-msgstr ""
+msgstr "Biblioteca de GNOME"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
-msgstr ""
+msgstr "Soporte GConf de GNOME"
 
-#: libgnome/gnome-help.c:149
+#: libgnome/gnome-help.c:166
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr ""
+msgstr "Non se atopa o dominio GNOME_FILE_DOMAIN_APP_HELP"
 
-#: libgnome/gnome-help.c:163
-msgid ""
-"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
-"libs was compiled incorrectly."
-msgstr ""
+#: libgnome/gnome-help.c:179
+msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
+msgstr "Non se atopa o dominio GNOME_FILE_DOMAIN_HELP"
 
-#: libgnome/gnome-help.c:175
+#: libgnome/gnome-help.c:192 libgnome/gnome-help.c:207
 #, c-format
 msgid ""
-"Unable to show help as file %s is not a directory.  This implies an "
-"incorrect installation."
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
 msgstr ""
+"Non é posible mostrar a axuda porque %s non é un directorio. "
+"Verifique a instalación."
 
-#: libgnome/gnome-help.c:193
+#: libgnome/gnome-help.c:216 libgnome/gnome-help.c:232
 #, c-format
-msgid "Help document %s for %s not found"
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
 msgstr ""
+"Non é posible atopar os ficheiros de axuda en %s ou %s. Verifique a "
+"instalación"
 
-#: libgnome/gnome-help.c:270
+#: libgnome/gnome-help.c:309
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr ""
+msgstr "Non se atopou o doc_id %s no camiño de busca de axuda"
 
-#: libgnome/gnome-help.c:291
+#: libgnome/gnome-help.c:330
 #, c-format
 msgid "Help document %s/%s not found"
-msgstr ""
+msgstr "Documento de axuda %s/%s non atopado"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
+msgstr "Demasiados niveis de alias para un locale, pode haber un bucle"
 
 #: libgnome/gnome-program.c:426
 msgid "Popt Table"
-msgstr ""
+msgstr "Táboa popt"
 
 #: libgnome/gnome-program.c:427
 msgid "The table of options for popt"
-msgstr ""
+msgstr "A táboa de opcións para popt"
 
 #: libgnome/gnome-program.c:434
 msgid "Popt Flags"
-msgstr ""
+msgstr "Flags do popt"
 
 #: libgnome/gnome-program.c:435
 msgid "The flags to use for popt"
-msgstr ""
+msgstr "As flags usadas para o popt"
 
 #: libgnome/gnome-program.c:443
 msgid "Popt Context"
-msgstr ""
+msgstr "Contexto do popt"
 
 #: libgnome/gnome-program.c:444
 msgid "The popt context pointer that GnomeProgram is using"
-msgstr ""
+msgstr "O apuntador de contexto do popt que está a usar GnomeProgram"
 
 #: libgnome/gnome-program.c:452
 msgid "Human readable name"
-msgstr ""
+msgstr "Nome lexible para humanos"
 
 #: libgnome/gnome-program.c:453
-#, fuzzy
 msgid "Human readable name of this application"
-msgstr "Acerca desta aplicación"
+msgstr "Nome lexible para humanos desta aplicación"
 
 #: libgnome/gnome-program.c:462
-#, fuzzy
 msgid "GNOME path"
-msgstr "Opcións de GNOME"
+msgstr "Camiño de GNOME"
 
 #: libgnome/gnome-program.c:463
 msgid "Path in which to look for installed files"
-msgstr ""
+msgstr "Camiño onde buscar os ficheiros instalados"
 
 #: libgnome/gnome-program.c:472
 msgid "App ID"
-msgstr ""
+msgstr "ID de aplicación"
 
 #: libgnome/gnome-program.c:473
-#, fuzzy
 msgid "ID string to use for this application"
-msgstr "Acerca desta aplicación"
+msgstr "Cadea de ID usada nesta aplicación"
 
 #: libgnome/gnome-program.c:480
 msgid "App version"
-msgstr ""
+msgstr "Versión da aplicación"
 
 #: libgnome/gnome-program.c:481
-#, fuzzy
 msgid "Version of this application"
-msgstr "Acerca desta aplicación"
+msgstr "Versión desta aplicación"
 
 #: libgnome/gnome-program.c:488
 msgid "GNOME Prefix"
-msgstr ""
+msgstr "Prefixo de GNOME"
 
 #: libgnome/gnome-program.c:489
 msgid "Prefix where GNOME was installed"
-msgstr ""
+msgstr "Prefixo onde foi instalado GNOME"
 
 #: libgnome/gnome-program.c:498
 msgid "GNOME Libdir"
-msgstr ""
+msgstr "Libdir de GNOME"
 
 #: libgnome/gnome-program.c:499
 msgid "Library prefix where GNOME was installed"
-msgstr ""
+msgstr "Prefixo do directorio de bibliotecas onde foi instalado GNOME"
 
 #: libgnome/gnome-program.c:508
-#, fuzzy
 msgid "GNOME Datadir"
-msgstr "Opcións de GNOME"
+msgstr "Datadir de GNOME"
 
 #: libgnome/gnome-program.c:509
 msgid "Data prefix where GNOME was installed"
-msgstr ""
+msgstr "Prefixo do directorio de datos onde foi instalado GNOME"
 
 #: libgnome/gnome-program.c:518
 msgid "GNOME Sysconfdir"
-msgstr ""
+msgstr "Sysconfdir de GNOME"
 
 #: libgnome/gnome-program.c:519
 msgid "Configuration prefix where GNOME was installed"
-msgstr ""
+msgstr "Prefixo do directorio de configuración onde foi instalado GNOME"
 
 #: libgnome/gnome-program.c:529
 msgid "GNOME App Prefix"
-msgstr ""
+msgstr "Prefixo da aplic de GNOME"
 
 #: libgnome/gnome-program.c:530
 msgid "Prefix where this application was installed"
-msgstr ""
+msgstr "Prefixo onde foi instalada esta aplicación"
 
 #: libgnome/gnome-program.c:538
 msgid "GNOME App Libdir"
-msgstr ""
+msgstr "Libdir da aplic de GNOME"
 
 #: libgnome/gnome-program.c:539
 msgid "Library prefix where this application was installed"
 msgstr ""
+"Prefixo do directorio de bibliotecas onde foi instalada esta aplicación"
 
 #: libgnome/gnome-program.c:548
-#, fuzzy
 msgid "GNOME App Datadir"
-msgstr "Opcións de GNOME"
+msgstr "Datadir da aplic de GNOME"
 
 #: libgnome/gnome-program.c:549
 msgid "Data prefix where this application was installed"
-msgstr ""
+msgstr "Prefixo do directorio de datos onde foi instalada esta aplicación"
 
 #: libgnome/gnome-program.c:558
 msgid "GNOME App Sysconfdir"
-msgstr ""
+msgstr "Sysconfdir da aplic de GNOME"
 
 #: libgnome/gnome-program.c:559
 msgid "Configuration prefix where this application was installed"
 msgstr ""
+"Prefixo do directorio de configuración onde foi instalada esta aplicación"
 
 #: libgnome/gnome-program.c:568
 msgid "Create Directories"
-msgstr ""
+msgstr "Crear directorios"
 
 #: libgnome/gnome-program.c:569
 msgid "Create standard GNOME directories on startup"
-msgstr ""
+msgstr "Crear os directorios estándar de GNOME ao iniciar"
 
 #: libgnome/gnome-program.c:578
 msgid "Enable Sound"
-msgstr ""
+msgstr "Habilitar o son"
 
 #: libgnome/gnome-program.c:579
-#, fuzzy
 msgid "Enable sound on startup"
-msgstr "Activar o servidor de son"
+msgstr "Habilitar o son no inicio"
 
 #: libgnome/gnome-program.c:588
 msgid "Espeaker"
-msgstr ""
+msgstr "Espeaker"
 
 #: libgnome/gnome-program.c:589
 msgid "How to connect to esd"
-msgstr ""
+msgstr "Xeito de conectar co esd"
 
 #: libgnome/gnome-program.c:1335
-#, fuzzy
 msgid "Help options"
-msgstr "Opcións de %s"
+msgstr "Opcións da axuda"
 
 #: libgnome/gnome-program.c:1340
 msgid "Application options"
-msgstr ""
+msgstr "Opcións da aplicación"
 
 #: libgnome/gnome-program.c:1356
 msgid "Dynamic modules to load"
-msgstr ""
+msgstr "Módulos dinámicos para cargar"
 
 #: libgnome/gnome-program.c:1357
 msgid "MODULE1,MODULE2,..."
-msgstr ""
+msgstr "MÓDULO1,MÓDULO2,..."
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr ""
+msgstr "Fábrica de Extra Moniker"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
-#, fuzzy
 msgid "GConf moniker"
-msgstr "Confirmar"
+msgstr "Moniker de GConf"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr ""
+msgstr "config moniker indirecto"
 
 #: monikers/bonobo-moniker-conf-indirect.c:44
-#, fuzzy, c-format
+#, c-format
 msgid "Key %s not found in configuration"
-msgstr "Especificar o prefixo da configuración gardada"
+msgstr "Clave %s non atopada na configuración"
 
 #: monikers/bonobo-config-bag.c:230
-#, fuzzy
 msgid "Unknown type"
-msgstr "Erro de sistema descoñecido"
+msgstr "Tipo descoñecido"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error Messages"
@@ -311,27 +309,27 @@ msgstr "Mensaxes de erro"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
 msgid "GNOME system events"
-msgstr "Eventos de sistema de GNOME"
+msgstr "Eventos do sistema de GNOME"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
 msgid "Informational Messages"
-msgstr "Mensaxes de información"
+msgstr "Mensaxes informativos"
 
 #: gnome-data/gnome-2.soundlist.in.h:4
 msgid "Login"
-msgstr "Comezo de sesión"
+msgstr "Inicio de sesión"
 
 #: gnome-data/gnome-2.soundlist.in.h:5
 msgid "Logout"
-msgstr "Fin de sesión"
+msgstr "Saída da sesión"
 
 #: gnome-data/gnome-2.soundlist.in.h:6
 msgid "Miscellaneous Messages"
-msgstr "Outras mensaxes"
+msgstr "Mensaxes diversas"
 
 #: gnome-data/gnome-2.soundlist.in.h:7
 msgid "Question Dialogs"
-msgstr "Diálogos con preguntas"
+msgstr "Diálogos de pregunta"
 
 #: gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning Messages"
@@ -339,11 +337,11 @@ msgstr "Mensaxes de aviso"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Action button click"
-msgstr "Preme-lo botón de acción"
+msgstr "Clic dun botón de acción"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Check box toggled"
-msgstr "Troco dunha \"check box\""
+msgstr "Caixa de verificación trocada"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Menu item activation"
@@ -351,4 +349,4 @@ msgstr "Activación dun elemento de menú"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
-msgstr "Eventos da interfaz de usuario"
+msgstr "Eventos da interface de usuario"
