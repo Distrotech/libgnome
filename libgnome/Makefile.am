@@ -11,16 +11,15 @@ LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 libgnomeincludedir = $(includedir)/libgnome
 
-INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) $(SUPPORTINCS) \
-        $(GDK_IMLIB_CFLAGS)  \
+INCLUDES = -I.. -I$(srcdir)/.. $(SUPPORTINCS) \
+	-I$(top_srcdir)/intl -I$(top_builddir)/intl \
+	-I$(includedir) $(GDK_IMLIB_CFLAGS)  \
 	-DGNOMELIBDIR=\""$(libdir)"\" \
 	-DGNOMEDATADIR=\""$(datadir)"\" \
 	-DGNOMEBINDIR=\""$(bindir)"\" \
 	-DGNOMELOCALSTATEDIR=\""$(localstatedir)"\" \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\" \
-	-I$(top_srcdir)/intl -I$(top_builddir)/intl
-
+	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\"
 
 libgnome_la_SOURCES = \
 	gnome-config.c		\
