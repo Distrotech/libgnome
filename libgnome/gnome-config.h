@@ -28,6 +28,9 @@
 
 #include <glib.h>
 
+/* Make sure we have the directory getters */
+#include <libgnome/gnome-init.h>
+
 G_BEGIN_DECLS
 
 /* Prototypes for the profile management functions */
