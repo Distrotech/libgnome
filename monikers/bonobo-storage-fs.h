@@ -26,7 +26,7 @@ GnomeStorage   *gnome_storage_fs_construct    (GnomeStorageFS *storage,
 					       GNOME_Storage corba_storage,
 					       const char *path, const char *open_mode);
 GnomeStorage   *gnome_storage_fs_open         (const char *path,
-					       GNOME_Storage_OpenMode mode);
+					       gint flags, gint mode);
 GnomeStorage   *gnome_storage_fs_create       (GnomeStorageFS *storage_fs,
 					       const CORBA_char *path);
 END_GNOME_DECLS

@@ -11,6 +11,7 @@
 #include <config.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
 #include <bonobo/gnome-storage-fs.h>
@@ -196,28 +197,35 @@ do_gnome_storage_fs_create (char *path)
 /** 
  * gnome_storage_fs_open:
  * @path: path to existing directory that represents the storage
- * @mode: open mode for the storage
+ * @flags: open flags.
+ * @mode: mode used if @flags containst O_CREAT for the storage.
  *
  * Returns a GnomeStorage object that represents the storage at @path
  */
 GnomeStorage *
-gnome_storage_fs_open (const char *path, GNOME_Storage_OpenMode mode)
+gnome_storage_fs_open (const char *path, gint flags, gint mode)
 {
 	struct stat s;
 	int v;
 	
 	g_return_val_if_fail (path != NULL, NULL);
 
+	if (flags & O_CREAT){
+		if (mkdir (path, mode) == -1){
+			return NULL;
+		}
+	}
+
 	v = stat (path, &s);
 
-	if (mode == GNOME_Storage_READ){
+	if (flags & O_RDONLY){
 		if (v == -1)
 			return NULL;
 		
 		if (!S_ISDIR (s.st_mode))
 			return NULL;
 
-	} else if (mode == GNOME_Storage_WRITE){
+	} else if (flags & (O_RDWR|O_WRONLY)){
 		if (v == -1){
 			if (mkdir (path, 0777) == -1)
 				return NULL;
@@ -230,41 +238,12 @@ gnome_storage_fs_open (const char *path, GNOME_Storage_OpenMode mode)
 	return GNOME_STORAGE (do_gnome_storage_fs_create (g_strdup (path)));
 }
 
-/** 
- * gnome_storage_fs_create:
- * @storage_fs: parent storage
- * @path: path inside the storage to create
- *
- * Creates a new GnomeStorage object whose parent is @storage_fs and
- * whose path name is @path.  The storage created is an activated
- * CORBA server for this storage.
- *
- * if @storage_fs is NULL, it creates a toplevel storage.
- *
- * Returns the GnomeStorage GTK object.
+/*
+ * Shared library entry point
  */
 GnomeStorage *
-gnome_storage_fs_create (GnomeStorageFS *storage_fs, const CORBA_char *path)
+gnome_storage_driver_open (const char *path, gint flags, gint mode)
 {
-	char *full;
-
-	g_return_val_if_fail (path != NULL, NULL);
-	if (storage_fs != NULL){
-		g_return_val_if_fail (GNOME_IS_STORAGE_FS (storage_fs), NULL);
-	}
-	
-	if (!path || !storage_fs)
-	        full = g_strdup (path);
-	else
-		full = g_concat_dir_and_file (storage_fs->path, path);
-	
-	if (mkdir (full, 0777) == -1){
-		g_free (full);
-		return NULL;
-	}
-	g_free (full);
-
-	return GNOME_STORAGE (do_gnome_storage_fs_create (g_strdup (path)));
+	return gnome_storage_fs_open (path, flags, mode);
 }
-
 
