@@ -1373,7 +1373,7 @@ gnome_program_module_load (const char *mod_name)
 
 /**
  * gnome_program_parse_args:
- * @app: Application object
+ * @program: Application object
  *
  * Description: Parses the command line arguments for the application
  */
@@ -1455,7 +1455,7 @@ gnome_program_postinit (GnomeProgram *program)
  * @argc: The number of commmand line arguments contained in @argv.
  * @argv: A string array of command line arguments.
  * @first_property_name: The first item in a %NULL-terminated list of attribute
- * name/value.
+ * name and value pairs (so this will be an attribute name or %NULL).
  * @...: The continuation of a %NULL-terminated list of attribute name/value
  * pairs.
  *

@@ -57,15 +57,15 @@ set_cloexec (gint fd)
 
 /**
  * gnome_execute_async_with_env_fds:
- * @dir: Directory in which child should be execd, or NULL for current
+ * @dir: Directory in which child should be executed, or %NULL for current
  *       directory
  * @argc: Number of arguments
  * @argv: Argument vector to exec child
  * @envc: Number of environment slots
  * @envv: Environment vector
- * @close_fds: If TRUE will close all fds but 0,1, and 2
+ * @close_fds: If %TRUE will close all fds but 0,1, and 2
  * 
- * Description:  Like #gnome_execute_async_with_env() but has a flag to
+ * Description:  Like gnome_execute_async_with_env() but has a flag to
  * decide whether or not to close fd's
  * 
  * Returns: the process id, or %-1 on error.
@@ -210,7 +210,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
 /**
  * gnome_execute_async_with_env:
- * @dir: Directory in which child should be execd, or NULL for current
+ * @dir: Directory in which child should be executed, or NULL for current
  *       directory
  * @argc: Number of arguments
  * @argv: Argument vector to exec child
@@ -218,7 +218,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
  * @envv: Environment vector
  * 
  * Description: This function forks and executes some program in the
- * background.  On error, returns %-1; in this case, errno should hold a useful
+ * background.  On error, returns %-1; in this case, #errno should hold a useful
  * value.  Searches the path to find the child.  Environment settings in @envv
  * are added to the existing environment -- they do not completely replace it.
  * This function closes all fds besides 0, 1, and 2 for the child
@@ -235,7 +235,7 @@ gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
 
 /**
  * gnome_execute_async:
- * @dir: Directory in which child should be execd, or NULL for current
+ * @dir: Directory in which child should be executesd, or %NULL for current
  *       directory
  * @argc: Number of arguments
  * @argv: Argument vector to exec child
@@ -253,13 +253,13 @@ gnome_execute_async (const char *dir, int argc, char * const argv[])
 
 /**
  * gnome_execute_async_fds:
- * @dir: Directory in which child should be execd, or NULL for current
+ * @dir: Directory in which child should be executed, or %NULL for current
  *       directory
  * @argc: Number of arguments
  * @argv: Argument vector to exec child
- * @close_fds: 
+ * @close_fds: If %TRUE, will close all but file descriptors 0, 1 and 2.
  *
- * Description: Like #gnome_execute_async_with_env_fds, but doesn't add
+ * Description: Like gnome_execute_async_with_env_fds(), but doesn't add
  * anything to child's environment.
  * 
  * Returns: process id of child, or %-1 on error.
@@ -274,12 +274,12 @@ gnome_execute_async_fds (const char *dir, int argc,
 
 /**
  * gnome_execute_shell_fds:
- * @dir: Directory in which child should be execd, or NULL for current
+ * @dir: Directory in which child should be executed, or %NULL for current
  *       directory
  * @commandline: Shell command to execute
  * @close_fds: Like close_fds in gnome_execute_async_with_env_fds()
  *
- * Description: Like #gnome_execute_async_with_env_fds, but uses the user's
+ * Description: Like gnome_execute_async_with_env_fds(), but uses the user's
  * shell to run the desired program.  Note that the pid of the shell is
  * returned, not the pid of the user's program.
  * 
@@ -311,11 +311,11 @@ gnome_execute_shell_fds (const char *dir, const char *commandline,
 
 /**
  * gnome_execute_shell:
- * @dir: Directory in which child should be execd, or NULL for current
+ * @dir: Directory in which child should be executed, or %NULL for current
  *       directory
  * @commandline: Shell command to execute
  * 
- * Description: Like #gnome_execute_async_with_env, but uses the user's shell
+ * Description: Like gnome_execute_async_with_env(), but uses the user's shell
  * to run the desired program.  Note that the pid of the shell is returned, not
  * the pid of the user's program.
  * 
@@ -332,14 +332,14 @@ gnome_execute_shell (const char *dir, const char *commandline)
  * @argc: a pointer to the vector size
  * @argv: a pointer to the vector
  *
- * Description:  Prepends the selected terminal to the
- * passed in vector, modifying it in the process.  The vector should
- * be allocated with g_malloc, as this will g_free the original vector.
- * Also all elements must have been allocated separately.  That is the
- * standard glib/gnome way of doing vectors however.  If the integer
- * that @argc points to is negative, the size will first be computed.
- * Also note that passing in pointers to a vector that is empty, will
- * just create a new vector for you.
+ * Description:  Prepends a terminal (either the one configured as default in
+ * the user's GNOME setup, or one of the common xterm emulators) to the passed
+ * in vector, modifying it in the process.  The vector should be allocated with
+ * #g_malloc, as this will #g_free the original vector.  Also all elements must
+ * have been allocated separately.  That is the standard glib/GNOME way of
+ * doing vectors however.  If the integer that @argc points to is negative, the
+ * size will first be computed.  Also note that passing in pointers to a vector
+ * that is empty, will just create a new vector for you.
  **/
 void
 gnome_prepend_terminal_to_vector (int *argc, char ***argv)
@@ -396,7 +396,7 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 		if (check != NULL) {
 			term_argv[0] = check;
 			/* Note that gnome-terminal takes -x and
-			 * as -e in gnome-terminal is broken */
+			 * as -e in gnome-terminal is broken we use that. */
 			term_argv[1] = g_strdup ("-x");
 		} else {
 			if (check == NULL)
@@ -442,12 +442,12 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 
 /**
  * gnome_execute_terminal_shell_fds:
- * @dir: Directory in which child should be execd, or NULL for current
+ * @dir: Directory in which child should be executed, or %NULL for current
  *       directory
  * @commandline: Shell command to execute
  * @close_fds: Like close_fds in gnome_execute_async_with_env_fds()
  *
- * Description:  Like #gnome_execute_shell_fds, except that it runs the
+ * Description:  Like gnome_execute_shell_fds(), except that it runs the
  * terminal as well.  Note that the pid of the terminal is
  * returned, not the pid of the user's program.
  * If commandline is %NULL, just the shell is run.
@@ -492,7 +492,7 @@ gnome_execute_terminal_shell_fds (const char *dir, const char *commandline,
 
 /**
  * gnome_execute_terminal_shell:
- * @dir: Directory in which child should be execd, or NULL for current
+ * @dir: Directory in which child should be executed, or NULL for current
  *       directory
  * @commandline: Shell command to execute
  * 

@@ -1,8 +1,8 @@
 <!-- ##### SECTION Title ##### -->
-GnomeProgram
+gnome-program
 
 <!-- ##### SECTION Short_Description ##### -->
-
+Initialize and retrieve information about a GNOME application.
 
 <!-- ##### SECTION Long_Description ##### -->
 <para>
@@ -22,9 +22,9 @@ while help files specific to the current application might be in another
 location.
 </para>
 <para>
-The different types of files are given in the #GnomeFileDomain enum. User
-applications make use of the <structfield>GNOME_FILE_DOMAIN_APP_*</structfield>
-types, which specify locations relative to #GNOME_PARAM_APP_DATADIR.
+The different types of files are given in this enum. User applications make use
+of the <structfield>GNOME_FILE_DOMAIN_APP_*</structfield> types, which specify
+locations relative to #GNOME_PARAM_APP_DATADIR.
 </para>
 
 @GNOME_FILE_DOMAIN_UNKNOWN: 
@@ -40,6 +40,83 @@ types, which specify locations relative to #GNOME_PARAM_APP_DATADIR.
 @GNOME_FILE_DOMAIN_APP_PIXMAP: 
 @GNOME_FILE_DOMAIN_APP_CONFIG: 
 @GNOME_FILE_DOMAIN_APP_HELP: 
+
+<!-- ##### STRUCT GnomeProgram ##### -->
+<para>
+
+</para>
+
+@object: 
+@_priv: 
+
+<!-- ##### FUNCTION gnome_program_init ##### -->
+<para>
+Every GNOME application will need to call this function (or
+gnome_program_initv()) early in its lifetime to initialize the various GNOME
+libraries in a consistent fashion. This function is very flexible in allowing
+the user to specify which modules should be initialised and any special
+paramter values that should be passed to these modules (along with processing
+commandline options).
+</para>
+<para>
+It loads the specified @module_info, which is normally #LIBGNOME_MODULE or
+#LIBGNOMEUI_MODULE and pulls in all the dependencies.  Programs that are not
+running in setuid or setgid mode will also load modules specified in the
+<parameter class="option">--load-modules</parameter> and also in the <parameter
+class="option">GNOME_MODULES</parameter> environment variable.
+</para>
+<para>
+After setting up the module loading, this function then calls (in order)
+gnome_program_preinit(), gnome_program_parse_args() and
+gnome_program_postinit().
+</para>
+<para>The following example shows how one might initialise a typical program
+using a popt table that is defined elsewhere (in other words, this is how to
+remove the use of the deprecated gnome_init_with_popt_table() from code).
+</para>
+<example>
+<title>Initializing a GNOME application</title>
+<programlisting>
+int main(int argc, char **argv) {
+	GnomeProgram *my_app;
+	
+	/* We assume PACKAGE and VERSION are set the program name and version
+	 * number respectively. Also, assume the 'options' is a global array of
+	 * poptOptions.
+	 */
+	my_app = gnome_program_init(PACKAGE, VERSION, LIBGNOMEUI_MODULE,
+	                            argc, argv, GNOME_PARAM_POPT_TABLE, options,
+				    NULL);
+	/* Now process any extra args, etc ... */
+}
+</programlisting>
+</example>
+
+@app_id: 
+@app_version: 
+@module_info: 
+@argc: 
+@argv: 
+@first_property_name: 
+@Varargs: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gnome_program_initv ##### -->
+<para>
+
+</para>
+
+@type: 
+@app_id: 
+@app_version: 
+@module_info: 
+@argc: 
+@argv: 
+@first_property_name: 
+@args: 
+@Returns: 
+
 
 <!-- ##### FUNCTION gnome_program_get ##### -->
 <para>
@@ -229,13 +306,6 @@ types, which specify locations relative to #GNOME_PARAM_APP_DATADIR.
 
 
 
-<!-- ##### MACRO GNOME_TYPE_MODULE_INFO ##### -->
-<para>
-
-</para>
-
-
-
 <!-- ##### STRUCT GnomeModuleInfo ##### -->
 <para>
 
@@ -357,48 +427,5 @@ types, which specify locations relative to #GNOME_PARAM_APP_DATADIR.
 
 </para>
 
-
-
-<!-- ##### FUNCTION gnome_program_init ##### -->
-<para>
-
-</para>
-
-@app_id: 
-@app_version: 
-@module_info: 
-@argc: 
-@argv: 
-@first_property_name: 
-@Varargs: 
-@Returns: 
-
-
-<!-- ##### FUNCTION gnome_program_initv ##### -->
-<para>
-
-</para>
-
-@type: 
-@app_id: 
-@app_version: 
-@module_info: 
-@argc: 
-@argv: 
-@first_property_name: 
-@args: 
-@Returns: 
-
-
-<!-- ##### VARIABLE program_invocation_short_name ##### -->
-<para>
-
-</para>
-
-
-<!-- ##### VARIABLE program_invocation_name ##### -->
-<para>
-
-</para>
 
 

@@ -2,11 +2,18 @@
 gnome-exec
 
 <!-- ##### SECTION Short_Description ##### -->
-
+Execution of programs from within GNOME applications.
 
 <!-- ##### SECTION Long_Description ##### -->
 <para>
-
+The gnome-execute family of functions are provided to simplify execution of
+programs from withing GNOME applications.  These routines are required to avoid
+passing opened file descriptors to a child process (like the X11 sockets and
+CORBA sockets). They will also make sure to terminate properly.
+</para>
+<para>
+The range of possibilities goes from the most simple use to the most
+specialized ones.
 </para>
 
 <!-- ##### SECTION See_Also ##### -->

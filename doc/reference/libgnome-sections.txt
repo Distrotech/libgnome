@@ -3,12 +3,18 @@
 <SECTION>
 <FILE>gnome-program</FILE>
 GnomeFileDomain
-<TITLE>GnomeProgram</TITLE>
+GnomeProgram
+gnome_program_init
+gnome_program_initv
+
+<SUBSECTION>
 gnome_program_get
 gnome_program_get_human_readable_name
 gnome_program_get_app_id
 gnome_program_get_app_version
 gnome_program_locate_file
+
+<SUBSECTION>
 GNOME_PARAM_MODULE_INFO
 GNOME_PARAM_MODULES
 GNOME_PARAM_POPT_TABLE
@@ -29,7 +35,8 @@ GNOME_PARAM_APP_DATADIR
 GNOME_PARAM_APP_LIBDIR
 GNOME_PARAM_HUMAN_READABLE_NAME
 GNOME_PARAM_GNOME_PATH
-GNOME_TYPE_MODULE_INFO
+
+<SUBSECTION>
 GnomeModuleInfo
 GnomeModuleRequirement
 GnomeModuleInitHook
@@ -43,10 +50,8 @@ gnome_program_preinit
 gnome_program_parse_args
 gnome_program_postinit
 GNOME_PROGRAM_STANDARD_PROPERTIES
-gnome_program_init
-gnome_program_initv
-program_invocation_short_name
 program_invocation_name
+program_invocation_short_name
 
 <SUBSECTION Standard>
 GNOME_PROGRAM
@@ -56,6 +61,7 @@ gnome_program_get_type
 GNOME_PROGRAM_CLASS
 GNOME_IS_PROGRAM_CLASS
 gnome_module_info_get_type
+GNOME_TYPE_MODULE_INFO
 
 <SUBSECTION Private>
 GnomeProgramPrivate
