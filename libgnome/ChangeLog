@@ -1,3 +1,28 @@
+2001-04-23  Martin Baulig  <baulig@suse.de>
+
+	* gnome-program.h (GnomeModuleConstructor): Removed typedef.
+	(GnomeModuleClassInitHook): New typedef.
+	(GnomeModuleInfo): Removed `constructor' and added `class_init'
+	and `instance_init' functions.
+	(gnome_program_module_load): Return a `const GnomeModuleInfo *'.
+	(gnome_program_init): Added `GnomeModuleInfo *' argument.
+	(gnome_program_initv): Added `GType' and `GnomeModuleInfo *'
+	arguments.
+
+	* gnome-program.c (gnome_program_constructor): Removed.
+	(gnome_program_initv): Load and initialize all modules based
+	on the `GnomeModuleInfo *' argument; for the moment, we don't
+	use the GNOME_PARAM_MODULE_INFO and GNOME_PARAM_MODULES
+	properties.
+
+	* libgnome-init.h (gnome_gconf_module_info): Removed.
+	(gnome_program_get_gconf_client, GNOME_PARAM_GCONF_CLIENT): Removed.
+	(gnome_program_get_config_database): New function.
+	(GNOME_PARAM_CONFIG_DATABASE, GNOME_PARAM_CONFIG_MONIKER):
+	New properties.
+
+	* libgnome-init.c: Don't initialize GConf.
+ 
 2001-04-23  Dietmar Maurer  <dietmar@ximian.com>
 
 	* test-libgnome.c: replace #include <bonobo/libbonobo.h> with

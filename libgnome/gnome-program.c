@@ -268,7 +268,7 @@ gnome_program_get_property (GObject *object, guint param_id, GValue *value,
 }
 
 static void
-add_to_module_list (const gchar *module_name)
+add_to_module_list (GPtrArray *module_list, const gchar *module_name)
 {
     char **modnames;
     int i, j;
@@ -276,16 +276,13 @@ add_to_module_list (const gchar *module_name)
     if (!module_name)
 	return;
 
-    if (!program_module_list)
-	program_module_list = g_ptr_array_new ();
-
     modnames = g_strsplit (module_name, ",", -1);
     for (i = 0; modnames && modnames[i]; i++) {
-	for (j = 0; j < program_module_list->len; j++)
-	    if (!strcmp (modnames[i], g_ptr_array_index (program_module_list, j)))
+	for (j = 0; j < module_list->len; j++)
+	    if (!strcmp (modnames[i], g_ptr_array_index (module_list, j)))
 		return;
 
-	g_ptr_array_add (program_module_list, g_strdup (modnames[i]));
+	g_ptr_array_add (module_list, g_strdup (modnames[i]));
     }
     g_strfreev (modnames);
 }
@@ -377,103 +374,6 @@ gnome_program_module_list_order (void)
 	    program_modules->len * sizeof(gpointer));
 }
 
-static GObject*
-gnome_program_constructor (GType type, guint n_construct_properties,
-			   GObjectConstructParam *construct_properties)
-{
-    GnomeProgram *program = NULL;
-    GnomeModuleInfo *module_info = NULL;
-    GObjectConstructParam *cparams = NULL;
-    guint n_modinfos = 0, n_cparams = 0, i;
-
-    if (!program_module_list)
-	program_module_list = g_ptr_array_new ();
-
-    if (!program_modules)
-	program_modules = g_ptr_array_new ();
-
-    /*
-     * First walk the list of construction properties and sort out
-     * GNOME_PARAM_MODULES and GNOME_PARAM_MODULE_INFO; we need to
-     * handle this here so we can load the modules before we create
-     * the GnomeProgram object.
-     */
-
-    for (i = 0; i < n_construct_properties; i++) {
-	GValue *value = construct_properties[i].value;
-	GParamSpec *pspec = construct_properties[i].pspec;
-
-	if (!strcmp (pspec->name, GNOME_PARAM_MODULES)) {
-	    if (program_initialized)
-		g_warning (G_STRLOC ": cannot use construction property \"%s\" "
-			   "when program is already initialized", pspec->name);
-	    else
-		add_to_module_list (g_value_get_string (value));
-	} else if (!strcmp (pspec->name, GNOME_PARAM_MODULE_INFO)) {
-	    if (!n_modinfos || n_modinfos >= PREALLOC_MODINFOS)
-		module_info = g_renew (GnomeModuleInfo, module_info,
-				       MAX (n_modinfos + 1, PREALLOC_MODINFOS));
-	    module_info[n_modinfos] = * (GnomeModuleInfo *)
-		g_value_get_boxed (value);
-	    n_modinfos++;
-	} else {
-	    if (!n_cparams || n_cparams >= PREALLOC_CPARAMS)
-		cparams = g_renew (GObjectConstructParam, cparams,
-				   MAX (n_cparams + 1, PREALLOC_CPARAMS));
-	    cparams[n_cparams].pspec = pspec;
-	    cparams[n_cparams].value = value;
-	    n_cparams++;
-	}
-    }
-
-    if (!program_initialized) {
-	/*
-	 * Load all the modules.
-	 */
-
-	for (i = 0; i < n_modinfos; i++)
-	    gnome_program_module_register (&module_info[i]);
-
-	for (i = 0; i < program_module_list->len; i++) {
-	    gchar *modname = g_ptr_array_index (program_module_list, i);
-
-	    gnome_program_module_load (modname);
-	}
-
-	for (i = 0; i < program_modules->len; i++) {
-	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
-
-	    if (a_module && a_module->init_pass)
-		a_module->init_pass (a_module);
-	}
-
-	/* Make sure the array is NULL-terminated */
-	g_ptr_array_add (program_modules, NULL);
-
-	/* 2. Order the module list for dependencies */
-	gnome_program_module_list_order ();
-
-	for (i = 0; i < program_modules->len; i++) {
-	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
-
-	    if (a_module && a_module->constructor)
-		a_module->constructor (type, n_cparams, cparams, a_module);
-	}
-    }
-
-    program = (GnomeProgram *) G_OBJECT_CLASS (parent_class)->constructor
-	(type, n_cparams, cparams);
-
-    if (!program_initialized) {
-	global_program = program;
-	g_object_ref (G_OBJECT (global_program));
-
-	program_initialized = TRUE;
-    }
-
-    return G_OBJECT (program);
-}
-
 static void
 gnome_program_class_init (GnomeProgramClass *class)
 {
@@ -485,7 +385,6 @@ gnome_program_class_init (GnomeProgramClass *class)
     quark_set_prop = g_quark_from_static_string ("gnome-program-set-property");
     quark_get_prop = g_quark_from_static_string ("gnome-program-g-property");
 
-    object_class->constructor = gnome_program_constructor;
     object_class->set_property = gnome_program_set_property;
     object_class->get_property = gnome_program_get_property;
 
@@ -596,9 +495,18 @@ gnome_program_class_init (GnomeProgramClass *class)
 static void
 gnome_program_instance_init (GnomeProgram *program)
 {
+    guint i;
+
     program->_priv = g_new0 (GnomeProgramPrivate, 1);
 
     program->_priv->state = APP_CREATE_DONE;
+
+    for (i = 0; i < program_modules->len; i++) {
+	GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
+
+	if (a_module && a_module->instance_init)
+	    a_module->instance_init (program, a_module);
+    }
 }
 
 static void
@@ -1200,19 +1108,14 @@ gnome_program_preinit (GnomeProgram *program,
  * Loads a shared library that contains a
  * 'GnomeModuleInfo dynamic_module_info' structure.
  */
-void
+const GnomeModuleInfo *
 gnome_program_module_load (const char *mod_name)
 {
     GModule *mh;
-    GnomeModuleInfo *gmi;
+    const GnomeModuleInfo *gmi;
     char tbuf[1024];
 
-    g_return_if_fail (mod_name != NULL);
-
-    if (program_initialized) {
-	g_warning (G_STRLOC ": cannot load modules after program is initialized");
-	return;
-    }
+    g_return_val_if_fail (mod_name != NULL, NULL);
 
     g_snprintf (tbuf, sizeof(tbuf), "lib%s.so.0", mod_name);
 
@@ -1224,13 +1127,16 @@ gnome_program_module_load (const char *mod_name)
     }
 
     if (!mh)
-	return;
+	return NULL;
 
     if (g_module_symbol (mh, "dynamic_module_info", (gpointer *)&gmi)) {
 	gnome_program_module_register (gmi);
 	g_module_make_resident (mh);
-    } else
+	return gmi;
+    } else {
 	g_module_close (mh);
+	return NULL;
+    }
 }
 
 /**
@@ -1316,22 +1222,28 @@ gnome_program_postinit (GnomeProgram *program)
  */
 GnomeProgram *
 gnome_program_init (const char *app_id, const char *app_version,
+		    const GnomeModuleInfo *module_info,
 		    int argc, char **argv,
 		    const char *first_property_name, ...)
 {
     GnomeProgram *program;
     va_list args;
 
+    libgnome_type_init ();
+
     va_start(args, first_property_name);
-    program = gnome_program_initv (app_id, app_version, argc, argv,
-				   first_property_name, args);
+    program = gnome_program_initv (GNOME_TYPE_PROGRAM,
+				   app_id, app_version, module_info,
+				   argc, argv, first_property_name, args);
     va_end(args);
 
     return program;
 }
 
 GnomeProgram *
-gnome_program_initv (const char *app_id, const char *app_version,
+gnome_program_initv (GType type,
+		     const char *app_id, const char *app_version,
+		     const GnomeModuleInfo *module_info,
 		     int argc, char **argv,
 		     const char *first_property_name, va_list args)
 {
@@ -1341,23 +1253,69 @@ gnome_program_initv (const char *app_id, const char *app_version,
     libgnome_type_init ();
 
     if (!program_initialized) {
+	GnomeProgramClass *klass;
 	const char *ctmp;
+
+	klass = g_type_class_ref (type);
 
 	program_module_list = g_ptr_array_new ();
 	program_modules = g_ptr_array_new ();
 
+	/* Always register libgnome. */
+	gnome_program_module_register (&libgnome_module_info);
+
+	/* Register the requested modules. */
+	gnome_program_module_register (module_info);
+
 	/* We have to handle --load-modules=foo,bar,baz specially */
 	for (i = 0; i < argc; i++) {
 	    if (!strncmp (argv[i], "--load-modules=", strlen ("--load-modules=")))
-		add_to_module_list (argv[i] + strlen("--load-modules="));
+		add_to_module_list (program_module_list, argv[i] + strlen("--load-modules="));
 	}
 
 	if ((ctmp = g_getenv ("GNOME_MODULES")))
-	    add_to_module_list (ctmp);
+	    add_to_module_list (program_module_list, ctmp);
+
+	/*
+	 * Load all the modules.
+	 */
+
+	for (i = 0; i < program_module_list->len; i++) {
+	    gchar *modname = g_ptr_array_index (program_module_list, i);
+
+	    gnome_program_module_load (modname);
+	}
+
+	for (i = 0; i < program_modules->len; i++) {
+	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
+
+	    if (a_module && a_module->init_pass)
+		a_module->init_pass (a_module);
+	}
+
+	/* Make sure the array is NULL-terminated */
+	g_ptr_array_add (program_modules, NULL);
+
+	/* Order the module list for dependencies */
+	gnome_program_module_list_order ();
+
+	for (i = 0; i < program_modules->len; i++) {
+	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
+
+	    if (a_module && a_module->class_init)
+		a_module->class_init (klass, a_module);
+	}
     }
 
     program = g_object_new_valist (GNOME_TYPE_PROGRAM,
 				   first_property_name, args);
+
+    if (!program_initialized) {
+	global_program = program;
+	g_object_ref (G_OBJECT (global_program));
+
+	program_initialized = TRUE;
+    }
 
     gnome_program_preinit (program, app_id, app_version, argc, argv);
     gnome_program_parse_args (program);

@@ -28,17 +28,17 @@
 
 #include <libgnome/gnome-program.h>
 
-#include <gconf/gconf-client.h>
+#include <bonobo/bonobo-config-database.h>
 
 G_BEGIN_DECLS
 
-GConfClient *
-gnome_program_get_gconf_client (GnomeProgram *program);
+Bonobo_ConfigDatabase
+gnome_program_get_config_database (GnomeProgram *program);
 
-#define GNOME_PARAM_GCONF_CLIENT "gconf-client"
+#define GNOME_PARAM_CONFIG_DATABASE "config-database"
+#define GNOME_PARAM_CONFIG_MONIKER  "config-moniker"
 
 extern GnomeModuleInfo gnome_oaf_module_info;
-extern GnomeModuleInfo gnome_gconf_module_info;
 extern GnomeModuleInfo gnome_vfs_module_info;
 extern GnomeModuleInfo libgnome_module_info;
 

@@ -35,10 +35,6 @@
 
 #include <glib.h>
 
-#define GCONF_ENABLE_INTERNALS 1
-#include <gconf/gconf-client.h>
-extern struct poptOption gconf_options[];
-
 #include <libgnome/libgnome-init.h>
 
 #include "libgnomeP.h"
@@ -79,7 +75,7 @@ gnome_oaf_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 
 GnomeModuleInfo gnome_oaf_module_info = {
     "gnome-oaf", VERSION, N_("GNOME OAF Support"),
-    NULL,
+    NULL, NULL,
     gnome_oaf_pre_args_parse, gnome_oaf_post_args_parse,
     oaf_popt_options
 };
@@ -88,16 +84,156 @@ GnomeModuleInfo gnome_oaf_module_info = {
  * libbonobo
  *****************************************************************************/
 
+typedef struct {
+    guint config_database_id;
+    guint config_moniker_id;
+} GnomeProgramClass_libbonobo;
+
+typedef struct {
+    gboolean constructed;
+
+    gchar *config_moniker;
+    BonoboObjectClient *config_database;
+} GnomeProgramPrivate_libbonobo;
+
+static GQuark quark_gnome_program_private_libbonobo = 0;
+static GQuark quark_gnome_program_class_libbonobo = 0;
+
+Bonobo_ConfigDatabase
+gnome_program_get_config_database (GnomeProgram *program)
+{
+    GValue value = { 0, };
+    Bonobo_ConfigDatabase corba_retval = CORBA_OBJECT_NIL;
+    BonoboObjectClient *object_client;
+
+    g_return_val_if_fail (program != NULL, CORBA_OBJECT_NIL);
+    g_return_val_if_fail (GNOME_IS_PROGRAM (program), CORBA_OBJECT_NIL);
+
+    g_value_init (&value, BONOBO_OBJECT_CLIENT_TYPE);
+    g_object_get_property (G_OBJECT (program), GNOME_PARAM_CONFIG_DATABASE, &value);
+    object_client = (BonoboObjectClient *) g_value_get_object (&value);
+    if (object_client)
+	corba_retval = bonobo_object_dup_ref
+	    (bonobo_object_corba_objref (BONOBO_OBJECT (object_client)), NULL);
+    g_value_unset (&value);
+
+    return corba_retval;
+}
+
 static void
-libbonobo_post_args_parse (GnomeProgram    *program,
-			   GnomeModuleInfo *mod_info)
+libbonobo_get_property (GObject *object, guint param_id, GValue *value,
+			GParamSpec *pspec)
+{
+    GnomeProgramClass_libbonobo *cdata;
+    GnomeProgramPrivate_libbonobo *priv;
+    GnomeProgram *program;
+
+    g_return_if_fail (object != NULL);
+    g_return_if_fail (GNOME_IS_PROGRAM (object));
+
+    program = GNOME_PROGRAM (object);
+
+    cdata = g_type_get_qdata (G_OBJECT_TYPE (program), quark_gnome_program_class_libbonobo);
+    priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
+
+    if (param_id == cdata->config_database_id)
+	g_value_set_object (value, (GObject *) priv->config_database);
+    else if (param_id == cdata->config_moniker_id)
+	g_value_set_string (value, priv->config_moniker);
+    else
+	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
+}
+
+static void
+libbonobo_set_property (GObject *object, guint param_id,
+			  const GValue *value, GParamSpec *pspec)
+{
+    GnomeProgramClass_libbonobo *cdata;
+    GnomeProgramPrivate_libbonobo *priv;
+    GnomeProgram *program;
+
+    g_return_if_fail (object != NULL);
+    g_return_if_fail (GNOME_IS_PROGRAM (object));
+
+    program = GNOME_PROGRAM (object);
+
+    cdata = g_type_get_qdata (G_OBJECT_TYPE (program), quark_gnome_program_class_libbonobo);
+    priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
+
+    if (!priv->constructed) {
+	if (param_id == cdata->config_database_id) {
+	    priv->config_database = (BonoboObjectClient *) g_value_get_object (value);
+	    if (priv->config_database)
+		bonobo_object_client_ref (priv->config_database, NULL);
+	} else if (param_id == cdata->config_moniker_id)
+	    priv->config_moniker = g_value_dup_string (value);
+	else
+	    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
+    } else {
+	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
+    }
+}
+
+static void
+libbonobo_init_pass (const GnomeModuleInfo *mod_info)
+{
+    if (!quark_gnome_program_private_libbonobo)
+	quark_gnome_program_private_libbonobo = g_quark_from_static_string
+	    ("gnome-program-private:libbonobo");
+
+    if (!quark_gnome_program_class_libbonobo)
+	quark_gnome_program_class_libbonobo = g_quark_from_static_string
+	    ("gnome-program-class:libbonobo");
+}
+
+static void
+libbonobo_class_init (GnomeProgramClass *klass, const GnomeModuleInfo *mod_info)
+{
+    GnomeProgramClass_libbonobo *cdata = g_new0 (GnomeProgramClass_libbonobo, 1);
+
+    g_type_set_qdata (G_OBJECT_CLASS_TYPE (klass), quark_gnome_program_class_libbonobo, cdata);
+
+    cdata->config_moniker_id = gnome_program_install_property
+	(klass, libbonobo_get_property, libbonobo_set_property,
+	 g_param_spec_string (GNOME_PARAM_CONFIG_MONIKER, NULL, NULL,
+			      NULL,
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
+			       G_PARAM_CONSTRUCT_ONLY)));
+
+    cdata->config_database_id = gnome_program_install_property
+	(klass, libbonobo_get_property, libbonobo_set_property,
+	 g_param_spec_object (GNOME_PARAM_CONFIG_DATABASE, NULL, NULL,
+			      BONOBO_OBJECT_CLIENT_TYPE,
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
+			       G_PARAM_CONSTRUCT_ONLY)));
+}
+
+static void
+libbonobo_instance_init (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+    GnomeProgramPrivate_libbonobo *priv = g_new0 (GnomeProgramPrivate_libbonobo, 1);
+
+    g_object_set_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo, priv);
+}
+
+static void
+libbonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
     int dumb_argc = 1;
     char *dumb_argv[] = {NULL};
+    GnomeProgramPrivate_libbonobo *priv = g_new0 (GnomeProgramPrivate_libbonobo, 1);
+
+    g_message (G_STRLOC);
 
     dumb_argv [0] = program_invocation_name;
 
     bonobo_init (&dumb_argc, dumb_argv);
+
+    priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
+
+    priv->constructed = TRUE;
+
+    g_message (G_STRLOC ": %p - `%s'", priv->config_database, priv->config_moniker);
 }
 
 static GnomeModuleRequirement libbonobo_requirements[] = {
@@ -107,202 +243,10 @@ static GnomeModuleRequirement libbonobo_requirements[] = {
 
 GnomeModuleInfo libbonobo_module_info = {
     "libbonobo", VERSION, N_("Bonobo Support"),
-    libbonobo_requirements,
+    libbonobo_requirements, libbonobo_instance_init,
     NULL, libbonobo_post_args_parse,
     NULL,
-    NULL, NULL, NULL, NULL
-};
-
-/*****************************************************************************
- * gconf
- *****************************************************************************/
-
-typedef struct {
-    guint gconf_client_id;
-} GnomeProgramClass_gnome_gconf;
-
-typedef struct {
-    GConfClient *client;
-} GnomeProgramPrivate_gnome_gconf;
-
-GConfClient *
-gnome_program_get_gconf_client (GnomeProgram *program)
-{
-    GValue value = { 0, };
-    GConfClient *retval = NULL;
-
-    g_return_val_if_fail (program != NULL, NULL);
-    g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
-
-    g_value_init (&value, GCONF_TYPE_CLIENT);
-    g_object_get_property (G_OBJECT (program), GNOME_PARAM_GCONF_CLIENT, &value);
-    retval = (GConfClient *) g_value_dup_object (&value);
-    g_value_unset (&value);
-
-    return retval;
-}
-
-static gchar *
-gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
-{
-    gchar *dir;
-    gchar *key;
-
-    dir = g_strconcat ("/apps/gnome-settings/",
-		       gnome_program_get_name (gnome_program_get ()),
-		       NULL);
-
-    if (subkey && *subkey) {
-	key = gconf_concat_dir_and_key (dir, subkey);
-	g_free (dir);
-    } else {
-	/* subkey == "" */
-	key = dir;
-    }
-
-    return key;
-}
-
-static gchar * G_GNUC_UNUSED
-gnome_gconf_get_app_settings_relative (const gchar *subkey)
-{
-    gchar *dir;
-    gchar *key;
-
-    dir = g_strconcat ("/apps/",
-		       gnome_program_get_name (gnome_program_get ()),
-		       NULL);
-
-    if (subkey && *subkey) {
-	key = gconf_concat_dir_and_key (dir, subkey);
-	g_free (dir);
-    } else {
-	/* subkey == "" */
-	key = dir;
-    }
-
-    return key;
-}
-
-static GQuark quark_gnome_program_private_gnome_gconf = 0;
-static GQuark quark_gnome_program_class_gnome_gconf = 0;
-
-static void
-gnome_gconf_get_property (GObject *object, guint param_id, GValue *value,
-			  GParamSpec *pspec)
-{
-    GnomeProgramClass_gnome_gconf *cdata;
-    GnomeProgramPrivate_gnome_gconf *priv;
-    GnomeProgram *program;
-
-    g_return_if_fail (object != NULL);
-    g_return_if_fail (GNOME_IS_PROGRAM (object));
-
-    program = GNOME_PROGRAM (object);
-
-    cdata = g_type_get_qdata (G_OBJECT_TYPE (program), quark_gnome_program_class_gnome_gconf);
-    priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_gnome_gconf);
-
-    if (param_id == cdata->gconf_client_id)
-	g_value_set_object (value, (GObject *) priv->client);
-    else
-	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
-}
-
-static void
-gnome_gconf_set_property (GObject *object, guint param_id,
-			  const GValue *value, GParamSpec *pspec)
-{
-    GnomeProgramClass_gnome_gconf *cdata;
-    GnomeProgramPrivate_gnome_gconf *priv;
-    GnomeProgram *program;
-
-    g_return_if_fail (object != NULL);
-    g_return_if_fail (GNOME_IS_PROGRAM (object));
-
-    program = GNOME_PROGRAM (object);
-
-    cdata = g_type_get_qdata (G_OBJECT_TYPE (program), quark_gnome_program_class_gnome_gconf);
-    priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_gnome_gconf);
-
-    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
-}
-
-static void
-gnome_gconf_constructor (GType type, guint n_construct_properties,
-			 GObjectConstructParam *construct_properties,
-			 const GnomeModuleInfo *mod_info)
-{
-    GnomeProgramClass_gnome_gconf *cdata = g_new0 (GnomeProgramClass_gnome_gconf, 1);
-    GnomeProgramClass *pclass;
-
-    if (!quark_gnome_program_private_gnome_gconf)
-	quark_gnome_program_private_gnome_gconf = g_quark_from_static_string
-	    ("gnome-program-private:gnome-gconf");
-
-    if (!quark_gnome_program_class_gnome_gconf)
-	quark_gnome_program_class_gnome_gconf = g_quark_from_static_string
-	    ("gnome-program-class:gnome-gconf");
-
-    pclass = GNOME_PROGRAM_CLASS (g_type_class_peek (type));
-
-    g_type_set_qdata (G_OBJECT_CLASS_TYPE (pclass), quark_gnome_program_class_gnome_gconf, cdata);
-
-    cdata->gconf_client_id = gnome_program_install_property
-	(pclass, gnome_gconf_get_property, gnome_gconf_set_property,
-	 g_param_spec_object (GNOME_PARAM_GCONF_CLIENT, NULL, NULL,
-			      GCONF_TYPE_CLIENT,
-			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-			       G_PARAM_CONSTRUCT_ONLY)));
-}
-
-static void
-gnome_gconf_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
-{
-    GnomeProgramPrivate_gnome_gconf *priv = g_new0 (GnomeProgramPrivate_gnome_gconf, 1);
-
-    g_object_set_qdata (G_OBJECT (program), quark_gnome_program_private_gnome_gconf, priv);
-
-    gconf_preinit (program, mod_info);
-}
-
-static void
-gnome_gconf_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
-{
-    GnomeProgramPrivate_gnome_gconf *priv;
-    gchar *settings_dir;
-
-    gconf_postinit (program, mod_info);
-
-    priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_gnome_gconf);
-
-    priv->client = gconf_client_get_default ();
-
-    gconf_client_add_dir (priv->client,
-			  "/desktop/gnome",
-			  GCONF_CLIENT_PRELOAD_NONE, NULL);
-
-    settings_dir = gnome_gconf_get_gnome_libs_settings_relative ("");
-
-    gconf_client_add_dir (priv->client,
-			  settings_dir,
-			  /* Possibly we should turn preload on for this */
-			  GCONF_CLIENT_PRELOAD_NONE,
-			  NULL);
-    g_free (settings_dir);
-}
-
-static GnomeModuleRequirement gnome_gconf_requirements[] = {
-    { VERSION, &libbonobo_module_info },
-    { NULL, NULL }
-};
-
-GnomeModuleInfo gnome_gconf_module_info = {
-    "gnome-gconf", VERSION, N_("GNOME GConf Support"),
-    gnome_gconf_requirements,
-    gnome_gconf_pre_args_parse, gnome_gconf_post_args_parse,
-    gconf_options,
-    NULL, gnome_gconf_constructor,
+    libbonobo_init_pass, libbonobo_class_init,
     NULL, NULL
 };
 
@@ -332,7 +276,7 @@ static struct poptOption gnomelib_options[] = {
 
 GnomeModuleInfo gnome_vfs_module_info = {
     "gnome-vfs", GNOMEVFSVERSION, "GNOME Virtual Filesystem",
-    NULL,
+    NULL, NULL,
     (GnomeModuleHook) gnome_vfs_preinit, (GnomeModuleHook) gnome_vfs_postinit,
     NULL,
     (GnomeModuleInitHook) gnome_vfs_loadinit,
@@ -341,14 +285,14 @@ GnomeModuleInfo gnome_vfs_module_info = {
 
 static GnomeModuleRequirement libgnome_requirements[] = {
     {VERSION, &libbonobo_module_info},
-    {VERSION, &gnome_gconf_module_info},
+    {VERSION, &libbonobo_module_info},
     {"0.3.0", &gnome_vfs_module_info},
     {NULL}
 };
 
 GnomeModuleInfo libgnome_module_info = {
     "libgnome", VERSION, "GNOME Library",
-    libgnome_requirements,
+    libgnome_requirements, NULL,
     NULL, libgnome_post_args_parse,
     gnomelib_options,
     NULL, NULL, NULL, NULL

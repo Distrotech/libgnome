@@ -78,22 +78,18 @@ test_init_pass (const GnomeModuleInfo *mod_info)
 }
 
 static void
-test_constructor (GType type, guint n_construct_properties,
-		  GObjectConstructParam *construct_properties,
+test_constructor (GnomeProgramClass *klass,
 		  const GnomeModuleInfo *mod_info)
 {
-    GnomeProgramClass *pclass;
     guint test_id;
 
-    pclass = GNOME_PROGRAM_CLASS (g_type_class_peek (type));
-
     test_id = gnome_program_install_property
-	(pclass, get_property, set_property,
+	(klass, get_property, set_property,
 	 g_param_spec_boolean ("test", NULL, NULL,
 			       FALSE,
 			       (G_PARAM_READABLE | G_PARAM_WRITABLE)));
 
-    g_message (G_STRLOC ": %p - %d", pclass, test_id);
+    g_message (G_STRLOC ": %p - %d", klass, test_id);
 }
 
 static GnomeModuleRequirement test_requirements[] = {
@@ -103,7 +99,7 @@ static GnomeModuleRequirement test_requirements[] = {
 
 GnomeModuleInfo test_moduleinfo = {
     "test", VERSION, "Test Application",
-    test_requirements,
+    test_requirements, NULL,
     test_pre_args_parse, test_post_args_parse,
     NULL,
     test_init_pass, test_constructor,
@@ -132,15 +128,13 @@ static void
 test_bonobo (GnomeProgram *program)
 {
     Bonobo_ConfigDatabase db;
-    CORBA_Environment ev;
 
-    CORBA_exception_init (&ev);
+    db = gnome_program_get_config_database (program);
 
-    db = bonobo_get_object ("gconf:test-program", "IDL:Bonobo/ConfigDatabase:1.0", &ev);
+    g_object_set (G_OBJECT (program), GNOME_PARAM_CONFIG_MONIKER,
+		  "gconf:/test/foo", NULL);
 
     g_message (G_STRLOC ": %p", db);
-
-    CORBA_exception_free (&ev);
 }
 
 int
@@ -152,12 +146,14 @@ main (int argc, char **argv)
     const gchar *human_readable_name;
     gchar *gnome_path;
 
-    program = gnome_program_init ("test-libgnome", VERSION, argc, argv,
+    program = gnome_program_init ("test-libgnome", VERSION,
+				  &test_moduleinfo, argc, argv,
 				  GNOME_PARAM_POPT_TABLE, options,
 				  GNOME_PARAM_HUMAN_READABLE_NAME,
 				  _("The Application Name"),
-				  GNOME_PARAM_MODULE_INFO,
-				  &test_moduleinfo, NULL);
+				  GNOME_PARAM_CONFIG_MONIKER,
+				  "gconf:/test/foo",
+				  NULL);
 
     g_value_init (&value, G_TYPE_STRING);
     g_object_get_property (G_OBJECT (program), "app_prefix", &value);

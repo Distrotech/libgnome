@@ -129,9 +129,8 @@ struct _GnomeModuleRequirement {
 };
 
 typedef void (*GnomeModuleInitHook) (const GnomeModuleInfo *mod_info);
-typedef void (*GnomeModuleConstructor) (GType type, guint n_construct_props,
-					GObjectConstructParam *construct_props,
-					const GnomeModuleInfo *mod_info);
+typedef void (*GnomeModuleClassInitHook) (GnomeProgramClass *klass,
+					  const GnomeModuleInfo *mod_info);
 typedef void (*GnomeModuleHook) (GnomeProgram *program,
 				 GnomeModuleInfo *mod_info);
 
@@ -139,6 +138,7 @@ struct _GnomeModuleInfo {
     const char *name, *version, *description;
     GnomeModuleRequirement *requirements; /* last element has NULL version */
 
+    GnomeModuleHook instance_init;
     GnomeModuleHook pre_args_parse, post_args_parse;
 
     struct poptOption *options;
@@ -149,7 +149,7 @@ struct _GnomeModuleInfo {
 				      module cannot assume its required
 				      modules are initialized (they aren't). */
 
-    GnomeModuleConstructor constructor;
+    GnomeModuleClassInitHook class_init;
 
     gpointer expansion1, expansion2;
 };
@@ -163,7 +163,7 @@ gnome_program_module_register (const GnomeModuleInfo *module_info);
 gboolean
 gnome_program_module_registered (const GnomeModuleInfo *module_info);
 
-void
+const GnomeModuleInfo *
 gnome_program_module_load (const char *mod_name);
 
 guint
@@ -193,11 +193,14 @@ gnome_program_postinit (GnomeProgram *program);
    popt parse all args, and then call gnomelib_postinit() */
 GnomeProgram *
 gnome_program_init (const char *app_id, const char *app_version,
+		    const GnomeModuleInfo *module_info,
 		    int argc, char **argv,
 		    const char *first_property_name, ...);
 
 GnomeProgram *
-gnome_program_initv (const char *app_id, const char *app_version,
+gnome_program_initv (GType type,
+		     const char *app_id, const char *app_version,
+		     const GnomeModuleInfo *module_info,
 		     int argc, char **argv,
 		     const char *first_property_name, va_list args);
 
