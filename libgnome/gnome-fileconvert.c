@@ -193,7 +193,9 @@ gfc_read_FileConverters(void)
 	
 	file_types = g_hash_table_new(g_str_hash, g_str_equal);
 	
-	dirname = gnome_unconditional_datadir_file ("type-convert");
+	dirname = gnome_program_locate_file (gnome_program_get (),
+					     GNOME_FILE_DOMAIN_DATADIR,
+					     "type-convert", FALSE, NULL);
 
 	dir = opendir (dirname);
 	if (dir){

@@ -562,7 +562,9 @@ access_config_extended (access_type mode, const char *section_name,
 				g_free (cache_overrride_filename);
 
  			tmp = g_concat_dir_and_file ("gnome/config-override",rel_file);
- 			filename = gnome_config_file (tmp);
+ 			filename = gnome_program_locate_file
+			    (gnome_program_get (), GNOME_FILE_DOMAIN_CONFIG,
+			     tmp, TRUE, NULL);
  			g_free (tmp);
  			cache_overrride_filename = filename ? g_strdup (filename) : NULL;
 			
@@ -570,8 +572,10 @@ access_config_extended (access_type mode, const char *section_name,
 				g_free (cache_global_filename);
 
 			tmp = g_concat_dir_and_file ("gnome/config", rel_file);
-			filename = gnome_config_file (tmp);
-			g_free (tmp);
+ 			filename = gnome_program_locate_file
+			    (gnome_program_get (), GNOME_FILE_DOMAIN_CONFIG,
+			     tmp, TRUE, NULL);
+ 			g_free (tmp);
 			cache_global_filename = filename ? g_strdup (filename) : NULL;
  		}
 
