@@ -1,72 +1,64 @@
 # Bulgarian translation of libgnome po file
 # Copyright (C) 2002 Free Software Foundation, Inc.
-# Alexander Shopov <al_shopov@web.bg>, 2002.
-# small updates for completeness Yanko Kaneti <yaneti@declera.com>, 2002.
-#
+# Alexander Shopov <al_shopov@web.bg>, 2002;
+# small updates for completeness Yanko Kaneti <yaneti@declera.com>, 2002;
+# small updates Vladimir Petkov <vpetkov@i-space.org>, 2004.
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: GNOME 2.0 RC1\n"
+"Project-Id-Version: GNOME 2.6 stable\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-31 13:29+0200\n"
-"PO-Revision-Date: 2003-01-24 13:02+0200\n"
-"Last-Translator: Alexander Shopov <al_shopov@yahoo.com>\n"
+"POT-Creation-Date: 2004-06-02 02:56+0200\n"
+"PO-Revision-Date: 2004-06-02 12:49+0300\n"
+"Last-Translator: Vladimir Petkov <vpetkov@i-space.org>\n"
 "Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.9.6\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
-#, fuzzy
 msgid "Error message"
 msgstr "Съобщения за грешка"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
-#, fuzzy
 msgid "Informational message"
-msgstr "Информационни съобщения"
+msgstr "Информационно съобщение"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
-#, fuzzy
 msgid "Log in"
 msgstr "Влизане в системата"
 
 #: gnome-data/gnome-2.soundlist.in.h:4
-#, fuzzy
 msgid "Log out"
 msgstr "Излизане от системата"
 
 #: gnome-data/gnome-2.soundlist.in.h:5
-#, fuzzy
 msgid "Miscellaneous message"
-msgstr "Разни съобщения"
+msgstr "Други съобщения"
 
 #: gnome-data/gnome-2.soundlist.in.h:6
-#, fuzzy
 msgid "Question dialog"
-msgstr "Запитващи диалози"
+msgstr "Запитващи диалогови прозорци"
 
 #: gnome-data/gnome-2.soundlist.in.h:7
-#, fuzzy
 msgid "System events"
-msgstr "Системни събития в Гном"
+msgstr "Системни събития"
 
 #: gnome-data/gnome-2.soundlist.in.h:8
-#, fuzzy
 msgid "Warning message"
-msgstr "Предупреждения"
+msgstr "Предупреждаващо съобщение"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
-msgstr ""
+msgstr "Избира елемент от менюто"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Click on command button"
-msgstr ""
+msgstr "Натиска на командния бутон"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Select check box"
-msgstr ""
+msgstr "Избира кутия за отмятане"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -129,14 +121,14 @@ msgstr "Поддръжка на бонобо"
 msgid "Bonobo activation Support"
 msgstr "Поддръжка на бонобо активиране"
 
-#: libgnome/gnome-init.c:324 libgnome/gnome-init.c:338
+#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Не мога да създам конфигурационна директория на Гном за всеки потребител \"%s"
 "\": %s\n"
 
-#: libgnome/gnome-init.c:347
+#: libgnome/gnome-init.c:328
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -145,32 +137,32 @@ msgstr ""
 "Не мога да установя права за достъп 0700 на тайната конфигурационна "
 "директория на Гном за всеки потребител \"%s\": %s\n"
 
-#: libgnome/gnome-init.c:354
+#: libgnome/gnome-init.c:335
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Не мога да създам директория с ускорители за Гном \"%s\": %s\n"
 
-#: libgnome/gnome-init.c:403
+#: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
 msgstr "Престани да ползваш звуков сървър"
 
-#: libgnome/gnome-init.c:406
+#: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
 msgstr "Започни да ползваш звуков сървър"
 
-#: libgnome/gnome-init.c:409
+#: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
 msgstr "Хост:порт, на които работи звуковия сървър"
 
-#: libgnome/gnome-init.c:411
+#: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
 msgstr "ИМЕ_НА_ХОСТ:ПОРТ"
 
-#: libgnome/gnome-init.c:431
+#: libgnome/gnome-init.c:412
 msgid "GNOME Virtual Filesystem"
 msgstr "Виртуална файлова система на Гном"
 
-#: libgnome/gnome-init.c:452
+#: libgnome/gnome-init.c:433
 msgid "GNOME Library"
 msgstr "Гном библиотека"
 
@@ -318,59 +310,64 @@ msgstr "Еспийкър"
 msgid "How to connect to esd"
 msgstr "Как да се свържа към esd"
 
-#: libgnome/gnome-program.c:1355
+#: libgnome/gnome-program.c:1354
 msgid "Help options"
 msgstr "Настройки на помощта"
 
-#: libgnome/gnome-program.c:1360
+#: libgnome/gnome-program.c:1359
 msgid "Application options"
 msgstr "Настройки на приложението"
 
-#: libgnome/gnome-program.c:1376
+#: libgnome/gnome-program.c:1375
 msgid "Dynamic modules to load"
 msgstr "Динамични модули, които да се заредят"
 
-#: libgnome/gnome-program.c:1377
+#: libgnome/gnome-program.c:1376
 msgid "MODULE1,MODULE2,..."
 msgstr "МОДУЛ1,МОДУЛ2,..."
 
 #: libgnome/gnome-url.c:81
 msgid "Unknown internal error while displaying this location."
 msgstr ""
+"Неизвестна вътрешна грешка при показване на това местоположение."
 
 #: libgnome/gnome-url.c:88
 msgid "The specified location is invalid."
-msgstr ""
+msgstr "Определеното местоположение е невалидно."
 
 #: libgnome/gnome-url.c:95
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr ""
+"Имаше грешка при прегледа на стандартната команда асоциирана с това"
+"местоположение."
 
 #: libgnome/gnome-url.c:103
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr ""
+"Имаше грешка при стартирането на стандартната команда, асоциирана с"
+"това местоположение."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
-msgstr ""
+msgstr "Няма стандартно действие асоциирано с това местоположение."
 
 #: libgnome/gnome-url.c:118
 msgid "The default action does not support this protocol."
-msgstr ""
+msgstr "Стандартното действие не поддържа този протокол."
 
 #: libgnome/gnome-url.c:125
 #, c-format
 msgid "Unknown error code: %d"
-msgstr ""
+msgstr "Непознат код за грешка: %d"
 
 #: libgnome/gnome-open.c:35
 #, c-format
 msgid "Error showing url: %s\n"
-msgstr ""
+msgstr "Грешка при показването на адреса:·%s\n"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -448,11 +445,12 @@ msgstr "пиксели в секунда"
 msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
-msgstr ""
+msgstr "Списък с приложенията за помощ, които да се стартират при "
+"в началото на Гном сесия"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
-msgstr ""
+msgstr "Старт на приложения за помощ"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -668,7 +666,6 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Тема за иконите, която да се използва от панела, наутилус и т.н."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-#, fuzzy
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Дължина на премигването на курсора в милисекунди"
 
@@ -686,22 +683,24 @@ msgstr "Менютата имат лента за откъсване"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Module for GtkFileChooser"
-msgstr ""
+msgstr "Модул за GtkFileChooser"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
-msgstr ""
+msgstr "Модул, който да се използва като модел на файловата система за "
+"графичния обект GtkFileChooser. Възможните стойности са: "
+"\"gnome-vfs\" и \"gtk+\"."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Monospace font"
-msgstr ""
+msgstr "Monospace·шрифт"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr ""
+msgstr "Име на monospaced (с точна ширина) шрифт, който да се използва на места като конзолата."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -737,13 +736,12 @@ msgid "Toolbar Style"
 msgstr "Стил на лентите за инструменти"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
-#, fuzzy
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
 msgstr ""
-"Стил на лентите за инструменти. Валидни стойности са both, both_horiz, icon, "
-"и text"
+"Стил на лентите за инструменти. Валидни стойности са \"both\", \"both_horiz\", \"icon\", "
+"и \"text\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Use Custom Font"
@@ -786,13 +784,11 @@ msgstr ""
 "произволно на екрана"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:38
-#, fuzzy
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr ""
-"Дали потребителят може динамично да избере нов бърз клавиш, стоейки над "
-"позиция в активно меню"
+msgstr "Дали потребителят може динамично да задава нов бърз клавиш при "
+"отварянето на меню"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether to display a status bar meter on the right"
@@ -804,19 +800,19 @@ msgstr "Дали да се ползва друг шрифт в gtk+ прилож
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
-msgstr ""
+msgstr "Изключва командния интерпретатор"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable print setup"
-msgstr ""
+msgstr "Изключва настройките на печатането"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable printing"
-msgstr ""
+msgstr "Спира разпечатването"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable saving files to disk"
-msgstr ""
+msgstr "Спира запазването на файлове на диска"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid ""
@@ -824,24 +820,34 @@ msgid ""
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
 msgstr ""
+"Спира потребителя от достъп до конзолата или определя команден ред, който "
+"да бъде изпълнен. Примерно, това ще забрани достъпа до \"Стартира програма\" "
+"в панела."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
-"disable access to all applications' \"Print Setup\" dialogs."
+"disable access to all application's \"Print Setup\" dialogs."
 msgstr ""
+"Предпазва потребителя от промяна на настройките за печатане. Например,"
+"това може да спре достъпа до диалоговите прозорци \"Настройки на Принтера\""
+"на всички програми."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
-"all applications' \"Print\" dialogs."
+"all application's \"Print\" dialogs."
 msgstr ""
+"Ограничава потребителя от възможноста за печатане. Например, това ще спре"
+"достъпа до всички диалогови прозорци \"Разпечатва\" в програмите."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
-"access to all applications' \"Save as\" dialogs."
+"access to all application's \"Save as\" dialogs."
 msgstr ""
+"Спира потребителя от записване на файлове. Примерно, това ще забрани "
+"достъп на всички програми до прозореца \"Запис като..\""
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -852,9 +858,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Име на файла за специален клавиатурен звънец"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-#, fuzzy
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "възможни стойности са on, off, и custom."
+msgstr "възможни стойности са \"on\", \"off\", и \"custom\"."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -877,15 +882,14 @@ msgid "Cursor theme"
 msgstr "Тема на курсора"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later. This value is only propagated to the X server at the "
 "start of each session, so changing it mid-session won't have an effect until "
 "the next time you log in."
 msgstr ""
-"Име на темата на курсора. Използва се само от Х сървъри, които поддържат "
-"Xcursor, например XFree86 4.3 и по-късни. Стойността се дава в началото на X "
+"Име на темата на курсора. Използва се само от Х сървъри, поддържщи "
+"Xcursor, например XFree86 4.3 и по-нови. Стойността се дава в началото на X "
 "сесията, така че промяната няма да се използва до следващото влизане в X."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
@@ -909,7 +913,6 @@ msgid "Drag Threshold"
 msgstr "Праг за провлачване"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-#, fuzzy
 msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
 "only propagated to the X server start of each session, so changing it mid-"
@@ -982,45 +985,47 @@ msgstr "Дали да се пуска звук при потребителски
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
-msgstr ""
+msgstr "Изключва всички въшни програми за създаване на смалени изображения"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
-msgstr ""
+msgstr "Укажете истина, за да се изключат всички външни програми за "
+"създаване на смалени изображения, независимо дали поотделно са включени "
+"или не."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
-msgstr ""
+msgstr "Позволява отлагането на почивките"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:2
 msgid "Break time"
-msgstr ""
+msgstr "Време за почивка"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:3
 msgid "Number of minutes of typing time before break mode starts."
-msgstr ""
+msgstr "Брой минути писане преди да се пусне почивка."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:4
 msgid "Number of minutes that the typing break should last."
-msgstr ""
+msgstr "Колко минути да трае почивката от писане"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:5
 msgid "Type time"
-msgstr ""
+msgstr "Изписва час"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
-msgstr ""
+msgstr "Дали заключването на клавиатурата е включено"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr ""
+msgstr "Дали заключването на клавиатурата е включено."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr ""
+msgstr "Дали може или не почивката да бъде отложена."
 
 #~ msgid "How to handle ghelp URLs"
 #~ msgstr "Как да се обработват ghelp URL-и"
