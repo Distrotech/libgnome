@@ -202,6 +202,7 @@ log_score(gchar *progname,
 				       progname, ".scores=", "/",
 				       level ? level : "Top Ten",
 				       "/", NULL);
+
 	scores = read_scores (game_score_section);
 
 	anitem = g_malloc(sizeof(struct ascore_t));
@@ -262,13 +263,14 @@ main(int argc, char *argv[])
 	gchar *progname;
 	gchar *level;
 	gboolean ordering;
-	uid_t games_uid;
 
 #ifdef DEBUG
+{
 	int i;
 	
 	for(i = 0; i < argc; i++)
 		g_print("%s: %s\n", argv[0], argv[i]);
+}
 #endif
 	
 	if(argc != 4){
@@ -278,12 +280,9 @@ main(int argc, char *argv[])
 
 	setlocale(LC_ALL, "");
 
-	games_uid = geteuid();
-	setuid(getuid());
 	progname = gnome_get_program_name(getppid());
 	if(progname == NULL)
 		return 0;
-	setuid(games_uid);
 
 	realfloat = atof(argv[1]);
 	ordering = atoi(argv[3]);
