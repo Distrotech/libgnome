@@ -1,6 +1,6 @@
 # Translation into spanish of libgnome.
 # Copyright (C) 2001 Free Software Foundation, Inc.
-# Héctor García Álvarez <hector@scouts-es.org>, 2001.
+# Héctor García Álvarez <hector@scouts-es.org>, 2001-2002.
 #
 msgid ""
 msgstr ""
@@ -89,13 +89,15 @@ msgstr "Soporte para GNOME GConf"
 
 #: libgnome/gnome-help.c:149
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr ""
+msgstr "No pude encontrar el dominio GNOME_FILE_DOMAIN_APP_HELP"
 
 #: libgnome/gnome-help.c:163
 msgid ""
 "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
 "libs was compiled incorrectly."
 msgstr ""
+"No pude encontrar el dominio GNOME_FILE_DOMAIN_HELP.  Esto implica que gnome-"
+"libs se compiló incorrectamente."
 
 #: libgnome/gnome-help.c:175
 #, c-format
@@ -103,6 +105,8 @@ msgid ""
 "Unable to show help as file %s is not a directory.  This implies an "
 "incorrect installation."
 msgstr ""
+"No pude mostrar la ayuda ya que el archivo %s no es un directorio.  "
+"Esto implica una instalación incorrecta."
 
 #: libgnome/gnome-help.c:193
 #, c-format
@@ -112,12 +116,11 @@ msgstr "Documento de ayuda %s para %s no encontrado"
 #: libgnome/gnome-help.c:270
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr ""
+msgstr "No pude encontrar doc_id %s en la ruta de la ayuda"
 
 #: libgnome/gnome-help.c:291
-#, fuzzy, c-format
 msgid "Help document %s/%s not found"
-msgstr "Documento de ayuda %s para %s no encontrado"
+msgstr "Documento de ayuda %s/%s no encontrado"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
@@ -125,27 +128,27 @@ msgstr "Demasiados niveles de alias para un locale, puede indicar un bucle"
 
 #: libgnome/gnome-program.c:419
 msgid "Popt Table"
-msgstr ""
+msgstr "Tabla popt"
 
 #: libgnome/gnome-program.c:420
 msgid "The table of options for popt"
-msgstr ""
+msgstr "La tabla de opciones para popt"
 
 #: libgnome/gnome-program.c:427
 msgid "Popt Flags"
-msgstr ""
+msgstr "Opciones popt"
 
 #: libgnome/gnome-program.c:428
 msgid "The flags to use for popt"
-msgstr ""
+msgstr "Las opciones a usar para popt"
 
 #: libgnome/gnome-program.c:436
 msgid "Popt Context"
-msgstr ""
+msgstr "Contexto popt"
 
 #: libgnome/gnome-program.c:437
 msgid "The popt context pointer that GnomeProgram is using"
-msgstr ""
+msgstr "El puntero del contexto popt que el programa Gnome esta usando"
 
 #: libgnome/gnome-program.c:445
 msgid "Human readable name"
@@ -165,12 +168,11 @@ msgstr "Path en el que buscar archivos instalados"
 
 #: libgnome/gnome-program.c:465
 msgid "App ID"
-msgstr ""
+msgstr "App ID"
 
 #: libgnome/gnome-program.c:466
-#, fuzzy
 msgid "ID string to use for this application"
-msgstr "Versión de esta aplicación"
+msgstr "Cadena ID a usar para esta aplicación"
 
 #: libgnome/gnome-program.c:473
 msgid "App version"
@@ -182,96 +184,91 @@ msgstr "Versión de esta aplicación"
 
 #: libgnome/gnome-program.c:481
 msgid "GNOME Prefix"
-msgstr ""
+msgstr "Prefijo GNOME"
 
 #: libgnome/gnome-program.c:482
 msgid "Prefix where GNOME was installed"
-msgstr ""
+msgstr "Directorio donde se instaló GNOME"
 
 #: libgnome/gnome-program.c:491
-#, fuzzy
 msgid "GNOME Libdir"
-msgstr "Librería de GNOME"
+msgstr "Directorio de la librería de GNOME"
 
 #: libgnome/gnome-program.c:492
 msgid "Library prefix where GNOME was installed"
-msgstr ""
+msgstr "Directorio donde se instalaron las librerias de GNOME"
 
 #: libgnome/gnome-program.c:501
-#, fuzzy
 msgid "GNOME Datadir"
-msgstr "Path GNOME"
+msgstr "Directorio de datos de GNOME"
 
 #: libgnome/gnome-program.c:502
 msgid "Data prefix where GNOME was installed"
-msgstr ""
+msgstr "Directorio de datos donde se instaló GNOME"
 
 #: libgnome/gnome-program.c:511
 msgid "GNOME Sysconfdir"
-msgstr ""
+msgstr "Directorio de configuración de GNOME"
 
 #: libgnome/gnome-program.c:512
 msgid "Configuration prefix where GNOME was installed"
-msgstr ""
+msgstr "Directorio de configuración donde se instaló GNOME"
 
 #: libgnome/gnome-program.c:522
 msgid "GNOME App Prefix"
-msgstr ""
+msgstr "Directorio de applicaciones GNOME"
 
 #: libgnome/gnome-program.c:523
 msgid "Prefix where this application was installed"
-msgstr ""
+msgstr "Directorio donde se instaló esta aplicación"
 
 #: libgnome/gnome-program.c:531
-#, fuzzy
 msgid "GNOME App Libdir"
-msgstr "Librería de GNOME"
+msgstr "Directorio de librerías de aplicaciones de GNOME"
 
 #: libgnome/gnome-program.c:532
 msgid "Library prefix where this application was installed"
-msgstr ""
+msgstr "Directorio de librerías donde se instaló esta aplicación"
 
 #: libgnome/gnome-program.c:541
-#, fuzzy
 msgid "GNOME App Datadir"
-msgstr "Path GNOME"
+msgstr "Directorio de datos de aplicaciones GNOME"
 
 #: libgnome/gnome-program.c:542
 msgid "Data prefix where this application was installed"
-msgstr ""
+msgstr "Directorio de datos donde se instaló esta aplicacion"
 
 #: libgnome/gnome-program.c:551
 msgid "GNOME App Sysconfdir"
-msgstr ""
+msgstr "Directorio de configuración de aplicaciones GNOME"
 
 #: libgnome/gnome-program.c:552
 msgid "Configuration prefix where this application was installed"
-msgstr ""
+msgstr "Directorio de configuración donde se instaló esta aplicación"
 
 #: libgnome/gnome-program.c:561
 msgid "Create Directories"
-msgstr ""
+msgstr "Crear directorios"
 
 #: libgnome/gnome-program.c:562
 msgid "Create standard GNOME directories on startup"
-msgstr ""
+msgstr "Crear directorios estandar de GNOME en el arranque"
 
 #: libgnome/gnome-program.c:571
 msgid "Enable Sound"
-msgstr ""
+msgstr "Habilitar sonido"
 
 #: libgnome/gnome-program.c:572
-#, fuzzy
 msgid "Enable sound on startup"
-msgstr "Habilitar el uso del servidor de sonido"
+msgstr "Habilitar el servidor de sonido al arrancar"
 
 #: libgnome/gnome-program.c:581
 msgid "Espeaker"
-msgstr ""
+msgstr "Altavoz"
 
 #: libgnome/gnome-program.c:582
 msgid "How to connect to esd"
-msgstr ""
+msgstr "Como conectar a esd"
 
 #: libgnome/gnome-program.c:1318
 msgid "Help options"
@@ -291,27 +288,22 @@ msgstr "MODULE1,MODULE2,..."
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr ""
+msgstr "Extra Moniker factory"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
-msgstr ""
+msgstr "GConf moniker"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr ""
+msgstr "moniker de configuración indirecta"
 
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr ""
+msgstr "La clave %s no se encontró en la configuración"
 
 #: monikers/bonobo-config-bag.c:216
 msgid "Unknown type"
-msgstr ""
+msgstr "Tipo desconocido"
 
-#~ msgid "Can not bonobo_init"
-#~ msgstr "No pude hacer bonobo_init"
-
-#~ msgid "Internal error"
-#~ msgstr "Error interno"
