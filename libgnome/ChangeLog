@@ -1,5 +1,10 @@
 2001-04-15  Martin Baulig  <baulig@suse.de>
 
+	* libgnome-init.c (libgnome_loadinit): Don't initialize threads here;
+	this has already been done by libgnomebase.
+
+2001-04-15  Martin Baulig  <baulig@suse.de>
+
 	* libgnome-init.c (gnome_program_get_gconf_client): Moved this function
 	here; it was previously in gnome-program.c, but gnome-program.c is now
 	in libgnomebase and thus cannot use gconf anymore.
