@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
-"PO-Revision-Date: 2003-02-06 23:34+0700\n"
+"POT-Creation-Date: 2003-06-12 14:43+0700\n"
+"PO-Revision-Date: 2003-06-12 14:46+0700\n"
 "Last-Translator: Mohammad DAMT <mdamt@bisnisweb.com>\n"
 "Language-Team: Indonesia <id@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -326,36 +326,40 @@ msgstr "MODULE1,MODULE2,..."
 
 #: libgnome/gnome-url.c:81
 msgid "Unknown internal error while displaying this location."
-msgstr ""
+msgstr "Ada error yang tidak diketahui jenisnya saat menampilkan lokasi ini."
 
 #: libgnome/gnome-url.c:88
 msgid "The specified location is invalid."
-msgstr ""
+msgstr "Lokasi yang diminta tidak valid."
 
 #: libgnome/gnome-url.c:95
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr ""
+"Ada error saat melakukan parsing aksi default pada perintah yang dipasangkan "
+"dengan lokasi ini."
 
 #: libgnome/gnome-url.c:103
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr ""
+"Ada error saat menjalankan aksi default pada perintah yang dipasangkan "
+"dengan lokasi ini."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
-msgstr ""
+msgstr "Tidak ada aksi default yang dipasangkan dengan lokasi ini."
 
 #: libgnome/gnome-url.c:118
 msgid "The default action does not support this protocol."
-msgstr ""
+msgstr "Aksi default tidak mendukung protokol ini."
 
 #: libgnome/gnome-url.c:125
 #, c-format
 msgid "Unknown error code: %d"
-msgstr ""
+msgstr "Error tidak diketahui jenisnya, kode: %d"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -647,7 +651,6 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Tematik ikon yang digunakan pada panel, nautilus, dsb."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-#, fuzzy
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Panjang periode kedipan kursor, dalam satuan milidetik"
 
@@ -892,138 +895,68 @@ msgid "Whether to play sounds on user events."
 msgstr "Mainkan file suara saat ada kejadian tertentu."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Bagaimana untuk menampilkan URL Ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Bagaimana untuk menampilkan URL info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Bagaimana untuk menampilkan URL man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Bagaimana untuk menampilkan URL keranjang sampah"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Jalankan program dalam terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
 "keranjang sampah"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Bernilai benar bila program yang menampilkan URL dijalankan dalam terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "Penampil URL untuk halaman ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "Penampil URL untuk halaman info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "Penampil URL untuk halaman man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Penampil URL untuk halaman keranjang-sampah"
 
-#~ msgid "Default URL show handler"
-#~ msgstr "Handler default untuk menampilkan URL"
 
-#~ msgid "How to handle applications URLs"
-#~ msgstr "Bagaimana menampilkan URL aplikasi"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL Ghelp"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL info"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL man"
-
-#~ msgid "How to handle preferences URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL setting"
-
-#~ msgid "How to handle server-settings URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL setting server"
-
-#~ msgid "How to handle start-here URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL start-di-sini"
-
-#~ msgid "How to handle system-settings URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL setting-sistem"
-
-#~ msgid "How to handle unknown URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL yang tidak dikenal"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in applications/command handle "
-#~ "applications URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "aplikasi"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in preferences/command handle "
-#~ "preferences URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "setting"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "ghelp"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL info"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL man"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/unknown handle "
-#~ "unknown URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "yang tidak dikenal"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in server-settings/command handle "
-#~ "server-settings URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "setting-server"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in start-here/command handle "
-#~ "start-here URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "start-di-sini"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in system-settings/command handle "
-#~ "system-settings URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "setting-sistem"
-
-#~ msgid "URL handler for applications pages"
-#~ msgstr "Penampil URL untuk halaman aplikasi"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Penampil URL untuk halaman ghelp"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Penampil URL untuk halaman info"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Penampil URL untuk halaman man"
-
-#~ msgid "URL handler for preferences pages"
-#~ msgstr "Penampil URL untuk halaman setting"
-
-#~ msgid "URL handler for server-settings pages"
-#~ msgstr "Penampil URL untuk halaman setting-server"
-
-#~ msgid "URL handler for start-here pages"
-#~ msgstr "Penampil URL untuk halaman start-di-sini"
-
-#~ msgid "URL handler for system-settings pages"
-#~ msgstr "Penampil URL untuk halaman setting-sistem"
