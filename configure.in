@@ -13,13 +13,16 @@ LIBGNOME_MINOR_VERSION=2
 LIBGNOME_MICRO_VERSION=0
 LIBGNOME_INTERFACE_AGE=0
 LIBGNOME_BINARY_AGE=200
+# If you need a modifier for the version number. 
+# Normally empty, but can be used to make "fixup" releases.
+LIBGNOME_EXTRAVERSION=.1
 
 dnl libtool versioning from libgnome
 
 LIBGNOME_CURRENT=`expr 100 '*' $LIBGNOME_MINOR_VERSION + $LIBGNOME_MICRO_VERSION - $LIBGNOME_INTERFACE_AGE`
 LIBGNOME_REVISION=$LIBGNOME_INTERFACE_AGE
 LIBGNOME_AGE=`expr $LIBGNOME_BINARY_AGE - $LIBGNOME_INTERFACE_AGE`
-LIBGNOME_VERSION=$LIBGNOME_MAJOR_VERSION.$LIBGNOME_MINOR_VERSION.$LIBGNOME_MICRO_VERSION
+LIBGNOME_VERSION=$LIBGNOME_MAJOR_VERSION.$LIBGNOME_MINOR_VERSION.$LIBGNOME_MICRO_VERSION$LIBGNOME_EXTRAVERSION
 
 AC_SUBST(LIBGNOME_CURRENT)
 AC_SUBST(LIBGNOME_REVISION)
@@ -58,7 +61,7 @@ AC_CANONICAL_HOST
   *-solaris*) AC_DEFINE(HAVE_MAN_DEBUG, 1, [man(1) has a -d debug option]);;
   esac
 
-ALL_LINGUAS="ar az be bg bs cs da de en_GB es eu fi fr he hi hu it ko ja lv mn ms nn no pl pt pt_BR ro ru sk sl sv ta tr uk vi wa zh_CN zh_TW"
+ALL_LINGUAS="am ar az be bg bs ca cs da de el en_GB es et eu fa fi fr gl he hi hu it ja ko lt lv mk mn ms nl nn no pl pt pt_BR ro ru sk sl sv ta tr uk vi wa zh_CN zh_TW"
 AM_GLIB_GNU_GETTEXT
 gnomelocaledir='${prefix}/${DATADIRNAME}/locale'
 AC_SUBST(gnomelocaledir)

@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.0.5\n"
-"POT-Creation-Date: 2003-01-02 18:47+0200\n"
+"POT-Creation-Date: 2003-01-23 12:10+0100\n"
 "PO-Revision-Date: 2003-01-02 18:46+0200\n"
 "Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -360,7 +360,7 @@ msgid "config indirect moniker"
 msgstr "ρύθμιση έμμεσου απλουστευμένου ονόματος"
 
 #
-#: monikers/bonobo-config-bag.c:230
+#: monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
 msgstr "Άγνωστο είδος"
 
@@ -789,10 +789,33 @@ msgid "Cursor font"
 msgstr "Γραμματοσειρά δρομέα"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
+#, fuzzy
+msgid "Cursor size"
+msgstr "Παλλόμενος δρομέας"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#, fuzzy
+msgid "Cursor theme"
+msgstr "Γραμματοσειρά δρομέα"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later. This value is only propagated to the X server start "
+"of each session, so changing it mid-session won't have an effect until the "
+"next time you log in."
+msgstr ""
+"Όνομα γραμματοσειράς του δρομέα. Αν δεν ορισθεί χρησιμοποιείται η εξ ορισμού "
+"γραμματοσειρά. Αυτή η τιμή ενεργοποιείται κατά την εκκίνηση του εξυπηρετητή "
+"X, έτσι η αλλαγή της στην μέση της συνεδρίας δεν θα έχει αποτέλεσμα μέχρι "
+"την επόμενη εισοδο σας στην συνεδρία."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
 msgstr "Απόσταση πρίν από την έναρξη συρσίματος"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
@@ -801,15 +824,15 @@ msgstr ""
 "ενεργοποιηθεί η κίνηση συντόμευσης του ποντικιού. Η τιμή -1 είναι η "
 "προεπιλεγμένη από το σύστημα."
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
 msgstr "Χρόνος διπλού κλίκ"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
 msgstr "Σύρσιμο αφετηρίας"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
 "Font name of the cursor. If unset set, the default font is used. This value "
 "is only propagated to the X server start of each session, so changing it mid-"
@@ -820,7 +843,7 @@ msgstr ""
 "X, έτσι η αλλαγή της στην μέση της συνεδρίας δεν θα έχει αποτέλεσμα μέχρι "
 "την επόμενη εισοδο σας στην συνεδρία."
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
@@ -828,31 +851,43 @@ msgstr ""
 "Επισημαίνει την τρέχουσα θέση του δρομέα όταν έχει πατηθεί το πλήκτρο "
 "Control και απελευθερώνεται"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
 msgstr "Διάρκεια διπλού κλίκ"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
 msgstr "Εντοπισμός Δείκτη"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
 msgstr "Κατώφλι κίνησης"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
 msgstr "Προσανατολισμός πλήκτρου ποντικιού"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
 msgstr "Μονό κλίκ"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
 msgstr "Μονό κλίκ για το άνοιγμα εικονιδίων"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
+#, fuzzy
+msgid ""
+"Size of the cursor referenced by cursor_theme. This value is only propagated "
+"to the X server start of each session, so changing it mid-session won't have "
+"an effect until the next time you log in."
+msgstr ""
+"Όνομα γραμματοσειράς του δρομέα. Αν δεν ορισθεί χρησιμοποιείται η εξ ορισμού "
+"γραμματοσειρά. Αυτή η τιμή ενεργοποιείται κατά την εκκίνηση του εξυπηρετητή "
+"X, έτσι η αλλαγή της στην μέση της συνεδρίας δεν θα έχει αποτέλεσμα μέχρι "
+"την επόμενη εισοδο σας στην συνεδρία."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "Εναλλαγή αριστερού και δεξιού κουμπιού για αριστερόχειρα ποντίκια."
 
