@@ -28,6 +28,10 @@ INCLUDES = \
 	-DGNOMEVFSVERSION=\"$(GNOME_VFS_VERSION)\"		\
 	-DG_LOG_DOMAIN=\"Gnome\"
 
+if OS_WIN32
+platform_sources = dllmain.c
+endif
+
 libgnome_2_la_SOURCES = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
@@ -45,7 +49,11 @@ libgnome_2_la_SOURCES = \
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-score.c		\
-	gnome-init.c
+	gnome-init.c		\
+	$(platform_sources)
+
+noinst_HEADERS = \
+	libgnome-private.h
 
 libgnome_headers = \
 	gnome-config.h		\

@@ -1,3 +1,71 @@
+2005-03-28  Tor Lillqvist  <tml@novell.com>
+
+	Port to Windows, initial commit.
+
+	* configure.in: Bump version to 2.11.0 to distinguish from the
+	gnome-2-10 branch. Define Automake conditional OS_WIN32. Depend on
+	GLib 2.6 so that we can use the gstdio.h wrappers to make
+	non-ASCII path names work better on Win32.
+
+	* libgnome-zip.in: New file, to build libgnome distribution for
+	Win32.
+
+	* Makefile.am
+	* configure.in: Distribute and expand it.
+
+	* configure.in
+	* libgnome/libgnome-2.0.pc.in
+	* libgnome/gnome-init.c
+	* libgnome/gnome-open.c: Try to manage without gnome-vfs on Win32,
+	at least for now. 
+
+	* libgnome/gnome-config.c
+	* libgnome/gnome-init.c
+	* libgnome/gnome-score.c
+	* libgnome/gnome-triggers.c: Use gstdio wrappers. Use GLib
+	pathname manipulation functions where applicable. Use gdir
+	functions. Accept both the canonical backslash and slash as path
+	compinent separators on Win32.
+
+	* libgnome/dllmain.c: New file. Contains the Win32 DLL entry
+	point, which is used here to implement installation location
+	independence. Sets up run-time paths to libdir, sysconfdir etc.
+	
+	* libgnome/libgnome-private.h: New file. On Win32 undefs the
+	compile-time definitions of directory pathnames and defines them
+	to point to the run-time ones instead.
+
+	* libgnome/gnome-init.c
+	* libgnome/gnome-program.c
+	* libgnome/gnome-score.c: Include libgnome-private.h.
+
+	* libgnome/gnome-exec.c (gnome_execute_async_with_env_fds,
+	gnome_prepend_terminal_to_vector): Just stub out with g_warning()
+	on Win32 for now. Implement later if needed.
+
+	* libgnome/gnome-program.c: Dummy getuid/geteuid/getgid/getegid
+	definitions for Win32. No setuid or setgid concept.
+
+	* libgnome/gnome-score.c (log_score): Use ftruncate() on Unix,
+	_chsize() on Win32.
+	(gnome_score_child_thread, gnome_score_init): Use a thread on
+	Win32 where we have no fork().
+	(gnome_score_log): No setgid concept on Win32, no need to check.
+
+	* libgnome/gnome-triggers.c: Use g_spawn_sync() on Win32.
+
+	* libgnome/gnome-url.c (gnome_url_show_with_env): Use
+	ShellExecute() on Win32.
+
+	* libgnome/gnome-util.c (gnome_util_user_shell): Look for cmd.exe
+	or command.com on Win32.
+
+	* schemas/Makefile.am (install-data-local): Work around MSYS
+	feature on Win32. It converts environment variables that look like
+	search paths into the Windows format (with semicoon
+	delimiters). The GCONFIG_CONFIG_SOURCE would get mangled, so we
+	have to run gconftool-2 through temporary .bat file.
+
 2005-03-11  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-gconf.c: Fix compile breakage with gcc4

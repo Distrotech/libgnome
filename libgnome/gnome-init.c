@@ -33,10 +33,10 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <pwd.h>
 #include <sys/stat.h>
 
 #include <glib.h>
+#include <glib/gstdio.h>
 #include "gnome-i18nP.h"
 
 #include "gnome-init.h"
@@ -45,13 +45,15 @@
 #include "gnome-sound.h"
 #include "gnome-triggers.h"
 
-#include <errno.h>
-
 #include <bonobo-activation/bonobo-activation.h>
 #include <bonobo-activation/bonobo-activation-version.h>
 #include <libbonobo.h>
 
+#ifndef G_OS_WIN32
 #include <libgnomevfs/gnome-vfs-init.h>
+#endif
+
+#include "libgnome-private.h"
 
 /*****************************************************************************
  * bonobo
@@ -270,10 +272,10 @@ safe_mkdir (const char *pathname, mode_t mode)
 	safe_pathname = g_strdup (pathname);
 	len = strlen (safe_pathname);
 	
-	if (len > 1 && safe_pathname[len - 1] == '/')
+	if (len > 1 && G_IS_DIR_SEPARATOR (safe_pathname[len - 1]))
 		safe_pathname[len - 1] = '\0';
 
-	ret = mkdir (safe_pathname, mode);
+	ret = g_mkdir (safe_pathname, mode);
 
 	g_free (safe_pathname);
 
@@ -299,7 +301,11 @@ libgnome_userdir_setup (gboolean create_dirs)
 
                         /* chop trailing slash */
                         len = strlen (gnome_user_dir);
-                        if (len > 1 && gnome_user_dir[len-1] == '/')
+                        if (len > 1 && (gnome_user_dir[len-1] == G_DIR_SEPARATOR
+#ifdef G_OS_WIN32
+					|| gnome_user_dir[len-1] == '/'
+#endif
+					))
                                 gnome_user_dir[len - 1] = '\0';
                         
                         gnome_user_private_dir = g_strconcat (gnome_user_dir,
@@ -417,6 +423,8 @@ static struct poptOption gnomelib_options [] = {
 	  NULL, 0 , NULL, NULL}
 };
 
+#ifndef G_OS_WIN32
+
 static void
 gnome_vfs_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
@@ -437,6 +445,9 @@ gnome_vfs_module_info_get (void)
 	};
 	return &module_info;
 }
+
+#endif /* !G_OS_WIN32 */
+
 /**
 * libgnome_module_info_get:
 * 
@@ -455,6 +466,7 @@ libgnome_module_info_get (void)
 		gnomelib_options,
 		NULL, NULL, NULL, NULL
 	};
+	int i = 0;
 
 	if (module_info.requirements == NULL) {
 		static GnomeModuleRequirement req[4];
@@ -463,17 +475,22 @@ libgnome_module_info_get (void)
 #ifdef HAVE_BIND_TEXTDOMAIN_CODESET
 		bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 #endif
-		req[0].required_version = "0.9.1";
-		req[0].module_info = gnome_bonobo_activation_module_info_get ();
+		req[i].required_version = "0.9.1";
+		req[i].module_info = gnome_bonobo_activation_module_info_get ();
+		i++;
 
-		req[1].required_version = "0.3.0";
-		req[1].module_info = gnome_vfs_module_info_get ();
+#ifndef G_OS_WIN32
+		req[i].required_version = "0.3.0";
+		req[i].module_info = gnome_vfs_module_info_get ();
+		i++;
+#endif
+		req[i].required_version = "1.1.1";
+		req[i].module_info = gnome_gconf_module_info_get ();
+		i++;
 
-		req[2].required_version = "1.1.1";
-		req[2].module_info = gnome_gconf_module_info_get ();
-
-		req[3].required_version = NULL;
-		req[3].module_info = NULL;
+		req[i].required_version = NULL;
+		req[i].module_info = NULL;
+		i++;
 
 		module_info.requirements = req;
 	}

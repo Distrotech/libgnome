@@ -9,7 +9,8 @@ EXTRA_DIST = \
 	NEWS			\
 	intltool-extract.in	\
 	intltool-merge.in	\
-	intltool-update.in
+	intltool-update.in	\
+	libgnome-zip.in
 
 DISTCLEANFILES = \
   intltool-extract \

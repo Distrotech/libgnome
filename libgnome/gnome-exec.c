@@ -35,7 +35,9 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <sys/types.h>
+#ifndef G_OS_WIN32
 #include <sys/wait.h>
+#endif
 #include <stdlib.h>
 #include <string.h>
 #include <signal.h>
@@ -48,6 +50,8 @@
 #ifndef errno
 extern int errno;
 #endif
+
+#ifndef G_OS_WIN32
 
 static void
 set_cloexec (gint fd)
@@ -64,6 +68,8 @@ safe_read (int fd, void *buf, size_t count)
 
   return n;
 }
+
+#endif
 
 /**
  * gnome_execute_async_with_env_fds:
@@ -86,6 +92,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 				  char * const envv[], 
 				  gboolean close_fds)
 {
+#ifndef G_OS_WIN32
   int parent_comm_pipes[2], child_comm_pipes[2];
   int child_errno, itmp, i, open_max;
   gssize res;
@@ -219,6 +226,12 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
     g_message("gnome_execute_async_with_env_fds: returning %d", child_pid);
 
   return child_pid;
+#else
+  /* FIXME: Implement if needed */
+  g_warning ("gnome_execute_async_with_env_fds: Not implemented");
+
+  return -1;
+#endif
 }
 
 /**
@@ -357,6 +370,7 @@ gnome_execute_shell (const char *dir, const char *commandline)
 void
 gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 {
+#ifndef G_OS_WIN32
         char **real_argv;
         int real_argc;
         int i, j;
@@ -465,6 +479,10 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 	/* we use g_free here as we sucked all the inner strings
 	 * out from it into real_argv */
 	g_free (term_argv);
+#else
+	/* FIXME: Implement when needed */
+	g_warning ("gnome_prepend_terminal_to_vector: Not implemented");
+#endif
 }
 
 /**

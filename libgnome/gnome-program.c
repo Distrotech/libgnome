@@ -54,6 +54,15 @@
 #include "gnome-i18n.h"
 #include "gnome-url.h"
 
+#include "libgnome-private.h"
+
+#ifdef G_OS_WIN32
+#define getuid() 42
+#define geteuid() getuid()
+#define getgid() 42
+#define getegid() getgid()
+#endif
+
 struct _GnomeProgramPrivate {
     enum {
 	APP_UNINIT=0,

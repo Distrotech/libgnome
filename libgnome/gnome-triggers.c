@@ -42,9 +42,11 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <glib.h>
+#include <glib/gstdio.h>
 #include <sys/types.h>
+#ifndef G_OS_WIN32
 #include <sys/wait.h>
-#include <dirent.h>
+#endif
 
 /* TYPE DECLARATIONS */
 
@@ -96,10 +98,10 @@ gnome_triggers_init(void)
 static gint
 gnome_triggers_read_path(const char *config_path)
 {
-  DIR *dirh;
+  GDir *dir;
   char *sample_name, *sample_file, *ctmp;
   gpointer event_iter;
-  struct dirent *dent;
+  const gchar *dent;
   GnomeTrigger nt;
   GString *tmpstr;
 
@@ -107,23 +109,23 @@ gnome_triggers_read_path(const char *config_path)
   nt.level = NULL;
   nt.u.media.cache_id = -1;
 
-  dirh = opendir(config_path);
-  if(!dirh)
+  dir = g_dir_open(config_path, 0, NULL);
+  if(!dir)
     return -1;
 
   tmpstr = g_string_new(NULL);
 
-  while((dent = readdir(dirh))) {
+  while((dent = g_dir_read_name(dir))) {
     /* ignore no-good dir entries.
        We ignore "gnome" because the system sounds are listed in there.
     */
-    if (!strcmp(dent->d_name, ".")
-	|| !strcmp(dent->d_name, "..")
-	|| !strcmp(dent->d_name, "gnome")
-	|| !strcmp(dent->d_name, "gnome.soundlist"))
+    if (!strcmp(dent, ".")
+	|| !strcmp(dent, "..")
+	|| !strcmp(dent, "gnome")
+	|| !strcmp(dent, "gnome.soundlist"))
       continue;
 
-    g_string_printf(tmpstr, "=%s/%s=", config_path, dent->d_name);
+    g_string_printf(tmpstr, "=%s/%s=", config_path, dent);
 
     gnome_config_push_prefix(tmpstr->str);
 
@@ -147,7 +149,7 @@ gnome_triggers_read_path(const char *config_path)
 	sample_file = tmp;
       }
 
-      ctmp = g_strdup(dent->d_name);
+      ctmp = g_strdup(dent);
       if(strstr(ctmp, ".soundlist"))
 	*strstr(ctmp, ".soundlist") = '\0';
 
@@ -163,7 +165,7 @@ gnome_triggers_read_path(const char *config_path)
 
     gnome_config_pop_prefix();
   }
-  closedir(dirh);
+  g_dir_close(dirh);
 
   g_string_free(tmpstr, TRUE);
 
@@ -198,7 +200,7 @@ gnome_triggers_readfile(const char *infilename)
   FILE *infile;
   int i;
 
-  infile = fopen(infilename, "r");
+  infile = g_fopen(infilename, "r");
   if(infile == NULL)
     return 1;
 
@@ -576,6 +578,7 @@ gnome_trigger_do_command(GnomeTrigger* t,
   argv[i + 3] = NULL;
 
   /* We're all set, let's do it */
+#ifndef G_OS_WIN32
   {
     pid_t childpid;
     int status;
@@ -585,6 +588,12 @@ gnome_trigger_do_command(GnomeTrigger* t,
     else
       execv(t->u.command, argv);
   }
+#else
+  g_spawn_sync (NULL, argv, NULL,
+		G_SPAWN_LEAVE_DESCRIPTORS_OPEN | G_SPAWN_CHILD_INHERITS_STDIN,
+		NULL, NULL,
+		NULL, NULL, NULL, NULL);
+#endif
   
   g_free(argv);
 }
