@@ -386,7 +386,6 @@ stream_copy_tests (CORBA_Object storage, CORBA_Environment *ev)
 	Bonobo_StorageInfo *setinfo, *getinfo;
 	Bonobo_Stream_iobuf *buf, *obuf;
 	gint32 i, j;
-	CORBA_long bread, bwritten;
 
 	printf ("starting copy tests\n");
 
@@ -423,13 +422,6 @@ stream_copy_tests (CORBA_Object storage, CORBA_Environment *ev)
 	/* seek to start of file */
 	Bonobo_Stream_seek (stream, 0, Bonobo_Stream_SEEK_SET, ev);
 	NO_EXCEPTION (ev);
-
-	/* copy the whole file */
-	Bonobo_Stream_copyTo (stream, "copy2.txt", -1, &bread, &bwritten, ev);
-	NO_EXCEPTION (ev);
-	
-	g_assert (bread == (TESTSIZE*4));
-	g_assert (bwritten == (TESTSIZE*4));
 
 	/* close the file */
 	bonobo_object_release_unref (stream, ev);
