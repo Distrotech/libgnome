@@ -197,7 +197,7 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
       free_if_empty (item->docpath);
       free_if_empty (item->type);
       free_if_empty (item->location);
-      free_it_empty (item->geometry);
+      free_if_empty (item->geometry);
       g_free (item);
     }
 }
