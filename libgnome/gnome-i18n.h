@@ -14,7 +14,12 @@ BEGIN_GNOME_DECLS
 
 #ifdef ENABLE_NLS
 #    include <libintl.h>
-#    define _(String) gettext (String)
+#    ifdef GNOME_EXPLICIT_TRANSLATION_DOMAIN
+#        undef _
+#        define _(String) dgettext (GNOME_EXPLICIT_TRANSLATION_DOMAIN, String)
+#    else 
+#        define _(String) gettext (String)
+#    endif
 #    ifdef gettext_noop
 #        define N_(String) gettext_noop (String)
 #    else
