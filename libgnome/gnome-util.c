@@ -90,7 +90,12 @@ gnome_util_user_shell (void)
 	int i;
 	const char *shell;
 	static char *shells [] = {
-		"/bin/bash", "/bin/zsh", "/bin/tcsh", "/bin/ksh",
+		/* Note that on some systems shells can also
+		 * be installed in /usr/bin */
+		"/bin/bash", "/usr/bin/bash",
+		"/bin/zsh", "/usr/bin/zsh",
+		"/bin/tcsh", "/usr/bin/tcsh",
+		"/bin/ksh", "/usr/bin/ksh",
 		"/bin/csh", "/bin/sh", 0
 	};
 
@@ -107,7 +112,7 @@ gnome_util_user_shell (void)
 	} 
 
 	for (i = 0; shells [i]; i++) {
-		if (g_file_test (shells [i], G_FILE_TEST_EXISTS)) {
+		if (access (shells [i], X_OK) == 0) {
 			return g_strdup (shells[i]);
 		}
 	}
