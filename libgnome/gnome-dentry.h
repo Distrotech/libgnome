@@ -4,12 +4,13 @@
 BEGIN_GNOME_DECLS
 
 typedef struct {
+	char *name;    /* These contain the translated name/comment */
+	char *comment;
 	char *exec;
 	char *tryexec;
 	char *icon_base;
 	char *docpath;
-	char *info;
-	int  terminal;
+	int   terminal;
 	char *type;
 	char *location;
 	
