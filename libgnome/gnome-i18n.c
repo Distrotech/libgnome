@@ -1,4 +1,5 @@
 #include <config.h>
+#include <string.h>
 #include "libgnome.h"
 #include "gnome-i18n.h"
 

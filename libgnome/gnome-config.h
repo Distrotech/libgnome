@@ -215,6 +215,15 @@ void _gnome_config_clean_key (const char *path, gint priv);
 void gnome_config_push_prefix (const char *path);
 void gnome_config_pop_prefix (void);
 
+/*these two are for removing the prefix list and then setting it back,
+  it would be usefull in situations that you need to specify a different
+  path, but don't want to destroy the prefix list used by the rest of the
+  app, you should pass the same pointer you get from remove to set and the
+  two should be paired. _set_ function will also pop any path you have pushed
+  after the _remove_ call*/
+GSList *gnome_config_remove_prefix_list (void);
+void gnome_config_set_prefix_list (GSList *list);
+
 /* Internal routines that we export
  * Used to go from string->vector and from vector->string
  */
