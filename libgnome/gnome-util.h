@@ -29,8 +29,8 @@
 
 #include <stdlib.h>
 #include <glib.h>
-#include "gnome-defs.h"
-#include "gnome-program.h"
+#include <libgnomebase/gnome-defs.h>
+#include <libgnomebase/gnome-program.h>
 
 BEGIN_GNOME_DECLS
 

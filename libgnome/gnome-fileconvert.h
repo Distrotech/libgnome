@@ -27,7 +27,7 @@
 #define __GNOME_FILECONVERT_H__ 1
 
 #include <glib.h>
-#include <libgnome/gnome-defs.h>
+#include <libgnomebase/gnome-defs.h>
 
 /* WARNING ____ IMMATURE API ____ liable to change */
 

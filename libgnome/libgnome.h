@@ -26,14 +26,10 @@
 #ifndef LIBGNOME_H
 #define LIBGNOME_H
 
-#include <libgnome/gnome-portability.h>
-#include <libgnome/gnome-defs.h>
-
-#include <libgnome/gnome-program.h>
+#include <libgnomebase/libgnomebase.h>
 
 #include <libgnome/gnome-config.h>
 #include <libgnome/gnome-exec.h>
-#include <libgnome/gnome-i18n.h>
 
 /* Should this be in gnome-print? */
 #include <libgnome/gnome-paper.h>

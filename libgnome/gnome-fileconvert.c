@@ -33,7 +33,7 @@
 #include <glib.h>
 #include <dirent.h>
 
-#include "gnome-defs.h"
+#include <libgnomebase/gnome-defs.h>
 #include "gnome-fileconvert.h"
 #include "gnome-util.h"
 #include "libgnomeP.h"

@@ -27,7 +27,7 @@
 #define __GNOME_TRIGGERS_H__
 
 #include <glib.h>
-#include <libgnome/gnome-defs.h>
+#include <libgnomebase/gnome-defs.h>
 
 BEGIN_GNOME_DECLS
 

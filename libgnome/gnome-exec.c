@@ -25,9 +25,9 @@
 #  include <config.h>
 #endif
 
-#include "gnome-defs.h"
+#include <libgnomebase/gnome-defs.h>
 #include "gnome-exec.h"
-#include "gnome-portability.h"
+#include <libgnomebase/gnome-portability.h>
 #include "gnome-util.h"
 #include "gnome-config.h"
 #include "gnome-i18nP.h"

@@ -27,9 +27,10 @@
 #define LIBGNOMEP_H
 
 #include <glib.h>
-#include "libgnome/gnome-defs.h"
-#include "libgnome/gnome-i18nP.h"
-#include "libgnome/libgnome.h"
+#include <libgnomebase/libgnomebase.h>
+#include <libgnome/libgnome.h>
+
+#include "gnome-i18nP.h"
 
 #define PATH_SEP '/'
 #define PATH_SEP_STR "/"

@@ -50,10 +50,10 @@
 #include <pwd.h>
 #include <limits.h>
 #include "libgnomeP.h"
-#include "gnome-portability.h"
-#include "gnome-defs.h"
-#include "gnome-util.h"
-#include "gnome-program.h"
+#include <libgnomebase/gnome-defs.h>
+#include <libgnomebase/gnome-program.h>
+#include <libgnomebase/gnome-portability.h>
+#include <libgnome/gnome-util.h>
 
 /**
  * g_concat_dir_and_file:
