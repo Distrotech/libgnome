@@ -1,19 +1,19 @@
 ## Process this file with automake to produce Makefile.in
+
 scoredir=$(localstatedir)/games
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 libgnomeincludedir = $(includedir)/libgnome
 
-INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) @SUPPORTINCS@ \
-        @GTK_CFLAGS@  \
+INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) $(SUPPORTINCS) \
+        $(GTK_CFLAGS)  \
 	-DGNOMELIBDIR=\""$(libdir)"\" \
 	-DGNOMEDATADIR=\""$(datadir)"\" \
 	-DGNOMEBINDIR=\""$(bindir)"\" \
 	-DGNOMELOCALSTATEDIR=\""$(localstatedir)"\" \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-I$(top_srcdir)/intl \
-	-I$(top_srcdir)/support
+	-I$(top_srcdir)/intl -I$(top_builddir)/intl
 
 lib_LTLIBRARIES = libgnome.la
 
