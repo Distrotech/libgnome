@@ -131,6 +131,33 @@ impl_Bonobo_PropertyBag_getType (PortableServer_Servant  servant,
 	return CORBA_OBJECT_NIL;
 }
 
+static BonoboArg*
+bonobo_arg_new_from_gconf_value (GConfValue *value)
+{
+        if (value == NULL)
+                return bonobo_arg_new (BONOBO_ARG_NULL);
+        
+	switch (value->type) {
+	case GCONF_VALUE_STRING :
+		return bonobo_arg_new_from (BONOBO_ARG_STRING,
+					    gconf_value_get_string (value));
+	case GCONF_VALUE_INT : {
+                long v = gconf_value_get_int (value);
+		return bonobo_arg_new_from (BONOBO_ARG_LONG, &v);
+        }
+	case GCONF_VALUE_FLOAT : {
+                double v = gconf_value_get_float (value);
+		return bonobo_arg_new_from (BONOBO_ARG_DOUBLE, &v);
+        }
+	case GCONF_VALUE_BOOL : {
+                gboolean v = gconf_value_get_bool (value);
+		return bonobo_arg_new_from (BONOBO_ARG_BOOLEAN, &v);
+        }
+	default :
+		return bonobo_arg_new (BONOBO_ARG_NULL);
+	}
+}
+
 static CORBA_any *
 impl_Bonobo_PropertyBag_getValue (PortableServer_Servant  servant,
 				  const CORBA_char       *key,
@@ -156,21 +183,10 @@ impl_Bonobo_PropertyBag_getValue (PortableServer_Servant  servant,
 		return CORBA_OBJECT_NIL;
 	}
 
-	switch (value->type) {
-	case GCONF_VALUE_STRING :
-		return bonobo_arg_new_from (BONOBO_ARG_STRING,
-					    gconf_value_get_string (value));
-	case GCONF_VALUE_INT :
-		return bonobo_arg_new_from (BONOBO_ARG_LONG, &value->d.int_data);
-	case GCONF_VALUE_FLOAT :
-		return bonobo_arg_new_from (BONOBO_ARG_DOUBLE, &value->d.float_data);
-	case GCONF_VALUE_BOOL :
-		return bonobo_arg_new_from (BONOBO_ARG_BOOLEAN, &value->d.bool_data);
-	default :
-		return bonobo_arg_new (BONOBO_ARG_NULL);
-	}
-
-	return CORBA_OBJECT_NIL;
+        /* FIXME The original code here returned BonoboArg*
+         * as a CORBA_any*, is that OK?
+         */
+        return bonobo_arg_new_from_gconf_value (value);
 }
 
 static void 
@@ -262,29 +278,13 @@ impl_Bonobo_PropertyBag_getValues (PortableServer_Servant servant,
 	for (sl = slist, n = 0; n < length; sl = sl->next, n++) {
 		GConfEntry *entry = (GConfEntry *) sl->data;
 		BonoboArg *arg;
+                GConfValue *value;
 
 		retval->_buffer[n].name = CORBA_string_dup (gconf_entry_get_key (entry));
-		switch (entry->value->type) {
-		case GCONF_VALUE_STRING :
-			arg = bonobo_arg_new_from (BONOBO_ARG_STRING,
-						   gconf_value_get_string (entry->value));
-			break;
-		case GCONF_VALUE_INT :
-			arg = bonobo_arg_new_from (BONOBO_ARG_LONG,
-						   &entry->value->d.int_data);
-			break;
-		case GCONF_VALUE_FLOAT :
-			arg = bonobo_arg_new_from (BONOBO_ARG_DOUBLE,
-						   &entry->value->d.float_data);
-			break;
-		case GCONF_VALUE_BOOL :
-			arg = bonobo_arg_new_from (BONOBO_ARG_BOOLEAN,
-						   &entry->value->d.bool_data);
-			break;
-		default :
-			arg = bonobo_arg_new (BONOBO_ARG_NULL);
-		}
+                value = gconf_entry_get_value (entry);
 
+                arg = bonobo_arg_new_from_gconf_value (value);
+                
 		retval->_buffer[n].value = *arg;
 	}
 
@@ -335,21 +335,7 @@ impl_Bonobo_PropertyBag_getDefault (PortableServer_Servant  servant,
 		return CORBA_OBJECT_NIL;
 	}
 
-	switch (value->type) {
-	case GCONF_VALUE_STRING :
-		return bonobo_arg_new_from (BONOBO_ARG_STRING,
-					    gconf_value_get_string (value));
-	case GCONF_VALUE_INT :
-		return bonobo_arg_new_from (BONOBO_ARG_LONG, &value->d.int_data);
-	case GCONF_VALUE_FLOAT :
-		return bonobo_arg_new_from (BONOBO_ARG_DOUBLE, &value->d.float_data);
-	case GCONF_VALUE_BOOL :
-		return bonobo_arg_new_from (BONOBO_ARG_BOOLEAN, &value->d.bool_data);
-	default :
-		/* FIXME */
-	}
-
-	return CORBA_OBJECT_NIL;
+        return bonobo_arg_new_from_gconf_value (value);
 }
 
 static CORBA_char *

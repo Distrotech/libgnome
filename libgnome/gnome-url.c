@@ -65,7 +65,7 @@
  *
  * Once a viewer is determined, it is called with the @url as a parameter. If
  * any errors occur, they are returned in the @error parameter. These errors
- * will either be in the %GNOME_URL_ERROR or the %G_SPAWN_ERROR domains.
+ * will either be in the %GNOME_URL_ERROR, %GNOME_SHELL_ERROR, or %G_SPAWN_ERROR domains.
  *
  * Returns: %TRUE if everything went fine, %FALSE otherwise (in which case
  * @error will contain the actual error).
@@ -135,14 +135,10 @@ gnome_url_show (const gchar *url, GError **error)
 
 	/* We use a popt function as it does exactly what we want to do and
 	   gnome already uses popt */
-	if (poptParseArgvString (template, &argc,
-				 /* casting is evil, but necessary */&argv) != 0) {
-		/* can't parse */
-		g_set_error (error,
-			     GNOME_URL_ERROR,
-			     GNOME_URL_ERROR_PARSE,
-			     _("Cannot parse: %s"),
-			     template);
+	if (!g_shell_parse_argv (template,
+				 &argc,
+				 &argv,
+				 error)) {
 		g_free (template);
 		return FALSE;
 	}
@@ -150,7 +146,7 @@ gnome_url_show (const gchar *url, GError **error)
 	newargv = g_new0 (char *, argc + 1);
 	for (i = 0; i < argc; i++) {
 		if (strcmp (argv[i], "%s") == 0)
-			newargv[i] = g_strdup (url);
+			newargv[i] = g_shell_quote (url);
 		else
 			newargv[i] = g_strdup (argv[i]);
 	}
@@ -164,10 +160,7 @@ gnome_url_show (const gchar *url, GError **error)
 	newargv[2] = tmp;
 	newargv[3] = NULL;
 
-	/* the way the poptParseArgvString works is that the entire thing
-	 * is allocated as one buffer, so just free will suffice, also
-	 * it must be free and not g_free */
-	free (argv);
+	g_strfreev (argv);
 	
 	/* This can return some errors */
 	ret = g_spawn_async (NULL /* working directory */,

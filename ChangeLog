@@ -1,3 +1,16 @@
+2002-03-29  Havoc Pennington  <hp@pobox.com>
+
+	* libgnome/gnome-url.c (gnome_url_show): use g_shell_parse_argv()
+	instead of popt function
+	(gnome_url_show): quote url for shell so we don't run shell
+	commands found in the url. Using a shell here is perhaps 
+	not a good idea anyway...
+
+	* monikers/bonobo-config-bag.c (impl_Bonobo_PropertyBag_getValue):
+	don't use private gconf fields
+	(impl_Bonobo_PropertyBag_getValues): ditto, also handle 
+	NULL entry values
+
 2002-03-26  Dave Camp  <dave@ximian.com>
 
 	* schemas/Makefile.am (schema_DATA): Add
