@@ -1,9 +1,13 @@
 2001-04-12  Martin Baulig  <baulig@suse.de>
 
-	* gnome-gconf.[ch]: New files; copied here from
-	libgnomeui-2/libgnomeui.
+	* gnome-oaf.[ch]: New files; provide `gnome_oaf_module_info' to
+	initialize OAF.
 
-	* libgnome.h: Added <libgnome/gnome-gconf.h>.
+	* gnome-gconf.[ch]: New files; provide `gnome_gconf_module_info'
+	to initialize GConf.
+
+	* libgnome.h: Added <libgnome/gnome-gconf.h> and
+	<libgnome/gnome-oaf.h>.
 
 2001-04-12  Martin Baulig  <baulig@suse.de>
 

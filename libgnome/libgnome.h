@@ -30,6 +30,7 @@
 #include <libgnome/gnome-defs.h>
 
 #include <libgnome/gnome-program.h>
+#include <libgnome/gnome-oaf.h>
 #include <libgnome/gnome-gconf.h>
 
 #include <libgnome/gnome-config.h>

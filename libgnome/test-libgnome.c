@@ -94,9 +94,14 @@ test_constructor (GType type, guint n_construct_properties,
     g_message (G_STRLOC ": %p - %d", pclass, test_id);
 }
 
+static GnomeModuleRequirement test_requirements[] = {
+    {VERSION, &libgnome_module_info},
+    {NULL}
+};
+
 GnomeModuleInfo test_moduleinfo = {
     "test", VERSION, "Test Application",
-    NULL,
+    test_requirements,
     test_pre_args_parse, test_post_args_parse,
     NULL,
     test_init_pass, test_constructor,

@@ -73,16 +73,17 @@ static GnomeModuleInfo gnome_vfs_module_info = {
 };
 
 static GnomeModuleRequirement libgnome_requirements[] = {
-  {"0.3.0", &gnome_vfs_module_info},
-  {NULL}
+    {VERSION, &gnome_gconf_module_info},
+    {"0.3.0", &gnome_vfs_module_info},
+    {NULL}
 };
 
 GnomeModuleInfo libgnome_module_info = {
-  "libgnome", VERSION, "GNOME Library",
-  libgnome_requirements,
-  NULL, libgnome_post_args_parse,
-  gnomelib_options,
-  libgnome_loadinit
+    "libgnome", VERSION, "GNOME Library",
+    libgnome_requirements,
+    NULL, libgnome_post_args_parse,
+    gnomelib_options,
+    libgnome_loadinit
 };
 
 static void
