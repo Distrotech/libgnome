@@ -181,7 +181,7 @@ int
 gnome_execute_async_with_env (const char *dir, int argc, char * const argv[], 
 			      int envc, char * const envv[])
 {
-  return gnome_execute_async_with_env_fds(dir,argc,argv,envc,envv,TRUE);
+  return gnome_execute_async_with_env_fds(dir,argc,argv,envc,envv,FALSE);
 }
 
 
@@ -270,7 +270,7 @@ gnome_execute_shell_fds (const char *dir, const char *commandline,
 int
 gnome_execute_shell (const char *dir, const char *commandline)
 {
-  return gnome_execute_shell_fds(dir, commandline, TRUE);
+  return gnome_execute_shell_fds(dir, commandline, FALSE);
 }
 
 
