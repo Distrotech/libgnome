@@ -1467,6 +1467,51 @@ _gnome_config_get_float_with_default (const char *path, gboolean *def, gboolean 
 	return v;
 }
 
+/*
+ * same as _gnome_config_get_string_with_default, but using (ParsedPath *)
+ */
+static char *
+get_string_with_default_from_pp (ParsedPath *pp, gboolean *def, gboolean priv)
+{
+	const char *r;
+	char *ret = NULL;
+	
+	if (!priv && pp->opath[0] != '=')
+		r = access_config_extended (LOOKUP, pp->section, pp->key,
+					    pp->def, pp->path, def);
+	else
+		r = access_config (LOOKUP, pp->section, pp->key, pp->def,
+				   pp->file, def);
+	if (r)
+		ret = g_strdup (r);
+	return ret;
+}
+
+/*
+ * like get_string_with_default_from_pp but with language
+ * This is because we must work on the parsed path to add the language
+ * thingie.
+ */
+static char *
+get_string_with_default_from_pp_with_lang (ParsedPath *pp,
+					   const char *lang,
+					   gboolean *def,
+					   gboolean priv)
+{
+	char *value;
+	char *oldkey;
+
+	/* switch the key in the key from underneath it, then
+	 * return it back */
+	oldkey = pp->key;
+	pp->key = g_strconcat (oldkey, "[", lang, "]", NULL);
+	value = get_string_with_default_from_pp (pp, def, priv);
+	g_free (pp->key);
+	pp->key = oldkey;
+
+	return value;
+}
+
 /**
  * gnome_config_get_translated_string:
  * @path: A gnome configuration path to an item.
@@ -1507,21 +1552,23 @@ _gnome_config_get_translated_string_with_default (const char *path,
 						  gboolean *def,
 						  gboolean priv)
 {
+	ParsedPath *pp;
 	const GList *language_list;
+	gboolean local_def = FALSE;
 
 	char *value= NULL;
 
 	language_list = gnome_i18n_get_language_list ("LC_MESSAGES");
 
+	pp = parse_path (path, priv);
+
 	while (!value && language_list) {
 		const char *lang= language_list->data;
-		gchar *tkey;
 
-		tkey = g_strconcat (path, "[", lang, "]", NULL);
-		value = _gnome_config_get_string_with_default (tkey, def, priv);
-		g_free (tkey);
+		value = get_string_with_default_from_pp_with_lang
+			(pp, lang, &local_def, priv);
 
-		if (!value || *value == '\0') {
+		if (local_def || !value || *value == '\0') {
 			size_t n;
 
 			g_free (value);
@@ -1533,13 +1580,10 @@ _gnome_config_get_translated_string_with_default (const char *path,
 			n = strcspn (lang, "@_");
 			if (lang[n]) {
 				char *copy = g_strndup (lang, n);
-				tkey = g_strconcat (path, "[",
-						    copy, "]",
-						    NULL);
-				value = _gnome_config_get_string_with_default (tkey, def, priv);
-				g_free (tkey);
+
+				value = get_string_with_default_from_pp_with_lang (pp, copy, &local_def, priv);
 				g_free (copy);
-				if (! value || *value == '\0') {
+				if (local_def || ! value || *value == '\0') {
 					g_free (value);
 					value = NULL;
 				}
@@ -1548,14 +1592,21 @@ _gnome_config_get_translated_string_with_default (const char *path,
 		language_list = language_list->next;
 	}
 
+	if (def != NULL) {
+		*def = local_def;
+	}
+
 	if (!value){
-		value = _gnome_config_get_string_with_default (path, def, priv);
+		value = get_string_with_default_from_pp (pp, def, priv);
 
 		if (!value || *value == '\0'){
 			g_free (value);
 			value = NULL;
 		}
 	}
+
+	release_path (pp);
+
 	return value;
 }
 
@@ -1603,19 +1654,12 @@ _gnome_config_get_string_with_default (const char *path, gboolean *def,
 				       gboolean priv)
 {
 	ParsedPath *pp;
-	const char *r;
-	char *ret = NULL;
+	char *ret;
 	
 	pp = parse_path (path, priv);
-	if (!priv && pp->opath[0] != '=')
-		r = access_config_extended (LOOKUP, pp->section, pp->key,
-					    pp->def, pp->path, def);
-	else
-		r = access_config (LOOKUP, pp->section, pp->key, pp->def,
-				   pp->file, def);
-	if (r)
-		ret = g_strdup (r);
+	ret = get_string_with_default_from_pp (pp, def, priv);
 	release_path (pp);
+
 	return ret;
 }
 

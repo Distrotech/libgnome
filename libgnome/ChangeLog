@@ -1,3 +1,10 @@
+Sun May 20 22:46:20 2001  George Lebl <jirka@5z.com>
+
+	* gnome-config.c: fix get_translated_string wrt defaults, the old
+	  implementation just didn't work AT ALL if you passed in a default,
+	  this appends the languages to the keys rather then onto the end
+	  of the entire path.
+
 2001-05-20  Martin Baulig  <baulig@suse.de>
 
 	* gnome-selector.h
