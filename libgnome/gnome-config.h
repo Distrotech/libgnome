@@ -23,6 +23,8 @@
   @NOTATION@
  */
 
+#ifndef GNOME_DISABLE_DEPRECATED
+
 #ifndef GNOME_CONFIG_H
 #define GNOME_CONFIG_H
 
@@ -292,3 +294,6 @@ void gnome_config_set_sync_handler(void (*func)(void *),void *data);
 G_END_DECLS
 
 #endif
+
+#endif /* GNOME_DISABLE_DEPRECATED */
+

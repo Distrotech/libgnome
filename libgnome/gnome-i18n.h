@@ -23,6 +23,8 @@
   @NOTATION@
  */
 
+#ifndef GNOME_DISABLE_DEPRECATED
+
 /*
  * Handles all of the internationalization configuration options.
  * Author: Tom Tromey <tromey@creche.cygnus.com>
@@ -80,3 +82,5 @@ void		gnome_i18n_pop_c_numeric_locale		(void);
 G_END_DECLS
 
 #endif /* __GNOME_I18N_H__ */
+
+#endif /* GNOME_DISABLE_DEPRECATED */

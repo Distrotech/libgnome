@@ -23,6 +23,8 @@
   @NOTATION@
  */
 
+#ifndef GNOME_DISABLE_DEPRECATED
+
 #ifndef __GNOME_SCORE_H__
 #define __GNOME_SCORE_H__ 1
 
@@ -60,3 +62,5 @@ gnome_score_get_notable(const gchar *gamename, /* Will be auto-determined if NUL
 G_END_DECLS
 
 #endif /* __GNOME_SCORE_H__ */
+
+#endif /* GNOME_DISABLE_DEPRECATED */

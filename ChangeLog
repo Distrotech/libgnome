@@ -1,3 +1,15 @@
+2004-11-12  Anders Carlsson  <andersca@gnome.org>
+
+	* libgnome/gnome-config.h:
+	Deprecate, use GKeyFile instead.
+	
+	* libgnome/gnome-i18n.h:
+	Deprecate, use glib/gi18n.h and	g_get_language_names instead.
+	
+	* libgnome/gnome-score.h:
+	Deprecate. This is too specialized, and eventually a replacement
+	will find its way into gnome-games.
+	
 2004-11-08  Anders Carlsson  <andersca@gnome.org>
 
 	* configure.in: Update to 2.9.1
