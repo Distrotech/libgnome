@@ -53,34 +53,36 @@ typedef struct _GnomeFileSelectorPrivate  GnomeFileSelectorPrivate;
 typedef struct _GnomeFileSelectorClass    GnomeFileSelectorClass;
 
 struct _GnomeFileSelector {
-	GnomeSelector selector;
-	
-	/*< private >*/
-	GnomeFileSelectorPrivate *_priv;
+        GnomeSelector selector;
+        
+        /*< private >*/
+        GnomeFileSelectorPrivate *_priv;
 };
 
 struct _GnomeFileSelectorClass {
-	GnomeSelectorClass parent_class;
+        GnomeSelectorClass parent_class;
 };
 
 
 guint        gnome_file_selector_get_type    (void);
 
 GtkWidget   *gnome_file_selector_new         (const gchar *history_id,
-					      const gchar *dialog_title);
+                                              const gchar *dialog_title);
 
 GtkWidget   *gnome_file_selector_new_custom  (const gchar *history_id,
-					      const gchar *dialog_title,
-					      GtkWidget *selector_widget,
-					      GtkWidget *browse_dialog,
-					      guint32 flags);
+                                              const gchar *dialog_title,
+                                              GtkWidget *entry_widget,
+                                              GtkWidget *selector_widget,
+                                              GtkWidget *browse_dialog,
+                                              guint32 flags);
 
 void         gnome_file_selector_construct   (GnomeFileSelector *selector,
                                               const gchar *history_id,
-					      const gchar *dialog_title,
-					      GtkWidget *selector_widget,
-					      GtkWidget *browse_dialog,
-					      guint32 flags);
+                                              const gchar *dialog_title,
+                                              GtkWidget *entry_widget,
+                                              GtkWidget *selector_widget,
+                                              GtkWidget *browse_dialog,
+                                              guint32 flags);
 
 
 END_GNOME_DECLS
