@@ -63,7 +63,11 @@ gnome_i18n_get_language_list (const gchar *category_name)
   g_warning (G_STRLOC ": This function is deprecated, "
 	     "use g_i18n_get_language_list instead.");
 
+#if 0
   return g_i18n_get_language_list (category_name);
+#else
+  return NULL;
+#endif
 }
 
 /**
@@ -92,7 +96,11 @@ gnome_i18n_set_preferred_language (const char *val)
 void
 gnome_i18n_init (void)
 {
+#if 0
   const gchar *val = g_i18n_guess_category_value ("LC_ALL");
+#else
+  const gchar *val = NULL;
+#endif
 
   if (val == NULL)
     {
