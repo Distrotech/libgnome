@@ -20,6 +20,7 @@ INCLUDES = \
 	$(GNOMESUPPORT_CFLAGS)			\
 	$(GLIB_CFLAGS)				\
 	$(GNOME_VFS_CFLAGS)			\
+	-DGNOMEPREFIX=\""$(prefix)"\"		\
 	-DGNOMELIBDIR=\""$(libdir)"\"		\
 	-DGNOMEDATADIR=\""$(datadir)"\"		\
 	-DGNOMEBINDIR=\""$(bindir)"\"		\
@@ -31,6 +32,7 @@ INCLUDES = \
 	-DG_LOG_DOMAIN=\"Gnome\"
 
 libgnome_2_la_SOURCES = \
+	gnome-program.c		\
 	gnome-config.c		\
 	gnome-ditem.c		\
 	gnome-exec.c		\
@@ -43,10 +45,10 @@ libgnome_2_la_SOURCES = \
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-paper.c		\
-	gnomelib-init.c		\
-	gnomelib-init2.c
+	gnomelib-init.c
 
 libgnomeinclude_HEADERS = \
+	gnome-program.h		\
         gnome-config.h 		\
 	gnome-defs.h   		\
 	gnome-fileconvert.h	\
@@ -61,8 +63,7 @@ libgnomeinclude_HEADERS = \
 	gnome-util.h   		\
 	gnome-paper.h		\
 	libgnome.h		\
-	gnomelib-init2.h	\
-	gnomelib-init.h	\
+	gnomelib-init.h		\
 	gnome-portability.h
 
 noinst_HEADERS = \
@@ -92,6 +93,13 @@ gnome_moz_remote_LDADD = \
 	-lX11					\
 	$(X_EXTRA_LIBS)				\
 	$(INTLLIBS)
+
+noinst_PROGRAMS = \
+	test-libgnome
+
+test_libgnome_SOURCES = test-libgnome.c
+test_libgnome_LDADD = \
+	libgnome-2.la
 
 
 pkgconfigdir = $(libdir)/pkgconfig
