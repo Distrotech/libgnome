@@ -1350,12 +1350,12 @@ gnome_program_preinit (GnomeProgram *program,
 
 	/* Put the special popt table in first */
 	includer.arg = poptHelpOptions;
-	includer.descrip = N_("Help options");
+	includer.descrip = _("Help options");
 	g_array_append_val (program->_priv->top_options_table, includer);
 
 	if (program->_priv->prop_popt_table) {
 	    includer.arg = program->_priv->prop_popt_table;
-	    includer.descrip = N_("Application options");
+	    includer.descrip = _("Application options");
 	    g_array_append_val (program->_priv->top_options_table,
 				includer);
 	}
@@ -1371,8 +1371,8 @@ gnome_program_preinit (GnomeProgram *program,
 
 	includer.longName = "load-modules";
 	includer.argInfo = POPT_ARG_STRING;
-	includer.descrip = N_("Dynamic modules to load");
-	includer.argDescrip = N_("MODULE1,MODULE2,...");
+	includer.descrip = _("Dynamic modules to load");
+	includer.argDescrip = _("MODULE1,MODULE2,...");
 	g_array_append_val (program->_priv->top_options_table, includer);
     }
 

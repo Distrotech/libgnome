@@ -1,5 +1,11 @@
 2004-01-21  Anders Carlsson  <andersca@gnome.org>
 
+	* libgnome/gnome-program.c: (gnome_program_preinit):
+	Translate strings instead of just marking them.
+	(Completely fixes #106549, patch by Christian Neumair).
+	
+2004-01-21  Anders Carlsson  <andersca@gnome.org>
+
 	* libgnome/gnome-init.c: (libgnome_module_info_get):
 	* libgnome/gnome-program.c: (gnome_program_parse_args):
 	Fix translation of program arguments. 
