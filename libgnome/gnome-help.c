@@ -55,11 +55,16 @@ locate_help_file (const char *path, const char *doc_name)
 			continue;
 
 		for (i = 0; exts[i] != NULL; i++) {
-			char * full = g_strconcat (path, "/", lang, "/",
-						   doc_name, exts[i], NULL);
-			if (g_file_test (full, G_FILE_TEST_EXISTS)) {
+			char *name;
+			char *full;
+
+			name = g_strconcat (doc_name, exts[i], NULL);
+			full = g_build_filename (path, lang, name, NULL);
+			g_free (name);
+
+			if (g_file_test (full, G_FILE_TEST_EXISTS))
 				return full;
-			}
+
 			g_free (full);
 		}
 	}
@@ -74,10 +79,10 @@ locate_help_file (const char *path, const char *doc_name)
  * requested document.
  * @error: A #GError instance that will hold the specifics of any error which
  * occurs during processing, or %NULL
- * 
+ *
  * Displays the help file specified by @file_name at location @link_id in the
  * preferred help browser of the user.
- * 
+ *
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
  * contain the actual error).
  **/
@@ -92,7 +97,8 @@ gnome_help_display (const char    *file_name,
 /**
  * gnome_help_display_with_doc_id
  * @program: The current application object, or %NULL for the default one.
- * @doc_id: The document identifier, or %NULL for the app_id
+ * @doc_id: The document identifier, or %NULL to default to the application ID (app_id)
+ * of the specified @program.
  * @file_name: The name of the help document to display.
  * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
  * requested document.
@@ -130,84 +136,119 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
 	gchar *uri;
 	gboolean retval;
 
+	g_return_val_if_fail (file_name != NULL, FALSE);
+
+	retval = FALSE;
+
+	local_help_path = NULL;
+	global_help_path = NULL;
+	file = NULL;
+	uri = NULL;
+
 	if (program == NULL)
 		program = gnome_program_get ();
+
 	if (doc_id == NULL)
 		doc_id = gnome_program_get_app_id (program);
+
+	/* Compute the local and global help paths */
 
 	local_help_path = gnome_program_locate_file (program,
 						     GNOME_FILE_DOMAIN_APP_HELP,
 						     "",
 						     FALSE /* only_if_exists */,
 						     NULL /* ret_locations */);
-	
+
 	if (local_help_path == NULL) {
 		g_set_error (error,
 			     GNOME_HELP_ERROR,
 			     GNOME_HELP_ERROR_INTERNAL,
 			     _("Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"));
-		return FALSE;
+		goto out;
 	}
-	
+
 	global_help_path = gnome_program_locate_file (program,
 						      GNOME_FILE_DOMAIN_HELP,
 						      "",
 						      FALSE /* only_if_exists */,
 						      NULL /* ret_locations */);
 	if (global_help_path == NULL) {
-		g_free (local_help_path);
 		g_set_error (error,
 			     GNOME_HELP_ERROR,
 			     GNOME_HELP_ERROR_INTERNAL,
-			     _("Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-libs was compiled incorrectly."));
-		return FALSE;
+			     _("Unable to find the GNOME_FILE_DOMAIN_HELP domain."));
+		goto out;
 	}
 
-	stat (local_help_path, &local_help_st);
-	stat (global_help_path, &global_help_st);
+	/* Try to access the help paths, first the app-specific help path
+	 * and then falling back to the global help path if the first one fails.
+	 */
 
-	if (! S_ISDIR (local_help_st.st_mode)) {
-		g_set_error (error,
-			     GNOME_HELP_ERROR,
-			     GNOME_HELP_ERROR_INTERNAL,
-			     _("Unable to show help as file %s is not a directory.  This implies an incorrect installation."),
-			     local_help_path);
-		g_free (local_help_path);
-		return FALSE;
+	if (stat (local_help_path, &local_help_st) == 0) {
+		if (!S_ISDIR (local_help_st.st_mode)) {
+			g_set_error (error,
+				     GNOME_HELP_ERROR,
+				     GNOME_HELP_ERROR_NOT_FOUND,
+				     _("Unable to show help as %s is not a directory.  "
+				       "Please check your installation."),
+				     local_help_path);
+			goto out;
+		}
+
+		file = locate_help_file (local_help_path, file_name);
 	}
-
-	file = locate_help_file (local_help_path, file_name);
-	g_free (local_help_path);
 
 	if (file == NULL) {
-		if (local_help_st.st_ino != global_help_st.st_ino) {
-			/* Couldn't find it in local path, so we'll look in *
-			 * the global path                                  */
-			file = locate_help_file (local_help_path, file_name);
-			return FALSE;
-		} 
+		if (stat (global_help_path, &global_help_st) == 0) {
+			if (!S_ISDIR (global_help_st.st_mode)) {
+				g_set_error (error,
+					     GNOME_HELP_ERROR,
+					     GNOME_HELP_ERROR_NOT_FOUND,
+					     _("Unable to show help as %s is not a directory.  "
+					       "Please check your installation."),
+					     global_help_path);
+				goto out;
+			}
+		} else {
+			g_set_error (error,
+				     GNOME_HELP_ERROR,
+				     GNOME_HELP_ERROR_NOT_FOUND,
+				     _("Unable to find the help files in either %s "
+				       "or %s.  Please check your installation"),
+				     local_help_path,
+				     global_help_path);
+			goto out;
+		}
+
+		if (!(local_help_st.st_dev == global_help_st.st_dev
+		      && local_help_st.st_ino == global_help_st.st_ino))
+			file = locate_help_file (global_help_path, file_name);
 	}
-	
-	g_free (global_help_path);
 
 	if (file == NULL) {
 		g_set_error (error,
 			     GNOME_HELP_ERROR,
 			     GNOME_HELP_ERROR_NOT_FOUND,
-			     _("Help document %s for %s not found"),
-			     file_name, 
-			     doc_id);
-		return FALSE;
+			     _("Unable to find the help files in either %s "
+			       "or %s.  Please check your installation"),
+			     local_help_path,
+			     global_help_path);
+		goto out;
 	}
 
-	if (link_id) {
+	/* Now that we have a file name, try to display it in the help browser */
+
+	if (link_id)
 		uri = g_strconcat ("ghelp://", file, "?", link_id, NULL);
-	} else {
+	else
 		uri = g_strconcat ("ghelp://", file, NULL);
-	}
-	
+
 	retval = gnome_help_display_uri (uri, error);
 
+ out:
+
+	g_free (local_help_path);
+	g_free (global_help_path);
 	g_free (file);
 	g_free (uri);
 
@@ -287,13 +328,13 @@ gnome_help_display_desktop (GnomeProgram  *program,
 			     GNOME_HELP_ERROR,
 			     GNOME_HELP_ERROR_NOT_FOUND,
 			     _("Help document %s/%s not found"),
-			     doc_id, 
+			     doc_id,
 			     file_name);
 		return FALSE;
 	}
 
 	if (link_id != NULL) {
-		url = g_strconcat ("ghelp://", file, "?", link_id, NULL); 
+		url = g_strconcat ("ghelp://", file, "?", link_id, NULL);
 	} else {
 		url = g_strconcat ("ghelp://", file, NULL);
 	}
@@ -348,7 +389,7 @@ gnome_help_error_quark (void)
 	static GQuark error_quark = 0;
 
 	if (error_quark == 0)
-		error_quark =	
+		error_quark =
 			g_quark_from_static_string ("gnome-help-error-quark");
 
 	return error_quark;

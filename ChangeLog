@@ -1,3 +1,17 @@
+2002-05-20  Federico Mena Quintero  <federico@ximian.com>
+
+	Fixes #82140.
+
+	* libgnome/gnome-help.c (gnome_help_display_with_doc_id): Clarified
+	error messages.  De-convoluted function a bit.  Made it check for
+	the stat() return value.  Made it check for device and inode
+	numbers instead of just inode number in the fallback code.
+	(locate_help_file): Use g_build_filename() so that we don't get
+	duplicated slashes, which yelp warns about.
+
+	* doc/reference/libgnome-sections.txt: Added
+	gnome_help_display_with_doc_id.
+
 2002-05-20  Anders Carlsson  <andersca@gnu.org>
 
 	* configure.in: Release 1.117.1
