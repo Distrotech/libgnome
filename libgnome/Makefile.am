@@ -50,8 +50,14 @@ $(CORBA_SOURCE): $(idls) $(ORBIT_IDL)
 libgnome_src = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
+	gnome-config.c		\
+	gnome-sound.c		\
+	gnome-triggers.c	\
+	gnome-triggersP.h	\
 	gnome-program.c		\
 	gnome-exec.c		\
+	gnome-i18n.c		\
+	gnome-i18nP.h		\
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-preferences.c	\
@@ -69,6 +75,9 @@ libinclude_HEADERS = \
 	libgnome.h
 
 libgnome_headers = \
+	gnome-config.h		\
+	gnome-sound.h		\
+	gnome-triggers.h	\
 	gnome-program.h		\
 	gnome-i18n.h		\
 	gnome-exec.h		\
@@ -151,7 +160,8 @@ $(srcdir)/gnome-marshal.c: @REBUILD@ Makefile.am gnome-marshal.list
 EXTRA_DIST = \
 	libgnome-2.0.pc.in		\
 	gnome-marshal.list		\
-	gnome-marshal.c
+	gnome-marshal.c			\
+	parse-path.cP
 
 BUILT_SOURCES = \
 	libgnometypebuiltins.h		\

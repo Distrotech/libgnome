@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1997, 1998, 1999, 2000 Free Software Foundation
+ * Copyright (C) 1997-1998 Stuart Parmenter and Elliot Lee
  * All rights reserved.
  *
  * This file is part of the Gnome Library.
@@ -23,27 +23,28 @@
   @NOTATION@
  */
 
-#ifndef LIBGNOME_H
-#define LIBGNOME_H
+#ifndef __GNOME_SOUND_H__
+#define __GNOME_SOUND_H__ 1
 
-#include <libgnome/gnome-program.h>
-#include <libgnome/gnome-i18n.h>
+#include <glib.h>
 
-#include <libgnome/gnome-config.h>
+G_BEGIN_DECLS
 
-#include <libgnome/gnome-triggers.h>
-#include <libgnome/gnome-sound.h>
+/* Use this with the Esound functions */
+extern int gnome_sound_connection;
 
-#include <libgnome/gnome-exec.h>
+/* Initialize esd connection */
+void gnome_sound_init(const char *hostname);
 
-#include <libgnome/gnome-util.h>
-#include <libgnome/gnome-url.h>
+/* Closes esd connection */
+void gnome_sound_shutdown(void);
 
-#include <libgnome/gnome-preferences.h>
-#include <libgnome/gnome-marshal.h>
+/* Returns the Esound sample ID for the sample */
+int gnome_sound_sample_load(const char *sample_name, const char *filename);
 
-#include <libgnome/Gnome.h>
+/* Loads sample, plays sample, frees sample */
+void gnome_sound_play (const char * filename);
 
-#include <libgnome/gnome-init.h>
+G_END_DECLS
 
-#endif /* LIBGNOME_H */
+#endif /* __GNOME_SOUND_H__ */

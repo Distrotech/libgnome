@@ -29,11 +29,15 @@
 /* This module takes care of handling application and library
    initialization and command line parsing */
 
+#include <config.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <gmodule.h>
+
+#include "gnome-i18nP.h"
+
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-init.h>
 #include <libgnome/gnome-i18n.h>

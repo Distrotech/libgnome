@@ -32,6 +32,8 @@
 #include <unistd.h>
 #include <errno.h>
 
+#include "gnome-i18nP.h"
+
 #include <bonobo/bonobo-property-bag-client.h>
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>

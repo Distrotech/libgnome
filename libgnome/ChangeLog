@@ -1,3 +1,18 @@
+Sun Aug 26 07:29:59 2001  George Lebl <jirka@5z.com>
+
+	* Makefile.am, gnome-config.[ch], parse-path.cP, gnome-sound.[ch],
+	  gnome-triggersP.h, gnome-triggers.[ch], gnome-i18n.[ch],
+	  gnome-i18nP.h, libgnome.h:  Bring back sane versions of these files.
+	  Will be marked as deprecated where appropriate later after some more
+	  discussion.  In gnome-i18n, don't bring back the broken and
+	  unused crap (preffered language and get_language)
+
+	* gnome-i18nP.h, gnome-exec.c, gnome-init.c, gnome-program.c, 
+	  gnome-url.c, test-libgnome.c: Make translations works once more
+
+	* gnome-util.c: paranoia fix, setuid/setgid programs can't use
+	  getenv ("SHELL") (for obvious reasons).
+
 Thu Aug 23 23:23:42 2001  George Lebl <jirka@5z.com>
 
 	* gnome-exec.c: fix a 64bit issue with a format string (remember

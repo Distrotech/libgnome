@@ -25,6 +25,8 @@
 #  include <config.h>
 #endif
 
+#include "gnome-i18nP.h"
+
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-i18n.h>

@@ -94,8 +94,12 @@ gnome_util_user_shell (void)
 		"/bin/csh", "/bin/sh", 0
 	};
 
-	if ((shell = g_getenv ("SHELL"))){
-		return g_strdup (shell);
+	if (geteuid () == getuid () &&
+	    getegid () == getgid ()) {
+		/* only in non-setuid */
+		if ((shell = g_getenv ("SHELL"))){
+			return g_strdup (shell);
+		}
 	}
 	pw = getpwuid(getuid());
 	if (pw && pw->pw_shell) {

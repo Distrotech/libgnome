@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1997, 1998, 1999, 2000 Free Software Foundation
+ * Copyright (C) 1997, 1998 Elliot Lee
  * All rights reserved.
  *
  * This file is part of the Gnome Library.
@@ -23,27 +23,18 @@
   @NOTATION@
  */
 
-#ifndef LIBGNOME_H
-#define LIBGNOME_H
+#ifndef GNOME_TRIGGERSP_H
+#define GNOME_TRIGGERSP_H 1
 
-#include <libgnome/gnome-program.h>
-#include <libgnome/gnome-i18n.h>
+/* Yes, this mechanism is lame, that's why it's hidden :) */
+typedef struct _GnomeTriggerList GnomeTriggerList;
 
-#include <libgnome/gnome-config.h>
+struct _GnomeTriggerList {
+  char *nodename;
+  GnomeTriggerList **subtrees;
+  GnomeTrigger **actions;
+  gint numsubtrees;
+  gint numactions;
+};
 
-#include <libgnome/gnome-triggers.h>
-#include <libgnome/gnome-sound.h>
-
-#include <libgnome/gnome-exec.h>
-
-#include <libgnome/gnome-util.h>
-#include <libgnome/gnome-url.h>
-
-#include <libgnome/gnome-preferences.h>
-#include <libgnome/gnome-marshal.h>
-
-#include <libgnome/Gnome.h>
-
-#include <libgnome/gnome-init.h>
-
-#endif /* LIBGNOME_H */
+#endif

@@ -37,6 +37,7 @@
 #include <sys/stat.h>
 
 #include <glib.h>
+#include "gnome-i18nP.h"
 
 #include <libgnome/gnome-init.h>
 #include <libgnome/gnome-util.h>
