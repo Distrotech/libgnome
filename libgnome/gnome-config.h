@@ -195,7 +195,7 @@ void *_gnome_config_init_iterator_sections (const char *path, gint priv);
 	(_gnome_config_init_iterator_sections((Path),TRUE))
 
 /* Get next key and value value from a section */
-void *gnome_config_iterator_next (void *s, char **key, char **value);
+void *gnome_config_iterator_next (void *iterator_handle, char **key, char **value);
 
 void gnome_config_drop_all       (void);
 

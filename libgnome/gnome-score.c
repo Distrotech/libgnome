@@ -231,12 +231,16 @@ drop_perms (void)
 
 /*********************** external functions **********************************/
 
-/*
- * gnome_score_init()
- * creates a child process with which we communicate through a pair of pipes,
- * then drops privileges.
- * this should be called as the first statement in main().
- * returns 0 on success, drops privs and returns -1 on failure
+/**
+ * gnome_score_init:
+ * @gamename: Identifies the game name.
+ *
+ * GNOME Games should call this routine as the first statement
+ * in main () if they have been installed setgid to the games() group.
+ * 
+ * Returns: 0 on success, returns -1 on failure.
+ *
+ * group privileges are dropped regardless of the status returned.
  */
 
 gint
@@ -244,6 +248,10 @@ gnome_score_init (const gchar * gamename)
 {
    int inpipe[2], outpipe[2];
    
+   /*
+    *creates a child process with which we communicate through a pair of pipes,
+    * then drops privileges.
+    */
    if (!gamename)
      gamename = "";
    if (!(defgamename = g_strdup (gamename)) ||
@@ -287,6 +295,14 @@ gnome_score_init (const gchar * gamename)
    return 0;
 }
 
+/**
+ * gnome_score_log:
+ * @score: the score achieved by the user in this game
+ * @level: level on which the score was obtained
+ * @higher_to_lower_score_order: biggers is better or not
+ *
+ * Logs a score entry for the user.
+ */
 gint
 gnome_score_log (gfloat score,
 		 gchar * level,
@@ -321,6 +337,19 @@ gnome_score_log (gfloat score,
    return retval;
 }
 
+/**
+ * gnome_score_get_notable:
+ * @gamename:   the name of the game we want to fetch information from.
+ * @level:      the level from which we want to pull information.
+ * @names:      an array of strings is returned at the address pointed here
+ * @scores:     an array of gfloats is returned at the address pointed here
+ * @scoretimes: an array of time_t is returned at the address pointed here
+ *
+ * Fetches the most notable players on @gamename at level @level.
+ *
+ * Returns the number of scores returned.  @names, @scores and @scoretime
+ * point to regions that were allocated with g_malloc() with the contents.
+ */
 gint
 gnome_score_get_notable (gchar * gamename,
 			 gchar * level,

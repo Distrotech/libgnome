@@ -1,4 +1,4 @@
-/*
+u/*
  * Configuration-File Functions.
  *
  *  Copyright 1993, 1994, 1997 The Free Software Foundation
@@ -96,11 +96,13 @@ static TProfile *Current = 0;
  */
 static TProfile *Base = 0;
 
-/* a set handler is a function which is called every time a gnome_config_set_*
-   function is called, this can be used by the app to say guarantee a sync,
-   apps using libgnomeui should not call this, libgnomeui already provides
-   this, this would be for non-gui apps and apps that use a different toolkit
-   then gtk*/
+/*
+ * a set handler is a function which is called every time a gnome_config_set_*
+ * function is called, this can be used by the app to say guarantee a sync,
+ * apps using libgnomeui should not call this, libgnomeui already provides
+ * this, this would be for non-gui apps and apps that use a different toolkit
+ * than gtk.
+ */
 static void (*set_handler)(void *data) = NULL;
 static void *set_handler_data;
 
@@ -579,16 +581,22 @@ dump_profile (TProfile *p)
 		return;
 	dump_profile (p->link);
 	
-	/*was this profile written to?, if not it's not necessary to dump
-	  it to disk*/
-	if(!p->written_to)
-		return;
+	/*
+	 * was this profile written to?, if not it's not necessary to dump
+	 * it to disk
+	 */
+	if (!p->to_be_deleted)
+		if(!p->written_to)
+			return;
 	
 
 	/* .ado: p->filename can be empty, it's better to jump over */
 	if (p->filename[0] != (char) 0) {
-		/*this file was added to after it was cleaned so it doesn't
-		  want to be deleted*/
+
+		/*
+		 * this file was added to after it was cleaned so it doesn't
+		 * want to be deleted
+		 */
 		if(p->to_be_deleted && p->section)
 			p->to_be_deleted = FALSE;
 		if(p->to_be_deleted) {
@@ -613,9 +621,15 @@ dump_profile (TProfile *p)
 	p->written_to = FALSE;
 }
 
-/*
- * Must be called at the end.
-*/
+/**
+ * gnome_config_sync:
+ *
+ * Writes all of the information modified by gnome-config to the
+ * disk.
+ *
+ * Note: the gnome_config code does not write anything to the
+ * configuration files until this routine is actually invoked.
+ */
 void 
 gnome_config_sync (void)
 {
@@ -623,6 +637,24 @@ gnome_config_sync (void)
 	CALL_SYNC_HANDLER();
 }
 
+/**
+ * gnome_config_clean_file: 
+ * @path: A gnome-config path
+ *
+ * Cleans up the configuration file specified by @path from any
+ * configuration information.
+ *
+ * Changes will take place after gnome_config_sync has been invoked.
+ */
+/**
+ * gnome_config_private_clean_file:
+ * @path: A gnome-config path
+ *
+ * Cleans up the private configuration file specified by @path from
+ * any configuration information.
+ *
+ * Changes will take place after gnome_config_sync has been invoked.
+ */
 void 
 _gnome_config_clean_file (const char *path, gint priv)
 {
@@ -662,6 +694,21 @@ _gnome_config_clean_file (const char *path, gint priv)
 	release_path (pp);
 }
 
+/**
+ * gnome_config_drop_file: 
+ * @path: A gnome-config path
+ *
+ * Releases any memory resources that were allocated from accessing
+ * the configuration file in @path.  Changes will take place after
+ * gnome_config_sync has been invoked
+ */
+/**
+ * gnome_config_private_drop_file:
+ * @path: A gnome-config path
+ *
+ * Releases any memory resources that were allocated from accessing the
+ * private configuration file in @path.
+ */
 void 
 _gnome_config_drop_file (const char *path, gint priv)
 {
@@ -703,6 +750,28 @@ _gnome_config_drop_file (const char *path, gint priv)
 	release_path (pp);
 }
 
+/**
+ * gnome_config_init_iterator:
+ * @path: A gnome configuration path for a section.
+ *
+ * Creates an iterator handle that can be used to
+ * iterate over the keys in a section in a gnome configuration
+ * file.  @path must refer to a section.  The returned value
+ * can be used as an iterator for gnome_config_iterator_next().
+ *
+ * Returns the iterator handle.
+ */
+/**
+ * gnome_config_private_init_iterator:
+ * @path: A gnome configuration path for a section.
+ *
+ * Creates an iterator handle that can be used to
+ * iterate over the keys in a section in a private gnome configuration
+ * file.  @path must refer to a section.  The returned value
+ * can be used as an iterator for gnome_config_iterator_next().
+ *
+ * Returns the iterator handle.
+ */
 void *
 _gnome_config_init_iterator (const char *path, gint priv)
 {
@@ -745,6 +814,29 @@ _gnome_config_init_iterator (const char *path, gint priv)
 	return 0;
 }
 
+
+/**
+ * gnome_config_init_iterator_sections:
+ * @path: A gnome configuration path for a file.
+ *
+ * Creates an iterator handle that can be used to iterate over the
+ * sections in a gnome configuration file.  @path must refer to a
+ * gnome configuration file.  The returned value can be used as an
+ * iterator for gnome_config_iterator_next().
+ *
+ * Returns the iterator handle.
+ */
+/**
+ * gnome_config_private_init_iterator_sections:
+ * @path: A gnome configuration path for a file
+ *
+ * Creates an iterator handle that can be used to iterate over the
+ * sections in a private gnome configuration file.  @path must refer to a
+ * gnome configuration file.  The returned value can be used as an
+ * iterator for gnome_config_iterator_next().
+ *
+ * Returns the iterator handle.
+ */
 void *
 _gnome_config_init_iterator_sections (const char *path, gint priv)
 {
@@ -781,10 +873,27 @@ _gnome_config_init_iterator_sections (const char *path, gint priv)
 	return iter;
 }
 
+/**
+ * gnome_config_iterator_next:
+ * @iterator_handle: A gnome configu iterator handle, returned from any
+ *                   iteration start routine or this routine.
+ * @key:   Address where the key gets stored.
+ * @value: Address where the value gets stored.
+ *
+ *
+ * Returns a new iterator handle.
+ *
+ * If @key is non-NULL, then @key will point to a g_malloc()ed region that
+ * holds the key.
+ *
+ * If @value is non-NULL, then @value will point to a g_malloc()ed region that
+ * holds the key.
+ *
+ */
 void *
-gnome_config_iterator_next (void *s, char **key, char **value)
+gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
 {
-	iterator_type *iter = s;
+	iterator_type *iter = iterator_handle;
 
 	if(!s) return NULL; /* g_return_if_fail is not appropriate
 			       since this is not really a failure, but
@@ -820,6 +929,22 @@ gnome_config_iterator_next (void *s, char **key, char **value)
 	}
 }
 
+/**
+ * gnome_config_clean_section:
+ * @path: a gnome configuration path to a section.
+ *
+ * Cleans up the section specified by @path from any
+ * configuration information.  Changes will only take place
+ * after gnome_config has been invoked.
+ */
+/**
+ * gnome_config_private_clean_section:
+ * @path: a gnome configuration path to a section.
+ *
+ * Cleans up the section specified by @path in a private file from any
+ * configuration information.  Changes will only take place after
+ * gnome_config has been invoked.
+ */
 void 
 _gnome_config_clean_section (const char *path, gint priv)
 {
@@ -859,6 +984,23 @@ _gnome_config_clean_section (const char *path, gint priv)
 	release_path (pp);
 }
 
+/**
+ * gnome_config_clean_key:
+ * @path: a gnome configuration path to a key.
+ *
+ * Removes the definition for the key on a gnome configuration file.
+ *
+ * Changes will take place after gnome_config_sync has been invoked.
+ */
+/**
+ * gnome_config_private_clean_key:
+ * @path: a gnome configuration path to a key.
+ *
+ * Removes the definition for the key on a private gnome configuration
+ * file.
+ *
+ * Changes will take place after gnome_config_sync has been invoked.
+ */
 void 
 _gnome_config_clean_key (const char *path, gint priv)
 	/* *section_name, char *file */
@@ -898,6 +1040,24 @@ _gnome_config_clean_key (const char *path, gint priv)
 	release_path (pp);
 }
 
+/**
+ * gnome_config_has_section:
+ * @path: A gnome configuration path to a section
+ *
+ * Queries the gnome configuration file for the presence
+ * of the section specified in @path.
+ *
+ * Returns TRUE if the section exists.  FALSE otherwise.
+ */
+/**
+ * gnome_config_private_has_section:
+ * @path: A gnome configuration path to a section
+ *
+ * Queries the private gnome configuration file for the presence
+ * of the section specified in @path.
+ *
+ * Returns TRUE if the section exists.  FALSE otherwise.
+ */
 gboolean 
 _gnome_config_has_section (const char *path, gint priv)
 	/* char *section_name, char *profile */
@@ -936,6 +1096,13 @@ _gnome_config_has_section (const char *path, gint priv)
 	return 0;
 }
 
+/**
+ * gnome_config_drop_all:
+ *
+ * Drops any information cached in memory that was fetched with
+ * gnome config.  Any pending information that has not been
+ * written to disk is discarded.
+ */
 void 
 gnome_config_drop_all (void)
 {
@@ -992,7 +1159,7 @@ _gnome_config_get_translated_string_with_default (const char *path,
 
 	char *value= NULL;
 
-	language_list= gnome_i18n_get_language_list ("LC_ALL");
+	language_list = gnome_i18n_get_language_list ("LC_ALL");
 
 	while (!value && language_list) {
 		const char *lang= language_list->data;
@@ -1033,7 +1200,7 @@ _gnome_config_get_translated_string_with_default (const char *path,
 				}
 			}
 		}
-		language_list= language_list->next;
+		language_list = language_list->next;
 	}
 
 	return value;
@@ -1155,6 +1322,15 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 	release_path (pp);
 }
 
+/**
+ * gnome_config_set_translated_string:
+ * @path: a gnome configuration path to a key
+ * @value: a string value to set.
+ *
+ * Stores the string value @new_value in the file/section/key defined
+ * by the @path on the proper section for the current language set by
+ * by the user.
+ */
 void
 _gnome_config_set_translated_string (const char *path, const char *value,
 				     gint priv)
@@ -1163,7 +1339,7 @@ _gnome_config_set_translated_string (const char *path, const char *value,
 	const char *lang;
 	char *tkey;
 
-	language_list= gnome_i18n_get_language_list("LC_ALL");
+	language_list = gnome_i18n_get_language_list("LC_ALL");
 
 	lang= language_list ? language_list->data : NULL;
 
@@ -1176,6 +1352,14 @@ _gnome_config_set_translated_string (const char *path, const char *value,
 	CALL_SET_HANDLER();
 }
 
+/**
+ * gnome_config_set_string:
+ * @path: a gnome configuration path to a key
+ * @new_value: a string value to set.
+ *
+ * Stores the string value @new_value in the file/section/key
+ * defined by the @path
+ */
 void
 _gnome_config_set_string (const char *path, const char *new_value, gint priv)
 {
@@ -1189,6 +1373,14 @@ _gnome_config_set_string (const char *path, const char *new_value, gint priv)
 	CALL_SET_HANDLER();
 }
 
+/**
+ * gnome_config_set_int:
+ * @path: a gnome configuration path to a key
+ * @new_value: a int value to set.
+ *
+ * Stores the integer value @new_value in the file/section/key
+ * defined by the @path
+ */
 void
 _gnome_config_set_int (const char *path, int new_value, gint priv)
 {
@@ -1204,6 +1396,14 @@ _gnome_config_set_int (const char *path, int new_value, gint priv)
 	CALL_SET_HANDLER();
 }
 
+/**
+ * gnome_config_set_float:
+ * @path: a gnome configuration path to a key
+ * @new_value: a double value to set.
+ *
+ * Stores the double value @new_value in the file/section/key
+ * defined by the @path
+ */
 void
 _gnome_config_set_float (const char *path, gdouble new_value, gint priv)
 {
@@ -1219,6 +1419,14 @@ _gnome_config_set_float (const char *path, gdouble new_value, gint priv)
 	CALL_SET_HANDLER();
 }
 
+/**
+ * gnome_config_set_bool:
+ * @path: a gnome configuration path to a key
+ * @new_value: a boolean value to set
+ *
+ * Stores boolean value @new_value in the file/section/key defined by
+ * @path.
+ */
 void
 _gnome_config_set_bool (const char *path, gboolean new_value, gint priv)
 {
@@ -1232,6 +1440,16 @@ _gnome_config_set_bool (const char *path, gboolean new_value, gint priv)
 	CALL_SET_HANDLER();
 }
 
+/**
+ * gnome_config_assemble_vector:
+ * @argc: Number of elements in the @argv string array.
+ * @argv: An array of strings.
+ *
+ * This routine returns the the strings in the array contactenated by
+ * spaces.
+ *
+ * Returns: a g_malloc()ed string with the concatenation results.
+ */
 char *
 gnome_config_assemble_vector (int argc, const char *const argv [])
 {
@@ -1239,16 +1457,17 @@ gnome_config_assemble_vector (int argc, const char *const argv [])
 	const char *s;
 	int i, len;
 
-	/* Compute length of quoted string.  We cheat and just use
-	   twice the sum of the lengths of all the strings.  Sigh.  */
+	/*
+	 * Compute length of quoted string.  We cheat and just use
+	 * twice the sum of the lengths of all the strings.  
+	 */
 	len = 1;
-	for (i = 0; i < argc; ++i) {
-		len += 2 * strlen (argv[i]) + 1;
-	}
+	for (i = 0; i < argc; ++i)
+		len += 2 * strlen (argv [i]) + 1 + argc;
 
 	p = value = g_malloc (len);
 	for (i = 0; i < argc; ++i) {
-		for (s = argv[i]; *s; ++s) {
+		for (s = argv [i]; *s; ++s) {
 			if (*s == ' ' || *s == '\\')
 				*p++ = '\\';
 			*p++ = *s;
@@ -1276,12 +1495,30 @@ _gnome_config_set_vector (const char *path, int argc,
 	CALL_SET_HANDLER();
 }
 
+/**
+ * gnome_config_push_prefix:
+ * @path: a gnome configuration path prefix
+ *
+ * @path is a prefix that will be prepended automatically to any
+ * non-absolute configuration path in gnome config.
+ *
+ * This is used to simplify application loading code.
+ *
+ * Library code will usually have to set the prefix before doing
+ * any gnome-configuration access, since the application might
+ * be using their own prefix. 
+ */
 void
 gnome_config_push_prefix (const char *path)
 {
 	prefix_list = g_slist_prepend(prefix_list, g_strdup(path));
 }
 
+/**
+ * gnome_config_pop_prefix:
+ *
+ * Call this routine to stop using the configuration prefix
+ */
 void
 gnome_config_pop_prefix (void)
 {
