@@ -18,6 +18,7 @@ INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) $(SUPPORTINCS) \
 	-DGNOMEBINDIR=\""$(bindir)"\" \
 	-DGNOMELOCALSTATEDIR=\""$(localstatedir)"\" \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
+	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\" \
 	-I$(top_srcdir)/intl -I$(top_builddir)/intl
 
 
@@ -41,6 +42,7 @@ libgnome_la_SOURCES = \
 	gnome-string.c		\
 	gnome-triggers.c	\
 	gnome-util.c		\
+	gnome-paper.c		\
 	gnomelib-init.c         \
 	lib_date.c
 
@@ -66,6 +68,7 @@ libgnomeinclude_HEADERS = \
 	gnome-string.h		\
 	gnome-triggers.h 	\
 	gnome-util.h   		\
+	gnome-paper.h		\
 	lib_date.h		\
 	lib_defs.h		\
 	libgnome.h
@@ -75,6 +78,8 @@ noinst_HEADERS = \
 	libgnomeP.h
 
 EXTRA_DIST = lib_date.README
+
+sysconf_DATA = paper.config
 
 libgnome_la_LDFLAGS = -version-info 30:0:30 -rpath $(libdir)
 libgnome_la_LIBADD = $(GLIB_LIBS) -lm $(DL_LIB)
