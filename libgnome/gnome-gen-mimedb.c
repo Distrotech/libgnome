@@ -1,7 +1,9 @@
+#include <stdio.h>
+
 #define GEN_MIMEDB 1
 #include "gnome-magic.c"
 
-extern GnomeMagicEntry *gnome_magic_parse(const char *filename, int *nents);
+extern GnomeMagicEntry *gnome_magic_parse (const char *filename, int *nents);
 
 int main(int argc, char *argv[])
 {
@@ -10,13 +12,13 @@ int main(int argc, char *argv[])
   int nents;
 
   char *outmem;
-  int fd;
+  FILE *f;
 
   gnomelib_init("gnome-gen-mimedb", VERSION);
 
   if(argc > 1) {
     if(argv[1][0] == '-') {
-      printf("Usage: %s [filename]\n", argv[0]);
+      fprintf(stderr, "Usage: %s [filename]\n", argv[0]);
       return 1;
     } else if(g_file_exists(argv[1]))
       filename = argv[1];
@@ -31,17 +33,25 @@ int main(int argc, char *argv[])
 
   ents = gnome_magic_parse(filename, &nents);
 
-  if(!nents) return 0;
+  if(!nents){
+	  fprintf (stderr, "%s: Error parsing the %s file\n", argv [0], filename);
+	  return 0;
+  }
 
   out_filename = g_copy_strings(filename, ".dat", NULL);
-  fd = open(out_filename, O_RDWR|O_TRUNC|O_CREAT, 0644);
-  if(fd < 0) return 1;
 
-  if(write(fd, ents, nents * sizeof(GnomeMagicEntry))
-     != (nents * sizeof(GnomeMagicEntry)))
+  f = fopen (out_filename, "w");
+  if (f == NULL){
+    fprintf (stderr, "%s: Can not create the output file %s\n", argv [0], out_filename);
     return 1;
+  }
 
-  close(fd);
+  if(fwrite(ents, sizeof(GnomeMagicEntry), nents, f) != nents){
+    fprintf (stderr, "%s: Error while writing the contents of %s\n", argv [0], out_filename);
+    return 1;
+  }
+
+  fclose(f);
 
   return 0;
 }
