@@ -11,7 +11,11 @@ bonobo_extra_moniker_factory (BonoboGenericFactory *this,
 {
         g_return_val_if_fail (object_id != NULL, NULL);
 
-	if (!strcmp (object_id, "OAFIID:Bonobo_Moniker_ConfIndirect")) {
+	if (!strcmp (object_id, "OAFIID:Bonobo_Moniker_Config")) {
+		return BONOBO_OBJECT (bonobo_moniker_simple_new (
+			"config:", bonobo_moniker_config_resolve));
+	}
+	else if (!strcmp (object_id, "OAFIID:Bonobo_Moniker_ConfIndirect")) {
                 return BONOBO_OBJECT (bonobo_moniker_simple_new (
                         "conf_indirect:", bonobo_moniker_conf_indirect_resolve));
 	}

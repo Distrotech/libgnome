@@ -9,6 +9,18 @@
         <oaf_attribute name="name" type="string" _value="Extra Moniker factory"/>
 </oaf_server>
 
+<oaf_server iid="OAFIID:Bonobo_Moniker_Config" type="factory"
+        location="OAFIID:Bonobo_Moniker_extra_Factory">
+        <oaf_attribute name="repo_ids" type="stringv">
+                <item value="IDL:Bonobo/Moniker:1.0"/>
+                <item value="IDL:Bonobo/Unknown:1.0"/>
+        </oaf_attribute>
+        <oaf_attribute name="name" type="string" _value="GConf moniker"/>
+        <oaf_attribute name="bonobo:moniker" type="stringv">
+                <item value="config:"/>
+        </oaf_attribute>
+</oaf_server>
+
 <oaf_server iid="OAFIID:Bonobo_Moniker_ConfIndirect" type="factory"
         location="OAFIID:Bonobo_Moniker_extra_Factory">
         <oaf_attribute name="repo_ids" type="stringv">
