@@ -14,8 +14,13 @@
 #include <sys/stat.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
+#include <libgnome/gnome-mime.h>
 #include <storage-modules/bonobo-stream-fs.h>
 #include <errno.h>
+
+struct _BonoboStreamFSPrivate {
+	gchar *mime_type;
+};
 
 static BonoboStreamClass *bonobo_stream_fs_parent_class;
 
@@ -60,7 +65,7 @@ fs_get_info (BonoboStream                   *stream,
 	si->size = st.st_size;
 	si->type = Bonobo_STORAGE_TYPE_REGULAR;
 	si->name = CORBA_string_dup ("");
-	si->content_type = CORBA_string_dup ("application/octet-stream");
+	si->content_type = CORBA_string_dup (stream_fs->priv->mime_type);
 
 	return si;
 
@@ -289,8 +294,25 @@ fs_destroy (GtkObject *object)
 	
 	if (close (stream_fs->fd)) 
 		g_warning ("Close failed");
-	
 	stream_fs->fd = -1;
+
+	if (stream_fs->path)
+		g_free (stream_fs->path);
+	stream_fs->path = NULL;
+
+	if (stream_fs->priv->mime_type)
+		g_free (stream_fs->priv->mime_type);
+	stream_fs->priv->mime_type = NULL;
+}
+
+static void
+fs_finalize (GtkObject *object)
+{
+	BonoboStreamFS *stream_fs = BONOBO_STREAM_FS (object);
+	
+	if (stream_fs->priv)
+		g_free (stream_fs->priv);
+	stream_fs->priv = NULL;
 }
 
 static void
@@ -313,6 +335,14 @@ bonobo_stream_fs_class_init (BonoboStreamFSClass *klass)
         sclass->revert   = fs_revert;
 
 	oclass->destroy = fs_destroy;
+	oclass->finalize = fs_finalize;
+}
+
+static void
+bonobo_stream_fs_init (BonoboStreamFS *stream_fs)
+{
+	stream_fs->priv = g_new0 (BonoboStreamFSPrivate,1);
+	stream_fs->priv->mime_type = NULL;
 }
 
 /**
@@ -331,7 +361,7 @@ bonobo_stream_fs_get_type (void)
 			sizeof (BonoboStreamFS),
 			sizeof (BonoboStreamFSClass),
 			(GtkClassInitFunc) bonobo_stream_fs_class_init,
-			(GtkObjectInitFunc) NULL,
+			(GtkObjectInitFunc) bonobo_stream_fs_init,
 			NULL, /* reserved 1 */
 			NULL, /* reserved 2 */
 			(GtkClassInitFunc) NULL
@@ -368,7 +398,7 @@ bonobo_stream_fs_construct (BonoboStreamFS *stream,
 }
 
 static BonoboStream *
-bonobo_stream_create (int fd)
+bonobo_stream_create (int fd, const char *path)
 {
 	BonoboStreamFS *stream_fs;
 	Bonobo_Stream corba_stream;
@@ -378,6 +408,7 @@ bonobo_stream_create (int fd)
 		return NULL;
 	
 	stream_fs->fd = fd;
+	stream_fs->priv->mime_type = g_strdup (gnome_mime_type_of_file (path));
 	
 	corba_stream = bonobo_stream_corba_object_create (
 		BONOBO_OBJECT (stream_fs));
@@ -461,7 +492,7 @@ bonobo_stream_fs_open (const char *path, gint flags, gint mode,
 		return NULL;
 	}
 
-	if (!(stream = bonobo_stream_create (fd)))
+	if (!(stream = bonobo_stream_create (fd, path)))
 		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
 				     ex_Bonobo_Storage_IOError, NULL);
 

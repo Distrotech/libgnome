@@ -17,6 +17,7 @@
 #include <errno.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
+#include <libgnome/gnome-mime.h>
 #include <storage-modules/bonobo-storage-fs.h>
 #include <storage-modules/bonobo-stream-fs.h>
 #include <bonobo/bonobo-storage-plugin.h>
@@ -65,8 +66,10 @@ fs_get_info (BonoboStorage *storage,
 	} else {
 		si->type = Bonobo_STORAGE_TYPE_REGULAR;
 		si->content_type = 
-			CORBA_string_dup ("application/octet-stream");
+			CORBA_string_dup (gnome_mime_type_of_file (full));
 	}
+
+	g_free (full);
 
 	return si;
 
@@ -194,7 +197,7 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 	struct stat st;
 	DIR *dir = NULL;
 	gint i, max, v, num_entries = 0;
-	gchar *full;
+	gchar *full = NULL;
 
 	if (mask & ~(Bonobo_FIELD_CONTENT_TYPE | Bonobo_FIELD_SIZE |
 		     Bonobo_FIELD_TYPE)) {
@@ -220,8 +223,10 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 		
 		if ((de->d_name[0] == '.' && de->d_name[1] == '\0') ||
 		    (de->d_name[0] == '.' && de->d_name[1] == '.' 
-		     && de->d_name[2] == '\0'))
+		     && de->d_name[2] == '\0')) {
+			i--;
 			continue; /* Ignore . and .. */
+		}
 
 		buf [i].name = CORBA_string_dup (de->d_name);
 		buf [i].size = 0;
@@ -229,9 +234,8 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 
 		full = g_concat_dir_and_file (storage_fs->path, de->d_name);
 		v = stat (full, &st);
-		g_free (full);
 
-		if (v == -1) 
+		if (v == -1)
 			goto list_contents_except;
 
 		buf [i].size = st.st_size;
@@ -243,8 +247,10 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 		} else { 
 			buf [i].type = Bonobo_STORAGE_TYPE_REGULAR;
 			buf [i].content_type = 
-				CORBA_string_dup ("application/octet-stream");
+				CORBA_string_dup (gnome_mime_type_of_file (full));
 		}
+
+		g_free (full);
 
 		num_entries++;
 	}
@@ -262,6 +268,9 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 
 	if (list) 
 		CORBA_free (list);
+
+	if (full)
+		g_free (full);
 	
 	if (errno == ENOENT) 
 		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
