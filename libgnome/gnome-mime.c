@@ -221,9 +221,7 @@ gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 	if (!filename)
 		return defaultv;
 	ext = strrchr (filename, '.');
-	if (!ext)
-		ext = filename;
-	else
+	if (ext)
 		++ext;
 
 	if (!module_inited)
@@ -232,10 +230,12 @@ gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 	for (priority = 1; priority >= 0; priority--){
 		GList *l;
 		char *res;
-		
-		res = g_hash_table_lookup (mime_extensions [priority], ext);
-		if (res)
-			return res;
+
+		if (ext){
+			res = g_hash_table_lookup (mime_extensions [priority], ext);
+			if (res)
+				return res;
+		}
 
 		for (l = mime_regexs [priority]; l; l = l->next){
 			RegexMimePair *mp = l->data;
