@@ -33,6 +33,8 @@ G_BEGIN_DECLS
 
 #define LIBGNOME_MODULE libgnome_module_info_get()
 const GnomeModuleInfo *libgnome_module_info_get (void) G_GNUC_CONST;
+#define GNOME_BONOBO_MODULE gnome_bonobo_module_info_get()
+const GnomeModuleInfo * gnome_bonobo_module_info_get (void) G_GNUC_CONST;
 
 const char *gnome_user_dir_get (void) G_GNUC_CONST;
 const char *gnome_user_private_dir_get (void) G_GNUC_CONST;

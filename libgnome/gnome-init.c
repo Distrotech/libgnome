@@ -53,8 +53,51 @@
 
 #include <bonobo-activation/bonobo-activation.h>
 #include <bonobo-activation/bonobo-activation-version.h>
+#include <libbonobo.h>
 
 #include <libgnomevfs/gnome-vfs-init.h>
+
+/*****************************************************************************
+ * bonobo
+ *****************************************************************************/
+
+static void
+bonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+	int dumb_argc = 1;
+	char *dumb_argv[] = {NULL};
+
+	dumb_argv[0] = program_invocation_name;
+
+	bonobo_init (&dumb_argc, dumb_argv);
+}
+
+const GnomeModuleInfo *
+gnome_bonobo_module_info_get (void)
+{
+	static GnomeModuleInfo module_info = {
+		"bonobo",
+		/* FIXME: get this from bonobo */"1.101.2",
+		N_("Bonobo Support"),
+		NULL, NULL,
+		NULL, bonobo_post_args_parse,
+		NULL, NULL, NULL
+	};
+
+	if (module_info.requirements == NULL) {
+		static GnomeModuleRequirement req[2];
+
+		req[0].required_version = VERSION;
+		req[0].module_info = LIBGNOME_MODULE;
+
+		req[1].required_version = NULL;
+		req[1].module_info = NULL;
+
+		module_info.requirements = req;
+	}
+
+	return &module_info;
+}
 
 /*****************************************************************************
  * bonobo-activation

@@ -452,7 +452,7 @@ gnome_program_class_init (GnomeProgramClass *class)
     parent_class = g_type_class_peek_parent (class);
 
     quark_set_prop = g_quark_from_static_string ("gnome-program-set-property");
-    quark_get_prop = g_quark_from_static_string ("gnome-program-g-property");
+    quark_get_prop = g_quark_from_static_string ("gnome-program-get-property");
 
     object_class->set_property = gnome_program_set_property;
     object_class->get_property = gnome_program_get_property;
@@ -627,8 +627,15 @@ gnome_program_instance_init (GnomeProgram *program)
     for (i = 0; i < program_modules->len; i++) {
 	GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
-	if (a_module && a_module->instance_init)
+	if (a_module && a_module->instance_init) {
+	    GTimer *timer = g_timer_new ();
+	    g_timer_start (timer);
+	    g_print ("Running class_init for: %s ...", a_module->name); 
 	    a_module->instance_init (program, a_module);
+	    g_timer_stop (timer);
+	    g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
+	    g_timer_destroy (timer);
+	}
     }
 }
 
@@ -795,15 +802,8 @@ gnome_program_install_property (GnomeProgramClass *pclass,
  * If @ret_locations is not %NULL, there is no other return value.  That is
  * this function then always returns %NULL.
  *
- * FIXME!
- *
- *   NOTE: This function is to locate system-wide files, such as files which
- *         have been installed by libgnomeui-2 or another platform library.
- *
- *         Do *NOT* use it to locate files which are installed by your own
- *         application; if you have an application `foo' and you want to
- *         load a pixmap `foo.png' which it installs, define FOOPIXMAPDIR
- *         in your app's Makefile.am and use FOOPIXMAPDIR "/foo.png".
+ * The _APP_ domains are ones for your own application.  However you MUST
+ * set the correct attributes for GnomeProgram for the APP specific prefixes.
  *
  * The @ret_locations list and its contents should be freed by the caller.
  *
@@ -1245,8 +1245,15 @@ gnome_program_preinit (GnomeProgram *program,
 
     /* 3. call the pre-init functions */
     for (i = 0; (a_module = g_ptr_array_index (program_modules, i)); i++) {
-	if (a_module->pre_args_parse)
+	if (a_module->pre_args_parse) {
+	    GTimer *timer = g_timer_new ();
+	    g_timer_start (timer);
+	    g_print ("Running pre_args_parse for: %s ...", a_module->name); 
 	    a_module->pre_args_parse (program, a_module);
+	    g_timer_stop (timer);
+	    g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
+	    g_timer_destroy (timer);
+	}
     }
 
     /* 5. Create a top-level 'struct poptOption *' for use in arg-parsing. */
@@ -1387,8 +1394,15 @@ gnome_program_postinit (GnomeProgram *program)
 
     /* Call post-parse functions */
     for (i = 0; (a_module = g_ptr_array_index(program_modules, i)); i++) {
-	if (a_module->post_args_parse)
+	if (a_module->post_args_parse) {
+	    GTimer *timer = g_timer_new ();
+	    g_timer_start (timer);
+	    g_print ("Running post_args_parse for: %s ...", a_module->name); 
 	    a_module->post_args_parse (program, a_module);
+	    g_timer_stop (timer);
+	    g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
+	    g_timer_destroy (timer);
+	}
     }
 
     /* Free up stuff we don't need to keep around for the lifetime of the app */
@@ -1448,6 +1462,10 @@ gnome_program_initv (GType type,
     GnomeProgram *program;
     GnomeProgramClass *klass;
     int i;
+    GTimer *global_timer = g_timer_new ();
+
+    g_timer_start (global_timer);
+    g_print ("Starting gnome_program_init:\n\n");
 
     g_type_init ();
 
@@ -1499,8 +1517,15 @@ gnome_program_initv (GType type,
 	for (i = 0; i < program_modules->len; i++) {
 	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
-	    if (a_module && a_module->init_pass)
+	    if (a_module && a_module->init_pass) {
+	        GTimer *timer = g_timer_new ();
+	        g_timer_start (timer);
+	        g_print ("Running init_pass for: %s ...", a_module->name); 
 		a_module->init_pass (a_module);
+		g_timer_stop (timer);
+		g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
+		g_timer_destroy (timer);
+	    }
 	}
 
 	/* Order the module list for dependencies */
@@ -1509,8 +1534,15 @@ gnome_program_initv (GType type,
 	for (i = 0; i < program_modules->len; i++) {
 	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
-	    if (a_module && a_module->class_init)
+	    if (a_module && a_module->class_init) {
+	        GTimer *timer = g_timer_new ();
+	        g_timer_start (timer);
+	        g_print ("Running class_init for: %s ...", a_module->name); 
 		a_module->class_init (klass, a_module);
+		g_timer_stop (timer);
+		g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
+		g_timer_destroy (timer);
+	    }
 	}
     } else if ( ! gnome_program_module_registered (module_info)) {
 	/* Register the requested modules. */
@@ -1521,8 +1553,15 @@ gnome_program_initv (GType type,
 	for (i = 0; i < program_modules->len; i++) {
 	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
-	    if (a_module && a_module->init_pass)
+	    if (a_module && a_module->init_pass) {
+	        GTimer *timer = g_timer_new ();
+	        g_timer_start (timer);
+	        g_print ("Running init_pass for: %s ...", a_module->name); 
 		a_module->init_pass (a_module);
+		g_timer_stop (timer);
+		g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
+		g_timer_destroy (timer);
+	    }
 	}
 
 	/* Order the module list for dependencies */
@@ -1532,8 +1571,15 @@ gnome_program_initv (GType type,
 	for (i = 0; i < program_modules->len; i++) {
 	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
-	    if (a_module && a_module->class_init)
+	    if (a_module && a_module->class_init) {
+	        GTimer *timer = g_timer_new ();
+	        g_timer_start (timer);
+	        g_print ("Running class_init for: %s ...", a_module->name); 
 		a_module->class_init (klass, a_module);
+		g_timer_stop (timer);
+		g_print ("done (%f seconds)\n", g_timer_elapsed (timer, NULL));
+		g_timer_destroy (timer);
+	    }
 	}
     }
 
@@ -1550,6 +1596,10 @@ gnome_program_initv (GType type,
     gnome_program_preinit (program, app_id, app_version, argc, argv);
     gnome_program_parse_args (program);
     gnome_program_postinit (program);
+
+    g_timer_stop (global_timer);
+    g_print ("\nGlobal init done in: %f seconds\n\n", g_timer_elapsed (global_timer, NULL));
+    g_timer_destroy (global_timer);
 
     return program;
 }
