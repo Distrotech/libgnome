@@ -1,5 +1,11 @@
 2001-04-13  Martin Baulig  <baulig@suse.de>
 
+	* libgnome-init.c (gnome_oaf_module_info, gnome_gconf_module_info):
+	Provide GnomeModuleInfo structs for OAF and GConf.
+	(libgnome_module_requirements): Depend on OAF and GConf.
+
+2001-04-13  Martin Baulig  <baulig@suse.de>
+
 	* libgnome-2.0.pc.in: Added @LIBGNOME_EXTRA_DEPS@ to the Requires:.
 
 2001-04-12  Martin Baulig  <baulig@suse.de>

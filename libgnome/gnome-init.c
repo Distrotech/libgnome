@@ -40,7 +40,143 @@
 #include <gobject/gobject.h>
 #include <gobject/gvaluetypes.h>
 
+#include <liboaf/liboaf.h>
+
+#define GCONF_ENABLE_INTERNALS 1
+#include <gconf/gconf-client.h>
+extern struct poptOption gconf_options[];
+
 #include <libgnomevfs/gnome-vfs-init.h>
+
+/*****************************************************************************
+ * oaf
+ *****************************************************************************/
+
+static void
+gnome_oaf_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+    oaf_preinit (program, mod_info);
+}
+
+static void
+gnome_oaf_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+    int dumb_argc = 1;
+    char *dumb_argv[] = {NULL};
+
+    oaf_postinit (program, mod_info);
+
+    dumb_argv[0] = program_invocation_name;
+    (void) oaf_orb_init (&dumb_argc, dumb_argv);
+}
+
+GnomeModuleInfo gnome_oaf_module_info = {
+    "gnome-oaf", VERSION, N_("GNOME OAF Support"),
+    NULL,
+    gnome_oaf_pre_args_parse, gnome_oaf_post_args_parse,
+    oaf_popt_options
+};
+
+/*****************************************************************************
+ * gconf
+ *****************************************************************************/
+
+static gchar *
+gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
+{
+        gchar *dir;
+        gchar *key;
+
+        dir = g_strconcat("/apps/gnome-settings/",
+                          gnome_program_get_name(gnome_program_get()),
+                          NULL);
+
+        if (subkey && *subkey) {
+                key = gconf_concat_dir_and_key(dir, subkey);
+                g_free(dir);
+        } else {
+                /* subkey == "" */
+                key = dir;
+        }
+
+        return key;
+}
+
+static gchar * G_GNUC_UNUSED
+gnome_gconf_get_app_settings_relative (const gchar *subkey)
+{
+        gchar *dir;
+        gchar *key;
+
+        dir = g_strconcat("/apps/",
+                          gnome_program_get_name(gnome_program_get()),
+                          NULL);
+
+        if (subkey && *subkey) {
+                key = gconf_concat_dir_and_key(dir, subkey);
+                g_free(dir);
+        } else {
+                /* subkey == "" */
+                key = dir;
+        }
+
+        return key;
+}
+
+static GConfClient* global_client = NULL;
+
+static GConfClient * G_GNUC_UNUSED
+gnome_get_gconf_client (void)
+{
+        g_return_val_if_fail (global_client != NULL, NULL);
+        
+        return global_client;
+}
+
+static void
+gnome_gconf_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+        gconf_preinit(program, mod_info);
+}
+
+static void
+gnome_gconf_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+{
+        gchar *settings_dir;
+
+        gconf_postinit(program, mod_info);
+
+        global_client = gconf_client_get_default();
+
+        gconf_client_add_dir(global_client,
+                             "/desktop/gnome",
+                             GCONF_CLIENT_PRELOAD_NONE, NULL);
+
+        settings_dir = gnome_gconf_get_gnome_libs_settings_relative("");
+
+        gconf_client_add_dir(global_client,
+                             settings_dir,
+                             /* Possibly we should turn preload on for this */
+                             GCONF_CLIENT_PRELOAD_NONE,
+                             NULL);
+        g_free(settings_dir);
+}
+
+static GnomeModuleRequirement gnome_gconf_requirements[] = {
+        { VERSION, &gnome_oaf_module_info },
+        { NULL, NULL }
+};
+
+GnomeModuleInfo gnome_gconf_module_info = {
+        "gnome-gconf", VERSION, N_("GNOME GConf Support"),
+        gnome_gconf_requirements,
+        gnome_gconf_pre_args_parse, gnome_gconf_post_args_parse,
+        gconf_options
+};
+
+/*****************************************************************************
+ * libgnome
+ *****************************************************************************/
 
 char *gnome_user_dir = NULL, *gnome_user_private_dir = NULL, *gnome_user_accels_dir = NULL;
 
@@ -63,7 +199,7 @@ static struct poptOption gnomelib_options[] = {
 	{ NULL, '\0', 0, NULL, 0 }
 };
 
-static GnomeModuleInfo gnome_vfs_module_info = {
+GnomeModuleInfo gnome_vfs_module_info = {
     "gnome-vfs", GNOMEVFSVERSION, "GNOME Virtual Filesystem",
     NULL,
     (GnomeModuleHook) gnome_vfs_preinit, (GnomeModuleHook) gnome_vfs_postinit,
@@ -192,5 +328,3 @@ libgnome_userdir_setup (gboolean create_dirs)
       }
   }
 }
-
-
