@@ -66,6 +66,11 @@ libgnome_headers = \
 	gnome-init.h		\
 	libgnome.h
 
+$(libgnome_2_la_OBJECTS):	  \
+	$(srcdir)/gnome-marshal.h \
+	$(srcdir)/gnome-marshal.c \
+	$(srcdir)/libgnometypebuiltins.c
+
 libgnomeinclude_HEADERS = \
 	libgnometypebuiltins.h	\
 	$(libgnome_headers)
