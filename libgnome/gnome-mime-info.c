@@ -446,7 +446,7 @@ gnome_mime_init ()
 	specific_types = g_hash_table_new (g_str_hash, g_str_equal);
 	generic_types  = g_hash_table_new (g_str_hash, g_str_equal);
 
-	current_lang = gnome_i18n_get_language_list ("LC_ALL");
+	current_lang = gnome_i18n_get_language_list ("LC_MESSAGES");
 	if(current_lang)
 		current_lang = g_list_reverse(current_lang);
 

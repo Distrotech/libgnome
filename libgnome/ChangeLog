@@ -1,3 +1,12 @@
+Sat Jan 01 18:45:26 2000  George Lebl <jirka@5z.com>
+
+	* gnome-config.c,gnome-help.c,gnome-mime-info.c: Use LC_MESSAGES
+	  instead of LC_ALL to get the language to use for translating
+	  messages.  LC_ALL is used as well inside gnome-i18n anyway
+	  and messages need to use LC_MESSAGES if it's set
+
+	* gnome-help.c: s/g_fee/g_free/ in the inline docs for two functions
+
 1999-12-23  Havoc Pennington  <hp@redhat.com>
 
 	* gnomelib-init.c (libgnome_userdir_setup): Clean up this

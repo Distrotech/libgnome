@@ -1463,7 +1463,7 @@ _gnome_config_get_translated_string_with_default (const char *path,
 
 	char *value= NULL;
 
-	language_list = gnome_i18n_get_language_list ("LC_ALL");
+	language_list = gnome_i18n_get_language_list ("LC_MESSAGES");
 
 	while (!value && language_list) {
 		const char *lang= language_list->data;
@@ -1791,7 +1791,7 @@ _gnome_config_set_translated_string (const char *path, const char *value,
 	const char *lang;
 	char *tkey;
 
-	language_list = gnome_i18n_get_language_list("LC_ALL");
+	language_list = gnome_i18n_get_language_list("LC_MESSAGES");
 
 	lang= language_list ? language_list->data : NULL;
 
