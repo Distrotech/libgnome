@@ -695,7 +695,7 @@ check_path(char *path, mode_t newmode)
 		p++;
 
 	cur = p;
-	newpath = g_string_new("");
+	newpath = g_string_new(NULL);
 	while ((p = cur)) {
 	       	cur = strchr (cur, '/');
 		if (cur) {
