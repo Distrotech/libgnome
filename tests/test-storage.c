@@ -1,7 +1,7 @@
 #include <config.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <bonobo/libbonobo.h>
+#include <libbonobo.h>
 #include <bonobo/bonobo-i18n.h>
 
 #define TESTSIZE (1024*1)
