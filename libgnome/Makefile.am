@@ -136,14 +136,13 @@ $(srcdir)/libgnometypebuiltins.h: @REBUILD@ Makefile.am $(libgnome_headers)
 	&& cp xgen-gth $(@F) \
 	&& rm -f xgen-gth
 
-$(srcdir)/stamp-gnome-marshal.h: gnome-marshal.list
+$(srcdir)/gnome-marshal.h: @REBUILD@ Makefile.am gnome-marshal.list
 	cd $(srcdir) \
 	&& glib-genmarshal --prefix=gnome_marshal gnome-marshal.list --header >> xgen-gmh \
 	&& (cmp -s xgen-gmh gnome-marshal.h || cp xgen-gmh gnome-marshal.h) \
-	&& rm -f xgen-gmh xgen-gmh~ \
-	&& echo timestamp > $(@F)
+	&& rm -f xgen-gmh xgen-gmh~
 
-$(srcdir)/gnome-marshal.h $(srcdir)/gnome-marshal.c: stamp-gnome-marshal.h
+$(srcdir)/gnome-marshal.c: @REBUILD@ Makefile.am gnome-marshal.list
 	cd $(srcdir) \
 	&& glib-genmarshal --prefix=gnome_marshal gnome-marshal.list --body >> xgen-gmc \
 	&& cp xgen-gmc gnome-marshal.c \
@@ -151,7 +150,8 @@ $(srcdir)/gnome-marshal.h $(srcdir)/gnome-marshal.c: stamp-gnome-marshal.h
 
 EXTRA_DIST = \
 	libgnome-2.0.pc.in		\
-	gnome-marshal.list
+	gnome-marshal.list		\
+	gnome-marshal.c
 
 BUILT_SOURCES = \
 	libgnometypebuiltins.h		\
