@@ -43,8 +43,7 @@ bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
 			return CORBA_OBJECT_NIL;
 		}
 
-		return CORBA_Object_duplicate (
-			bonobo_object_corba_objref (BONOBO_OBJECT (stream)), ev);
+		return CORBA_Object_duplicate (BONOBO_OBJREF (stream), ev);
 
 	} else if (!strcmp (requested_interface, "IDL:Bonobo/Storage:1.0")) {
 		BonoboStorage *storage;
@@ -59,8 +58,7 @@ bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
 			return CORBA_OBJECT_NIL;
 		}
 
-		return CORBA_Object_duplicate (
-			bonobo_object_corba_objref (BONOBO_OBJECT (storage)), ev);
+		return CORBA_Object_duplicate (BONOBO_OBJREF (storage), ev);
 	}
 
 	retval = bonobo_moniker_use_extender (
