@@ -280,15 +280,20 @@ static GNOME_Stream
 create_gnome_stream_fs (GnomeObject *object)
 {
 	POA_GNOME_Stream *servant;
+	CORBA_Environment ev;
 
 	servant = (POA_GNOME_Stream *) g_new0 (GnomeObjectServant, 1);
 	servant->vepv = &gnome_stream_vepv;
-	POA_GNOME_Stream__init ((PortableServer_Servant) servant, &object->ev);
-	if (object->ev._major != CORBA_NO_EXCEPTION){
+
+	CORBA_exception_init (&ev);
+	POA_GNOME_Stream__init ((PortableServer_Servant) servant, &ev);
+	if (ev._major != CORBA_NO_EXCEPTION){
                 g_free (servant);
+		CORBA_exception_free (&ev);
                 return CORBA_OBJECT_NIL;
         }
 
+	CORBA_exception_free (&ev);
 	return (GNOME_Stream) gnome_object_activate_servant (object, servant);
 }
 

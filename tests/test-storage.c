@@ -8,7 +8,7 @@
 CORBA_Environment ev;
 CORBA_ORB orb;
 
-void
+int
 main (int argc, char *argv [])
 {
 	GnomeStorage *storage;
@@ -95,4 +95,6 @@ main (int argc, char *argv [])
 	}
     
 	CORBA_exception_free (&ev);
+
+	return 0;
 }
