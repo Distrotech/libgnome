@@ -20,10 +20,14 @@ typedef struct _GnomeStorageFS GnomeStorageFS;
 #define GNOME_IS_STREAM_FS(o)       (GTK_CHECK_TYPE ((o), GNOME_STREAM_FS_TYPE))
 #define GNOME_IS_STREAM_FS_CLASS(k) (GTK_CHECK_CLASS_TYPE ((k), GNOME_STREAM_FS_TYPE))
 
+typedef struct _GnomeStreamFSPrivate GnomeStreamFSPrivate;
+
 struct _GnomeStreamFS {
 	GnomeStream stream;
 	int fd;
 	char *path;
+
+	GnomeStreamFSPrivate *priv;
 };
 
 typedef struct {
