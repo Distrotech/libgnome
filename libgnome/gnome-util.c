@@ -49,6 +49,7 @@
 #include <sys/stat.h>
 #include <pwd.h>
 #include <limits.h>
+#include "libgnomeP.h"
 #include "gnome-portability.h"
 #include "gnome-defs.h"
 #include "gnome-util.h"

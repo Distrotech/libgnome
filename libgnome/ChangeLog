@@ -1,6 +1,7 @@
 2001-04-11  Martin Baulig  <baulig@suse.de>
 
-	* gnome-util.h (g_is_image_filename): Removed function prototype.
+	* gnome-util.h (PATH_SEP, PATH_SEP_STR): Moved to libgnomeP.h.
+	(g_is_image_filename): Removed function prototype.
 
 	* gnome-util.h (g_file_exists): Removed; use g_file_test() instead.
 

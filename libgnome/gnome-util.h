@@ -34,9 +34,6 @@
 
 BEGIN_GNOME_DECLS
 
-#define PATH_SEP '/'
-#define PATH_SEP_STR "/"
-
 #define gnome_libdir_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_LIBDIR, (filename), TRUE, NULL)
 #define gnome_datadir_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_DATADIR, (filename), TRUE, NULL)
 #define gnome_sound_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_SOUND, (filename), TRUE, NULL)
@@ -78,9 +75,6 @@ char ** g_copy_vector    (const char ** vec);
 
 /* Find the name of the user's shell.  */
 char *gnome_util_user_shell (void);
-
-/* Return TRUE if the filename looks like an image file */
-gboolean g_is_image_filename(const char * path);
 
 END_GNOME_DECLS
 

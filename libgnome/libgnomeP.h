@@ -31,4 +31,7 @@
 #include "libgnome/gnome-i18nP.h"
 #include "libgnome/libgnome.h"
 
+#define PATH_SEP '/'
+#define PATH_SEP_STR "/"
+
 #endif /* LIBGNOMEP_H */
