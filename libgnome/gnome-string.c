@@ -53,37 +53,66 @@ gchar **gnome_string_split(gchar *string, gchar *delim, gint max_tokens)
 }
 
 gchar *
-gnome_string_join(gchar *separator, ...)
+gnome_string_join(gchar *separator, gchar *first, ...)
 {
 	va_list l;
-	va_start(l, separator);
-	/* Elliot: this can not be done like this: */
-	return gnome_string_joinv(separator, l);
+	gint nstrings, i;
+	gchar **strings;
+	gchar *retval;
+	
+	/* Count number of strings */
+
+	va_start(l, first);
+	for (nstrings = 0; va_arg(l, gchar *); nstrings++);
+	va_end(l);
+
+	/* Build list */
+
+	strings = g_new(gchar *, nstrings);
+
+	va_start(l, first);
+
+	for (i = 0; i < nstrings; i++)
+		strings[i] = va_arg(l, gchar *);
+
+	va_end(l);
+
+	/* And pass them to the real function */
+
+	retval = gnome_string_joinv(separator, strings);
+	g_free(strings);
+
+	return retval;
 }
 
 gchar *
 gnome_string_joinv(gchar *separator, gchar **strings)
 {
 	gchar *retval;
-	gint total_size, i, seplen;
+	gint nstrings;
+	gint len;
+	gint i;
 
 	g_return_val_if_fail(separator != NULL, NULL);
 	g_return_val_if_fail(strings != NULL, NULL);
 
-	/* While it's not an error to have no strings to join, it
-	   still needs to be handled differently */
-	if(!strings[0])
-		return g_strdup("");
+	/* Count number of strings and their accumulated length */
+	
+	len = 1; /* start with space for null char */
+	
+	for (nstrings = 0; strings[nstrings]; nstrings++)
+		len += strlen(strings[nstrings]);
 
-	total_size = strlen(strings[0]) + 1;
-	retval = g_malloc(total_size);
+	if (nstrings == 0)
+		return g_strdup(""); /* No strings means we return an empty string */
+
+	len += strlen(separator) * (nstrings - 1);
+
+	retval = g_malloc(len * sizeof(gchar));
+
 	strcpy(retval, strings[0]);
-	seplen = strlen(separator);
 
-	for(i = 1; strings[i]; i++)
-	{
-		total_size += seplen + strlen(strings[i]);
-		retval = g_realloc(retval, total_size);
+	for (i = 1; i < nstrings; i++) {
 		strcat(retval, separator);
 		strcat(retval, strings[i]);
 	}
