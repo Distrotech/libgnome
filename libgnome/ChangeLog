@@ -1,3 +1,22 @@
+2001-05-31  Martin Baulig  <baulig@suse.de>
+
+	* gnome-selector.c: Implemented the new CORBA API.
+
+	* gnome-selector.h (GnomeSelectorClass): Renamed "clear" to "clear_uri_list",
+	added "scan_directory" and added `gboolean directory_ok' to "check_uri".
+	(gnome_selector_scan_uri, gnome_selector_set_directory_filter): New functions.
+
+	* gnome-async-context.c
+	(GnomeAsyncFunc): Added `gboolean completed' and `const BonoboArg *result'.
+	(gnome_async_context_get_handle_by_id): New function.
+	(gnome_async_handle_set_result): New function.
+	(gnome_async_handle_call_async_func): New function.
+	(gnome_async_handle_get_id): New function.
+
+	* gnome-file-selector.[ch]: Derive from GnomeDirectoryFilter.
+
+	* gnome-selector-dialog.[ch]: Removed.
+
 2001-05-25  Martin Baulig  <baulig@suse.de>
 
 	* gnome-selector.[ch]: Merged `check_filename' and `check_directory'

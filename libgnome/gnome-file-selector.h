@@ -33,7 +33,7 @@
 #define GNOME_FILE_SELECTOR_H
 
 
-#include <libgnome/gnome-selector.h>
+#include <libgnome/gnome-directory-filter.h>
 
 #include <libgnomevfs/gnome-vfs-types.h>
 #include <libgnomevfs/gnome-vfs-directory-filter.h>
@@ -54,14 +54,14 @@ typedef struct _GnomeFileSelectorPrivate  GnomeFileSelectorPrivate;
 typedef struct _GnomeFileSelectorClass    GnomeFileSelectorClass;
 
 struct _GnomeFileSelector {
-    GnomeSelector selector;
+    GnomeDirectoryFilter filter;
         
     /*< private >*/
     GnomeFileSelectorPrivate *_priv;
 };
 
 struct _GnomeFileSelectorClass {
-    GnomeSelectorClass parent_class;
+    GnomeDirectoryFilterClass parent_class;
 };
 
 

@@ -60,6 +60,7 @@ struct _GnomeDirectoryFilterClass {
 
     void     (*check_uri)             (GnomeDirectoryFilter     *filter,
                                        const gchar              *uri,
+				       gboolean                  directory_ok,
                                        GnomeAsyncHandle         *async_handle);
 
     void     (*scan_directory)        (GnomeDirectoryFilter     *filter,
