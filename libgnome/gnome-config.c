@@ -1207,4 +1207,49 @@ gnome_config_set_vector(const char *path, int argc, const char * const argv[])
 	_gnome_config_set_vector (path, argc, argv, FALSE);
 }
 
+#undef gnome_config_clean_key
+#undef gnome_config_clean_section
+#undef gnome_config_clean_file
+#undef gnome_config_has_section
+#undef gnome_config_init_iterator
+#undef gnome_config_init_iterator_sections
+
+void
+gnome_config_clean_key(const char *path)
+{
+	_gnome_config_clean_key(path,FALSE);
+}
+
+void
+gnome_config_clean_section(const char *path)
+{
+	_gnome_config_clean_section(path,FALSE);
+}
+
+void
+gnome_config_clean_file(const char *path)
+{
+	_gnome_config_clean_file(path,FALSE);
+}
+
+gboolean
+gnome_config_has_section(const char *path)
+{
+	_gnome_config_has_section(path,FALSE);
+}
+
+
+void *
+gnome_config_init_iterator(const char *path)
+{
+	_gnome_config_init_iterator(path,FALSE);
+}
+
+
+void *
+gnome_config_init_iterator_sections(const char *path)
+{
+	_gnome_config_init_iterator_sections(path,FALSE);
+}
+
 #endif
