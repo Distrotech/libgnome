@@ -1,3 +1,13 @@
+Fri Aug 27 15:40:57 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-dentry.[ch]: add functions for getting the i18n lists,
+	  and implement it using g_dataset instead of hash_table
+
+	* gnome-dentry.c: don't just concatenate the argument list when
+	  launching with argument list, but add quotes around each
+	  argument, and escape quotes inside arguments, and then
+	  concatenate with spaces
+
 Fri Aug 27 10:29:27 1999  George Lebl  <jirka@5z.com>
 
 	* gnome-dentry.[ch]: added a structure for translations of
