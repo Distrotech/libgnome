@@ -759,6 +759,14 @@ gnome_program_install_property (GnomeProgramClass *pclass,
  * "domain". A domain is a name for a collection of related files.
  * For example, common domains are "libdir", "pixmap", and "config".
  *
+ *   NOTE: This function is to locate system-wide files, such as files which
+ *         have been installed by libgnomeui-2 or another platform library.
+ *
+ *         Do *NOT* use it to locate files which are installed by your own
+ *         application; if you have an application `foo' and you want to
+ *         load a pixmap `foo.png' which it installs, define FOOPIXMAPDIR
+ *         in your app's Makefile.am and use FOOPIXMAPDIR "/foo.png".
+ *
  * The ret_locations list and its contents should be freed by the caller.
  *
  * Returns: The full path to the file (if it exists or only_if_exists is
