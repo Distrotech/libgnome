@@ -1,3 +1,17 @@
+2002-11-03  Havoc Pennington  <hp@pobox.com>
+
+	* libgnome/parse-path.cP (parse_path): don't hardcode
+	GNOME_DOT_GNOME, use gnome_user_dir_get() and
+	gnome_user_private_dir_get()
+
+	* libgnome/gnome-init.c (libgnome_userdir_setup): allow overriding
+	gnome_user_dir via environment variable GNOME22_USER_DIR, this 
+	allows people to install multiple GNOME versions and isolate the 
+	configuration of each one.
+
+	* libgnome/gnome-init.h: add comment about how GNOME_DOT_GNOME and
+	GNOME_DOT_GNOME_PRIVATE macros should not be used
+
 2002-11-08  Malcolm Tredinnick <malcolm@commsecure.com.au>
 
 	* doc/reference/libgnome-sections.txt,

@@ -31,7 +31,11 @@
 
 G_BEGIN_DECLS
 
-/* This is where the user specific files are stored under $HOME */
+/* This is where the user specific files are stored under $HOME
+ * (do not use these macros; use gnome_user_dir_get(); it's possible
+ * to override .gnome2 via environment variable and this is
+ * an important feature for environments that mix GNOME versions)
+ */
 #define GNOME_DOT_GNOME		".gnome2/"
 #define GNOME_DOT_GNOME_PRIVATE	".gnome2_private/"
 

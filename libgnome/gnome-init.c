@@ -265,9 +265,33 @@ static void
 libgnome_userdir_setup (gboolean create_dirs)
 {
 	if(!gnome_user_dir) {
-		gnome_user_dir = g_build_filename (g_get_home_dir(), GNOME_DOT_GNOME, NULL);
-		gnome_user_private_dir = g_build_filename (g_get_home_dir(),
-							   GNOME_DOT_GNOME_PRIVATE, NULL);
+                const char *override;
+
+                /* FIXME this env variable should be changed
+                 * for each major GNOME release, would be easier to
+                 * remember if not hardcoded.
+                 */
+                override = g_getenv ("GNOME22_USER_DIR");
+                
+                if (override != NULL) {
+                        int len;
+
+                        gnome_user_dir = g_strdup (override);
+
+                        /* chop trailing slash */
+                        len = strlen (gnome_user_dir);
+                        if (len > 1 && gnome_user_dir[len-1] == '/')
+                                gnome_user_dir[len - 1] = '\0';
+                        
+                        gnome_user_private_dir = g_strconcat (gnome_user_dir,
+                                                              "_private",
+                                                              NULL);
+                } else {
+                        gnome_user_dir = g_build_filename (g_get_home_dir(), GNOME_DOT_GNOME, NULL);
+                        gnome_user_private_dir = g_build_filename (g_get_home_dir(),
+                                                                   GNOME_DOT_GNOME_PRIVATE, NULL);
+                }
+                
 		gnome_user_accels_dir = g_build_filename (gnome_user_dir,
 							  "accels", NULL);
 	}
