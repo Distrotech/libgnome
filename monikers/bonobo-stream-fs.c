@@ -88,11 +88,52 @@ static void
 fs_copy_to  (GnomeStream *stream,
 	     const CORBA_char *dest,
 	     const CORBA_long bytes,
-	     CORBA_long *read,
-	     CORBA_long *written,
+	     CORBA_long *read_bytes,
+	     CORBA_long *written_bytes,
 	     CORBA_Environment *ev)
 {
-	g_warning ("Implement me");
+	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	CORBA_octet *data;
+  CORBA_unsigned_long more = bytes;
+	int v, w;
+  int fd_out;
+
+#define READ_CHUNK_SIZE 65536
+
+	data = CORBA_sequence_CORBA_octet_allocbuf (READ_CHUNK_SIZE);
+
+  *read_bytes = 0;
+  *written_bytes = 0;
+
+  fd_out = creat(dest, 0666);
+  if(fd_out == -1)
+    return;
+
+  do {
+    do {
+      v = read (sfs->fd, data, MIN(READ_CHUNK_SIZE, more));
+    } while (v == -1 && errno == EINTR);
+
+    if (v != -1) {
+      *read_bytes += v;
+      more -= v;
+      do {
+        w = write (fd_out, data, v);
+      } while (w == -1 && errno == EINTR);
+      if (w != -1)
+        *written_bytes += w;
+      else if(errno != EINTR) {
+        /* should probably do something to signal an error here */
+        break;
+      }
+    }
+    else if(errno != EINTR) {
+      /* should probably do something to signal an error here */
+      break;
+    }
+  } while(more > 0 && v > 0);
+
+  close(fd_out);
 }
 
 static void
@@ -215,31 +256,28 @@ gnome_stream_fs_open (GnomeStorageFS *parent, const CORBA_char *path, GNOME_Stor
 	
 	v = stat (full, &s);
 
-	if (mode == GNOME_Storage_READ){
-		if (v == -1){
-			g_free (full);
-			return NULL;
-		}
+  if (v == -1){
+    g_free (full);
+    return NULL;
+  }
 
+	if (mode == GNOME_Storage_READ){
 		fd = open (full, O_RDONLY);
 		if (fd == -1){
 			g_free (full);
 			return NULL;
 		}
 	} else if (mode == GNOME_Storage_WRITE){
-		if (v == -1){
-			g_free (full);
-			return NULL;
-		}
-
 		fd = open (full, O_RDWR);
 		if (fd == -1){
 			g_free (full);
 			return NULL;
 		}
-	} else
+	} else {
+    g_free(full);
 		return NULL;
-	
+	}
+
 	g_free (full);
 
 	return gnome_stream_create (parent, fd);
