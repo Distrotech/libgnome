@@ -274,7 +274,7 @@ gnome_mime_type_or_default_of_file (char *existing_filename, gchar *defaultv)
 {
 	char *mime_type;
 
-	mime_type = gnome_mime_type_from_magic (filename);
+	mime_type = gnome_mime_type_from_magic (existing_filename);
 	if (mime_type)
 		return mime_type;
 	
@@ -296,7 +296,7 @@ gnome_mime_type_of_file (char *existing_filename)
 {
 	char *mime_type;
 
-	mime_type = gnome_mime_type_from_magic (filename);
+	mime_type = gnome_mime_type_from_magic (existing_filename);
 	if (mime_type)
 		return mime_type;
 
