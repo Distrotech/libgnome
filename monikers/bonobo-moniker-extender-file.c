@@ -1,38 +1,29 @@
 /*
- * gnome-moniker-extender-file.c: 
+ * bonobo-moniker-extender-file.c: 
  *
  * Author:
- *	Dietmar Maurer (dietmar@maurer-it.com)
+ *	Dietmar Maurer (dietmar@helixcode.com)
  *
  * Copyright 2000, Helix Code, Inc.
  */
 #include <config.h>
-#include <stdlib.h>
-  
-#include <glib.h>
-#include <libgnome/gnome-defs.h>
-#include <libgnome/gnome-i18n.h>
-#include <libgnomeui/gnome-init.h>
-#include <gtk/gtk.h>
-
-#include <bonobo/bonobo-object.h>
-#include <bonobo/bonobo-shlib-factory.h>
-#include <bonobo/bonobo-main.h>
-#include <bonobo/bonobo-stream.h>
+#include <bonobo/bonobo-storage.h>
 #include <bonobo/bonobo-exception.h>
 #include <bonobo/bonobo-moniker.h>
-#include <bonobo/bonobo-moniker-util.h>
 #include <bonobo/bonobo-moniker-extender.h>
+#include <bonobo/bonobo-moniker-util.h>
 #include <libgnome/gnome-mime.h>
 #include <liboaf/liboaf.h>
 
-static Bonobo_Unknown
-file_extender_resolve (BonoboMonikerExtender *extender,
-		       const Bonobo_Moniker   m,
-		       const Bonobo_ResolveOptions *options,
-		       const CORBA_char      *display_name,
-		       const CORBA_char      *requested_interface,
-		       CORBA_Environment     *ev)
+#include "bonobo-moniker-std.h"
+
+Bonobo_Unknown
+bonobo_file_extender_resolve (BonoboMonikerExtender *extender,
+			      const Bonobo_Moniker   m,
+			      const Bonobo_ResolveOptions *options,
+			      const CORBA_char      *display_name,
+			      const CORBA_char      *requested_interface,
+			      CORBA_Environment     *ev)
 {
 	const char      *mime_type;
 	char            *oaf_requirements;
@@ -79,45 +70,6 @@ file_extender_resolve (BonoboMonikerExtender *extender,
 		return bonobo_moniker_util_qi_return (
 			object, requested_interface, ev);
 	}
+	
+	return CORBA_OBJECT_NIL;
 }
-
-static BonoboObject *
-file_extender_factory (BonoboGenericFactory *this,
-		       void                 *data)
-{
-	return BONOBO_OBJECT (
-		bonobo_moniker_extender_new (
-			file_extender_resolve, NULL));
-}
-
-static CORBA_Object
-make_file_extender_factory (PortableServer_POA poa,
-			    const char        *iid,
-			    gpointer           impl_ptr,
-			    CORBA_Environment *ev)
-{
-	BonoboShlibFactory *extender_factory;
-
-	extender_factory = bonobo_shlib_factory_new (
-		"OAFIID:Bonobo_MonikerExtender_fileFactory",
-		poa, impl_ptr, file_extender_factory, NULL);	
-
-        return bonobo_object_corba_objref (
-		BONOBO_OBJECT (extender_factory));
-}
-
-static const OAFPluginObject file_extender_plugin_list[] = {
-        {
-                "OAFIID:Bonobo_MonikerExtender_fileFactory",
-                make_file_extender_factory
-        },
-        {
-                NULL
-  	}
-};
-
-const OAFPlugin OAF_Plugin_info = {
-        file_extender_plugin_list,
-        "bonobo file moniker extender"
-};
-
