@@ -846,7 +846,7 @@ gnome_config_get_vector_with_default (const char *path, int *argcp,
 			strncpy (tmp, last, p - last);
 			tmp[p - last] = '\0';
 		        (*argvp)[count++] = tmp;
-			last = p;
+			last = p + 1;
 		}
 	}
 
