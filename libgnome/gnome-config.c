@@ -128,7 +128,7 @@ parse_path (const char *path)
 		p->def     = NULL;
 		p->section = NULL;
 		p->key     = NULL;
-		if (end = strchr (p->path, '=')){
+		if ((end = strchr (p->path, '='))) {
 			*end = 0;
 			p->def = end + 1;
 		} else 

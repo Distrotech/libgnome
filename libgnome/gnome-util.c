@@ -151,19 +151,7 @@ char *
 g_unix_error_string (int error_num)
 {
 	static char buffer [256];
-	char *error_msg;
-	
-#ifdef HAVE_STRERROR
-	error_msg = strerror (error_num);
-#else
-	extern int sys_nerr;
-	extern char *sys_errlist [];
-	if ((0 <= error_num) && (error_num < sys_nerr))
-		error_msg = sys_errlist[error_num];
-	else
-		error_msg = "strange errno";
-#endif /* HAVE_STRERROR */
-	sprintf (buffer, "%s (%d)", error_msg, error_num);
+	sprintf (buffer, "%s (%d)", g_strerror (error_num), error_num);
 	return buffer;
 }
 

@@ -20,6 +20,7 @@
 #include <grp.h>
 #include <errno.h>
 #include <locale.h>
+#include <glib.h>
 
 #ifndef GNOME_SCORE_C
 #include "gnome-defs.h"
@@ -57,6 +58,7 @@ gnome_get_score_file_name(gchar *progname, gchar *level)
 static gchar *
 gnome_get_program_name(gint pid)
 {
+#ifdef __linux__
   FILE *infile;
   gchar buf [128], *str, *tmp;
   gint  i, v;
@@ -64,7 +66,7 @@ gnome_get_program_name(gint pid)
   ino_t procino, realino;
   dev_t procdev, realdev;
 
-  snprintf(buf, sizeof(buf), "/proc/%d/cmdline", pid);
+  g_snprintf(buf, sizeof(buf), "/proc/%d/cmdline", pid);
   infile = fopen(buf, "r");
 	
   if(infile){
@@ -92,7 +94,7 @@ gnome_get_program_name(gint pid)
   realino = sbuf.st_ino;
   realdev = sbuf.st_dev;
 	
-  snprintf(buf, sizeof(buf), "/proc/%d/exe", pid);
+  g_snprintf(buf, sizeof(buf), "/proc/%d/exe", pid);
   if(stat(buf, &sbuf)){
     g_free(tmp);
     return NULL;
@@ -105,6 +107,10 @@ gnome_get_program_name(gint pid)
     return NULL;
   } else
     return tmp;
+#else
+  g_warning("gnome_get_program_name: this function is not yet implemented for non-linux systems!");
+  return NULL;
+#endif
 }
 
 #ifndef GNOME_SCORE_C

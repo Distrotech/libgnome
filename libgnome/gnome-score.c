@@ -24,8 +24,8 @@ gnome_score_log(gfloat score,
   if(childpid == 0)
     {
       /* We are the child */
-      snprintf(buf, sizeof(buf), "%f", score);
-      snprintf(buf2, sizeof(buf2), "%d", higher_to_lower_score_order);
+      g_snprintf(buf, sizeof(buf), "%f", score);
+      g_snprintf(buf2, sizeof(buf2), "%d", higher_to_lower_score_order);
       execlp("gnome-score-helper", "gnome-score-helper",
 	     buf, level?level:"", buf2, NULL);
       exit(99);
@@ -56,7 +56,7 @@ gnome_score_get_notable(gchar *gamename,
   g_return_val_if_fail(names != NULL, 0);
   g_return_val_if_fail(scores != NULL, 0);
 
-  if(realname == NULL)
+  if (gamename == NULL)
     realname = gnome_get_program_name(getpid());
   else
     realname = g_strdup(gamename);
