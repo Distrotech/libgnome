@@ -44,6 +44,12 @@ AC_SUBST(LIBGNOME_CURRENT)
 AC_SUBST(LIBGNOME_REVISION)
 AC_SUBST(LIBGNOME_AGE)
 
+AC_CANONICAL_HOST
+  case $host in
+  *-linux-gnu | *-irix6*) AC_DEFINE(HAVE_MAN_WHEREIS, 1, [man(1)  understands -w option]);;
+  *-solaris*) AC_DEFINE(HAVE_MAN_DEBUG, 1, [man(1) has a -d debug option]);;
+  esac
+
 ALL_LINGUAS="az da de es eu fi fr it ko ja lv ms nn no pl pt pt_BR ru sk sl sv ta tr uk vi wa zh_CN zh_TW"
 AM_GLIB_GNU_GETTEXT
 gnomelocaledir='${prefix}/${DATADIRNAME}/locale'
