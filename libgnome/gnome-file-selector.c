@@ -113,14 +113,14 @@ gnome_file_selector_construct (GnomeFileSelector *fselector,
 			       const gchar *history_id,
 			       const gchar *dialog_title,
 			       GtkWidget *selector_widget,
-			       gboolean is_popup)
+			       GtkWidget *browse_dialog)
 {
 	g_return_if_fail (fselector != NULL);
 	g_return_if_fail (GNOME_IS_FILE_SELECTOR (fselector));
 
 	gnome_selector_construct (GNOME_SELECTOR (fselector),
 				  history_id, dialog_title,
-				  selector_widget, is_popup);
+				  selector_widget, browse_dialog);
 }
 
 /**
@@ -145,7 +145,7 @@ gnome_file_selector_new (const gchar *history_id,
 	selector = gtk_file_selection_new (dialog_title);
 
 	gnome_file_selector_construct (fselector, history_id,
-				       dialog_title, selector, TRUE);
+				       dialog_title, NULL, selector);
 
 	return GTK_WIDGET (fselector);
 }
@@ -154,7 +154,7 @@ GtkWidget *
 gnome_file_selector_new_custom (const gchar *history_id,
 				const gchar *dialog_title,
 				GtkWidget *selector_widget,
-				gboolean is_popup)
+				GtkWidget *browse_dialog)
 {
 	GnomeFileSelector *fselector;
 
@@ -162,7 +162,7 @@ gnome_file_selector_new_custom (const gchar *history_id,
 
 	gnome_file_selector_construct (fselector, history_id,
 				       dialog_title, selector_widget,
-				       is_popup);
+				       browse_dialog);
 
 	return GTK_WIDGET (fselector);
 }

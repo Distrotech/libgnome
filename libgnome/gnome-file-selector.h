@@ -72,13 +72,13 @@ GtkWidget   *gnome_file_selector_new         (const gchar *history_id,
 GtkWidget   *gnome_file_selector_new_custom  (const gchar *history_id,
 					      const gchar *dialog_title,
 					      GtkWidget *selector_widget,
-					      gboolean is_popup);
+					      GtkWidget *browse_dialog);
 
 void         gnome_file_selector_construct   (GnomeFileSelector *selector,
                                               const gchar *history_id,
 					      const gchar *dialog_title,
 					      GtkWidget *selector_widget,
-					      gboolean is_popup);
+					      GtkWidget *browse_dialog);
 
 
 END_GNOME_DECLS
