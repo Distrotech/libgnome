@@ -1,3 +1,10 @@
+2000-05-27  Miguel de Icaza  <miguel@helixcode.com>
+
+	* gnome-exec.c (gnome_execute_async_with_env_fds): Invoke setsid()
+	before execing the child process, as some applications terminate
+	by doing kill (0, SIGTERM) (mgp), so when we launch them from the
+	file manager they get the SIGTERM Message as well
+
 2000-04-03  Miguel de Icaza  <miguel@gnu.org>
 
 	* gnome-fileconvert.c (gfc_read_FileConverters): Do not depend on
