@@ -2,13 +2,14 @@
 # Copyright (C) 2001 Free Software Foundation, Inc.
 # Ozgur Dogan GUNES <ozgurdogan@programmer.net>
 # Ömer Fadýl USTA <omer_fad@hotmail.com>, 1999
+# Görkem Çetin <gorkem@gelecek.com.tr>, 2002
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome2 1.103.0\n"
-"POT-Creation-Date: 2002-02-19 10:22+0100\n"
+"POT-Creation-Date: 2002-03-03 12:56-0500\n"
 "PO-Revision-Date: 2001-10-23 17:48+0200\n"
-"Last-Translator: Ömer Fadýl USTA <omer_fad@hotmail.com>\n"
+"Last-Translator: Görkem Çetin <gorkem@hgelecek.com.tr>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-9\n"
@@ -112,12 +113,11 @@ msgstr "%s için %s yardým dökümaný bulunamadý"
 #: libgnome/gnome-help.c:270
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr ""
+msgstr "Yardým dosyalarý arasýnda %s belge numarasý bulunamadý"
 
 #: libgnome/gnome-help.c:291
-#, fuzzy, c-format
 msgid "Help document %s/%s not found"
-msgstr "%s için %s yardým dökümaný bulunamadý"
+msgstr "%s/%s yardým belgesi bulunamadý"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
@@ -125,7 +125,7 @@ msgstr "Yerel için çok fazla alias seviyesi var , bir iç döngü ile yapýlabilir"
 
 #: libgnome/gnome-program.c:419
 msgid "Popt Table"
-msgstr ""
+msgstr "Popt Tablosu"
 
 #: libgnome/gnome-program.c:420
 msgid "The table of options for popt"
@@ -133,11 +133,11 @@ msgstr ""
 
 #: libgnome/gnome-program.c:427
 msgid "Popt Flags"
-msgstr ""
+msgstr "Popt Bayraklarý"
 
 #: libgnome/gnome-program.c:428
 msgid "The flags to use for popt"
-msgstr ""
+msgstr "Popt için kullanýlan bayraklar"
 
 #: libgnome/gnome-program.c:436
 msgid "Popt Context"
@@ -165,7 +165,7 @@ msgstr "Yüklenen dosyalara bakýlacak yol(patika)"
 
 #: libgnome/gnome-program.c:465
 msgid "App ID"
-msgstr ""
+msgstr "Uygulama No"
 
 #: libgnome/gnome-program.c:466
 #, fuzzy
@@ -182,25 +182,23 @@ msgstr "Bu programýn sürümü"
 
 #: libgnome/gnome-program.c:481
 msgid "GNOME Prefix"
-msgstr ""
+msgstr "GNOME Öneki"
 
 #: libgnome/gnome-program.c:482
 msgid "Prefix where GNOME was installed"
 msgstr ""
 
 #: libgnome/gnome-program.c:491
-#, fuzzy
 msgid "GNOME Libdir"
-msgstr "GNOME Kütüphanesi"
+msgstr "GNOME Kütüphane Yolu"
 
 #: libgnome/gnome-program.c:492
 msgid "Library prefix where GNOME was installed"
 msgstr ""
 
 #: libgnome/gnome-program.c:501
-#, fuzzy
 msgid "GNOME Datadir"
-msgstr "GNOME yol"
+msgstr "GNOME Veri Yolu"
 
 #: libgnome/gnome-program.c:502
 msgid "Data prefix where GNOME was installed"
@@ -208,7 +206,7 @@ msgstr ""
 
 #: libgnome/gnome-program.c:511
 msgid "GNOME Sysconfdir"
-msgstr ""
+msgstr "GNOME Sistem Yapýlandýrma Dizini"
 
 #: libgnome/gnome-program.c:512
 msgid "Configuration prefix where GNOME was installed"
@@ -216,25 +214,23 @@ msgstr ""
 
 #: libgnome/gnome-program.c:522
 msgid "GNOME App Prefix"
-msgstr ""
+msgstr "GNOME Uygulama Öneki"
 
 #: libgnome/gnome-program.c:523
 msgid "Prefix where this application was installed"
 msgstr ""
 
 #: libgnome/gnome-program.c:531
-#, fuzzy
 msgid "GNOME App Libdir"
-msgstr "GNOME Kütüphanesi"
+msgstr "GNOME Uygulama Kütüphane Yolu"
 
 #: libgnome/gnome-program.c:532
 msgid "Library prefix where this application was installed"
 msgstr ""
 
 #: libgnome/gnome-program.c:541
-#, fuzzy
 msgid "GNOME App Datadir"
-msgstr "GNOME yol"
+msgstr "GNOME Uygulama Veri Dizini"
 
 #: libgnome/gnome-program.c:542
 msgid "Data prefix where this application was installed"
@@ -250,20 +246,19 @@ msgstr ""
 
 #: libgnome/gnome-program.c:561
 msgid "Create Directories"
-msgstr ""
+msgstr "Dizinleri Oluþtur"
 
 #: libgnome/gnome-program.c:562
 msgid "Create standard GNOME directories on startup"
-msgstr ""
+msgstr "Baþlangýçta standart GNOME dizinlerini oluþtur"
 
 #: libgnome/gnome-program.c:571
 msgid "Enable Sound"
-msgstr ""
+msgstr "Sesi Etkinleþtir"
 
 #: libgnome/gnome-program.c:572
-#, fuzzy
 msgid "Enable sound on startup"
-msgstr "Ses Sunucusunun kullanýmýný Aktifleþtir"
+msgstr "Baþlangýçta sesi aç"
 
 #: libgnome/gnome-program.c:581
 msgid "Espeaker"
@@ -295,7 +290,7 @@ msgstr ""
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
-msgstr ""
+msgstr "GConf moniker"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
@@ -307,66 +302,5 @@ msgid "Key %s not found in configuration"
 msgstr ""
 
 #: monikers/bonobo-config-bag.c:216
-#, fuzzy
 msgid "Unknown type"
-msgstr "Bilinmeyen masaüstü dosyasý"
-
-#~ msgid "Can not bonobo_init"
-#~ msgstr "bonobo_init çalýþtýrýlamýyor"
-
-#~ msgid "Internal error"
-#~ msgstr "Ýç Hata"
-
-#~ msgid "Error parsing '%s' (empty result)"
-#~ msgstr "Bölme Hatasý '%s' (boþ sonuç)"
-
-#~ msgid "Mozilla not found as '%s'"
-#~ msgstr "'%s' olarak Mozilla bulunamadý"
-
-#~ msgid "Cannot parse handler template: %s"
-#~ msgstr "Þablon muamelece bölünemiyor: %s"
-
-#~ msgid "Cannot execute command '%s'!"
-#~ msgstr "'%s' komutu çalýþtýrýlamýyor!"
-
-#~ msgid "Command '%s' did not return an ID!"
-#~ msgstr "'%s' komutu ID olarak dönüþemedi!"
-
-#~ msgid "Attempting to launch a non-application"
-#~ msgstr "Uygulama olmayan dosya çalýþtýrýlmaya çabalanýlýyor "
-
-#~ msgid "Trying to execute an item with no 'Exec'"
-#~ msgstr "'Exec' olmayan dosya çalýþtýrýlmaya çabalanýyor"
-
-#~ msgid "No exec field for this drop"
-#~ msgstr "Býrakma için çalýþtýrýlabilir alan yok"
-
-#~ msgid "Nothing to replace with a file in the exec string"
-#~ msgstr "Çalýþma deðiþkininde dosya ile yerdeðiþtirecek birþey yok"
-
-#~ msgid "There was no argument to replace with dropped files"
-#~ msgstr "Býrakýlan dosyalar ile yer deðiþtirmek için argüman yok"
-
-#~ msgid "Dropped URLs on an app that can only take files"
-#~ msgstr "Uygulamaya býraklýlan URL sadece dosyalarý alýr"
-
-#~ msgid "Specify X display to use."
-#~ msgstr "Kullanmak için X görünümünü belirleyiniz"
-
-#~ msgid "Put the X connection in synchronous mode."
-#~ msgstr "X baðlantýlarýný eþ zamanda bulundur."
-
-#~ msgid "Specify the X window ID of Netscape."
-#~ msgstr "Netscape'in X pencere ID 'sini belirtin."
-
-#~ msgid "Don't raise the Netscape window."
-#~ msgstr "Netscape penceresini büyütme."
-
-#~ msgid "Show the given URL in a new window."
-#~ msgstr "Verilen URL'leri yeni pencerede göster."
-
-#~ msgid "Close the specified window."
-#~ msgstr "Seçilmiþ pencereyi kapat."
-
-#~ msgid "Print the X window ID of the utilized window."
-#~ msgstr "Deðerlendirilmiþ pencerenin X pencere ID 'sini yazdýr."
+msgstr "Bilinmeyen tür"
