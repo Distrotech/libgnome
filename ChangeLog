@@ -1,3 +1,15 @@
+2002-05-14  Frederic Crozat  <fcrozat@mandrakesoft.com>
+
+	* help-converters/info/data.h:
+	* help-converters/info/html.c:
+	* help-converters/info/main.c: (main):
+	* help-converters/info/parse.c: (read_node), (read_node_contents):
+	* help-converters/info/parse.h:
+	* help-converters/info/utils.c: (alloc_node), (readbuf_open),
+	(readbuf_close), (readbuf_eof), (readbuf_getc), (readbuf_gets):
+	* help-converters/info/utils.h:
+	fix support for bzip2 info files : bug# 66334
+
 2002-05-13  Anders Carlsson  <andersca@gnu.org>
 
 	* configure.in: Release 1.117.0
