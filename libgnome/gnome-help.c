@@ -24,6 +24,7 @@
 #include "gnome-help.h"
 #include "gnome-i18nP.h"
 #include "gnome-util.h"
+#include "gnome-url.h"
 
 #define HELP_PROG "gnome-help-browser"
 

@@ -126,7 +126,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
    
    anitem = g_new(struct ascore_t, 1);
    anitem->score = score;
-   anitem->username = strdup(username);
+   anitem->username = g_strdup (username);
    anitem->scoretime = time (NULL);
 
    for (pos = 0, anode = scores;

@@ -92,7 +92,7 @@ add_to_key (char *mime_type, char *def)
 }
 
 static void
-mime_fill_from_file (char *filename)
+mime_fill_from_file (const char *filename)
 {
 	FILE *f;
 	char buf [1024];
@@ -148,7 +148,7 @@ mime_fill_from_file (char *filename)
 }
 
 static void
-mime_load_from_dir (char *mime_info_dir)
+mime_load_from_dir (const char *mime_info_dir)
 {
 	DIR *dir;
 	struct dirent *dent;
@@ -207,9 +207,9 @@ mime_init (void)
  * determined, it will return @defaultv.
  */
 const char *
-gnome_mime_type_or_default (gchar * filename, gchar * defaultv)
+gnome_mime_type_or_default (const gchar * filename, const gchar * defaultv)
 {
-	gchar *ext;
+	const gchar *ext;
 	gchar *result;
 	int priority;
 	
@@ -252,7 +252,7 @@ gnome_mime_type_or_default (gchar * filename, gchar * defaultv)
  * Returns the mime-type for this filename.
  */
 const char *
-gnome_mime_type (gchar * filename)
+gnome_mime_type (const gchar * filename)
 {
 	return gnome_mime_type_or_default (filename, "text/plain");
 }
@@ -270,7 +270,8 @@ gnome_mime_type (gchar * filename)
  * determined, it will return @defaultv.
  */
 const char *
-gnome_mime_type_or_default_of_file (char *existing_filename, gchar *defaultv)
+gnome_mime_type_or_default_of_file (const char *existing_filename,
+				    const gchar *defaultv)
 {
 	char *mime_type;
 
@@ -292,7 +293,7 @@ gnome_mime_type_or_default_of_file (char *existing_filename, gchar *defaultv)
  * Returns the mime-type for this filename.
  */
 const char *
-gnome_mime_type_of_file (char *existing_filename)
+gnome_mime_type_of_file (const char *existing_filename)
 {
 	char *mime_type;
 
@@ -312,10 +313,10 @@ gnome_mime_type_of_file (char *existing_filename)
  * that have been splitted from @uri-list.
  */
 GList*        
-gnome_uri_list_extract_uris (gchar* uri_list)
+gnome_uri_list_extract_uris (const gchar* uri_list)
 {
-	char *p, *q;
-	char *retval;
+	const gchar *p, *q;
+	gchar *retval;
 	GList *result = NULL;
 	
 	g_return_val_if_fail (uri_list != NULL, NULL);
@@ -367,7 +368,7 @@ gnome_uri_list_extract_uris (gchar* uri_list)
  * will discard any non-file uri from the result value.
  */
 GList*        
-gnome_uri_list_extract_filenames (gchar* uri_list)
+gnome_uri_list_extract_filenames (const gchar* uri_list)
 {
 	GList *tmp_list, *node, *result;
 	

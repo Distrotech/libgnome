@@ -919,7 +919,6 @@ run_file (const char *file)
 #if 0
   /* This is what the code will look like once the magic functions are
      ready.  */
-	extern const char *gnome_mime_type_from_magic (const char *); /* FIXME */
 	const char *type = gnome_mime_type_from_magic (file);
 	return type ? g_strdup (type) : NULL;
 #else
@@ -934,7 +933,8 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 {
 	int type_size, r;
 	int is_type = 0;
-	char *type;
+	gchar *type;
+	const gchar *type_c;
 
 	/* Phase 1: see if data exists in database.  */
 	if (! metadata_get ("file", file, name, size, buffer))
@@ -954,13 +954,15 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 		/* We're trying to fetch the type, so there's no point
 		   trying the same requests again below.  */
 
-		type = gnome_mime_type_or_default ((char *) file, NULL);
-		if (! type) {
+		type_c = gnome_mime_type_or_default (file, NULL);
+		if (! type_c) {
 			if (is_fast)
 				return GNOME_METADATA_NOT_FOUND;
 			type = run_file (file);
 			if (! type)
 				return GNOME_METADATA_NOT_FOUND;
+		} else {
+			type = g_strdup (type_c);
 		}
 		*size = strlen (type) + 1;
 		*buffer = type;
@@ -984,9 +986,9 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 	}
 
 	/* See if `mime.types' has the answer.  */
-	type = gnome_mime_type_or_default ((char *) file, NULL);
-	if (type) {
-		type = g_strdup (type);
+	type_c = gnome_mime_type_or_default (file, NULL);
+	if (type_c) {
+		type = g_strdup (type_c);
 		goto got_type;
 	}
 
