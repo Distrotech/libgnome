@@ -132,7 +132,7 @@ read_string_val(char *curpos, char *intobuf, guchar *into_len)
 static char *read_num_val(char *curpos, int bsize, char *intobuf)
 {
   char fmttype, fmtstr[4];
-  short itmp;
+  int itmp;
 
   if(*curpos == '0') {
     if(tolower(*(curpos+1)) == 'x') fmttype = 'x';
