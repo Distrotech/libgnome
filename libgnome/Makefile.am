@@ -41,6 +41,7 @@ libgnome_la_SOURCES = \
 	gnome-sound.c		\
 	gnome-string.c		\
 	gnome-triggers.c	\
+	gnome-url.c		\
 	gnome-util.c		\
 	gnome-paper.c		\
 	gnomelib-init.c         \
@@ -66,6 +67,7 @@ libgnomeinclude_HEADERS = \
 	gnome-sound.h		\
 	gnome-string.h		\
 	gnome-triggers.h 	\
+	gnome-url.h		\
 	gnome-util.h   		\
 	gnome-paper.h		\
 	lib_date.h		\
