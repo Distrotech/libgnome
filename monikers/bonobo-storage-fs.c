@@ -385,7 +385,7 @@ bonobo_storage_fs_open (const char *path, gint flags, gint mode,
 	g_return_val_if_fail (ev != NULL, NULL);
 
 	/* Most storages are files */
-	mode = mode | 010101;
+	mode = mode | 0111;
 
 	if ((flags & Bonobo_Storage_CREATE) &&
 	    (mkdir (path, mode) == -1) && (errno != EEXIST)) {
