@@ -99,7 +99,13 @@ static  N_int   days_in_months[2][14] =
 
 static Z_long year_to_days(N_int year)
 {
-    return( year * 365L + (year / 4) - (year / 100) + (year / 400) );
+    Z_long days;
+
+    days = year * 365L;
+    days += year >>= 2;
+    days -= year /= 25;
+    days += year >>  2;
+    return(days);
 }
 /*****************************************************************************/
 
