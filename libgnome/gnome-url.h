@@ -49,6 +49,19 @@ typedef enum {
   GNOME_URL_DISPLAY_NO_HISTORY = 1<<4 /* Don't call the history callback for this URL */
 } GnomeURLDisplayFlags;
 
+typedef enum {
+  GNOME_URL_NO_ERROR = 0,
+  GNOME_URL_ERROR_EXEC, /* could not execute handler */
+  GNOME_URL_ERROR_PARSE, /* if the parsing of the handler failed */
+  GNOME_URL_ERROR_PIPE, /* if 'pipe' did not work when getting id,
+			 * handler has not been executed */
+  GNOME_URL_ERROR_NO_ID, /* if id could not be gotten, the handler has however
+			 * been executed */
+  GNOME_URL_ERROR_NO_MOZILLA /* could not find mozilla for gnome-moz-remote */
+} GnomeURLError;
+
+
+
 typedef gboolean (*GnomeURLHistoryCallback)(GnomeURLDisplayContext display_context,
 					    const char *url,
 					    const char *url_type,
@@ -57,13 +70,18 @@ typedef gboolean (*GnomeURLHistoryCallback)(GnomeURLDisplayContext display_conte
 /* One callback for everyone, sorry folks. */
 extern GnomeURLHistoryCallback gnome_url_history_callback;
 
+/* if error is not NULL, it is set to one of the errors above */
 GnomeURLDisplayContext gnome_url_show_full(GnomeURLDisplayContext display_context,
 					   const char *url,
 					   const char *url_type,
-					   GnomeURLDisplayFlags flags);
-void gnome_url_display_context_free(GnomeURLDisplayContext display_context, GnomeURLDisplayFlags flags);
+					   GnomeURLDisplayFlags flags,
+					   GnomeURLError *error);
+void gnome_url_display_context_free(GnomeURLDisplayContext display_context,
+				    GnomeURLDisplayFlags flags,
+				    GnomeURLError *error);
 
-void gnome_url_show(const char *url);
+/* returns FALSE on error, TRUE if everything went fine */
+gboolean gnome_url_show(const char *url);
 
 END_GNOME_DECLS
 #endif

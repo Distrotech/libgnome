@@ -1235,7 +1235,7 @@ gnome_program_preinita(GnomeProgram *app,
 
   argctx =
     app->arg_context_val.u.pointer_value =
-    poptGetContext(app->app_id, argc, argv,
+    poptGetContext(app->app_id, argc, (const char **)argv,
 		   (struct poptOption *)app->top_options_table->data,
 		   popt_flags);
   

@@ -29,13 +29,16 @@
 #include <limits.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <errno.h>
 
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-config.h>
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-portability.h>
+#include "gnome-popt.h" /* poptParseArgvString */
 #include "gnome-url.h"
+#include "gnome-i18nP.h"
 
 #define DEFAULT_HANDLER "gnome-moz-remote \"%s\""
 #define INFO_HANDLER  "gnome-help-browser \"%s\""
@@ -53,7 +56,7 @@ struct _GnomeURLDisplayContext {
 static gchar *
 gnome_url_default_handler (void)
 {
-	static gchar *default_handler = 0;
+	static gchar *default_handler = NULL;
 	
 	if (!default_handler) {
 		gchar *str;
@@ -85,12 +88,96 @@ gnome_url_default_handler (void)
 	return default_handler;
 }
 
+/* returns FALSE and sets error if an error was encountered */
+static gboolean
+create_cmd(GnomeURLDisplayContext rdc, const char *template,
+	   const char *url, GnomeURLDisplayFlags flags, int pipe,
+	   char ***cmd, int *argc,
+	   GnomeURLError *error)
+{
+	int temp_argc;
+	const char **temp_argv;
+	int i;
+
+	/* we use a popt function as it does exactly what we want to do and
+	   gnome already uses popt */
+	if(poptParseArgvString(template, &temp_argc, &temp_argv) != 0) {
+		if(error) *error = GNOME_URL_ERROR_PARSE;
+		return FALSE;
+	}
+	if(temp_argc == 0) {
+		free(temp_argv);
+		if(error) *error = GNOME_URL_ERROR_PARSE;
+		return FALSE;
+	}
+
+	/* sort of a hack, if the command is gnome-moz-remote, first look
+	 * if mozilla is in path */
+	if(strcmp(temp_argv[0], "gnome-moz-remote") == 0) {
+		char *moz = gnome_config_get_string("/gnome-moz-remote/Mozilla/filename=netscape");
+		char *foo;
+
+		foo = gnome_is_program_in_path(moz);
+		g_free(moz);
+		if(!foo) {
+			if(error) *error = GNOME_URL_ERROR_NO_MOZILLA;
+			return FALSE;
+		}
+		g_free(foo);
+	}
+		
+
+	*argc = temp_argc;
+
+	if(flags & GNOME_URL_DISPLAY_NEWWIN)
+		(*argc) ++;
+
+	if(rdc && rdc->id)
+		(*argc) ++;
+
+	if(flags & GNOME_URL_DISPLAY_CLOSE)
+		(*argc) ++;
+
+	if(!(flags & GNOME_URL_DISPLAY_NO_RETURN_CONTEXT))
+		(*argc) ++;
+
+	*cmd = g_new(char *, *argc + 1);
+
+	for(i = 0; i < temp_argc; i++) {
+		if(strcmp(temp_argv[i], "%s") == 0)
+			(*cmd)[i] = g_strdup(url);
+		else
+			(*cmd)[i] = g_strdup(temp_argv[i]);
+	}
+
+	/* this must be free and not g_free because of how poptParseArgvString
+	 * works.  This also frees all the strings inside the array */
+	free(temp_argv);
+
+	if(flags & GNOME_URL_DISPLAY_NEWWIN)
+		(*cmd)[i++] = g_strdup("--newwin");
+
+	if(rdc && rdc->id)
+		(*cmd)[i++] = g_strdup_printf("--id=%s", rdc->id);
+
+	if(flags & GNOME_URL_DISPLAY_CLOSE)
+		(*cmd)[i++] = g_strdup("--closewin");
+
+	if(!(flags & GNOME_URL_DISPLAY_NO_RETURN_CONTEXT))
+		(*cmd)[i++] = g_strdup_printf("--print-id=%d", pipe);
+
+	(*cmd)[i++] = NULL;
+
+	return TRUE;
+}
+
 /**
  * gnome_url_show_full
  * @display_context: An existing GnomeURLDisplayContext to use for displaying this URL in. May be NULL.
  * @url: URL to show
  * @url_type: The type of the URL (e.g. "help")
  * @flags: Flags changing the way the URL is displayed or handled.
+ * @error: if an error happens this will be set to one of the GnomeURLError enums. On no error it will be set to GNOME_URL_NO_ERROR (which is 0).  May be NULL.
  *
  * Description:
  * Loads the given URL in an appropriate viewer.  The viewer is deduced from
@@ -105,22 +192,25 @@ gnome_url_default_handler (void)
  * files.  The key is a string that will be passed to gnome_execute_shell(),
  * after the %s is replaced with with the URL.  If that key can't be found,
  * it falls back to /Gnome/URL Handlers/default-show, and if that isn't
- * found, uses the contents of the DEFAULT_HANDLER macro in this file.
+ * found, uses the contents of the DEFAULT_HANDLER macro in this file
+ * (libgnome/gnome-url.c).
  *
  * If no /Gnome/URL Handlers keys are set, some sensible defaults are added
  * to the user's configuration files.
  *
  **/
 GnomeURLDisplayContext
-gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url, const char *url_type,
-		    GnomeURLDisplayFlags flags)
+gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url,
+		    const char *url_type, GnomeURLDisplayFlags flags,
+		    GnomeURLError *error)
 {
-  gint len;
   char *retid = NULL;
-  gchar *pos, *template = NULL, *cmd;
+  char *pos, *template = NULL;
   char path[PATH_MAX];
   gboolean def, free_template = FALSE;
   GnomeURLDisplayContext rdc = display_context;
+
+  if(error) *error = GNOME_URL_NO_ERROR;
 
   g_return_val_if_fail (!(flags & GNOME_URL_DISPLAY_CLOSE) || display_context, display_context);
 
@@ -146,6 +236,8 @@ gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url, con
 	      g_free(template);
 	      template = NULL;
 	    }
+	  else
+	    free_template = TRUE;
 	}
 
       if (!template && (pos = strstr (url, "://")))
@@ -159,9 +251,10 @@ gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url, con
 
 	  template = gnome_config_get_string_with_default (path, &def);
 
-	  if (def)
+	  if (def) {
+	    g_free(template);
 	    template = gnome_url_default_handler ();
-	  else
+	  } else
 	    free_template = TRUE;
 	}
       else
@@ -172,38 +265,45 @@ gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url, con
     {
       template = rdc->command;
     }
-	
-  len = strlen (template) + strlen (url) + 2 + strlen("--print-id=1234567890 --id=0xFFFFFFFF --closewin");
-  
-  cmd = g_alloca (len);
-  /* Attempt to make sure putting too many %s's in "template" won't spaz out this sprintf */
-  g_snprintf (cmd, len, template, url, url, url, url, url);
 
-  if(flags & GNOME_URL_DISPLAY_NEWWIN)
-    strcat(cmd, " --newwin");
-
-  if(rdc && rdc->id)
-    {
-      strcat(cmd, " --id=");
-      strcat(cmd, rdc->id);
-    }
-  if(flags & GNOME_URL_DISPLAY_CLOSE)
-    {
-      strcat(cmd, " --closewin");
-    }
 
   if(!(flags & GNOME_URL_DISPLAY_NO_RETURN_CONTEXT))
     {
       int pipes[2];
       char aline[LINE_MAX];
       FILE *fh;
+      char **argv = NULL;
+      int argc;
+      int pid;
 
-      pipe(pipes);
-      strcat(cmd, " --print-id=");
-      sprintf(cmd + strlen(cmd), "%d", pipes[1]);
+      if(pipe(pipes) != 0) {
+	      g_warning(_("Cannot open a pipe: %s"), g_strerror(errno));
+	      if(error) *error = GNOME_URL_ERROR_PIPE;
+	      flags |= GNOME_URL_DISPLAY_NO_RETURN_CONTEXT;
+	      goto about_to_return;
+      }
 
-      gnome_execute_shell_fds(NULL, cmd, FALSE);
+      if(!create_cmd(rdc, template, url, flags, pipes[1],
+		     &argv, &argc, error)) {
+	      close(pipes[0]);
+	      close(pipes[1]);
+	      g_warning(_("Cannot parse handler template: %s"), template);
+	      flags |= GNOME_URL_DISPLAY_NO_RETURN_CONTEXT;
+	      goto about_to_return;
+      }
+
+      pid = gnome_execute_async_fds (NULL, argc, argv, FALSE);
       close(pipes[1]);
+
+      if(pid == -1) {
+	      close(pipes[0]);
+	      g_warning(_("Cannot execute command '%s'!"), argv[0]);
+	      if(error) *error = GNOME_URL_ERROR_EXEC;
+	      flags |= GNOME_URL_DISPLAY_NO_RETURN_CONTEXT;
+	      goto about_to_return;
+      }
+
+      g_strfreev(argv);
 
       fh = fdopen(pipes[0], "r");
 
@@ -221,16 +321,43 @@ gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url, con
 
 	  fclose(fh);
 	}
+      close(pipes[0]);
+
+      /* if no ID was found this will free the context as it would be bogus
+       * anyway, and return an error */
+      if(!retid) {
+	      if(error) *error = GNOME_URL_ERROR_NO_ID;
+	      flags |= GNOME_URL_DISPLAY_NO_RETURN_CONTEXT;
+	      goto about_to_return;
+      }
     }
   else
     {
-      gnome_execute_shell (NULL, cmd);
+      char **argv = NULL;
+      int argc = 0;
 
-      if(rdc)
-	{
-	  gnome_url_display_context_free(rdc, 0);
-	  rdc = NULL;
-	}
+      if(!create_cmd(rdc, template, url, flags, 0, &argv, &argc, error)) {
+	      g_warning(_("Cannot parse handler template: %s"), template);
+	      if(error) *error = GNOME_URL_ERROR_PARSE;
+	      goto about_to_return;
+      }
+
+      if(gnome_execute_async (NULL, argc, argv) == -1) {
+	      g_warning(_("Cannot execute command '%s'!"), argv[0]);
+	      if(error) *error = GNOME_URL_ERROR_EXEC;
+	      goto about_to_return;
+      }
+
+      g_strfreev(argv);
+    }
+
+about_to_return:
+
+  if (flags & GNOME_URL_DISPLAY_NO_RETURN_CONTEXT &&
+      rdc)
+    {
+      gnome_url_display_context_free(rdc, 0, NULL);
+      rdc = NULL;
     }
 
   if (!(flags & GNOME_URL_DISPLAY_NO_RETURN_CONTEXT)
@@ -241,7 +368,7 @@ gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url, con
       rdc->command = free_template?template:g_strdup(template);
       rdc->id = retid;
     }
-  else if(rdc)
+  else if(rdc && retid)
     {
       g_free(rdc->id);
       rdc->id = retid;
@@ -257,28 +384,33 @@ gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url, con
   return rdc;
 }
 
-void
+gboolean
 gnome_url_show(const gchar *url)
 {
-  gnome_url_show_full(NULL, url, NULL, GNOME_URL_DISPLAY_NO_RETURN_CONTEXT);
+  GnomeURLError error;
+  gnome_url_show_full(NULL, url, NULL, GNOME_URL_DISPLAY_NO_RETURN_CONTEXT,
+		      &error);
+  return error != GNOME_URL_NO_ERROR;
 }
 
 static void
 gnome_udc_free_all(void)
 {
-  GSList *cur;
-
-  for(cur = free_atexit; cur; cur = cur->next)
-    {
-      gnome_url_display_context_free((GnomeURLDisplayContext)cur->data, GNOME_URL_DISPLAY_CLOSE);
-    }
-
-  g_slist_free(free_atexit); free_atexit = NULL;
+  /* with GNOME_URL_DISPLAY_CLOSE it removes the context from free_atexit,
+   * we cannot normally iterate through the list for that very reason here
+   * since the list would be changing from underneath us */
+  while(free_atexit)
+      gnome_url_display_context_free((GnomeURLDisplayContext)free_atexit->data,
+				     GNOME_URL_DISPLAY_CLOSE, NULL);
 }
 
 void
-gnome_url_display_context_free(GnomeURLDisplayContext display_context, GnomeURLDisplayFlags flags)
+gnome_url_display_context_free(GnomeURLDisplayContext display_context,
+			       GnomeURLDisplayFlags flags,
+			       GnomeURLError *error)
 {
+  if(error) *error = GNOME_URL_NO_ERROR;
+
   if(flags & GNOME_URL_DISPLAY_CLOSE_ATEXIT)
     {
       if(!free_atexit)
@@ -289,7 +421,7 @@ gnome_url_display_context_free(GnomeURLDisplayContext display_context, GnomeURLD
   else
     {
       if(flags & GNOME_URL_DISPLAY_CLOSE)
-	gnome_url_show_full(display_context, "", "", flags);
+	gnome_url_show_full(display_context, "", "", flags, error);
 
       free_atexit = g_slist_remove(free_atexit, display_context);
 

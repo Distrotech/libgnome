@@ -1,3 +1,17 @@
+Fri May 05 19:22:30 2000  George Lebl <jirka@5z.com>
+
+	* gnome-ditem.c: include gnome-i18nP.h rather then gnome-i18n.h
+
+	* gnome-url.[ch]: add an error argument to gnome_url_show_full
+	  Fix one memory leak and one GList corruption bug.  Made it use
+	  gnome_exec_async rather then shell.  It will now correctly handle
+	  URIs with weird characters and no longer uses printf format strings
+	  taken from files.  When the handler is gnome-moz-remote, it
+	  first checks if the program ('netscape' or whatever gnome-moz-remote
+	  uses) actually exists.
+
+	* gnomelib-init2.c: fix a warning
+
 Sun Mar 26 13:31:28 2000  George Lebl <jirka@5z.com>
 
 	* gnome-config.[ch],parse-path.cP: return TRUE/FALSE from the sync
