@@ -1,3 +1,8 @@
+Mon Oct 04 11:24:51 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-i18n.c: in case the aliases would have a real infinite
+	  loop of the kind a=b, b=a, give up after 50 lookups
+
 1999-09-29  Elliot Lee  <sopwith@redhat.com>
 
 	* gnome-exec.c: Fix strange race condition. I don't think pipes
