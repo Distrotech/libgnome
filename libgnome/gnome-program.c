@@ -34,6 +34,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <gmodule.h>
 
 #include "gnome-i18nP.h"
@@ -1213,12 +1214,12 @@ gnome_program_module_registered (const GnomeModuleInfo *module_info)
     g_return_val_if_fail (module_info, FALSE);
 
     if (!program_modules)
-	program_modules = g_ptr_array_new ();
+	    return FALSE;
 
     for(i = 0; i < program_modules->len; i++) {
 	curmod = g_ptr_array_index (program_modules, i);
 	if(curmod == module_info
-	   || !strcmp (curmod->name, module_info->name))
+	   || strcmp (curmod->name, module_info->name) == 0)
 	    return TRUE;
     }
 
@@ -1250,15 +1251,24 @@ gnome_program_module_register (const GnomeModuleInfo *module_info)
 	return;
     }
 
-    if (!program_modules)
-	program_modules = g_ptr_array_new();
-
     /* Check that it's not already registered. */
 
     if (gnome_program_module_registered (module_info))
 	return;
 
-    g_ptr_array_add (program_modules, (GnomeModuleInfo *)module_info);
+    if (!program_modules)
+	program_modules = g_ptr_array_new();
+
+    /* if the last entry is NULL, stick it there instead */
+    if (program_modules->len > 0 &&
+	g_ptr_array_index (program_modules, program_modules->len - 1) == NULL) {
+	    g_ptr_array_index (program_modules, program_modules->len - 1) =
+		    (GnomeModuleInfo *)module_info;
+    } else {
+	    g_ptr_array_add (program_modules, (GnomeModuleInfo *)module_info);
+    }
+    /* keep array NULL terminated */
+    g_ptr_array_add (program_modules, NULL);
 
     /* We register requirements *after* the module itself to avoid loops.
        Initialization order gets sorted out later on. */
@@ -1332,8 +1342,11 @@ gnome_program_preinit (GnomeProgram *program,
     program->_priv->argc = argc;
     program->_priv->argv = argv;
 
-    if (!program_modules)
+    if (!program_modules) {
 	program_modules = g_ptr_array_new();
+	/* keep array NULL terminated */
+	g_ptr_array_add (program_modules, NULL);
+    }
 
     /* Major steps in this function:
        1. Process all framework attributes in 'attrs'
@@ -1546,18 +1559,21 @@ gnome_program_initv (GType type,
 		     const char *first_property_name, va_list args)
 {
     GnomeProgram *program;
+    GnomeProgramClass *klass;
     int i;
 
     g_type_init ();
 
-    if (!program_initialized) {
-	GnomeProgramClass *klass;
-	const char *ctmp;
+    klass = g_type_class_ref (type);
 
-	klass = g_type_class_ref (type);
+    if (!program_initialized) {
+	const char *ctmp;
 
 	program_module_list = g_ptr_array_new ();
 	program_modules = g_ptr_array_new ();
+
+	/* keep array NULL terminated */
+	g_ptr_array_add (program_modules, NULL);
 
 	/* Always register libgnome. */
 	gnome_program_module_register (&libgnome_module_info);
@@ -1565,14 +1581,23 @@ gnome_program_initv (GType type,
 	/* Register the requested modules. */
 	gnome_program_module_register (module_info);
 
-	/* We have to handle --load-modules=foo,bar,baz specially */
-	for (i = 0; i < argc; i++) {
-	    if (!strncmp (argv[i], "--load-modules=", strlen ("--load-modules=")))
-		add_to_module_list (program_module_list, argv[i] + strlen("--load-modules="));
-	}
+	/* Only load shlib modules and do all that other good
+	 * stuff when not setuid/setgid, for obvious reasons */
+	if (geteuid () == getuid () &&
+	    getegid () == getgid ()) {
+	    /* We have to handle --load-modules=foo,bar,baz specially */
+	    for (i = 0; i < argc; i++) {
+	        /* the --foo=bar format */
+	        if (strncmp (argv[i], "--load-modules=", strlen ("--load-modules=")) == 0)
+		    add_to_module_list (program_module_list, argv[i] + strlen("--load-modules="));
+	        /* the --foo bar format */
+	        if (strcmp (argv[i], "--load-modules") == 0 && i+1 < argc)
+		    add_to_module_list (program_module_list, argv[i+1]);
+	    }
 
-	if ((ctmp = g_getenv ("GNOME_MODULES")))
-	    add_to_module_list (program_module_list, ctmp);
+	    if ((ctmp = g_getenv ("GNOME_MODULES")))
+	        add_to_module_list (program_module_list, ctmp);
+	}
 
 	/*
 	 * Load all the modules.
@@ -1591,9 +1616,6 @@ gnome_program_initv (GType type,
 		a_module->init_pass (a_module);
 	}
 
-	/* Make sure the array is NULL-terminated */
-	g_ptr_array_add (program_modules, NULL);
-
 	/* Order the module list for dependencies */
 	gnome_program_module_list_order ();
 
@@ -1603,9 +1625,32 @@ gnome_program_initv (GType type,
 	    if (a_module && a_module->class_init)
 		a_module->class_init (klass, a_module);
 	}
+    } else {
+	/* Register the requested modules. */
+	gnome_program_module_register (module_info);
+
+	/* Init ALL modules, note that this runs the init over ALL modules
+	 * even old ones.  Not really desirable, but unavoidable right now */
+	for (i = 0; i < program_modules->len; i++) {
+	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
+
+	    if (a_module && a_module->init_pass)
+		a_module->init_pass (a_module);
+	}
+
+	/* Order the module list for dependencies */
+	gnome_program_module_list_order ();
+
+	/* Same deal as for init_pass */
+	for (i = 0; i < program_modules->len; i++) {
+	    GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
+
+	    if (a_module && a_module->class_init)
+		a_module->class_init (klass, a_module);
+	}
     }
 
-    program = g_object_new_valist (GNOME_TYPE_PROGRAM,
+    program = g_object_new_valist (type,
 				   first_property_name, args);
 
     if (!program_initialized) {
