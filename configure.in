@@ -11,9 +11,6 @@ dnl blocks, this macro needs to be right at the beggining.
 dnl
 AC_PROG_INTLTOOL
 
-GNOME_COMMON_INIT
-GNOME_PLATFORM_GNOME_2(yes, force)
-
 AC_ISC_POSIX
 AC_PROG_CC
 AC_STDC_HEADERS
@@ -37,7 +34,7 @@ AC_SUBST(CFLAGS)
 AC_SUBST(CPPFLAGS)
 AC_SUBST(LDFLAGS)
 
-GNOME_COMPILE_WARNINGS(maximum)
+GNOME_COMPILE_WARNINGS
 
 dnl Define GNOME_ENABLE_DEBUG if the --enable-debug switch was given.
 GNOME_DEBUG_CHECK
