@@ -1,13 +1,13 @@
 # traditional Chinese translation of libgnome.
-# Copyright (C) 2001, 2002, 2003 Free Software Foundation, Inc.
-# Abel Cheung <maddog@linux.org.hk>, 2001-2003.
+# Copyright (C) 2001, 02, 03, 04 Free Software Foundation, Inc.
+# Abel Cheung <maddog@linux.org.hk>, 2001-2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.3.7\n"
+"Project-Id-Version: libgnome 2.7.92\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-30 16:12+0200\n"
-"PO-Revision-Date: 2003-08-29 04:01+0800\n"
+"POT-Creation-Date: 2004-09-09 13:37+0800\n"
+"PO-Revision-Date: 2004-09-10 06:36+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -656,13 +656,15 @@ msgstr "顯示可將選單卸離選單列的元件"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Module for GtkFileChooser"
-msgstr ""
+msgstr "GtkFileChooser 所使用的模組"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
+"GtkFileChooser 元件所使用的模組，不同模組會以不同的方式顯示檔案系統。可能的值"
+"為“gnome-vfs”或者“gtk+”。"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Monospace font"
@@ -763,19 +765,19 @@ msgstr "gtk+ 程式會否使用自選字型。"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
-msgstr ""
+msgstr "禁止使用指令列"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable print setup"
-msgstr ""
+msgstr "禁止更改列印設定"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable printing"
-msgstr ""
+msgstr "禁止列印"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable saving files to disk"
-msgstr ""
+msgstr "禁止將檔案儲存至磁碟"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid ""
@@ -783,24 +785,30 @@ msgid ""
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
 msgstr ""
+"禁止用戶使用虛擬終端機或者從指令列執行指令。譬如說，本設定會令面板中的「執行"
+"程式」對話方塊失效。"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
+"禁止用戶修改列印設定。譬如說，本設定會令所有應用軟體的「列印設定」對話方塊失"
+"效。"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
-msgstr ""
+msgstr "禁止用戶列印。譬如說，本設定會令所有應用軟體的「列印」對話方塊失效。"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
+"禁止用戶將檔案儲存進磁碟。譬如說，本設定會令所有應用軟體的「另存新檔」對話方"
+"塊失效。"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
