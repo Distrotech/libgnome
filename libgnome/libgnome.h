@@ -44,6 +44,8 @@
 #include <libgnome/gnome-preferences.h>
 #include <libgnome/gnome-marshal.h>
 
+#include <libgnome/Gnome.h>
+
 #include <libgnome/libgnome-init.h>
 
 #ifdef COMPAT_1_0

@@ -1,5 +1,12 @@
 2001-04-30  Martin Baulig  <baulig@suse.de>
 
+	* Makefile.am (libgnome_2_la_SOURCES): Added the CORBA sources.
+	(libgnome_headers): Install Gnome.h.
+
+	* libgnome.h: #include <libgnome/Gnome.h>.
+
+2001-04-30  Martin Baulig  <baulig@suse.de>
+
 	* gnome-marshal.list, gnome-marshal-main.c: Moved here
 	from libgnomeui.
 

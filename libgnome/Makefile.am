@@ -7,6 +7,8 @@
 LIB_VERSION=0:0:0
 LIB_VERSION_NUM=0.0.0
 
+ORBIT_IDL = orbit-idl
+
 lib_LTLIBRARIES = libgnome-2.la
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
@@ -34,9 +36,25 @@ INCLUDES = \
 	-DGNOMEVFSVERSION=\""$(GNOME_VFS_VERSION)"\" \
 	-DG_LOG_DOMAIN=\"Gnome\"
 
+CORBA_SOURCE =			\
+	Gnome.h			\
+	Gnome-common.c		\
+	Gnome-stubs.c		\
+	Gnome-skels.c
+
+idls =							\
+	$(top_srcdir)/idl/Gnome.idl			\
+	$(top_srcdir)/idl/Gnome_Selector.idl
+
+idl_flags = -I $(datadir)/idl -D__GNOME_COMPILATION
+
+$(CORBA_SOURCE): $(idls)
+	$(ORBIT_IDL) $(top_srcdir)/idl/Gnome.idl -I$(top_srcdir)/idl $(idl_flags)
+
 libgnome_2_la_SOURCES = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
+	$(CORBA_SOURCE)		\
 	gnome-program.c		\
 	gnome-config.c		\
 	gnome-ditem.c		\
@@ -55,6 +73,7 @@ libgnome_2_la_SOURCES = \
 	libgnome-init.c
 
 libgnome_headers = \
+	Gnome.h			\
 	gnome-program.h		\
 	gnome-i18n.h		\
         gnome-config.h 		\
