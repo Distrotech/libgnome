@@ -83,7 +83,9 @@ gnome_i18n_get_language_list (const gchar *category_name)
 void
 gnome_i18n_set_preferred_language (const char *val)
 {
+#ifdef FIXME
   gnome_config_set_string (LANGKEY, val);
+#endif
 }
 
 /**
@@ -108,7 +110,9 @@ gnome_i18n_init (void)
 	 according to what is in the config database.  We do this so
 	 that the user can override the config db using the
 	 environment.  */
+#ifdef FIXME
       val = gnome_config_get_string (LANGKEY);
+#endif
       if (val != NULL) 
         {
 #ifdef HAVE_SETENV      
@@ -131,7 +135,11 @@ gnome_i18n_init (void)
 char *
 gnome_i18n_get_preferred_language (void)
 {
+#ifdef FIXME
   return gnome_config_get_string (LANGKEY);
+#else
+  return NULL;
+#endif
 }
 
 static GList *numeric_locale_stack = NULL;
