@@ -1,3 +1,8 @@
+Thu Aug 24 02:17:20 2000  George Lebl <jirka@5z.com>
+
+	* gnome-ditem.c: remove g_hash_table_freeze calls as freeze/thaw
+	  on hash tables is deprecated
+
 Thu Aug 24 01:45:11 2000  George Lebl <jirka@5z.com>
 
 	* gnome-mime.c: remove include of gtk/gtk.h
