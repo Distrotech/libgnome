@@ -248,7 +248,7 @@ gnome_program_get_property (GObject *object, guint param_id, GValue *value,
 	break;
     case PROP_GNOME_PATH:
 	if (program->_priv->gnome_path)
-	    g_value_set_string (value, g_strjoinv (":", program->_priv->gnome_path));
+	    g_value_take_string (value, g_strjoinv (":", program->_priv->gnome_path));
 	else
 	    g_value_set_string (value, NULL);
 	break;
