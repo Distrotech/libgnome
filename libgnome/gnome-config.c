@@ -979,13 +979,12 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 				       char ***argvp, gboolean *def, gint priv)
 {
 	ParsedPath *pp;
-	const char *r, *p, *last, *p2;
-	char *tmp, *p1;
+	char *p, *r;
+	const char *rr;
 	int count, esc_spcs;
 
 	pp = parse_path (path, priv);
-	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
-			   def);
+	rr = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file, def);
 
 	if (r == NULL) {
 		*argvp = NULL;
@@ -995,7 +994,8 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 
 	/* Figure out how large to make return vector.  Start at 1
 	   because we want to make NULL-terminated array.  */
-	count = 1;
+	count = 2;
+	r = g_strdup (rr);
 	for (p = r; *p; ++p) {
 	        if (*p == '\\') {
 			++p;
@@ -1008,30 +1008,23 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 	*argvp = (char **) g_malloc (count * sizeof (char *));
 	(*argvp)[count - 1] = NULL;
 
+	p = r;
 	count = 0;
-	last = r;
-	esc_spcs = 0;
-	for (p = r; *p; ++p) {
-	        if (*p == '\\') {
-			++p;
-			++esc_spcs;
-		} else if (*p == ' ') {
-		        tmp = g_malloc (p - last + 1 - esc_spcs);
-			p1 = tmp;
-			p2 = last;
-			while (p2 < p) {
-				if ((*p2 == '\\') && (p2[1] == ' ')) {
-					++p2;
-				}
-				*p1 = *p2;
-				++p1; ++p2;
-			}
-			*p1 = '\0';
-		        (*argvp)[count++] = tmp;
-			last = p + 1;
-		}
-	}
+	do {
+ 		(*argvp)[count++] = p;
 
+		esc_spcs = 0;
+		while (*p && (esc_spcs ? 1 : (*p != ' '))){
+			esc_spcs = 0;
+			if (*p == '\\')
+				esc_spcs = 1;
+			p++;
+		}
+
+		while (*p && *p == ' ')
+			p++;
+	} while (*p);
+	
 	release_path (pp);
 }
 
