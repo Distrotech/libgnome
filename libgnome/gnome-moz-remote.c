@@ -63,6 +63,7 @@ static const char *progname = 0;
 
 static void
 parseAnArg(poptContext ctx,
+	   enum poptCallbackReason reason,
 	   const struct poptOption *opt,
 	   const char *arg, void *data);
 
@@ -551,6 +552,7 @@ int i;
 
 static void
 parseAnArg(poptContext ctx,
+	   enum poptCallbackReason reason,
 	   const struct poptOption *opt,
 	   const char *arg, void *data)
 {
