@@ -125,7 +125,7 @@ gnome_url_show(const gchar *url)
 	g_snprintf (cmd, len, template, url);
 	if (free_template)
 		g_free (template);
-	g_message ("Command: \"%s\"", cmd);
+
 	gnome_execute_shell (NULL, cmd);
 	g_free (cmd);
 }
