@@ -55,13 +55,15 @@ add_to_key (char *mime_type, char *def)
 	int used;
 	
 	if (strncmp (def, "ext", 3) == 0){
+		char *tokp;
+
 		def += 3;
 		def = get_priority (def, &priority);
 		s = p = g_strdup (def);
 
 		used = 0;
 		
-		while ((ext = strtok (s, " \t\n\r,")) != NULL){
+		while ((ext = strtok_r (s, " \t\n\r,", &tokp)) != NULL){
 			g_hash_table_insert (mime_extensions [priority], ext, mime_type);
 			used = 1;
 			s = NULL;
@@ -409,4 +411,3 @@ gnome_uri_list_free_strings      (GList *list)
 	g_list_foreach (list, (GFunc)g_free, NULL);
 	g_list_free (list);
 }
-

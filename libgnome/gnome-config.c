@@ -476,7 +476,7 @@ check_path(char *path, mode_t newmode)
 	gchar *p;
 	GString *newpath;
 	struct stat s;
-
+	char *tokp;
 
 	g_return_val_if_fail (path != NULL, FALSE);
 
@@ -512,7 +512,7 @@ check_path(char *path, mode_t newmode)
 	while(*p == '/')
 		p++;
 
-	p = strtok(p, "/");
+	p = strtok_r(p, "/", &tokp);
 	newpath = g_string_new("");
 	do {
 		newpath = g_string_append_c(newpath,'/');
@@ -533,7 +533,7 @@ check_path(char *path, mode_t newmode)
 			}
 		}
 
-	} while ((p = strtok(NULL, "/")) != NULL);
+	} while ((p = strtok_r(NULL, "/", &tokp)) != NULL);
 
 	g_string_free(newpath,TRUE);
 

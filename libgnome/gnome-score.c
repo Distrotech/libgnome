@@ -393,12 +393,14 @@ gnome_score_get_notable (gchar * gamename,
 	     fgets (buf, sizeof (buf), infile) && retval < NSCORES;
 	     retval++)
 	  {
+	     char *tokp;
+
 	     buf[strlen (buf) - 1] = 0;
-	     buf2 = strtok (buf, " ");
+	     buf2 = strtok_r (buf, " ", &tokp);
 	     (*scores)[retval] = atof (buf2);
-	     buf2 = strtok (NULL, " ");
+	     buf2 = strtok_r (NULL, " ", &tokp);
 	     (*scoretimes)[retval] = atoi (buf2);
-	     buf2 = strtok (NULL, "\n");
+	     buf2 = strtok_r (NULL, "\n", &tokp);
 	     (*names)[retval] = g_strdup (buf2);
 	  }
 	(*names)[retval] = NULL;
