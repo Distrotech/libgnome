@@ -19,14 +19,16 @@
 static GnomeStreamClass *gnome_stream_fs_parent_class;
 
 static CORBA_long
-fs_write (GnomeStream *stream, long count,
+fs_write (GnomeStream *stream, CORBA_long count,
 	  const GNOME_Stream_iobuf *buffer,
 	  CORBA_Environment *ev)
 {
 	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
 
-	while (write (sfs->fd, buffer, count) == -1 && errno == EINTR)
-		;
+	errno = EINTR;
+	while (write (sfs->fd, buffer->_buffer, count) == -1 
+	       && errno == EINTR);
+
 	if (errno != EINTR){
 		g_warning ("Should signal an exception here");
 		return 0;
@@ -35,7 +37,7 @@ fs_write (GnomeStream *stream, long count,
 }
 
 static CORBA_long
-fs_read (GnomeStream *stream, long count,
+fs_read (GnomeStream *stream, CORBA_long count,
 	 GNOME_Stream_iobuf ** buffer,
 	 CORBA_Environment *ev)
 {
@@ -259,7 +261,7 @@ gnome_stream_fs_create (GnomeStorageFS *fs, const CORBA_char *path)
 	g_return_val_if_fail (path != NULL, NULL);
 	
 	full = g_concat_dir_and_file (fs->path, path);
-	fd = open (full, O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	fd = open (full, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	g_free (full);
 	
 	if (fd == -1)

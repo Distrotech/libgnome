@@ -253,8 +253,8 @@ gnome_storage_fs_create (GnomeStorageFS *storage_fs, const CORBA_char *path)
 		g_return_val_if_fail (GNOME_IS_STORAGE_FS (storage_fs), NULL);
 	}
 	
-	if (path == NULL)
-		full = g_strdup (path);
+	if (!path || !storage_fs)
+	        full = g_strdup (path);
 	else
 		full = g_concat_dir_and_file (storage_fs->path, path);
 	
@@ -266,4 +266,5 @@ gnome_storage_fs_create (GnomeStorageFS *storage_fs, const CORBA_char *path)
 
 	return GNOME_STORAGE (do_gnome_storage_fs_create (g_strdup (path)));
 }
+
 
