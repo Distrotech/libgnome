@@ -1,3 +1,10 @@
+1999-07-04  Owen Taylor  <otaylor@redhat.com>
+
+	* gnome-i18n.c (compute_locale_variants): Look for
+	variants of supplied locale value - e.g., for 
+	ja_JP.ujis, look (in order) for ja_JP.ujis, 
+	ja_JP, ja.ujis, and ja.
+
 1999-06-28  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnome-magic.c (read_string_val): Added break on default clause

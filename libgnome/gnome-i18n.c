@@ -19,6 +19,116 @@ gnome_i18n_get_language(void)
   return getenv("LANG");
 }
 
+/* Mask for components of locale spec. The ordering here is from
+ * least significant to most significant
+ */
+enum
+{
+  COMPONENT_CODESET =   1 << 0,
+  COMPONENT_TERRITORY = 1 << 1,
+  COMPONENT_MODIFIER =  1 << 2
+};
+
+/* Break an X/Open style locale specification into components
+ */
+static guint
+explode_locale (const gchar *locale,
+		gchar **language, 
+		gchar **territory, 
+		gchar **codeset, 
+		gchar **modifier)
+{
+  const gchar *uscore_pos;
+  const gchar *at_pos;
+  const gchar *dot_pos;
+
+  guint mask = 0;
+
+  uscore_pos = strchr (locale, '_');
+  dot_pos = strchr (uscore_pos ? uscore_pos : locale, '.');
+  at_pos = strchr (dot_pos ? dot_pos : (uscore_pos ? uscore_pos : locale), '@');
+
+  if (at_pos)
+    {
+      mask |= COMPONENT_MODIFIER;
+      *territory = g_strdup (at_pos);
+    }
+  else
+    at_pos = locale + strlen (locale);
+
+  if (dot_pos)
+    {
+      mask |= COMPONENT_CODESET;
+      *codeset = g_new (gchar, 1 + at_pos - dot_pos);
+      strncpy (*codeset, dot_pos, at_pos - dot_pos);
+      (*codeset)[at_pos - dot_pos] = '\0';
+    }
+  else
+    dot_pos = at_pos;
+
+  if (uscore_pos)
+    {
+      mask |= COMPONENT_TERRITORY;
+      *territory = g_new (gchar, 1 + dot_pos - uscore_pos);
+      strncpy (*territory, uscore_pos, dot_pos - uscore_pos);
+      (*territory)[dot_pos - uscore_pos] = '\0';
+    }
+  else
+    uscore_pos = dot_pos;
+
+  *language = g_new (gchar, 1 + uscore_pos - locale);
+  strncpy (*language, locale, uscore_pos - locale);
+  (*language)[uscore_pos - locale] = '\0';
+
+  return mask;
+}
+
+/*
+ * Compute all interesting variants for a given locale name -
+ * by stripping off different components of the value.
+ *
+ * For simplicity, we assume that the locale is in
+ * X/Open format: language[_territory][.codeset][@modifier]
+ *
+ * TODO: Extend this to handle the CEN format (see the GNUlibc docs)
+ *       as well. We could just copy the code from glibc wholesale
+ *       but it is big, ugly, and complicated, so I'm reluctant
+ *       to do so when this should handle 99% of the time...
+ */
+static GList *
+compute_locale_variants (const gchar *locale)
+{
+  GList *retval = NULL;
+
+  gchar *language;
+  gchar *territory;
+  gchar *codeset;
+  gchar *modifier;
+
+  guint mask;
+  guint i;
+
+  g_return_val_if_fail (locale != NULL, NULL);
+
+  mask = explode_locale (locale, &language, &territory, &codeset, &modifier);
+
+  /* Iterate through all possible combinations, from least attractive
+   * to most attractive.
+   */
+  for (i=0; i<=mask; i++)
+    if ((i & ~mask) == 0)
+      {
+	gchar *val = g_strconcat(language,
+				 (i & COMPONENT_TERRITORY) ? territory : "",
+				 (i & COMPONENT_CODESET) ? codeset : "",
+				 (i & COMPONENT_MODIFIER) ? modifier : "",
+				 NULL);
+	retval = g_list_prepend (retval, val);
+      }
+
+  return retval;
+}
+
 /* The following is (partly) taken from the gettext package.
    Copyright (C) 1995, 1996, 1997, 1998 Free Software Foundation, Inc.  */
 
@@ -119,7 +229,7 @@ gnome_i18n_get_language_list (const gchar *category_name)
 	      if (strcmp (cp, "C") == 0)
 		c_locale_defined= TRUE;
 	      
-	      list= g_list_append (list, cp);
+	      list= g_list_concat (list, compute_locale_variants (cp));
 	    }
 	}
       
