@@ -112,7 +112,7 @@ gnome_dl_load(char *libpath, int bind_lazy)
 #if defined( HAVE_DLFCN_H )
       native_handle = dlopen(libpath, bind_lazy ? LAZY_BIND_MODE : NOW_BIND_MODE);
 #elif defined( HAVE_DL_H )
-      native_handle = shl_load(lib_path, bind_lazy ? LAZY_BIND_MODE : NOW_BIND_MODE, 0L);
+      native_handle = shl_load(libpath, bind_lazy ? LAZY_BIND_MODE : NOW_BIND_MODE, 0L);
 #endif
 
       if (native_handle == NULL)
