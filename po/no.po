@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
-"POT-Creation-Date: 2001-11-11 14:12+0100\n"
+"POT-Creation-Date: 2001-11-26 21:04+0100\n"
 "PO-Revision-Date: 2001-11-11 14:14+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -24,20 +24,20 @@ msgid "Cannot parse: %s"
 msgstr "Kan ikke tolke: %s"
 
 #. FIXME: get this from bonobo
-#: libgnome/gnome-init.c:92
+#: libgnome/gnome-init.c:88
 msgid "Bonobo Support"
 msgstr "Bonobo støtte"
 
-#: libgnome/gnome-init.c:146
+#: libgnome/gnome-init.c:142
 msgid "Bonobo activation Support"
 msgstr "Bonobo aktiveringsstøtte"
 
-#: libgnome/gnome-init.c:279 libgnome/gnome-init.c:293
+#: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Kunn ikke opprette per-bruker gnome konfigurasjonskatalog `%s': %s\n"
 
-#: libgnome/gnome-init.c:302
+#: libgnome/gnome-init.c:298
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -46,40 +46,40 @@ msgstr ""
 "Kunne ikke sette modus 0700 på privat per-bruker gnome konfigurasjonskatalog "
 "`%s': %s\n"
 
-#: libgnome/gnome-init.c:309
+#: libgnome/gnome-init.c:305
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Kunne ikke opprette gnome akselleratorkatalog `%s': %s\n"
 
-#: libgnome/gnome-init.c:361
+#: libgnome/gnome-init.c:357
 msgid "Disable sound server usage"
 msgstr "Slå av bruk av lydtjener"
 
-#: libgnome/gnome-init.c:364
+#: libgnome/gnome-init.c:360
 msgid "Enable sound server usage"
 msgstr "Slå på bruk av lydtjener"
 
-#: libgnome/gnome-init.c:367
+#: libgnome/gnome-init.c:363
 msgid "Host:port on which the sound server to use is running"
 msgstr "Vert:port hvor lydtjeneren som skal brukes kjører"
 
-#: libgnome/gnome-init.c:369
+#: libgnome/gnome-init.c:365
 msgid "HOSTNAME:PORT"
 msgstr "VERTSNAVN:PORT"
 
-#: libgnome/gnome-init.c:387
+#: libgnome/gnome-init.c:383
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME virtuelt filsystem"
 
-#: libgnome/gnome-init.c:408
+#: libgnome/gnome-init.c:404
 msgid "GNOME Library"
 msgstr "GNOME bibliotek"
 
-#: libgnome/test-libgnome.c:24
+#: libgnome/test-libgnome.c:21
 msgid "Test option."
 msgstr "Test-alternativ."
 
-#: libgnome/test-libgnome.c:157
+#: libgnome/test-libgnome.c:154
 msgid "The Application Name"
 msgstr "Applikasjonens navn"
 
@@ -95,14 +95,18 @@ msgstr "Kan ikke finne GNOME_FILE_DOMAIN_APP_HELP domene"
 msgid ""
 "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
 "libs was compiled incorrectly."
-msgstr "Kan ikke finne GNOME_FILE_DOMAIN_HELP domene. Dette antyder at gnome-libs ikke er kompilert korrekt."
+msgstr ""
+"Kan ikke finne GNOME_FILE_DOMAIN_HELP domene. Dette antyder at gnome-libs "
+"ikke er kompilert korrekt."
 
 #: libgnome/gnome-help.c:176
 #, c-format
 msgid ""
 "Unable to show help as file %s is not a directory.  This implies an "
 "incorrect installation."
-msgstr "Kan ikke vise hjelp ettersom %s ikke er en katalog. Dette antyder en ugyldig installasjon."
+msgstr ""
+"Kan ikke vise hjelp ettersom %s ikke er en katalog. Dette antyder en ugyldig "
+"installasjon."
 
 #: libgnome/gnome-help.c:193
 #, c-format
@@ -123,43 +127,43 @@ msgstr "Hjelpdokument %s/%s ble ikke funnet"
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "For mange aliasnivåer for et lokale, kan indikere en løkke"
 
-#: libgnome/gnome-program.c:470
+#: libgnome/gnome-program.c:464
 msgid "Human readable name"
 msgstr "Lesbart navn"
 
-#: libgnome/gnome-program.c:471
+#: libgnome/gnome-program.c:465
 msgid "Human readable name of this application"
 msgstr "Lebart navn for denne applikasjonen"
 
-#: libgnome/gnome-program.c:480
+#: libgnome/gnome-program.c:474
 msgid "GNOME path"
 msgstr "GNOME sti"
 
-#: libgnome/gnome-program.c:481
+#: libgnome/gnome-program.c:475
 msgid "Path in which to look for installed files"
 msgstr "Sti hvor det skal letes etter installerte filer"
 
-#: libgnome/gnome-program.c:496
+#: libgnome/gnome-program.c:490
 msgid "App version"
 msgstr "Versjon av applikasjon"
 
-#: libgnome/gnome-program.c:497
+#: libgnome/gnome-program.c:491
 msgid "Version of this application"
 msgstr "Versjon for denne applikasjonen"
 
-#: libgnome/gnome-program.c:1318
+#: libgnome/gnome-program.c:1320
 msgid "Help options"
 msgstr "Hjelp-alternativ"
 
-#: libgnome/gnome-program.c:1323
+#: libgnome/gnome-program.c:1325
 msgid "Application options"
 msgstr "Applikasjonsalternativer"
 
-#: libgnome/gnome-program.c:1339
+#: libgnome/gnome-program.c:1341
 msgid "Dynamic modules to load"
 msgstr "Dynamiske moduler som skal lastes"
 
-#: libgnome/gnome-program.c:1340
+#: libgnome/gnome-program.c:1342
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 

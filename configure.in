@@ -1,7 +1,7 @@
 AC_INIT(libgnome)
 
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(libgnome, 1.105.0)
+AM_INIT_AUTOMAKE(libgnome, 1.107.0)
 
 AM_MAINTAINER_MODE
 
@@ -77,12 +77,12 @@ PKG_CHECK_MODULES(SOUND_TEST, $ESOUND_MODULE $AUDIOFILE_MODULE, [
 	ESOUND_MODULE=""
 ])
 
-PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.10 gmodule-2.0 >= 1.3.10 gnome-vfs-2.0 >= 1.9.3 \
-libxml-2.0 >= 2.4.7 libbonobo-2.0 >= 1.106.0 gconf-2.0 >= 1.1.1 \
+PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.11 gmodule-2.0 >= 1.3.11 gnome-vfs-2.0 >= 1.9.3 \
+libxml-2.0 >= 2.4.11 libbonobo-2.0 >= 1.107.0 gconf-2.0 >= 1.1.1 \
 $AUDIOFILE_MODULE $ESOUND_MODULE)
 
-PKG_CHECK_MODULES(HELP_VFS_MODULE, glib-2.0 >= 1.3.10 gmodule-2.0 >= 1.3.10 gnome-vfs-2.0 >= 1.9.3 gnome-vfs-module-2.0 >= 1.9.3 \
-libxml-2.0 >= 2.4.7  libbonobo-2.0 >= 1.106.0)
+PKG_CHECK_MODULES(HELP_VFS_MODULE, glib-2.0 >= 1.3.11 gmodule-2.0 >= 1.3.11 gnome-vfs-2.0 >= 1.9.3 gnome-vfs-module-2.0 >= 1.9.3 \
+libxml-2.0 >= 2.4.11 libbonobo-2.0 >= 1.107.0)
 
 
 AC_PATH_PROG(XSLT_CONFIG,xslt-config,no)
@@ -211,7 +211,6 @@ help-converters/info/Makefile
 help-converters/gnome-vfs-module/Makefile
 doc/Makefile
 doc/reference/Makefile
-tests/Makefile
 ])
 
 cat $srcdir/message-of-doom

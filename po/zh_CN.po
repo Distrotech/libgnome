@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2001-09-19 22:05+0000\n"
+"POT-Creation-Date: 2001-11-26 21:04+0100\n"
 "PO-Revision-Date: 2001-09-19 22:16+0800\n"
 "Last-Translator: Wang Jian <lark@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
@@ -17,126 +17,153 @@ msgstr ""
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "无法找到终端程序，使用 xterm，即使它也可能不工作"
 
-#: libgnome/gnome-url.c:155
+#: libgnome/gnome-url.c:181
 #, c-format
 msgid "Cannot parse: %s"
 msgstr "无法解析：%s"
 
 #. FIXME: get this from bonobo
-#: libgnome/gnome-init.c:92
+#: libgnome/gnome-init.c:88
 msgid "Bonobo Support"
 msgstr "Bonobo 支持"
 
-#: libgnome/gnome-init.c:143
+#: libgnome/gnome-init.c:142
 msgid "Bonobo activation Support"
 msgstr "Bonobo 激活支持"
 
-#: libgnome/gnome-init.c:276 libgnome/gnome-init.c:290
+#: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "无法创建用户的 gnome 配置目录“%s”：%s\n"
 
-#: libgnome/gnome-init.c:299
+#: libgnome/gnome-init.c:298
 #, c-format
 msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory "
-"`%s': %s\n"
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
 msgstr "无法将用户私有的 gnome 配置目录“%s”的权限设置为 0700：%s\n"
 
-#: libgnome/gnome-init.c:306
+#: libgnome/gnome-init.c:305
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "无法创建 gnome 加速目录“%s”：%s\n"
 
-#: libgnome/gnome-init.c:358
+#: libgnome/gnome-init.c:357
 msgid "Disable sound server usage"
 msgstr "禁用声音服务器"
 
-#: libgnome/gnome-init.c:361
+#: libgnome/gnome-init.c:360
 msgid "Enable sound server usage"
 msgstr "启用声音服务器"
 
-#: libgnome/gnome-init.c:364
-msgid "Host:port on which the sound server to use is "
+#: libgnome/gnome-init.c:363
+#, fuzzy
+msgid "Host:port on which the sound server to use is running"
 msgstr "声音服务器使用的“主机:端口”是 "
 
-#: libgnome/gnome-init.c:366
+#: libgnome/gnome-init.c:365
 msgid "HOSTNAME:PORT"
 msgstr "主机:端口"
 
-#: libgnome/gnome-init.c:384
+#: libgnome/gnome-init.c:383
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME 虚拟文件系统"
 
-#: libgnome/gnome-init.c:405
+#: libgnome/gnome-init.c:404
 msgid "GNOME Library"
 msgstr "GNOME 库"
 
-#: libgnome/test-libgnome.c:24
+#: libgnome/test-libgnome.c:21
 msgid "Test option."
 msgstr "测试选项。"
 
-#: libgnome/test-libgnome.c:157
+#: libgnome/test-libgnome.c:154
 msgid "The Application Name"
 msgstr "程序名"
 
-#: libgnome/gnome-gconf.c:165
+#: libgnome/gnome-gconf.c:172
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf 支持"
 
-#: libgnome/gnome-help.c:110 libgnome/gnome-help.c:159
-msgid "Internal error"
-msgstr "内部错误"
+#: libgnome/gnome-help.c:149
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr ""
 
-#: libgnome/gnome-help.c:122 libgnome/gnome-help.c:179
+#: libgnome/gnome-help.c:163
+msgid ""
+"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
+"libs was compiled incorrectly."
+msgstr ""
+
+#: libgnome/gnome-help.c:176
+#, c-format
+msgid ""
+"Unable to show help as file %s is not a directory.  This implies an "
+"incorrect installation."
+msgstr ""
+
+#: libgnome/gnome-help.c:193
 #, c-format
 msgid "Help document %s for %s not found"
+msgstr ""
+
+#: libgnome/gnome-help.c:270
+#, c-format
+msgid "Unable to find doc_id %s in the help path"
+msgstr ""
+
+#: libgnome/gnome-help.c:291
+#, c-format
+msgid "Help document %s/%s not found"
 msgstr ""
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "区域设置有太多的别名级别，可能是循环"
 
-#: libgnome/gnome-program.c:476
+#: libgnome/gnome-program.c:464
 msgid "Human readable name"
 msgstr "人可识别名字"
 
-#: libgnome/gnome-program.c:477
+#: libgnome/gnome-program.c:465
 msgid "Human readable name of this application"
 msgstr "该程序的人可识别名字"
 
-#: libgnome/gnome-program.c:486
+#: libgnome/gnome-program.c:474
 msgid "GNOME path"
 msgstr "GNOME 路径"
 
-#: libgnome/gnome-program.c:487
+#: libgnome/gnome-program.c:475
 msgid "Path in which to look for installed files"
 msgstr "搜索安装的文件的路径"
 
-#: libgnome/gnome-program.c:502
+#: libgnome/gnome-program.c:490
 msgid "App version"
 msgstr "程序版本"
 
-#: libgnome/gnome-program.c:503
+#: libgnome/gnome-program.c:491
 msgid "Version of this application"
 msgstr "该程序的版本"
 
-#: libgnome/gnome-program.c:1251
+#: libgnome/gnome-program.c:1320
 msgid "Help options"
 msgstr "帮助选项"
 
-#: libgnome/gnome-program.c:1256
+#: libgnome/gnome-program.c:1325
 msgid "Application options"
 msgstr "程序选项"
 
-#: libgnome/gnome-program.c:1272
+#: libgnome/gnome-program.c:1341
 msgid "Dynamic modules to load"
 msgstr "要载入的动态模块"
 
-#: libgnome/gnome-program.c:1273
+#: libgnome/gnome-program.c:1342
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1，MODULE2，..."
 
 #: tests/test-storage.c:474
 msgid "Can not bonobo_init"
 msgstr "无法进行 bonobo_init"
+
+#~ msgid "Internal error"
+#~ msgstr "内部错误"
