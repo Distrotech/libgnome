@@ -36,9 +36,6 @@
 #include <libgnome/gnomelib-init2.h>
 #include "gnome-color-picker.h"
 #include "gnome-entry.h"
-#include "gnome-file-entry.h"
-#include "gnome-icon-entry.h"
-#include "gnome-pixmap-entry.h"
 /* GTK Widgets */
 GConfValue *gnome_gconf_gtk_entry_get          (GtkEntry         *entry,
 						GConfValueType    type);
@@ -70,18 +67,6 @@ void        gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
 GConfValue *gnome_gconf_gnome_entry_get        (GnomeEntry       *entry,
 						GConfValueType    type);
 void        gnome_gconf_gnome_entry_set        (GnomeEntry       *entry,
-						GConfValue       *value);
-GConfValue *gnome_gconf_gnome_file_entry_get   (GnomeFileEntry   *file_entry,
-						GConfValueType    type);
-void        gnome_gconf_gnome_file_entry_set   (GnomeFileEntry   *file_entry,
-						GConfValue       *value);
-GConfValue *gnome_gconf_gnome_icon_entry_get   (GnomeIconEntry   *icon_entry,
-						GConfValueType    type);
-void        gnome_gconf_gnome_icon_entry_set   (GnomeIconEntry   *icon_entry,
-						GConfValue       *value);
-GConfValue *gnome_gconf_gnome_pixmap_entry_get (GnomePixmapEntry *pixmap_entry,
-						GConfValueType    type);
-void        gnome_gconf_gnome_pixmap_entry_set (GnomePixmapEntry *pixmap_entry,
 						GConfValue       *value);
 
 /* Get keys relative to the gnome-libs internal per-app directory and the
