@@ -62,6 +62,17 @@ int gnome_execute_async_with_env_fds (const char *dir, int argc,
 int gnome_execute_shell (const char *dir, const char *commandline);
 int gnome_execute_shell_fds (const char *dir, const char *commandline,
 			     gboolean close_fds);
+
+/* prepend the terminal command to a vector */
+void gnome_prepend_terminal_to_vector (int *argc, char ***argv);
+
+/* run a shell in the terminal, here commandline can be NULL
+ * for just a shell, unlike in gnome_execute_shell */
+int gnome_execute_terminal_shell (const char *dir, const char *commandline);
+int gnome_execute_terminal_shell_fds (const char *dir,
+				      const char *commandline,
+				      gboolean close_fds);
+
 END_GNOME_DECLS
 
 #endif /* GNOME_EXEC_H */

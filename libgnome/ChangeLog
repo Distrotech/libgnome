@@ -1,3 +1,16 @@
+Sun Sep 24 15:32:20 2000  George Lebl <jirka@5z.com>
+
+	* gnome-exec.[ch]:  Improve some docs, and add function to
+	  deal with terminals according to user prefs.  Also some stylistic
+	  changes.
+
+	* gnome-ditem.c:  Use the gnome-exec function for getting the
+	  terminal command line
+
+	* gnome-portability.h.in:  remove the alloca thing as g_alloca is
+	  apparently now in glib.  The file is now empty and perhaps
+	  should be removed, unless there's further need for it.
+
 Sat Sep 23 17:28:25 2000  George Lebl <jirka@5z.com>
 
 	* gnome-i18n.[ch]:  Add gnome_i18n_push_c_numeric_locale and

@@ -29,6 +29,8 @@
 #include "gnome-exec.h"
 #include "gnome-portability.h"
 #include "gnome-util.h"
+#include "gnome-config.h"
+#include "gnome-i18nP.h"
 #include <glib.h>
 
 #include <unistd.h>
@@ -61,15 +63,16 @@ set_cloexec (gint fd)
  * @envv: Environment vector
  * @close_fds: If TRUE will close all fds but 0,1, and 2
  * 
- * Like gnome_execute_async_with_env() but has a flag to decide whether or not  * to close fd's
+ * Description:  Like #gnome_execute_async_with_env() but has a flag to
+ * decide whether or not to close fd's
  * 
- * Return value: the process id, or %-1 on error.
+ * Returns: the process id, or %-1 on error.
  **/
 int
 gnome_execute_async_with_env_fds (const char *dir, int argc, 
-				       char * const argv[], int envc, 
-				       char * const envv[], 
-				       gboolean close_fds)
+				  char * const argv[], int envc, 
+				  char * const envv[], 
+				  gboolean close_fds)
 {
   int parent_comm_pipes[2], child_comm_pipes[2];
   int child_errno, itmp, i, open_max;
@@ -210,20 +213,19 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
  * @envc: Number of environment slots
  * @envv: Environment vector
  * 
- * This function forks and executes some program in the background.
- * On error, returns %-1; in this case, errno should hold a useful
- * value.  Searches the path to find the child.  Environment settings
- * in @envv are added to the existing environment -- they do not
- * completely replace it.  This function closes all fds besides 0, 1,
- * and 2 for the child
+ * Description: This function forks and executes some program in the
+ * background.  On error, returns %-1; in this case, errno should hold a useful
+ * value.  Searches the path to find the child.  Environment settings in @envv
+ * are added to the existing environment -- they do not completely replace it.
+ * This function closes all fds besides 0, 1, and 2 for the child
  * 
- * Return value: the process id, or %-1 on error.
+ * Returns: the process id, or %-1 on error.
  **/
 int
 gnome_execute_async_with_env (const char *dir, int argc, char * const argv[], 
 			      int envc, char * const envv[])
 {
-  return gnome_execute_async_with_env_fds(dir,argc,argv,envc,envv,TRUE);
+  return gnome_execute_async_with_env_fds (dir, argc, argv, envc, envv, TRUE);
 }
 
 
@@ -234,10 +236,10 @@ gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
  * @argc: Number of arguments
  * @argv: Argument vector to exec child
  * 
- * Like gnome_execute_async_with_env(), but doesn't add anything to
- * child's environment.
+ * Description: Like gnome_execute_async_with_env(), but doesn't add anything
+ * to child's environment.
  * 
- * Return value: process id of child, or %-1 on error.
+ * Returns: process id of child, or %-1 on error.
  **/
 int
 gnome_execute_async (const char *dir, int argc, char * const argv[])
@@ -252,14 +254,15 @@ gnome_execute_async (const char *dir, int argc, char * const argv[])
  * @argc: Number of arguments
  * @argv: Argument vector to exec child
  * @close_fds: 
- * Like gnome_execute_async_with_env_fds(), but doesn't add anything to
- * child's environment.
+ *
+ * Description: Like #gnome_execute_async_with_env_fds, but doesn't add
+ * anything to child's environment.
  * 
- * Return value: process id of child, or %-1 on error.
+ * Returns: process id of child, or %-1 on error.
  **/
 int
 gnome_execute_async_fds (const char *dir, int argc, 
-				 char * const argv[], gboolean close_fds)
+			 char * const argv[], gboolean close_fds)
 {
   return gnome_execute_async_with_env_fds (dir, argc, argv, 0, NULL, 
 					   close_fds);
@@ -271,29 +274,34 @@ gnome_execute_async_fds (const char *dir, int argc,
  *       directory
  * @commandline: Shell command to execute
  * @close_fds: Like close_fds in gnome_execute_async_with_env_fds()
- * Like gnome_execute_async_with_env_fds(), but uses the user's shell to
- * run the desired program.  Note that the pid of the shell is
+ *
+ * Description: Like #gnome_execute_async_with_env_fds, but uses the user's
+ * shell to run the desired program.  Note that the pid of the shell is
  * returned, not the pid of the user's program.
  * 
- * Return value: process id of shell, or %-1 on error.
+ * Returns: process id of shell, or %-1 on error.
  **/
 int
 gnome_execute_shell_fds (const char *dir, const char *commandline,
-			      gboolean close_fds)
+			 gboolean close_fds)
 {
+  char *user_shell;
   char * argv[4];
   int r;
 
   g_return_val_if_fail(commandline != NULL, -1);
 
-  argv[0] = gnome_util_user_shell ();
+  user_shell = gnome_util_user_shell ();
+
+  argv[0] = user_shell;
   argv[1] = "-c";
-  /* This cast is safe.  It sucks that we need it, though.  */
-  argv[2] = (char *) commandline;
+  /* neccessary cast, to avoid warning, but safe */
+  argv[2] = (char *)commandline;
   argv[3] = NULL;
 
   r = gnome_execute_async_with_env_fds (dir, 4, argv, 0, NULL, close_fds);
-  g_free (argv[0]);
+
+  g_free (user_shell);
   return r;
 }
 
@@ -303,11 +311,11 @@ gnome_execute_shell_fds (const char *dir, const char *commandline,
  *       directory
  * @commandline: Shell command to execute
  * 
- * Like gnome_execute_async_with_env(), but uses the user's shell to
- * run the desired program.  Note that the pid of the shell is
- * returned, not the pid of the user's program.
+ * Description: Like #gnome_execute_async_with_env, but uses the user's shell
+ * to run the desired program.  Note that the pid of the shell is returned, not
+ * the pid of the user's program.
  * 
- * Return value: process id of shell, or %-1 on error.
+ * Returns: process id of shell, or %-1 on error.
  **/
 int
 gnome_execute_shell (const char *dir, const char *commandline)
@@ -315,9 +323,167 @@ gnome_execute_shell (const char *dir, const char *commandline)
   return gnome_execute_shell_fds(dir, commandline, TRUE);
 }
 
+/**
+ * gnome_prepend_terminal_to_vector:
+ * @argc: a pointer to the vector size
+ * @argv: a pointer to the vector
+ *
+ * Description:  Prepends the selected terminal to the
+ * passed in vector, modifying it in the process.  The vector should
+ * be allocated with g_malloc, as this will g_free the original vector.
+ * Also all elements must have been allocated separately.  That is the
+ * standard glib/gnome way of doing vectors however.  If the integer
+ * that @argc points to is negative, the size will first be computed.
+ * Also note that passing in pointers to a vector that is empty, will
+ * just create a new vector for you.
+ **/
+void
+gnome_prepend_terminal_to_vector (int *argc, char ***argv)
+{
+        char **real_argv;
+        int real_argc;
+        int i, j;
+	char **term_argv = NULL;
+	int term_argc = 0;
 
+	char **the_argv;
 
+        g_return_if_fail (argc != NULL);
+        g_return_if_fail (argv != NULL);
 
+	/* sanity */
+        if(*argv == NULL)
+                *argc = 0;
 
+	the_argv = *argv;
 
+	/* compute size if not given */
+	if (*argc < 0) {
+		for (i = 0; the_argv[i] != NULL; i++)
+			;
+		*argc = i;
+	}
 
+	gnome_config_get_vector ("/Gnome/Applications/Terminal",
+				 &term_argc, &term_argv);
+	if (term_argv == NULL) {
+		char *check;
+
+		term_argc = 2;
+		term_argv = g_new0 (char *, 3);
+
+		check = gnome_is_program_in_path("gnome-terminal");
+		if (check != NULL) {
+			term_argv[0] = check;
+			/* Note that gnome-terminal takes -x and
+			 * as -e in gnome-terminal is broken */
+			term_argv[1] = g_strdup ("-x");
+		} else {
+			if (check == NULL)
+				check = gnome_is_program_in_path("nxterm");
+			if (check == NULL)
+				check = gnome_is_program_in_path("color-xterm");
+			if (check == NULL)
+				check = gnome_is_program_in_path("rxvt");
+			if (check == NULL)
+				check = gnome_is_program_in_path("xterm");
+			if (check == NULL)
+				check = gnome_is_program_in_path("dtterm");
+			if (check == NULL) {
+				g_warning (_("Cannot find a terminal, using "
+					     "xterm, even if it may not work"));
+				check = g_strdup ("xterm");
+			}
+			term_argv[0] = check;
+			term_argv[1] = g_strdup ("-e");
+		}
+	}
+
+        real_argc = term_argc + *argc;
+        real_argv = g_new (char *, real_argc + 1);
+
+        for (i = 0; i < term_argc; i++)
+                real_argv[i] = term_argv[i];
+
+        for (j = 0; j < *argc; j++, i++)
+                real_argv[i] = (char *)the_argv[j];
+
+	real_argv[i] = NULL;
+
+	g_free (*argv);
+	*argv = real_argv;
+	*argc = real_argc;
+
+	/* we use g_free here as we sucked all the inner strings
+	 * out from it into real_argv */
+	g_free (term_argv);
+}
+
+/**
+ * gnome_execute_terminal_shell_fds:
+ * @dir: Directory in which child should be execd, or NULL for current
+ *       directory
+ * @commandline: Shell command to execute
+ * @close_fds: Like close_fds in gnome_execute_async_with_env_fds()
+ *
+ * Description:  Like #gnome_execute_shell_fds, except that it runs the
+ * terminal as well.  Note that the pid of the terminal is
+ * returned, not the pid of the user's program.
+ * If commandline is %NULL, just the shell is run.
+ * 
+ * Returns: process id of terminal, or %-1 on error.
+ **/
+int
+gnome_execute_terminal_shell_fds (const char *dir, const char *commandline,
+				  gboolean close_fds)
+{
+	char ** argv;
+	int argc;
+	int r;
+
+	argv = g_new (char *, 4);
+
+	argv[0] = gnome_util_user_shell ();
+	if (commandline != NULL) {
+		argc = 3;
+		argv[1] = g_strdup ("-c");
+		argv[2] = g_strdup (commandline);
+		argv[3] = NULL;
+	} else {
+		/* FIXME: really this should more be a 
+		 * --login terminal, but the user preference includes
+		 * the -e, -x or whatever flag which makes this impossible,
+		 * change the preference in 2.0 to be two keys, and one
+		 * of them for a login terminal */
+		argc = 1;
+		argv[1] = NULL;
+	}
+
+	gnome_prepend_terminal_to_vector (&argc, &argv);
+
+	r = gnome_execute_async_with_env_fds (dir, argc, argv, 0, NULL,
+					      close_fds);
+
+	g_strfreev (argv);
+
+	return r;
+}
+
+/**
+ * gnome_execute_terminal_shell:
+ * @dir: Directory in which child should be execd, or NULL for current
+ *       directory
+ * @commandline: Shell command to execute
+ * 
+ * Description:  Like #gnome_execute_async, except that it runs the
+ * terminal as well.  Note that the pid of the terminal is
+ * returned, not the pid of the user's program.
+ * If commandline is %NULL, just the shell is run.
+ * 
+ * Returns: process id of terminal, or %-1 on error.
+ **/
+int
+gnome_execute_terminal_shell (const char *dir, const char *commandline)
+{
+	return gnome_execute_terminal_shell_fds (dir, commandline, TRUE);
+}
