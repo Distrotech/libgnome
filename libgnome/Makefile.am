@@ -55,7 +55,6 @@ libgnome_src = \
 	gnome-ditem.c		\
 	gnome-exec.c		\
 	gnome-fileconvert.c	\
-	gnome-i18n.c		\
 	gnome-regex.c		\
 	gnome-url.c		\
 	gnome-util.c		\

@@ -27,7 +27,7 @@
 
 #include "gnome-exec.h"
 #include "gnome-util.h"
-#include "gnome-i18nP.h"
+#include <libgnome/gnome-i18n.h>
 #include <glib.h>
 
 #include <unistd.h>
