@@ -958,6 +958,7 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 	    g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s",
 			dir, attr_rel, file_name);
 
+	    g_free (dir);
 	    if (!only_if_exists || g_file_test (fnbuf, G_FILE_TEST_EXISTS))
 		ADD_FILENAME (fnbuf);
 	}
