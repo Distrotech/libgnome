@@ -219,6 +219,9 @@ escape_string_and_dup (char *s)
 {
 	char *return_value, *p = s;
 	int len = 0;
+
+	if(!s)
+		return g_strdup("");
 	
 	while (*p){
 		len++;
