@@ -24,7 +24,7 @@
 
 
 /**
- * gnome_desktop_entry_load_flags:
+ * gnome_desktop_entry_load_flags_conditional:
  * @file: a file name that contains a desktop entry.
  * @clean_from_memory_after_load: flag
  * @unconditional: flag
@@ -216,6 +216,7 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	g_return_if_fail (dentry->location != NULL);
 	g_return_if_fail (!dentry->is_kde);
 
+	gnome_config_push_prefix ("");
 	prefix = g_strconcat ("=", dentry->location, "=/Desktop Entry/", NULL);
 	gnome_config_clean_section (prefix);
 	gnome_config_push_prefix (prefix);
@@ -254,6 +255,8 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	gnome_config_sync_file (prefix);
 	gnome_config_drop_file (prefix);
 	g_free (prefix);
+
+	gnome_config_pop_prefix ();
 }
 
 /**

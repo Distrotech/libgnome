@@ -451,9 +451,11 @@ access_config (access_type mode, const char *section_name,
     
 	/* Start search */
 	for (; section; section = section->link){
-		if (section->section_name == 0)
-			continue;
-		if (strcasecmp (section->section_name, section_name))
+		/*if section name empty or deleted or not the one we're
+		  looking for, then search on*/
+		if (!section->section_name ||
+		    !*section->section_name ||
+		    strcasecmp (section->section_name, section_name))
 			continue;
 		
 		for (key = section->keys; key; key = key->link){
@@ -789,7 +791,7 @@ _gnome_config_sync_file (char *path, int priv)
  * Cleans up the configuration file specified by @path from any
  * configuration information.
  *
- * Changes will take place after gnome_config_sync has been invoked.
+ * Changes will take place after #gnome_config_sync has been invoked.
  */
 /**
  * gnome_config_private_clean_file:
@@ -798,7 +800,7 @@ _gnome_config_sync_file (char *path, int priv)
  * Cleans up the private configuration file specified by @path from
  * any configuration information.
  *
- * Changes will take place after gnome_config_sync has been invoked.
+ * Changes will take place after #gnome_config_sync has been invoked.
  */
 void 
 _gnome_config_clean_file (const char *path, gint priv)
@@ -836,7 +838,7 @@ _gnome_config_clean_file (const char *path, gint priv)
  *
  * Releases any memory resources that were allocated from accessing
  * the configuration file in @path.  Changes will take place after
- * gnome_config_sync has been invoked
+ * #gnome_config_sync has been invoked
  */
 /**
  * gnome_config_private_drop_file:
@@ -1075,7 +1077,7 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
  *
  * Cleans up the section specified by @path from any
  * configuration information.  Changes will only take place
- * after gnome_config has been invoked.
+ * after #gnome_config_sync has been invoked.
  */
 /**
  * gnome_config_private_clean_section:
@@ -1083,7 +1085,7 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
  *
  * Cleans up the section specified by @path in a private file from any
  * configuration information.  Changes will only take place after
- * gnome_config has been invoked.
+ * #gnome_config_sync has been invoked.
  */
 void 
 _gnome_config_clean_section (const char *path, gint priv)
@@ -1092,7 +1094,7 @@ _gnome_config_clean_section (const char *path, gint priv)
 	TSecHeader *section;
 	ParsedPath *pp;
 	char *fake_path;
-
+	
 	fake_path = g_concat_dir_and_file (path, "key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
@@ -1116,12 +1118,12 @@ _gnome_config_clean_section (const char *path, gint priv)
 		Current = New;
 	}
 	/* We only disable the section, so it will still be g_freed, but it */
-	/* won't be find by further walks of the structure */
+	/* won't be found by further walks of the structure */
 
 	for (; section; section = section->link){
 		if (strcasecmp (section->section_name, pp->section))
 			continue;
-		section->section_name [0] = 0;
+		section->section_name [0] = '\0';
 		Current->written_to = TRUE;
 	}
 	release_path (pp);
@@ -1133,7 +1135,7 @@ _gnome_config_clean_section (const char *path, gint priv)
  *
  * Removes the definition for the key on a gnome configuration file.
  *
- * Changes will take place after gnome_config_sync has been invoked.
+ * Changes will take place after #gnome_config_sync has been invoked.
  */
 /**
  * gnome_config_private_clean_key:
@@ -1142,7 +1144,7 @@ _gnome_config_clean_section (const char *path, gint priv)
  * Removes the definition for the key on a private gnome configuration
  * file.
  *
- * Changes will take place after gnome_config_sync has been invoked.
+ * Changes will take place after #gnome_config_sync has been invoked.
  */
 void 
 _gnome_config_clean_key (const char *path, gint priv)
