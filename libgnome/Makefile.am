@@ -55,11 +55,13 @@ $(CORBA_SOURCE): $(idls) $(ORBIT_IDL)
 libgnome_src = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
+	gnome-async-context.c	\
 	gnome-program.c		\
 	gnome-selector.c	\
 	gnome-file-selector.c	\
 	gnome-selector-factory.c\
 	gnome-selector-dialog.c	\
+	gnome-directory-filter.c\
 	gnome-config.c		\
 	gnome-ditem.c		\
 	gnome-exec.c		\
@@ -84,6 +86,7 @@ libgnome_2_la_SOURCES = \
 	$(CORBA_SOURCE)
 
 libgnome_headers = \
+	gnome-async-context.h	\
 	gnome-program.h		\
 	gnome-i18n.h		\
         gnome-config.h 		\
@@ -104,6 +107,7 @@ libgnome_headers = \
 	gnome-file-selector.h	\
 	gnome-selector-factory.h\
 	gnome-selector-dialog.h	\
+	gnome-directory-filter.h\
 	libgnome-init.h		\
 	libgnome.h
 
