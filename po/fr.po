@@ -1,22 +1,23 @@
 # libgnome fr.po
-# Copyright (C) 2001 Free Software Foundation, Inc.
-# Christophe Merlet (RedFox) <redfox@eikonex.org>, 2001.
+# Copyright (C) 2001-2002 Free Software Foundation, Inc.
+# Christophe Merlet (RedFox) <redfox@eikonex.org>, 2001-2002.
+# Christophe fergeau <teuf@users.sourceforge.net>, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 1.96.0\n"
-"POT-Creation-Date: 2002-03-29 23:52+0100\n"
-"PO-Revision-Date: 2001-05-30 12:25+0200\n"
-"Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
-"Language-Team: Gnome French Team <gnomefr@gnomefr.traduc.org>\n"
+"Project-Id-Version: libgnome 1.114.0\n"
+"POT-Creation-Date: 2002-04-12 00:05+0200\n"
+"PO-Revision-Date: 2002-04-11 21:07+0200\n"
+"Last-Translator: Christophe Fergeau <teuf@users.sourceforge.net>\n"
+"Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: libgnome/gnome-exec.c:428
+#: libgnome/gnome-exec.c:438
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
-"Ne peut trouver un terminal, utilise xterm, même si il peut ne pas "
+"Impossible de trouver un terminal, utilise xterm, mÃªme s'il peut ne pas "
 "fonctionner"
 
 #. FIXME: get this from bonobo
@@ -25,15 +26,14 @@ msgid "Bonobo Support"
 msgstr "Support Bonobo"
 
 #: libgnome/gnome-init.c:142
-#, fuzzy
 msgid "Bonobo activation Support"
-msgstr "Support Bonobo"
+msgstr "Support de bonobo-activation"
 
 #: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Ne peut créer un répertoire de configuration par utilisateur « %s » : %s\n"
+"Ne peut crÃ©er un rÃ©pertoire de configuration par utilisateur Â« %s Â» : %s\n"
 
 #: libgnome/gnome-init.c:298
 #, c-format
@@ -41,60 +41,53 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Ne peut définir le mode à 0700 sur le répertoire de configuration privé par "
-"utilisateur « %s » : %s\n"
+"Ne peut dÃ©finir le mode Ã  0700 sur le rÃ©pertoire de configuration privÃ© par "
+"utilisateur Â« %s Â» : %s\n"
 
 #: libgnome/gnome-init.c:305
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Ne peut créer le répertoire d'accélérateurs gnome « %s » : %s\n"
+msgstr "Ne peut crÃ©er le rÃ©pertoire d'accÃ©lÃ©rateurs gnome Â« %s Â» : %s\n"
 
 #: libgnome/gnome-init.c:357
 msgid "Disable sound server usage"
-msgstr ""
+msgstr "DÃ©sactiver l'utilisation du serveur de son"
 
 #: libgnome/gnome-init.c:360
 msgid "Enable sound server usage"
-msgstr ""
+msgstr "Activer l'utilisation du serveur de son"
 
 #: libgnome/gnome-init.c:363
 msgid "Host:port on which the sound server to use is running"
-msgstr ""
+msgstr "HÃ´te:port oÃ¹ trouver le serveur de son Ã  utiliser"
 
 #: libgnome/gnome-init.c:365
 msgid "HOSTNAME:PORT"
-msgstr ""
+msgstr "NOMDHOTE:PORT"
 
 #: libgnome/gnome-init.c:383
 msgid "GNOME Virtual Filesystem"
-msgstr ""
+msgstr "SystÃ¨me de fichier virtuel GNOME"
 
 #: libgnome/gnome-init.c:404
 msgid "GNOME Library"
-msgstr ""
-
-#: libgnome/test-libgnome.c:21
-msgid "Test option."
-msgstr "Option de test."
-
-#: libgnome/test-libgnome.c:154
-msgid "The Application Name"
-msgstr "La nom de l'application"
+msgstr "BibliothÃ¨que GNOME"
 
 #: libgnome/gnome-gconf.c:174
-#, fuzzy
 msgid "GNOME GConf Support"
-msgstr "Support GNOME OAF"
+msgstr "Support GNOME de GConf"
 
 #: libgnome/gnome-help.c:149
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr ""
+msgstr "Impossible de trouver le domaine GNOME_FILE_DOMAIN_APP_HELP"
 
 #: libgnome/gnome-help.c:163
 msgid ""
 "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
 "libs was compiled incorrectly."
 msgstr ""
+"Impossible de trouver le domaine GNOME_FILE_DOMAIN_HELP. Cela indique que "
+"gnome-libs n'a pas Ã©tÃ© compilÃ© correctement."
 
 #: libgnome/gnome-help.c:175
 #, c-format
@@ -102,21 +95,23 @@ msgid ""
 "Unable to show help as file %s is not a directory.  This implies an "
 "incorrect installation."
 msgstr ""
+"Impossible d'afficher l'aide car le fichier Â« %s Â» n'est pas un rÃ©pertoire. "
+"Cela indique une installation incorrecte"
 
 #: libgnome/gnome-help.c:193
 #, c-format
 msgid "Help document %s for %s not found"
-msgstr ""
+msgstr "Document d'aide Â« %s Â» pour Â« %s Â» non trouvÃ©"
 
 #: libgnome/gnome-help.c:270
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr ""
+msgstr "Impossible de trouver doc_id %s dans le chemin d'aide"
 
 #: libgnome/gnome-help.c:291
 #, c-format
 msgid "Help document %s/%s not found"
-msgstr ""
+msgstr "Le document d'aide %s/%s est introuvable"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
@@ -124,27 +119,27 @@ msgstr ""
 
 #: libgnome/gnome-program.c:426
 msgid "Popt Table"
-msgstr ""
+msgstr "Table popt"
 
 #: libgnome/gnome-program.c:427
 msgid "The table of options for popt"
-msgstr ""
+msgstr "Table d'options pour popt"
 
 #: libgnome/gnome-program.c:434
 msgid "Popt Flags"
-msgstr ""
+msgstr "Drapeaux popt"
 
 #: libgnome/gnome-program.c:435
 msgid "The flags to use for popt"
-msgstr ""
+msgstr "Les drapeaux Ã  utiliser pour popt"
 
 #: libgnome/gnome-program.c:443
 msgid "Popt Context"
-msgstr ""
+msgstr "Contexte popt"
 
 #: libgnome/gnome-program.c:444
 msgid "The popt context pointer that GnomeProgram is using"
-msgstr ""
+msgstr "Le pointeur de contexte popt utilisÃ© par GnomeProgram"
 
 #: libgnome/gnome-program.c:452
 msgid "Human readable name"
@@ -156,11 +151,11 @@ msgstr ""
 
 #: libgnome/gnome-program.c:462
 msgid "GNOME path"
-msgstr ""
+msgstr "Chemin de GNOME"
 
 #: libgnome/gnome-program.c:463
 msgid "Path in which to look for installed files"
-msgstr ""
+msgstr "Chemin oÃ¹ rechercher les fichiers installÃ©s"
 
 #: libgnome/gnome-program.c:472
 msgid "App ID"
@@ -168,23 +163,23 @@ msgstr ""
 
 #: libgnome/gnome-program.c:473
 msgid "ID string to use for this application"
-msgstr ""
+msgstr "ChaÃ®ne d'identification Ã  utiliser pour cette application"
 
 #: libgnome/gnome-program.c:480
 msgid "App version"
-msgstr ""
+msgstr "Version de l'application"
 
 #: libgnome/gnome-program.c:481
 msgid "Version of this application"
-msgstr ""
+msgstr "Version de cette application"
 
 #: libgnome/gnome-program.c:488
 msgid "GNOME Prefix"
-msgstr ""
+msgstr "PrÃ©fixe de GNOME"
 
 #: libgnome/gnome-program.c:489
 msgid "Prefix where GNOME was installed"
-msgstr ""
+msgstr "PrÃ©fixe oÃ¹ GNOME est installÃ©"
 
 #: libgnome/gnome-program.c:498
 msgid "GNOME Libdir"
@@ -244,19 +239,19 @@ msgstr ""
 
 #: libgnome/gnome-program.c:568
 msgid "Create Directories"
-msgstr ""
+msgstr "CrÃ©er les rÃ©pertoires"
 
 #: libgnome/gnome-program.c:569
 msgid "Create standard GNOME directories on startup"
-msgstr ""
+msgstr "CrÃ©er les rÃ©pertoires GNOME standards au dÃ©marrage"
 
 #: libgnome/gnome-program.c:578
 msgid "Enable Sound"
-msgstr ""
+msgstr "Activer le son"
 
 #: libgnome/gnome-program.c:579
 msgid "Enable sound on startup"
-msgstr ""
+msgstr "Activer le son au dÃ©marrage"
 
 #: libgnome/gnome-program.c:588
 msgid "Espeaker"
@@ -264,33 +259,31 @@ msgstr ""
 
 #: libgnome/gnome-program.c:589
 msgid "How to connect to esd"
-msgstr ""
+msgstr "Comment se connecter Ã  esd"
 
 #: libgnome/gnome-program.c:1335
-#, fuzzy
 msgid "Help options"
-msgstr "Option de test."
+msgstr "Options de l'aide"
 
 #: libgnome/gnome-program.c:1340
-#, fuzzy
 msgid "Application options"
-msgstr "La nom de l'application"
+msgstr "Options de l'application"
 
 #: libgnome/gnome-program.c:1356
 msgid "Dynamic modules to load"
-msgstr ""
+msgstr "Modules dynamiques Ã  charger"
 
 #: libgnome/gnome-program.c:1357
 msgid "MODULE1,MODULE2,..."
-msgstr ""
+msgstr "MODULE1, MODULE2, ..."
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr ""
+msgstr "Fabrique de monikers additionnels"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
-msgstr ""
+msgstr "moniker GConf"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
@@ -299,68 +292,73 @@ msgstr ""
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr ""
+msgstr "La clÃ© %s est introuvable dans la configuration"
 
 #: monikers/bonobo-config-bag.c:230
-#, fuzzy
 msgid "Unknown type"
-msgstr "Fichier de bureau inconnu"
+msgstr "Type inconnu"
+
+#~ msgid "Test option."
+#~ msgstr "Option de test."
+
+#~ msgid "The Application Name"
+#~ msgstr "La nom de l'application"
 
 #, fuzzy
 #~ msgid "Cannot parse: %s"
 #~ msgstr "Ne peut ouvrir un tube : %s"
 
 #~ msgid "Error parsing '%s' (empty result)"
-#~ msgstr "Erreur d'analyse de « %s » (résultat vide)"
+#~ msgstr "Erreur d'analyse de Â« %s Â» (rÃ©sultat vide)"
 
 #~ msgid "Mozilla not found as '%s'"
-#~ msgstr "Mozilla n'a pas été trouvé comme « %s »"
+#~ msgstr "Mozilla n'a pas Ã©tÃ© trouvÃ© comme Â« %s Â»"
 
 #~ msgid "Cannot parse handler template: %s"
-#~ msgstr "ne peut analyser le modèle du gestionnaire : %s"
+#~ msgstr "ne peut analyser le modÃ¨le du gestionnaire : %s"
 
 #~ msgid "Cannot execute command '%s'!"
-#~ msgstr "Ne peut exécuter la commande « %s » !"
+#~ msgstr "Ne peut exÃ©cuter la commande Â« %s Â» !"
 
 #~ msgid "Command '%s' did not return an ID!"
-#~ msgstr "La commande « %s » n'a pas retourné d'ID !"
+#~ msgstr "La commande Â« %s Â» n'a pas retournÃ© d'ID !"
 
 #~ msgid "Attempting to launch a non-application"
 #~ msgstr "Tentative de lancer une non-application"
 
 #~ msgid "Trying to execute an item with no 'Exec'"
-#~ msgstr "Essaye d'exécuter un élément sans « Exec »"
+#~ msgstr "Essaye d'exÃ©cuter un Ã©lÃ©ment sans Â« Exec Â»"
 
 #~ msgid "No exec field for this drop"
 #~ msgstr "Aucun champ exec pour ce lacher"
 
 #~ msgid "Nothing to replace with a file in the exec string"
-#~ msgstr "Rien à remplacer avec un fichier dans la chaîne exec"
+#~ msgstr "Rien Ã  remplacer avec un fichier dans la chaÃ®ne exec"
 
 #~ msgid "There was no argument to replace with dropped files"
-#~ msgstr "Il n'y a aucun argument à remplacer avec les fichiers déposés"
+#~ msgstr "Il n'y a aucun argument Ã  remplacer avec les fichiers dÃ©posÃ©s"
 
 #~ msgid "Dropped URLs on an app that can only take files"
 #~ msgstr ""
-#~ "URLs lachées sur une applications qui ne peut accepter que des fichiers"
+#~ "URLs lachÃ©es sur une applications qui ne peut accepter que des fichiers"
 
 #~ msgid "Specify X display to use."
-#~ msgstr "Spécifie le visuel X à utiliser."
+#~ msgstr "SpÃ©cifie le visuel X Ã  utiliser."
 
 #~ msgid "Put the X connection in synchronous mode."
 #~ msgstr "Mets la connexion X en mode synchrone."
 
 #~ msgid "Specify the X window ID of Netscape."
-#~ msgstr "Spécifie l'ID de la fenêtre X de Netscape"
+#~ msgstr "SpÃ©cifie l'ID de la fenÃªtre X de Netscape"
 
 #~ msgid "Don't raise the Netscape window."
-#~ msgstr "Ne pas élever la fenêtre de Netscape"
+#~ msgstr "Ne pas Ã©lever la fenÃªtre de Netscape"
 
 #~ msgid "Show the given URL in a new window."
-#~ msgstr "Afficher l'URL donné dans une nouvelle fenêtre"
+#~ msgstr "Afficher l'URL donnÃ© dans une nouvelle fenÃªtre"
 
 #~ msgid "Close the specified window."
-#~ msgstr "Ferme la fenêtre spécifié."
+#~ msgstr "Ferme la fenÃªtre spÃ©cifiÃ©."
 
 #~ msgid "Print the X window ID of the utilized window."
-#~ msgstr "Affiche l'ID de la fenêtre X de la fenêtre utilisée."
+#~ msgstr "Affiche l'ID de la fenÃªtre X de la fenÃªtre utilisÃ©e."
