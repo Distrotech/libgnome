@@ -44,61 +44,8 @@
 
 #include <popt.h>
 
-#define DEFAULT_HANDLER "mozilla"
-#define HELP_URIS_HANDLER "gnome-help"
-
-static gchar *
-gnome_url_default_handler (void)
-{
-	static gchar *default_handler = NULL;
-	
-	if (!default_handler) {
-		gchar *str, *app;
-		GConfClient *client;
-
-		/* init our gconf stuff if necessary */
-		gnome_gconf_lazy_init ();
-
-		client = gconf_client_get_default ();
-		
-		str = gconf_client_get_string (client, "/desktop/gnome/url-handlers/default-show", NULL);
-
-		if (str) {
-			default_handler = str;
-		} else {
-			/* It's the first time gnome_url_show is run, so up some useful defaults */
-
-			app = g_find_program_in_path (HELP_URIS_HANDLER);
-			if (app) {
-				g_free (app);
-				app = HELP_URIS_HANDLER " \"%s\"";
-			} else
-				app = DEFAULT_HANDLER " \"%s\"";
-
-			default_handler = DEFAULT_HANDLER " \"%s\"";
-			gconf_client_set_string (client, "/desktop/gnome/url-handlers/default-show",
-						 default_handler, NULL);
-
-			if (gconf_client_dir_exists (client, "/desktop/gnome/url-handlers/info-show", NULL) == FALSE) {
-				gconf_client_set_string (client, "/desktop/gnome/url-handlers/info-show", app, NULL);
-			}
-
-			if (gconf_client_dir_exists (client, "/desktop/gnome/url-handlers/man-show", NULL) == FALSE) {
-				gconf_client_set_string (client, "/desktop/gnome/url-handlers/man-show", app, NULL);
-			}
-
-			if (gconf_client_dir_exists (client, "/desktop/gnome/url-handlers/ghelp-show", NULL) == FALSE) {
-				gconf_client_set_string (client, "/desktop/gnome/url-handlers/ghelp-show", app, NULL);
-			}
-
-			gconf_client_suggest_sync (client, NULL);
-		}
-
-		g_object_unref (G_OBJECT (client));
-	}
-	
-	return g_strdup (default_handler);
-}
+#define URL_HANDLER_DIR      "/desktop/gnome/url-handlers/"
+#define DEFAULT_HANDLER_PATH "/desktop/gnome/url-handlers/default-show"
 
 /**
  * gnome_url_show
@@ -114,8 +61,7 @@ gnome_url_default_handler (void)
  *
  * If no protocol specific handler exists, the
  * /desktop/gnome/url-handlers/default-show key is used to determine the
- * viewer and if that doesn't exist a compiled in default is used (Nautilus,
- * or failing that gnome-help-browser).
+ * viewer.
  *
  * Once a viewer is determined, it is called with the @url as a parameter. If
  * any errors occur, they are returned in the @error parameter. These errors
@@ -127,6 +73,7 @@ gnome_url_default_handler (void)
 gboolean
 gnome_url_show (const gchar *url, GError **error)
 {
+	GConfClient *client;
 	gint i;
 	gchar *pos, *template;
 	int argc;
@@ -139,9 +86,13 @@ gnome_url_show (const gchar *url, GError **error)
 
 	pos = strchr (url, ':');
 
+	/* init our gconf stuff if necessary */
+	gnome_gconf_lazy_init ();
+	
+	client = gconf_client_get_default ();
+
 	if (pos != NULL) {
 		gchar *protocol, *path;
-		GConfClient *client;
 		
 		g_return_val_if_fail (pos >= url, FALSE);
 
@@ -150,18 +101,15 @@ gnome_url_show (const gchar *url, GError **error)
 		protocol[pos - url] = '\0';
 		g_ascii_strdown (protocol, -1);
 
-		/* init our gconf stuff if necessary */
-		gnome_gconf_lazy_init ();
-
-		path = g_strconcat ("/desktop/gnome/url-handlers/", protocol, "-show", NULL);
-		client = gconf_client_get_default ();
-
+		path = g_strconcat (URL_HANDLER_DIR, protocol, "-show", NULL);
 		template = gconf_client_get_string (client, path, NULL);
 
 		if (template == NULL) {
 			gchar* template_temp;
 			
-			template_temp = gnome_url_default_handler ();
+			template_temp = gconf_client_get_string (client,
+								 DEFAULT_HANDLER_PATH,
+								 NULL);
 						
 			/* Retry to get the right url handler */
 			template = gconf_client_get_string (client, path, NULL);
@@ -176,11 +124,14 @@ gnome_url_show (const gchar *url, GError **error)
 		g_free (path);
 		g_free (protocol);
 
-		g_object_unref (G_OBJECT (client));
 	} else {
 		/* no ':' ? this shouldn't happen. Use default handler */
-		template = gnome_url_default_handler ();
+		template = gconf_client_get_string (client, 
+						    DEFAULT_HANDLER_PATH, 
+						    NULL);
 	}
+
+	g_object_unref (G_OBJECT (client));
 
 	/* We use a popt function as it does exactly what we want to do and
 	   gnome already uses popt */
