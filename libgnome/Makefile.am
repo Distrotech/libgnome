@@ -70,7 +70,7 @@ noinst_HEADERS = \
 	gnome-triggersP.h			\
 	libgnomeP.h
 
-EXTRA_DIST = parse-path.cP gnome-portability.h.in
+EXTRA_DIST = parse-path.cP gnome-portability.h.in libgnome-2.0.pc.in
 BUILT_SOURCES = gnome-portability.h
 
 #just to be sure, add an explicit dependency
@@ -92,4 +92,8 @@ gnome_moz_remote_LDADD = \
 	-lX11					\
 	$(X_EXTRA_LIBS)				\
 	$(INTLLIBS)
+
+
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = libgnome-2.0.pc
 
