@@ -5,12 +5,12 @@
 #include <glib.h>
 BEGIN_GNOME_DECLS
 
-enum _GnomeTriggerType {
+typedef enum {
 	GTRIG_NONE,
 	GTRIG_FUNCTION,
 	GTRIG_COMMAND,
 	GTRIG_MEDIAPLAY
-};
+} _GnomeTriggerType;
 
 typedef enum _GnomeTriggerType GnomeTriggerType;
 typedef void (*GnomeTriggerActionFunction)(char *msg, char *level, char *supinfo[]);
