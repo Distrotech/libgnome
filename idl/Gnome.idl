@@ -1,6 +1,8 @@
 #ifndef _GNOME_IDL_INCLUDED_
 #define _GNOME_IDL_INCLUDED_
 
+#include <Bonobo.idl>
+
 #if !defined(__GNOME_COMPILATION) && defined(__ORBIT_IDL__)
 %{
 #pragma include_defs libgnome/Gnome.h
@@ -18,19 +20,14 @@ module GNOME {
 	TRISTATE_YES
     };
 
-    enum SelectionMode {
-	SELECTION_MODE_SINGLE,
-	SELECTION_MODE_BROWSE,
-	SELECTION_MODE_MULTIPLE,
-	SELECTION_MODE_EXTENDED
-    };
-
     struct LocalizedString {
 	string locale;
 	string text;
     };
 
     typedef sequence<LocalizedString> LocalizedStringList;
+
+    typedef Bonobo::PropertySet ExtraAttributes;
 
 };
 
