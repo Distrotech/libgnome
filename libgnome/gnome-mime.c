@@ -128,7 +128,9 @@ mcap_fill_from_file (gchar * filename)
 		while ((p = strtok (NULL, blancks))) {
 			while (*p && isspace (*p))
 				++p;
-			/* printf("parsing: %s\n", p); */
+#ifdef GNOME_ENABLE_DEBUG
+			printf("parsing: %s\n", p);
+#endif
 			if (!strncmp ("test=", p, 5))
 				mcap->test = p + 5;
 			else if (!strncmp ("description=", p, 12))

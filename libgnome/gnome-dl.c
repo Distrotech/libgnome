@@ -118,9 +118,9 @@ gnome_dl_load(char *libpath, int bind_lazy)
       if (native_handle == NULL)
 	{
 #ifdef HAVE_ERRNO_H
-	  g_snprintf(err_buf, 256, "unable to load library: %s (err = %d)", libpath, errno);
+	  g_snprintf(err_buf, sizeof(err_buf), "unable to load library: %s (err = %d)", libpath, errno);
 #else
-	  g_snprintf(err_buf, 256, "unable to load library: %s", libpath);
+	  g_snprintf(err_buf, sizeof(err_buf), "unable to load library: %s", libpath);
 #endif
 
 	  fill_in_last_error(err_buf);
@@ -169,9 +169,9 @@ gnome_dl_exec_handle()
       if (native_handle == NULL)
 	{
 #ifdef HAVE_ERRNO_H
-	  g_snprintf(err_buf, 256, "unable to get dl-handle for executable. (err = %d)", errno);
+	  g_snprintf(err_buf, sizeof(err_buf), "unable to get dl-handle for executable. (err = %d)", errno);
 #else
-	  g_snprintf(err_buf, 256, "unable to get dl-handle for executable.");
+	  g_snprintf(err_buf, sizeof(err_buf), "unable to get dl-handle for executable.");
 #endif
 
 	  fill_in_last_error(err_buf);
@@ -226,7 +226,7 @@ gnome_dl_unload(GnomeLibHandle *handle)
 #endif
 
       if (ret_val == -1)
-	g_snprintf(err_buf, 256, "can't unload library %s", handle->full_path);
+	g_snprintf(err_buf, sizeof(err_buf), "can't unload library %s", handle->full_path);
     }
   
   if (!g_list_remove(_libs, handle))
@@ -234,7 +234,7 @@ gnome_dl_unload(GnomeLibHandle *handle)
       ret_val = -1;
 
       /* force this message, regardless of whether or not they have dlerror() */
-      g_snprintf(err_buf, 256, "error removing handle from cache for library %s.", handle->full_path);
+      g_snprintf(err_buf, sizeof(err_buf), "error removing handle from cache for library %s.", handle->full_path);
       last_error = err_buf;
       return ret_val;
     }
@@ -292,7 +292,7 @@ gnome_dl_findsym(char *symbol_name,
 
   if (symbol == NULL)
     {
-      g_snprintf(err_buf, 256, "couldn't find symbol '%s' in library %s", symbol_name, handle->full_path);
+      g_snprintf(err_buf, sizeof(err_buf), "couldn't find symbol '%s' in library %s", symbol_name, handle->full_path);
 
       fill_in_last_error(err_buf);
     }
@@ -336,7 +336,7 @@ gnome_dl_findsym_and_lib(char *symbol_name,
 
   if (symbol == NULL)
     {
-      g_snprintf(err_buf, 256, "couldn't find symbol '%s'", symbol_name);
+      g_snprintf(err_buf, sizeof(err_buf), "couldn't find symbol '%s'", symbol_name);
       
       fill_in_last_error(err_buf);
     }

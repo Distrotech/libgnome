@@ -67,7 +67,7 @@ gnome_file_convert_fd(gint fd, gchar *fromtype, gchar *totype)
 	infd = -1;
 	break;
       }
-#ifdef DEBUG_FILECONVERT
+#ifdef GNOME_ENABLE_DEBUG
     g_print("%s %s: %s\n", converter->fromtype->name, converter->totype->name,
 	    converter->cmdline);
 #endif

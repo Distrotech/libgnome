@@ -19,7 +19,8 @@
 #include "gnome-dentry.h"
 #include "gnome-string.h"
 
-#define free_if_empty(x) { if (x) g_free (x); }
+/* g_free already checks if x is NULL */
+#define free_if_empty(x) g_free (x)
 
 int
 gnome_is_program_in_path (char *program)
@@ -63,7 +64,7 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	name = gnome_config_get_translated_string ("Name");
 	if (!name) {
 		gnome_config_pop_prefix ();
-		return 0;
+		return NULL;
 	}
 
 	/* FIXME: we only test for presence of Exec/TryExec keys if
@@ -77,26 +78,16 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	try_file  = gnome_config_get_string ("TryExec");
 
 	if (!type || (strcmp (type, "Directory") != 0)) {
-		if (!exec_file) {
-			free_if_empty (name);
-			free_if_empty (type);
-			free_if_empty (try_file);
-
-			gnome_config_pop_prefix ();
-			return 0;
-		}
-
-		if (try_file) {
-			if (!gnome_is_program_in_path (try_file)) {
-				free_if_empty (name);
-				free_if_empty (type);
-				free_if_empty (exec_file);
-				free_if_empty (try_file);
-
-				gnome_config_pop_prefix ();
-				return 0;
-			}
-		}
+	  if(!exec_file || (try_file && !gnome_is_program_in_path(try_file)))
+	    {
+	      free_if_empty (name);
+	      free_if_empty (type);
+	      free_if_empty (exec_file);
+	      free_if_empty (try_file);
+	      
+	      gnome_config_pop_prefix ();
+	      return NULL;
+	    }
 	}
 	
 	newitem = g_new (GnomeDesktopEntry, 1);
@@ -190,19 +181,22 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 void
 gnome_desktop_entry_free (GnomeDesktopEntry *item)
 {
-	g_assert (item != NULL);
-	
-	free_if_empty (item->name);
-	free_if_empty (item->comment);
-	free_if_empty (item->exec);
-	free_if_empty (item->icon);
-	free_if_empty (item->docpath);
-	free_if_empty (item->type);
-	free_if_empty (item->location);
-
-	g_free (item);
+  if(item)
+    {
+      free_if_empty (item->name);
+      free_if_empty (item->comment);
+      free_if_empty (item->exec);
+      free_if_empty (item->icon);
+      free_if_empty (item->docpath);
+      free_if_empty (item->type);
+      free_if_empty (item->location);
+      
+      g_free (item);
+    }
 }
 
+/* TODO this needs redoing properly (we need to write a
+   gnome_fork_and_execlp() probably) */
 void
 gnome_desktop_entry_launch (GnomeDesktopEntry *item)
 {
@@ -211,9 +205,9 @@ gnome_desktop_entry_launch (GnomeDesktopEntry *item)
 	g_assert (item != NULL);
 
 	if (item->terminal)
-		command = g_copy_strings ("(xterm -e \"", item->exec, "\") &", NULL);
+	  command = g_copy_strings ("(xterm -e \"", item->exec, "\") &", NULL);
 	else
-		command = g_copy_strings ("(true;", item->exec, ") &", NULL);
+	  command = g_copy_strings ("(true;", item->exec, ") &", NULL);
 
 	system (command);
 	g_free (command);

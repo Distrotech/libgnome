@@ -12,19 +12,19 @@
 
 gchar *gnome_help_file_path(gchar *app, gchar *path)
 {
-    gchar buf[BUFSIZ];
+    GString *buf;
     gchar *lang, *res;
-    
-    lang = getenv("LANGUAGE");
-    if (!lang)
-	lang = getenv("LANG");
-    if (!lang)
-	lang = "C";
+
+    lang = gnome_i18n_get_language();
+    if(!lang)
+      lang = "C";
 
     /* XXX need to traverse LANGUAGE var to find appropriate topic.dat */
 
-    g_snprintf(buf, sizeof(buf), "gnome/help/%s/%s/%s", app, lang, path);
-    res = (gchar *)gnome_unconditional_datadir_file(buf);
+    buf = g_string_new(NULL);
+    g_string_sprintf(buf, "gnome/help/%s/%s/%s", app, lang, path);
+    res = (gchar *)gnome_unconditional_datadir_file(buf->str);
+    g_string_free(buf, TRUE);
 
     return res;
 }
@@ -46,8 +46,10 @@ void gnome_help_display(void *ignore, GnomeHelpMenuEntry *ref)
 void gnome_help_goto(void *ignore, gchar *file)
 {
     pid_t pid;
-    
+
+#ifdef GNOME_ENABLE_DEBUG    
     printf("gnome_help_goto: %s\n", (char *)file);
+#endif
 
     if (!(pid = fork())) {
 	execlp(HELP_PROG, HELP_PROG, file, NULL);

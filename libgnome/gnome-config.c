@@ -330,7 +330,7 @@ load (const char *file)
 				SecHeader->keys->value = decode_string_and_dup (CharBuffer);
 				state = c == '\n' ? KeyDef : IgnoreToEOL;
 				next = CharBuffer;
-#ifdef DEBUG
+#ifdef GNOME_ENABLE_DEBUG
 				printf ("[%s] (%s)=%s\n", SecHeader->section_name,
 					SecHeader->keys->key_name, SecHeader->keys->value);
 #endif
@@ -659,7 +659,7 @@ gnome_config_clean_section (const char *path)
 	
 	/* We assume the user has called one of the other initialization funcs */
 	if (!is_loaded (pp->file, &section)){
-		fprintf (stderr,"Warning: profile_clean_section called before init\n");
+		g_warning ("Warning: profile_clean_section called before init\n");
 		release_path (pp);
 		return;
 	}
@@ -686,7 +686,7 @@ gnome_config_clean_key (const char *path)
 	
 	/* We assume the user has called one of the other initialization funcs */
 	if (!is_loaded (pp->file, &section)){
-		fprintf (stderr,"Warning: profile_clean_section called before init\n");
+		g_warning ("Warning: profile_clean_section called before init\n");
 		release_path (pp);
 		return;
 	}
