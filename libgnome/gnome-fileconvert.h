@@ -10,7 +10,7 @@ gint
 gnome_file_convert_fd(gint fd, gchar *fromtype, gchar *totype);
 /* Convenience wrapper for the above function */
 gint
-gnome_file_convert(gchar *filename, gchar *fromtype, gchar *totype);
+gnome_file_convert(const char *filename, const char *fromtype, const char *totype);
 
 END_GNOME_DECLS
 

@@ -62,7 +62,7 @@ static gint   gfc_run_pipe(gchar *acmd, gint infd);
  * file.
  */
 gint
-gnome_file_convert(gchar *filename, gchar *fromtype, gchar *totype)
+gnome_file_convert (const char *filename, const char *fromtype, const char *totype)
 {
 	gint fd = open (filename, O_RDONLY);
 

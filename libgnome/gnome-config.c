@@ -390,8 +390,6 @@ load (const char *file)
 				state = c == '\n' ? KeyDef : IgnoreToEOL;
 				next = CharBuffer;
 #ifdef GNOME_ENABLE_DEBUG
-				printf ("[%s] (%s)=%s\n", SecHeader->section_name,
-					SecHeader->keys->key_name, SecHeader->keys->value);
 #endif
 			} else
 				*next++ = c;
