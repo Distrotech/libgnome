@@ -17,6 +17,11 @@
    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
    02111-1307, USA.  */
 
+#include "gnome-defs.h"
+#include "gnome-exec.h"
+#include "gnome-util.h"
+#include <glib.h>
+
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdio.h>
@@ -46,7 +51,7 @@ report_errno (int fd)
    directory in which to exec the child; if NULL the current directory
    is used.  Searches $PATH to find the child.  */
 int
-gnome_execute_async (const char *dir, int argc, char *argv[])
+gnome_execute_async (const char *dir, int argc, char * const argv[])
 {
   pid_t pid;
   int status, count;
@@ -98,4 +103,19 @@ gnome_execute_async (const char *dir, int argc, char *argv[])
     return -1;
 
   return 0;
+}
+
+int gnome_execute_shell (const char *dir, const char *commandline)
+{
+  char * argv[4];
+
+  g_return_val_if_fail(commandline != NULL, -1);
+
+  argv[0] = gnome_util_user_shell ();
+  argv[1] = "-c";
+  argv[2] = commandline; /* compiler complains; I can't figure out how to 
+			    fix it due to execvp()'s signature. */
+  argv[3] = NULL;
+
+  return gnome_execute_async (dir, 4, argv);
 }

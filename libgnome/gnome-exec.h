@@ -20,11 +20,21 @@
 #ifndef GNOME_EXEC_H
 #define GNOME_EXEC_H
 
+BEGIN_GNOME_DECLS
+
+
 /* Fork and execute some program in the background.  Returns -1 and
    sets errno on error.  Returns 0 on success.  Should correctly
    report errno returns from a failing child invocation.  DIR is the
    directory in which to exec the child; if NULL the current directory
    is used.  Searches $PATH to find the child.  */
-int gnome_execute_async (const char *dir, int argc, char *argv[]);
+int gnome_execute_async (const char *dir, int argc, char * const argv[]);
+
+/* Fork and execute commandline using the user's shell. Calls 
+   gnome_execute_async so it does the same things and returns 
+   the same things. */
+int gnome_execute_shell (const char *dir, const char *commandline);
+
+END_GNOME_DECLS
 
 #endif /* GNOME_EXEC_H */
