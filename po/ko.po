@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.5.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-16 13:00+0100\n"
-"PO-Revision-Date: 2004-02-24 23:48+0900\n"
+"POT-Creation-Date: 2004-03-18 22:59+0900\n"
+"PO-Revision-Date: 2004-03-18 23:00+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -669,47 +669,59 @@ msgid "Menus Have Tearoff"
 msgstr "메뉴에 절취선 사용"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
+msgid "Module for GtkFileChooser"
+msgstr "GtkFileChooser용 모듈"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:18
+msgid ""
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gnome-vfs\" and \"gtk+\"."
+msgstr ""
+"GtkFileChooser 위젯의 파일시스템 모델로 사용할 모듈.\n"
+"가능한 값은 \"gnome-vfs\"와 \"gtk+\"입니다."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Monospace font"
 msgstr "고정폭 글꼴"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "고정폭 글꼴 이름, 터미널 등에서 사용합니다."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "gtk+가 사용할 GTK+ 입력 방식 Preedit 형식의 이름."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "gtk+가 사용할 GTK+ 입력 방식 Status 형식의 이름."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Name of the default font used by gtk+."
 msgstr "gtk+가 사용할 기본 글꼴의 이름."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Status Bar on Right"
 msgstr "상태 표시줄을 오른쪽에"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "도구 모음에 보일 아이콘의 크기를 명시합니다"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Detachable"
 msgstr "도구 모음 분리 가능"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Toolbar Icon Size"
 msgstr "도구 모음 아이콘 크기"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Toolbar Style"
 msgstr "도구 모음 형식"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
@@ -717,15 +729,15 @@ msgstr ""
 "도구 모음 형식. 가능한 값은 \"both\", \"both_horiz\", \"icon\" 그리고 \"text"
 "\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Use Custom Font"
 msgstr "사용자 글꼴 사용"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether Applications should have accessibility support"
 msgstr "응용프로그램이 엑세서빌리티를 지원하는 지의 여부"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -733,37 +745,37 @@ msgstr ""
 "에니메이션을 보여주어야 하는 지의 여부. 주의: 이것은 전역 키입니다, 즉 창 관"
 "리자, 패널등의 동작을 바꿀 수 있습니다."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "메뉴가 메뉴 항목 다음에 아이콘을 보여줄 지의 여부"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether menus should have a tearoff"
 msgstr "메뉴가 절취선을 가져야 할 지의 여부"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the cursor should blink"
 msgstr "커서가 깜빡일 지의 여부"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether the user can detach menubars and move them around"
 msgstr "사용자가 메뉴 모음을 분리해서 움직일 수 있는 지의 여부"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "사용자가 도구 모음을 분리하여 움직일 수 있는 지의 여부"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr "메뉴가 떴을 때 사용자가 새 단축키를 입력할 수 있는 지의 여부"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:37
+#: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether to display a status bar meter on the right"
 msgstr "오른쪽에 상태 표시줄 미터를 보여줄 지의 여부"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:38
+#: schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "gtk+ 응용프로그램에서 사용자 글꼴을 사용할 지의 여부."
 
