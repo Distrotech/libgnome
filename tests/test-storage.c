@@ -1,5 +1,8 @@
 #include <config.h>
-#include <libbonobo.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <bonobo/libbonobo.h>
+#include <bonobo/bonobo-i18n.h>
 
 #define TESTSIZE (1024*1)
 
@@ -10,17 +13,17 @@
 	      "file %s: line %d: unexpected exception: (%s)",	        \
 	      __FILE__,						        \
 	      __LINE__,						        \
-	      (ev)->_repo_id);		  }G_STMT_END
+	      (ev)->_id);		  }G_STMT_END
 
 #define CHECK_EXCEPTION(ev, repo_id)	  G_STMT_START{		        \
-     if (!BONOBO_EX (ev) || strcmp ((ev)->_repo_id, repo_id))	        \
+     if (!BONOBO_EX (ev) || strcmp ((ev)->_id, repo_id))	        \
        g_log (G_LOG_DOMAIN,					        \
 	      G_LOG_LEVEL_ERROR,				        \
 	      "file %s: line %d: missing exception %s (got: %s)",	\
 	      __FILE__,						        \
 	      __LINE__,						        \
 	      repo_id,                                                  \
-	      (ev)->_repo_id);		                                \
+	      (ev)->_id);		                                \
      CORBA_exception_free (ev);           }G_STMT_END
 
 
@@ -474,10 +477,8 @@ main (int argc, char *argv [])
 
 	CORBA_exception_init (&ev);
 
-	
-        gnome_init_with_popt_table ("MyShell", "1.0",
-				    argc, argv,
-				    oaf_popt_options, 0, NULL); 
+	g_type_init (G_TYPE_DEBUG_NONE);
+
 	orb = oaf_init (argc, argv);
 	
 	if (bonobo_init (orb, NULL, NULL) == FALSE)
