@@ -275,3 +275,17 @@ gnome_desktop_entry_launch (GnomeDesktopEntry *item)
 {
 	gnome_desktop_entry_launch_with_args (item, 0, 0);
 }
+
+void
+gnome_desktop_entry_destroy (GnomeDesktopEntry *item)
+{
+      char *prefix;
+
+      if (!item)
+	      return;
+      
+      prefix = g_copy_strings ("=", item->location, "=", NULL);
+      gnome_config_clean_file (prefix);
+      g_free (prefix);
+      gnome_desktop_entry_free (item);
+}
