@@ -1,0 +1,17 @@
+#ifndef _GNOME_IDL_INCLUDED_
+#define _GNOME_IDL_INCLUDED_
+
+#if !defined(__GNOME_COMPILATION) && defined(__ORBIT_IDL__)
+%{
+#pragma include_defs gnome/Gnome.h
+%}
+#pragma inhibit push
+#endif
+
+#include <Gnome_Selector.idl>
+
+#if !defined(__GNOME_COMPILATION) && defined(__ORBIT_IDL__)
+#pragma inhibit pop
+#endif
+
+#endif /* _GNOME_IDL_INCLUDED_ */
