@@ -6,13 +6,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
-"PO-Revision-Date: 2003-05-30 23:10+0100\n"
+"POT-Creation-Date: 2003-06-28 04:51+0100\n"
+"PO-Revision-Date: 2003-06-28 05:03+0100\n"
 "Last-Translator: Dafydd Harries <daf@parnassus.ath.cx>\n"
 "Language-Team: Welsh <gnome-cy@pengwyn.linux.org.uk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error Messages"
@@ -360,6 +361,11 @@ msgstr "Nid yw'r gweithred rhagosodedig yn cynnal y protocol yma."
 msgid "Unknown error code: %d"
 msgstr "Côd gwall anhysbys: %d"
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr "Gwall wrth ddangos LAU: %s\n"
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Ffatri Moniker Ychwannegol"
@@ -429,6 +435,18 @@ msgstr "ysbaid lleiaf mewn milfedau eiliad"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "picseli yr eiliad"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+"Rhestr o rhaglenni technoleg cynorthwyol i'w dechrau wrth fewngofnodi i'r "
+"penbwrdd GNOME"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr "Rhaglenni Technoleg Cynorthwyl Wrth Gychwyn"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -703,9 +721,11 @@ msgid "Toolbar Style"
 msgstr "Arddull Bar Offer"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
-"Arddull Bar Offer. Gwethoedd dilys: \"both\", \"both_horiz\", \"icon\", a "
+"Arddull Bar Offer. Gwerthoedd dilys: \"both\", \"both_horiz\", \"icon\", a "
 "\"text\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
@@ -733,25 +753,25 @@ msgid "Whether menus should have a tearoff"
 msgstr "A ddylai dewislenni gael bar rhwygo"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-"A ydi'r defnyddiwr yn gallu teipio cyflymydd newydd pan mae dewislen yn "
-"ymddangos"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "A ddylai'r cyrchydd chwincio"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
 "A ydi'r defnyddiwr yn gallu datgysylltu barau dewislenni a'u symud o gwmpas"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "A ydi'r defnyddiwr yn gallu datgysylltu barau offer a'u symud o gwmpas"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"A ydi'r defnyddiwr yn gallu teipio cyflymydd newydd pan mae dewislen yn "
+"ymddangos"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -770,7 +790,7 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Enw Ffeil Sain Cloch Addasiedig"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "gwerthoedd caniataol: \"on\", \"off\", \"custom\"."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -796,14 +816,14 @@ msgstr "Thema cyrchydd"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
-"Enw'r thema cyrchydd. Defnyddir gan gweinyddion X sy'n cynnal Xcursor, megis "
-"XFree86 4.3 a hwyrach. Mae'r gwerth hwn yn cael ei gyflwyno i'r gweinydd X "
-"ar ddechrau pob sesiwn, felly fe fydd ei newid yng nghanol sesiwn yn cael "
-"dim effaith tan y tro nesaf rydych yn mewngofnodi."
+"Enw'r thema cyrchydd. Defnyddir ond gan gweinyddion X sy'n cynnal Xcursor, "
+"megis XFree86 4.3 a hwyrach. Mae'r gwerth hwn yn cael ei gyflwyno i'r "
+"gweinydd X ar ddechrau pob sesiwn, felly fe fydd ei newid yng nghanol sesiwn "
+"yn cael dim effaith tan y tro nesaf rydych chi'n mewngofnodi."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -828,14 +848,14 @@ msgstr "Trothwy Llusgo"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Enw ffont y cyrchydd. Os heb ei osod, caiff y ffont rhagosodedig ei "
 "ddefnyddio. Caiff y gwerth hwn ei gyflwyno i'r gweinydd X ar ddechrau pob "
 "sesiwn, felly fe fydd ei newid yng nghanol sesiwn yn cael dim effaith tan y "
-"tro nesaf rydych yn mewngofnodi."
+"tro nesaf rydych chi'n mewngofnodi."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -898,23 +918,79 @@ msgstr "Synau ar gyfer digwyddiadau"
 msgid "Whether to play sounds on user events."
 msgstr "Dylid chwarae synau ar gyfer digwyddiadau defnyddiwr."
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr "Analluogi pob crynddelwyr allanol"
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+"Gosod yn wir er mwyn analluogi pob rhaglen crynddelwi allanol, a ydynt wedi "
+"eu galluogi/analluogi yn unigol ai peidio."
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Sut i drin LAU \"ghelp\""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Sut i drin LAU \"info\""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Sut i drin LAU \"man\""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Sut i drin LAU \"trash\""
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Gweithredu rhaglen mewn terfynnell"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Gosod at gwir er mwyn i rhaglen wedi ei benodi yn programs/ghelp drin a "
+"LAUau ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Gosod at gwir er mwyn i rhaglen wedi ei benodi yn programs/ghelp drin a "
+"LAUau info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Gosod at gwir er mwyn i rhaglen wedi ei benodi yn programs/ghelp drin a "
+"LAUau man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr "Gosod er mwyn cael rhaglen wedi ei benodi "
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "Gwir os dylai'r rhaglen i ymdrin a'r LAU yma rhedeg mewn terfynnell"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "Trinydd LAU ar gyfer tudalennau \"trash\""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "Trinydd LAU ar gyfer tudalennau \"info\""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "Trinydd LAU ar gyfer tudalennau \"man\""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
-msgstr "Trinydd LAU ar gyfer tudalenau \"trash\""
+msgstr "Trinydd LAU ar gyfer tudalennau \"trash\""
