@@ -99,7 +99,7 @@ file_resolve (BonoboMoniker               *moniker,
 			return CORBA_OBJECT_NIL;
 		}
 
-		persist = Bonobo_Unknown_query_interface (
+		persist = Bonobo_Unknown_queryInterface (
 			object, "IDL:Bonobo/PersistFile:1.0", ev);
 
 		if (ev->_major != CORBA_NO_EXCEPTION)
@@ -114,7 +114,7 @@ file_resolve (BonoboMoniker               *moniker,
 				object, requested_interface, ev);
 		}
 		
-		persist = Bonobo_Unknown_query_interface (
+		persist = Bonobo_Unknown_queryInterface (
 			object, "IDL:Bonobo/PersistStream:1.0", ev);
 
 		if (ev->_major != CORBA_NO_EXCEPTION)

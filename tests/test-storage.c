@@ -45,17 +45,17 @@ basic_io_tests (CORBA_Object storage, CORBA_Environment *ev)
 	buf->_length = 4;
 	
 	/* try to open non existent file */
-	stream = Bonobo_Storage_open_stream (storage, "test1.txt",
+	stream = Bonobo_Storage_openStream (storage, "test1.txt",
 					     Bonobo_Storage_READ, ev);
 	CHECK_EXCEPTION (ev, ex_Bonobo_Storage_NotFound);
 
 	/* create a new file */
-	Bonobo_Storage_open_stream (storage, "test5.txt",
+	Bonobo_Storage_openStream (storage, "test5.txt",
 				    Bonobo_Storage_CREATE, ev);
 	NO_EXCEPTION (ev);
 	
 	/* create a new file */
-	stream = Bonobo_Storage_open_stream (storage, "test1.txt",
+	stream = Bonobo_Storage_openStream (storage, "test1.txt",
 					     Bonobo_Storage_CREATE, ev);
 	NO_EXCEPTION (ev);
 
@@ -69,7 +69,7 @@ basic_io_tests (CORBA_Object storage, CORBA_Environment *ev)
 	NO_EXCEPTION (ev);
     	
 	/* open an existing file */
-	stream = Bonobo_Storage_open_stream (storage, "test1.txt",
+	stream = Bonobo_Storage_openStream (storage, "test1.txt",
 					     Bonobo_Storage_READ, ev);
 	NO_EXCEPTION (ev);
 	
@@ -99,7 +99,7 @@ basic_io_tests (CORBA_Object storage, CORBA_Environment *ev)
 	NO_EXCEPTION (ev);
 
 	/* try to open a deleted file */
-	stream = Bonobo_Storage_open_stream (storage, "test1.txt",
+	stream = Bonobo_Storage_openStream (storage, "test1.txt",
 					     Bonobo_Storage_READ, ev);
 	CHECK_EXCEPTION (ev, ex_Bonobo_Storage_NotFound);
 	
@@ -108,7 +108,7 @@ basic_io_tests (CORBA_Object storage, CORBA_Environment *ev)
 	NO_EXCEPTION (ev);
 
 	/* open an existing file */
-	stream = Bonobo_Storage_open_stream (storage, "test5.txt",
+	stream = Bonobo_Storage_openStream (storage, "test5.txt",
 					     Bonobo_Storage_READ, ev);
 	NO_EXCEPTION (ev);
 
@@ -131,7 +131,7 @@ compressed_io_tests (CORBA_Object storage, CORBA_Environment *ev)
 	buf->_length = 4;
 
 	/* create a compressed file */
-	stream = Bonobo_Storage_open_stream (storage, "test2.txt",
+	stream = Bonobo_Storage_openStream (storage, "test2.txt",
 					     Bonobo_Storage_CREATE |
 					     Bonobo_Storage_COMPRESSED, 
 					     ev);
@@ -153,7 +153,7 @@ compressed_io_tests (CORBA_Object storage, CORBA_Environment *ev)
 	NO_EXCEPTION (ev);
 
 	/* open the file again*/
-	stream = Bonobo_Storage_open_stream (storage, "test2.txt",
+	stream = Bonobo_Storage_openStream (storage, "test2.txt",
 					     Bonobo_Storage_READ, ev);
 	NO_EXCEPTION (ev);
 
@@ -203,12 +203,12 @@ dir_tests (CORBA_Object storage, CORBA_Environment *ev)
 	printf("starting directory tests\n");
 
 	/* try to open non existent directory */
-	dir2 = Bonobo_Storage_open_storage (storage, "testdir",
+	dir2 = Bonobo_Storage_openStorage (storage, "testdir",
 					    Bonobo_Storage_READ, ev);
 	CHECK_EXCEPTION (ev, ex_Bonobo_Storage_NotFound);
 	
 	/* create a directory */
-	dir1 = Bonobo_Storage_open_storage (storage, "testdir",
+	dir1 = Bonobo_Storage_openStorage (storage, "testdir",
 					    Bonobo_Storage_CREATE, ev);
 	NO_EXCEPTION (ev);
 	
@@ -217,14 +217,14 @@ dir_tests (CORBA_Object storage, CORBA_Environment *ev)
 	NO_EXCEPTION (ev);
 	
 	/* try to open non existent directory */
-	dir2 = Bonobo_Storage_open_storage (storage, "testdir/a",
+	dir2 = Bonobo_Storage_openStorage (storage, "testdir/a",
 					    Bonobo_Storage_READ, ev);
 	CHECK_EXCEPTION (ev, ex_Bonobo_Storage_NotFound);
 
 	/* create some directories */
 	for (i = 0; i < 200; i++) {
 		sprintf(buf,"testdir/testdir%d", i);
-		dir2 = Bonobo_Storage_open_storage (storage, buf,
+		dir2 = Bonobo_Storage_openStorage (storage, buf,
 						    Bonobo_Storage_CREATE, ev);
 		NO_EXCEPTION (ev);
      		Bonobo_Unknown_unref(dir2, ev);
@@ -285,19 +285,19 @@ mime_tests (CORBA_Object storage, CORBA_Environment *ev)
 
 	/* set the content type */
 	setinfo->content_type = "text/plain";
-	Bonobo_Storage_set_info (storage, "", setinfo, 
+	Bonobo_Storage_setInfo (storage, "", setinfo, 
 				 Bonobo_FIELD_CONTENT_TYPE, ev);
 	NO_EXCEPTION (ev);
 
 	/* read the content type */
-	getinfo = Bonobo_Storage_get_info (storage, "", 
+	getinfo = Bonobo_Storage_getInfo (storage, "", 
 					   Bonobo_FIELD_CONTENT_TYPE, ev);
 	NO_EXCEPTION (ev);
 	g_assert (!strcmp(getinfo->content_type, "text/plain"));
 	CORBA_free (getinfo);
 
 	/* create a new file */
-	stream = Bonobo_Storage_open_stream (storage, "mimetest.txt",
+	stream = Bonobo_Storage_openStream (storage, "mimetest.txt",
 					     Bonobo_Storage_CREATE, ev);
 	NO_EXCEPTION (ev);
 
@@ -307,35 +307,35 @@ mime_tests (CORBA_Object storage, CORBA_Environment *ev)
 
 	/* try to set the content type of a non existent file*/
 	setinfo->content_type = "text/xxx-plain";
-	Bonobo_Storage_set_info (storage, "mi.txt", setinfo, 
+	Bonobo_Storage_setInfo (storage, "mi.txt", setinfo, 
 				 Bonobo_FIELD_CONTENT_TYPE, ev);
 	CHECK_EXCEPTION (ev, ex_Bonobo_Storage_NotFound);
 
 	/* set the content type */
 	setinfo->content_type = "text/xxx-plain";
-	Bonobo_Storage_set_info (storage, "mimetest.txt", setinfo, 
+	Bonobo_Storage_setInfo (storage, "mimetest.txt", setinfo, 
 				 Bonobo_FIELD_CONTENT_TYPE, ev);
 	NO_EXCEPTION (ev);
 
 	/* try to read the content type of a non existent file */
-	getinfo = Bonobo_Storage_get_info (storage, "mi.txt", 
+	getinfo = Bonobo_Storage_getInfo (storage, "mi.txt", 
 					   Bonobo_FIELD_CONTENT_TYPE, ev);
 	CHECK_EXCEPTION (ev, ex_Bonobo_Storage_NotFound);
 	
 	/* read the content type */
-	getinfo = Bonobo_Storage_get_info (storage, "mimetest.txt", 
+	getinfo = Bonobo_Storage_getInfo (storage, "mimetest.txt", 
 					   Bonobo_FIELD_CONTENT_TYPE, ev);
 	NO_EXCEPTION (ev);
 	g_assert (!strcmp(getinfo->content_type, "text/xxx-plain"));
 	CORBA_free (getinfo);
 
 	/* open the file */
-	stream = Bonobo_Storage_open_stream (storage, "mimetest.txt",
+	stream = Bonobo_Storage_openStream (storage, "mimetest.txt",
 					     Bonobo_Storage_WRITE, ev);
 	NO_EXCEPTION (ev);
 
 	/* read the content type */
-	getinfo = Bonobo_Stream_get_info (stream, Bonobo_FIELD_CONTENT_TYPE, 
+	getinfo = Bonobo_Stream_getInfo (stream, Bonobo_FIELD_CONTENT_TYPE, 
 					  ev);
 	NO_EXCEPTION (ev);
 	g_assert (!strcmp(getinfo->content_type, "text/xxx-plain"));
@@ -343,12 +343,12 @@ mime_tests (CORBA_Object storage, CORBA_Environment *ev)
 	
 	/* set the content type */
 	setinfo->content_type = "text/xxx-yyy";
-	Bonobo_Stream_set_info (stream, setinfo, 
+	Bonobo_Stream_setInfo (stream, setinfo, 
 				Bonobo_FIELD_CONTENT_TYPE, ev);
 	NO_EXCEPTION (ev);
 
 	/* read the content type */
-	getinfo = Bonobo_Stream_get_info (stream, Bonobo_FIELD_CONTENT_TYPE, 
+	getinfo = Bonobo_Stream_getInfo (stream, Bonobo_FIELD_CONTENT_TYPE, 
 					  ev);
 	NO_EXCEPTION (ev);
 	g_assert (!strcmp(getinfo->content_type, "text/xxx-yyy"));
@@ -359,13 +359,13 @@ mime_tests (CORBA_Object storage, CORBA_Environment *ev)
 	NO_EXCEPTION (ev);
 
 	/* open the file read only */
-	stream = Bonobo_Storage_open_stream (storage, "mimetest.txt",
+	stream = Bonobo_Storage_openStream (storage, "mimetest.txt",
 					     Bonobo_Storage_READ, ev);
 	NO_EXCEPTION (ev);
 
 	/* try to set the content type on a read only file  */
 	setinfo->content_type = "text/xxx-yyy";
-	Bonobo_Stream_set_info (stream, setinfo, 
+	Bonobo_Stream_setInfo (stream, setinfo, 
 				Bonobo_FIELD_CONTENT_TYPE, ev);
 	CHECK_EXCEPTION (ev, ex_Bonobo_Stream_NoPermission);	
 
