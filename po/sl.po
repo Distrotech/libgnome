@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2002-06-09 21:57+0200\n"
+"POT-Creation-Date: 2003-01-18 12:37+0100\n"
 "PO-Revision-Date: 2001-07-29 12:32+0200\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -61,7 +61,7 @@ msgstr "Aktivacija predmeta menuja"
 msgid "User interface events"
 msgstr "Dogodki uporabniškega vmesnika"
 
-#: libgnome/gnome-exec.c:438
+#: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "Ne najdem konzole, uporabljam xterm čeprav morda ne bo deloval"
 
@@ -69,35 +69,37 @@ msgstr "Ne najdem konzole, uporabljam xterm čeprav morda ne bo deloval"
 msgid "GNOME GConf Support"
 msgstr "Podpora GNOME GConf"
 
-#: libgnome/gnome-help.c:167
+#: libgnome/gnome-help.c:159
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Ne morem najti domene GNOME_FILE_DOMAIN_APP_HELP"
 
-#: libgnome/gnome-help.c:180
+#: libgnome/gnome-help.c:172
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Ne morem najti domene GNOME_FILE_DOMAIN_APP_HELP."
 
-#: libgnome/gnome-help.c:193 libgnome/gnome-help.c:208
+#: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
+#, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
-"Ne morem prikazati pomoči, ker %s ni imenik.  Preverite svojo "
-"namestitev."
+"Ne morem prikazati pomoči, ker %s ni imenik.  Preverite svojo namestitev."
 
-#: libgnome/gnome-help.c:217 libgnome/gnome-help.c:233
+#: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
+#, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"Ne morem najti datotek s pomočjo niti v %s niti v %s. Prosim, preverite svojo namestitev"
+"Ne morem najti datotek s pomočjo niti v %s niti v %s. Prosim, preverite "
+"svojo namestitev"
 
-#: libgnome/gnome-help.c:312
+#: libgnome/gnome-help.c:339
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "Ne najdem %s doc_id v poti pomoči"
 
-#: libgnome/gnome-help.c:333
+#: libgnome/gnome-help.c:360
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "Dokument pomoči %s/%s ni bil najden"
@@ -115,13 +117,13 @@ msgstr "Podpora Bonobu"
 msgid "Bonobo activation Support"
 msgstr "Podpora aktivaciji Bonoba"
 
-#: libgnome/gnome-init.c:281 libgnome/gnome-init.c:295
+#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Ne morem ustvariti uporabniškega gnome nastavitvenega imenika `%s': %s\n"
 
-#: libgnome/gnome-init.c:304
+#: libgnome/gnome-init.c:328
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -130,32 +132,32 @@ msgstr ""
 "Ne morem nastaviti načina 0700 na privatnem uporabniškem gnome nastavitvenem "
 "imeniku `%s': %s\n"
 
-#: libgnome/gnome-init.c:311
+#: libgnome/gnome-init.c:335
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Ne morem ustvariti gnome pospeševalnega imenika `%s': %s\n"
 
-#: libgnome/gnome-init.c:367
+#: libgnome/gnome-init.c:391
 msgid "Disable sound server usage"
 msgstr "Izključi uporabo strežnika za zvok"
 
-#: libgnome/gnome-init.c:370
+#: libgnome/gnome-init.c:394
 msgid "Enable sound server usage"
 msgstr "Vključi uporabo strežnika za zvok"
 
-#: libgnome/gnome-init.c:373
+#: libgnome/gnome-init.c:397
 msgid "Host:port on which the sound server to use is running"
 msgstr "Gostitelj:vrata kjer teče zvočni strežnik, ki naj se uporabi"
 
-#: libgnome/gnome-init.c:375
+#: libgnome/gnome-init.c:399
 msgid "HOSTNAME:PORT"
 msgstr "GOSTITELJ:VRATA"
 
-#: libgnome/gnome-init.c:393
+#: libgnome/gnome-init.c:417
 msgid "GNOME Virtual Filesystem"
 msgstr "Navidezni datotečni sistem GNOME"
 
-#: libgnome/gnome-init.c:414
+#: libgnome/gnome-init.c:438
 msgid "GNOME Library"
 msgstr "Knjižnica GNOME"
 
@@ -331,7 +333,7 @@ msgstr "Vzdevek GConf"
 msgid "config indirect moniker"
 msgstr "posredni nastavitveni vzdevek"
 
-#: monikers/bonobo-config-bag.c:230
+#: monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
 msgstr "Neznana vrsta"
 
@@ -339,6 +341,623 @@ msgstr "Neznana vrsta"
 #, c-format
 msgid "Key %s not found in configuration"
 msgstr "Ključ %s v nastavitvah ni bil najen"
+
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
+msgid "Beep when a modifier is pressed"
+msgstr "Zapiskaj, ko je pritisnjen spremenlink"
+
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
+msgid "Disable if two keys are pressed at the same time."
+msgstr "Izključi, če sta dve tipki pritisnjeni hkrati."
+
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr ""
+"Ne sprejmi tipke kot pritisnjene, dokler ni pritisnjena @delay milisekund"
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
+msgid "How many milliseconds it takes to go from 0 to maximum speed"
+msgstr "Koliko milisekund naj vzame za prehod iz 0 na najvišjo hitrost"
+
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
+msgstr ""
+"Koliko milisekund naj se počaka preden začnejo delovati tipke premikanja miške"
+
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
+msgid "How many pixels per second to move at the maximum speed"
+msgstr "Koliko pikslov na sekundo naj se premika pri najvišji hitrosti"
+
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
+msgstr "Prezri večkratne pritiske iste tipke znotraj @delay milisekund"
+
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
+msgid "how long to accelerate in milliseconds"
+msgstr "kako dolgo pospeševati (v milisekundah)"
+
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
+msgid "initial delay in milliseconds"
+msgstr "začetni premor (v milisekundah)"
+
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
+msgid "minimum interval in milliseconds"
+msgstr "najmanjši interval (v milisekundah)"
+
+#: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
+msgid "pixels per seconds"
+msgstr "pikslov na sekundo"
+
+#: schemas/desktop_gnome_applications_browser.schemas.in.h:1
+msgid "Browser needs terminal"
+msgstr "Brskalnik potrebuje terminal"
+
+#: schemas/desktop_gnome_applications_browser.schemas.in.h:2
+#: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
+msgid "Browser understands remote"
+msgstr "Brskalnik razume klice upravljanja"
+
+#: schemas/desktop_gnome_applications_browser.schemas.in.h:3
+msgid "Default browser"
+msgstr "Privzet brskalnik"
+
+#: schemas/desktop_gnome_applications_browser.schemas.in.h:4
+msgid "Default browser for all URLs"
+msgstr "Privzet brskalnik za vse URLje"
+
+#: schemas/desktop_gnome_applications_browser.schemas.in.h:5
+msgid "Whether the default browser needs a terminal to run"
+msgstr "Ali privzet brskalnik za zagon potrebuje terminal"
+
+#: schemas/desktop_gnome_applications_browser.schemas.in.h:6
+msgid "Whether the default browser understands netscape remote"
+msgstr "Ali privzet brskalnik razume upravljanje netscape"
+
+#: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
+msgid "Default help viewer"
+msgstr "Privzet pregledovalnik pomoči"
+
+#: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
+msgid "Help viewer needs terminal"
+msgstr "Pregledovalnik pomoči potrebuje terminal"
+
+#: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
+msgid "Whether the default help viewer accepts URLs"
+msgstr "Ali privzet pregledovalnik pomoči sprejema URLje"
+
+#: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
+msgid "Whether the default help viewer needs a terminal to run"
+msgstr "Ali privzet pregledovalnik pomoči za zagon potrebuje terminal"
+
+#: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"Argument, ki naj se uporabi za izvedbo programov v terminalu, definiran kot ključ 'exec'."
+
+#: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
+msgid "Exec Arguments"
+msgstr "Argumenti za exec"
+
+#: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
+msgid "Terminal application"
+msgstr "Program terminala"
+
+#: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
+msgid "Terminal program to use when starting applications that require one"
+msgstr "Terminalski program, ki naj se požene, kadar ga drugi programi rabijo"
+
+#: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
+msgid "A list with names of the first window manager workspaces."
+msgstr "Seznam imen delovnih površin prvega upravljalnika zaslona."
+
+#: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
+msgid "Fallback window manager"
+msgstr "Rezervni upravljalnik oken"
+
+#: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
+msgid "Fallback window manager if user window manager can't be found"
+msgstr "Upravljallnik oken, če uporabnikovega ni moč najti"
+
+#: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
+msgid "Names of the workspaces"
+msgstr "število delovnih površin"
+
+#: schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
+msgid "The number of workspaces"
+msgstr "Število delovnih površin"
+
+#: schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
+msgid "The number of workspaces the window manager should use"
+msgstr "Število delovnih površin, ki naj jih uporabi upravljalnik oken"
+
+#: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
+msgid "User window manager"
+msgstr "Uporabnikov upravljalnik oken"
+
+#: schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
+msgid "Window manager to try first"
+msgstr "Upravljalnik oken, ki naj se prvi poizkusi"
+
+#: schemas/desktop_gnome_background.schemas.in.h:1
+msgid "Color Shading Type"
+msgstr "Vrsta senčenja barv"
+
+#: schemas/desktop_gnome_background.schemas.in.h:2
+msgid ""
+"Determines how the image set by wallpaper_filename is rendered. Possible "
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+msgstr ""
+"Določa kako naj se slika nastavljena kot wallpaper_filename izriše. Možne "
+"vrednosti so \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+
+#: schemas/desktop_gnome_background.schemas.in.h:3
+msgid "Draw Desktop Background"
+msgstr "Riši ozadje namizja"
+
+#: schemas/desktop_gnome_background.schemas.in.h:4
+msgid "File to use for the background image"
+msgstr "Datoteka, ki naj se uporabi za ozadje namizja"
+
+#: schemas/desktop_gnome_background.schemas.in.h:5
+msgid "Have GNOME draw the desktop background"
+msgstr "Naj gnome riše ozadje namizja"
+
+#: schemas/desktop_gnome_background.schemas.in.h:6
+msgid ""
+"How to shade the background color. Possible values are \"horizontal-gradient"
+"\", \"vertical-gradient\", and \"solid\""
+msgstr ""
+"Kako naj se senči barva ozadja. Možne vrednosti so \"horizontal-gradient"
+"\", \"vertical-gradient\", and \"solid\""
+
+#: schemas/desktop_gnome_background.schemas.in.h:7
+msgid "Left or Top color when drawing gradients, or the solid color."
+msgstr "Leva ali zgornja barva ob risanju prelivov, ali barva polnjenja."
+
+#: schemas/desktop_gnome_background.schemas.in.h:8
+msgid "Opacity with which to draw the background picture"
+msgstr "Prosojnost s katero naj se nariše slika ozadja"
+
+#: schemas/desktop_gnome_background.schemas.in.h:9
+msgid "Picture Filename"
+msgstr "Ime slike"
+
+#: schemas/desktop_gnome_background.schemas.in.h:10
+msgid "Picture Opacity"
+msgstr "Prosojnost slike"
+
+#: schemas/desktop_gnome_background.schemas.in.h:11
+msgid "Picture Options"
+msgstr "Možnosti slike"
+
+#: schemas/desktop_gnome_background.schemas.in.h:12
+msgid "Primary Color"
+msgstr "Prvotna barva"
+
+#: schemas/desktop_gnome_background.schemas.in.h:13
+msgid "Right or Bottom color when drawing gradients, not used for solid color."
+msgstr "Desna ali spobnja barva za risanje prelivov, ni uporalbjena pri barvi polnjenja."
+
+#: schemas/desktop_gnome_background.schemas.in.h:14
+msgid "Secondary Color"
+msgstr "Drugotna barva"
+
+#: schemas/desktop_gnome_file_views.schemas.in.h:1
+msgid "File Icon Theme"
+msgstr "Tema ikon datotek"
+
+#: schemas/desktop_gnome_file_views.schemas.in.h:2
+msgid "Theme used for displaying file icons"
+msgstr "Tema za prikaz ikon datotek"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:1
+msgid "Basename of the default theme used by gtk+."
+msgstr "Ime privzete teme uporabljene s strani gtk+."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:2
+msgid "Can Change Accels"
+msgstr "Lahko spremeni pospeševalnike"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:3
+msgid "Cursor Blink"
+msgstr "Utripanje kazalca"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:4
+msgid "Cursor Blink Time"
+msgstr "Čas utripanja kazalca"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:5
+msgid "Default font"
+msgstr "Privzeta pisava"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:6
+msgid "Enable Accessibility"
+msgstr "Vključi dostopnost"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:7
+msgid "Enable Animations"
+msgstr "Vključi animacije"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:8
+msgid "GTK IM Preedit Style"
+msgstr "Predvnosni slog GTK IM"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:9
+msgid "GTK IM Status Style"
+msgstr "Slog stanja GTK IM"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:10
+msgid "Gtk+ Theme"
+msgstr "Tema Gtk+"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:11
+msgid "Icon Theme"
+msgstr "Ikonska tema"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:12
+msgid "Icon theme to use for the panel, nautilus etc."
+msgstr "Tema ikon, ki naj se uporabi za pult, nautilusa, itd."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:13
+msgid "Length of the cursor blink cycle, in milleseconds"
+msgstr "Dolžina cikla utripanja kazalca, v milisekundah"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:14
+msgid "Menubar Detachable"
+msgstr "Menujska vrstica je odklopljiva"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:15
+msgid "Menus Have Icons"
+msgstr "Menuji imajo ikone"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:16
+msgid "Menus Have Tearoff"
+msgstr "Menuji imajo vrstico z odtrg"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:17
+msgid "Name of the GTK+ input method Preedit Style used by gtk+."
+msgstr "Ime vhodne metode GTK+ predvpisnega sloga, uprabljeno s strani gtk+."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:18
+msgid "Name of the GTK+ input method Status Style used by gtk+."
+msgstr "Ime vhodne metode GTK+ sloga stanja, uporabljeno s strani gtk+."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
+msgid "Name of the default font used by gtk+."
+msgstr "Ime privzete pisave, uporabljeno s strani gtk+."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:20
+msgid "Status Bar on Right"
+msgstr "Vrstica stanja na desni"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:21
+msgid "This specifies the size of icons displayed in toolbars"
+msgstr "To navaja velikost ikon prikazanih v orodjarnah"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:22
+msgid "Toolbar Detachable"
+msgstr "Odklopljive orodjarne"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:23
+msgid "Toolbar Icon Size"
+msgstr "Velikost ikon orodjarn"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:24
+msgid "Toolbar Style"
+msgstr "Slog orodjarn"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:25
+msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+msgstr "Slog orodjarn. Možne vrednosti so \"both\", \"both_horiz\", \"icon\" in \"text\""
+
+#: schemas/desktop_gnome_interface.schemas.in.h:26
+msgid "Use Custom Font"
+msgstr "Uporabi prikorjeno pisavo"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:27
+msgid "Whether Applications should have accessibility support"
+msgstr "Ali naj imajo programi podporo za dostopnost"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:28
+msgid ""
+"Whether animations should be displayed. Note: This is a global key, it "
+"changes the behaviour of the window manager, the panel etc."
+msgstr ""
+"Ali naj bodo prikazane animacije. Opomba: To je globalen ključ, "
+"saj spremeni obnašanja upravljalnika oken, pulta, itd."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:29
+msgid "Whether menus may display an icon next to a menu entry"
+msgstr "Ali naj menuji kažejo ikono poleg predmeta menuja"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:30
+msgid "Whether menus should have a tearoff"
+msgstr "Ali naj imajo menuji vrstico za odtrg"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:31
+msgid ""
+"Whether the User can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"Ali lahko uporabnik dinamično vpiše nov pospeševalnik, kadar je prikazan menu"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:32
+msgid "Whether the cursor should blink"
+msgstr "Ali naj kazalec utripa"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:33
+msgid "Whether the user can detach menubars and move them around"
+msgstr "Ali lahko uporabnik odklopi menujske vrstice in jih premika okoli"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+msgid "Whether the user can detach toolbars and move them around"
+msgstr "Ali lahko uporabnik odklopi orodjarne in jih premika okoli"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:35
+msgid "Whether to display a status bar meter on the right"
+msgstr "Ali naj se kazalnik vrstice stanja kaže na desni"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:36
+msgid "Whether to use a custom font in gtk+ applications."
+msgstr "Ali naj se uporabi prikrojena pisava v programih gtk+."
+
+#: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
+msgid "File name of the bell sound to be played"
+msgstr "Ime datoteke zvonca, ki naj bo predvajan"
+
+#: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
+msgid "Keyboard Bell Custom Filename"
+msgstr "Ime datoteke prikrojenega zvonca tipkovnice"
+
+#: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
+msgid "possible values are on, off, and custom."
+msgstr "možne vrednosti so \"on\", \"off\" in \"custom\""
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
+msgid ""
+"Acceleration multiplier for mouse motion. A value of -1 is the system "
+"default."
+msgstr ""
+"Pospeševalnik za premikanje miške. Privzeta vrednost je -1."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
+msgid "Cursor font"
+msgstr "Pisava kazalca"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
+msgid "Distance before a drag is started"
+msgstr "Razdalja preden se začne vlečenje"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+msgid ""
+"Distance in pixels the pointer must move before accelerated mouse motion is "
+"activated. A value of -1 is the system default."
+msgstr ""
+"Razdalja v pikslih, kolikor se mora premakniti kazalec preden je vključeno "
+"premikanje miške. Privzeta vrednost je -1."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+msgid "Double Click Time"
+msgstr "Čas dvojnega klika"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
+msgid "Drag Threshold"
+msgstr "Prag vlečenja"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
+msgid ""
+"Font name of the cursor. If unset set, the default font is used. This value "
+"is only propagated to the X server start of each session, so changing it mid-"
+"session won't have an effect until the next time you log in."
+msgstr ""
+"Ime pisave kazalca. Če ni nastavljeno je uporabljena privzeta pisava. Ta vrednost "
+"se le posreduje strežniku X za vsako sejo, zato njeno spreminjanje sredi seje ne bo imelo vpliva dokler se ne prijavite znova."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
+msgid ""
+"Highlights the current location of the pointer when the Control key is "
+"pressed and released"
+msgstr ""
+"Osvetli trenutno mesto kazalca, kadar je pritisnjena in spuščena tipka Control"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
+msgid "Length of a double click"
+msgstr "Dolžina dvojnega klika"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+msgid "Locate Pointer"
+msgstr "Najdi kazalec"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
+msgid "Motion Threshold"
+msgstr "Prag premikanja"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
+msgid "Mouse button orientation"
+msgstr "Usmerjenost gumbov miške"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
+msgid "Single Click"
+msgstr "Enojni klik"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
+msgid "Single click to open icons"
+msgstr "Enojni klik za odpiranje ikon"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
+msgid "Swap left and right mouse buttons for left-handed mice"
+msgstr "Zamenjaj levi in desni gumb miške za levičarsko miško"
+
+#: schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Enable ESD"
+msgstr "Vključi ESD (zvočni daemon)"
+
+#: schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Enable sound server startup."
+msgstr "Vključi zagon strežnika za zvok."
+
+#: schemas/desktop_gnome_sound.schemas.in.h:3
+msgid "Sounds for events"
+msgstr "Zvoki za dogodke"
+
+#: schemas/desktop_gnome_sound.schemas.in.h:4
+msgid "Whether to play sounds on user events."
+msgstr "Ali naj se ob uporabniških dogodkih predvajajo zvoki."
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "Default URL show handler"
+msgstr "Privzet obravnavalnik prikaza URLjev"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle applications URLs"
+msgstr "Kako naj se obravnava URLje programov"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle ghelp URLs"
+msgstr "Kako obravnavati URLje ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+msgid "How to handle info URLs"
+msgstr "Kako obravnavati URLje info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+msgid "How to handle man URLs"
+msgstr "Kako obravnavati URLje man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid "How to handle preferences URLs"
+msgstr "Kako obravnavati URLje preferences"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid "How to handle server-settings URLs"
+msgstr "Kako obravnavati URLje server-settings"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "How to handle start-here URLs"
+msgstr "Kako obravnavati URLje start-here"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
+msgid "How to handle system-settings URLs"
+msgstr "Kako obravnavati URLje system-settings"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
+msgid "How to handle trash URLs"
+msgstr "Kako obravnavati URLje trash"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "How to handle unknown URLs"
+msgstr "Kako obravnavati neznane URLje"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "Run program in terminal"
+msgstr "Program poženi v terminalu"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid ""
+"Set to true to have a program specified in applications/command handle "
+"applications URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v applications/command obravnava URLje programov"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
+msgid ""
+"Set to true to have a program specified in preferences/command handle "
+"preferences URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v preferences/command obravnava URLje preferences"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v programs/ghelp obravnava URLje ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v programs/info obravnava URLje info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v programs/man obravnava URLje man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
+msgid ""
+"Set to true to have a program specified in programs/unknown handle unknown "
+"URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v programs/unknown obravnava neznane URLje"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
+msgid ""
+"Set to true to have a program specified in server-settings/command handle "
+"server-settings URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v server-settings/command obravnava URLje server-settings"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
+msgid ""
+"Set to true to have a program specified in start-here/command handle start-"
+"here URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v start-here/command obravnava URLje start-here"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:21
+msgid ""
+"Set to true to have a program specified in system-settings/command handle "
+"system-settings URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v system-settings/command obravnava URLje system-settings"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:22
+msgid ""
+"Set to true to have a program specified in trash/command handle trash URLs"
+msgstr ""
+"Nastavite na true, če želite, da program naveden v trash/command obravnava URLje trash"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:23
+msgid "True if the program to handle this URL should be run in a terminal"
+msgstr "True (resnično), če naj bo program za obravnavo URLja pognan v terminalu"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:24
+msgid "URL handler for applications pages"
+msgstr "Obravnavalnik URL za strani applications"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:25
+msgid "URL handler for ghelp pages"
+msgstr "Obravnavalnik URL za strani ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:26
+msgid "URL handler for info pages"
+msgstr "Obravnavalnik URL za strani info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:27
+msgid "URL handler for man pages"
+msgstr "Obravnavalnik URL za strani man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:28
+msgid "URL handler for preferences pages"
+msgstr "Obravnavalnik URL za strani preferences"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:29
+msgid "URL handler for server-settings pages"
+msgstr "Obravnavalnik URL za strani server-settings"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:30
+msgid "URL handler for start-here pages"
+msgstr "Obravnavalnik URL za strani start-here"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:31
+msgid "URL handler for system-settings pages"
+msgstr "Obravnavalnik URL za strani system-settings"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:32
+msgid "URL handler for trash pages"
+msgstr "Obravnavalnik URL za strani trash"
 
 #~ msgid ""
 #~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
