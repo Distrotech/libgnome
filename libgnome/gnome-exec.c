@@ -27,6 +27,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdlib.h>
 
 #include <errno.h>
 #ifndef errno
@@ -51,7 +52,8 @@ report_errno (int fd)
    directory in which to exec the child; if NULL the current directory
    is used.  Searches $PATH to find the child.  */
 int
-gnome_execute_async (const char *dir, int argc, char * const argv[])
+gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
+			      int envc, char * const envv[])
 {
   pid_t pid;
   int status, count, dummy;
@@ -82,6 +84,14 @@ gnome_execute_async (const char *dir, int argc, char * const argv[])
       if (dir)
 	chdir (dir);
 
+      if (envv)
+	{
+	  int i;
+
+	  for (i = 0; i < envc; ++i)
+	    putenv (envv[i]);
+	}
+
       execvp (argv[0], argv);
       /* This call never returns.  */
       report_errno (p[1]);
@@ -105,6 +115,12 @@ gnome_execute_async (const char *dir, int argc, char * const argv[])
     }
 
   return 0;
+}
+
+int
+gnome_execute_async (const char *dir, int argc, char * const argv[])
+{
+  return gnome_execute_async_with_env (dir, argc, argv, 0, NULL);
 }
 
 int

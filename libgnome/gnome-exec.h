@@ -30,6 +30,15 @@ BEGIN_GNOME_DECLS
    is used.  Searches $PATH to find the child.  */
 int gnome_execute_async (const char *dir, int argc, char * const argv[]);
 
+/* Like gnome_execute_async, but each string in ENVV is added to the
+   child's environment.  If you want to set the environment exactly,
+   you must set the global `environ' variable instead.  If ENVV is
+   NULL, the child inherits the parent's environment.  In this case,
+   the value of ENVC is ignored.  */
+int gnome_execute_async_with_env (const char *dir,
+				  int argc, char * const argv[],
+				  int envc, char * const envv[]);
+
 /* Fork and execute commandline using the user's shell. Calls 
    gnome_execute_async so it does the same things and returns 
    the same things. */
