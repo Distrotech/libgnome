@@ -16,7 +16,10 @@ struct _GnomeTrigger {
 	   gnome_triggers_do got */
 	  GnomeTriggerActionFunction function;
 	  gchar *command;
-	  gchar *mediafile;
+	  struct {
+	    gchar *file;
+	    int cache_id;
+	  } media;
 	} u;
         gchar *level;
 };

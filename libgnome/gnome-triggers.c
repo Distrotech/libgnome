@@ -44,6 +44,9 @@ gnome_trigger_do_function(GnomeTrigger t,
 static void
 gnome_trigger_do_command(GnomeTrigger t,
 			 char *msg, char *level, char *supinfo[]);
+static void
+gnome_trigger_do_mediaplay(GnomeTrigger t,
+			   char *msg, char *level, char *supinfo[]);
 
 /* FILEWIDE VARIABLES */
 
@@ -56,7 +59,7 @@ static GnomeTriggerTypeFunction actiontypes[] =
   (GnomeTriggerTypeFunction)NULL,
   gnome_trigger_do_function,
   gnome_trigger_do_command,
-  (GnomeTriggerTypeFunction)NULL,
+  gnome_trigger_do_mediaplay,
   (GnomeTriggerTypeFunction)NULL
 };
 
@@ -124,8 +127,8 @@ gnome_triggers_readfile(gchar *infilename)
       nt->level = parts[0];
     gnome_triggers_vadd_trigger(nt, subnames);
 
-    gnome_string_array_free(subnames); subnames = NULL;
-    gnome_string_array_free(parts); parts = NULL;
+    gnome_string_array_free(subnames);
+    gnome_string_array_free(parts);
   }
   g_free(nt);
 
@@ -323,7 +326,7 @@ gnome_trigger_free(GnomeTrigger t)
   case GTRIG_COMMAND:
     g_free(t->u.command); break;
   case GTRIG_MEDIAPLAY:
-    g_free(t->u.mediafile); break;
+    g_free(t->u.media.file); break;
   default:
     break;
   }
@@ -395,4 +398,15 @@ gnome_trigger_do_command(GnomeTrigger t, char *msg, char *level, char *supinfo[]
   }
   
   g_free(argv);
+}
+
+static void
+gnome_trigger_do_mediaplay(GnomeTrigger t, char *msg, char *level,
+			   char *supinfo[])
+{
+#ifdef HAVE_ESD
+#else
+  g_warning("Request to play media file %s - esound support not available\n",
+	    t->u.media.file);
+#endif
 }
