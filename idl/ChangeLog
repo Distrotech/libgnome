@@ -1,5 +1,13 @@
 2001-05-25  Martin Baulig  <baulig@suse.de>
 
+	* Gnome_Selector.idl
+	(GNOME::Selector::AsyncType): Move to GNOME::AsyncType.
+	(SELECTOR_URI_LIST, SELECTOR_DEFAULT_URI_LIST, SELECTOR_ACTIVE_LIST,
+	SELECTOR_LIST_MAX): New constants.
+	(GNOME::Selector::addURI): New method.
+
+2001-05-25  Martin Baulig  <baulig@suse.de>
+
 	* Gnome_Selector.idl (GNOME::AsyncContext): New interface.
 
 	* Gnome_Selector.idl (GNOME::DirectoryFilter): New interface.
