@@ -20,7 +20,7 @@ static GnomeStreamClass *gnome_stream_fs_parent_class;
 
 static CORBA_long
 fs_write (GnomeStream *stream, long count,
-	  const CORBA_char *buffer,
+	  const GNOME_Stream_iobuf *buffer,
 	  CORBA_Environment *ev)
 {
 	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
@@ -36,13 +36,27 @@ fs_write (GnomeStream *stream, long count,
 
 static CORBA_long
 fs_read (GnomeStream *stream, long count,
-	 CORBA_char **buffer,
+	 GNOME_Stream_iobuf ** buffer,
 	 CORBA_Environment *ev)
 {
 	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	CORBA_octet *data;
+	int v;
+	
+	*buffer = GNOME_Stream_iobuf__alloc ();
+	data = CORBA_sequence_CORBA_octet_allocbuf (count);
 
-	g_warning ("WEEE!  How do I fill this?");
-	return 0;
+	do {
+		v = read (sfs->fd, data, count);
+	} while (v == -1 && errno == EINTR);
+
+	if (v != -1){
+		(*buffer)->_buffer = data;
+		(*buffer)->_length = v;
+	} else
+		CORBA_free (data);
+
+	return v;
 }
 
 static void
@@ -115,7 +129,7 @@ gnome_stream_fs_get_type (void)
 			"IDL:GNOME/StreamFS:1.0",
 			sizeof (GnomeStreamFS),
 			sizeof (GnomeStreamFSClass),
-			(GtkClassInitFunc) NULL,
+			(GtkClassInitFunc) gnome_stream_fs_class_init,
 			(GtkObjectInitFunc) NULL,
 			NULL, /* reserved 1 */
 			NULL, /* reserved 2 */
