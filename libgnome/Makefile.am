@@ -58,7 +58,6 @@ libgnome_src = \
 	gnome-async-context.c	\
 	gnome-program.c		\
 	gnome-selector.c	\
-	gnome-file-selector.c	\
 	gnome-selector-factory.c\
 	gnome-directory-filter.c\
 	gnome-config.c		\
@@ -103,7 +102,6 @@ libgnome_headers = \
 	gnome-marshal.h		\
 	gnome-selector.h	\
 	gnome-selectorP.h	\
-	gnome-file-selector.h	\
 	gnome-selector-factory.h\
 	gnome-directory-filter.h\
 	libgnome-init.h		\

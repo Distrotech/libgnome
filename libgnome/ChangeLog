@@ -1,3 +1,12 @@
+2001-06-01  Martin Baulig  <baulig@suse.de>
+
+	* gnome-selector.c
+	(gnome_selector_set_vfs_filter): New function to set the GnomeVFSDirectoryFilter.
+	(check_uri_handler, scan_directory_handler): Do the GnomeVFS stuff here rather
+	than in gnome-file-selector.[ch].
+
+	* gnome-file-selector.[ch]: Removed.
+
 2001-05-31  Martin Baulig  <baulig@suse.de>
 
 	* gnome-selector.c: Implemented the new CORBA API.
