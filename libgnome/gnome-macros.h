@@ -34,7 +34,7 @@
  * the get_type method and the parent_class static variable. */
 #define GNOME_CLASS_BOILERPLATE(type, type_as_function,			\
 				parent_type, parent_type_as_function)	\
-static parent_type *parent_class = NULL;				\
+static parent_type ## Class *parent_class = NULL;				\
 GtkType									\
 type_as_function ## _get_type (void)					\
 {									\
