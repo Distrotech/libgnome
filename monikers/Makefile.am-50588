@@ -1,60 +1,91 @@
-PLUGIN_DIR=$(libdir)/bonobo/plugin
+INCLUDES = \
+	-I..					\
+	-I$(srcdir)/..				\
+	$(WARN_CFLAGS)				\
+	$(MONIKER_CFLAGS)			\
+	-Wno-unused				\
+	-DLIBGNOME_PREFIX=\""$(prefix)"\"		\
+	-DLIBGNOME_LIBDIR=\""$(libdir)"\"		\
+	-DLIBGNOME_DATADIR=\""$(datadir)"\"		\
+	-DLIBGNOME_BINDIR=\""$(bindir)"\"		\
+	-DLIBGNOME_LOCALSTATEDIR=\""$(localstatedir)"\" \
+	-DLIBGNOME_LOCALEDIR=\""$(gnomelocaledir)"\"	\
+	-DLIBGNOME_SYSCONFDIR=\""$(sysconfdir)"\"	\
+	-DVERSION=\""$(VERSION)"\"			\
+	-DG_LOG_DOMAIN=\"GnomeMonikers\"
 
-INCLUDES =                                              \
-        -DGNOMELOCALEDIR=\""$(datadir)/locale"\"        \
-	-I$(srcdir) -I$(top_srcdir) 			\
-	-I$(top_builddir)				\
-	-DPLUGIN_DIR=\""$(PLUGIN_DIR)"\"		\
-	-I$(top_srcdir)/libefs/src			\
-        -I$(includedir)                                 \
-	$(VFS_CFLAGS)					\
-        $(GNOME_INCLUDEDIR)
+OAF_FILES = 						\
+	Bonobo_Moniker_ditem.oaf
+	GNOME_Moniker_std.oaf
 
-common_ldflags = -avoid-version
+clean-local:
+	-rm -f $(OAF_FILES)
 
-bonobo_plugindir =  $(PLUGIN_DIR)
-bonobo_plugin_LTLIBRARIES = libstorage_efs.la libstorage_fs.la 
+EXTRA_DIST = \
+	Bonobo_Moniker_ditem.oaf.in \
+	GNOME_Moniker_std.oaf.in.in
 
-#
-# EFS storage module
-#
-libstorage_efs_la_SOURCES = 	\
-	bonobo-storage-efs.c	\
-	bonobo-storage-efs.h	\
-	bonobo-stream-efs.c	\
-	bonobo-stream-efs.h
+moniker_LTLIBRARIES = libmoniker_ditem.la libmoniker_gnome_std.la
+monikerdir = $(libdir)/bonobo/monikers
 
-libstorage_efs_la_LDFLAGS = 			\
-	$(common_ldflags) 			\
-	-L$(top_builddir)/libefs/src		\
-	-lefs
 
-#
-# File-system based storage
-#
-libstorage_fs_la_SOURCES =	\
-	bonobo-storage-fs.c	\
-	bonobo-storage-fs.h	\
-	bonobo-stream-fs.c	\
-	bonobo-stream-fs.h
+# File monikers
 
-libstorage_fs_la_LDFLAGS = 	\
-	$(common_ldflags)
+GNOME_Moniker_std.oaf.in : $(srcdir)/GNOME_Moniker_std.oaf.in.in
+	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir)|" \
+	 $(srcdir)/GNOME_Moniker_std.oaf.in.in > GNOME_Moniker_std.oaf.in
+CLEANFILES+=GNOME_Moniker_std.oaf GNOME_Moniker_std.oaf.in
 
-#
-# VFS storage module - disabled for now.
-#
-if HAVE_VFS
-libstoragedir = $(PLUGIN_DIR)
-libstorage_LTLIBRARIES =	\
-	libstorage_vfs.la
+libmoniker_gnome_std_la_SOURCES = \
+	gnome-moniker-std.c		\
+	gnome-moniker-std.h		\
+	bonobo-moniker-extender-file.c	\
+	bonobo-moniker-file.c
 
-libstorage_vfs_la_SOURCES =	\
-	bonobo-storage-vfs.c	\
-	bonobo-storage-vfs.h	\
-	bonobo-stream-vfs.c	\
-	bonobo-stream-vfs.h
+libmoniker_gnome_std_la_LIBADD = \
+	../libgnome/libgnome-2.la \
+	$(MONIKER_LIBS)
 
-libstorage_vfs_la_LIBADD = 	\
-	$(VFS_LIBS)
-endif
+
+# Desktop Item specific bits...
+
+# Data
+gnomesysconfdir = $(sysconfdir)/gnome-2.0
+gnomesysconf_DATA = gnome-desktop.xmldb
+
+install-data-local:
+	-./desktop-item-boot
+
+# DItem moniker
+
+Bonobo_Moniker_ditem.oaf : $(srcdir)/Bonobo_Moniker_ditem.oaf.in $(top_builddir)/config.status
+	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir)|" \
+	$(srcdir)/Bonobo_Moniker_ditem.oaf.in > Bonobo_Moniker_ditem.oaf 
+
+libmoniker_ditem_la_SOURCES =	 		\
+	bonobo-moniker-ditem.c 			\
+	bonobo-config-ditem.c			\
+	bonobo-config-ditem.h			\
+	bonobo-config-ditem-utils.c		\
+	bonobo-config-ditem-utils.h
+
+libmoniker_ditem_la_LIBADD = \
+	../libgnome/libgnome-2.la		\
+	$(MONIKER_LIBS)
+
+# DItem tests ...
+
+noinst_PROGRAMS = test-ditem desktop-item-boot
+
+test_ditem_SOURCES = \
+	test-ditem.c
+
+test_ditem_LDADD = \
+	../libgnome/libgnome-2.la		\
+	$(MONIKER_LIBS)
+
+desktop_item_boot_SOURCES = \
+	desktop-item-boot.c
+
+desktop_item_boot_LDADD = \
+	../libgnome/libgnome-2.la
