@@ -1,13 +1,13 @@
-# Copyright (C) 2001 Free Software Foundation, Inc.
-# Valek Filippov <frob@df.ru>, 2001.
+# Copyright (C) 2001-2002 Free Software Foundation, Inc.
+# Valek Filippov <frob@df.ru>, 2001-2002.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2002-02-19 10:22+0100\n"
-"PO-Revision-Date: 2001-10-13 21:23+0400\n"
+"POT-Creation-Date: 2002-03-07 17:07+0300\n"
+"PO-Revision-Date: 2002-03-07 17:16+0300\n"
 "Last-Translator: Valek Filippov <frob@df.ru>\n"
-"Language-Team: Russian <ru@li.org>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Невозможно найти терминал, используется xterm, даже если это может не "
 "работать"
 
-#: libgnome/gnome-url.c:182
+#: libgnome/gnome-url.c:193
 #, c-format
 msgid "Cannot parse: %s"
 msgstr "Невозможно проанализировать: %s"
@@ -90,20 +90,20 @@ msgstr "Поддержка GNOME GConf"
 
 #: libgnome/gnome-help.c:149
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr ""
+msgstr "Не удалось найти домен GNOME_FILE_DOMAIN_APP_HELP"
 
 #: libgnome/gnome-help.c:163
 msgid ""
 "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
 "libs was compiled incorrectly."
-msgstr ""
+msgstr "Не удалось найти домен GNOME_FILE_DOMAIN_HELP. Это означает, что gnome-libs было скомпилировано некорректно."
 
 #: libgnome/gnome-help.c:175
 #, c-format
 msgid ""
 "Unable to show help as file %s is not a directory.  This implies an "
 "incorrect installation."
-msgstr ""
+msgstr "Не удалось показать справку, так ка файл %s не является каталогом. Это означает неправильную установку."
 
 #: libgnome/gnome-help.c:193
 #, c-format
@@ -113,12 +113,12 @@ msgstr "Справочный документ %s для %s не найден"
 #: libgnome/gnome-help.c:270
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr ""
+msgstr "Не удалось найти doc_id %s в пути к справке"
 
 #: libgnome/gnome-help.c:291
-#, fuzzy, c-format
+#, c-format
 msgid "Help document %s/%s not found"
-msgstr "Справочный документ %s для %s не найден"
+msgstr "Справочный документ %s/%s не найден"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
@@ -127,27 +127,27 @@ msgstr ""
 
 #: libgnome/gnome-program.c:419
 msgid "Popt Table"
-msgstr ""
+msgstr "Таблица Popt"
 
 #: libgnome/gnome-program.c:420
 msgid "The table of options for popt"
-msgstr ""
+msgstr "Таблица параметров для popt"
 
 #: libgnome/gnome-program.c:427
 msgid "Popt Flags"
-msgstr ""
+msgstr "Флаги popt"
 
 #: libgnome/gnome-program.c:428
 msgid "The flags to use for popt"
-msgstr ""
+msgstr "Флаги используемые для popt"
 
 #: libgnome/gnome-program.c:436
 msgid "Popt Context"
-msgstr ""
+msgstr "Контекст popt"
 
 #: libgnome/gnome-program.c:437
 msgid "The popt context pointer that GnomeProgram is using"
-msgstr ""
+msgstr "Указатель контекста popt используемый GnomeProgram"
 
 #: libgnome/gnome-program.c:445
 msgid "Human readable name"
@@ -167,12 +167,11 @@ msgstr "Путь для поиска установленных файлов"
 
 #: libgnome/gnome-program.c:465
 msgid "App ID"
-msgstr ""
+msgstr "Идентификатор приложения"
 
 #: libgnome/gnome-program.c:466
-#, fuzzy
 msgid "ID string to use for this application"
-msgstr "Версия этого приложения"
+msgstr "Строка идентификатора используемая этим приложением"
 
 #: libgnome/gnome-program.c:473
 msgid "App version"
@@ -184,88 +183,83 @@ msgstr "Версия этого приложения"
 
 #: libgnome/gnome-program.c:481
 msgid "GNOME Prefix"
-msgstr ""
+msgstr "Префикс GNOME"
 
 #: libgnome/gnome-program.c:482
 msgid "Prefix where GNOME was installed"
-msgstr ""
+msgstr "Префикс пути, по которому был установлен GNOME"
 
 #: libgnome/gnome-program.c:491
-#, fuzzy
 msgid "GNOME Libdir"
-msgstr "Библиотека GNOME"
+msgstr "Каталог библиотек GNOME"
 
 #: libgnome/gnome-program.c:492
 msgid "Library prefix where GNOME was installed"
-msgstr ""
+msgstr "Префикс пути, по которому были установлены библиотеки GNOME"
 
 #: libgnome/gnome-program.c:501
-#, fuzzy
 msgid "GNOME Datadir"
-msgstr "Путь к GNOME"
+msgstr "Каталог данных GNOME"
 
 #: libgnome/gnome-program.c:502
 msgid "Data prefix where GNOME was installed"
-msgstr ""
+msgstr "Префикс пути, по которому были установлены данные GNOME"
 
 #: libgnome/gnome-program.c:511
 msgid "GNOME Sysconfdir"
-msgstr ""
+msgstr "Каталог конфигурации системы GNOME"
 
 #: libgnome/gnome-program.c:512
 msgid "Configuration prefix where GNOME was installed"
-msgstr ""
+msgstr "Прификс пути, по которому были установлены файлы настроек GNOME"
 
 #: libgnome/gnome-program.c:522
 msgid "GNOME App Prefix"
-msgstr ""
+msgstr "Префикс приложений GNOME"
 
 #: libgnome/gnome-program.c:523
 msgid "Prefix where this application was installed"
-msgstr ""
+msgstr "Префикс пути, по которому были установлены приложения GNOME"
 
 #: libgnome/gnome-program.c:531
-#, fuzzy
 msgid "GNOME App Libdir"
-msgstr "Библиотека GNOME"
+msgstr "Каталог библиотек приложений GNOME"
 
 #: libgnome/gnome-program.c:532
 msgid "Library prefix where this application was installed"
-msgstr ""
+msgstr "Префикс пути, по которому были установлены библиотеки приложений GNOME"
 
 #: libgnome/gnome-program.c:541
-#, fuzzy
 msgid "GNOME App Datadir"
-msgstr "Путь к GNOME"
+msgstr "Каталог данных приложений GNOME"
 
 #: libgnome/gnome-program.c:542
 msgid "Data prefix where this application was installed"
-msgstr ""
+msgstr "Префикс пути, по которому были установлены данные приложений GNOME"
 
 #: libgnome/gnome-program.c:551
 msgid "GNOME App Sysconfdir"
-msgstr ""
+msgstr "Каталог настроек приложений GNOME"
 
 #: libgnome/gnome-program.c:552
 msgid "Configuration prefix where this application was installed"
-msgstr ""
+msgstr "Префикс пути, по которому были установлены файлы настроек приложений GNOME"
 
 #: libgnome/gnome-program.c:561
 msgid "Create Directories"
-msgstr ""
+msgstr "Создать каталоги"
 
 #: libgnome/gnome-program.c:562
 msgid "Create standard GNOME directories on startup"
-msgstr ""
+msgstr "Создать при запуске стандартные каталоги GNOME"
 
 #: libgnome/gnome-program.c:571
 msgid "Enable Sound"
-msgstr ""
+msgstr "Включить звук"
 
 #: libgnome/gnome-program.c:572
-#, fuzzy
 msgid "Enable sound on startup"
-msgstr "Включить использование сервера звука"
+msgstr "Включить звук при запуске"
 
 #: libgnome/gnome-program.c:581
 msgid "Espeaker"
@@ -273,7 +267,7 @@ msgstr ""
 
 #: libgnome/gnome-program.c:582
 msgid "How to connect to esd"
-msgstr ""
+msgstr "Как подключиться к esd"
 
 #: libgnome/gnome-program.c:1318
 msgid "Help options"
@@ -297,7 +291,7 @@ msgstr ""
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
-msgstr ""
+msgstr "Моникер GConf"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
@@ -306,14 +300,8 @@ msgstr ""
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr ""
+msgstr "Ключ %s не найден в конфигурации"
 
 #: monikers/bonobo-config-bag.c:216
 msgid "Unknown type"
-msgstr ""
-
-#~ msgid "Can not bonobo_init"
-#~ msgstr "Невозможно выполнить bonobo_init"
-
-#~ msgid "Internal error"
-#~ msgstr "Внутренняя ошибка"
+msgstr "Неизвестный тип"
