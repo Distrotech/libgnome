@@ -49,14 +49,14 @@ desktop_property_set_boolean (const gchar *name, gboolean value)
 
 #define DEFINE_DESKTOP_PROP_BOOLEAN(c_name, prop_name)  \
 gboolean                                                \
-gnome_preferences_get_##c_name## (void)                 \
+gnome_preferences_get_ ## c_name (void)                 \
 {                                                       \
-    return desktop_property_get_boolean (##prop_name##);\
+    return desktop_property_get_boolean (prop_name);    \
 }                                                       \
 void                                                    \
-gnome_preferences_set_##c_name## (gboolean value)       \
+gnome_preferences_set_ ## c_name (gboolean value)       \
 {                                                       \
-    desktop_property_set_boolean (##prop_name##, value);\
+    desktop_property_set_boolean (prop_name, value);    \
 }
 
 /**

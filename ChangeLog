@@ -1,3 +1,16 @@
+2001-06-10  Cody Russell  <bratsche@gnome.org>
+
+	* libgnome/gnome-preferences: Change preprocessor pasting from ##t##
+	to just ## t.
+
+	* monikers/bonobo-config-ditem-utils.c: #include <bonobo-conf/foo> instead of
+	<bonobo-config/foo>.  Fix preprocessor pasting.
+
+	* monikers/bonobo-config-ditem.[ch], bonobo-moniker-ditem.c: Change #include 
+	<bonobo-config/foo> to <bonobo-conf/foo>
+
+	* monikers/desktop-item-boot.c, test-ditem.c: Add #include <stdlib.h> for exit().
+
 2001-06-10  Martin Baulig  <baulig@suse.de>
 
 	* Makefile.am (SUBDIRS): Compile the monikers/ subdir by default.
