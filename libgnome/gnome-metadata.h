@@ -22,8 +22,20 @@
 
 BEGIN_GNOME_DECLS
 
-/* FIXME: define error codes!  */
 
+/* We have a fairly limited notion of what an error is.  We could pass
+   on errors that the underlying database reports to us, but I'd
+   prefer to hide this information in case we change the
+   implementation later.  We probably don't need very sophisticated
+   error handling here anyway.  */
+typedef enum
+{
+	GNOME_METADATA_OK = 0,		   /* No error. */
+	GNOME_METADATA_IO_ERROR,	   /* IO or other low-level
+					      communications/storage
+					      error.  */
+	GNOME_METADATA_NOT_FOUND	   /* Information not found.  */
+} GnomeMetadataError_t;
 
 /* Set metadata associated with FILE.  Returns 0 on success, or an
    error code.  */
@@ -38,7 +50,7 @@ int gnome_metadata_remove (const char *file, const char *name);
    array is NULL terminated.  The result value can be freed with
    gnome_string_array_free.  This only returns keys for which there is
    a particular association with FILE.  It will not return keys for
-   which a regexp or other match succeeds.  */
+   which a regex or other match succeeds.  */
 char **gnome_metadata_list (const char *file);
 
 /* Get a piece of metadata associated with FILE.  SIZE and BUFFER are
@@ -66,13 +78,13 @@ int gnome_metadata_copy (const char *from, const char *to);
 int gnome_metadata_delete (const char *file);
 
 
-/* Add a regular expression to the internal list.  This regexp is used
+/* Add a regular expression to the internal list.  This regex is used
    when matching requests for the metadata KEY.  */
-void gnome_metadata_regexp_add (const char *regexp, const char *key,
-				int size, const char *data);
+void gnome_metadata_regex_add (const char *regex, const char *key,
+			       int size, const char *data);
 
 /* Remove a regular expression from the internal list.  */
-void gnome_metadata_regexp_remove (const char *regexp, const char *key);
+void gnome_metadata_regex_remove (const char *regex, const char *key);
 
 
 /* Add a file type to the internal list.  */

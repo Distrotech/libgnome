@@ -31,8 +31,10 @@ libgnome_la_SOURCES = \
 	gnome-history.c		\
 	gnome-hook.c 		\
 	gnome-i18n.c		\
+	gnome-metadata.c	\
 	gnome-mime.c		\
 	gnome-parse.c		\
+	gnome-regex.c		\
 	gnome-remote.c		\
 	gnome-score.c		\
 	gnome-string.c		\
@@ -54,7 +56,9 @@ libgnomeinclude_HEADERS = \
 	gnome-help.h		\
 	gnome-history.h		\
 	gnome-i18n.h 		\
+	gnome-metadata.h	\
 	gnome-mime.h		\
+	gnome-regex.h		\
 	gnome-remote.h		\
 	gnome-parse.h		\
 	gnome-score.h		\
@@ -72,10 +76,14 @@ EXTRA_DIST = lib_date.README
 libgnome_la_LDFLAGS = -version-info 27:0:27 -rpath $(libdir)
 libgnome_la_LIBADD = $(GLIB_LIBS) -lm $(DL_LIB)
 
-bin_PROGRAMS = dns-helper
+bin_PROGRAMS = dns-helper gnome-dump-metadata
 
 dns_helper_SOURCES = dns-helper.c
 dns_helper_LDADD = $(NSL_LIBS)
+
+gnome_dump_metadata_SOURCES = gnome-dump.c
+gnome_dump_metadata_LDADD = libgnome.la $(LIBSUPPORT) \
+	$(LIBGNOME_LIBS) $(INTLLIBS)
 
 install-data-local:
 	$(mkinstalldirs) $(scoredir)
