@@ -392,6 +392,8 @@ gnome_score_get_notable (gchar * gamename,
    
    if (infile)
      {
+        char *old_locale = setlocale (LC_NUMERIC, "C");
+
 	*names = g_malloc ((NSCORES + 1) * sizeof (gchar *));
 	*scores = g_malloc ((NSCORES + 1) * sizeof (gfloat));
 	*scoretimes = g_malloc ((NSCORES + 1) * sizeof (time_t));
@@ -412,6 +414,8 @@ gnome_score_get_notable (gchar * gamename,
 	  }
 	(*names)[retval] = NULL;
 	(*scores)[retval] = 0.0;
+
+        setlocale (LC_NUMERIC, old_locale);
 	fclose (infile);
      }
    else
