@@ -3,7 +3,7 @@
 #include <libgnorba/gnorba.h>
 #include <gdk/gdkprivate.h>
 #include <gdk/gdkx.h>
-#include <bonobo/gnome-bonobo.h>
+#include <bonobo/bonobo.h>
 
 CORBA_Environment ev;
 CORBA_ORB orb;
@@ -11,7 +11,7 @@ CORBA_ORB orb;
 int
 main (int argc, char *argv [])
 {
-	GnomeStorage *storage;
+	BonoboStorage *storage;
 	CORBA_Object o;
 	CORBA_Object s;
 	char *file;
@@ -32,38 +32,38 @@ main (int argc, char *argv [])
 		g_error (_("Can not bonobo_init\n"));
 
 	unlink (file);
-	storage = gnome_storage_open("efs", file, GNOME_SS_RDWR|GNOME_SS_CREATE,0664);
+	storage = bonobo_storage_open("efs", file, BONOBO_SS_RDWR|BONOBO_SS_CREATE,0664);
 
 	if (storage == NULL)
 		g_error ("Could not create storage file %s", file);
 	
-	o = GNOME_OBJECT(storage)->corba_objref;
+	o = BONOBO_OBJECT(storage)->corba_objref;
 	printf("Storage %p\n",o);
   
-	s = GNOME_Storage_create_storage(o,"testdir1",&ev);
+	s = Bonobo_Storage_create_storage(o,"testdir1",&ev);
 	printf("CORBA STORAGE %p\n",s);
 
-	s = GNOME_Storage_create_storage(s,"subdir1",&ev);
+	s = Bonobo_Storage_create_storage(s,"subdir1",&ev);
 	printf("CORBA STORAGE %p\n",s);
 
-	s = GNOME_Storage_create_storage(o,"testdir1",&ev);
+	s = Bonobo_Storage_create_storage(o,"testdir1",&ev);
 	printf("CORBA STORAGE %p\n",s);
  
-	GNOME_Storage_commit(o,&ev);
+	Bonobo_Storage_commit(o,&ev);
 
-	s = GNOME_Storage_open_storage(o,"testdir1",GNOME_Storage_READ,&ev);
+	s = Bonobo_Storage_open_storage(o,"testdir1",Bonobo_Storage_READ,&ev);
 	printf("CORBA STORAGE %p\n",s);
 
-	s = GNOME_Storage_open_storage(s,"subdir1",GNOME_Storage_READ,&ev);
+	s = Bonobo_Storage_open_storage(s,"subdir1",Bonobo_Storage_READ,&ev);
 	printf("CORBA STORAGE %p\n",s);
   
 
   
 	{
-		GNOME_Storage_directory_list *list;
+		Bonobo_Storage_directory_list *list;
 		int i;
 
-		list = GNOME_Storage_list_contents(o,"/",&ev);
+		list = Bonobo_Storage_list_contents(o,"/",&ev);
 		printf("DIRLIST %p\n",list);
 
 		if (list) {
@@ -77,20 +77,20 @@ main (int argc, char *argv [])
  
 
 	{
-		GNOME_Stream_iobuf *buf;
+		Bonobo_Stream_iobuf *buf;
 		CORBA_long i;
-		buf = GNOME_Stream_iobuf__alloc ();
+		buf = Bonobo_Stream_iobuf__alloc ();
 		buf->_buffer = CORBA_sequence_CORBA_octet_allocbuf (1000);
 		strcpy(buf->_buffer,"This is a Test\n");
 		buf->_length = strlen(buf->_buffer);
 
-		s = GNOME_Storage_create_stream(o,"t.txt",&ev);
+		s = Bonobo_Storage_create_stream(o,"t.txt",&ev);
 		printf("CORBA STREAM %p\n",s);
 
-		i = GNOME_Stream_write(s, buf, &ev);
+		i = Bonobo_Stream_write(s, buf, &ev);
 		printf("Written: %d\n",i);
 
-		//GNOME_Stream_close(s, &ev);
+		//Bonobo_Stream_close(s, &ev);
 
 	}
     

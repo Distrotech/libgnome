@@ -1,45 +1,45 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
-#ifndef _GNOME_STREAM_FS_H_
-#define _GNOME_STREAM_FS_H_
+#ifndef _BONOBO_STREAM_FS_H_
+#define _BONOBO_STREAM_FS_H_
 
-#include <bonobo/gnome-stream.h>
+#include <bonobo/bonobo-stream.h>
 
 BEGIN_GNOME_DECLS
 
-struct _GnomeStreamFS;
-typedef struct _GnomeStreamFS GnomeStreamFS;
+struct _BonoboStreamFS;
+typedef struct _BonoboStreamFS BonoboStreamFS;
 
-#ifndef _GNOME_STORAGE_FS_H_
-struct _GnomeStorageFS;
-typedef struct _GnomeStorageFS GnomeStorageFS;
+#ifndef _BONOBO_STORAGE_FS_H_
+struct _BonoboStorageFS;
+typedef struct _BonoboStorageFS BonoboStorageFS;
 #endif
 
-#define GNOME_STREAM_FS_TYPE        (gnome_stream_fs_get_type ())
-#define GNOME_STREAM_FS(o)          (GTK_CHECK_CAST ((o), GNOME_STREAM_FS_TYPE, GnomeStreamFS))
-#define GNOME_STREAM_FS_CLASS(k)    (GTK_CHECK_CLASS_CAST((k), GNOME_STREAM_FS_TYPE, GnomeStreamFSClass))
-#define GNOME_IS_STREAM_FS(o)       (GTK_CHECK_TYPE ((o), GNOME_STREAM_FS_TYPE))
-#define GNOME_IS_STREAM_FS_CLASS(k) (GTK_CHECK_CLASS_TYPE ((k), GNOME_STREAM_FS_TYPE))
+#define BONOBO_STREAM_FS_TYPE        (bonobo_stream_fs_get_type ())
+#define BONOBO_STREAM_FS(o)          (GTK_CHECK_CAST ((o), BONOBO_STREAM_FS_TYPE, BonoboStreamFS))
+#define BONOBO_STREAM_FS_CLASS(k)    (GTK_CHECK_CLASS_CAST((k), BONOBO_STREAM_FS_TYPE, BonoboStreamFSClass))
+#define BONOBO_IS_STREAM_FS(o)       (GTK_CHECK_TYPE ((o), BONOBO_STREAM_FS_TYPE))
+#define BONOBO_IS_STREAM_FS_CLASS(k) (GTK_CHECK_CLASS_TYPE ((k), BONOBO_STREAM_FS_TYPE))
 
-typedef struct _GnomeStreamFSPrivate GnomeStreamFSPrivate;
+typedef struct _BonoboStreamFSPrivate BonoboStreamFSPrivate;
 
-struct _GnomeStreamFS {
-	GnomeStream stream;
+struct _BonoboStreamFS {
+	BonoboStream stream;
 	int fd;
 	char *path;
 
-	GnomeStreamFSPrivate *priv;
+	BonoboStreamFSPrivate *priv;
 };
 
 typedef struct {
-	GnomeStreamClass parent_class;
-} GnomeStreamFSClass;
+	BonoboStreamClass parent_class;
+} BonoboStreamFSClass;
 
-GtkType         gnome_stream_fs_get_type     (void);
-GnomeStream    *gnome_stream_fs_open         (const CORBA_char *path, GNOME_Storage_OpenMode mode);
-GnomeStream    *gnome_stream_fs_create       (const CORBA_char *path);
-GnomeStream    *gnome_stream_fs_construct    (GnomeStreamFS *stream,
-					      GNOME_Stream corba_stream);
+GtkType         bonobo_stream_fs_get_type     (void);
+BonoboStream    *bonobo_stream_fs_open         (const CORBA_char *path, Bonobo_Storage_OpenMode mode);
+BonoboStream    *bonobo_stream_fs_create       (const CORBA_char *path);
+BonoboStream    *bonobo_stream_fs_construct    (BonoboStreamFS *stream,
+					      Bonobo_Stream corba_stream);
 	
 END_GNOME_DECLS
 
-#endif /* _GNOME_STREAM_FS_H_ */
+#endif /* _BONOBO_STREAM_FS_H_ */

@@ -14,16 +14,16 @@
 #include <sys/stat.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
-#include <bonobo/gnome-stream-fs.h>
+#include <bonobo/bonobo-stream-fs.h>
 #include <errno.h>
 
-static GnomeStreamClass *gnome_stream_fs_parent_class;
+static BonoboStreamClass *bonobo_stream_fs_parent_class;
 
 static CORBA_long
-fs_write (GnomeStream *stream, const GNOME_Stream_iobuf *buffer,
+fs_write (BonoboStream *stream, const Bonobo_Stream_iobuf *buffer,
 	  CORBA_Environment *ev)
 {
-	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
 
 	errno = EINTR;
 	while (write (sfs->fd, buffer->_buffer, buffer->_length) == -1 
@@ -32,22 +32,22 @@ fs_write (GnomeStream *stream, const GNOME_Stream_iobuf *buffer,
 	if (errno != EINTR){
 		g_warning ("Should signal an exception here");
 		CORBA_exception_set(ev, CORBA_USER_EXCEPTION,
-				    ex_GNOME_Storage_NameExists, NULL);
+				    ex_Bonobo_Storage_NameExists, NULL);
 		return 0;
 	}
 	return buffer->_length;
 }
 
 static CORBA_long
-fs_read (GnomeStream *stream, CORBA_long count,
-	 GNOME_Stream_iobuf ** buffer,
+fs_read (BonoboStream *stream, CORBA_long count,
+	 Bonobo_Stream_iobuf ** buffer,
 	 CORBA_Environment *ev)
 {
-	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
 	CORBA_octet *data;
 	int v;
 	
-	*buffer = GNOME_Stream_iobuf__alloc ();
+	*buffer = Bonobo_Stream_iobuf__alloc ();
 	CORBA_sequence_set_release (*buffer, TRUE);
 	data = CORBA_sequence_CORBA_octet_allocbuf (count);
 
@@ -65,16 +65,16 @@ fs_read (GnomeStream *stream, CORBA_long count,
 }
 
 static CORBA_long
-fs_seek (GnomeStream *stream,
-	 CORBA_long offset, GNOME_Stream_SeekType whence,
+fs_seek (BonoboStream *stream,
+	 CORBA_long offset, Bonobo_Stream_SeekType whence,
 	 CORBA_Environment *ev)
 {
-	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
 	int fw;
 
-	if (whence == GNOME_Stream_SEEK_CUR)
+	if (whence == Bonobo_Stream_SEEK_CUR)
 		fw = SEEK_CUR;
-	else if (whence == GNOME_Stream_SEEK_END)
+	else if (whence == Bonobo_Stream_SEEK_END)
 		fw = SEEK_END;
 	else
 		fw = SEEK_SET;
@@ -83,11 +83,11 @@ fs_seek (GnomeStream *stream,
 }
 
 static void
-fs_truncate (GnomeStream *stream,
+fs_truncate (BonoboStream *stream,
 	     const CORBA_long new_size, 
 	     CORBA_Environment *ev)
 {
-	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
 
 	if (ftruncate (sfs->fd, new_size) == 0)
 		return;
@@ -96,14 +96,14 @@ fs_truncate (GnomeStream *stream,
 }
 
 static void
-fs_copy_to  (GnomeStream *stream,
+fs_copy_to  (BonoboStream *stream,
 	     const CORBA_char *dest,
 	     const CORBA_long bytes,
 	     CORBA_long *read_bytes,
 	     CORBA_long *written_bytes,
 	     CORBA_Environment *ev)
 {
-	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
 	CORBA_octet *data;
 	CORBA_unsigned_long more = bytes;
 	int v, w;
@@ -148,17 +148,17 @@ fs_copy_to  (GnomeStream *stream,
 }
 
 static void
-fs_commit   (GnomeStream *stream,
+fs_commit   (BonoboStream *stream,
 	     CORBA_Environment *ev)
 {
 	g_warning ("Implement fs commit");
 }
 
 static void
-fs_close (GnomeStream *stream,
+fs_close (BonoboStream *stream,
 	  CORBA_Environment *ev)
 {
-	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
 
 	if (close (sfs->fd))
 		g_warning ("Close failed");
@@ -166,10 +166,10 @@ fs_close (GnomeStream *stream,
 }
 
 static CORBA_boolean
-fs_eos (GnomeStream *stream,
+fs_eos (BonoboStream *stream,
 	CORBA_Environment *ev)
 {
-	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
 	off_t offset;
 	struct stat st;
 
@@ -192,10 +192,10 @@ fs_eos (GnomeStream *stream,
 }
 	
 static CORBA_long
-fs_length (GnomeStream *stream,
+fs_length (BonoboStream *stream,
 	   CORBA_Environment *ev)
 {
-	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
 	struct stat st;
 
 	if (fstat (sfs->fd, &st)) {
@@ -207,11 +207,11 @@ fs_length (GnomeStream *stream,
 	   
 
 static void
-gnome_stream_fs_class_init (GnomeStreamFSClass *klass)
+bonobo_stream_fs_class_init (BonoboStreamFSClass *klass)
 {
-	GnomeStreamClass *sclass = GNOME_STREAM_CLASS (klass);
+	BonoboStreamClass *sclass = BONOBO_STREAM_CLASS (klass);
 	
-	gnome_stream_fs_parent_class = gtk_type_class (gnome_stream_get_type ());
+	bonobo_stream_fs_parent_class = gtk_type_class (bonobo_stream_get_type ());
 
 	sclass->write    = fs_write;
 	sclass->read     = fs_read;
@@ -225,69 +225,69 @@ gnome_stream_fs_class_init (GnomeStreamFSClass *klass)
 }
 
 /**
- * gnome_stream_fs_get_type:
+ * bonobo_stream_fs_get_type:
  *
- * Returns the GtkType for the GnomeStreamFS class.
+ * Returns the GtkType for the BonoboStreamFS class.
  */
 GtkType
-gnome_stream_fs_get_type (void)
+bonobo_stream_fs_get_type (void)
 {
 	static GtkType type = 0;
 
 	if (!type){
 		GtkTypeInfo info = {
 			"IDL:GNOME/StreamFS:1.0",
-			sizeof (GnomeStreamFS),
-			sizeof (GnomeStreamFSClass),
-			(GtkClassInitFunc) gnome_stream_fs_class_init,
+			sizeof (BonoboStreamFS),
+			sizeof (BonoboStreamFSClass),
+			(GtkClassInitFunc) bonobo_stream_fs_class_init,
 			(GtkObjectInitFunc) NULL,
 			NULL, /* reserved 1 */
 			NULL, /* reserved 2 */
 			(GtkClassInitFunc) NULL
 		};
 
-		type = gtk_type_unique (gnome_stream_get_type (), &info);
+		type = gtk_type_unique (bonobo_stream_get_type (), &info);
 	}
 
 	return type;
 }
 
 /**
- * gnome_stream_fs_construct:
- * @stream: The GnomeStreamFS object to initialize.
- * @corba_stream: The CORBA server which implements the GnomeStreamFS service.
+ * bonobo_stream_fs_construct:
+ * @stream: The BonoboStreamFS object to initialize.
+ * @corba_stream: The CORBA server which implements the BonoboStreamFS service.
  *
- * This function initializes an object of type GnomeStreamFS using the
+ * This function initializes an object of type BonoboStreamFS using the
  * provided CORBA server @corba_stream.
  *
- * Returns the constructed GnomeStreamFS @stream.
+ * Returns the constructed BonoboStreamFS @stream.
  */
-GnomeStream *
-gnome_stream_fs_construct (GnomeStreamFS *stream,
-			   GNOME_Stream corba_stream)
+BonoboStream *
+bonobo_stream_fs_construct (BonoboStreamFS *stream,
+			   Bonobo_Stream corba_stream)
 {
 	g_return_val_if_fail (stream != NULL, NULL);
-	g_return_val_if_fail (GNOME_IS_STREAM (stream), NULL);
+	g_return_val_if_fail (BONOBO_IS_STREAM (stream), NULL);
 	g_return_val_if_fail (corba_stream != CORBA_OBJECT_NIL, NULL);
 
-	gnome_object_construct (
-		GNOME_OBJECT (stream), corba_stream);
+	bonobo_object_construct (
+		BONOBO_OBJECT (stream), corba_stream);
 
-	return GNOME_STREAM (stream);
+	return BONOBO_STREAM (stream);
 }
 
-static GNOME_Stream
-create_gnome_stream_fs (GnomeObject *object)
+static Bonobo_Stream
+create_bonobo_stream_fs (BonoboObject *object)
 {
-	POA_GNOME_Stream *servant;
+	POA_Bonobo_Stream *servant;
 	CORBA_Environment ev;
 
-	servant = (POA_GNOME_Stream *) g_new0 (GnomeObjectServant, 1);
-	servant->vepv = &gnome_stream_vepv;
+	servant = (POA_Bonobo_Stream *) g_new0 (BonoboObjectServant, 1);
+	servant->vepv = &bonobo_stream_vepv;
 
 	CORBA_exception_init (&ev);
 
-	POA_GNOME_Stream__init ((PortableServer_Servant) servant, &ev);
+	POA_Bonobo_Stream__init ((PortableServer_Servant) servant, &ev);
 	if (ev._major != CORBA_NO_EXCEPTION){
                 g_free (servant);
 		CORBA_exception_free (&ev);
@@ -295,43 +295,43 @@ create_gnome_stream_fs (GnomeObject *object)
         }
 
 	CORBA_exception_free (&ev);
-	return (GNOME_Stream) gnome_object_activate_servant (object, servant);
+	return (Bonobo_Stream) bonobo_object_activate_servant (object, servant);
 }
 
-static GnomeStream *
-gnome_stream_create (int fd)
+static BonoboStream *
+bonobo_stream_create (int fd)
 {
-	GnomeStreamFS *stream_fs;
-	GNOME_Stream corba_stream;
+	BonoboStreamFS *stream_fs;
+	Bonobo_Stream corba_stream;
 
-	stream_fs = gtk_type_new (gnome_stream_fs_get_type ());
+	stream_fs = gtk_type_new (bonobo_stream_fs_get_type ());
 	if (stream_fs == NULL)
 		return NULL;
 	
 	stream_fs->fd = fd;
 	
-	corba_stream = create_gnome_stream_fs (
-		GNOME_OBJECT (stream_fs));
+	corba_stream = create_bonobo_stream_fs (
+		BONOBO_OBJECT (stream_fs));
 
 	if (corba_stream == CORBA_OBJECT_NIL){
 		gtk_object_destroy (GTK_OBJECT (stream_fs));
 		return NULL;
 	}
 
-	return gnome_stream_fs_construct (stream_fs, corba_stream);
+	return bonobo_stream_fs_construct (stream_fs, corba_stream);
 }
 
 
 /**
- * gnome_stream_fs_open:
+ * bonobo_stream_fs_open:
  * @path: The path to the file to be opened.
  * @mode: The mode with which the file should be opened.
  *
- * Creates a new GnomeStream object for the filename specified by
+ * Creates a new BonoboStream object for the filename specified by
  * @path.  
  */
-GnomeStream *
-gnome_stream_fs_open (const CORBA_char *path, GNOME_Storage_OpenMode mode)
+BonoboStream *
+bonobo_stream_fs_open (const CORBA_char *path, Bonobo_Storage_OpenMode mode)
 {
 	struct stat s;
 	int v, fd;
@@ -348,13 +348,13 @@ gnome_stream_fs_open (const CORBA_char *path, GNOME_Storage_OpenMode mode)
 		return NULL;
 	}
 	
-	if (mode == GNOME_Storage_READ){
+	if (mode == Bonobo_Storage_READ){
 		fd = open (full, O_RDONLY);
 		if (fd == -1){
 			g_free (full);
 			return NULL;
 		}
-	} else if (mode == GNOME_Storage_WRITE){
+	} else if (mode == Bonobo_Storage_WRITE){
 		fd = open (full, O_RDWR);
 		if (fd == -1){
 			g_free (full);
@@ -367,24 +367,24 @@ gnome_stream_fs_open (const CORBA_char *path, GNOME_Storage_OpenMode mode)
 	
 	g_free (full);
 	
-	return gnome_stream_create (fd);
+	return bonobo_stream_create (fd);
 }
 
 /**
- * gnome_stream_fs_create:
+ * bonobo_stream_fs_create:
  * @path: The path to the file to be opened.
  *
- * Creates a new GnomeStreamFS object which is bound to the file
+ * Creates a new BonoboStreamFS object which is bound to the file
  * specified by @path.
  *
- * When data is read out of or written into the returned GnomeStream
+ * When data is read out of or written into the returned BonoboStream
  * object, the read() and write() operations are mapped to the
  * corresponding operations on the specified file.
  *
- * Returns: the constructed GnomeStream object which is bound to the specified file.
+ * Returns: the constructed BonoboStream object which is bound to the specified file.
  */
-GnomeStream *
-gnome_stream_fs_create (const CORBA_char *path)
+BonoboStream *
+bonobo_stream_fs_create (const CORBA_char *path)
 {
 	int fd;
 
@@ -395,7 +395,7 @@ gnome_stream_fs_create (const CORBA_char *path)
 	if (fd == -1)
 		return NULL;
 
-	return gnome_stream_create (fd);
+	return bonobo_stream_create (fd);
 }
 
 
