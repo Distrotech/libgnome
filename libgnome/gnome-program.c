@@ -816,15 +816,17 @@ gnome_program_install_property (GnomeProgramClass *pclass,
  * @ret_locations: If this is not %NULL, a list of all the possible locations
  *                 of the file will be returned.
  *
- * This function finds the full path to a file located in the specified
+ * This function finds a full path to the @file_name located in the specified
  * "domain". A domain is a name for a collection of related files.
  * For example, common domains are "libdir", "pixmap", and "config".
  *
- * If @ret_locations is %NULL, there is no other return value.
+ * If @ret_locations is %NULL, only one pathname is returned. Otherwise,
+ * alternative paths are returned in @ret_locations.
  *
- * The GNOME_FILE_DOMAIN_APP_* domains are ones for your own application.
- * However you MUST set the correct attributes for #GnomeProgram for the APP
- * specific prefixes (during the initialization part of the application).
+ * User applications should store files in the GNOME_FILE_DOMAIN_APP_*
+ * domains. However you MUST set the correct attributes for #GnomeProgram for
+ * the APP specific prefixes (during the initialization part of the
+ * application).
  *
  * The @ret_locations list and its contents should be freed by the caller.
  *

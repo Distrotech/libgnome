@@ -52,20 +52,10 @@
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-util.h>
 
-/* Hmmm, how do we handle deprecated functions that are now macros? */
-/**
- * g_concat_dir_and_file:
- * @dir:  directory name
- * @file: filename.
- *
- * returns a new allocated string that is the concatenation of dir and file,
- * takes care of the exact details for concatenating them.
- */
-
 /**
  * gnome_util_user_shell:
  *
- * Returns a newly allocated string that is the path to the user's
+ * Returns: A newly allocated string that is the path to the user's
  * preferred shell.
  */
 char *
@@ -111,9 +101,9 @@ gnome_util_user_shell (void)
 
 /**
  * g_extension_pointer:
- * @path: a filename or file path
+ * @path: A filename or file path.
  *
- * Returns a pointer to the extension part of the filename, or a
+ * Returns: A pointer to the extension part of the filename, or a
  * pointer to the end of the string if the filename does not
  * have an extension.
  *
@@ -141,24 +131,15 @@ g_extension_pointer (const char * path)
 }
 
 /**
- * g_copy_vector:
- * @vec: an array of strings.  NULL terminated
- *
- * Returns a copy of a NULL-terminated string array.
- */
-/* FIXME: how does this doc stuff work for macros again?
- *   -George*/
-
-/**
  * gnome_is_program_in_path:
- * @program: a program name.
+ * @program: A program name.
  *
- * Looks for program in the PATH, if it is found, a g_strduped
+ * Looks for @program in the PATH, if it is found, a g_strdup()
  * string with the full path name is returned.
  *
- * Returns NULL if program is not on the path or a string 
- * allocated with g_malloc with the full path name of the program
- * found
+ * Returns: %NULL if program is not on the path or a string 
+ * allocated with g_malloc() with the full path name of the program
+ * found.
  */
 char *
 gnome_is_program_in_path (const gchar *program)
@@ -184,15 +165,20 @@ gnome_is_program_in_path (const gchar *program)
 
 /**
  * gnome_setenv:
+ * @name: An environment variable name.
+ * @value: The value to assign to the environment variable.
+ * @overwrite: If %TRUE, overwrite the existing @name variable in the
+ * environment.
  * 
- * Description: Adds "@name=@value" to the environment
- * Note that on systems without setenv, this leaks memory
- * so please do not use inside a loop or anything like that.
- * semantics are the same as the glibc setenv.  The @overwrite
- * flag says that existing @name in the environment should be
- * overwritten.
+ * Adds "@name=@value" to the environment. Note that on systems without setenv,
+ * this leaks memory so please do not use inside a loop or anything like that.
+ * The semantics are the same as the glibc setenv() (if setenv() exists, it is
+ * used).
  *
- * Returns: 0 on success -1 on error
+ * If @overwrite is %FALSE and the variable already exists in the environment,
+ * then %0 is returned and the value is not changed.
+ *
+ * Returns: %0 on success, %-1 on error
  * 
  **/
 int
@@ -218,12 +204,12 @@ gnome_setenv (const char *name, const char *value, gboolean overwrite)
 
 /**
  * gnome_unsetenv:
- * @name: 
+ * @name: The environment variable to unset.
  * 
  * Description: Removes @name from the environment.
  * In case there is no native implementation of unsetenv,
  * this could cause leaks depending on the implementation of
- * enviroment.
+ * environment.
  * 
  **/
 void
@@ -259,7 +245,7 @@ gnome_unsetenv (const char *name)
  * Description: Clears out the environment completely.
  * In case there is no native implementation of clearenv,
  * this could cause leaks depending on the implementation
- * of enviroment.
+ * of environment.
  * 
  **/
 void
