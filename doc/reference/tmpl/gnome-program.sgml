@@ -49,6 +49,58 @@ locations relative to #GNOME_PARAM_APP_DATADIR.
 @object: 
 @_priv: 
 
+<!-- ##### STRUCT GnomeModuleInfo ##### -->
+<para>
+
+</para>
+
+@name: 
+@version: 
+@description: 
+@requirements: 
+@instance_init: 
+@pre_args_parse: 
+@post_args_parse: 
+@options: 
+@init_pass: 
+@class_init: 
+@expansion1: 
+@expansion2: 
+
+<!-- ##### STRUCT GnomeModuleRequirement ##### -->
+<para>
+
+</para>
+
+@required_version: 
+@module_info: 
+
+<!-- ##### USER_FUNCTION GnomeModuleInitHook ##### -->
+<para>
+
+</para>
+
+@mod_info: 
+
+
+<!-- ##### USER_FUNCTION GnomeModuleClassInitHook ##### -->
+<para>
+
+</para>
+
+@klass: 
+@mod_info: 
+
+
+<!-- ##### USER_FUNCTION GnomeModuleHook ##### -->
+<para>
+
+</para>
+
+@program: 
+@mod_info: 
+
+
 <!-- ##### FUNCTION gnome_program_init ##### -->
 <para>
 Every GNOME application will need to call this function (or
@@ -116,6 +168,13 @@ int main(int argc, char **argv) {
 @first_property_name: 
 @args: 
 @Returns: 
+
+
+<!-- ##### MACRO GNOME_PROGRAM_STANDARD_PROPERTIES ##### -->
+<para>
+
+</para>
+
 
 
 <!-- ##### FUNCTION gnome_program_get ##### -->
@@ -306,55 +365,6 @@ int main(int argc, char **argv) {
 
 
 
-<!-- ##### STRUCT GnomeModuleInfo ##### -->
-<para>
-
-</para>
-
-@requirements: 
-@instance_init: 
-@pre_args_parse: 
-@post_args_parse: 
-@options: 
-@init_pass: 
-@class_init: 
-@expansion1: 
-@expansion2: 
-
-<!-- ##### STRUCT GnomeModuleRequirement ##### -->
-<para>
-
-</para>
-
-@required_version: 
-@module_info: 
-
-<!-- ##### USER_FUNCTION GnomeModuleInitHook ##### -->
-<para>
-
-</para>
-
-@mod_info: 
-
-
-<!-- ##### USER_FUNCTION GnomeModuleClassInitHook ##### -->
-<para>
-
-</para>
-
-@klass: 
-@mod_info: 
-
-
-<!-- ##### USER_FUNCTION GnomeModuleHook ##### -->
-<para>
-
-</para>
-
-@program: 
-@mod_info: 
-
-
 <!-- ##### FUNCTION gnome_program_module_register ##### -->
 <para>
 
@@ -420,12 +430,5 @@ int main(int argc, char **argv) {
 </para>
 
 @program: 
-
-
-<!-- ##### MACRO GNOME_PROGRAM_STANDARD_PROPERTIES ##### -->
-<para>
-
-</para>
-
 
 

@@ -4,8 +4,14 @@
 <FILE>gnome-program</FILE>
 GnomeFileDomain
 GnomeProgram
+GnomeModuleInfo
+GnomeModuleRequirement
+GnomeModuleInitHook
+GnomeModuleClassInitHook
+GnomeModuleHook
 gnome_program_init
 gnome_program_initv
+GNOME_PROGRAM_STANDARD_PROPERTIES
 
 <SUBSECTION>
 gnome_program_get
@@ -37,11 +43,6 @@ GNOME_PARAM_HUMAN_READABLE_NAME
 GNOME_PARAM_GNOME_PATH
 
 <SUBSECTION>
-GnomeModuleInfo
-GnomeModuleRequirement
-GnomeModuleInitHook
-GnomeModuleClassInitHook
-GnomeModuleHook
 gnome_program_module_register
 gnome_program_module_registered
 gnome_program_module_load
@@ -49,7 +50,6 @@ gnome_program_install_property
 gnome_program_preinit
 gnome_program_parse_args
 gnome_program_postinit
-GNOME_PROGRAM_STANDARD_PROPERTIES
 
 <SUBSECTION Standard>
 GNOME_PROGRAM
