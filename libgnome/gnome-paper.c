@@ -371,6 +371,7 @@ gnome_paper_convert (double psvalue, const Unit *unit)
  * @othervalue: value in points
  * @unit: unit to convert to
  * 
+ * Needed for gnome-paper-selector.
  * converts from value represented in points
  * to value represented in given units.
  * 
