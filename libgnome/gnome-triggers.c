@@ -544,8 +544,6 @@ gnome_trigger_do_mediaplay(GnomeTrigger* t,
     esd_sample_play(gnome_sound_connection, t->u.media.cache_id);
   else if(t->u.media.cache_id == -1)
     gnome_sound_play(t->u.media.file);
-#else
-  g_warning("Request to play media file %s - esound support not available\n",
-	    t->u.media.file);
 #endif
 }
+
