@@ -194,7 +194,10 @@ static void
 unlock (void)
 {
 	if (! --lock_count) {
-		database->sync (database, 0);
+		if (!database)
+			init ();
+		if (database)
+			database->sync (database, 0);
 		rmdir (lock_directory);
 	}
 }
