@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
-"POT-Creation-Date: 2003-06-24 11:51+0700\n"
+"POT-Creation-Date: 2003-06-30 13:47+0700\n"
 "PO-Revision-Date: 2003-06-12 14:46+0700\n"
 "Last-Translator: Mohammad DAMT <mdamt@bisnisweb.com>\n"
 "Language-Team: Indonesia <id@li.org>\n"
@@ -445,8 +445,8 @@ msgstr ""
 "GNOME"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
-msgid "Startup Assistive Technology Apps"
-msgstr "Startup Assistive Technology Apps"
+msgid "Startup Assistive Technology Applications"
+msgstr "Startup Assistive Technology Applications"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -716,9 +716,11 @@ msgid "Toolbar Style"
 msgstr "Gaya toolbar"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
-"Gaya toolbar. Gaya yang diterima adalah both, both_horiz, ikon, dan teks"
+"Gaya toolbar. Gaya yang diterima adalah \"both\", \"both_horiz\", \"icon\", dan \"text\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
@@ -745,26 +747,26 @@ msgid "Whether menus should have a tearoff"
 msgstr "Menentukan apakah menu dapat dilepas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-"Menentukan apakah user dapat mengganti akselerator yang telah ditentukan "
-"saat menu dimunculkan"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "Menentukan apakah kursor berkedip atau tidak"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
 "Menentukan apakah user dapat melepas kotak menu dan memindah-mindahkannya "
 "atau tidak"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Menentukan apakah user dapat melepas toolbar atau tidak"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"Menentukan apakah user dapat mengganti kombinasi tombol yang telah ditentukan "
+"saat menu dimunculkan"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -786,8 +788,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Nama file suara pilihan sendiri untuk keyboard"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
-msgstr "Pilihannya adalah: hidup, mati, dan pilihan sendiri"
+msgid "possible values are \"on\", \"off\", and \"custom\"."
+msgstr "Pilihannya adalah: \"on\", \"off\", dan \"custom\"."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -811,14 +813,14 @@ msgstr "tematik kursor"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Nama tematik kursor. Digunakan oleh Xservers yang bisa memakai Xcursor, "
 "seperti pada versi 4.3 XFree86. Nilai ini dianggap berubah saat X server "
-"dijalankan pada tiap sesi. Jadi menggantinya sekarang, dan baru berpengaruh "
-"nanti saat login di lain kali."
+"dijalankan pada tiap sesi. Jadi bila menggantinya sekarang, akan baru berpengaruh "
+"nanti saat login di kali lain."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -842,13 +844,13 @@ msgstr "Derajat Drag"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Nama font untuk kursor. Bila tidak diset, font default akan digunakan. Nilai "
-"ini dianggap berubah saat X serverdijalankan pada tiap sesi. Jadi "
-"menggantinya sekarang, dan baru berpengaruh nanti saat login di lain kali."
+"ini dianggap berubah saat X server dijalankan pada tiap sesi. Jadi "
+"bila menggantinya sekarang, maka akan baru berpengaruh nanti saat login di kali lain."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -910,6 +912,50 @@ msgstr "Suara untuk kejadian-kejadian tertentu"
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
 msgstr "Mainkan file suara saat ada kejadian tertentu."
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr "Matikan semua pembuat gambar kecil eksternal"
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+"Nyalakan untuk menonaktifkan semua program pembuat gambar kecil, terserah "
+"nantinya mau dinonaktifkan/dinyalakan per program atau tidak."
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr "Boleh menunda jeda"
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr "Waktu jeda"
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr "Lama waktu mengetik (dalam menit) sebelum mode jeda dimulai."
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr "Lama waktu (dalam menit) jeda pengetikan."
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr "Waktu pengetikan"
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr "Menentukan apakah penguncian keyboard dilakukan"
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr "Menentukan apakah penguncian keyboard dilakukan."
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr "Menentukan apakah jeda pengetikan dapat ditunda"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle ghelp URLs"
