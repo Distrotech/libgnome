@@ -21,7 +21,7 @@ libstorage_efs_la_SOURCES = 	\
 
 libstorage_efs_la_LDFLAGS = 			\
 	$(common_ldflags) 			\
-	-L$(shell pwd)/$(top_builddir)/libefs/src\
+	-L$(shell pwd)/$(top_builddir)/libefs/src/.libs\
 	-lefs
 
 #
