@@ -845,6 +845,7 @@ int
 main (int argc, char **argv)
 {
   Display *dpy;
+  char *def;
 
   /* Parse arguments ... */
   gnomelib_init("gnome-moz-remote", VERSION);
@@ -872,7 +873,12 @@ main (int argc, char **argv)
 			    raise_p, isLocal))
       exit(0);
 
-    argv[0] = gnome_config_get_string("/gnome-moz-remote/Mozilla/filename=netscape");
+    if (gnome_is_program_in_path ("mozilla"))
+	    def = "/gnome-moz-remote/Mozilla/filename=mozilla";
+    else
+	    def = "/gnome-moz-remote/Mozilla/filename=netscape";
+    
+    argv[0] = gnome_config_get_string(def);
     argv[1] = escaped_url;
     argv[2] = NULL;
     return (gnome_execute_async(NULL, 2, argv) >= 0);
