@@ -5,10 +5,31 @@ BEGIN_GNOME_DECLS
 
 /* Prototypes for the profile management functions */
 
-char *gnome_config_get_string    (char *path);
-int  gnome_config_get_int        (char *path);
+/* These functions look for the config option named in PATH.  If the
+   option does not exist, and a default is specified in PATH, then the
+   default will be returned.  In all cases, *DEF is set to 1 if the
+   default was return, 0 otherwise.  If DEF is NULL then it will not
+   be set.  */
+
+char *gnome_config_get_string_with_default    (char *path, int *def);
+int  gnome_config_get_int_with_default        (char *path, int *def);
+int  gnome_config_get_bool_with_default       (char *path, int *def);
+
+/* Convenience wrappers for the case when you don't care if you see
+   the default.  */
+
+#define gnome_config_get_string(Path) \
+	(gnome_config_get_string_with_default ((Path), NULL))
+#define gnome_config_get_int(Path) \
+	(gnome_config_get_int_with_default ((Path), NULL))
+#define gnome_config_get_bool(Path) \
+	(gnome_config_get_bool_with_default ((Path), NULL))
+
+
+/* Set a config variable.  */
 void gnome_config_set_string     (char *path, char *value);
 void gnome_config_set_int        (char *path, int value);
+void gnome_config_set_bool       (char *path, int value);
 
 /* Returns true if /path/section is defined */
 int  gnome_config_has_section    (char *path);

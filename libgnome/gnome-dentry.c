@@ -92,7 +92,7 @@ gnome_desktop_entry_load (char *file)
 	newitem->icon_base = gnome_config_get_string ("Icon");
 	newitem->docpath   = gnome_config_get_string ("DocPath");
 	newitem->info      = gnome_config_get_string ("Info");
-	newitem->terminal  = gnome_config_get_int    ("Terminal");
+	newitem->terminal  = gnome_config_get_bool   ("Terminal");
 	newitem->type      = gnome_config_get_string ("Type");
 	newitem->location  = strdup (file);
 	
@@ -157,7 +157,7 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	if (dentry->info)
 		gnome_config_set_string("Info", dentry->info);
 
-	gnome_config_set_int("Terminal", dentry->terminal);
+	gnome_config_set_bool("Terminal", dentry->terminal);
 
 	if (dentry->type)
 		gnome_config_set_string("Type", dentry->type);

@@ -283,13 +283,15 @@ new_key (TSecHeader *section, char *key_name, char *value)
 
 static char *
 access_config (access_type mode, char *section_name, char *key_name, 
-		   char *def, char *filename)
+		   char *def, char *filename, int *def_used)
 {
     
 	TProfile   *New;
 	TSecHeader *section;
 	TKeys      *key;
 
+	if (def_used)
+		*def_used = 0;
 	if (!is_loaded (filename, &section)){
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
@@ -333,6 +335,8 @@ access_config (access_type mode, char *section_name, char *key_name,
 		section->link = Current->section;
 		Current->section = section;
 	} 
+	if (def_used)
+		*def_used = 1;
 	return def;
 }
 
@@ -567,42 +571,61 @@ gnome_config_drop_all (void)
 }
 
 int
-gnome_config_get_int (char *path)
+gnome_config_get_int_with_default (char *path, int *def)
 {
 	ParsedPath *pp;
 	char *r;
 	int  v;
 	
 	pp = parse_path (path);
-	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file);
+	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
+			   def);
 
 	g_return_val_if_fail(r != NULL, 0);
 
-	if (!strcasecmp (r, "true")){
-		release_path (pp);
-		return 1;
-	}
-	if (!strcasecmp (r, "false")){
-		release_path (pp);
-		return 0;
-	}
 	v = atoi (r);
 	release_path (pp);
 	return v;
 }
 
 char *
-gnome_config_get_string (char *path)
+gnome_config_get_string_with_default (char *path, int *def)
 {
 	ParsedPath *pp;
 	char *r;
 	
 	pp = parse_path (path);
-	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file);
+	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
+			   def);
 	if (r)
 		r = strdup (r);
 	release_path (pp);
 	return r;
+}
+
+int
+gnome_config_get_bool_with_default (char *path, int *def)
+{
+	ParsedPath *pp;
+	char *r;
+	int  v;
+	
+	pp = parse_path (path);
+	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
+			   def);
+
+	g_return_val_if_fail(r != NULL, 0);
+
+	if (!strcasecmp (r, "true")){
+		v = 1;
+	} else if (!strcasecmp (r, "false")){
+		v = 0;
+	} else {
+	        /* FIXME: what to return?  */
+	        v = 0;
+	}
+	release_path (pp);
+	return v;
 }
 
 void
@@ -612,7 +635,8 @@ gnome_config_set_string (char *path, char *new_value)
 	char *r;
 	
 	pp = parse_path (path);
-	r = access_config (SET, pp->section, pp->key, new_value, pp->file);
+	r = access_config (SET, pp->section, pp->key, new_value, pp->file,
+			   NULL);
 	release_path (pp);
 }
 
@@ -625,7 +649,20 @@ gnome_config_set_int (char *path, int new_value)
 	
 	pp = parse_path (path);
 	sprintf (intbuf, "%d", new_value);
-	r = access_config (SET, pp->section, pp->key, intbuf, pp->file);
+	r = access_config (SET, pp->section, pp->key, intbuf, pp->file,
+			   NULL);
+	release_path (pp);
+}
+
+void
+gnome_config_set_bool (char *path, int new_value)
+{
+	ParsedPath *pp;
+	char *r;
+	
+	pp = parse_path (path);
+	r = access_config (SET, pp->section, pp->key,
+			   new_value ? "true" : "false", pp->file, NULL);
 	release_path (pp);
 }
 
