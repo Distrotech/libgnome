@@ -5,6 +5,7 @@ INCLUDES =                                              \
 	-I$(top_builddir)				\
 	-I$(top_srcdir)/libefs/src			\
         -I$(includedir)                                 \
+	$(VFS_CFLAGS)					\
         $(GNOME_INCLUDEDIR)
 
 common_ldflags = -avoid-version
@@ -47,9 +48,6 @@ libstorage_vfs_la_SOURCES =	\
 	bonobo-storage-vfs.h	\
 	bonobo-stream-vfs.c	\
 	bonobo-stream-vfs.h
-
-libstorage_vfs_la_CFLAGS =	\
-	$(VFS_CFLAGS)
 
 libstorage_vfs_la_LIBADD = 	\
 	$(VFS_LIBS)
