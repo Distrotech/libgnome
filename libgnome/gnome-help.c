@@ -6,7 +6,10 @@
 #include <errno.h>
 #include <string.h>
 
+#include "gnome-defs.h"
 #include "gnome-help.h"
+#include "gnome-i18n.h"
+#include "gnome-util.h"
 
 #define HELP_PROG "gnome-help-browser"
 
@@ -53,6 +56,6 @@ void gnome_help_goto(void *ignore, gchar *file)
 
     if (!(pid = fork())) {
 	execlp(HELP_PROG, HELP_PROG, file, NULL);
-	g_error("gnome_help_goto: exec:", g_strerror(errno));
+	g_error("gnome_help_goto: exec failed: %s\n", g_strerror(errno));
     }
 }
