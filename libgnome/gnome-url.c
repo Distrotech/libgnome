@@ -77,7 +77,7 @@ gnome_url_show (const gchar *url, GError **error)
 	gint i;
 	gchar *pos, *template;
 	int argc;
-	const char **argv;
+	char **argv;
 	char **newargv;
 	gboolean ret;
 	gchar *tmp;
