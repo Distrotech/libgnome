@@ -58,9 +58,7 @@ extern int errno;
 static void
 set_cloexec (gint fd)
 {
-  int flags = fcntl (fd, F_GETFD, 0);
-  if (flags >= 0)
-    fcntl (fd, F_SETFD, flags | FD_CLOEXEC);
+  fcntl (fd, F_SETFD, FD_CLOEXEC);
 }
 
 /**
@@ -83,43 +81,60 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 				       char * const envv[], 
 				       gboolean close_fds)
 {
-  int comm_pipes[2];
+  int parent_comm_pipes[2], child_comm_pipes[2];
   int child_errno, itmp, i, open_max;
   int res;
   char **cpargv;
   pid_t child_pid, immediate_child_pid; /* XXX this routine assumes
 					   pid_t is signed */
 
-  if(pipe(comm_pipes))
+  if(pipe(parent_comm_pipes))
     return -1;
 
   child_pid = immediate_child_pid = fork();
 
   switch(child_pid) {
   case -1:
-    close(comm_pipes[0]);
-    close(comm_pipes[1]);
+    close(parent_comm_pipes[0]);
+    close(parent_comm_pipes[1]);
     return -1;
 
   case 0: /* START PROCESS 1: child */
-    child_pid = fork();
+    child_pid = -1;
+    res = pipe(child_comm_pipes);
+    close(parent_comm_pipes[0]);
+    if(!res)
+      child_pid = fork();
 
     switch(child_pid) {
     case -1:
       itmp = errno;
       child_pid = -1; /* simplify parent code */
-      write(comm_pipes[1], &child_pid, sizeof(child_pid));
-      write(comm_pipes[1], &itmp, sizeof(itmp));
-
-    default:
+      write(parent_comm_pipes[1], &child_pid, sizeof(child_pid));
+      write(parent_comm_pipes[1], &itmp, sizeof(itmp));
+      close(child_comm_pipes[0]);
+      close(child_comm_pipes[1]);
       _exit(0); break;      /* END PROCESS 1: monkey in the middle dies */
 
+    default:
+      {
+	char buf[16];
+	
+	close(child_comm_pipes[1]);
+	while((res = read(child_comm_pipes[0], buf, sizeof(buf))) > 0)
+	  write(parent_comm_pipes[1], buf, res);
+	close(child_comm_pipes[0]);
+	_exit(0); /* END PROCESS 1: monkey in the middle dies */
+      }
+      break;
+
     case 0:                 /* START PROCESS 2: child of child */
+      close(parent_comm_pipes[1]);
       /* pre-exec setup */
-      set_cloexec (comm_pipes[0]);
-      set_cloexec (comm_pipes[1]);
+      close (child_comm_pipes[0]);
+      set_cloexec (child_comm_pipes[1]);
       child_pid = getpid();
-      res = write(comm_pipes[1], &child_pid, sizeof(child_pid));
+      res = write(child_comm_pipes[1], &child_pid, sizeof(child_pid));
 
       if(envv) {
 	for(itmp = 0; itmp < envc; itmp++)
@@ -140,7 +155,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 	  for (i = 3; i < open_max; i++)
 	    set_cloexec (i);
 
-	  if(comm_pipes[1] != 0) {
+	  if(child_comm_pipes[1] != 0) {
 	    close(0);
 	    /* Open stdin as being nothingness, so that if someone tries to
 	       read from this they don't hang up the whole GNOME session. BUGFIX #1548 */
@@ -159,7 +174,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
       /* failed */
       itmp = errno;
-      write(comm_pipes[1], &itmp, sizeof(itmp));
+      write(child_comm_pipes[1], &itmp, sizeof(itmp));
       _exit(1); break;      /* END PROCESS 2 */
     }
     break;
@@ -169,14 +184,15 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
     break;
   }
 
-  close(comm_pipes[1]);
+  close(parent_comm_pipes[1]);
 
-  res = read (comm_pipes[0], &child_pid, sizeof(child_pid));
+  res = read (parent_comm_pipes[0], &child_pid, sizeof(child_pid));
   if (res != sizeof(child_pid))
     {
+      g_message("res is %d instead of %d", res, sizeof(child_pid));
       child_pid = -1; /* really weird things happened */
     }
-  else if (read (comm_pipes[0], &child_errno, sizeof(child_errno))
+  else if (read (parent_comm_pipes[0], &child_errno, sizeof(child_errno))
 	  == sizeof(child_errno))
     {
       errno = child_errno;
@@ -187,7 +203,10 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
      differently */
   waitpid(immediate_child_pid, &itmp, 0); /* eat zombies */
 
-  close(comm_pipes[0]);
+  close(parent_comm_pipes[0]);
+
+  if(child_pid < 0)
+    g_message("gnome_execute_async_with_env_fds: returning %d", child_pid);
 
   return child_pid;
 }
