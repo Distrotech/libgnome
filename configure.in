@@ -122,20 +122,9 @@ GNOME_PKGCONFIG_CHECK_MODULES(LIBXML, libxml-2.0:2.3.1)
 AC_SUBST(LIBXML_CFLAGS)
 AC_SUBST(LIBXML_LIBS)
 
-GNOME_PKGCONFIG_CHECK_OPTIONAL_MODULES(LIBBONOBO, libbonobo-2.0:1.96.0)
-AM_CONDITIONAL(HAVE_LIBBONOBO, test x$have_LIBBONOBO = yes)
-if test x$have_LIBBONOBO = xyes ; then
-  AC_DEFINE(HAVE_LIBBONOBO)
-fi
+GNOME_PKGCONFIG_CHECK_MODULES(LIBBONOBO, libbonobo-2.0:1.96.0)
 AC_SUBST(LIBBONOBO_CFLAGS)
 AC_SUBST(LIBBONOBO_LIBS)
-
-if test x$have_LIBBONOBO = xyes ; then
-  LIBGNOME_EXTRA_DEPS=libbonobo-2.0
-else
-  LIBGNOME_EXTRA_DEPS=
-fi
-AC_SUBST(LIBGNOME_EXTRA_DEPS)
 
 AC_CHECK_LIB(popt, poptStrippedArgv,, AC_MSG_ERROR([popt 1.5 or newer is required to build
 gnome-libs. You can download the latest version from ftp://people.redhat.com/sopwith/popt/]))
