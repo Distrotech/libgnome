@@ -12,8 +12,10 @@
 #include <glib.h>
 #include <pwd.h>
 #include <ctype.h>
+#ifdef HAVE_SYS_FSUID_H
 #ifdef HAVE_SETFSGID
 #include <sys/fsuid.h>
+#endif
 #endif
 
 #include "gnome-defs.h"
