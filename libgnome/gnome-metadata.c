@@ -387,7 +387,6 @@ metadata_remove (const char *space, const char *object, const char *key)
 		if (p != end) {
 			/* Remove it.  */
 			int l = strlen (p) + 1;
-
 			if ((int) value.size == l) {
 				/* Remove entry entirely.  */
 				database->del (database, &dkey, 0);
@@ -1133,8 +1132,10 @@ worker (const char *from, const char *to, int op)
 	   efficient, but perhaps messier.  */
 
 	keys = gnome_metadata_list (from);
-	if (! keys)
+	if (! keys){
+		unlock ();
 		return 0;
+	}
 
 	for (i = 0; keys[i]; ++i) {
 		int size, r;
