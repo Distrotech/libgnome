@@ -8,8 +8,13 @@
  *   Miguel de Icaza (miguel@gnu.org)
  */
 #include <config.h>
-#include <bonobo/gnome-stream-fs.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <libgnome/gnome-defs.h>
+#include <libgnome/gnome-util.h>
 #include <bonobo/gnome-storage-fs.h>
+#include <bonobo/gnome-stream-fs.h>
+#include <errno.h>
 
 static GnomeStorageClass *gnome_stream_fs_parent_class;
 
@@ -31,12 +36,13 @@ fs_write (GnomeStream *stream, long count,
 
 static CORBA_long
 fs_read (GnomeStream *stream, long count,
-	 const CORBA_char **buffer,
+	 CORBA_char **buffer,
 	 CORBA_Environment *ev)
 {
 	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
 
 	g_warning ("WEEE!  How do I fill this?");
+	return 0;
 }
 
 static void
@@ -87,19 +93,20 @@ static void
 gnome_stream_fs_class_init (GnomeStreamFSClass *class)
 {
 	GtkObjectClass *object_class = (GtkObjectClass *) class;
-
+	GnomeStreamClass *sclass = GNOME_STREAM_CLASS (class);
+	
 	gnome_stream_fs_parent_class = gtk_type_class (gnome_stream_get_type ());
 
-	class->create_stream  = fs_write;
-	class->open_stream    = fs_read;
-	class->create_stream  = fs_seek;
-	class->copy_to        = fs_truncate;
-	class->rename         = fs_copy_to;
-	class->commit         = fs_commit;
+	sclass->write    = fs_write;
+	sclass->read     = fs_read;
+	sclass->seek     = fs_seek;
+	sclass->truncate = fs_truncate;
+	sclass->copy_to  = fs_copy_to;
+	sclass->commit   = fs_commit;
 }
 
 GtkType
-gnome_stream_get_type (void)
+gnome_stream_fs_get_type (void)
 {
 	static GtkType type = 0;
 
@@ -108,14 +115,14 @@ gnome_stream_get_type (void)
 			"IDL:GNOME/StreamFS:1.0",
 			sizeof (GnomeStream),
 			sizeof (GnomeStreamClass),
-			(GtkClassInitFunc) gnome_stream_class_init,
+			(GtkClassInitFunc) NULL,
 			(GtkObjectInitFunc) NULL,
 			NULL, /* reserved 1 */
 			NULL, /* reserved 2 */
 			(GtkClassInitFunc) NULL
 		};
 
-		type = gtk_type_unique (gnome_object_get_type (), &info);
+		type = gtk_type_unique (gnome_stream_get_type (), &info);
 	}
 
 	return type;
@@ -123,80 +130,121 @@ gnome_stream_get_type (void)
 
 GnomeStream *
 gnome_stream_fs_construct (GnomeStreamFS *stream,
-			   GNOME_Stream corba_stream,
-			   const char *path, const char *open_mode)
+			   GNOME_Stream corba_stream)
 {
 	g_return_val_if_fail (stream != NULL, NULL);
 	g_return_val_if_fail (GNOME_IS_STREAM (stream), NULL);
 	g_return_val_if_fail (corba_stream != CORBA_OBJECT_NIL, NULL);
 
-	gnome_stream_construct (
-		stream, corba_stream, path, open_mode);
+	gnome_object_construct (
+		GNOME_OBJECT (stream), corba_stream);
 
-	return stream;
+	return GNOME_STREAM (stream);
 }
 
-GNOME_Stream *
-create_gnome_stream_fs (GnomeObject *stream_fs)
+static GNOME_Stream
+create_gnome_stream_fs (GnomeObject *object)
 {
 	POA_GNOME_Stream *servant;
 	CORBA_Object o;
 
 	servant = g_new0 (POA_GNOME_Stream, 1);
-	servant->vepv = gnome_stream_vepv;
+	servant->vepv = &gnome_stream_vepv;
 	POA_GNOME_Stream__init ((PortableServer_Servant) servant, &object->ev);
 	if (object->ev._major != CORBA_NO_EXCEPTION){
                 g_free (servant);
                 return CORBA_OBJECT_NIL;
         }
 
-	return gnome_object_activate_servant (object, servant);
+	return (GNOME_Stream) gnome_object_activate_servant (object, servant);
 }
 
-GnomeStream *
-gnome_stream_fs_open (GnomeStorage *parent, const char *path, const char *open_mode)
+static GnomeStream *
+gnome_stream_create (GnomeStorageFS *parent, int fd)
 {
 	GnomeStreamFS *stream_fs;
 	GNOME_Stream corba_stream;
-	struct stat s;
-	int v;
 
-	g_return_val_if_fail (parent != NULL, NULL);
-	g_return_val_if_fail (GNOME_IS_STORAGE_FS (parent), NULL);
-	g_return_val_if_fail (path != NULL, NULL);
-	g_return_val_if_fail (open_mode != NULL, NULL);
-
-	v = stat (path, &s);
-
-	if (*open_mode == 'r'){
-		if (v == -1)
-			return NULL;
-		
-		if (!S_ISDIR (s.st_mode))
-			return NULL;
-
-	} else if (*open_mode == 'w'){
-		if (v == -1){
-			if (mkdir (path, 0777) == -1)
-				return NULL;
-		} else {
-			if (!S_ISDIR (s.st_mode))
-				return NULL;
-			if (open_mode [1] != '+'){
-				g_warning ("Shoudl remove directory %s\n", path);
-			}
-		}
-	}
-	
 	stream_fs = gtk_type_new (gnome_stream_fs_get_type ());
-	stream_fs->path = g_strdup (path);
+	if (stream_fs == NULL)
+		return NULL;
+	
+	stream_fs->fd = fd;
 	
 	corba_stream = create_gnome_stream_fs (
-		GNOME_OBJECT (stream));
+		GNOME_OBJECT (stream_fs));
+
 	if (corba_stream == CORBA_OBJECT_NIL){
-		gtk_object_destroy (GTK_OBJECT (stream));
+		gtk_object_destroy (GTK_OBJECT (stream_fs));
 		return NULL;
 	}
 
-	return gnome_stream_construct (stream, corba_stream);
+	return gnome_stream_fs_construct (stream_fs, corba_stream);
 }
+
+GnomeStream *
+gnome_stream_fs_open (GnomeStorageFS *parent, const CORBA_char *path, GNOME_Storage_OpenMode mode)
+{
+	struct stat s;
+	int v, fd;
+	char *full;
+	
+	g_return_val_if_fail (parent != NULL, NULL);
+	g_return_val_if_fail (GNOME_IS_STORAGE_FS (parent), NULL);
+	g_return_val_if_fail (path != NULL, NULL);
+
+	full = g_concat_dir_and_file (parent->path, path);
+	v = stat (full, &s);
+
+	if (mode == GNOME_Storage_READ){
+		if (v == -1){
+			g_free (full);
+			return NULL;
+		}
+
+		fd = open (full, O_RDONLY);
+		if (fd == -1){
+			g_free (full);
+			return NULL;
+		}
+	} else if (mode == GNOME_Storage_WRITE){
+		if (v == -1){
+			g_free (full);
+			return NULL;
+		}
+
+		fd = open (full, O_RDWR);
+		if (fd == -1){
+			g_free (full);
+			return NULL;
+		}
+	} else
+		return NULL;
+	
+	g_free (full);
+
+	return gnome_stream_create (parent, fd);
+}
+
+GnomeStream *
+gnome_stream_fs_create (GnomeStorageFS *fs, const CORBA_char *path)
+{
+	char *full;
+	int fd;
+	
+	g_return_val_if_fail (fs != NULL, NULL);
+	g_return_val_if_fail (GNOME_IS_STORAGE_FS (fs), NULL);
+	g_return_val_if_fail (path != NULL, NULL);
+	
+	full = g_concat_dir_and_file (fs->path, path);
+	fd = open (full, O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	g_free (full);
+	
+	if (fd == -1)
+		return NULL;
+
+	return gnome_stream_create (fs, fd);
+}
+
+
+

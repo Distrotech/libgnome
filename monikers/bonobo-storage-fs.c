@@ -8,7 +8,12 @@
  *   Miguel de Icaza (miguel@gnu.org)
  */
 #include <config.h>
-#include <gnome-storage-fs.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <libgnome/gnome-defs.h>
+#include <libgnome/gnome-util.h>
+#include <bonobo/gnome-storage-fs.h>
+#include <bonobo/gnome-stream-fs.h>
 
 static GnomeStorageClass *gnome_storage_fs_parent_class;
 
@@ -28,21 +33,21 @@ fs_create_stream (GnomeStorage *storage, const CORBA_char *path, CORBA_Environme
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = gnome_stream_create (path);
+	stream = gnome_stream_fs_create (storage_fs, path);
 	g_free (full);
 
 	return stream;
 }
 
 static GnomeStream *
-fs_open_stream (GnomeStorage *storage, const CORBA_char *path, CORBA_Environment *ev)
+fs_open_stream (GnomeStorage *storage, const CORBA_char *path, GNOME_Storage_OpenMode mode, CORBA_Environment *ev)
 {
 	GnomeStorageFS *storage_fs = GNOME_STORAGE_FS (storage);
 	GnomeStream *stream;
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = gnome_stream_open (storage, path, "r+");
+	stream = gnome_stream_fs_open (GNOME_STORAGE_FS (storage), path, mode);
 	g_free (full);
 
 	return stream;
@@ -56,7 +61,7 @@ fs_create_storage (GnomeStorage *storage, const CORBA_char *path, CORBA_Environm
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	new_storage = gnome_storage_fs_open (path, "w");
+	new_storage = gnome_storage_fs_create (GNOME_STORAGE_FS (storage), path);
 	g_free (full);
 
 	return new_storage;
@@ -69,7 +74,7 @@ fs_copy_to (GnomeStorage *storage, GNOME_Storage target, CORBA_Environment *ev)
 }
 
 static void
-fs_rename (GnomeStorage *storage, CORBA_char *path, CORBA_char *new_path, CORBA_Environment *ev)
+fs_rename (GnomeStorage *storage, const CORBA_char *path, const CORBA_char *new_path, CORBA_Environment *ev)
 {
 	g_warning ("Not yet implemented");
 }
@@ -79,20 +84,29 @@ fs_commit (GnomeStorage *storage, CORBA_Environment *ev)
 {
 }
 
+static GNOME_Storage_directory_list *
+fs_list_contents (GnomeStorage *storage, const CORBA_char *path, CORBA_Environment *ev)
+{
+	g_error ("Not yet implemented");
+
+	return NULL;
+}
+
 static void
 gnome_storage_fs_class_init (GnomeStorageFSClass *class)
 {
 	GtkObjectClass *object_class = (GtkObjectClass *) class;
-
+	GnomeStorageClass *sclass = GNOME_STORAGE_CLASS (class);
+	
 	gnome_storage_fs_parent_class = gtk_type_class (gnome_storage_get_type ());
 
-	class->create_stream  = fs_create_stream;
-	class->open_stream    = fs_open_stream;
-	class->create_storage = fs_create_storage;
-	class->copy_to        = fs_copy_to;
-	class->rename         = fs_rename;
-	class->commit         = fs_commit;
-	class->list_contents  = fs_list_contents;
+	sclass->create_stream  = fs_create_stream;
+	sclass->open_stream    = fs_open_stream;
+	sclass->create_storage = fs_create_storage;
+	sclass->copy_to        = fs_copy_to;
+	sclass->rename         = fs_rename;
+	sclass->commit         = fs_commit;
+	sclass->list_contents  = fs_list_contents;
 	
 	object_class->destroy = gnome_storage_fs_destroy;
 }
@@ -103,7 +117,7 @@ gnome_storage_init (GnomeObject *object)
 }
 
 GtkType
-gnome_storage_get_type (void)
+gnome_storage_fs_get_type (void)
 {
 	static GtkType type = 0;
 
@@ -112,14 +126,14 @@ gnome_storage_get_type (void)
 			"IDL:GNOME/StorageFS:1.0",
 			sizeof (GnomeStorage),
 			sizeof (GnomeStorageClass),
-			(GtkClassInitFunc) gnome_storage_class_init,
+			(GtkClassInitFunc) NULL,
 			(GtkObjectInitFunc) gnome_storage_init,
 			NULL, /* reserved 1 */
 			NULL, /* reserved 2 */
 			(GtkClassInitFunc) NULL
 		};
 
-		type = gtk_type_unique (gnome_object_get_type (), &info);
+		type = gtk_type_unique (gnome_storage_get_type (), &info);
 	}
 
 	return type;
@@ -135,70 +149,121 @@ gnome_storage_fs_construct (GnomeStorageFS *storage,
 	g_return_val_if_fail (corba_storage != CORBA_OBJECT_NIL, NULL);
 
 	gnome_storage_construct (
-		storage, corba_storage, path, open_mode);
+		GNOME_STORAGE (storage), corba_storage);
 
-	return storage;
+	return GNOME_STORAGE (storage);
 }
 
-GNOME_Storage *
-create_gnome_storage (GnomeObject *storage_fs)
+static GNOME_Storage
+create_gnome_storage_fs (GnomeObject *object)
 {
 	POA_GNOME_Storage *servant;
 	CORBA_Object o;
 
 	servant = g_new0 (POA_GNOME_Storage, 1);
-	servant->vepv = gnome_storage_vepv;
+	servant->vepv = &gnome_storage_vepv;
 	POA_GNOME_Storage__init ((PortableServer_Servant) servant, &object->ev);
 	if (object->ev._major != CORBA_NO_EXCEPTION){
                 g_free (servant);
                 return CORBA_OBJECT_NIL;
         }
 
-	return gnome_object_activate_servant (object, servant);
+	return (GNOME_Storage) gnome_object_activate_servant (object, servant);
 }
 
-GnomeStorage *
-gnome_storage_fs_open (const char *path, const char *open_mode)
+/*
+ * Creates the Gtk object and the corba server bound to it
+ */
+static GNOME_Storage
+do_gnome_storage_fs_create (char *path)
 {
 	GnomeStorageFS *storage_fs;
 	GNOME_Storage corba_storage;
+
+	storage_fs = gtk_type_new (gnome_storage_fs_get_type ());
+	storage_fs->path = g_strdup (path);
+	
+	corba_storage = create_gnome_storage_fs (
+		GNOME_OBJECT (storage_fs));
+	if (corba_storage == CORBA_OBJECT_NIL){
+		gtk_object_destroy (GTK_OBJECT (storage_fs));
+		return NULL;
+	}
+
+	return (GNOME_Storage) gnome_storage_construct (GNOME_STORAGE (storage_fs), corba_storage);
+}
+
+/** 
+ * gnome_storage_fs_open:
+ * @path: path to existing directory that represents the storage
+ * @mode: open mode for the storage
+ *
+ * Returns a GnomeStorage object that represents the storage at @path
+ */
+GnomeStorage *
+gnome_storage_fs_open (const char *path, GNOME_Storage_OpenMode mode)
+{
 	struct stat s;
 	int v;
 	
 	g_return_val_if_fail (path != NULL, NULL);
-	g_return_val_if_fail (open_mode != NULL, NULL);
 
 	v = stat (path, &s);
 
-	if (*open_mode == 'r'){
+	if (mode == GNOME_Storage_READ){
 		if (v == -1)
 			return NULL;
 		
 		if (!S_ISDIR (s.st_mode))
 			return NULL;
 
-	} else if (*open_mode == 'w'){
+	} else if (mode == GNOME_Storage_WRITE){
 		if (v == -1){
 			if (mkdir (path, 0777) == -1)
 				return NULL;
 		} else {
 			if (!S_ISDIR (s.st_mode))
 				return NULL;
-			if (open_mode [1] != '+'){
-				g_warning ("Shoudl remove directory %s\n", path);
-			}
 		}
 	}
+
+	return GNOME_STORAGE (do_gnome_storage_fs_create (g_strdup (path)));
+}
+
+/** 
+ * gnome_storage_fs_create:
+ * @storage_fs: parent storage
+ * @path: path inside the storage to create
+ *
+ * Creates a new GnomeStorage object whose parent is @storage_fs and
+ * whose path name is @path.  The storage created is an activated
+ * CORBA server for this storage.
+ *
+ * if @storage_fs is NULL, it creates a toplevel storage.
+ *
+ * Returns the GnomeStorage GTK object.
+ */
+GnomeStorage *
+gnome_storage_fs_create (GnomeStorageFS *storage_fs, const CORBA_char *path)
+{
+	char *full;
+
+	g_return_val_if_fail (path != NULL, NULL);
+	if (storage_fs != NULL){
+		g_return_val_if_fail (GNOME_IS_STORAGE_FS (storage_fs), NULL);
+	}
 	
-	storage_fs = gtk_type_new (gnome_storage_fs_get_type ());
-	storage_fs->path = g_strdup (path);
+	if (path == NULL)
+		full = g_strdup (path);
+	else
+		full = g_concat_dir_and_file (storage_fs->path, path);
 	
-	corba_storage = create_gnome_storage_fs (
-		GNOME_OBJECT (storage));
-	if (corba_storage == CORBA_OBJECT_NIL){
-		gtk_object_destroy (GTK_OBJECT (storage));
+	if (mkdir (full, 0777) == -1){
+		g_free (full);
 		return NULL;
 	}
+	g_free (full);
 
-	return gnome_storage_construct (storage, corba_storage);
+	return GNOME_STORAGE (do_gnome_storage_fs_create (g_strdup (path)));
 }
+
