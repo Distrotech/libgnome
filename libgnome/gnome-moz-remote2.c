@@ -75,8 +75,8 @@
 #include <string.h>
 
 #include "gnomesupport.h"
-#include <libgnome/libgnome.h>
-#include <libgnome/gnomelib-init2.h>
+#include "libgnome.h"
+#include "gnome-program.h"
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 
@@ -296,13 +296,13 @@ int main(int argc, char **argv)
   poptContext ctx;
   int i;
   Display *dpy;
+  GnomeProgram *program;
 
   dpy_name = g_getenv("DISPLAY");
 
-  gnome_program_init("gnome_moz_remote", VERSION, argc, argv, GNOME_PARAM_POPT_TABLE, options, LIBGNOME_INIT, NULL);
-
-  gnome_program_attributes_get(gnome_program_get(), GNOME_PARAM_POPT_CONTEXT, &ctx, NULL);
-
+  program = gnome_program_get();
+  g_object_set(G_OBJECT(program), "popt_table", options, LIBGNOME_INIT, NULL);
+  ctx = gnome_program_preinit(program, "gnome_moz_remote", VERSION, argc, argv);
   args = poptGetArgs(ctx);
 
   dpy = XOpenDisplay(dpy_name);
