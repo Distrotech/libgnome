@@ -51,6 +51,8 @@ gnomelib_init (char *app_id)
 
 	gnome_app_id = app_id;
 
+	gnome_i18n_init ();
+
 	setlocale (LC_ALL, "");
 	bindtextdomain (PACKAGE, GNOMELOCALEDIR);
 }

@@ -1,7 +1,12 @@
 #include "libgnome.h"
 #include "gnome-i18n.h"
 
-const char *gnome_i18n_get_language(void)
+/* Name of config key we use when looking up preferred language.
+   FIXME this name sucks.  */
+#define LANGKEY "/_Gnome/i18n/LANG"
+
+const char *
+gnome_i18n_get_language(void)
 {
   return getenv("LANG");
 }
@@ -39,9 +44,7 @@ guess_category_value (const gchar *categoryname)
   if (retval != NULL && retval[0] != '\0')
     return retval;
 
-  /* We use C as the default domain.  POSIX says this is implementation
-     defined.  */
-  return "C";
+  return NULL;
 }
 
 
@@ -74,6 +77,8 @@ gnome_i18n_get_language_list (const gchar *category_name)
       gchar *category_memory;
 
       category_value = guess_category_value (category_name);
+      if (! category_value)
+	category_value = "C";
       category_memory= g_malloc (strlen (category_value)+1);
       
       while (category_value[0] != '\0')
@@ -105,4 +110,33 @@ gnome_i18n_get_language_list (const gchar *category_name)
     }
   
   return list;
+}
+
+void
+gnome_i18n_set_preferred_language (const char *val)
+{
+  gnome_config_set_string (LANGKEY, val);
+}
+
+void
+gnome_i18n_init (void)
+{
+  const gchar *val = guess_category_value ("LC_ALL");
+
+  if (val == NULL)
+    {
+      /* No value in environment.  So we might set up environment
+	 according to what is in the config database.  We do this so
+	 that the user can override the config db using the
+	 environment.  */
+      val = gnome_config_get_string (LANGKEY);
+      if (val != NULL)
+	setenv ("LC_ALL", val, 1);
+    }
+}
+
+const char *
+gnome_i18n_get_preferred_language (void)
+{
+  return gnome_config_get_string (LANGKEY);
 }

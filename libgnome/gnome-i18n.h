@@ -61,6 +61,20 @@ const char *gnome_i18n_get_language(void);
 
 GList      *gnome_i18n_get_language_list (const gchar *category_name);
 
+/* `gnome_i18n_set_preferred_language' sets the preferred language in
+   the config database.  The value VAL should be a language name like
+   `fr'.  */
+void	   gnome_i18n_set_preferred_language (const char *val);
+
+/* `gnome_i18n_get_preferred_language' returns the preferred language
+   name.  It will return NULL if no preference is set.  */
+const char *gnome_i18n_get_preferred_language (void);
+
+/* `gnome_i18n_init' initializes the i18n environment variables from
+   the preferences in the config database.  It ordinarily should not
+   be called by user code.  */
+void gnome_i18n_init (void);
+
 END_GNOME_DECLS
 
 #endif /* __GNOME_UTIL_H__ */
