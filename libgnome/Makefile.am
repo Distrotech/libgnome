@@ -51,12 +51,9 @@ idl_flags = -I $(datadir)/idl -D__GNOME_COMPILATION
 $(CORBA_SOURCE): $(idls)
 	$(ORBIT_IDL) $(top_srcdir)/idl/Gnome.idl -I$(top_srcdir)/idl $(idl_flags)
 
-libgnometypebuiltins.h libgnometypebuiltins.c: $(CORBA_SOURCE)
-
-libgnome_2_la_SOURCES = \
+libgnome_src = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
-	$(CORBA_SOURCE)		\
 	gnome-program.c		\
 	gnome-selector.c	\
 	gnome-config.c		\
@@ -74,6 +71,13 @@ libgnome_2_la_SOURCES = \
 	gnome-preferences.c	\
 	gnome-marshal-main.c	\
 	libgnome-init.c
+
+$(gnome2_src) : $(CORBA_SOURCE)
+CLEANFILES += $(CORBA_SOURCE)
+
+libgnome_2_la_SOURCES = \
+	$(libgnome_src)		\
+	$(CORBA_SOURCE)
 
 libgnome_headers = \
 	gnome-program.h		\
@@ -179,7 +183,8 @@ BUILT_SOURCES = \
 	libgnometypebuiltins.h		\
 	libgnometypebuiltins.c		\
 	gnome-marshal.h			\
-	gnome-marshal.c
+	gnome-marshal.c			\
+	$(CORBA_SOURCE)
 
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP
