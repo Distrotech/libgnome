@@ -1,5 +1,11 @@
 2003-06-24  Anders Carlsson  <andersca@codefactory.se>
 
+	* libgnome/gnome-util.c: (gnome_util_user_shell):
+	Check that the shells exist and that they are executable.
+	(#91925, Giovanni Pardini).
+	
+2003-06-24  Anders Carlsson  <andersca@codefactory.se>
+
 	* help-converters/info/main.c: (main):
 	Use g_strdup_printf instead of sprintf. 
 	(#109889, Christian Marillat).
