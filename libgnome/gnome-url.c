@@ -137,7 +137,6 @@ gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url, con
 
       if (!template && (pos = strstr (url, "://")))
 	{
-	  gchar *path;
 	  char protocol[64];
 
 	  g_snprintf(protocol, sizeof(protocol), "%.*s", pos - url - 3, url);
