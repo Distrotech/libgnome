@@ -1,5 +1,13 @@
 2002-03-13  Michael Meeks  <michael@ximian.com>
 
+	* libgnome/gnome-program.c
+	(find_accessibility_module): use gtk-2.0/modules
+	(accessibility_invoke): only do a11y if we're a GUI
+	app even if it's enabled, and don't do it for bonobo
+	components - we go via their frames.
+
+2002-03-13  Michael Meeks  <michael@ximian.com>
+
 	* monikers/bonobo-config-bag.c
 	(impl_Bonobo_PropertyBag_getDefault),
 	(impl_Bonobo_PropertyBag_getValue),

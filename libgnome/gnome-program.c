@@ -53,6 +53,8 @@
 #include "gnome-i18n.h"
 #include "gnome-url.h"
 
+#include <bonobo-activation/bonobo-activation-register.h>
+
 struct _GnomeProgramPrivate {
     enum {
 	APP_UNINIT=0,
@@ -1440,7 +1442,7 @@ find_accessibility_module (GnomeProgram *program, const char *libname)
 	char *retval;
 
 	fname = g_strconcat (libname, "." G_MODULE_SUFFIX, NULL);
-	sub = g_strconcat ("gtk/modules", G_DIR_SEPARATOR_S, fname, NULL);
+	sub = g_strconcat ("gtk-2.0/modules", G_DIR_SEPARATOR_S, fname, NULL);
 
 	path = gnome_program_locate_file (
 		program, GNOME_FILE_DOMAIN_LIBDIR, sub, TRUE, NULL);
@@ -1506,6 +1508,7 @@ static gboolean
 accessibility_invoke (GnomeProgram *program, gboolean init)
 {
 	GSList *l;
+	gboolean use_gui = FALSE;
 
 	if (!program->_priv->accessibility_modules)
 		return FALSE;
@@ -1513,14 +1516,25 @@ accessibility_invoke (GnomeProgram *program, gboolean init)
 	for (l = program->_priv->accessibility_modules; l; l = l->next) {
 		GnomeModuleInfo *module = l->data;
 		
-		if (!strcmp (module->name, "gtk"))
+		if (!strcmp (module->name, "gtk")) {
 			accessibility_invoke_module (program, "libgail", init);
+			use_gui = TRUE;
 
-		else if (!strcmp (module->name, "libgnomeui"))
+		} else if (!strcmp (module->name, "libgnomeui")) {
 			accessibility_invoke_module (program, "libgail-gnome", init);
+			use_gui = TRUE;
+		}
 	}
 
-	accessibility_invoke_module (program, "libatk-bridge", init);
+	/*
+	 *   We only want to enable the bridge for top level
+	 * applications, we detect bonobo components by seeing
+	 * if they were activated with the intention of extracting
+	 * an impl. by IID - very solid.
+	 */
+	if (use_gui && !bonobo_activation_iid_get ()) {
+		accessibility_invoke_module (program, "libatk-bridge", init);
+	}
 
 	return TRUE;
 }
