@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
-"POT-Creation-Date: 2003-08-20 15:18+0200\n"
+"POT-Creation-Date: 2003-08-25 20:17+0200\n"
 "PO-Revision-Date: 2003-08-23 08:20+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -333,13 +333,17 @@ msgstr "Spesifisert lokasjon er ugyldig."
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
-msgstr "Det oppsto en feil under lesing av forvalgt handlingskommando assosiert med denne lokasjonen."
+msgstr ""
+"Det oppsto en feil under lesing av forvalgt handlingskommando assosiert med "
+"denne lokasjonen."
 
 #: libgnome/gnome-url.c:103
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
-msgstr "Det oppsto en feil under oppstart av forvalgt handlingskommando assosiert med denne lokasjonen."
+msgstr ""
+"Det oppsto en feil under oppstart av forvalgt handlingskommando assosiert "
+"med denne lokasjonen."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
@@ -432,7 +436,9 @@ msgstr "piksler per sekund"
 msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
-msgstr "Liste over applikasjoner med hjelpende teknologi som skal startes ved innlogging til GNOME skrivebordet"
+msgstr ""
+"Liste over applikasjoner med hjelpende teknologi som skal startes ved "
+"innlogging til GNOME skrivebordet"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -716,7 +722,9 @@ msgstr "Stil for verktøylinjen"
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
-msgstr "Stil for verktøylinje. Gyldige verdier er «both», «both_horiz», «icon» og «text»"
+msgstr ""
+"Stil for verktøylinje. Gyldige verdier er «both», «both_horiz», «icon» og "
+"«text»"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
@@ -911,7 +919,9 @@ msgstr "Deaktiver alle eksterne miniatyrfunksjoner"
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
-msgstr "Sett til sann for å deaktivere alle eksterne programmer for miniatyrer, uavhengig av om de er individuelt aktive eller ikke."
+msgstr ""
+"Sett til sann for å deaktivere alle eksterne programmer for miniatyrer, "
+"uavhengig av om de er individuelt aktive eller ikke."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
@@ -950,65 +960,99 @@ msgid "How to handle ghelp URLs"
 msgstr "Hvordan ghelp-URL'er skal håndteres"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#, fuzzy
+msgid "How to handle http URLs"
+msgstr "Hvordan ghelp-URL'er skal håndteres"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#, fuzzy
+msgid "How to handle https URLs"
+msgstr "Hvordan ghelp-URL'er skal håndteres"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle info URLs"
 msgstr "Hvordan info-URL'er skal håndteres"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "How to handle man URLs"
 msgstr "Hvordan man-URL'er skal håndteres"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
 msgid "How to handle trash URLs"
 msgstr "Hvordan skal søppel-URL'er håndteres"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
 msgid "Run program in terminal"
 msgstr "Kjør programmet i en terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+#, fuzzy
+msgid "Set to true to have a program specified in command handle http URLs"
+msgstr ""
+"Sett til «true» for å la et program oppgitt i trash/command håndtere «trash»-"
+"URLer"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
+#, fuzzy
+msgid "Set to true to have a program specified in command handle https URLs"
+msgstr ""
+"Sett til «true» for å la et program oppgitt i trash/command håndtere «trash»-"
+"URLer"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid ""
 "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
 "Sett til «true» for å la et programm oppgitt under programs/ghelp håndtere "
 "«ghelp» URLer"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
 msgid ""
 "Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
 "Sett til «true» for å la et program oppgitt under programs/info håndtere "
 "«info»-URLer"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr ""
 "Sett til «true» for å la et program oppgitt i programs/man håndtere «man»-"
 "URLer"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Sett til «true» for å la et program oppgitt i trash/command håndtere «trash»-"
 "URLer"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Sann hvis programmet som skal håndtere denne URL'en må kjøres i en terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid "URL handler for ghelp pages"
 msgstr "URL-håndterer for ghelp-sider"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
+#, fuzzy
+msgid "URL handler for http uris"
+msgstr "URL-håndterer for ghelp-sider"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
+#, fuzzy
+msgid "URL handler for https uris"
+msgstr "URL-håndterer for ghelp-sider"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid "URL handler for info pages"
 msgstr "URL-håndterer for info-sider"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
 msgid "URL handler for man pages"
 msgstr "URL-håndterer for manualsider"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid "URL handler for trash pages"
 msgstr "URL-håndterer for søppel-sider"

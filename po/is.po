@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-08-11 20:21+0200\n"
+"POT-Creation-Date: 2003-08-25 20:17+0200\n"
 "PO-Revision-Date: 2003-07-20 17:51-0100\n"
 "Last-Translator: Samuel Jon Gunnarsson <sammi@techattack.nu>\n"
 "Language-Team: icelandic <gnome@techattack.nu>\n"
@@ -741,8 +741,8 @@ msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
-"Stillir hvort birta skuli hreyfimyndir. Ath: Þetta er víðvær stilling "
-"sem hefur áhrif á gluggastjórann, spjaldið og svo framvegis."
+"Stillir hvort birta skuli hreyfimyndir. Ath: Þetta er víðvær stilling sem "
+"hefur áhrif á gluggastjórann, spjaldið og svo framvegis."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
@@ -769,8 +769,7 @@ msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
-"Hvort notandinn geti slegið inn nýjann flýtilykil meðan valmynd er "
-"opin."
+"Hvort notandinn geti slegið inn nýjann flýtilykil meðan valmynd er opin."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
@@ -849,9 +848,9 @@ msgid ""
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"Heiti leturs í bendlinum. Þetta gildi er einungis sent áfram "
-"til X þjóns við ræsingu hverrar setu, þannig að breytingar í miðri setu munu "
-"ekki hafa áhrif fyrr en næst þegar þú skráir þig inn."
+"Heiti leturs í bendlinum. Þetta gildi er einungis sent áfram til X þjóns við "
+"ræsingu hverrar setu, þannig að breytingar í miðri setu munu ekki hafa áhrif "
+"fyrr en næst þegar þú skráir þig inn."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -924,8 +923,8 @@ msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
-"Hakaðu við þetta til þess að koma í veg fyrir að öll útvær smámyndatól "
-"verði notuð, hvernig sem hvert þeirra er stillt."
+"Hakaðu við þetta til þess að koma í veg fyrir að öll útvær smámyndatól verði "
+"notuð, hvernig sem hvert þeirra er stillt."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
@@ -964,64 +963,98 @@ msgid "How to handle ghelp URLs"
 msgstr "Hvernig meðhöndla eigi ghelp-slóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#, fuzzy
+msgid "How to handle http URLs"
+msgstr "Hvernig meðhöndla eigi ghelp-slóðir"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#, fuzzy
+msgid "How to handle https URLs"
+msgstr "Hvernig meðhöndla eigi ghelp-slóðir"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle info URLs"
 msgstr "Hvernig meðhöndla eigi info-slóðir"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "How to handle man URLs"
 msgstr "Hvernig meðhöndla eigi handbókarslóðir"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
 msgid "How to handle trash URLs"
 msgstr "Hvernig meðhöndla á slóðir á rusl"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
 msgid "Run program in terminal"
 msgstr "Keyra forrit í skjáhermi"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+#, fuzzy
+msgid "Set to true to have a program specified in command handle http URLs"
+msgstr ""
+"Setja sem satt til þess að gera uppgefnu forriti í rusl/skipun möguleika á "
+"að meðhöndla ruslslóðir"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
+#, fuzzy
+msgid "Set to true to have a program specified in command handle https URLs"
+msgstr ""
+"Setja sem satt til þess að gera uppgefnu forriti í rusl/skipun möguleika á "
+"að meðhöndla ruslslóðir"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid ""
 "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
 "Setja sem satt til þess að gera uppgefnu forriti í forrit/ghelp möguleika á "
 "að meðhöndla ghelp-slóðir"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
 msgid ""
 "Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
 "Setja sem satt til þess að gera uppgefnu forriti í forrit/info möguleika á "
 "að meðhöndla info-slóðir"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr ""
 "Setja sem satt til þess að gera uppgefnu forriti í forrit/man möguleika á að "
 "meðhöndla handbókarslóðir"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Setja sem satt til þess að gera uppgefnu forriti í rusl/skipun möguleika á "
 "að meðhöndla ruslslóðir"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "Satt ef umsjónarforrit á að keyra slóð í skjáhermi"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid "URL handler for ghelp pages"
 msgstr "Slóðameðhöndlun fyrir ghelp-síður"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
+#, fuzzy
+msgid "URL handler for http uris"
+msgstr "Slóðameðhöndlun fyrir ghelp-síður"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
+#, fuzzy
+msgid "URL handler for https uris"
+msgstr "Slóðameðhöndlun fyrir ghelp-síður"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid "URL handler for info pages"
 msgstr "Slóðameðhöndlun fyrir info-síður"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
 msgid "URL handler for man pages"
 msgstr "Slóðameðhöndlun fyrir handbókarsíður"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid "URL handler for trash pages"
 msgstr "Slóðameðhöndlun fyrir ruslsíður"
