@@ -5,12 +5,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 1.109.1\n"
-"POT-Creation-Date: 2002-02-19 10:22+0100\n"
+"POT-Creation-Date: 2002-03-10 22:24+0900\n"
 "PO-Revision-Date: 2002-01-21 05:14+0900\n"
 "Last-Translator: Young-Ho Cha <ganadist@chollian.net>\n"
 "Language-Team: LANGUAGE <ko@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: libgnome/gnome-exec.c:429
@@ -19,7 +19,7 @@ msgstr ""
 "터미널을 찾을 수 없습니다, xterm을 사용합니다, 하지만 동작하지 않을 수 있습니"
 "다"
 
-#: libgnome/gnome-url.c:182
+#: libgnome/gnome-url.c:193
 #, c-format
 msgid "Cannot parse: %s"
 msgstr "분석할 수 없음: %s"
@@ -66,7 +66,7 @@ msgstr "사용할 사운드 서버가 호스트:포트 에서 실행되고 있�
 
 #: libgnome/gnome-init.c:365
 msgid "HOSTNAME:PORT"
-msgstr ""
+msgstr "호스트이름:포트"
 
 #: libgnome/gnome-init.c:383
 msgid "GNOME Virtual Filesystem"
@@ -105,12 +105,12 @@ msgstr ""
 msgid ""
 "Unable to show help as file %s is not a directory.  This implies an "
 "incorrect installation."
-msgstr ""
+msgstr "%s 파일이 디렉토리가 아니므로 도움말을 보여줄 수 없습니다.  설치가 잘못되었을 것입니다."
 
 #: libgnome/gnome-help.c:193
 #, c-format
 msgid "Help document %s for %s not found"
-msgstr ""
+msgstr "%2$s에 대한 도움말 %s을(를) 찾을 수 없습니다"
 
 #: libgnome/gnome-help.c:270
 #, c-format
@@ -120,15 +120,15 @@ msgstr "도움말 경로에서 doc_id %s를 찾을 수 없습니다"
 #: libgnome/gnome-help.c:291
 #, c-format
 msgid "Help document %s/%s not found"
-msgstr ""
+msgstr "도움말 문서 %s/%s을(를) 찾을 수 없습니다"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
+msgstr "로케일에 대한 별명의 단계가 너무 많습니다. 무한 루프일 수 있습니다"
 
 #: libgnome/gnome-program.c:419
 msgid "Popt Table"
-msgstr ""
+msgstr "popt 테이블"
 
 #: libgnome/gnome-program.c:420
 msgid "The table of options for popt"
@@ -136,27 +136,27 @@ msgstr "popt의 옵션 테이블"
 
 #: libgnome/gnome-program.c:427
 msgid "Popt Flags"
-msgstr ""
+msgstr "popt 플래그"
 
 #: libgnome/gnome-program.c:428
 msgid "The flags to use for popt"
-msgstr "popt에서 사용할 프래그"
+msgstr "popt에서 사용할 플래그"
 
 #: libgnome/gnome-program.c:436
 msgid "Popt Context"
-msgstr ""
+msgstr "popt 컨텍스트"
 
 #: libgnome/gnome-program.c:437
 msgid "The popt context pointer that GnomeProgram is using"
-msgstr ""
+msgstr "GnomeProgram이 사용중인 popt 컨텍스트"
 
 #: libgnome/gnome-program.c:445
 msgid "Human readable name"
-msgstr ""
+msgstr "읽을 수 있는 이름"
 
 #: libgnome/gnome-program.c:446
 msgid "Human readable name of this application"
-msgstr "이 프로그램의 사람이 읽을수 있는 이름"
+msgstr "이 응용프로그램의 사람이 읽을 수 있는 이름"
 
 #: libgnome/gnome-program.c:455
 msgid "GNOME path"
@@ -168,7 +168,7 @@ msgstr "설치된 파일을 살펴보는 경로"
 
 #: libgnome/gnome-program.c:465
 msgid "App ID"
-msgstr ""
+msgstr "App ID"
 
 #: libgnome/gnome-program.c:466
 msgid "ID string to use for this application"
@@ -176,7 +176,7 @@ msgstr "이 응용프로그램에 사용될 ID 문자열"
 
 #: libgnome/gnome-program.c:473
 msgid "App version"
-msgstr ""
+msgstr "App 버전"
 
 #: libgnome/gnome-program.c:474
 msgid "Version of this application"
@@ -184,7 +184,7 @@ msgstr "이 응용프로그램의 판번호"
 
 #: libgnome/gnome-program.c:481
 msgid "GNOME Prefix"
-msgstr ""
+msgstr "그놈 prefix"
 
 #: libgnome/gnome-program.c:482
 msgid "Prefix where GNOME was installed"
@@ -192,7 +192,7 @@ msgstr "그놈이 설치된 경로"
 
 #: libgnome/gnome-program.c:491
 msgid "GNOME Libdir"
-msgstr ""
+msgstr "그놈 libdir"
 
 #: libgnome/gnome-program.c:492
 msgid "Library prefix where GNOME was installed"
@@ -200,7 +200,7 @@ msgstr "그놈이 설치된 라이브러리 경로"
 
 #: libgnome/gnome-program.c:501
 msgid "GNOME Datadir"
-msgstr ""
+msgstr "그놈 datadir"
 
 #: libgnome/gnome-program.c:502
 msgid "Data prefix where GNOME was installed"
@@ -208,7 +208,7 @@ msgstr "그놈이 설치된 데이터 경로"
 
 #: libgnome/gnome-program.c:511
 msgid "GNOME Sysconfdir"
-msgstr ""
+msgstr "그놈 sysconfdir"
 
 #: libgnome/gnome-program.c:512
 msgid "Configuration prefix where GNOME was installed"
@@ -216,7 +216,7 @@ msgstr "그놈이 설치된 설정 경로"
 
 #: libgnome/gnome-program.c:522
 msgid "GNOME App Prefix"
-msgstr ""
+msgstr "그놈 App prefix"
 
 #: libgnome/gnome-program.c:523
 msgid "Prefix where this application was installed"
@@ -224,27 +224,27 @@ msgstr "이 응용프로그램이 설치된 경로"
 
 #: libgnome/gnome-program.c:531
 msgid "GNOME App Libdir"
-msgstr ""
+msgstr "그놈 App libdir"
 
 #: libgnome/gnome-program.c:532
 msgid "Library prefix where this application was installed"
-msgstr "이 프로그램이 설치된 라이브러리 경로"
+msgstr "이 응용프로그램이 설치된 라이브러리 경로"
 
 #: libgnome/gnome-program.c:541
 msgid "GNOME App Datadir"
-msgstr ""
+msgstr "그놈 App datadir"
 
 #: libgnome/gnome-program.c:542
 msgid "Data prefix where this application was installed"
-msgstr "이 프로그램이 설치된 데이터 경로"
+msgstr "이 응용프로그램이 설치된 데이터 경로"
 
 #: libgnome/gnome-program.c:551
 msgid "GNOME App Sysconfdir"
-msgstr ""
+msgstr "그놈 App sysconfdir"
 
 #: libgnome/gnome-program.c:552
 msgid "Configuration prefix where this application was installed"
-msgstr "이 프로그램이 설치된 설정 경로"
+msgstr "이 응용프로그램이 설치된 설정 경로"
 
 #: libgnome/gnome-program.c:561
 msgid "Create Directories"
@@ -264,7 +264,7 @@ msgstr "시작할때 소리를 사용합니다"
 
 #: libgnome/gnome-program.c:581
 msgid "Espeaker"
-msgstr ""
+msgstr "espeaker"
 
 #: libgnome/gnome-program.c:582
 msgid "How to connect to esd"
@@ -288,15 +288,15 @@ msgstr "모듈1,모듈2,..."
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr ""
+msgstr "추가 모니커 팩토리"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
-msgstr ""
+msgstr "GConf 모니커"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr ""
+msgstr "설정 간접 모니커"
 
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
@@ -305,4 +305,4 @@ msgstr "설정에서 키 %s를 찾을 수 없습니다"
 
 #: monikers/bonobo-config-bag.c:216
 msgid "Unknown type"
-msgstr ""
+msgstr "알 수 없는 유형"
