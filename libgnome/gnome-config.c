@@ -127,7 +127,7 @@ static ParsedPath *
 parse_path (const char *path, gint priv)
 {
 	ParsedPath *p = g_malloc (sizeof (ParsedPath));
-	char *sep;
+	char *sep, *q;
 
 	g_assert(path != NULL);
 	
@@ -180,12 +180,16 @@ parse_path (const char *path, gint priv)
 		}
 		if (*p->file == '/')
 			p->file++;
-		if(priv)
+
+		q = p->file;
+		if (priv){
 			p->file = g_concat_dir_and_file (gnome_user_private_dir,
-							 p->file);
-		else
+							 q);
+		} else {
 			p->file = g_concat_dir_and_file (gnome_user_dir,
-							 p->file);
+							 q);
+		}
+		g_free (q);
 	}
 	return p;
 }
@@ -614,6 +618,7 @@ free_keys (TKeys *p)
 	free_keys (p->link);
 	g_free (p->key_name);
 	g_free (p->value);
+	g_free (p->file);
 	g_free (p);
 }
 
