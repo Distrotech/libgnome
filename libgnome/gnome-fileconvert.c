@@ -213,7 +213,7 @@ gfc_read_FileConverters(void)
 	}
 	g_free (dirname);
 
-	file = g_strconcat (gnome_user_dir, "type.convert", NULL);
+	file = gnome_util_home_file ("type.convert");
 	load_types_from (file_types, file);
 	g_free (file);
 	
