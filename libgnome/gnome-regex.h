@@ -22,7 +22,7 @@
 
 BEGIN_GNOME_DECLS
 
-
+#include <sys/types.h>
 #include <regex.h>
 
 typedef struct {
