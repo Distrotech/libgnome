@@ -400,6 +400,8 @@ gnome_triggers_play_sound(const char *sndname)
 #ifdef HAVE_ESD
   int sid;
 
+  if(gnome_sound_connection < 0) return;
+
   if(!sound_ids)
     sound_ids = g_hash_table_new(g_str_hash, g_str_equal);
 
@@ -419,7 +421,7 @@ gnome_triggers_play_sound(const char *sndname)
 }
 
 /**
- * gnome_triggers_do:
+ * gnome_triggers_vdo:
  * @msg: The human-readable message describing the event. (Can be NULL).
  * @level: The level of severity of the event, or NULL.
  * @supinfo: The classification of the event (NULL terminated array).
