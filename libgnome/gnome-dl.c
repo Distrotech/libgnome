@@ -19,7 +19,7 @@
 #if defined( __FreeBSD__ )
 /* what about -current and ELF? */
 #define NEED_UNDERSCORE
-#define LIB_SUFFIX ".so.1.0"
+#define LIB_SUFFIX ".so"
 #elif defined ( linux ) || defined( sgi )
 #define LIB_SUFFIX ".so"
 #elif defined ( hpux )
@@ -356,6 +356,19 @@ gnome_dl_error()
   clear_last_error();
 
   return error;
+}
+
+int
+gnome_dl_is_library_filename(char *lib_path)
+{
+  int suffix_length = strlen(LIB_SUFFIX);
+  int lib_length = strlen(lib_path);
+
+  if (strlen(lib_path) > suffix_length
+      && !strcmp(lib_path + lib_length - suffix_length, LIB_SUFFIX))
+    return TRUE;
+  else
+    return FALSE;
 }
 
 void

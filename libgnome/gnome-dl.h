@@ -44,6 +44,9 @@ GnomeFuncHandle*	gnome_dl_findsym_and_lib(char *symbol_name, GnomeLibHandle **ha
    platforms that have it. */
 const char*		gnome_dl_error(void);
 
+/* returns true if the pathname fits the shared library convention for a given platform. */
+int			gnome_dl_is_library_filename(char *lib_name);
+
 END_GNOME_DECLS
 
 #endif
