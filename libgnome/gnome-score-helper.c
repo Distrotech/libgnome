@@ -25,6 +25,8 @@
 #include "config.h"
 #endif
 
+#include "libgnome/gnome-util.h"
+
 #ifndef GNOMEBINDIR
 #define GNOMEBINDIR "/usr/local/bin"
 #endif
