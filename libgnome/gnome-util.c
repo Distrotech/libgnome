@@ -81,8 +81,8 @@ const char gnome_file_domain_app_help[]="help";
 char *
 gnome_file_locate (const char *domain, const char *filename, gboolean only_if_exists, GSList **ret_locations)
 {
-  char *retval = NULL, *lastval, *dir = NULL, *prefix_rel = NULL, *envvar = NULL;
-  const char *attr_name = NULL, *attr_rel = NULL;
+  char *retval = NULL, *lastval, *dir = NULL, *prefix_rel = NULL;
+  const char *attr_name = NULL, *attr_rel = NULL, *envvar = NULL;
   char fnbuf[PATH_MAX];
 
   g_return_val_if_fail(domain, NULL);
@@ -273,7 +273,7 @@ gnome_util_user_shell (void)
 {
 	struct passwd *pw;
 	int i;
-	char *shell;
+	const char *shell;
 	static char *shells [] = {
 		"/bin/bash", "/bin/zsh", "/bin/tcsh", "/bin/ksh",
 		"/bin/csh", "/bin/sh", 0

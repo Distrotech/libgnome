@@ -1142,7 +1142,7 @@ gnome_program_preinita(GnomeProgram *app,
     }
 
   {
-    char *ctmp;
+    const char *ctmp;
     if((ctmp = g_getenv("GNOME_MODULES")))
       {
 	char **modnames;

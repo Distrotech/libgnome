@@ -103,7 +103,7 @@ typedef struct {
 } AppContext;
 
 static AppContext global_ctx = {0};
-static char *dpy_name;
+static const char *dpy_name;
 static int dpy_sync = 0, win_noraise=0, win_new=0, win_ids_print=-1, win_close = 0;
 static char *win_id = NULL;
 
