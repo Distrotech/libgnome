@@ -7,14 +7,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-30 16:49+0100\n"
+"POT-Creation-Date: 2003-11-24 11:15+0100\n"
 "PO-Revision-Date: 2003-12-01 15:32+0100\n"
 "Last-Translator: Åsmund Skjæveland <aasmunds@fys.uio.no>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.0.2\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
@@ -89,15 +89,17 @@ msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
-"Ikkje i stand til å visa hjelp, i og med at %s ikkje er ein katalog. Kontroller "
-"installasjonen din"
+"Ikkje i stand til å visa hjelp, i og med at %s ikkje er ein katalog. "
+"Kontroller installasjonen din"
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr "Klarte ikkje å finna hjelpefilene i korkje %s eller %s. Kontroller installasjonen din"
+msgstr ""
+"Klarte ikkje å finna hjelpefilene i korkje %s eller %s. Kontroller "
+"installasjonen din"
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -125,7 +127,8 @@ msgstr "Bonobo aktiverings støtte"
 #: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Kunne ikkje opprette per-brukar gnome konfigurasjons katalog «%s»: %s\n"
+msgstr ""
+"Kunne ikkje opprette per-brukar gnome konfigurasjons katalog «%s»: %s\n"
 
 #: libgnome/gnome-init.c:328
 #, c-format
@@ -337,13 +340,17 @@ msgstr "Den oppgitte plasseringa er ugyldig."
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
-msgstr "Ein feil oppstod under lesinga av standardhandlinga knytta til denne plasseringa."
+msgstr ""
+"Ein feil oppstod under lesinga av standardhandlinga knytta til denne "
+"plasseringa."
 
 #: libgnome/gnome-url.c:103
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
-msgstr "Ein feil oppstod under utføring av standardhandlinga knytta til denne plasseringa."
+msgstr ""
+"Ein feil oppstod under utføring av standardhandlinga knytta til denne "
+"plasseringa."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
@@ -363,9 +370,9 @@ msgstr "Ukjend feilkode: %d"
 msgid "Error showing url: %s\n"
 msgstr "Klarte ikkje å visa URL: %s\n"
 
+# TRN: moniker?
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 #, fuzzy
-# TRN: moniker?
 msgid "Extra Moniker factory"
 msgstr "Ekstra monikerfabrikk"
 
@@ -397,15 +404,19 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Slå av dersom to tastar vert trykt ned samtidig."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "Ikkje registrer at ein tast er trykt ned før han er halden nede i @delay millisekund"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr ""
+"Ikkje registrer at ein tast er trykt ned før han er halden nede i @delay "
+"millisekund"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Kor mange millisekund det tek å gå frå 0 til toppfart"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
 msgstr "Kor mange millisekund å venta før musrørsletastane tek til å virka"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
@@ -437,8 +448,8 @@ msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
 msgstr ""
-"Liste over hjelpande program som skal startast når du loggar inn på "
-"GNOME-skrivebordet"
+"Liste over hjelpande program som skal startast når du loggar inn på GNOME-"
+"skrivebordet"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -486,10 +497,11 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "Om standard hjelplesar treng ein terminal for å køyra"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
-"Argument som vert brukt til å køyra program i terminalen "
-"definert av «exec»-nøkkelen."
+"Argument som vert brukt til å køyra program i terminalen definert av «exec»-"
+"nøkkelen."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -513,7 +525,9 @@ msgstr "Reservevindaugehandsamar"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr "Vindaugehandsamar som skal brukast dersom standardhandsamaren ikkje er å finna"
+msgstr ""
+"Vindaugehandsamar som skal brukast dersom standardhandsamaren ikkje er å "
+"finna"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -539,14 +553,14 @@ msgstr "Vindaugehandsamar å prøva fyrst"
 msgid "Color Shading Type"
 msgstr "Type skuggelegging av fargar"
 
-#: schemas/desktop_gnome_background.schemas.in.h:2
 # TRN: Skal orda i hermeteikn omsetjast?
+#: schemas/desktop_gnome_background.schemas.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
-"Avgjer korleis biletet satt i wallpaper_filename vert teikna. Moglege verdiar "
-"er «none», «wallpaper», «centered», «scaled» og «stretched»."
+"Avgjer korleis biletet satt i wallpaper_filename vert teikna. Moglege "
+"verdiar er «none», «wallpaper», «centered», «scaled» og «stretched»."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -560,18 +574,20 @@ msgstr "Fil som skal brukast til bakgrunnsbilete"
 msgid "Have GNOME draw the desktop background"
 msgstr "La GNOME teikna skrivebordsbakgrunnen"
 
-#: schemas/desktop_gnome_background.schemas.in.h:6
 # TRN: Skal orda i hermeteikn omsetjast?
+#: schemas/desktop_gnome_background.schemas.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"Korleis bakgrunnsfargen skal fargeleggjast. Moglege verdiar er "
-"«horizontal-gradient», «vertical-gradient» og «solid»."
+"Korleis bakgrunnsfargen skal fargeleggjast. Moglege verdiar er «horizontal-"
+"gradient», «vertical-gradient» og «solid»."
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr "Venstre eller øvste farge når gradientar vert teikna, eller den heilfylte fargen."
+msgstr ""
+"Venstre eller øvste farge når gradientar vert teikna, eller den heilfylte "
+"fargen."
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
@@ -595,7 +611,9 @@ msgstr "Fyrste farge"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "Høgre eller nedre farge når gradientar vert teikna. Ikkje brukt i heilfylt farge."
+msgstr ""
+"Høgre eller nedre farge når gradientar vert teikna. Ikkje brukt i heilfylt "
+"farge."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -680,20 +698,20 @@ msgid "Monospace font"
 msgstr "Skrifttype med fast teiknbreidde"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr "Namn på ein skrifttype med fast teiknbreidde, til bruk i t.d. terminalar."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr ""
+"Namn på ein skrifttype med fast teiknbreidde, til bruk i t.d. terminalar."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr ""
-"Namn på førehandsredigeringsstilen til GTK+-inndatametoden "
-"som vert brukt av Gtk+."
+"Namn på førehandsredigeringsstilen til GTK+-inndatametoden som vert brukt av "
+"Gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
-"Namn på statusstilen til GTK+-inndatametoden "
-"som vert brukt av Gtk+."
+msgstr "Namn på statusstilen til GTK+-inndatametoden som vert brukt av Gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the default font used by gtk+."
@@ -719,12 +737,14 @@ msgstr "Storleik på ikona i verktøylinja"
 msgid "Toolbar Style"
 msgstr "Stil på verktøylinja"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
 # TRN: Skal teksten i hermeteikn omsetjast?
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
-msgstr "Stil på verltøylinja. Gyldige verdiar er «both», «both_horiz», «icon» og «text»."
+msgstr ""
+"Stil på verltøylinja. Gyldige verdiar er «both», «both_horiz», «icon» og "
+"«text»."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
@@ -739,8 +759,8 @@ msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
-"Om animasjonar skal visast. Merk: Dette er ein global nøkkel. Han vil påverka "
-"åtferda til vindaugehandsamaren, panelet og anna."
+"Om animasjonar skal visast. Merk: Dette er ein global nøkkel. Han vil "
+"påverka åtferda til vindaugehandsamaren, panelet og anna."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
@@ -784,8 +804,8 @@ msgstr "Filnamn på bjøllelyden som skal spelast"
 msgid "Keyboard Bell Custom Filename"
 msgstr "Lydfil med eigendefinert bjøllelyd"
 
-#: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 # TRN: Skal teksten i hermeteikn omsetjast?
+#: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "moglege verdiar er «on», «off» og «custom»."
 
@@ -814,17 +834,17 @@ msgid ""
 "start of each session, so changing it mid-session won't have an effect until "
 "the next time you log in."
 msgstr ""
-"Namn på markørdrakt. Vert berre brukt av X-tenarar som støttar Xcursor, "
-"t.d. XFree86 4.3 og seinare versjonar. Denne verdien vert berre sendt til "
-"X-tenaren i byrjinga av økta, så endringar som vert gjort midt i økta vil ikkje "
-"verta synlege før du loggar på neste gong."
+"Namn på markørdrakt. Vert berre brukt av X-tenarar som støttar Xcursor, t.d. "
+"XFree86 4.3 og seinare versjonar. Denne verdien vert berre sendt til X-"
+"tenaren i byrjinga av økta, så endringar som vert gjort midt i økta vil "
+"ikkje verta synlege før du loggar på neste gong."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
 msgstr "Lengde før ein dra-operasjon startar"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 # TRN: Bruka Unicode minus i staden for bindestrek?
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
@@ -847,9 +867,10 @@ msgid ""
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"Skriftnamnet på markøren. Dersom denne ikkje er satt, vert standardskrifta brukt. "
-"Denne verdien vert berre sendt til X-tenaren i byrjinga av økta, så endringar som "
-"vert gjort midt i økta vil ikkje verta synlege før du loggar på neste gong."
+"Skriftnamnet på markøren. Dersom denne ikkje er satt, vert standardskrifta "
+"brukt. Denne verdien vert berre sendt til X-tenaren i byrjinga av økta, så "
+"endringar som vert gjort midt i økta vil ikkje verta synlege før du loggar "
+"på neste gong."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -887,9 +908,9 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
-"Storleiken til markøren, referert av «cursor_theme». Denne verdien vert berre "
-"sendt til X-tenaren i byrjinga av økta, så endringar som vert gjort midt i økta "
-"vil ikkje verta synlege før du loggar på neste gong."
+"Storleiken til markøren, referert av «cursor_theme». Denne verdien vert "
+"berre sendt til X-tenaren i byrjinga av økta, så endringar som vert gjort "
+"midt i økta vil ikkje verta synlege før du loggar på neste gong."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -981,47 +1002,54 @@ msgstr "Korleis trash-URL-ar skal handsamast"
 msgid "Run program in terminal"
 msgstr "Køyr program i terminal"
 
+# TRN: Skal ordet i hermeteikn omsetjast?
+# TRN: Kva betyr eigentleg den engelske setningen?
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-# TRN: Skal ordet i hermeteikn omsetjast?
-# TRN: Kva betyr eigentleg den engelske setningen?
 msgid "Set to true to have a program specified in command handle http URLs"
-msgstr "Sett til «true» for å la programmet spesifisert i «command» handsama http-URL-ar"
+msgstr ""
+"Sett til «true» for å la programmet spesifisert i «command» handsama http-"
+"URL-ar"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 # TRN: Skal ordet i hermeteikn omsetjast?
 # TRN: Kva betyr eigentleg den engelske setningen?
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid "Set to true to have a program specified in command handle https URLs"
-msgstr "Sett til «true» for å la programmet spesifisert i «command» handsama https-URL-ar"
+msgstr ""
+"Sett til «true» for å la programmet spesifisert i «command» handsama https-"
+"URL-ar"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
-msgid "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
-"Sett til «true» for å la programmet spesifisert i «programs/ghelp» "
-"handsama ghelp-URL-ar"
+"Sett til «true» for å la programmet spesifisert i «programs/ghelp» handsama "
+"ghelp-URL-ar"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:11
-msgid "Set to true to have a program specified in programs/info handle info URLs"
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
-"Sett til «true» for å la programmet spesifisert i «programs/info» "
-"handsama info-URL-ar"
+"Sett til «true» for å la programmet spesifisert i «programs/info» handsama "
+"info-URL-ar"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:12
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr ""
-"Sett til «true» for å la programmet spesifisert i «programs/man» "
-"handsama man-URL-ar"
+"Sett til «true» for å la programmet spesifisert i «programs/man» handsama "
+"man-URL-ar"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-msgid "Set to true to have a program specified in trash/command handle trash URLs"
+msgid ""
+"Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
-"Sett til «true» for å la programmet spesifisert i «trash/command» "
-"handsama trash-URL-ar"
+"Sett til «true» for å la programmet spesifisert i «trash/command» handsama "
+"trash-URL-ar"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
-"Sann dersom programmet som skal handsama denne URL-en "
-"skal køyrast i ein terminal"
+"Sann dersom programmet som skal handsama denne URL-en skal køyrast i ein "
+"terminal"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid "URL handler for ghelp pages"
@@ -1080,4 +1108,3 @@ msgstr "URL-handsamar for trash-sider"
 
 #~ msgid "Command '%s' did not return an ID!"
 #~ msgstr "Kommando '%s' returnerte ikkje ei gyldig ID!"
-
