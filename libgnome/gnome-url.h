@@ -38,7 +38,6 @@ typedef enum {
 } GnomeURLDisplayFlags;
 
 typedef enum {
-  GNOME_URL_NO_ERROR = 0,
   GNOME_URL_ERROR_EXEC, /* could not execute handler */
   GNOME_URL_ERROR_PARSE, /* if the parsing of the handler failed */
   GNOME_URL_ERROR_PIPE, /* if 'pipe' did not work when getting id,
@@ -48,7 +47,8 @@ typedef enum {
   GNOME_URL_ERROR_NO_MOZILLA /* could not find mozilla for gnome-moz-remote */
 } GnomeURLError;
 
-
+#define GNOME_URL_ERROR (gnome_url_error_quark ())
+GQuark gnome_url_error_quark (void) G_GNUC_CONST;
 
 typedef gboolean (*GnomeURLHistoryCallback)(GnomeURLDisplayContext *display_context,
 					    const char *url,
@@ -77,10 +77,10 @@ GnomeURLDisplayContext *gnome_url_show_full(GnomeURLDisplayContext *display_cont
 					    const char *url,
 					    const char *url_type,
 					    GnomeURLDisplayFlags flags,
-					    GnomeURLError *error);
+					    GError **error);
 void gnome_url_display_context_free(GnomeURLDisplayContext *display_context,
 				    GnomeURLDisplayFlags flags,
-				    GnomeURLError *error);
+				    GError **error);
 
 /* returns FALSE on error, TRUE if everything went fine */
 gboolean gnome_url_show(const char *url);

@@ -93,7 +93,7 @@ static gboolean
 create_cmd(GnomeURLDisplayContext *rdc, const char *template,
 	   const char *url, GnomeURLDisplayFlags flags, int pipe,
 	   char ***cmd, int *argc,
-	   GnomeURLError *error)
+	   GError **error)
 {
 	int temp_argc;
 	const char **temp_argv;
@@ -102,12 +102,20 @@ create_cmd(GnomeURLDisplayContext *rdc, const char *template,
 	/* we use a popt function as it does exactly what we want to do and
 	   gnome already uses popt */
 	if(poptParseArgvString(template, &temp_argc, &temp_argv) != 0) {
-		if(error) *error = GNOME_URL_ERROR_PARSE;
+		g_set_error (error,
+			     GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_PARSE,
+			     "Error parsing '%s'",
+			     template);
 		return FALSE;
 	}
 	if(temp_argc == 0) {
 		free(temp_argv);
-		if(error) *error = GNOME_URL_ERROR_PARSE;
+		g_set_error (error,
+			     GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_PARSE,
+			     _("Error parsing '%s' (empty result)"),
+			     template);
 		return FALSE;
 	}
 
@@ -118,11 +126,16 @@ create_cmd(GnomeURLDisplayContext *rdc, const char *template,
 		char *foo;
 
 		foo = gnome_is_program_in_path(moz);
-		g_free(moz);
-		if(!foo) {
-			if(error) *error = GNOME_URL_ERROR_NO_MOZILLA;
+		if (foo == NULL) {
+			g_set_error (error,
+				     GNOME_URL_ERROR,
+				     GNOME_URL_ERROR_NO_MOZILLA,
+				     _("Mozilla not found as '%s'"),
+				     moz);
+			g_free(moz);
 			return FALSE;
 		}
+		g_free(moz);
 		g_free(foo);
 	}
 		
@@ -177,7 +190,7 @@ create_cmd(GnomeURLDisplayContext *rdc, const char *template,
  * @url: URL to show
  * @url_type: The type of the URL (e.g. "help")
  * @flags: Flags changing the way the URL is displayed or handled.
- * @error: if an error happens this will be set to one of the GnomeURLError enums. On no error it will be set to GNOME_URL_NO_ERROR (which is 0).  May be NULL.
+ * @error: if an error happens GError will be set with domain of GNOME_URL_ERROR and code one of the GnomeURLError enum values.  May be NULL.
  *
  * Description:
  * Loads the given URL in an appropriate viewer.  The viewer is deduced from
@@ -202,15 +215,13 @@ create_cmd(GnomeURLDisplayContext *rdc, const char *template,
 GnomeURLDisplayContext *
 gnome_url_show_full(GnomeURLDisplayContext *display_context, const char *url,
 		    const char *url_type, GnomeURLDisplayFlags flags,
-		    GnomeURLError *error)
+		    GError **error)
 {
   char *retid = NULL;
   char *pos, *template = NULL;
   char path[PATH_MAX];
   gboolean def, free_template = FALSE;
   GnomeURLDisplayContext *rdc = display_context;
-
-  if(error) *error = GNOME_URL_NO_ERROR;
 
   g_return_val_if_fail (!(flags & GNOME_URL_DISPLAY_CLOSE) || display_context, display_context);
 
@@ -278,7 +289,11 @@ gnome_url_show_full(GnomeURLDisplayContext *display_context, const char *url,
 
       if(pipe(pipes) != 0) {
 	      g_warning(_("Cannot open a pipe: %s"), g_strerror(errno));
-	      if(error) *error = GNOME_URL_ERROR_PIPE;
+	      g_set_error (error,
+			   GNOME_URL_ERROR,
+			   GNOME_URL_ERROR_PIPE,
+			   _("Cannot open a pipe: %s"),
+			   g_strerror(errno));
 	      flags |= GNOME_URL_DISPLAY_NO_RETURN_CONTEXT;
 	      goto about_to_return;
       }
@@ -298,7 +313,11 @@ gnome_url_show_full(GnomeURLDisplayContext *display_context, const char *url,
       if(pid == -1) {
 	      close(pipes[0]);
 	      g_warning(_("Cannot execute command '%s'!"), argv[0]);
-	      if(error) *error = GNOME_URL_ERROR_EXEC;
+	      g_set_error (error,
+			   GNOME_URL_ERROR,
+			   GNOME_URL_ERROR_PIPE,
+			   _("Cannot execute command '%s'!"),
+			   argv[0]);
 	      flags |= GNOME_URL_DISPLAY_NO_RETURN_CONTEXT;
 	      goto about_to_return;
       }
@@ -325,8 +344,12 @@ gnome_url_show_full(GnomeURLDisplayContext *display_context, const char *url,
 
       /* if no ID was found this will free the context as it would be bogus
        * anyway, and return an error */
-      if(!retid) {
-	      if(error) *error = GNOME_URL_ERROR_NO_ID;
+      if(retid == NULL) {
+	      g_set_error (error,
+			   GNOME_URL_ERROR,
+			   GNOME_URL_ERROR_NO_ID,
+			   _("Command '%s' did not return an ID!"),
+			   argv[0]);
 	      flags |= GNOME_URL_DISPLAY_NO_RETURN_CONTEXT;
 	      goto about_to_return;
       }
@@ -338,13 +361,16 @@ gnome_url_show_full(GnomeURLDisplayContext *display_context, const char *url,
 
       if(!create_cmd(rdc, template, url, flags, 0, &argv, &argc, error)) {
 	      g_warning(_("Cannot parse handler template: %s"), template);
-	      if(error) *error = GNOME_URL_ERROR_PARSE;
 	      goto about_to_return;
       }
 
       if(gnome_execute_async (NULL, argc, argv) == -1) {
 	      g_warning(_("Cannot execute command '%s'!"), argv[0]);
-	      if(error) *error = GNOME_URL_ERROR_EXEC;
+	      g_set_error (error,
+			   GNOME_URL_ERROR,
+			   GNOME_URL_ERROR_PIPE,
+			   _("Cannot execute command '%s'!"),
+			   argv[0]);
 	      goto about_to_return;
       }
 
@@ -387,10 +413,13 @@ about_to_return:
 gboolean
 gnome_url_show(const gchar *url)
 {
-  GnomeURLError error;
+  GError *error = NULL;
   gnome_url_show_full(NULL, url, NULL, GNOME_URL_DISPLAY_NO_RETURN_CONTEXT,
 		      &error);
-  return error == GNOME_URL_NO_ERROR;
+  if (error == NULL)
+	  return TRUE;
+  g_error_free (error);
+  return FALSE;
 }
 
 static void
@@ -404,13 +433,19 @@ gnome_udc_free_all(void)
 				     GNOME_URL_DISPLAY_CLOSE, NULL);
 }
 
+/**
+ * gnome_url_display_context_free:
+ * @display_context: The url context
+ * @flags: the flags
+ * @error: if an error happens GError will be set with domain of GNOME_URL_ERROR and code one of the GnomeURLError enum values.  May be NULL.
+ *
+ * Description:
+ **/
 void
 gnome_url_display_context_free(GnomeURLDisplayContext *display_context,
 			       GnomeURLDisplayFlags flags,
-			       GnomeURLError *error)
+			       GError **error)
 {
-  if(error) *error = GNOME_URL_NO_ERROR;
-
   if(flags & GNOME_URL_DISPLAY_CLOSE_ATEXIT)
     {
       if(!free_atexit)
@@ -428,4 +463,16 @@ gnome_url_display_context_free(GnomeURLDisplayContext *display_context,
       g_free(display_context->command);
       g_free(display_context);
     }
+}
+
+GQuark
+gnome_url_error_quark (void)
+{
+	static GQuark error_quark = 0;
+
+	if (error_quark == 0)
+		error_quark =
+			g_quark_from_static_string ("gnome-url-error-quark");
+
+	return error_quark;
 }
