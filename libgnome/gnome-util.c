@@ -120,11 +120,11 @@ gnome_unconditional_datadir_file (char *filename)
 	return (gnome_dirrelative_file (GNOMEDATADIR, "share", filename, TRUE));
 }
 
-/* DOC: g_file_exists (char *filename)
+/* DOC: g_file_exists (const char *filename)
  * Returns true if filename exists
  */
 int
-g_file_exists (char *filename)
+g_file_exists (const char *filename)
 {
 	struct stat s;
 	

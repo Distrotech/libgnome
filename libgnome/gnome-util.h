@@ -14,7 +14,7 @@ char *gnome_pixmap_file (char *filename);
 char *gnome_unconditional_libdir_file (char *filename);
 char *gnome_unconditional_datadir_file (char *filename);
 char *gnome_unconditional_pixmap_file (char *filename);
-int   g_file_exists (char *filename);
+int   g_file_exists (const char *filename);
 char *g_copy_strings (const char *first, ...);
 const char *g_unix_error_string (int error_num);
 
