@@ -160,7 +160,7 @@ create_gnome_storage_fs (GnomeObject *object)
 	POA_GNOME_Storage *servant;
 	CORBA_Object o;
 
-	servant = g_new0 (POA_GNOME_Storage, 1);
+	servant = (POA_GNOME_Storage *) g_new0 (GnomeObjectServant, 1);
 	servant->vepv = &gnome_storage_vepv;
 	POA_GNOME_Storage__init ((PortableServer_Servant) servant, &object->ev);
 	if (object->ev._major != CORBA_NO_EXCEPTION){

@@ -161,7 +161,7 @@ create_gnome_stream_fs (GnomeObject *object)
 	POA_GNOME_Stream *servant;
 	CORBA_Object o;
 
-	servant = g_new0 (POA_GNOME_Stream, 1);
+	servant = (POA_GNOME_Stream *) g_new0 (GnomeObjectServant, 1);
 	servant->vepv = &gnome_stream_vepv;
 	POA_GNOME_Stream__init ((PortableServer_Servant) servant, &object->ev);
 	if (object->ev._major != CORBA_NO_EXCEPTION){
