@@ -1,5 +1,11 @@
 2001-06-03  Martin Baulig  <baulig@suse.de>
 
+	* gnome-selector.c (PROP_CONFIG_MONIKER, PROP_BROWSE_DIALOG_MONIKER): New properties.
+	(gnome_selector_ensure_properties): New function. Sets default values for all
+	properties from the property bag.
+
+2001-06-03  Martin Baulig  <baulig@suse.de>
+
 	* gnome-selector.c (PROP_IS_FILE_SELECTOR): New tristate property.
 
 2001-06-02  Martin Baulig  <baulig@suse.de>
