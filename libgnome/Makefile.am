@@ -41,8 +41,7 @@ libgnome_la_SOURCES = \
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-paper.c		\
-	gnomelib-init.c         \
-	lib_date.c
+	gnomelib-init.c
 
 libgnomeinclude_HEADERS = \
         gnome-config.h 		\
@@ -65,8 +64,6 @@ libgnomeinclude_HEADERS = \
 	gnome-url.h		\
 	gnome-util.h   		\
 	gnome-paper.h		\
-	lib_date.h		\
-	lib_defs.h		\
 	libgnome.h
 
 noinst_HEADERS =				\
