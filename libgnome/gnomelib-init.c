@@ -84,6 +84,7 @@ static const struct poptOption gnomelib_options[] = {
   {"espeaker", '\0', POPT_ARG_STRING,
    &esound_host, 0, N_("Host:port on which the sound server to use is running"),
    N_("HOSTNAME:PORT")},
+  POPT_AUTOHELP
   {NULL, '\0', 0, NULL, 0}
 };
 
