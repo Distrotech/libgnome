@@ -23,7 +23,6 @@
 #include "libgnome/gnome-defs.h"
 #include "libgnome/gnome-config.h"
 #include "libgnome/gnome-dentry.h"
-#include "libgnome/gnome-dl.h"
 #include "libgnome/gnome-exec.h"
 #include "libgnome/gnome-help.h"
 #include "libgnome/gnome-hook.h"

@@ -24,7 +24,6 @@ INCLUDES = -I.. -I$(srcdir)/.. $(SUPPORTINCS) \
 libgnome_la_SOURCES = \
 	gnome-config.c		\
 	gnome-dentry.c          \
-	gnome-dl.c		\
 	gnome-exec.c		\
 	gnome-fileconvert.c	\
 	gnome-help.c		\
@@ -50,7 +49,6 @@ libgnomeinclude_HEADERS = \
 	gnome-defs.h   		\
 	gnome-fileconvert.h	\
 	gnome-hook.h   		\
-	gnome-dl.h		\
 	gnome-dentry.h 		\
 	gnome-exec.h		\
 	gnome-help.h		\
