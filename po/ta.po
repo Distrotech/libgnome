@@ -5,124 +5,139 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Tamil-libgnome2 1.96.0\n"
-"POT-Creation-Date: 2001-08-14 16:01+0200\n"
+"POT-Creation-Date: 2001-06-01 21:47+0200\n"
 "PO-Revision-Date: 2001-06-14 21:02-0500\n"
 "Last-Translator: Dinesh Nadarajah <n_dinesh@yahoo.com>\n"
 "Language-Team: Tamil\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-15\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: libgnome/gnome-exec.c:406
+#. FIXME: use GError
+#: libgnome/gnome-ditem.c:579
+msgid "Unknown desktop file"
+msgstr "¦¾Ã¢Â¡¾ ¸½¢-§Á¨ºì §¸¡ôÒ"
+
+#. we are not an application so just exit
+#. with an error
+#: libgnome/gnome-ditem.c:922
+msgid "Attempting to launch a non-application"
+msgstr "¦ºÂøÀÎò¾ ÓÊÂ¡¾ ¿¢Ã¨Ä ¦¾¡¼í¸ ÓÂüº¢ì¸¢ıÈĞ"
+
+#. FIXME: use GError
+#: libgnome/gnome-ditem.c:1051
+msgid "Trying to execute an item with no 'Exec'"
+msgstr "'Exec' `­øÄ¡¾ ´Õ ¯ÕôÀÊ¨Â ¦ºÂøÀÎò¾ ÓÂüº¢ì¸¢ıÈĞ"
+
+#: libgnome/gnome-ditem.c:1094 libgnome/gnome-ditem.c:1187
+msgid "No exec field for this drop"
+msgstr "­ó¾ ¯ÕôÀÊìÌ 'exec' ÀÌ¾¢ ¸¢¨¼Â¡Ğ"
+
+#: libgnome/gnome-ditem.c:1125
+msgid "Nothing to replace with a file in the exec string"
+msgstr "'exec' ºÃò¾¢ø, §¸¡ô¨À ¨ÅòĞ Á¡üÚÅ¾üÌ ´ñÚõ ¸¢¨¼Â¡Ğ"
+
+#: libgnome/gnome-ditem.c:1238
+msgid "There was no argument to replace with dropped files"
+msgstr "­Èì¸¢Â §¸¡ôÒ¸¨Ç ¨ÅòĞ Á¡üÚÅ¾üÌ Å¡¾õ ­Õì¸Å¢ø¨Ä"
+
+#: libgnome/gnome-ditem.c:1331
+msgid "Dropped URLs on an app that can only take files"
+msgstr "URL¸û ­Èì¸ôÀğ¼ ¿¢Ãø §¸¡ôÒ¸û ÁğÎ§Á ²üÌõ"
+
+#: libgnome/gnome-exec.c:392
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "Ó¨ÉÂõ ¸ñÎÀ¢Êì¸ ÓÊÂÅ¢ø¨Ä, ­Âì¸ ÓÊÂ¡Å¢ğ¼¡Öõ, xterm ÀÂıÀÎòĞõ"
 
-#: libgnome/gnome-url.c:131
+#: libgnome/gnome-moz-remote2.c:111
+msgid "Specify X display to use."
+msgstr "ÀÂıÀÎò¾§ÅñÊÂ X ¸¡ğº¢¨Â ÌÈ¢ôÀ¢¼×õ."
+
+#: libgnome/gnome-moz-remote2.c:112
+msgid "Put the X connection in synchronous mode."
+msgstr "X ¦¾¡Îô¨À ´ò¾¢Âì¸ Ó¨È¨ÁÂ¢ø §À¡¼×õ."
+
+#: libgnome/gnome-moz-remote2.c:113
+msgid "Specify the X window ID of Netscape."
+msgstr "¦¿ğŠ§¸ôÀ¢ı º¡ÇÃò¾¢ı «¨¼Â¡Çò¨¾ ÌÈ¢ôÀ¢¼×õ."
+
+#: libgnome/gnome-moz-remote2.c:115
+msgid "Don't raise the Netscape window."
+msgstr "¦¿ğŠ§¸ôÀ¢ı º¡ÇÃò¨¾ ¯Â÷ò¾ §Åñ¼¡õ."
+
+#: libgnome/gnome-moz-remote2.c:116
+msgid "Show the given URL in a new window."
+msgstr "ÌÈ¢ôÀ¢ğ¼ URL'¨Ä Ò¾¢Â º¡ÇÃò¾¢ø ¸¡ñÀ¢ì¸×õ."
+
+#: libgnome/gnome-moz-remote2.c:117
+msgid "Close the specified window."
+msgstr "ÌÈ¢ôÀ¢ğ¼ º¡ÇÃò¨¾ ã¼×õ."
+
+#: libgnome/gnome-moz-remote2.c:118
+msgid "Print the X window ID of the utilized window."
+msgstr "ÀÂıÀÎò¾ôÀğ¼ º¡ÇÃò¾¢ı X º¡ÇÃ «¨¼Â¡Çò¨¾ ¸¡ñÀ¢ì¸×õ."
+
+#: libgnome/gnome-url.c:122
 #, c-format
 msgid "Error parsing '%s' (empty result)"
 msgstr "'%s' «Ä¸¢Îõ§À¡Ğ À¢¨Æ (¦ÅüÈ¡É Å¢¨¼¸û)"
 
-#: libgnome/gnome-url.c:151
+#: libgnome/gnome-url.c:138
 #, c-format
 msgid "Mozilla not found as '%s'"
 msgstr "'%s'-¬¸ ¦Á¡º¢Ä¡¨Å ¸ñÎÀ¢Êì¸ ÓÊÂÅ¢ø¨Ä"
 
-#: libgnome/gnome-url.c:312 libgnome/gnome-url.c:316
+#: libgnome/gnome-url.c:296 libgnome/gnome-url.c:300
 #, c-format
 msgid "Cannot open a pipe: %s"
 msgstr "ÌÆ¡ö ´ı¨Èò ¾¢Èì¸ ÓÊÂÅ¢ø¨Ä: %s"
 
-#: libgnome/gnome-url.c:326 libgnome/gnome-url.c:384
+#: libgnome/gnome-url.c:310 libgnome/gnome-url.c:368
 #, c-format
 msgid "Cannot parse handler template: %s"
 msgstr ""
 
-#: libgnome/gnome-url.c:336 libgnome/gnome-url.c:340 libgnome/gnome-url.c:389
-#: libgnome/gnome-url.c:393
+#: libgnome/gnome-url.c:320 libgnome/gnome-url.c:324 libgnome/gnome-url.c:373
+#: libgnome/gnome-url.c:377
 #, c-format
 msgid "Cannot execute command '%s'!"
 msgstr "'%s' ¸ğ¼¨Ç¨Â ­Âì¸ ÓÊÂÅ¢ø¨Ä!"
 
-#: libgnome/gnome-url.c:372
+#: libgnome/gnome-url.c:356
 #, c-format
 msgid "Command '%s' did not return an ID!"
 msgstr "¸ğ¼¨Ç '%s' «¨¼Â¡Çõ ´ı¨Èò ¾¢ÕõÀ¢ò ¾ÃÅ¢ø¨Ä!"
 
-#: libgnome/gnome-init.c:92
-#, fuzzy
-msgid "Bonobo activation Support"
-msgstr "Bonobo ¬¾ÃÅÇ¢ôÒ"
+#: libgnome/libgnome-init.c:81
+msgid "GNOME OAF Support"
+msgstr "¸§É¡õ OAF ¬¾ÃÅÇ¢ôÒ"
 
-#: libgnome/gnome-init.c:379
+#: libgnome/libgnome-init.c:301
 msgid "Bonobo Support"
 msgstr "Bonobo ¬¾ÃÅÇ¢ôÒ"
 
-#: libgnome/gnome-init.c:436 libgnome/gnome-init.c:450
+#: libgnome/libgnome-init.c:358 libgnome/libgnome-init.c:372
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "´Õ-ÀÂÉ÷ôÀÊ ¸§É¡õ «¨Á-ÅÊÅ «¨¼× `%s': %s À¨¼ì¸ ÓÊÂÅ¢ø¨Ä\n"
 
-#: libgnome/gnome-init.c:459
+#: libgnome/libgnome-init.c:381
 #, c-format
 msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory `%"
-"s': %s\n"
+"Could not set mode 0700 on private per-user gnome configuration directory "
+"`%s': %s\n"
 msgstr ""
 
-#: libgnome/gnome-init.c:466
+#: libgnome/libgnome-init.c:388
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "¸§É¡õ ¬÷ÓÎ¸û «¨¼× `%s': %s À¨¼ì¸ ÓÊÂÅ¢ø¨Ä\n"
 
-#: libgnome/test-libgnome.c:22
+#: libgnome/test-libgnome.c:20
 msgid "Test option."
 msgstr "Å¢ÕôÀò¨¾ §º¡¾¨É ¦ºöÂ×õ."
 
-#: libgnome/test-libgnome.c:167
+#: libgnome/test-libgnome.c:153
 msgid "The Application Name"
 msgstr "¿¢ÃÄ¢ı ¦ÀÂ÷"
 
-#~ msgid "Unknown desktop file"
-#~ msgstr "¦¾Ã¢Â¡¾ ¸½¢-§Á¨ºì §¸¡ôÒ"
-
-#~ msgid "Attempting to launch a non-application"
-#~ msgstr "¦ºÂøÀÎò¾ ÓÊÂ¡¾ ¿¢Ã¨Ä ¦¾¡¼í¸ ÓÂüº¢ì¸¢ıÈĞ"
-
-#~ msgid "Trying to execute an item with no 'Exec'"
-#~ msgstr "'Exec' `­øÄ¡¾ ´Õ ¯ÕôÀÊ¨Â ¦ºÂøÀÎò¾ ÓÂüº¢ì¸¢ıÈĞ"
-
-#~ msgid "No exec field for this drop"
-#~ msgstr "­ó¾ ¯ÕôÀÊìÌ 'exec' ÀÌ¾¢ ¸¢¨¼Â¡Ğ"
-
-#~ msgid "Nothing to replace with a file in the exec string"
-#~ msgstr "'exec' ºÃò¾¢ø, §¸¡ô¨À ¨ÅòĞ Á¡üÚÅ¾üÌ ´ñÚõ ¸¢¨¼Â¡Ğ"
-
-#~ msgid "There was no argument to replace with dropped files"
-#~ msgstr "­Èì¸¢Â §¸¡ôÒ¸¨Ç ¨ÅòĞ Á¡üÚÅ¾üÌ Å¡¾õ ­Õì¸Å¢ø¨Ä"
-
-#~ msgid "Dropped URLs on an app that can only take files"
-#~ msgstr "URL¸û ­Èì¸ôÀğ¼ ¿¢Ãø §¸¡ôÒ¸û ÁğÎ§Á ²üÌõ"
-
-#~ msgid "Specify X display to use."
-#~ msgstr "ÀÂıÀÎò¾§ÅñÊÂ X ¸¡ğº¢¨Â ÌÈ¢ôÀ¢¼×õ."
-
-#~ msgid "Put the X connection in synchronous mode."
-#~ msgstr "X ¦¾¡Îô¨À ´ò¾¢Âì¸ Ó¨È¨ÁÂ¢ø §À¡¼×õ."
-
-#~ msgid "Specify the X window ID of Netscape."
-#~ msgstr "¦¿ğŠ§¸ôÀ¢ı º¡ÇÃò¾¢ı «¨¼Â¡Çò¨¾ ÌÈ¢ôÀ¢¼×õ."
-
-#~ msgid "Don't raise the Netscape window."
-#~ msgstr "¦¿ğŠ§¸ôÀ¢ı º¡ÇÃò¨¾ ¯Â÷ò¾ §Åñ¼¡õ."
-
-#~ msgid "Show the given URL in a new window."
-#~ msgstr "ÌÈ¢ôÀ¢ğ¼ URL'¨Ä Ò¾¢Â º¡ÇÃò¾¢ø ¸¡ñÀ¢ì¸×õ."
-
-#~ msgid "Close the specified window."
-#~ msgstr "ÌÈ¢ôÀ¢ğ¼ º¡ÇÃò¨¾ ã¼×õ."
-
-#~ msgid "Print the X window ID of the utilized window."
-#~ msgstr "ÀÂıÀÎò¾ôÀğ¼ º¡ÇÃò¾¢ı X º¡ÇÃ «¨¼Â¡Çò¨¾ ¸¡ñÀ¢ì¸×õ."
-
-#~ msgid "GNOME OAF Support"
-#~ msgstr "¸§É¡õ OAF ¬¾ÃÅÇ¢ôÒ"
