@@ -599,13 +599,17 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		g_free ((char *) argv);
 	}
 
-	xalf = gnome_is_program_in_path ("xalf");
-	if (xalf && getenv ("GNOME_USE_XALF")) {
-		uargv[0] = xalf;
-		uargv[1] = "-i";
-		uargv[2] = "--title";
-		uargv[3] = item->name;
-		uargs=8;
+
+	if (getenv ("GNOME_USE_XALF")) {
+		xalf = gnome_is_program_in_path ("xalf");
+
+		if (xalf) {
+			uargv[0] = xalf;
+			uargv[1] = "-i";
+			uargv[2] = "--title";
+			uargv[3] = item->name;
+			uargs = 8;
+		}
 	}
 	
 	uargv[uargs-4] = "/bin/sh";
