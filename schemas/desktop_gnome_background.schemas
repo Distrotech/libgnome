@@ -1,21 +1,9 @@
 <gconfschemafile>
     <schemalist>
       <schema>
-        <key>/schemas/desktop/gnome/background/background_properties_test</key>
-        <applyto>/desktop/gnome/background/background_properties_test</applyto>
-        <owner>background-properties</owner>
-        <type>string</type>
-        <default>test</default>
-        <locale name="C">
-        <short>Test value to make sure gconf is set up properly</short>
-        <long>Test value to make sure gconf is set up properly.  Can be 
-        safely ignored.</long>
-        </locale>
-      </schema>
-      <schema>
         <key>/schemas/desktop/gnome/background/enabled</key>
         <applyto>/desktop/gnome/background/enabled</applyto>
-        <owner>background-properties</owner>
+        <owner>gnome</owner>
         <type>bool</type>
         <default>true</default>
         <locale name="C">
@@ -24,42 +12,43 @@
         </locale>
       </schema>
       <schema>
-        <key>/schemas/desktop/gnome/background/wallpaper-enabled</key>
-        <applyto>/desktop/gnome/background/wallpaper-enabled</applyto>
-        <owner>background-properties</owner>
+        <key>/schemas/desktop/gnome/background/wallpaper_enabled</key>
+        <applyto>/desktop/gnome/background/wallpaper_enabled</applyto>
+        <owner>gnome</owner>
         <type>bool</type>
-        <default>true</default>
+        <default>false</default>
         <locale name="C">
         <short></short>
         <long></long>
         </locale>
       </schema>
       <schema>
-        <key>/schemas/desktop/gnome/background/wallpaper-type</key>
-        <applyto>/desktop/gnome/background/wallpaper-type</applyto>
-        <owner>background-properties</owner>
-        <type>int</type>
-        <default>1</default>
-        <locale name="C">
-        <short></short>
-        <long></long>
-        </locale>
-      </schema>
-      <schema>
-        <key>/schemas/desktop/gnome/background/wallpaper-filename</key>
-        <applyto>/desktop/gnome/background/wallpaper-filename</applyto>
-        <owner>background-properties</owner>
+        <key>/schemas/desktop/gnome/background/wallpaper_type</key>
+        <applyto>/desktop/gnome/background/wallpaper_type</applyto>
+        <owner>gnome</owner>
         <type>string</type>
-        <default>/home/hovinen/archive/XIMIAN-TranslucentWaves_1600x1200.png</default>
+        <default>scaled</default>
+        <locale name="C">
+        <short></short>
+        <long>Determines how the image set by wallpaper_filename is
+    rendered.  Possible values are "tiled", "centered", "scaled",
+    "stretched", "embossed".</long> 
+        </locale>
+      </schema>
+      <schema>
+        <key>/schemas/desktop/gnome/background/wallpaper_filename</key>
+        <applyto>/desktop/gnome/background/wallpaper_filename</applyto>
+        <owner>gnome</owner>
+        <type>string</type>
         <locale name="C">
         <short></short>
         <long></long>
         </locale>
       </schema>
       <schema>
-        <key>/schemas/desktop/gnome/background/color1</key>
-        <applyto>/desktop/gnome/background/color1</applyto>
-        <owner>background-properties</owner>
+        <key>/schemas/desktop/gnome/background/primary_color</key>
+        <applyto>/desktop/gnome/background/primary_color</applyto>
+        <owner>gnome</owner>
         <type>string</type>
         <default>#39374b</default>
         <locale name="C">
@@ -68,9 +57,9 @@
         </locale>
       </schema>
       <schema>
-        <key>/schemas/desktop/gnome/background/color2</key>
-        <applyto>/desktop/gnome/background/color2</applyto>
-        <owner>background-properties</owner>
+        <key>/schemas/desktop/gnome/background/secondary_color</key>
+        <applyto>/desktop/gnome/background/secondary_color</applyto>
+        <owner>gnome</owner>
         <type>string</type>
         <default>#42528f</default>
         <locale name="C">
@@ -79,25 +68,14 @@
         </locale>
       </schema>
       <schema>
-        <key>/schemas/desktop/gnome/background/opacity</key>
-        <applyto>/desktop/gnome/background/opacity</applyto>
-        <owner>background-properties</owner>
-        <type>int</type>
-        <default>100</default>
-        <locale name="C">
-        <short></short>
-        <long></long>
-        </locale>
-      </schema>
-      <schema>
         <key>/schemas/desktop/gnome/background/orientation</key>
         <applyto>/desktop/gnome/background/orientation</applyto>
-        <owner>background-properties</owner>
-        <type>int</type>
-        <default>0</default>
+        <owner>gnome</owner>
+        <type>string</type>
+        <default>vertical</default>
         <locale name="C">
-        <short></short>
-        <long></long>
+        <short>The </short>
+        <long>Possible values are "horizontal", "vertical", and "solid"</long>
         </locale>
       </schema>
     </schemalist>
