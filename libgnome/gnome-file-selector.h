@@ -35,7 +35,10 @@
 
 #include <gtk/gtkvbox.h>
 #include <libgnome/gnome-defs.h>
-#include "gnome-selector.h"
+#include "gnome-entry.h"
+
+#include <libgnomevfs/gnome-vfs-types.h>
+#include <libgnomevfs/gnome-vfs-directory-filter.h>
 
 
 BEGIN_GNOME_DECLS
@@ -54,31 +57,31 @@ typedef struct _GnomeFileSelectorPrivate  GnomeFileSelectorPrivate;
 typedef struct _GnomeFileSelectorClass    GnomeFileSelectorClass;
 
 struct _GnomeFileSelector {
-        GnomeSelector selector;
+        GnomeEntry entry;
         
         /*< private >*/
         GnomeFileSelectorPrivate *_priv;
 };
 
 struct _GnomeFileSelectorClass {
-        GnomeSelectorClass parent_class;
+        GnomeEntryClass parent_class;
 };
 
 
-guint        gnome_file_selector_get_type    (void) G_GNUC_CONST;
+guint      gnome_file_selector_get_type      (void) G_GNUC_CONST;
 
-GtkWidget   *gnome_file_selector_new         (const gchar *history_id,
+GtkWidget *gnome_file_selector_new           (const gchar *history_id,
                                               const gchar *dialog_title,
-					      guint32 flags);
+                                              guint32 flags);
 
-GtkWidget   *gnome_file_selector_new_custom  (const gchar *history_id,
+GtkWidget *gnome_file_selector_new_custom    (const gchar *history_id,
                                               const gchar *dialog_title,
                                               GtkWidget *entry_widget,
                                               GtkWidget *selector_widget,
                                               GtkWidget *browse_dialog,
                                               guint32 flags);
 
-void         gnome_file_selector_construct   (GnomeFileSelector *selector,
+void       gnome_file_selector_construct     (GnomeFileSelector *fselector,
                                               const gchar *history_id,
                                               const gchar *dialog_title,
                                               GtkWidget *entry_widget,
@@ -86,6 +89,10 @@ void         gnome_file_selector_construct   (GnomeFileSelector *selector,
                                               GtkWidget *browse_dialog,
                                               guint32 flags);
 
+void       gnome_file_selector_set_filter    (GnomeFileSelector *fselector,
+                                              GnomeVFSDirectoryFilter *filter);
+
+void       gnome_file_selector_clear_filter  (GnomeFileSelector *fselector);
 
 END_GNOME_DECLS
 
