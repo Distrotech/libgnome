@@ -250,7 +250,7 @@ gnome_gconf_gtk_range_set (GtkRange       *range,
 			   GConfValue     *value)
 {
 	GtkAdjustment *adjustment;
-	gdouble f;
+	gdouble f = 0.0;
 
 	g_return_if_fail (range != NULL);
 	g_return_if_fail (GTK_IS_RANGE (range));
