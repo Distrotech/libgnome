@@ -17,7 +17,7 @@ release_path (ParsedPath *p)
 }
 
 static ParsedPath *
-parse_path (const char *path, gint priv)
+parse_path (const char *path, gboolean priv)
 {
 	ParsedPath *p = g_malloc (sizeof (ParsedPath));
 

@@ -71,23 +71,23 @@ BEGIN_GNOME_DECLS
 /*use the wrappers below*/
 char *_gnome_config_get_string_with_default    (const char *path,
 					        gboolean *def,
-						gint priv);
+						gboolean priv);
 char *_gnome_config_get_translated_string_with_default(const char *path,
 						       gboolean *def,
-						       gint priv);
+						       gboolean priv);
 gint  _gnome_config_get_int_with_default       (const char *path,
 					        gboolean *def,
-						gint priv);
+						gboolean priv);
 gdouble  _gnome_config_get_float_with_default  (const char *path,
 					        gboolean *def,
-						gint priv);
+						gboolean priv);
 gboolean _gnome_config_get_bool_with_default   (const char *path,
 					        gboolean *def,
-					        gint priv);
+					        gboolean priv);
 void _gnome_config_get_vector_with_default     (const char *path, gint *argcp,
 					        char ***argvp,
 					        gboolean *def,
-					        gint priv);
+					        gboolean priv);
 
 /*these just call the above functions, but devide them into two groups,
   in the future these may be different functions, so use these defines*/
@@ -155,19 +155,19 @@ void _gnome_config_get_vector_with_default     (const char *path, gint *argcp,
 
 /* Set a config variable.  Use the warppers below*/
 void _gnome_config_set_string     (const char *path, const char *value,
-				   gint priv);
+				   gboolean priv);
 void _gnome_config_set_translated_string (const char *path, const char *value,
-					  gint priv);
+					  gboolean priv);
 void _gnome_config_set_int        (const char *path, int value,
-				   gint priv);
+				   gboolean priv);
 void _gnome_config_set_float        (const char *path, gdouble value,
-				     gint priv);
+				     gboolean priv);
 void _gnome_config_set_bool       (const char *path, gboolean value,
-				   gint priv);
+				   gboolean priv);
 void _gnome_config_set_vector     (const char *path,
 				   int argc,
 				   const char * const argv[],
-				   gint priv);
+				   gboolean priv);
 
 
 /* normal functions */
@@ -199,21 +199,21 @@ void _gnome_config_set_vector     (const char *path,
 	(_gnome_config_set_vector((path),(argc),(argv),TRUE))
 
 /* Returns true if /path/section is defined */
-gboolean  _gnome_config_has_section    (const char *path, gint priv);
+gboolean  _gnome_config_has_section    (const char *path, gboolean priv);
 #define gnome_config_has_section(path) \
 	(_gnome_config_has_section((path),FALSE))
 #define gnome_config_private_has_section(path) \
 	(_gnome_config_has_section((path),TRUE))
 
 /* Returns a pointer for iterating on /file/section contents */
-void *_gnome_config_init_iterator (const char *path, gint priv);
+void *_gnome_config_init_iterator (const char *path, gboolean priv);
 #define gnome_config_init_iterator(path) \
 	(_gnome_config_init_iterator((path),FALSE))
 #define gnome_config_private_init_iterator(path) \
 	(_gnome_config_init_iterator((path),TRUE))
 
 /* Returns a pointer for iterating on /file contents */
-void *_gnome_config_init_iterator_sections (const char *path, gint priv);
+void *_gnome_config_init_iterator_sections (const char *path, gboolean priv);
 #define gnome_config_init_iterator_sections(path) \
 	(_gnome_config_init_iterator_sections((path),FALSE))
 #define gnome_config_private_init_iterator_sections(path) \
@@ -224,10 +224,10 @@ void *gnome_config_iterator_next (void *iterator_handle, char **key, char **valu
 
 void gnome_config_drop_all       (void);
 
-void gnome_config_sync           (void);
+gboolean gnome_config_sync       (void);
 
 /* sync's data for one file only */
-void _gnome_config_sync_file      (char *path, int priv);
+gboolean _gnome_config_sync_file (char *path, gboolean priv);
 #define gnome_config_sync_file(path) \
 	(_gnome_config_sync_file((path),FALSE))
 #define gnome_config_private_sync_file(path) \
@@ -235,7 +235,7 @@ void _gnome_config_sync_file      (char *path, int priv);
 
 /* This routine drops the information about /file, meaning changes
    done to this file will be dropped, it will no delete the file */
-void _gnome_config_drop_file     (const char *path, gint priv);
+void _gnome_config_drop_file     (const char *path, gboolean priv);
 #define gnome_config_drop_file(path) \
 	(_gnome_config_drop_file((path),FALSE))
 #define gnome_config_private_drop_file(path) \
@@ -243,7 +243,7 @@ void _gnome_config_drop_file     (const char *path, gint priv);
 
 /* This routine actually removes /file on sync (not right away, you
    can still save it by dropping it)*/
-void _gnome_config_clean_file     (const char *path, gint priv);
+void _gnome_config_clean_file     (const char *path, gboolean priv);
 #define gnome_config_clean_file(path) \
 	(_gnome_config_clean_file((path),FALSE))
 #define gnome_config_private_clean_file(path) \
@@ -251,7 +251,7 @@ void _gnome_config_clean_file     (const char *path, gint priv);
 
 /* This routine drops all of the information related to /file/section 
    this will actually remove the section */
-void _gnome_config_clean_section  (const char *path, gint priv);
+void _gnome_config_clean_section  (const char *path, gboolean priv);
 #define gnome_config_clean_section(path) \
 	(_gnome_config_clean_section((path),FALSE))
 #define gnome_config_private_clean_section(path) \
@@ -259,7 +259,7 @@ void _gnome_config_clean_section  (const char *path, gint priv);
 
 /* Drops the information for a specific key, this will actually remove
    the key */
-void _gnome_config_clean_key (const char *path, gint priv);
+void _gnome_config_clean_key (const char *path, gboolean priv);
 #define gnome_config_clean_key(path) \
 	(_gnome_config_clean_key((path),FALSE))
 #define gnome_config_private_clean_key(path) \

@@ -134,7 +134,7 @@ static TProfile *Base = 0;
    } ParsedPath;
 
    static void release_path (ParsedPath *p);
-   static ParsedPath *parse_path (const char *path, gint priv); */
+   static ParsedPath *parse_path (const char *path, gboolean priv); */
 #include "parse-path.cP"
 
 static void 
@@ -726,23 +726,25 @@ check_path(char *path, mode_t newmode)
 
 
 
-static void 
-dump_profile (TProfile *p, int one_only)
+static gboolean 
+dump_profile (TProfile *p, gboolean one_only)
 {
+	gboolean ret = TRUE;
 	FILE *profile;
     
 	if (!p)
-		return;
-	if(!one_only)
-		dump_profile (p->link,FALSE);
+		return ret;
+	if(!one_only) {
+		if(!dump_profile (p->link, FALSE))
+			ret = FALSE;
+	}
 	
 	/*
 	 * was this profile written to?, if not it's not necessary to dump
 	 * it to disk
 	 */
 	if (!p->to_be_deleted && !p->written_to)
-		return;
-	
+		return ret;
 
 	/* .ado: p->filename can be empty, it's better to jump over */
 	if (p->filename[0] != '\0') {
@@ -768,11 +770,16 @@ dump_profile (TProfile *p, int one_only)
 		    (profile = fopen (p->filename, "w")) != NULL){
 			dump_sections (profile, p->section);
 			fclose (profile);
+		} else {
+			/* we failed at actually writing to the file */
+			ret = FALSE;
 		}
 	}
 	
 	/*mark this to not be dumped any more*/
 	p->written_to = FALSE;
+
+	return ret;
 }
 
 /**
@@ -783,12 +790,17 @@ dump_profile (TProfile *p, int one_only)
  *
  * Note: the gnome_config code does not write anything to the
  * configuration files until this routine is actually invoked.
+ *
+ * Returns: %TRUE if everything went well.  %FALSE if any file
+ * could not be written to disk.
  */
-void 
+gboolean 
 gnome_config_sync (void)
 {
-	dump_profile (Base,FALSE);
+	gboolean ret;
+	ret = dump_profile (Base, FALSE);
 	gnome_config_drop_all();
+	return ret;
 }
 
 /**
@@ -812,16 +824,21 @@ gnome_config_sync (void)
  * Note: the gnome_config code does not write anything to the
  * configuration files until this routine or gnome_config_sync 
  * is actually invoked.
+ *
+ * Returns: %TRUE if everything went well, %FALSE if the file
+ * could not be written to for some reason.  %FALSE is only returned
+ * when a write was actually attempted and failed.
  */
-void 
-_gnome_config_sync_file (char *path, int priv)
+gboolean 
+_gnome_config_sync_file (char *path, gboolean priv)
 {
+	gboolean ret = TRUE;
 	TProfile *p;
 	ParsedPath *pp;
 	char *fake_path;
 	
 	if (!path)
-		return;
+		return ret;
 
 	fake_path = g_concat_dir_and_file (path, "section/key");
 	pp = parse_path (fake_path, priv);
@@ -832,11 +849,14 @@ _gnome_config_sync_file (char *path, int priv)
 			continue;
 		if(!p->written_to)
 			break;
-		dump_profile (p,TRUE);
+		if(!dump_profile (p, TRUE))
+			ret = FALSE;
 		gnome_config_drop_file(path);
 		break;
 	}
 	release_path (pp);
+
+	return ret;
 }
 
 /**
@@ -858,7 +878,7 @@ _gnome_config_sync_file (char *path, int priv)
  * Changes will take place after #gnome_config_sync has been invoked.
  */
 void 
-_gnome_config_clean_file (const char *path, gint priv)
+_gnome_config_clean_file (const char *path, gboolean priv)
 {
 	TProfile *p;
 	ParsedPath *pp;
@@ -903,7 +923,7 @@ _gnome_config_clean_file (const char *path, gint priv)
  * private configuration file in @path.
  */
 void 
-_gnome_config_drop_file (const char *path, gint priv)
+_gnome_config_drop_file (const char *path, gboolean priv)
 {
 	TProfile *p;
 	TProfile *last;
@@ -960,7 +980,7 @@ _gnome_config_drop_file (const char *path, gint priv)
  * Returns the iterator handle.
  */
 void *
-_gnome_config_init_iterator (const char *path, gint priv)
+_gnome_config_init_iterator (const char *path, gboolean priv)
 {
 	TProfile   *New;
 	TSecHeader *section;
@@ -1029,7 +1049,7 @@ _gnome_config_init_iterator (const char *path, gint priv)
  * Returns the iterator handle.
  */
 void *
-_gnome_config_init_iterator_sections (const char *path, gint priv)
+_gnome_config_init_iterator_sections (const char *path, gboolean priv)
 {
 	TProfile   *New;
 	TSecHeader *section;
@@ -1143,7 +1163,7 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
  * #gnome_config_sync has been invoked.
  */
 void 
-_gnome_config_clean_section (const char *path, gint priv)
+_gnome_config_clean_section (const char *path, gboolean priv)
 {
 	TProfile   *New;
 	TSecHeader *section;
@@ -1202,7 +1222,7 @@ _gnome_config_clean_section (const char *path, gint priv)
  * Changes will take place after #gnome_config_sync has been invoked.
  */
 void 
-_gnome_config_clean_key (const char *path, gint priv)
+_gnome_config_clean_key (const char *path, gboolean priv)
 	/* *section_name, char *file */
 {
 	TProfile   *New;
@@ -1262,7 +1282,7 @@ _gnome_config_clean_key (const char *path, gint priv)
  * Returns TRUE if the section exists.  FALSE otherwise.
  */
 gboolean 
-_gnome_config_has_section (const char *path, gint priv)
+_gnome_config_has_section (const char *path, gboolean priv)
 	/* char *section_name, char *profile */
 {
 	TProfile   *New;
@@ -1348,7 +1368,7 @@ gnome_config_drop_all (void)
  * The item is retrieved from the user's private configuration storage area.
  */
 gint
-_gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
+_gnome_config_get_int_with_default (const char *path, gboolean *def, gboolean priv)
 {
 	ParsedPath *pp;
 	const char *r;
@@ -1406,7 +1426,7 @@ _gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
  * The item is retrieved from the user's private configuration storage area.
  */
 gdouble
-_gnome_config_get_float_with_default (const char *path, gboolean *def, gint priv)
+_gnome_config_get_float_with_default (const char *path, gboolean *def, gboolean priv)
 {
 	ParsedPath *pp;
 	const char *r;
@@ -1469,7 +1489,7 @@ _gnome_config_get_float_with_default (const char *path, gboolean *def, gint priv
 char *
 _gnome_config_get_translated_string_with_default (const char *path,
 						  gboolean *def,
-						  gint priv)
+						  gboolean priv)
 {
 	GList *language_list;
 
@@ -1564,7 +1584,7 @@ _gnome_config_get_translated_string_with_default (const char *path,
  */
 char *
 _gnome_config_get_string_with_default (const char *path, gboolean *def,
-				       gint priv)
+				       gboolean priv)
 {
 	ParsedPath *pp;
 	const char *r;
@@ -1615,7 +1635,7 @@ _gnome_config_get_string_with_default (const char *path, gboolean *def,
  */
 gboolean
 _gnome_config_get_bool_with_default (const char *path, gboolean *def,
-				     gint priv)
+				     gboolean priv)
 {
 	ParsedPath *pp;
 	const char *r;
@@ -1766,7 +1786,7 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
  */
 void
 _gnome_config_get_vector_with_default (const char *path, int *argcp,
-				       char ***argvp, gboolean *def, gint priv)
+				       char ***argvp, gboolean *def, gboolean priv)
 {
 	ParsedPath *pp;
 	const char *rr;
@@ -1798,7 +1818,7 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
  */
 void
 _gnome_config_set_translated_string (const char *path, const char *value,
-				     gint priv)
+				     gboolean priv)
 {
 	GList *language_list;
 	const char *lang;
@@ -1825,7 +1845,7 @@ _gnome_config_set_translated_string (const char *path, const char *value,
  * defined by the @path
  */
 void
-_gnome_config_set_string (const char *path, const char *new_value, gint priv)
+_gnome_config_set_string (const char *path, const char *new_value, gboolean priv)
 {
 	ParsedPath *pp;
 	const char *r;
@@ -1845,7 +1865,7 @@ _gnome_config_set_string (const char *path, const char *new_value, gint priv)
  * defined by the @path
  */
 void
-_gnome_config_set_int (const char *path, int new_value, gint priv)
+_gnome_config_set_int (const char *path, int new_value, gboolean priv)
 {
 	ParsedPath *pp;
 	char intbuf [40];
@@ -1867,7 +1887,7 @@ _gnome_config_set_int (const char *path, int new_value, gint priv)
  * defined by the @path
  */
 void
-_gnome_config_set_float (const char *path, gdouble new_value, gint priv)
+_gnome_config_set_float (const char *path, gdouble new_value, gboolean priv)
 {
 	ParsedPath *pp;
 	char floatbuf [40];
@@ -1889,7 +1909,7 @@ _gnome_config_set_float (const char *path, gdouble new_value, gint priv)
  * @path.
  */
 void
-_gnome_config_set_bool (const char *path, gboolean new_value, gint priv)
+_gnome_config_set_bool (const char *path, gboolean new_value, gboolean priv)
 {
 	ParsedPath *pp;
 	const char *r;
@@ -1951,7 +1971,7 @@ gnome_config_assemble_vector (int argc, const char *const argv [])
 void
 _gnome_config_set_vector (const char *path, int argc,
 			  const char *const argv[],
-			  gint priv)
+			  gboolean priv)
 {
 	ParsedPath *pp;
 	char *s;

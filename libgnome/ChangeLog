@@ -1,3 +1,12 @@
+Sun Mar 26 13:31:28 2000  George Lebl <jirka@5z.com>
+
+	* gnome-config.[ch],parse-path.cP: return TRUE/FALSE from the sync
+	  functions indicating an error in writing to a file, and do
+	  s/gint/gboolean/ a bit
+
+	* gnome-ditem.[ch]: return TRUE/FALSE from the _save function to
+	  indicate an error in saving
+
 Mon Mar 20 21:10:53 2000  George Lebl <jirka@5z.com>
 
 	* gnome-ditem.c: if no "C" locale setting found for name, set it
