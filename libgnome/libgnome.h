@@ -14,7 +14,8 @@
 
 extern char *gnome_user_home_dir;
 extern char *gnome_user_dir;
+extern char *gnome_app_id;
 
-void gnomelib_init (int *argc, char ***argv);
+void gnomelib_init (char *app_id, int *argc, char ***argv);
 
 #endif

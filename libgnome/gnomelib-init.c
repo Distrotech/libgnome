@@ -15,13 +15,15 @@
 
 char *gnome_user_home_dir = 0;
 char *gnome_user_dir = 0;
+char *gnome_app_id = 0;
 
 void
-gnomelib_init (int *argc, char ***argv)
+gnomelib_init (char *app_id, int *argc, char ***argv)
 {
 	gnome_user_home_dir = getenv ("HOME");
-	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome");
+	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome"); /* FIXME: never freed */
 	mkdir (gnome_user_dir, 0755);
+	gnome_app_id = app_id;
 
 	setlocale (LC_ALL, "");
 	bindtextdomain (PACKAGE, GNOMELOCALEDIR);
