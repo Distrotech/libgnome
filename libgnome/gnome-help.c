@@ -16,7 +16,8 @@
 gchar *gnome_help_file_path(gchar *app, gchar *path)
 {
     GString *buf;
-    gchar *lang, *res;
+    const gchar *lang;
+    gchar *res;
 
     lang = gnome_i18n_get_language();
     if(!lang)
