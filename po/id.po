@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-22 01:50+0100\n"
+"POT-Creation-Date: 2004-04-06 15:28+0700\n"
 "PO-Revision-Date: 2003-06-12 14:46+0700\n"
 "Last-Translator: Mohammad DAMT <mdamt@bisnisweb.com>\n"
 "Language-Team: Indonesia <id@li.org>\n"
@@ -16,56 +16,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
-#, fuzzy
 msgid "Error message"
 msgstr "Pesan Error"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
-#, fuzzy
 msgid "Informational message"
 msgstr "Pesan Informasi"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
-#, fuzzy
 msgid "Log in"
 msgstr "Login"
 
 #: gnome-data/gnome-2.soundlist.in.h:4
-#, fuzzy
 msgid "Log out"
 msgstr "Logout"
 
 #: gnome-data/gnome-2.soundlist.in.h:5
-#, fuzzy
 msgid "Miscellaneous message"
-msgstr "Pesan lain-lain"
+msgstr "Pesan lainnya"
 
 #: gnome-data/gnome-2.soundlist.in.h:6
-#, fuzzy
 msgid "Question dialog"
 msgstr "Dialog Pertanyaan"
 
 #: gnome-data/gnome-2.soundlist.in.h:7
-#, fuzzy
 msgid "System events"
 msgstr "Kejadian sistem GNOME"
 
 #: gnome-data/gnome-2.soundlist.in.h:8
-#, fuzzy
 msgid "Warning message"
 msgstr "Dialog Peringatan"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
-msgstr ""
+msgstr "Pilih item menu"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Click on command button"
-msgstr ""
+msgstr "Klik pada tombol perintah"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Select check box"
-msgstr ""
+msgstr "Pilih kotak centang"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -74,8 +66,8 @@ msgstr "kejadian user interface"
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
-"Tidak dapat menemukan terminal, sekarang menggunakan xterm, mungkin tidak "
-"berhasil juga"
+"Terminal tidak ditemukan, sekarang mencoba mencari xterm walau mungkin juga "
+"tidak akan berhasil"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
@@ -95,8 +87,8 @@ msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
-"Tidak dapat menyajikan layar bantu karena %s bukanlah direktori. "
-"Silakanperiksa instalasinya sudah benar atau belum."
+"Tidak dapat menyajikan layar bantu karena %s bukanlah direktori. Silakan "
+"periksa instalasinya sudah benar atau belum."
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, c-format
@@ -523,7 +515,7 @@ msgstr "Daftar nama area kerja pada manajer window pertama."
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
-msgstr "Kembalikan manajer window"
+msgstr "Kembali ke manajer window awal"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
@@ -561,8 +553,7 @@ msgid ""
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
 "Menentukan bagaimana cara gambar diset sebagai walpaper. Cara-cara tersebut "
-"alah \"tidak ada\", \"wallpaper\", \"tengah-tengah\", \"diperbesar/kecil\", "
-"\"direntangkan\"."
+"adlah \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -582,7 +573,7 @@ msgid ""
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
 "Menentukan bagaimana cara menggambar warna latar belakang. Cara yang "
-"digunaakan yaitu \"gradien-horizontal\", \"gradien-vertikal\", dan \"padat\""
+"digunakan yaitu \"horizontal-gradient\", \"vertical-gradient\", dan \"solid\""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -600,7 +591,7 @@ msgstr "Nama file Gambar"
 
 #: schemas/desktop_gnome_background.schemas.in.h:10
 msgid "Picture Opacity"
-msgstr "Derajat transparansi gambar"
+msgstr "Tingkat transparansi gambar"
 
 #: schemas/desktop_gnome_background.schemas.in.h:11
 msgid "Picture Options"
@@ -634,7 +625,7 @@ msgstr "Nama dasar tematik yang digunakan oleh gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
-msgstr "Dapat menggantik akselerator"
+msgstr "Dapat mengganti akselerator"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
@@ -694,22 +685,26 @@ msgstr "Menu bisa dilepas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Module for GtkFileChooser"
-msgstr ""
+msgstr "Modul untuk GtkFileChooser"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
+"Modul yang digunakan sebagai model sistem file untuk widget GtkFileChooser. "
+"Bisa diset dengan \"gnome-vfs\" dan \"gtk+\"."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Monospace font"
-msgstr ""
+msgstr "Huruf monospace"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
+"Nama huruf monospace (dengan lebar tetap) yang akan digunakan oleh program-"
+"program semacam terminal."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -810,19 +805,19 @@ msgstr ""
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
-msgstr ""
+msgstr "Matikan baris perintah"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable print setup"
-msgstr ""
+msgstr "Matikan setup cetakan"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable printing"
-msgstr ""
+msgstr "Matikan fasilitas cetak"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable saving files to disk"
-msgstr ""
+msgstr "Matikan fasilitas penyimpanan file ke disk"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid ""
@@ -830,24 +825,32 @@ msgid ""
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
 msgstr ""
+"Mencegah pemakai untuk mengakses terminal atau menjalankan program. Ini juga "
+"akan mematikan fasilitas \"Jalankan Aplikasi\" pada panel."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all application's \"Print Setup\" dialogs."
 msgstr ""
+"Mencegah pemakai untuk mengganti konfigurasi cetakan. Hal ini akan mematikan "
+"akses ke semua dialog \"Setup Cetakan\"."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all application's \"Print\" dialogs."
 msgstr ""
+"Mencegah pemakai untuk mencetak. Ini akan mematikan semua menu ke dialog "
+"\"Cetak\"."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all application's \"Save as\" dialogs."
 msgstr ""
+"Mencegah pemakai untuk menyimpan file ke disk. Ini juga akan mematikan semua "
+"menu \"Simpan dengan nama lain\"."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -1027,94 +1030,3 @@ msgstr "Menentukan apakah penguncian keyboard dilakukan."
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Menentukan apakah jeda pengetikan dapat ditunda"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL Ghelp"
-
-#, fuzzy
-#~ msgid "How to handle http URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL Ghelp"
-
-#, fuzzy
-#~ msgid "How to handle https URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL Ghelp"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL info"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL man"
-
-#~ msgid "How to handle trash URLs"
-#~ msgstr "Bagaimana untuk menampilkan URL keranjang sampah"
-
-#~ msgid "Run program in terminal"
-#~ msgstr "Jalankan program dalam terminal"
-
-#, fuzzy
-#~ msgid "Set to true to have a program specified in command handle http URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "keranjang sampah"
-
-#, fuzzy
-#~ msgid "Set to true to have a program specified in command handle https URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "keranjang sampah"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "ghelp"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL info"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL man"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in trash/command handle trash URLs"
-#~ msgstr ""
-#~ "Set untuk mengaktikfkan program yang ditentukan untuk menampilkan URL "
-#~ "keranjang sampah"
-
-#~ msgid "True if the program to handle this URL should be run in a terminal"
-#~ msgstr ""
-#~ "Bernilai benar bila program yang menampilkan URL dijalankan dalam terminal"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Penampil URL untuk halaman ghelp"
-
-#, fuzzy
-#~ msgid "URL handler for http uris"
-#~ msgstr "Penampil URL untuk halaman ghelp"
-
-#, fuzzy
-#~ msgid "URL handler for https uris"
-#~ msgstr "Penampil URL untuk halaman ghelp"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Penampil URL untuk halaman info"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Penampil URL untuk halaman man"
-
-#~ msgid "URL handler for trash pages"
-#~ msgstr "Penampil URL untuk halaman keranjang-sampah"
-
-#~ msgid "Action button click"
-#~ msgstr "klik tombol Aksi"
-
-#~ msgid "Check box toggled"
-#~ msgstr "Tombol togel check box"
-
-#~ msgid "Menu item activation"
-#~ msgstr "Aktivasi item menu"
