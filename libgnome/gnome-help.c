@@ -1,3 +1,8 @@
+/*
+ * gnome-help: provides localized access to help files and help file display
+ * services.
+ *
+ */
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -22,98 +27,125 @@
 
 #define HELP_PROG "gnome-help-browser"
 
-/* I added this because I didnt want to break all apps using 
+/**
+ * gnome_help_file_find_file:
+ * @app: Name of this application
+ * @path: File that contains the help document
+ *
+ * Returns a fully resolved file name for path.  Use needs to g_fee the path when
+ * done.  It looks in LANG, then unser C if LANG is not set
+ *
+ * I added this because I didnt want to break all apps using 
  * gnome_help_file_path() currently. We need a good solution (if this isnt it)
  * to handle case where locale file didnt exist
  */
-gchar *gnome_help_file_find_file (gchar *app, gchar *path)
+gchar *
+gnome_help_file_find_file (gchar *app, gchar *path)
 {
-  GList *language_list;
-  GString *buf;
-  
-  gchar *res= NULL;
-  gchar *p;
-  
-  language_list= gnome_i18n_get_language_list ("LC_ALL");
-  
-  while (!res && language_list)
-    {
-      const gchar *lang;
-      
-      lang= language_list->data;
-
-      buf= g_string_new (NULL);
-      g_string_sprintf (buf, "gnome/help/%s/%s/%s", app, lang, path);
-      res= (gchar *)gnome_unconditional_datadir_file (buf->str);
-      p = strrchr(res, '#');
-      if (p)
-         *p = '\0';
-      g_string_free (buf, TRUE);
-      
-      if (!g_file_exists (res))
+	GList *language_list;
+	GString *buf;
+	
+	gchar *res= NULL;
+	gchar *p;
+	
+	language_list= gnome_i18n_get_language_list ("LC_ALL");
+	
+	while (!res && language_list)
 	{
-	  g_free (res);
-	  res= NULL;
+		const gchar *lang;
+		
+		lang= language_list->data;
+		
+		buf= g_string_new (NULL);
+		g_string_sprintf (buf, "gnome/help/%s/%s/%s", app, lang, path);
+		res= (gchar *)gnome_unconditional_datadir_file (buf->str);
+		p = strrchr(res, '#');
+		if (p)
+			*p = '\0';
+		g_string_free (buf, TRUE);
+		
+		if (!g_file_exists (res))
+		{
+			g_free (res);
+			res= NULL;
+		}
+		
+		language_list= language_list->next;
 	}
-      
-      language_list= language_list->next;
-    }
-  
-  return res;
+	
+	return res;
 }
 
-gchar *gnome_help_file_path(gchar *app, gchar *path)
+/**
+ * gnome_help_file_path:
+ * @app: Name of this application
+ * @path: File that contains the help document
+ *
+ * Returns a fully resolved file name for path.  Use needs to g_fee the path when
+ * done.  It looks in LANG, then unser C if LANG is not set
+ */
+gchar *
+gnome_help_file_path(gchar *app, gchar *path)
 {
-  gchar *res;
-  GString *buf;
-  
-  res= gnome_help_file_find_file (app, path);
-  
-  /* If we found no document on the language depending datadirs, we
-     return a non existing file from a default datadir.  It's non
-     existing, because 'C' is always included in a language list.  */
-
-  if (!res)
-    {
-      buf = g_string_new(NULL);
-      g_string_sprintf(buf, "gnome/help/%s/C/%s", app, path);
-      res = (gchar *)gnome_unconditional_datadir_file(buf->str);
-      g_string_free(buf, TRUE);
-    }
-
-    return res;
+	gchar *res;
+	GString *buf;
+	
+	res= gnome_help_file_find_file (app, path);
+	
+	/* If we found no document on the language depending datadirs, we
+	   return a non existing file from a default datadir.  It's non
+	   existing, because 'C' is always included in a language list.  */
+	
+	if (!res)
+	{
+		buf = g_string_new(NULL);
+		g_string_sprintf(buf, "gnome/help/%s/C/%s", app, path);
+		res = (gchar *)gnome_unconditional_datadir_file(buf->str);
+		g_string_free(buf, TRUE);
+	}
+	
+	return res;
 }
 
-void gnome_help_display(void *ignore, GnomeHelpMenuEntry *ref)
-{
-    gchar *file, *url;
 
-    file = gnome_help_file_path(ref->name, ref->path);
-    if (!file)
-	    return;
-    url = alloca(strlen(file)+10);
-    strcpy(url,"file:");
-    strcat(url, file);
-    gnome_help_goto(ignore, url);
-    g_free(file);
+/**
+ * gnome_help_display:
+ * @ignore: value of this is ignored.  To simplify hooking into clicked
+ *          signals
+ *
+ * Cause a help viewer to display help entry defined in ref.
+ */
+void
+gnome_help_display (void *ignore, GnomeHelpMenuEntry *ref)
+{
+	gchar *file, *url;
+	
+	file = gnome_help_file_path (ref->name, ref->path);
+	
+	if (!file)
+		return;
+	
+	url = alloca (strlen (file)+10);
+	strcpy (url,"file:");
+	strcat (url, file);
+	gnome_help_goto (ignore, url);
+	g_free (file);
 }
 
-void gnome_help_goto(void *ignore, gchar *file)
+/**
+ * gnome_help_goto:
+ * @ignore: ignored.
+ * @file: file to display in the help browser.
+ *
+ * Cause a help viewer to display file.
+ */
+void gnome_help_goto (void *ignore, gchar *file)
 {
-    pid_t pid;
-
+	pid_t pid;
+	
 #ifdef GNOME_ENABLE_DEBUG    
-    printf("gnome_help_goto: %s\n", (char *)file);
+	printf("gnome_help_goto: %s\n", (char *)file);
 #endif
 
-    if (!(pid = fork())) {
-	setsid();
-	if (!(pid = fork())) {
-	    execlp(HELP_PROG, HELP_PROG, file, NULL);
-	    g_error("gnome_help_goto: exec failed: %s\n", g_strerror(errno));
-	}
-	_exit(0);
-    }
-
-    waitpid(pid, NULL, 0);
+	gnome_url_show (file);
 }

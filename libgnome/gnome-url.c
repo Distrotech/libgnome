@@ -32,36 +32,39 @@
 #define MAN_HANDLER   "gnome-help-browser \"%s\""
 #define GHELP_HANDLER "gnome-help-browser \"%s\""
 
-static gchar *gnome_url_default_handler() {
-  static gchar *default_handler = 0;
+static gchar *
+gnome_url_default_handler ()
+{
+	static gchar *default_handler = 0;
+	
+	if (!default_handler) {
+		gchar *str;
+		gboolean def;
+		str = gnome_config_get_string_with_default ("/Gnome/URL Handlers/default-show",
+							    &def);
+		if (def) {
+			/* first time gnome_url_show is run -- set up some useful defaults */
+			default_handler = DEFAULT_HANDLER;
+			gnome_config_set_string ("/Gnome/URL Handlers/default-show", default_handler);
 
-  if (!default_handler) {
-    gchar *str;
-    gboolean def;
-    str = gnome_config_get_string_with_default("/Gnome/URL Handlers/default-show",
-					       &def);
-    if (def) {
-      /* first time gnome_url_show is run -- set up some useful defaults */
-      default_handler = DEFAULT_HANDLER;
-      gnome_config_set_string("/Gnome/URL Handlers/default-show", default_handler);
-      g_free(gnome_config_get_string_with_default(
+			g_free (gnome_config_get_string_with_default(
 				"/Gnome/URL Handlers/info-show", &def));
-      if (def)
-	gnome_config_set_string("/Gnome/URL Handlers/info-show", INFO_HANDLER);
-      g_free(gnome_config_get_string_with_default(
+			if (def)
+				gnome_config_set_string ("/Gnome/URL Handlers/info-show", INFO_HANDLER);
+			g_free (gnome_config_get_string_with_default(
 				"/Gnome/URL Handlers/man-show", &def));
-      if (def)
-	gnome_config_set_string("/Gnome/URL Handlers/man-show", MAN_HANDLER);
-      g_free(gnome_config_get_string_with_default(
+			if (def)
+				gnome_config_set_string ("/Gnome/URL Handlers/man-show", MAN_HANDLER);
+			g_free (gnome_config_get_string_with_default(
 				"/Gnome/URL Handlers/ghelp-show", &def));
-      if (def)
-	gnome_config_set_string("/Gnome/URL Handlers/ghelp-show",
-				GHELP_HANDLER);
-      gnome_config_sync();
-    } else
-      default_handler = str;
-  }
-  return default_handler;
+			if (def)
+				gnome_config_set_string ("/Gnome/URL Handlers/ghelp-show",
+							 GHELP_HANDLER);
+			gnome_config_sync ();
+		} else
+			default_handler = str;
+	}
+	return default_handler;
 }
 
 /**
@@ -86,39 +89,43 @@ static gchar *gnome_url_default_handler() {
  * We really need a capplet so a user can configure the behaviour of this
  * function.
  **/
-void gnome_url_show(const gchar *url) {
-  gint len;
-  gchar *pos, *template, *cmd;
-  gboolean free_template = FALSE;
+void
+gnome_url_show(const gchar *url)
+{
+	gint len;
+	gchar *pos, *template, *cmd;
+	gboolean free_template = FALSE;
+	
+	g_return_if_fail (url != NULL);
+	pos = strchr (url, ':');
 
-  g_return_if_fail(url != NULL);
-  pos = strchr(url, ':');
-  if (pos) {
-    gchar *protocol, *path;
-    gboolean def;
-
-    g_return_if_fail(pos >= url);
-    protocol = g_new(gchar, pos - url + 1);
-    strncpy(protocol, url, pos - url);
-    protocol[pos - url] = '\0';
-    g_strdown(protocol);
-
-    path = g_strconcat("/Gnome/URL Handlers/", protocol, "-show", NULL);
-    template = gnome_config_get_string_with_default(path, &def);
-    g_free(path);
-    if (def)
-      template = gnome_url_default_handler();
-    else
-      free_template = TRUE;
-    g_free(protocol);
-  } else /* no : ? -- this shouldn't happen.  Use default handler */
-    template = gnome_url_default_handler();
-
-  len = strlen(template) + strlen(url);
-  cmd = g_new(gchar, len);
-  g_snprintf(cmd, len, template, url);
-  if (free_template) g_free(template);
-  g_message("Command: \"%s\"", cmd);
-  gnome_execute_shell(NULL, cmd);
-  g_free(cmd);
+	if (pos){
+		gchar *protocol, *path;
+		gboolean def;
+		
+		g_return_if_fail (pos >= url);
+		protocol = g_new (gchar, pos - url + 1);
+		strncpy (protocol, url, pos - url);
+		protocol [pos - url] = '\0';
+		g_strdown (protocol);
+		
+		path = g_strconcat ("/Gnome/URL Handlers/", protocol, "-show", NULL);
+		template = gnome_config_get_string_with_default (path, &def);
+		g_free (path);
+		if (def)
+			template = gnome_url_default_handler ();
+		else
+			free_template = TRUE;
+		g_free (protocol);
+	} else /* no : ? -- this shouldn't happen.  Use default handler */
+		template = gnome_url_default_handler ();
+	
+	len = strlen (template) + strlen (url);
+	cmd = g_new (gchar, len);
+	g_snprintf (cmd, len, template, url);
+	if (free_template)
+		g_free (template);
+	g_message ("Command: \"%s\"", cmd);
+	gnome_execute_shell (NULL, cmd);
+	g_free (cmd);
 }
