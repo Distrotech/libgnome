@@ -677,10 +677,10 @@ gnome_program_module_register(GnomeProgram *app,
 
   /* Check that it's not already registered. */
 
-  g_ptr_array_add(app->modules, (GnomeModuleInfo *)module_info);
-
   if(gnome_program_module_registered(app, module_info))
     return;
+
+  g_ptr_array_add(app->modules, (GnomeModuleInfo *)module_info);
 
   /* We register requirements *after* the module itself to avoid loops.
      Initialization order gets sorted out later on. */
