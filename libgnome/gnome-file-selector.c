@@ -481,6 +481,7 @@ browse_dialog_ok (GtkWidget *widget, gpointer data)
 static gboolean
 check_filename_handler (GnomeSelector *selector, const gchar *filename)
 {
+    GnomeFileSelector *fselector;
     GnomeVFSResult result;
     GnomeVFSFileInfo *info;
     GnomeVFSURI *uri;
@@ -489,6 +490,8 @@ check_filename_handler (GnomeSelector *selector, const gchar *filename)
     g_return_val_if_fail (selector != NULL, FALSE);
     g_return_val_if_fail (GNOME_IS_FILE_SELECTOR (selector), FALSE);
     g_return_val_if_fail (filename != NULL, FALSE);
+
+    fselector = GNOME_FILE_SELECTOR (selector);
 
     g_message (G_STRLOC ": `%s'", filename);
 
