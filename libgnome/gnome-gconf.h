@@ -33,7 +33,7 @@
 #include <gtk/gtkspinbutton.h>
 #include <gtk/gtktogglebutton.h>
 #include <gtk/gtkradiobutton.h>
-#include <libgnome/gnome-program.h>
+#include <libgnomebase/gnome-program.h>
 #include "gnome-color-picker.h"
 /* GTK Widgets */
 GConfValue *gnome_gconf_gtk_entry_get          (GtkEntry         *entry,

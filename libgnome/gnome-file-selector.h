@@ -34,7 +34,7 @@
 
 
 #include <gtk/gtkvbox.h>
-#include <libgnome/gnome-defs.h>
+#include <libgnomebase/gnome-defs.h>
 #include "gnome-entry.h"
 
 #include <libgnomevfs/gnome-vfs-types.h>
