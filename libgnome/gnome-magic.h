@@ -40,7 +40,7 @@ typedef struct _GnomeMagicEntry {
 	char mimetype[48];
 } GnomeMagicEntry;
 
-GnomeMagicEntry *gnome_magic_parse(const gchar *filename, gint *nents)
+GnomeMagicEntry *gnome_magic_parse(const gchar *filename, gint *nents);
 
 END_GNOME_DECLS
 

@@ -1,3 +1,14 @@
+#ifndef _BSD_SOURCE
+#  define _BSD_SOURCE 1
+#endif
+#include <sys/types.h>
+
+#include <libgnome/libgnome.h>
+#include <ctype.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <string.h>
 #include <stdio.h>
 
 #include "gnome-magic.h"

@@ -24,8 +24,8 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 #include "gnome-mime.h"
+#include "gnome-magic.h"
 
-#ifndef GEN_MIMEDB
 /****** misc lame parsing routines *******/
 static guchar
 read_octal_str(char **pos)
@@ -158,7 +158,7 @@ static char *read_num_val(char *curpos, int bsize, char *intobuf)
   return curpos;
 }
 
-static GnomeMagicEntry *
+GnomeMagicEntry *
 gnome_magic_parse(const gchar *filename, gint *nents)
 {
   GArray *array;
@@ -428,4 +428,3 @@ gnome_mime_type_from_magic(const gchar *filename)
   return (ents[i].type == T_END)?NULL:ents[i].mimetype;
 }
 
-#endif
