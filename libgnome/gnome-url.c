@@ -33,6 +33,8 @@
 #include "gnome-i18nP.h"
 
 #include <gconf/gconf-client.h>
+#include <libgnomevfs/gnome-vfs-utils.h>
+#include <libgnomevfs/gnome-vfs-uri.h>
 
 #include "gnome-exec.h"
 #include "gnome-util.h"
@@ -44,142 +46,98 @@
 
 #include <popt.h>
 
-#define URL_HANDLER_DIR      "/desktop/gnome/url-handlers/"
-#define DEFAULT_HANDLER_PATH "/desktop/gnome/url-handlers/unknown/command"
-
 /**
  * gnome_url_show_with_env:
- * @url: The url to display. Should begin with the protocol to use (e.g.
- * "http:", "ghelp:", etc)
+ * @url: The url or path to display.
  * @envp: child's environment, or %NULL to inherit parent's.
  * @error: Used to store any errors that result from trying to display the @url.
  *
- * Description: Like gnome_url_show(), but the the contents of @envp
- * will become the url viewer's environment rather than inheriting
- * from the parents environment.
+ * Description: Like gnome_url_show(), but gnome_vfs_url_show_with_env
+ * will be called with the given envirnoment.
  *
  * Returns: %TRUE if everything went fine, %FALSE otherwise (in which case
  * @error will contain the actual error).
  */
 gboolean
 gnome_url_show_with_env (const char  *url,
-			 char       **envp,
+                         char       **envp,
 			 GError     **error)
 {
-	GConfClient *client;
-	gint i;
-	gchar *pos, *template;
-	int argc;
-	char **argv;
-	gboolean ret;
-	
+	GnomeVFSResult result;
+
 	g_return_val_if_fail (url != NULL, FALSE);
 
-	pos = strchr (url, ':');
-
-	/* init our gconf stuff if necessary */
-	gnome_gconf_lazy_init ();
+	result = gnome_vfs_url_show_with_env (url, envp);
 	
-	client = gconf_client_get_default ();
-
-	if (pos != NULL) {
-		gchar *protocol, *path;
+	switch (result) {
+	case GNOME_VFS_OK:
+		return TRUE;
+		break;
 		
-		g_return_val_if_fail (pos >= url, FALSE);
-
-		protocol = g_new (gchar, pos - url + 1);
-		strncpy (protocol, url, pos - url);
-		protocol[pos - url] = '\0';
-		g_ascii_strdown (protocol, -1);
-
-		path = g_strconcat (URL_HANDLER_DIR, protocol, "/command", NULL);
-		template = gconf_client_get_string (client, path, NULL);
-
-		if (template == NULL) {
-			gchar* template_temp;
-			
-			template_temp = gconf_client_get_string (client,
-								 DEFAULT_HANDLER_PATH,
-								 NULL);
-						
-			/* Retry to get the right url handler */
-			template = gconf_client_get_string (client, path, NULL);
-
-			if (template == NULL) 
-				template = template_temp;
-			else
-				g_free (template_temp);
-
-		}
+	case GNOME_VFS_ERROR_INTERNAL:
+		g_set_error (error,
+		             GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_VFS,
+			     _("Unknown internal error while displaying this location."));
+		break;
 		
-		g_free (path);
-		g_free (protocol);
-
-	} else {
-		/* no ':' ? this shouldn't happen. Use default handler */
-		template = gconf_client_get_string (client, 
-						    DEFAULT_HANDLER_PATH, 
-						    NULL);
-	}
-
-	g_object_unref (G_OBJECT (client));
-
-	if (!g_shell_parse_argv (template,
-				 &argc,
-				 &argv,
-				 error)) {
-		g_free (template);
-		return FALSE;
-	}
-
-	g_free (template);
-
-	for (i = 0; i < argc; i++) {
-		char *arg;
-
-		if (strstr (argv[i], "%s") == NULL)
-			continue;
-
-		arg = argv[i];
-		argv[i] = g_strdup_printf (arg, url);
-		g_free (arg);
-	}
+	case GNOME_VFS_ERROR_BAD_PARAMETERS:
+		g_set_error (error,
+			     GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_URL,
+			     _("The specified location is invalid."));
+		break;
 	
-	/* This can return some errors */
-	ret = g_spawn_async (NULL /* working directory */,
-			     argv,
-			     envp,
-			     G_SPAWN_SEARCH_PATH /* flags */,
-			     NULL /* child_setup */,
-			     NULL /* data */,
-			     NULL /* child_pid */,
-			     error);
+	case GNOME_VFS_ERROR_PARSE:
+		g_set_error (error,
+			     GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_PARSE,
+			     _("There was an error parsing the default action command associated "
+			       "with this location."));
+		break;	
 
-	g_strfreev (argv);
+	case GNOME_VFS_ERROR_LAUNCH:
+		g_set_error (error,
+			     GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_LAUNCH,
+			     _("There was an error launching the default action command associated "
+			       "with this location."));
+		break;	
+	
+	case GNOME_VFS_ERROR_NO_DEFAULT:
+		g_set_error (error,
+			     GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_NO_DEFAULT,
+			     _("There is no default action associated with this location."));
+		break;	
+	
+	case GNOME_VFS_ERROR_NOT_SUPPORTED:
+		g_set_error (error,
+			     GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_NOT_SUPPORTED,
+			     _("The default action does not support this protocol."));
+		break;
+			     
+	default:
+		g_set_error (error,
+			     GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_VFS,
+			     _("Unknown error code: %d"), result);
+	}
 
-	return ret;
-}
+	return FALSE;
+ }
 
 /**
  * gnome_url_show:
- * @url: The url to display. Should begin with the protocol to use (e.g.
- * "http:", "ghelp:", etc)
+ * @url: The url or path to display. The path can be relative to the current working
+ * directory or the user's home directory. This function will convert it into a fully
+ * qualified url using the gnome_url_get_from_input function.
  * @error: Used to store any errors that result from trying to display the @url.
  *
- * Displays the given URL in an appropriate viewer. The appropriate viewer is
- * user definable. It is determined by extracting the protocol from the @url,
- * then seeing if the /desktop/gnome/url-handlers/&lt;protocol&gt;/command key
- * exists in the configuration database. It it does, this entry is used as the
- * template for the command. 
- *
- * If no protocol specific handler exists, the
- * /desktop/gnome/url-handlers/unknown/command key is used to determine the
- * viewer.
- *
- * Once a viewer is determined, it is called with the @url as a parameter. If
- * any errors occur, they are returned in the @error parameter. These errors
- * will either be in the %GNOME_URL_ERROR, %GNOME_SHELL_ERROR, or
- * %G_SPAWN_ERROR domains.
+ * Once the input has been converted into a fully qualified url this function
+ * calls gnome_vfs_url_show. Any error codes returned by gnome-vfs will be wrapped
+ * in the error parameter. All errors comes from the %GNOME_URL_ERROR% domain.
  *
  * Returns: %TRUE if everything went fine, %FALSE otherwise (in which case
  * @error will contain the actual error).

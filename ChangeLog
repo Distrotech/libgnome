@@ -1,3 +1,17 @@
+2003-04-25  Alexander Larsson  <alexl@redhat.com>
+
+        Patch by Frank Worsley <fworsley@shaw.ca>
+
+	* libgnome/gnome-url.c: (gnome_url_show_with_env):
+	now just calls gnome_vfs_show_url and wrap error codes in GErrors
+	
+	* libgnome/gnome-url.h:
+	updated for new functions
+	
+	* schemas/desktop_gnome_url_handlers.schemas.in:
+	cleaned up the url handler schemas. removed unneeded schemas and moved
+	others into gnome-vfs
+
 2003-04-14 Paul Duffy <dubhthach@frink.nuigalway.ie>
 
         * configure.in: Added ga (irish) to ALL_LINGUAS
