@@ -1,3 +1,10 @@
+2001-06-02  Martin Baulig  <baulig@suse.de>
+
+	* Gnome_Selector.idl (GNOME::Selector::AsyncData): Renamed to `private_AsyncData'.
+	(GNOME::Selector::AsyncReply): Renamed to `AsyncEvent'.
+	(checkURI, scanDirectory, setURI, addURI): Changed type of the `async_data'
+	argument to any.
+
 2001-06-01  Martin Baulig  <baulig@suse.de>
 
 	* Gnome_Selector.idl (GNOME::Selector): Removed the `entryText', `history'
