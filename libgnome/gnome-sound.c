@@ -341,8 +341,6 @@ gnome_sound_sample_load_audiofile(const char *file)
   frames_read = afReadFrames(in_file, AF_DEFAULT_TRACK, s->data,
 			     frame_count * in_channels);
 
-  g_assert(frames_read == (frame_count * in_channels));
-
   afCloseFile(in_file);
 
   return s;
@@ -378,6 +376,8 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
 
   size = s->samples;
   if (s->format & ESD_STEREO)
+    size *= 2;
+  if (s->format & ESD_BITS16)
     size *= 2;
 
   if (gnome_sound_connection >= 0)

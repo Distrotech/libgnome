@@ -192,7 +192,6 @@ gnome_triggers_read_path(const char *config_path)
 
       g_free(ctmp);
       g_free(sample_name);
-      g_free(sample_file);
     }
 
     gnome_config_pop_prefix();
