@@ -12,7 +12,7 @@ LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 libgnomeincludedir = $(includedir)/libgnome
 
 INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) $(SUPPORTINCS) \
-        $(GTK_CFLAGS)  \
+        $(GDK_IMLIB_CFLAGS)  \
 	-DGNOMELIBDIR=\""$(libdir)"\" \
 	-DGNOMEDATADIR=\""$(datadir)"\" \
 	-DGNOMEBINDIR=\""$(bindir)"\" \
