@@ -1,6 +1,6 @@
 /* Argument-parsing registry for libgnome.
    Written by Tom Tromey <tromey@cygnus.com>.  */
-
+#include "gnome-defs.h"
 #include "gnome-parse.h"
 
 static error_t default_parse_func (int key, char *arg,

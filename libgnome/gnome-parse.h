@@ -4,7 +4,9 @@
 #ifndef __GNOME_PARSE_H__
 #define __GNOME_PARSE_H__
 
-#include <argp.h>
+BEGIN_GNOME_DECLS
+
+#include <libgnomesupport/argp.h>
 
 /* Call this to register some command-line arguments with the central
    parser.  Typically this will be called by a library's
@@ -20,5 +22,7 @@ extern error_t gnome_parse_arguments (struct argp *parser,
 				      int argc, char **argv,
 				      unsigned int flags,
 				      int *arg_index);
+
+END_GNOME_DECLS
 
 #endif /* __GNOME_PARSE_H__ */
