@@ -34,6 +34,11 @@
 #include <sys/stat.h>
 
 #include <glib.h>
+
+#define GCONF_ENABLE_INTERNALS 1
+#include <gconf/gconf-client.h>
+extern struct poptOption gconf_options[];
+
 #include "libgnomeP.h"
 #include <errno.h>
 
@@ -41,10 +46,6 @@
 #include <gobject/gvaluetypes.h>
 
 #include <liboaf/liboaf.h>
-
-#define GCONF_ENABLE_INTERNALS 1
-#include <gconf/gconf-client.h>
-extern struct poptOption gconf_options[];
 
 #include <libgnomevfs/gnome-vfs-init.h>
 
@@ -84,43 +85,43 @@ GnomeModuleInfo gnome_oaf_module_info = {
 static gchar *
 gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
 {
-        gchar *dir;
-        gchar *key;
+    gchar *dir;
+    gchar *key;
 
-        dir = g_strconcat("/apps/gnome-settings/",
-                          gnome_program_get_name(gnome_program_get()),
-                          NULL);
+    dir = g_strconcat ("/apps/gnome-settings/",
+		       gnome_program_get_name (gnome_program_get ()),
+		       NULL);
 
-        if (subkey && *subkey) {
-                key = gconf_concat_dir_and_key(dir, subkey);
-                g_free(dir);
-        } else {
-                /* subkey == "" */
-                key = dir;
-        }
+    if (subkey && *subkey) {
+	key = gconf_concat_dir_and_key (dir, subkey);
+	g_free (dir);
+    } else {
+	/* subkey == "" */
+	key = dir;
+    }
 
-        return key;
+    return key;
 }
 
 static gchar * G_GNUC_UNUSED
 gnome_gconf_get_app_settings_relative (const gchar *subkey)
 {
-        gchar *dir;
-        gchar *key;
+    gchar *dir;
+    gchar *key;
 
-        dir = g_strconcat("/apps/",
-                          gnome_program_get_name(gnome_program_get()),
-                          NULL);
+    dir = g_strconcat ("/apps/",
+		       gnome_program_get_name (gnome_program_get ()),
+		       NULL);
 
-        if (subkey && *subkey) {
-                key = gconf_concat_dir_and_key(dir, subkey);
-                g_free(dir);
-        } else {
-                /* subkey == "" */
-                key = dir;
-        }
+    if (subkey && *subkey) {
+	key = gconf_concat_dir_and_key (dir, subkey);
+	g_free (dir);
+    } else {
+	/* subkey == "" */
+	key = dir;
+    }
 
-        return key;
+    return key;
 }
 
 static GConfClient* global_client = NULL;
@@ -128,50 +129,50 @@ static GConfClient* global_client = NULL;
 static GConfClient * G_GNUC_UNUSED
 gnome_get_gconf_client (void)
 {
-        g_return_val_if_fail (global_client != NULL, NULL);
+    g_return_val_if_fail (global_client != NULL, NULL);
         
-        return global_client;
+    return global_client;
 }
 
 static void
 gnome_gconf_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
-        gconf_preinit(program, mod_info);
+    gconf_preinit (program, mod_info);
 }
 
 static void
 gnome_gconf_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
-        gchar *settings_dir;
+    gchar *settings_dir;
 
-        gconf_postinit(program, mod_info);
+    gconf_postinit (program, mod_info);
 
-        global_client = gconf_client_get_default();
+    global_client = gconf_client_get_default();
 
-        gconf_client_add_dir(global_client,
-                             "/desktop/gnome",
-                             GCONF_CLIENT_PRELOAD_NONE, NULL);
+    gconf_client_add_dir (global_client,
+			  "/desktop/gnome",
+			  GCONF_CLIENT_PRELOAD_NONE, NULL);
 
-        settings_dir = gnome_gconf_get_gnome_libs_settings_relative("");
+    settings_dir = gnome_gconf_get_gnome_libs_settings_relative ("");
 
-        gconf_client_add_dir(global_client,
-                             settings_dir,
-                             /* Possibly we should turn preload on for this */
-                             GCONF_CLIENT_PRELOAD_NONE,
-                             NULL);
-        g_free(settings_dir);
+    gconf_client_add_dir (global_client,
+			  settings_dir,
+			  /* Possibly we should turn preload on for this */
+			  GCONF_CLIENT_PRELOAD_NONE,
+			  NULL);
+    g_free (settings_dir);
 }
 
 static GnomeModuleRequirement gnome_gconf_requirements[] = {
-        { VERSION, &gnome_oaf_module_info },
-        { NULL, NULL }
+    { VERSION, &gnome_oaf_module_info },
+    { NULL, NULL }
 };
 
 GnomeModuleInfo gnome_gconf_module_info = {
-        "gnome-gconf", VERSION, N_("GNOME GConf Support"),
-        gnome_gconf_requirements,
-        gnome_gconf_pre_args_parse, gnome_gconf_post_args_parse,
-        gconf_options
+    "gnome-gconf", VERSION, N_("GNOME GConf Support"),
+    gnome_gconf_requirements,
+    gnome_gconf_pre_args_parse, gnome_gconf_post_args_parse,
+    gconf_options
 };
 
 /*****************************************************************************
@@ -190,13 +191,13 @@ static void libgnome_userdir_setup(gboolean create_dirs);
 enum { ARG_VERSION=1 };
 
 static struct poptOption gnomelib_options[] = {
-        { NULL, '\0', POPT_ARG_INTL_DOMAIN, PACKAGE, 0, NULL, NULL},
+    { NULL, '\0', POPT_ARG_INTL_DOMAIN, PACKAGE, 0, NULL, NULL},
 
-	{ NULL, '\0', POPT_ARG_CALLBACK, (void *) libgnome_option_cb, 0, NULL, NULL},
+    { NULL, '\0', POPT_ARG_CALLBACK, (void *) libgnome_option_cb, 0, NULL, NULL},
 
-	{"version", '\0', POPT_ARG_NONE, NULL, },
+    {"version", '\0', POPT_ARG_NONE, NULL, },
 
-	{ NULL, '\0', 0, NULL, 0 }
+    { NULL, '\0', 0, NULL, 0 }
 };
 
 GnomeModuleInfo gnome_vfs_module_info = {
@@ -298,33 +299,33 @@ libgnome_userdir_setup (gboolean create_dirs)
 	}
     }
     
-  if (mkdir (gnome_user_private_dir, 0700) < 0) { /* This is private
-						     per-user info mode
-						     700 will be
-						     enforced!  maybe
-						     even other security
-						     meassures will be
-						     taken */
-      if (errno != EEXIST) {
-	  fprintf (stderr, _("Could not create per-user gnome configuration directory `%s': %s\n"),
-		   gnome_user_private_dir, strerror(errno));
-	  exit(1);
-      }
-  }
+    if (mkdir (gnome_user_private_dir, 0700) < 0) { /* This is private
+						       per-user info mode
+						       700 will be
+						       enforced!  maybe
+						       even other security
+						       meassures will be
+						       taken */
+	if (errno != EEXIST) {
+	    fprintf (stderr, _("Could not create per-user gnome configuration directory `%s': %s\n"),
+		     gnome_user_private_dir, strerror(errno));
+	    exit(1);
+	}
+    }
 
 
-  /* change mode to 0700 on the private directory */
-  if (chmod (gnome_user_private_dir, 0700) < 0) {
-      fprintf(stderr, _("Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"),
-	      gnome_user_private_dir, strerror(errno));
-      exit(1);
-  }
+    /* change mode to 0700 on the private directory */
+    if (chmod (gnome_user_private_dir, 0700) < 0) {
+	fprintf(stderr, _("Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"),
+		gnome_user_private_dir, strerror(errno));
+	exit(1);
+    }
   
-  if (mkdir (gnome_user_accels_dir, 0700) < 0) {
-      if (errno != EEXIST) {
-	  fprintf(stderr, _("Could not create gnome accelerators directory `%s': %s\n"),
-		  gnome_user_accels_dir, strerror(errno));
-	  exit(1);
-      }
-  }
+    if (mkdir (gnome_user_accels_dir, 0700) < 0) {
+	if (errno != EEXIST) {
+	    fprintf(stderr, _("Could not create gnome accelerators directory `%s': %s\n"),
+		    gnome_user_accels_dir, strerror(errno));
+	    exit(1);
+	}
+    }
 }
