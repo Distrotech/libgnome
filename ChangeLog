@@ -1,3 +1,11 @@
+2003-05-01  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* help-converters/info/main.c: (file_exists):
+	* help-converters/man/gnome-man2html.c: (main):
+	Two patches from John Fleck to fix crashes when
+	feeding directories to the help converters. Fixes
+	bug #104056.
+
 2003-04-29  Kjartan Maraas <kmaraas@gnome.org>
 
 	*  help-converters/man/gnome-man2html2.c:
