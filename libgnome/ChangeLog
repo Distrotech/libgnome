@@ -1,3 +1,24 @@
+Mon Dec 13 23:53:20 1999  George Lebl <jirka@5z.com>
+
+	* gnome-mime-info.c: current_lang is a list of languages.  Also
+	  we store the previous key and it's language level when reading.
+	  (remove_this_key) removed this function as it is replaced by
+	  using g_hash_table_lookup_extended where we don't need to
+	  remove/readd, but just readd with the old key
+	  (context_add_key) take an extra 'lang' argument which is the
+	  language of the current key/value or NULL.  If the current 'lang'
+	  is higher then the previous key's lang level we replace the
+	  previous key with this key, otherwise we just add the key/value
+	  (load_mime_type_info_from) keep track of lang just like we do
+	  of 'key'
+	  (gnome_mime_flag) take the 'key' as an argument and do the right
+	  thing
+	  (gnome_mime_copiousoutput,gnome_mime_needsterminal) call the
+	  gnome_mime_flag with the 'key'
+
+	* gnome-mime-info.h: gnome_mime_nametemplate removed from the
+	  header as it was not actually implemented anywhere
+
 Sun Dec 05 01:32:35 1999  George Lebl <jirka@5z.com>
 
 	* gnome-dentry.c: fix the quoting, now we don't quote the exec vector

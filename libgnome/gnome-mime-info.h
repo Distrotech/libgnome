@@ -28,7 +28,6 @@ GList      *gnome_mime_get_keys  (const char *mime_type);
 
 const char *gnome_mime_program       (const char* mime_type);
 const char *gnome_mime_description   (const char* mime_type);
-const char *gnome_mime_nametemplate  (const char* mime_type);
 const char *gnome_mime_test          (const char* mime_type);
 const char *gnome_mime_composetyped  (const char* mime_type);
 gboolean    gnome_mime_copiousoutput (const char* mime_type, char *key);

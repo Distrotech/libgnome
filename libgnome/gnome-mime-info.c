@@ -57,7 +57,11 @@ static time_t last_checked;
 static gboolean gnome_mime_inited = FALSE;
 
 
-static char *current_lang;
+static GList *current_lang = NULL;
+/* we want to replace the previous key if the current key has a higher
+   language level */
+static char *previous_key = NULL;
+static int previous_key_lang_level = -1;
 
 
 /*
@@ -138,28 +142,74 @@ context_destroy_and_unlink (GnomeMimeContext *context)
 	context_destroy (context);
 }
 
-static gboolean
-remove_this_key (gpointer key, gpointer value, gpointer user_data)
+/* this gives us a number of the language in the current language list,
+   the higher the number the "better" the translation */
+static int
+language_level (char *lang)
 {
-	if (strcmp ((char*) key, (char*) user_data) == 0){
-		g_free (key);
-		g_free (value);
-		return TRUE;
+	int i;
+	GList *li;
+	if(!lang) return 0;
+	for (i = 1, li = current_lang;
+	     li != NULL;
+	     i++, li = g_list_next (li)) {
+		if(strcmp (li->data,lang)==0)
+			return i;
 	}
-
-	return FALSE;
+	return -1;
 }
 
+
 static void
-context_add_key (GnomeMimeContext *context, char *key, char *value)
+context_add_key (GnomeMimeContext *context, char *key, char *lang, char *value)
 {
 	char *v;
+	char *orig_key;
+	int lang_level;
 
-	v = g_hash_table_lookup (context->keys, key);
-	if (v)
-		g_hash_table_foreach_remove (context->keys, remove_this_key, key);
-		
-	g_hash_table_insert (context->keys, g_strdup (key), g_strdup (value));
+	lang_level = language_level(lang);
+	/* wrong language completely */
+	if (lang_level<0)
+		return;
+
+	/* if we have some language defined and
+	   if there was a previous_key */
+	if (lang_level > 0 &&
+	    previous_key) {
+		/* if our new key has a better lang_level then remove the
+		   previous key */
+		if (previous_key_lang_level <= lang_level) {
+			if (g_hash_table_lookup_extended (context->keys,
+							  previous_key,
+							  (gpointer *)&orig_key,
+							  (gpointer *)&v)) {
+				g_hash_table_remove (context->keys, orig_key);
+				g_free(orig_key);
+				g_free(v);
+			}
+		/* else, our language level really sucks and the previous
+		   translation was of better language quality so just
+		   ignore us */
+		} else
+			return;
+	}
+
+	if (g_hash_table_lookup_extended (context->keys, key,
+					  (gpointer *)&orig_key,
+					  (gpointer *)&v)) {
+		/* if we found it in the database already, just replace it
+		   here */
+		g_free (v);
+		g_hash_table_insert (context->keys, orig_key,
+				     g_strdup (value));
+	} else {
+		g_hash_table_insert (context->keys, g_strdup(key),
+				     g_strdup (value));
+	}
+	/* set this as the previous key */
+	g_free(previous_key);
+	previous_key = g_strdup(key);
+	previous_key_lang_level = lang_level;
 }
 
 typedef enum {
@@ -171,8 +221,6 @@ typedef enum {
 	STATE_ON_VALUE
 } ParserState;
 
-#define SWITCH_TO_MIME_TYPE() { 
-
 static void
 load_mime_type_info_from (char *filename)
 {
@@ -183,6 +231,7 @@ load_mime_type_info_from (char *filename)
 	ParserState state;
 	GnomeMimeContext *context;
 	char *key;
+	char *lang;
 	
 	mime_file = fopen (filename, "r");
 	if (mime_file == NULL)
@@ -193,6 +242,7 @@ load_mime_type_info_from (char *filename)
 	column = 0;
 	context = NULL;
 	key = NULL;
+	lang = NULL;
 	line = g_string_sized_new (120);
 	state = STATE_NONE;
 	
@@ -210,6 +260,13 @@ load_mime_type_info_from (char *filename)
 			in_comment = FALSE;
 			column = 0;
 			if (state == STATE_ON_MIME_TYPE){
+
+				/* set previous key to nothing
+				   for this mime type */
+				g_free(previous_key);
+				previous_key = NULL;
+				previous_key_lang_level = -1;
+
 				context = context_new (line);
 				context_used = FALSE;
 				g_string_assign (line, "");
@@ -218,10 +275,12 @@ load_mime_type_info_from (char *filename)
 			}
 			if (state == STATE_ON_VALUE){
 				context_used = TRUE;
-				context_add_key (context, key, line->str);
+				context_add_key (context, key, lang, line->str);
 				g_string_assign (line, "");
 				g_free (key);
 				key = NULL;
+				g_free (lang);
+				lang = NULL;
 				state = STATE_LOOKING_FOR_KEY;
 				continue;
 			}
@@ -286,11 +345,9 @@ load_mime_type_info_from (char *filename)
 		case STATE_LANG:
 			if (c == ']'){
 				state = STATE_ON_KEY;      
-				if (current_lang && line->str [0]){
-					if (strcmp (current_lang, line->str) != 0){
-						in_comment = TRUE;
-						state = STATE_LOOKING_FOR_KEY;
-					}
+				if (line->str [0]){
+					g_free(lang);
+					lang = g_strdup(line->str);
 				} else {
 					in_comment = TRUE;
 					state = STATE_LOOKING_FOR_KEY;
@@ -305,15 +362,20 @@ load_mime_type_info_from (char *filename)
 
 	if (context){
 		if (key && line->str [0])
-			context_add_key (context, key, line->str);
+			context_add_key (context, key, lang, line->str);
 		else
 			if (!context_used)
 				context_destroy_and_unlink (context);
 	}
 
 	g_string_free (line, TRUE);
-	if (key)
-		g_free (key);
+	g_free (key);
+	g_free (lang);
+
+	/* free the previous_key stuff */
+	g_free(previous_key);
+	previous_key = NULL;
+	previous_key_lang_level = -1;
 
 	fclose (mime_file);
 }
@@ -384,7 +446,9 @@ gnome_mime_init ()
 	specific_types = g_hash_table_new (g_str_hash, g_str_equal);
 	generic_types  = g_hash_table_new (g_str_hash, g_str_equal);
 
-	current_lang = getenv ("LANG");
+	current_lang = gnome_i18n_get_language_list ("LC_ALL");
+	if(current_lang)
+		current_lang = g_list_reverse(current_lang);
 
 	/*
 	 * Setup the descriptors for the information loading
@@ -608,13 +672,13 @@ gnome_mime_composetyped (const char *mime_type)
 }
 
 static gboolean
-gnome_mime_flag (const char *mime_type, gchar *flag)
+gnome_mime_flag (const char *mime_type, gchar *key, gchar *flag)
 {
 	const char *str;
 	
-	str = gnome_mime_get_value (mime_type, flag);
+	str = gnome_mime_get_value (mime_type, key);
 	if (str){
-		if (strstr (str, "copiousoutput") != NULL)
+		if (strstr (str, flag) != NULL)
 			return TRUE;
 	}
 	return FALSE;
@@ -623,7 +687,7 @@ gnome_mime_flag (const char *mime_type, gchar *flag)
 /**
  * gnome_mime_copiousoutput:
  * @mime_type: the mime type
- * @key: the key used to open the command.
+ * @key: the key which stores the flags for a command
  *
  * Returns a boolean value, whether the mime_type open
  * command will produce lots of output
@@ -631,13 +695,13 @@ gnome_mime_flag (const char *mime_type, gchar *flag)
 gboolean 
 gnome_mime_copiousoutput (const char *mime_type, gchar *key)
 {
-	return gnome_mime_flag (mime_type, "copiousoutput");
+	return gnome_mime_flag (mime_type, key, "copiousoutput");
 }
 
 /**
  * gnome_mime_needsterminal
  * @mime_type: the mime type
- * @key: the key used to open the command.
+ * @key: the key which stores the flags for a command
  *
  * Returns a boolean value, whether the mime_type open
  * command will required a terminal.
@@ -645,7 +709,7 @@ gnome_mime_copiousoutput (const char *mime_type, gchar *key)
 gboolean
 gnome_mime_needsterminal (const char *mime_type, gchar *key)
 {
-	return gnome_mime_flag (mime_type, "needsterminal");
+	return gnome_mime_flag (mime_type, key, "needsterminal");
 }
 
 #if 0
