@@ -40,7 +40,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <stdarg.h>
 #include <glib.h>
 #include <sys/types.h>

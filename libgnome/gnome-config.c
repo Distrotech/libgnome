@@ -34,7 +34,6 @@
 #include <stdlib.h>	/* atoi() */
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <ctype.h> /* tolower() */
 
 #include "gnome-i18nP.h"
 #include "gnome-util.h"
@@ -1746,7 +1745,7 @@ gnome_config_get_bool_with_default_ (const char *path, gboolean *def,
 		return 0;
 	}
 
-	if (tolower(*r) == 't' || tolower(*r) == 'y' || atoi(r)) {
+	if (g_ascii_tolower(*r) == 't' || g_ascii_tolower(*r) == 'y' || atoi(r)) {
 	  v = 1;
 	} else {
 	  /* If it's not true it has to be false :) */

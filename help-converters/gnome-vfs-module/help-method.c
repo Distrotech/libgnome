@@ -23,7 +23,6 @@
 #include <config.h>
 #include "help-method.h"
 
-#include <ctype.h>
 #include <glib.h>
 #include "libgnome/gnome-i18n.h"
 #include "libgnome/gnome-util.h"

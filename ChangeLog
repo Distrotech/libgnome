@@ -1,3 +1,16 @@
+2002-01-25  Darin Adler  <darin@bentspoon.com>
+
+	* help-converters/gnome-vfs-module/help-method.c: Remove unused include <ctype.h>.
+	* help-converters/info/html.c: Remove unused include <ctype.h>.
+	* help-converters/man/gnome-man2html.c: Remove unused include <ctype.h>.
+	* libgnome/gnome-config.c: (gnome_config_get_bool_with_default_):
+	Use g_ascii_tolower instead of tolower and remove include of <ctype.h>.
+	* libgnome/gnome-program.c: (rpmvercmp): Use g_ascii calls instead of
+	the locale-sensitive <ctype.h> calls and remove include of <ctype.h>.
+	* libgnome/gnome-score.c: (log_score): Use g_ascii_isspace instead of
+	isspace and remove include of <ctype.h>.
+	* libgnome/gnome-triggers.c: Remove unused include of <ctype.h>.
+
 2002-01-23 John Fleck <jfleck@inkstain.net>
 
 	* help-converters/docbook/gnome-customization/Makefile.am

@@ -36,7 +36,6 @@
 #include <string.h>
 #include <glib.h>
 #include <pwd.h>
-#include <ctype.h>
 #include <locale.h>
 #ifdef HAVE_SYS_FSUID_H
 #ifdef HAVE_SETFSGID
@@ -140,7 +139,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 	 {
 	     long ltime;
 	     i = strlen (buf) - 1;	/* Chomp */
-	     while (isspace (buf[i]))
+	     while (g_ascii_isspace (buf[i]))
 	       buf[i--] = '\0';
 
 	     if(sscanf(buf, "%f %ld %s", &ascore, &ltime, name) != 3)

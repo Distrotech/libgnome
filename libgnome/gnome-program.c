@@ -33,7 +33,6 @@
 #include <config.h>
 #include "gnome-macros.h"
 
-#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -1014,8 +1013,8 @@ static int rpmvercmp(const char * a, const char * b) {
 
     /* loop through each version segment of str1 and str2 and compare them */
     while (*one && *two) {
-	while (*one && !isalnum(*one)) one++;
-	while (*two && !isalnum(*two)) two++;
+	while (*one && !g_ascii_isalnum(*one)) one++;
+	while (*two && !g_ascii_isalnum(*two)) two++;
 
 	str1 = one;
 	str2 = two;
@@ -1023,13 +1022,13 @@ static int rpmvercmp(const char * a, const char * b) {
 	/* grab first completely alpha or completely numeric segment */
 	/* leave one and two pointing to the start of the alpha or numeric */
 	/* segment and walk str1 and str2 to end of segment */
-	if (isdigit(*str1)) {
-	    while (*str1 && isdigit(*str1)) str1++;
-	    while (*str2 && isdigit(*str2)) str2++;
+	if (g_ascii_isdigit(*str1)) {
+	    while (*str1 && g_ascii_isdigit(*str1)) str1++;
+	    while (*str2 && g_ascii_isdigit(*str2)) str2++;
 	    isnum = 1;
 	} else {
-	    while (*str1 && isalpha(*str1)) str1++;
-	    while (*str2 && isalpha(*str2)) str2++;
+	    while (*str1 && g_ascii_isalpha(*str1)) str1++;
+	    while (*str2 && g_ascii_isalpha(*str2)) str2++;
 	    isnum = 0;
 	}
 		
