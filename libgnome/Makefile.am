@@ -34,12 +34,11 @@ libgnome_la_SOURCES = \
 	gnome-i18n.c		\
 	gnome-metadata.c	\
 	gnome-mime.c		\
-	gnome-parse.c		\
+	gnome-popt.c		\
 	gnome-regex.c		\
 	gnome-remote.c		\
 	gnome-score.c		\
 	gnome-sound.c		\
-	gnome-string.c		\
 	gnome-triggers.c	\
 	gnome-url.c		\
 	gnome-util.c		\
@@ -60,12 +59,11 @@ libgnomeinclude_HEADERS = \
 	gnome-i18n.h 		\
 	gnome-metadata.h	\
 	gnome-mime.h		\
+	gnome-popt.h		\
 	gnome-regex.h		\
 	gnome-remote.h		\
-	gnome-parse.h		\
 	gnome-score.h		\
 	gnome-sound.h		\
-	gnome-string.h		\
 	gnome-triggers.h 	\
 	gnome-url.h		\
 	gnome-util.h   		\

@@ -21,10 +21,25 @@
 
 #include "gnome-sound.h"
 
-#ifdef HAVE_LIBESD
+#ifdef HAVE_ESD
 #include <esd.h>
 #endif
 
+int gnome_sound_connection = -1;
+
+typedef struct _sample
+  {
+    int rate;
+    int format;
+    int samples;
+    short *data;
+    int id;
+  }
+GnomeSoundSample;
+
+static void gnome_sound_sample_destroy (GnomeSoundSample * s);
+
+#ifndef HAVE_LIBAUDIOFILE
 typedef struct _WAVFormatChunk
   {
     char chunkID[4];
@@ -39,17 +54,6 @@ typedef struct _WAVFormatChunk
   }
 WAVFormatChunk;
 
-
-typedef struct _sample
-  {
-    int rate;
-    int format;
-    int samples;
-    short *data;
-    int id;
-  }
-GnomeSoundSample;
-
 #ifdef WORDS_BIGENDIAN
 #define SWAP_SHORT( x ) x = ( ( x & 0x00ff ) << 8 ) | ( ( x >> 8 ) & 0x00ff )
 #define SWAP_LONG( x ) x = ( ( ( x & 0x000000ff ) << 24 ) |\
@@ -57,11 +61,6 @@ GnomeSoundSample;
 ( ( x & 0x00ff0000 ) >> 8 ) |\
 ( ( x & 0xff000000 ) >> 24 ) )
 #endif
-
-static void gnome_sound_sample_destroy (GnomeSoundSample * s);
-
-
-int gnome_sound_connection = -1;
 
 /**** gnome_sound_sample_load_wav
       Inputs: 'file' - filename to try loading a WAV file from.
@@ -72,7 +71,7 @@ int gnome_sound_connection = -1;
 static GnomeSoundSample *
 gnome_sound_sample_load_wav(const char *file)
 {
-#ifdef HAVE_LIBESD
+#ifdef HAVE_ESD
   FILE *f;
   GnomeSoundSample *s;
   char buf[4];
@@ -277,11 +276,78 @@ gnome_sound_sample_load_wav(const char *file)
 
   return NULL;
 }
+#endif
+
+#if defined(HAVE_LIBAUDIOFILE) && defined(HAVE_ESD)
+#include <audiofile.h>
+
+static GnomeSoundSample *
+gnome_sound_sample_load_audiofile(const char *file)
+{
+  AFfilehandle in_file;
+  GnomeSoundSample *s;
+  int in_format, in_width, in_channels;
+  double in_rate;
+  int bytes_per_frame;
+  AFframecount frame_count, frames_read;
+
+  int out_sock, out_bits, out_channels, out_rate;
+  int out_mode = ESD_STREAM, out_func = ESD_PLAY;
+  esd_format_t out_format;
+
+  in_file = afOpenFile(file, "r", NULL);
+  if(!in_file)
+    return NULL;
+
+  frame_count = afGetFrameCount(in_file, AF_DEFAULT_TRACK);
+  in_channels = afGetChannels(in_file, AF_DEFAULT_TRACK);
+  in_rate = afGetRate (in_file, AF_DEFAULT_TRACK);
+  afGetSampleFormat (in_file, AF_DEFAULT_TRACK, &in_format, &in_width);
+  afSetVirtualByteOrder (in_file, AF_DEFAULT_TRACK, AF_BYTEORDER_LITTLEENDIAN);
+  if (in_width == 8)
+    out_bits = ESD_BITS8;
+  else if (in_width == 16)
+    out_bits = ESD_BITS16;
+  else {
+      g_warning ("only sample widths of 8 and 16 supported");
+      return NULL;
+  }
+
+  bytes_per_frame = in_width / 8;
+
+  if (in_channels == 1)
+    out_channels = ESD_MONO;
+  else if (in_channels == 2)
+    out_channels = ESD_STEREO;
+  else {
+      g_warning ("only 1 or 2 channel samples supported");
+      return NULL;
+  }
+
+  out_format = out_bits | out_channels | out_mode | out_func;
+
+  out_rate = (int) in_rate;
+
+  s = g_new0 (GnomeSoundSample, 1);
+
+  s->rate = out_rate;
+  s->format = out_format;
+  s->samples = frame_count;
+  s->data = g_malloc(frame_count * in_channels * bytes_per_frame);
+  s->id = 0;
+
+  frames_read = afReadFrames(in_file, AF_DEFAULT_TRACK, s->data,
+			     frame_count * in_channels);
+
+  return s;
+}
+#endif
+
 
 int
 gnome_sound_sample_load(const char *sample_name, const char *filename)
 {
-#ifdef HAVE_LIBESD
+#ifdef HAVE_ESD
   GnomeSoundSample *s = NULL;
   int sample_id;
   int size;
@@ -289,7 +355,11 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
 
   if(gnome_sound_connection < 0) return -1;
 
+#ifdef HAVE_LIBAUDIOFILE
+  s = gnome_sound_sample_load_audiofile(filename);
+#else
   s = gnome_sound_sample_load_wav(filename);
+#endif
   if(s)
     goto playsamp;
 
@@ -336,12 +406,16 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
 void 
 gnome_sound_play (const char * filename)
 {
-#ifdef HAVE_LIBESD
+#ifdef HAVE_ESD
+  char buf[23];
   int sample;
 
   if(gnome_sound_connection < 0) return;
 
-  sample = gnome_sound_sample_load ("temp", filename);
+  srand(time(NULL));
+  snprintf(buf, sizeof(buf), "%d-%d", getpid(), rand());
+  sample = gnome_sound_sample_load (buf, filename);
+
   esd_sample_play(gnome_sound_connection, sample);
   fsync (gnome_sound_connection);
   esd_sample_free(gnome_sound_connection, sample);
@@ -351,7 +425,7 @@ gnome_sound_play (const char * filename)
 /* Initialize esd connection */
 void gnome_sound_init(char *host)
 {
-#ifdef HAVE_LIBESD
+#ifdef HAVE_ESD
   if(gnome_sound_connection < 0)
     gnome_sound_connection = esd_open_sound(host);
 #endif
@@ -359,7 +433,7 @@ void gnome_sound_init(char *host)
 
 void gnome_sound_shutdown(void)
 {
-#ifdef HAVE_LIBESD
+#ifdef HAVE_ESD
   esd_close(gnome_sound_connection);
 #endif
 }

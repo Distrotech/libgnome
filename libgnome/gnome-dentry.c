@@ -17,7 +17,6 @@
 #include "gnome-util.h"
 #include "gnome-config.h"
 #include "gnome-dentry.h"
-#include "gnome-string.h"
 #include "gnome-exec.h"
 
 /* g_free already checks if x is NULL */
@@ -31,7 +30,7 @@ gnome_is_program_in_path (const char *program)
 	char *f;
 	
 	if (!paths)
-	  paths = gnome_string_split(getenv("PATH"), ":", -1);
+	  paths = g_strsplit(getenv("PATH"), ":", -1);
 
 	p = paths;
 	while (*p){
@@ -85,7 +84,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 			free_if_empty (p);
 			free_if_empty (name);
 			free_if_empty (type);
-			gnome_string_array_free (exec_vector);
+			g_strfreev (exec_vector);
 			free_if_empty (try_file);
 			
 			gnome_config_pop_prefix ();
@@ -204,7 +203,7 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
     {
       free_if_empty (item->name);
       free_if_empty (item->comment);
-      gnome_string_array_free (item->exec);
+      g_strfreev (item->exec);
       free_if_empty (item->icon);
       free_if_empty (item->docpath);
       free_if_empty (item->type);
@@ -243,7 +242,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		for (i = 0; i < term_argc; ++i)
 			argv[i] = term_argv[i];
 		if (term_argv != xterm_argv)
-			gnome_string_array_free (term_argv);
+			g_strfreev (term_argv);
 
 		for (i = 0; i < item->exec_length; ++i)
 			argv[term_argc + i] = item->exec[i];
@@ -270,7 +269,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 
 	uargv[0] = gnome_util_user_shell ();
 	uargv[1] = "-c";
-	uargv[2] = gnome_string_joinv (" ", argv);
+	uargv[2] = g_strjoinv (" ", (char **)argv);
 	uargv[3] = NULL;
 
 	/* FIXME: do something if there's an error.  */

@@ -28,6 +28,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <fcntl.h>
+#include <errno.h>
 
 #include <libgnome/libgnome.h>
 

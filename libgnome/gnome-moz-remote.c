@@ -61,6 +61,11 @@
 
 static const char *progname = 0;
 
+static void
+parseAnArg(poptContext ctx,
+	   const struct poptOption *opt,
+	   const char *arg, void *data);
+
 #define MOZILLA_VERSION_PROP   "_MOZILLA_VERSION"
 #define MOZILLA_LOCK_PROP      "_MOZILLA_LOCK"
 #define MOZILLA_COMMAND_PROP   "_MOZILLA_COMMAND"
@@ -457,7 +462,7 @@ mozilla_remote_command (Display *dpy, Window window, const char *command,
   return result;
 }
 
-int
+static int
 mozilla_remote_commands (Display *dpy, Window window, char **commands)
 {
   Bool raise_p = True;
@@ -498,7 +503,7 @@ mozilla_remote_commands (Display *dpy, Window window, char **commands)
 }
 
 
-int
+static int
 mozilla_remote_cmd(Display *dpy, Window window, char *command, Bool raise_p)
 {
   int status = 0;
@@ -518,20 +523,25 @@ mozilla_remote_cmd(Display *dpy, Window window, char *command, Bool raise_p)
   return status;
 }
 
-static struct argp_option options[] = {
-  { "remote",  -1, "CMD",     0, "execute a command inside Netscape", 1 },
-  { "raise",   -2, NULL,      0, "raise the netscape window after commands",1},
-  { "noraise", -3, NULL,      0, "don't raise the netscape window", 1},
-  { "newwin",  -4, NULL,      0, "given URL is shown in a new window", 1},
-  { "X options", -5, NULL, OPTION_DOC, NULL, 2 },
-  { "display", -5, "DISPLAY", 0, "specify the X server to use", 3 },
-  { "id",      -6, "WIN-ID",  0, "specify the X window id of Netscape", 3 },
-  { "sync",    -7, NULL,      0, "put X connection in synchronous mode", 3 },
-  { NULL, 0, NULL, 0, NULL, 0 }
+static struct poptOption x_options[] = {
+  {"display", '\0', POPT_ARG_STRING, NULL, -5, "Specify X display to use.", "DISPLAY"},
+  {"id", '\0', POPT_ARG_STRING, NULL, -6, "Specify the X window ID of Netscape.", "WIN-ID"},
+  {"sync", '\0', POPT_ARG_NONE, NULL, -7, "Put X connection in synchronous mode.", NULL},
+  {NULL, '\0', 0, NULL, 0}
 };
 
-char *dpy_string = 0, *url_string = 0;
-char **remote_commands = 0;
+static struct poptOption options[] = {
+  { NULL, '\0', POPT_ARG_CALLBACK, parseAnArg, 0, NULL, NULL},
+  { "remote", '\0', POPT_ARG_STRING, NULL, -1, "Execute a command inside Netscape", "CMD"},
+  {"raise", '\0', POPT_ARG_NONE, NULL, -2, "Raise the Netscape window after commands.", NULL},
+  {"noraise", '\0', POPT_ARG_NONE, NULL, -3, "Don't raise the Netscape window.", NULL},
+  {"newwin", '\0', POPT_ARG_NONE, NULL, -4, "Show the given URL in a new window", NULL},
+  {NULL, '\0', POPT_ARG_INCLUDE_TABLE, x_options, 0, "X Options", NULL},
+  {NULL, '\0', 0, NULL, 0}
+};
+
+char *dpy_string = NULL, *url_string = NULL;
+char **remote_commands = NULL;
 int remote_command_count = 0;
 int remote_command_size = 0;
 unsigned long remote_window = 0;
@@ -539,9 +549,14 @@ Bool sync_p = False, raise_p = False;
 gboolean new_window = FALSE;
 int i;
 
-static error_t parseAnArg(int key, char *arg, struct argp_state *state) {
+static void
+parseAnArg(poptContext ctx,
+	   const struct poptOption *opt,
+	   const char *arg, void *data)
+{
   char c;
-  switch (key) {
+
+  switch (opt->val) {
   case -1: /* --remote */
     if (remote_command_count == remote_command_size) {
       remote_command_size += 20;
@@ -550,7 +565,7 @@ static error_t parseAnArg(int key, char *arg, struct argp_state *state) {
 	 ? realloc(remote_commands, remote_command_size * sizeof(char *))
 	 : calloc(remote_command_size, sizeof(char *)));
     }
-    remote_commands[remote_command_count++] = arg;
+    remote_commands[remote_command_count++] = (char *)arg;
     break;
   case -2: /* --raise */
     if (remote_command_count == remote_command_size) {
@@ -578,13 +593,14 @@ static error_t parseAnArg(int key, char *arg, struct argp_state *state) {
     new_window = TRUE;
     break;
   case -5: /* --display */
-    dpy_string = arg;
+    dpy_string = (char *)arg;
     break;
   case -6: /* --id */
     if (remote_command_count > 0) {
       fprintf(stderr, "%s: '--id' option must precede '--remote' options.\n",
 	      progname);
-      argp_usage(state);
+      poptPrintUsage(ctx, stdout, 0);
+      exit(1);
     }
     if (sscanf(arg, " %ld %c", &remote_window, &c))
       ;
@@ -592,54 +608,40 @@ static error_t parseAnArg(int key, char *arg, struct argp_state *state) {
       ;
     else {
       fprintf(stderr, "%s: invalid '--id' option \"%s\"\n", progname, arg);
-      argp_usage(state);
+      poptPrintUsage(ctx, stdout, 0);
+      exit(1);
     }
     break;
   case -7: /* --sync */
     sync_p = True;
     break;
-  case ARGP_KEY_ARG:
-    if (url_string) {
-      fprintf(stderr, "%s: only one URL aloowed on command line.\n", progname);
-      argp_usage(state);
-    }
-    url_string = arg;
-    break;
-  default:
-    return ARGP_ERR_UNKNOWN;
   }
-  return 0;
 };
 
-static struct argp parser = {
-  options,
-  parseAnArg,
-  "[URL]",
-  "If a URL is given on the command line, it will be shown in the current\n"
-  "Netscape session.  If no session is available, a new copy of Netscape is\n"
-  "started.  Note that this mode is mutually exclusive with --remote mode.",
-  NULL,
-  NULL,
-  NULL
-};
-
-void
+int
 main (int argc, char **argv)
 {
   Display *dpy;
-  char *tmp;
+  char *tmp, **catmp;
+  poptContext ctx;
 
   progname = argv[0];
   tmp = strrchr(argv[0], '/');
   progname = tmp? (tmp + 1) : progname;
+
   /* Parse arguments ... */
-  gnomelib_init("gnome-moz-remote");
-  gnomelib_register_arguments();
-  gnome_parse_arguments(&parser, argc, argv, 0, NULL);
+  gnomelib_init("gnome-moz-remote", VERSION);
+  gnomelib_register_popt_table(options, "gnome-moz-remote options");
+  ctx = gnomelib_parse_args(argc, argv, 0);
+  while(poptGetNextOpt(ctx) > 0) /* */;
+
+  catmp = poptGetArgs(ctx);
+  if(catmp && catmp[0])
+    url_string = catmp[0];
 
   dpy = XOpenDisplay (dpy_string);
   if (! dpy)
-    exit (-1);
+    return (-1);
 
   if (sync_p)
     XSynchronize (dpy, True);
@@ -655,8 +657,9 @@ main (int argc, char **argv)
     argv[0] = gnome_config_get_string("/gnome-moz-remote/Mozilla/filename=netscape");
     argv[1] = url_string;
     argv[2] = NULL;
-    exit (gnome_execute_async(NULL, 2, argv));
+    return (gnome_execute_async(NULL, 2, argv));
   } else
-    exit (mozilla_remote_commands (dpy, (Window) remote_window,
-				   remote_commands));
+    return (mozilla_remote_commands (dpy, (Window) remote_window,
+				     remote_commands));
+
 }

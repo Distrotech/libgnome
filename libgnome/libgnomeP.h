@@ -29,11 +29,10 @@
 #include "libgnome/gnome-hook.h"
 #include "libgnome/gnome-i18nP.h"
 #include "libgnome/gnome-metadata.h"
-#include "libgnome/gnome-parse.h"
+#include "libgnome/gnome-popt.h"
 #include "libgnome/gnome-remote.h"
 #include "libgnome/gnome-score.h"
 #include "libgnome/gnome-sound.h"
-#include "libgnome/gnome-string.h"
 #include "libgnome/gnome-triggers.h"
 #include "libgnome/gnome-util.h"
 #include "libgnome/gnome-paper.h"
@@ -41,10 +40,9 @@
 extern char *gnome_user_home_dir;
 extern char *gnome_user_dir;
 extern char *gnome_user_private_dir;
-extern char *gnome_app_id;
+extern char *gnome_app_id, *gnome_app_version;
 extern char gnome_do_not_create_directories;
 
-void gnomelib_init (char *app_id);
-void gnomelib_register_arguments (void);
+void gnomelib_init (const char *app_id, const char *app_version);
 
 #endif /* LIBGNOMEP_H */

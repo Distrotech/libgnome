@@ -15,7 +15,7 @@
 char *gnome_user_home_dir = 0;
 char *gnome_user_dir = 0;
 char *gnome_user_private_dir = 0;
-char *gnome_app_id = 0;
+char *gnome_app_id = 0, *gnome_app_version = 0;
 char gnome_do_not_create_directories = 0;
 
 static void
@@ -49,32 +49,65 @@ create_user_gnome_directories (void)
 
 }
 
-void
-gnomelib_init (char *app_id)
+static gboolean disable_sound = FALSE;
+static char *esound_host = NULL;
+
+static void
+gnomelib_option_cb(poptContext ctx, enum poptCallbackReason reason,
+		   const struct poptOption *opt, const char *arg,
+		   void *data)
 {
+  switch(reason) {
+    case POPT_CALLBACK_REASON_POST:
+      if(!disable_sound) {
+	if(esound_host)
+	  gnome_sound_init(esound_host);
+	else if(getenv("ESOUNDHOST"))
+	  gnome_sound_init(getenv("ESOUNDHOST"));
+	else
+	  gnome_sound_init("localhost");
+      }
+
+      gnome_triggers_init();
+      break;
+    case POPT_CALLBACK_REASON_OPTION:
+      break;
+  }
+}
+
+static const struct poptOption gnomelib_options[] = {
+  {NULL, '\0', POPT_ARG_CALLBACK|POPT_CBFLAG_POST,
+   gnomelib_option_cb, 0, NULL, NULL},
+  {"disable-sound", '\0', POPT_ARG_NONE,
+   &disable_sound, 0, N_("Disable sound server usage"), NULL},
+  {"esound-host", '\0', POPT_ARG_STRING,
+   &esound_host, 0, N_("Host on which the sound server to use is running"),
+   N_("HOSTNAME")},
+  {NULL, '\0', 0, NULL, 0}
+};
+
+static void
+gnomelib_register_options(void)
+{
+  gnomelib_register_popt_table(gnomelib_options, N_("GNOME Options"));
+}
+
+void
+gnomelib_init (const char *app_id,
+	       const char *app_version)
+{
+	gnome_app_id = (char *)app_id;
+	gnome_app_version = (char *)app_version;
+
 	gnome_user_home_dir = getenv ("HOME");
 	/* never freed - gnome_config currently uses this, and it's better
 	   to figure it out once than to repeatedly get it */
 	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome");
 	create_user_gnome_directories ();
 
-	gnome_app_id = app_id;
-
-	gnome_i18n_init ();
-
-	if(getenv("ESOUNDHOST"))
-		gnome_sound_init(getenv("ESOUNDHOST"));
-	else
-		gnome_sound_init("localhost");
-
-	gnome_triggers_init();
+	gnomelib_register_options();
 
 	setlocale (LC_ALL, "");
 	bindtextdomain (PACKAGE, GNOMELOCALEDIR);
-}
-
-/* Register any command-line arguments we might have.  */
-void
-gnomelib_register_arguments (void)
-{
+	gnome_i18n_init ();
 }

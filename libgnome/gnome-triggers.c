@@ -5,7 +5,6 @@
 #include "gnome-triggers.h"
 #include "gnome-config.h"
 #include "gnome-util.h"
-#include "gnome-string.h"
 #include "gnome-sound.h"
 #ifdef HAVE_LIBESD
 #include <esd.h>
@@ -77,9 +76,9 @@ static const GnomeTriggerTypeFunction actiontypes[] =
    gnome-triggers.h */
 {
   (GnomeTriggerTypeFunction)NULL,
-  gnome_trigger_do_function,
-  gnome_trigger_do_command,
-  gnome_trigger_do_mediaplay,
+  (GnomeTriggerTypeFunction)gnome_trigger_do_function,
+  (GnomeTriggerTypeFunction)gnome_trigger_do_command,
+  (GnomeTriggerTypeFunction)gnome_trigger_do_mediaplay,
   (GnomeTriggerTypeFunction)NULL
 };
 
@@ -153,9 +152,9 @@ gnome_triggers_readfile(gchar *infilename)
     if(aline[0] == '\0' || aline[0] == '#')
       continue;
 
-    parts = gnome_string_split(aline, " ", -1);
+    parts = g_strsplit(aline, " ", -1);
     if(!parts || !parts[0] || !parts[1] || !parts[2] || !parts[3]) {
-      gnome_string_array_free(parts);
+      g_strfreev(parts);
       g_warning("Invalid triggers line \'%s\'\n", aline);
       continue;
     }
@@ -164,7 +163,7 @@ gnome_triggers_readfile(gchar *infilename)
       subnames = g_malloc(sizeof(gchar *));
       subnames[0] = NULL;
     } else
-      subnames = gnome_string_split(parts[1], ":", -1);
+      subnames = g_strsplit(parts[1], ":", -1);
 
     if(!strcmp(parts[2], "command"))
       nt->type = GTRIG_COMMAND;
@@ -177,8 +176,8 @@ gnome_triggers_readfile(gchar *infilename)
       nt->level = parts[0];
     gnome_triggers_vadd_trigger(nt, subnames);
 
-    gnome_string_array_free(subnames);
-    gnome_string_array_free(parts);
+    g_strfreev(subnames);
+    g_strfreev(parts);
   }
   g_free(nt);
 
@@ -316,7 +315,7 @@ gnome_triggers_do(const char *msg, const char *level, ...)
   
   /* And pass them to the real function */
   
-  gnome_triggers_vdo(msg, level, strings);
+  gnome_triggers_vdo(msg, level, (const char **)strings);
   g_free(strings);
 }
 
@@ -426,7 +425,7 @@ gnome_trigger_do(GnomeTrigger t,
 {
   g_return_if_fail(t != NULL);
 
-  actiontypes[t->type](t, msg, level, supinfo);
+  actiontypes[t->type](t, (char *)msg, (char *)level, (char **)supinfo);
 }
 
 static void
@@ -435,7 +434,7 @@ gnome_trigger_do_function(GnomeTrigger t,
 			  const char *level,
 			  const char *supinfo[])
 {
-  t->u.function(msg, level, supinfo);
+  t->u.function((char *)msg, (char *)level, (char **)supinfo);
 }
 
 static void
@@ -450,12 +449,12 @@ gnome_trigger_do_command(GnomeTrigger t,
   for(nsupinfos = 0; supinfo[nsupinfos]; nsupinfos++);
 
   argv = g_malloc(sizeof(char *) * (nsupinfos + 4));
-  argv[0] = t->u.command;
-  argv[1] = msg;
-  argv[2] = level;
+  argv[0] = (char *)t->u.command;
+  argv[1] = (char *)msg;
+  argv[2] = (char *)level;
 
   for(i = 0; supinfo[i]; i++) {
-    argv[i + 3] = supinfo[i];
+    argv[i + 3] = (char *)supinfo[i];
   }
   argv[i + 3] = NULL;
 

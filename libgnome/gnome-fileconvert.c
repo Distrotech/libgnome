@@ -8,7 +8,6 @@
 #include <glib.h>
 
 #include "gnome-defs.h"
-#include "gnome-string.h"
 #include "gnome-fileconvert.h"
 
 #define TYPES_CVT_FILENAME "types.cvt"
@@ -99,11 +98,11 @@ gfc_read_FileConverters(void)
 
   if(conffile) {
     while(fgets(aline, sizeof(aline), conffile)) {
-      gnome_string_chomp(aline, TRUE);
+      g_strchomp(aline);
       if(aline[0] == '#'
 	 || aline[0] == '\0')
 	continue;
-      parts = gnome_string_split(aline, " ", 3);
+      parts = g_strsplit(aline, " ", 3);
 
       if (! (fromtype = g_hash_table_lookup(file_types, parts[0])))
         {
@@ -252,7 +251,7 @@ gfc_run_pipe(gchar *acmd, gint infd)
     }
 
   /* else */
-  parts = gnome_string_split(acmd, " ", -1);
+  parts = g_strsplit(acmd, " ", -1);
   dup2(infd, 0);
   dup2(fds[1], 1);
   dup2(fds[1], 2);

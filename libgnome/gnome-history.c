@@ -21,7 +21,6 @@
 
 #include "gnome-defs.h"
 #include "gnome-util.h"
-#include "gnome-string.h"
 #include "gnome-history.h"
 
 #define NUM_ENTS 10
@@ -59,10 +58,10 @@ gnome_history_get_recently_used (void)
 	infile = fopen(filename, "r");
 	if(infile){
 		while(fgets(aline, sizeof(aline), infile)){
-			gnome_string_chomp(aline, TRUE);
+			g_strchomp(aline);
 			if(aline[0] == '\0') continue;
 			
-			parts = gnome_string_split(aline, " ", 4);
+			parts = g_strsplit(aline, " ", 4);
 			
 			anent = g_malloc(sizeof(struct _GnomeHistoryEntry));
 			anent->filename = parts[0];

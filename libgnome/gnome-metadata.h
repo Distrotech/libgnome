@@ -48,7 +48,7 @@ int gnome_metadata_remove (const char *file, const char *name);
 
 /* Return an array of all metadata keys associated with FILE.  The
    array is NULL terminated.  The result value can be freed with
-   gnome_string_array_free.  This only returns keys for which there is
+   g_strfreev.  This only returns keys for which there is
    a particular association with FILE.  It will not return keys for
    which a regex or other match succeeds.  */
 char **gnome_metadata_list (const char *file);

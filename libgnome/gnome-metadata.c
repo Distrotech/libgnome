@@ -28,6 +28,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <ctype.h>
+#include <errno.h>
 
 #ifdef HAVE_DB_185_H
 # include <db_185.h>
@@ -654,7 +655,7 @@ maybe_scan_app_dir (void)
 	app_type_hash = g_hash_table_new (g_str_hash, g_str_equal);
 
 	if (scandir (gnome_metadata_app_dir, &list,
-		     scan_app_file, alphasort) != -1)
+		     (gpointer)scan_app_file, alphasort) != -1)
 		free (list);
 }
 
@@ -800,7 +801,7 @@ gnome_metadata_remove (const char *file, const char *name)
  *
  * Returns an array of all metadata keys associated with @file.  The
  * array is %NULL terminated.  The result can be freed with
- * gnome_string_array_free().  This only returns keys for which there
+ * g_strfreev().  This only returns keys for which there
  * is a particular association with @file.  It will not return keys
  * for which a regex or other match succeeds.
  */
@@ -921,7 +922,7 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 	}
 
 	/* See if `mime.types' has the answer.  */
-	type = gnome_mime_type_or_default (file, NULL);
+	type = gnome_mime_type_or_default ((char *)file, NULL);
 	if (type) {
 		type = strdup (type);
 		goto got_type;
@@ -1047,7 +1048,7 @@ worker (const char *from, const char *to, int op)
 
 	unlock ();
 
-	gnome_string_array_free (keys);
+	g_strfreev (keys);
 
 	return ret;
 }
