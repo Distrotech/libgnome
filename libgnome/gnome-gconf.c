@@ -54,7 +54,7 @@ gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
         gchar *key;
 
         dir = g_strconcat("/apps/gnome-settings/",
-                          gnome_program_get_name(gnome_program_get()),
+                          gnome_program_get_app_id (gnome_program_get()),
                           NULL);
 
         if (subkey && *subkey) {
@@ -88,7 +88,7 @@ gnome_gconf_get_app_settings_relative (GnomeProgram *program, const gchar *subke
 		program = gnome_program_get ();
 
         dir = g_strconcat ("/apps/",
-			   gnome_program_get_name (program),
+			   gnome_program_get_app_id  (program),
 			   NULL);
 
         if (subkey && *subkey) {

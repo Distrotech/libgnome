@@ -667,7 +667,7 @@ check_path(char *path, mode_t newmode)
 	if(strchr(path,'/')==NULL)
 		return FALSE;
 
-	dirpath = strcpy (alloca (strlen (path) + 1), path);
+	dirpath = strcpy (g_alloca (strlen (path) + 1), path);
 	g_return_val_if_fail (dirpath != NULL, FALSE);
 
 	if (*dirpath == '\0')

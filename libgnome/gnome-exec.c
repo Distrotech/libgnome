@@ -140,7 +140,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
       if(dir) chdir(dir);
 
-      cpargv = alloca((argc + 1) * sizeof(char *));
+      cpargv = g_alloca((argc + 1) * sizeof(char *));
       memcpy(cpargv, argv, argc * sizeof(char *));
       cpargv[argc] = NULL;
 

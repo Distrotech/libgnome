@@ -425,11 +425,11 @@ gnome_program_module_list_order (void)
     int *times_visited; /* Detects dependency loops */
     int num_items_used;
 
-    new_list = alloca (program_modules->len * sizeof(gpointer));
+    new_list = g_alloca (program_modules->len * sizeof(gpointer));
     new_list[0] = NULL;
     num_items_used = 0;
   
-    times_visited = alloca (program_modules->len * sizeof(int));
+    times_visited = g_alloca (program_modules->len * sizeof(int));
     memset(times_visited, '\0', program_modules->len * sizeof(int));
 
     /* Create the new list with proper ordering */
@@ -696,7 +696,7 @@ gnome_program_get (void)
 }
 
 /**
- * gnome_program_get_name
+ * gnome_program_get_app_id
  * @program: The program object
  *
  * Description:
@@ -708,7 +708,7 @@ gnome_program_get (void)
  * Returns: application ID string.
  */
 const char *
-gnome_program_get_name (GnomeProgram *program)
+gnome_program_get_app_id (GnomeProgram *program)
 {
     g_return_val_if_fail (program != NULL, NULL);
     g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
@@ -718,7 +718,7 @@ gnome_program_get_name (GnomeProgram *program)
 }
 
 /**
- * gnome_program_get_version
+ * gnome_program_get_app_version
  * @app: The application object
  *
  * Description:
@@ -730,7 +730,7 @@ gnome_program_get_name (GnomeProgram *program)
  * Returns: application version string.
  */
 const char *
-gnome_program_get_version (GnomeProgram *program)
+gnome_program_get_app_version (GnomeProgram *program)
 {
     g_return_val_if_fail (program != NULL, NULL);
     g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
@@ -818,9 +818,9 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 {
     gchar *prefix_rel = NULL, *attr_name = NULL, *attr_rel = NULL;
     gchar fnbuf [PATH_MAX], *retval = NULL, **ptr;
-    gboolean append_app_id = FALSE;
     gboolean search_path = TRUE;
     GValue value = { 0, };
+    int len;
 
     if (program == NULL)
 	program = gnome_program_get ();
@@ -901,10 +901,22 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 	search_path = FALSE;
 	break;
     case GNOME_FILE_DOMAIN_APP_HELP:
-	prefix_rel = "/share/gnome/help";
+	len = strlen ("/share//help") + 
+		strlen (program->_priv->app_id) + 1;
+	prefix_rel = g_alloca (len);
+	if (prefix_rel == NULL /* bad things */)
+		return NULL;
+	g_snprintf (prefix_rel, len, "/share/%s/help", program->_priv->app_id);
+
 	attr_name = GNOME_PARAM_APP_DATADIR;
-	attr_rel = "/gnome/help";
-	append_app_id = TRUE;
+
+	len = strlen ("//help") + 
+		strlen (program->_priv->app_id) + 1;
+	attr_rel = g_alloca (len);
+	if (attr_rel == NULL /* bad things */)
+		return NULL;
+	g_snprintf (attr_rel, len, "/%s/help", program->_priv->app_id);
+
 	search_path = FALSE;
 	break;
     default:
@@ -928,31 +940,23 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 	}
 
 	if (dir != NULL) {
-	    if (append_app_id)
-		g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s/%s",
-			    dir, attr_rel, program->_priv->app_id, file_name);
-	    else
-		g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s",
-			    dir, attr_rel, file_name);
+	    g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s",
+			dir, attr_rel, file_name);
 
 	    if (!only_if_exists || g_file_test (fnbuf, G_FILE_TEST_EXISTS))
-		ADD_FILENAME (g_strdup (fnbuf));
+		ADD_FILENAME (fnbuf);
 	}
     }
-    if (retval && !ret_locations)
+    if (retval != NULL && ret_locations == NULL)
 	goto out;
 
     /* Now check the GNOME_PATH. */
     for (ptr = program->_priv->gnome_path; search_path && ptr && *ptr; ptr++) {
-	if (append_app_id)
-	    g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s/%s",
-			*ptr, prefix_rel, program->_priv->app_id, file_name);
-	else
-	    g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s",
-			*ptr, prefix_rel, file_name);
+	g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s",
+		    *ptr, prefix_rel, file_name);
 
 	if (!only_if_exists || g_file_test (fnbuf, G_FILE_TEST_EXISTS))
-	    ADD_FILENAME (g_strdup (fnbuf));
+	    ADD_FILENAME (fnbuf);
     }
     if (retval && !ret_locations)
 	goto out;
@@ -962,128 +966,6 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
  out:
     return retval;
 }
-
-#ifdef NOT_YET_FINISHED
-/* Tenative function, do not take seriously */
-gboolean
-gnome_program_display_app_help (GnomeProgram    *program,
-				const gchar     *filename /* no extension */,
-				const gchar     *section,
-				GError         **error)
-{
-	char *file;
-	char *url;
-	int i;
-	char *exts[] = { ".sgml", ".html", NULL };
-	GError *err = NULL;
-
-	file = gnome_program_locate_file (program,
-					  GNOME_FILE_DOMAIN_APP_HELP,
-					  filename,
-					  FALSE /* only_if_exists */,
-					  NULL /* ret_locations */);
-
-	if (file == NULL)
-		return FALSE;
-
-	url = NULL;
-
-	for (i = 0; exts[i] != NULL; i++) {
-		char *full = g_strconcat (file, exts[i], NULL);
-		if (g_file_test (full, G_FILE_TEST_EXISTS)) {
-			url = g_strconcat ("ghelp:", full,
-					   "?", section, NULL);
-			g_free (full);
-			break;
-		}
-		g_free (full);
-	}
-
-	g_free (file);
-
-	if (url == NULL) {
-		return FALSE;
-	}
-
-	gnome_url_show_full (NULL /* display_context */,
-			     url /* url to show */,
-			     "help" /* url type */,
-			     GNOME_URL_DISPLAY_NO_RETURN_CONTEXT,
-			     &err);
-
-	g_free (url);
-
-	if (err != NULL) {
-		*error = err;
-		return FALSE;
-	} else {
-		return TRUE;
-	}
-}
-
-/* Tenative function, do not take seriously */
-gboolean
-gnome_program_display_help (GnomeProgram    *program,
-			    const gchar     *filename /* no extension */,
-			    const gchar     *section,
-			    GError         **error)
-{
-	char *url;
-	int i;
-	char *exts[] = { ".sgml", ".html", NULL };
-	GError *err = NULL;
-	GSList *ret_locations = NULL, *li;
-
-	gnome_program_locate_file (program,
-				   GNOME_FILE_DOMAIN_HELP,
-				   filename,
-				   FALSE /* only_if_exists */,
-				   &ret_locations);
-
-	if (ret_locations == NULL)
-		return FALSE;
-
-	url = NULL;
-
-	for (li = ret_locations; li != NULL; li = li->next) {
-		char *file = li->data;
-		for (i = 0; exts[i] != NULL; i++) {
-			char *full = g_strconcat (file, exts[i], NULL);
-			if (g_file_test (full, G_FILE_TEST_EXISTS)) {
-				url = g_strconcat ("ghelp:", full,
-						   "?", section, NULL);
-				g_free (full);
-				break;
-			}
-			g_free (full);
-		}
-		if (url != NULL)
-			break;
-	}
-
-	g_slist_foreach (ret_locations, (GFunc) g_free, NULL);
-	g_slist_free (ret_locations);
-
-	if (url == NULL) {
-		return FALSE;
-	}
-
-	gnome_url_show_full (NULL /* display_context */,
-			     url /* url to show */,
-			     "help" /* url type */,
-			     GNOME_URL_DISPLAY_NO_RETURN_CONTEXT,
-			     &err);
-
-	g_free (url);
-
-	if (err != NULL) {
-		*error = err;
-		return FALSE;
-	} else {
-		return TRUE;
-	}
-}
-#endif
 
 /******** modules *******/
 

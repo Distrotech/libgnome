@@ -1,3 +1,16 @@
+Sun Sep 02 00:49:05 2001  George Lebl <jirka@5z.com>
+
+	* gnome-program.[ch], gnome-init.c, gnome-gconf.c:  Be consistent
+	  with naming of attributes and getters.  So
+	  s/gnome_program_get_name/gnome_program_get_app_id/ and
+	  s/gnome_program_get_version/gnome_program_get_app_version/
+
+	* gnome-program.c, gnome-help.[ch]:  Implement the help stuff
+	  according to jrb's RFP.  Hopefully correctly :)
+
+	* gnome-exec.c, gnome-program.c, gnome-config.c: Be more consistent
+	  with use of alloca and always call g_alloca
+
 Sat Sep 01 23:01:30 2001  George Lebl <jirka@5z.com>
 
 	* Makefile.am, gnome-score.[ch]: bring back the non-gui portion of

@@ -55,6 +55,7 @@ libgnome_src = \
 	gnome-triggers.c	\
 	gnome-triggersP.h	\
 	gnome-program.c		\
+	gnome-help.c		\
 	gnome-exec.c		\
 	gnome-gconf.c		\
 	gnome-i18n.c		\
@@ -81,6 +82,7 @@ libgnome_headers = \
 	gnome-sound.h		\
 	gnome-triggers.h	\
 	gnome-program.h		\
+	gnome-help.h		\
 	gnome-i18n.h		\
 	gnome-exec.h		\
 	gnome-gconf.h		\
