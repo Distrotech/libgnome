@@ -19,7 +19,7 @@ main (int argc, char *argv [])
 	ev = &real_ev;
 	CORBA_exception_init (ev);
 
-	ref = oaf_activate (
+	ref = bonobo_activation_activate (
 		"repo_ids.has ('IDL:Bonobo/Moniker:1.0') AND "
 		"bonobo:moniker.has ('file:')", NULL, 0, NULL, ev);
 	g_assert (ev->_major == CORBA_NO_EXCEPTION);

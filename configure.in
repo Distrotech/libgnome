@@ -63,11 +63,11 @@ AC_SUBST(REBUILD)
 dnl
 dnl Start of pkg-config checks
 dnl
-PKG_CHECK_MODULES(LIBGNOME, ORBit-2.0 >= 2.3.90 glib-2.0 >= 1.3.1 gnome-vfs-2.0 oaf-2.0 libxml-2.0 libbonobo-2.0 >= 1.98.0)
+PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.1 gnome-vfs-2.0 libxml-2.0 libbonobo-2.0 >= 1.98.0)
 AC_SUBST(LIBGNOME_CFLAGS)
 AC_SUBST(LIBGNOME_LIBS)
 
-PKG_CHECK_MODULES(MONIKER, ORBit-2.0 >= 2.3.90 glib-2.0 >= 1.3.1 gnome-vfs-2.0 oaf-2.0 libxml-2.0 libbonobo-2.0 libbonobo-config)
+PKG_CHECK_MODULES(MONIKER, glib-2.0 >= 1.3.1 gnome-vfs-2.0 libxml-2.0 libbonobo-2.0 libbonobo-config)
 AC_SUBST(MONIKER_CFLAGS)
 AC_SUBST(MONIKER_LIBS)
 

@@ -44,7 +44,7 @@
 #include <gobject/gparamspecs.h>
 #include <gobject/gvaluetypes.h>
 
-#include <liboaf/liboaf.h>
+#include <bonobo-activation/bonobo-activation.h>
 #include <libbonobo.h>
 
 #ifdef HAVE_GNOMESUPPORT
@@ -54,34 +54,35 @@
 #include <libgnomevfs/gnome-vfs-init.h>
 
 /*****************************************************************************
- * oaf
+ * bonobo-activation
  *****************************************************************************/
 
 static void
-gnome_oaf_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+bonobo_activation_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
-        if (!g_thread_supported()) g_thread_init (NULL);
+        if (!g_thread_supported ())
+		g_thread_init (NULL);
 
-	oaf_preinit (program, mod_info);
+	bonobo_activation_preinit (program, mod_info);
 }
 
 static void
-gnome_oaf_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+bonobo_activation_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
 	int dumb_argc = 1;
 	char *dumb_argv[] = {NULL};
 
-	oaf_postinit (program, mod_info);
+	bonobo_activation_postinit (program, mod_info);
 
 	dumb_argv[0] = program_invocation_name;
-	(void) oaf_orb_init (&dumb_argc, dumb_argv);
+	(void) bonobo_activation_orb_init (&dumb_argc, dumb_argv);
 }
 
-GnomeModuleInfo gnome_oaf_module_info = {
-	"gnome-oaf", VERSION, N_("GNOME OAF Support"),
+GnomeModuleInfo gnome_bonobo_activation_module_info = {
+	"bonobo-activation", VERSION, N_("Bonobo activation Support"),
 	NULL, NULL,
-	gnome_oaf_pre_args_parse, gnome_oaf_post_args_parse,
-	oaf_popt_options
+	bonobo_activation_pre_args_parse, bonobo_activation_post_args_parse,
+	bonobo_activation_popt_options
 };
 
 /*****************************************************************************
@@ -314,7 +315,7 @@ libbonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 }
 
 static GnomeModuleRequirement libbonobo_requirements [] = {
-	{ VERSION, &gnome_oaf_module_info },
+	{ VERSION, &gnome_bonobo_activation_module_info },
 	{ NULL }
 };
 

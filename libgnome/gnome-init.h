@@ -56,7 +56,7 @@ gnome_get_config_database (void);
 #define GNOME_PARAM_CONFIG_DATABASE "config-database"
 #define GNOME_PARAM_CONFIG_MONIKER  "config-moniker"
 
-extern GnomeModuleInfo gnome_oaf_module_info;
+extern GnomeModuleInfo gnome_bonobo_activation_module_info;
 extern GnomeModuleInfo gnome_vfs_module_info;
 extern GnomeModuleInfo libgnome_module_info;
 
