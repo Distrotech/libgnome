@@ -12,58 +12,58 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
-"POT-Creation-Date: 2003-07-04 10:50+0200\n"
-"PO-Revision-Date: 2003-06-18 18:52+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-07-28 00:34+0200\n"
+"PO-Revision-Date: 2003-07-28 00:33+0200\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
-msgid "Error Messages"
-msgstr "Fejlmeddelelser"
+msgid "Error message"
+msgstr "Fejlmeddelelse"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
-msgid "GNOME system events"
-msgstr "Systemhændelser"
+msgid "Informational message"
+msgstr "Informationsmeddelelse"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
-msgid "Informational Messages"
-msgstr "Informationsmeddelelser"
-
-#: gnome-data/gnome-2.soundlist.in.h:4
-msgid "Login"
+msgid "Log in"
 msgstr "Logind"
 
-#: gnome-data/gnome-2.soundlist.in.h:5
-msgid "Logout"
+#: gnome-data/gnome-2.soundlist.in.h:4
+msgid "Log out"
 msgstr "Logud"
 
+#: gnome-data/gnome-2.soundlist.in.h:5
+msgid "Miscellaneous message"
+msgstr "Diverse meddelelse"
+
 #: gnome-data/gnome-2.soundlist.in.h:6
-msgid "Miscellaneous Messages"
-msgstr "Diverse meddelelser"
+msgid "Question dialog"
+msgstr "Spørgsmålsvindue"
 
 #: gnome-data/gnome-2.soundlist.in.h:7
-msgid "Question Dialogs"
-msgstr "Spørgsmålsvinduer"
+msgid "System events"
+msgstr "Systemhændelser"
 
 #: gnome-data/gnome-2.soundlist.in.h:8
-msgid "Warning Messages"
-msgstr "Advarselsmeddelelser"
+msgid "Warning message"
+msgstr "Advarselsmeddelelse"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
-msgid "Action button click"
-msgstr "Klik på handlingsknap"
+msgid "Choose menu item"
+msgstr "Valg af menupunkt"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
-msgid "Check box toggled"
-msgstr "Klik på afkrydsningsboks"
+msgid "Click on command button"
+msgstr "Klik på kommandoknap"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
-msgid "Menu item activation"
-msgstr "Aktivering af menuelement"
+msgid "Select check box"
+msgstr "Valg af afkrydsningsboks"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -367,7 +367,7 @@ msgstr "Ukendt fejlkode: %d"
 #: libgnome/gnome-open.c:35
 #, c-format
 msgid "Error showing url: %s\n"
-msgstr ""
+msgstr "Fejl ved visning af adresse: %s\n"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -447,7 +447,6 @@ msgid ""
 msgstr "List af assisterende teknologier som skal startes når der logges ind"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
-#, fuzzy
 msgid "Startup Assistive Technology Applications"
 msgstr "Assisterende teknologier ved start"
 
@@ -686,42 +685,50 @@ msgid "Menus Have Tearoff"
 msgstr "Menuer har afrivningslinjer"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
+msgid "Monospace font"
+msgstr "Fast bredde-skrifttype"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:18
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr "Navn på fast bredde skrifttype til brug i f.eks. terminaler."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr ""
 "Navn på den præredigeringsstil der benyttes af GTK+, til GTK+-"
 "indtastningsmetoden."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr ""
 "Navn på den statusstil der benyttes af GTK+, til GTK+-indtastningsmetoden."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the default font used by gtk+."
 msgstr "Navn på den forvalgte skrifttype der benyttes af GTK+."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Status Bar on Right"
 msgstr "Statuslinje til højre"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Dette angiver størrelsen af ikoner der vises i værktøjslinjer"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Toolbar Detachable"
 msgstr "Værktøjslinjer kan frigøres"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Icon Size"
 msgstr "Ikonstørrelse for værktøjslinjer"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Style"
 msgstr "Stil for værktøjslinjer"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
-#, fuzzy
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
@@ -729,15 +736,15 @@ msgstr ""
 "Stil for værktøjslinjer. Gyldige værdier er \"both\", \"both_horiz\", \"icon"
 "\" og \"text\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
 msgstr "Benyt brugerdefineret skrifttype"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
 msgstr "Om programmer skal have tilgængelighedsunderstøttelse"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -745,38 +752,37 @@ msgstr ""
 "Om animationer skal vises. Bemærk: dette er en global nøgle, den ændrer "
 "opførslen for vindueshåndteringen, panelet osv."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Om menuer kan vise et ikon ved siden af et menupunkt"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether menus should have a tearoff"
 msgstr "Om menuer skal kunne afrives"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the cursor should blink"
 msgstr "Om markøren skal blinke"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Om brugeren kan frigøre menulinjer og flytte dem omkring"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Om brugeren kan frigøre værktøjslinjer og flytte dem omkring"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
-#, fuzzy
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr "Om brugeren dynamisk kan indtaste en ny genvej når en menu vises"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
 msgstr "Om der skal vises en statuslinjemåler til højre"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Om der skal benyttes en brugerdefineret skrifttype i GTK+-programmer"
 
@@ -789,9 +795,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Brugerdefineret filnavn til tastaturklokke"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-#, fuzzy
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "Mulige værdier er 'on', 'off' og 'custom'."
+msgstr "mulige værdier er 'on', 'off' og 'custom'."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -813,7 +818,6 @@ msgid "Cursor theme"
 msgstr "Markørtema"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later. This value is only propagated to the X server at the "
@@ -846,7 +850,6 @@ msgid "Drag Threshold"
 msgstr "Trækketærskel"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-#, fuzzy
 msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
 "only propagated to the X server start of each session, so changing it mid-"
@@ -920,45 +923,47 @@ msgstr "Om der skal afspilles lyde ved brugerhændelser."
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
-msgstr ""
+msgstr "Deaktivér alle eksterne miniaturegenereringer"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
+"Om alle eksterne miniaturegenereringer skal deaktiveres, uafhængigt af om de "
+"bliver deaktiveret/aktiveret hver for sig."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
-msgstr ""
+msgstr "Tillad udsættelse af pauser"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:2
 msgid "Break time"
-msgstr ""
+msgstr "Pausetid"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:3
 msgid "Number of minutes of typing time before break mode starts."
-msgstr ""
+msgstr "Antal minutters indtastningstid før pausetilstand begynder."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:4
 msgid "Number of minutes that the typing break should last."
-msgstr ""
+msgstr "Antal minutter som indtastningspausen skal vare."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:5
 msgid "Type time"
-msgstr ""
+msgstr "Indtastningstid"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
-msgstr ""
+msgstr "Om tastaturlås er aktiveret"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr ""
+msgstr "Om tastaturlås er aktiveret."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr ""
+msgstr "Om tastepause-skærmen kan udsættes."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle ghelp URLs"
@@ -1027,6 +1032,15 @@ msgstr "URL-håndtering for 'man:'-sider"
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "URL-håndtering for 'trash:'-sider"
+
+#~ msgid "Action button click"
+#~ msgstr "Klik på handlingsknap"
+
+#~ msgid "Check box toggled"
+#~ msgstr "Klik på afkrydsningsboks"
+
+#~ msgid "Menu item activation"
+#~ msgstr "Aktivering af menuelement"
 
 #~ msgid "Default URL show handler"
 #~ msgstr "Forvalgt URL-fremvisningshåndtering"
