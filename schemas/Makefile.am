@@ -20,8 +20,4 @@ install-data-local:
 		done \
 	fi
 
-
-
-
-
 EXTRA_DIST = $(schema_DATA)

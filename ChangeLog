@@ -1,3 +1,20 @@
+2002-03-13  Michael Meeks  <michael@ximian.com>
+
+	* monikers/bonobo-config-bag.c
+	(impl_Bonobo_PropertyBag_getDefault),
+	(impl_Bonobo_PropertyBag_getValue),
+	(impl_Bonobo_PropertyBag_getType): fix warnings.
+
+	* monikers/bonobo-moniker-config.c: ditto.
+
+	* libgnome/gnome-program.c
+	(find_accessibility_module): impl.
+	(gnome_program_postinit): add accessibility setup / init.a
+	(accessibility_init): grab any interesting
+	looking modules out of the module list.
+	(accessibility_invoke_module): impl.
+	(accessibility_invoke): impl.
+
 2002-03-12  Laszlo Peter  <laca@ireland.sun.com>
 
 	* libgnome/gnome-exec.c (gnome_prepend_terminal_to_vector):

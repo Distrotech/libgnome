@@ -7,6 +7,7 @@
  *	Rodrigo Moya (rodrigo@gnome-db.org)
  */
 
+#include <string.h>
 #include <bonobo/bonobo-exception.h>
 #include "bonobo-config-bag.h"
 #include "bonobo-moniker-extra.h"

@@ -203,7 +203,8 @@ struct _GnomeModuleInfo {
 
     GnomeModuleClassInitHook class_init;
 
-    gpointer expansion1, expansion2;
+    const char *opt_prefix;
+    gpointer    expansion1;
 };
 
 /* This function should be called before gnomelib_preinit() - it's an

@@ -92,7 +92,6 @@ impl_Bonobo_PropertyBag_getType (PortableServer_Servant  servant,
 {
 	BonoboConfigBag *cb = GET_BAG_FROM_SERVANT (servant);
 	char            *path;
-	CORBA_TypeCode   retval;
 	GConfValue      *value;
 	GError          *err;
 
@@ -139,7 +138,6 @@ impl_Bonobo_PropertyBag_getValue (PortableServer_Servant  servant,
 {
 	BonoboConfigBag *cb = GET_BAG_FROM_SERVANT (servant);
 	char            *path;
-	CORBA_any       *retval;
 	GConfValue      *value;
 	GError          *err;
  
@@ -319,7 +317,6 @@ impl_Bonobo_PropertyBag_getDefault (PortableServer_Servant  servant,
 {
 	BonoboConfigBag *cb = GET_BAG_FROM_SERVANT (servant);
 	char            *path;
-	CORBA_any       *retval;
 	GConfValue      *value;
 	GError          *err;
 

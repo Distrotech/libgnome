@@ -27,6 +27,9 @@
 
 #undef TIME_INIT
 
+#define GNOME_ACCESSIBILITY_ENV "GNOME_ACCESSIBILITY"
+#define GNOME_ACCESSIBILITY_KEY "/desktop/gnome/interface/accessibility"
+
 /* This module takes care of handling application and library
    initialization and command line parsing */
 
@@ -38,6 +41,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <gmodule.h>
+#include <gconf/gconf.h>
+#include <gconf/gconf-value.h>
+#include <gconf/gconf-client.h>
 
 #include "gnome-i18nP.h"
 
@@ -84,6 +90,7 @@ struct _GnomeProgramPrivate {
 
     /* valid-while: state == APP_PREINIT_DONE */
     GArray *top_options_table;
+    GSList *accessibility_modules;
 };
 
 enum {
@@ -1424,6 +1431,138 @@ gnome_program_parse_args (GnomeProgram *program)
     }
 }
 
+static char *
+find_accessibility_module (GnomeProgram *program, const char *libname)
+{
+	char *sub;
+	char *path;
+	char *fname;
+	char *retval;
+
+	fname = g_strconcat (libname, "." G_MODULE_SUFFIX, NULL);
+	sub = g_strconcat ("gtk/modules", G_DIR_SEPARATOR_S, fname, NULL);
+
+	path = gnome_program_locate_file (
+		program, GNOME_FILE_DOMAIN_LIBDIR, sub, TRUE, NULL);
+
+	g_free (sub);
+
+	if (path)
+		retval = path;
+	else
+		retval = gnome_program_locate_file (
+			program, GNOME_FILE_DOMAIN_LIBDIR,
+			fname, TRUE, NULL);
+
+	g_free (fname);
+
+	return retval;
+}
+
+static gboolean
+accessibility_invoke_module (GnomeProgram *program,
+			     const char   *libname,
+			     gboolean      init)
+{
+	GModule    *handle;
+	void      (*invoke_fn) (void);
+	const char *method;
+	gboolean    retval = FALSE;
+	char       *module_name;
+
+	if (init)
+		method = "gnome_accessibility_module_init";
+	else
+		method = "gnome_accessibility_module_shutdown";
+
+	module_name = find_accessibility_module (program, libname);
+
+	if (!module_name) {
+		g_warning ("Accessibility: failed to find module '%s' which "
+			   "is needed to make this application accessible",
+			   libname);
+
+	} else if (!(handle = g_module_open (module_name, G_MODULE_BIND_LAZY))) {
+		g_warning ("Accessibility: failed to load module '%s': '%s'",
+			   libname, g_module_error ());
+
+	} else if (!g_module_symbol (handle, method, (gpointer *)&invoke_fn)) {
+		g_warning ("Accessibility: error library '%s' does not include "
+			   "method '%s' required for accessibility support",
+			   libname, method);
+		g_module_close (handle);
+
+	} else {
+		retval = TRUE;
+		invoke_fn ();
+	}
+
+	g_free (module_name);
+
+	return retval;
+}
+
+static gboolean
+accessibility_invoke (GnomeProgram *program, gboolean init)
+{
+	GSList *l;
+
+	if (!program->_priv->accessibility_modules)
+		return FALSE;
+
+	for (l = program->_priv->accessibility_modules; l; l = l->next) {
+		GnomeModuleInfo *module = l->data;
+		
+		if (!strcmp (module->name, "gtk"))
+			accessibility_invoke_module (program, "libgail", init);
+
+		else if (!strcmp (module->name, "libgnomeui"))
+			accessibility_invoke_module (program, "libgail-gnome", init);
+	}
+
+	accessibility_invoke_module (program, "libatk-bridge", init);
+
+	return TRUE;
+}
+
+
+static void
+accessibility_init (GnomeProgram *program)
+{
+	int i;
+	gboolean do_init;
+	const char *env_var;
+	GSList *list = NULL;
+
+	/* Seek the module list we need */
+	for (i = 0; i < program_modules->len; i++) {
+		GnomeModuleInfo *module = g_ptr_array_index (program_modules, i);
+		
+		if (!module)
+			continue;
+
+		if (!strcmp (module->name, "gtk"))
+			list = g_slist_prepend (list, module);
+
+		else if (!strcmp (module->name, "libgnomeui"))
+			list = g_slist_prepend (list, module);
+	}
+
+	program->_priv->accessibility_modules = list;
+	
+	do_init = FALSE;
+
+	if ((env_var = g_getenv (GNOME_ACCESSIBILITY_ENV)))
+		do_init = atoi (env_var);
+	else
+		do_init = gconf_client_get_bool (
+			gconf_client_get_default (),
+			GNOME_ACCESSIBILITY_KEY, NULL);
+
+	if (do_init)
+		accessibility_invoke (program, TRUE);
+}
+
 /**
  * gnome_program_postinit:
  * @program: Application object
@@ -1459,6 +1598,9 @@ gnome_program_postinit (GnomeProgram *program)
 #endif
 	}
     }
+
+    /* Accessibility magic */
+    accessibility_init (program);
 
     /* Free up stuff we don't need to keep around for the lifetime of the app */
 
@@ -1590,7 +1732,6 @@ gnome_program_initv (GType type,
 	/*
 	 * Load all the modules.
 	 */
-
 	for (i = 0; i < program_module_list->len; i++) {
 	    gchar *modname = g_ptr_array_index (program_module_list, i);
 
