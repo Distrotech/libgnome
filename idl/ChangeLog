@@ -1,5 +1,11 @@
 2001-06-02  Martin Baulig  <baulig@suse.de>
 
+	* Gnome_Selector.idl (GNOME::DirectoryFilter): Killed this Interface.
+	(GNOME::Selector): Removed the `autoActivateEntry' and `autoAddToList'
+	attributed.
+
+2001-06-02  Martin Baulig  <baulig@suse.de>
+
 	* Gnome_Selector.idl (GNOME::Selector::ActivateEntryAction): New enum type.
 	(GNOME::Selector::AddURIMode): New enum type.
 	(GNOME::Selector::getURIList): New method.
