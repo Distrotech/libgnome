@@ -112,7 +112,7 @@ mime_fill_from_file (const char *filename)
 	
 	g_assert (filename != NULL);
 
-	f = fopen (filename, "rt");
+	f = fopen (filename, "r");
 
 	if (!f)
 		return;

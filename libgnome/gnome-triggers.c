@@ -182,7 +182,7 @@ gnome_triggers_readfile(const char *infilename)
   FILE *infile;
   int i;
 
-  infile = fopen(infilename, "rt");
+  infile = fopen(infilename, "r");
   if(infile == NULL)
     return 1;
 
