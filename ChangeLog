@@ -1,5 +1,8 @@
 2002-03-22  Havoc Pennington  <hp@pobox.com>
 
+	* libgnome/gnome-gconf.c (_gnome_gconf_lazy_init): remove
+	no-longer-needed gconf_init() call
+
 	* libgnome/gnome-program.c
 	(gnome_program_get_human_readable_name): fall back to
 	g_get_prgname() if human readable name is not set

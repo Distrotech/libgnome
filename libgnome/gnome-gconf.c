@@ -118,7 +118,6 @@ _gnome_gconf_lazy_init (void)
 {
 	/* Note this is the same as in libgnomeui/libgnomeui/gnome-gconf-ui.c,
 	 * keep this in sync (it's named gnomeui_gconf_lazy_init) */
-	char *argv [] = { "dummy", NULL };
         gchar *settings_dir;
 	GConfClient* client = NULL;
 	static gboolean initialized = FALSE;
@@ -127,8 +126,6 @@ _gnome_gconf_lazy_init (void)
 		return;
 
 	initialized = TRUE;
-
-	gconf_init (1, argv, NULL);
 
         client = gconf_client_get_default ();
 
@@ -144,6 +141,10 @@ _gnome_gconf_lazy_init (void)
 			      GCONF_CLIENT_PRELOAD_NONE,
 			      NULL);
         g_free (settings_dir);
+
+        /* Leak the GConfClient reference, we want to keep
+         * the client alive forever.
+         */
 }
 
 /**
