@@ -3,7 +3,8 @@ noinst_PROGRAMS =		\
 	test-properties-server	\
 	test-properties-client	\
 	test-storage		\
-	test-event-source
+	test-event-source	\
+	test-object
 
 INCLUDES =	\
         -DGNOMELOCALEDIR=\""$(datadir)/locale"\"        \
@@ -28,6 +29,8 @@ test_storage_SOURCES = test-storage.c
 
 test_moniker_SOURCES = test-moniker.c
 
+test_object_SOURCES = test-object.c
+
 test_event_source_SOURCES = test-event-source.c
 
 TESTS_ENVIRONMENT =					\
@@ -35,4 +38,4 @@ TESTS_ENVIRONMENT =					\
 	BONOBO_PLUGIN_PATH=$(top_builddir)/storage-modules/.libs
 
 # test-storage
-TESTS = test-any test-moniker test-event-source
+TESTS = test-moniker test-event-source test-object
