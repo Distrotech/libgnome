@@ -78,6 +78,7 @@ gnome_gconf_gtk_entry_set (GtkEntry       *entry,
 
 	g_return_if_fail (entry != NULL);
 	g_return_if_fail (GTK_IS_ENTRY (entry));
+	g_return_if_fail (value != NULL);
 	g_return_if_fail ((value->type == GCONF_VALUE_STRING) ||
 			      (value->type == GCONF_VALUE_INT) ||
 			      (value->type == GCONF_VALUE_FLOAT));
@@ -112,6 +113,7 @@ gnome_gconf_spin_button_get (GtkSpinButton *spin_button,
 	g_return_val_if_fail ((type == GCONF_VALUE_INT) ||
 			      (type == GCONF_VALUE_FLOAT), NULL);
 
+	retval = gconf_value_new (type);
 	switch (type) {
 	case GCONF_VALUE_INT:
 		i = gtk_spin_button_get_value_as_int (spin_button);
@@ -136,6 +138,7 @@ gnome_gconf_spin_button_set (GtkSpinButton *spin_button,
 
 	g_return_if_fail (spin_button != NULL);
 	g_return_if_fail (GTK_IS_SPIN_BUTTON (spin_button));
+	g_return_if_fail (value != NULL);
 	g_return_if_fail ((value->type == GCONF_VALUE_INT) ||
 			  (value->type == GCONF_VALUE_FLOAT));
 
@@ -192,6 +195,7 @@ gnome_gconf_gtk_radio_button_set (GtkRadioButton  *radio,
 
 	g_return_if_fail (radio != NULL);
 	g_return_if_fail (GTK_IS_RADIO_BUTTON (radio));
+	g_return_if_fail (value != NULL);
 	g_return_if_fail ((value->type == GCONF_VALUE_BOOL) ||
 			  (value->type == GCONF_VALUE_INT));
 
@@ -206,7 +210,7 @@ gnome_gconf_gtk_radio_button_set (GtkRadioButton  *radio,
 		g_assert_not_reached();
 	}
 
-	for (list = radio->group, i = 0 ; i != j || list != NULL; i ++, list = list->next)
+	for (list = radio->group, i = 0 ; i != j && list != NULL; i ++, list = list->next)
 		;
 	if (list)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (list->data), TRUE);
@@ -218,14 +222,26 @@ gnome_gconf_gtk_range_get (GtkRange       *range,
 {
 	GtkAdjustment *adjustment;
 	GConfValue *retval;
+	int i;
 
 	g_return_val_if_fail (range != NULL, NULL);
 	g_return_val_if_fail (GTK_IS_RANGE (range), NULL);
-	g_return_val_if_fail ((type == GCONF_VALUE_FLOAT), NULL);
+	g_return_val_if_fail ((type == GCONF_VALUE_FLOAT) ||
+			      (type == GCONF_VALUE_INT), NULL);
 
 	adjustment = gtk_range_get_adjustment (range);
 	retval = gconf_value_new (type);
-	gconf_value_set_float (retval, adjustment->value);
+	switch (type) {
+	case GCONF_VALUE_INT:
+		i = adjustment->value;
+		gconf_value_set_int (retval, i);
+		break;
+	case GCONF_VALUE_FLOAT:
+		gconf_value_set_float (retval, adjustment->value);
+		break;
+	default:
+		break;
+	}
 	return retval;
 }
 
@@ -234,13 +250,25 @@ gnome_gconf_gtk_range_set (GtkRange       *range,
 			   GConfValue     *value)
 {
 	GtkAdjustment *adjustment;
+	gdouble f;
 
 	g_return_if_fail (range != NULL);
 	g_return_if_fail (GTK_IS_RANGE (range));
-	g_return_if_fail ((value->type == GCONF_VALUE_FLOAT));
+	g_return_if_fail ((value->type == GCONF_VALUE_FLOAT) ||
+			  (value->type == GCONF_VALUE_INT));
 
+	switch (value->type) {
+	case GCONF_VALUE_FLOAT:
+		f = gconf_value_float (value);
+		break;
+	case GCONF_VALUE_INT:
+		f = gconf_value_int (value);
+		break;
+	default:
+		g_assert_not_reached();
+	}
 	adjustment = gtk_range_get_adjustment (range);
-	gtk_adjustment_set_value (adjustment, gconf_value_float (value));
+	gtk_adjustment_set_value (adjustment, f);
 }
 
 GConfValue *
@@ -274,6 +302,7 @@ gnome_gconf_gtk_toggle_button_set (GtkToggleButton *toggle,
 {
 	g_return_if_fail (toggle != NULL);
 	g_return_if_fail (GTK_IS_TOGGLE_BUTTON (toggle));
+	g_return_if_fail (value != NULL);
 	g_return_if_fail ((value->type == GCONF_VALUE_BOOL)||
 			  (value->type == GCONF_VALUE_INT));
 
@@ -295,7 +324,7 @@ gnome_gconf_gnome_color_picker_get (GnomeColorPicker *picker,
 {
 	GConfValue *retval;
 	gushort r, g, b, a;
-	gchar color[14];
+	gchar color[18];
 
 	g_return_val_if_fail (picker != NULL, NULL);
 	g_return_val_if_fail (GNOME_IS_COLOR_PICKER (picker), NULL);
@@ -305,7 +334,7 @@ gnome_gconf_gnome_color_picker_get (GnomeColorPicker *picker,
 	switch (type) {
 	case GCONF_VALUE_STRING:
 		gnome_color_picker_get_i16 (picker, &r, &g, &b, &a);
-		g_snprintf (color, 13, "#%04X%04X%04X", r, g, b);
+		g_snprintf (color, 18, "#%04X%04X%04X%04X", r, g, b);
 		gconf_value_set_string (retval, color);
 		break;
 	default:
@@ -318,7 +347,24 @@ void
 gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
 				    GConfValue       *value)
 {
-	
+	gushort r, g, b, a;
+	gchar *color;
+
+	g_return_if_fail (picker != NULL);
+	g_return_if_fail (GNOME_IS_COLOR_PICKER (picker));
+	g_return_if_fail (value != NULL);
+	g_return_if_fail ((value->type == GCONF_VALUE_STRING));
+
+	color = g_strndup (gconf_value_string (value), 17);
+	a = strtol (color  + 13, (char **)NULL, 16);
+	*(color +13) = '\0';
+	b = strtol (color  + 9, (char **)NULL, 16);
+	*(color +9) = '\0';
+	g = strtol (color  + 5, (char **)NULL, 16);
+	*(color +5) = '\0';
+	r = strtol (color  + 1, (char **)NULL, 16);
+	gnome_color_picker_set_i16 (picker, r, g, b, a);
+	g_free (color);
 }
 
 GConfValue *
@@ -368,6 +414,7 @@ gnome_gconf_gnome_file_entry_set (GnomeFileEntry *file_entry,
 
 	g_return_if_fail (file_entry != NULL);
 	g_return_if_fail (GNOME_IS_FILE_ENTRY (file_entry));
+	g_return_if_fail (value != NULL);
 
 	entry = gnome_file_entry_gtk_entry (file_entry);
 	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
@@ -394,6 +441,7 @@ gnome_gconf_gnome_icon_entry_set (GnomeIconEntry *icon_entry,
 
 	g_return_if_fail (icon_entry != NULL);
 	g_return_if_fail (GNOME_IS_ICON_ENTRY (icon_entry));
+	g_return_if_fail (value != NULL);
 
 	entry = gnome_icon_entry_gtk_entry (icon_entry);
 	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
@@ -420,6 +468,7 @@ gnome_gconf_gnome_pixmap_entry_set (GnomePixmapEntry *pixmap_entry,
 
 	g_return_if_fail (pixmap_entry != NULL);
 	g_return_if_fail (GNOME_IS_PIXMAP_ENTRY (pixmap_entry));
+	g_return_if_fail (value != NULL);
 
 	entry = gnome_pixmap_entry_gtk_entry (pixmap_entry);
 	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
