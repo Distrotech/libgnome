@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
   if(!nents) return 0;
 
   out_filename = g_copy_strings(filename, ".dat", NULL);
-  fd = open(out_filename, O_RDWR|O_TRUNC|O_CREAT, 644);
+  fd = open(out_filename, O_RDWR|O_TRUNC|O_CREAT, 0644);
   if(fd < 0) return 1;
 
   if(write(fd, ents, nents * sizeof(GnomeMagicEntry))
