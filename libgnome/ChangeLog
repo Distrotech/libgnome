@@ -1,3 +1,21 @@
+1999-10-06  Owen Taylor  <otaylor@redhat.com>
+
+	* gnome-config.c (access_config_extended): Always refill
+	the cache with valid values immediately after invalidating
+	this. This simplifies code, and (more importantly) fixes
+	a bug where we could return with cache_filename_value2
+	pointing to freed memory, and then later try to free
+	it again. (Bug #2618)
+
+1999-10-05  Owen Taylor  <otaylor@redhat.com>
+
+	(Bug #2593)
+	* gnome-i18n.c (read_aliases): Fix a memory leak by not
+	overwriting old entries in the alias hash table.
+
+	* gnome-dentry.c (gnome_desktop_entry_save): Fix a mem-leak
+	when saving desktop entries with comments.
+
 1999-10-04  Elliot Lee  <sopwith@redhat.com>
 	* gnome-sound.c: Don't set audio stream byte order - use what audiofile gives
 	us.

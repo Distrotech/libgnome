@@ -518,9 +518,9 @@ access_config_extended (access_type mode, const char *section_name,
 	gboolean internal_def;
 
 	static time_t cache_time = 0;
-	static char *cache_filename_key = NULL;
-	static char *cache_filename_value1 = NULL;
-	static char *cache_filename_value2 = NULL;
+	static char *cache_filename = NULL;
+	static char *cache_overrride_filename = NULL;
+	static char *cache_global_filename = NULL;
 	gboolean cache_valid;
 	time_t now;
 
@@ -535,76 +535,79 @@ access_config_extended (access_type mode, const char *section_name,
 		return ret_val;
 	case LOOKUP:
  		now = time (NULL);
- 		cache_valid = (cache_filename_key &&
- 			       strcmp (cache_filename_key, rel_file) == 0 &&
+ 		cache_valid = (cache_filename &&
+ 			       strcmp (cache_filename, rel_file) == 0 &&
  			       now - cache_time <= 2);
  		if (!cache_valid) {
- 			if (cache_filename_key) g_free (cache_filename_key);
- 			cache_filename_key = g_strdup (rel_file);
+ 			if (cache_filename) 
+				g_free (cache_filename);
+
+ 			cache_filename = g_strdup (rel_file);
  			cache_time = now;
- 			if (cache_filename_value1) g_free (cache_filename_value1);
- 			if (cache_filename_value2) g_free (cache_filename_value2);
- 		}
- 		
- 		if (cache_valid) {
- 			filename = cache_filename_value1
- 				? g_strdup (cache_filename_value1)
- 				: NULL;
- 		} else {
- 			/* check the system wide override config tree first */
+
+ 			if (cache_overrride_filename)
+				g_free (cache_overrride_filename);
+
  			tmp = g_concat_dir_and_file ("gnome/config-override",rel_file);
  			filename = gnome_config_file (tmp);
  			g_free (tmp);
- 			cache_filename_value1 = filename ? g_strdup (filename) : NULL;
+ 			cache_overrride_filename = filename ? g_strdup (filename) : NULL;
+			
+ 			if (cache_global_filename)
+				g_free (cache_global_filename);
+
+			tmp = g_concat_dir_and_file ("gnome/config", rel_file);
+			filename = gnome_config_file (tmp);
+			g_free (tmp);
+			cache_global_filename = filename ? g_strdup (filename) : NULL;
  		}
-		if (filename) {
+
+		if (cache_overrride_filename) {
 			/* the required config file exists */
 			ret_val = access_config (mode, section_name, key_name,
-						 NULL,filename, &internal_def);
-			g_free (filename);
+						 NULL,
+						 cache_overrride_filename,
+						 &internal_def);
 			if (!internal_def) {
-				if (def_used) *def_used = FALSE;
+				if (def_used)
+					*def_used = FALSE;
 				return ret_val;
 			}
 			g_assert (ret_val == NULL);
 		}
+
 		/* fall through to the user config section */
 		filename = gnome_util_home_file (rel_file);
 		ret_val = access_config (mode, section_name, key_name, NULL,
 					 filename, &internal_def);
 		g_free (filename);
 		if (!internal_def) {
-			if (def_used) *def_used = FALSE;
+			if (def_used) 
+				*def_used = FALSE;
 			return ret_val;
 		}
 		g_assert (ret_val == NULL);
+
 		/* fall through to the system wide config default tree */
-		if (cache_valid) {
-			filename = cache_filename_value2
-				? g_strdup (cache_filename_value2)
-				: NULL;
-		} else {
-			tmp = g_concat_dir_and_file ("gnome/config", rel_file);
-			filename = gnome_config_file (tmp);
-			g_free (tmp);
-			cache_filename_value2 = filename ? g_strdup (filename) : NULL;
-		}
-		if (filename) {
+		if (cache_global_filename) {
 			/* the file exists */
 			ret_val = access_config (mode, section_name, key_name,
-						 def, filename, def_used);
-			g_free (filename);
+						 def,
+						 cache_global_filename,
+						 def_used);
 			return ret_val;
 		} else {
 			/* it doesn't -- use the default value */
-			if (def_used) *def_used = TRUE;
+			if (def_used) 
+				*def_used = TRUE;
 			return def;
 		}
 	}
 	g_assert_not_reached ();
 
 	/* keep the compiler happy */
-	if (def_used) *def_used = TRUE;
+	if (def_used) 
+		*def_used = TRUE;
 	return def;
 }
 
