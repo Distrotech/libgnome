@@ -1,3 +1,11 @@
+2003-05-01  Kjartan Maraas  <set EMAIL_ADDRESS environment variable>
+
+	* help-converters/man/gnome-man2html.c: (main): Fix for
+	bug #73597. Patch from Roderich Schupp.
+	* libgnome/gnome-config.c: (check_path): Use NULL in g_string_new()
+	* libgnome/gnome-exec.c: (gnome_execute_shell_fds): Fix a typo in
+	a comment.
+
 2003-04-25  Alexander Larsson  <alexl@redhat.com>
 
         Patch by Frank Worsley <fworsley@shaw.ca>

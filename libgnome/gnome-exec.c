@@ -312,7 +312,7 @@ gnome_execute_shell_fds (const char *dir, const char *commandline,
 
   argv[0] = user_shell;
   argv[1] = "-c";
-  /* neccessary cast, to avoid warning, but safe */
+  /* necessary cast, to avoid warning, but safe */
   argv[2] = (char *)commandline;
   argv[3] = NULL;
 
