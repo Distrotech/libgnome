@@ -16,9 +16,8 @@
 #include "gnome-dl.h"
 
 /* this stuff should be autoconf'ed */
-#if defined( __FreeBSD__ ) || defined( __Lame_OLD_Dead_FleaBSD__ )
+#if defined( __FreeBSD__ )
 /* what about -current and ELF? */
-#warning "Need a better OS"
 #define NEED_UNDERSCORE
 #define LIB_SUFFIX ".so.1.0"
 #elif defined ( linux ) || defined( sgi )
