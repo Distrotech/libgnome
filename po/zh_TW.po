@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.3.0\n"
-"POT-Creation-Date: 2003-05-11 03:39+0800\n"
-"PO-Revision-Date: 2003-05-11 04:05+0800\n"
+"POT-Creation-Date: 2003-05-30 07:24+0800\n"
+"PO-Revision-Date: 2003-05-30 07:41+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "其它訊息"
 
 #: gnome-data/gnome-2.soundlist.in.h:7
 msgid "Question Dialogs"
-msgstr "詢問對話窗"
+msgstr "詢問對話方塊"
 
 #: gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning Messages"
@@ -71,11 +71,11 @@ msgstr "GNOME GConf 支援"
 
 #: libgnome/gnome-help.c:159
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr "找不到 GNOME_FILE_DOMAIN_APP_HELP 區域"
+msgstr "找不到 GNOME_FILE_DOMAIN_APP_HELP 位置"
 
 #: libgnome/gnome-help.c:172
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "找不到 GNOME_FILE_DOMAIN_HELP 區域。"
+msgstr "找不到 GNOME_FILE_DOMAIN_HELP 位置。"
 
 #: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
 #, c-format
@@ -131,27 +131,27 @@ msgstr "無法將個人 GNOME 組態目錄‘%s’的權限設為 0700：%s\n"
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "無法新增 GNOME 捷徑鍵目錄‘%s’：%s\n"
 
-#: libgnome/gnome-init.c:391
+#: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
 msgstr "不啟用音效伺服程式"
 
-#: libgnome/gnome-init.c:394
+#: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
 msgstr "啟用音效伺服程式"
 
-#: libgnome/gnome-init.c:397
+#: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
 msgstr "音效伺服程式執行時使用的主機及連接埠"
 
-#: libgnome/gnome-init.c:399
+#: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
 msgstr "主機：連接埠"
 
-#: libgnome/gnome-init.c:417
+#: libgnome/gnome-init.c:410
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME 虛擬檔案系統"
 
-#: libgnome/gnome-init.c:438
+#: libgnome/gnome-init.c:431
 msgid "GNOME Library"
 msgstr "GNOME 函式庫"
 
@@ -209,7 +209,7 @@ msgstr "程式版本"
 
 #: libgnome/gnome-program.c:481
 msgid "Version of this application"
-msgstr "此應用程式的版本"
+msgstr "本程式的版本"
 
 #: libgnome/gnome-program.c:488
 msgid "GNOME Prefix"
@@ -269,11 +269,11 @@ msgstr "安裝本程式所用的資料路徑"
 
 #: libgnome/gnome-program.c:558
 msgid "GNOME App Sysconfdir"
-msgstr "GNOME 程式設定檔路徑"
+msgstr "GNOME 程式組態檔路徑"
 
 #: libgnome/gnome-program.c:559
 msgid "Configuration prefix where this application was installed"
-msgstr "安裝本程式所用的設定檔路徑"
+msgstr "安裝本程式所用的組態檔路徑"
 
 #: libgnome/gnome-program.c:568
 msgid "Create Directories"
@@ -299,19 +299,19 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "如何連上 esd"
 
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1353
 msgid "Help options"
 msgstr "求助選項"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1358
 msgid "Application options"
 msgstr "程式選項"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1374
 msgid "Dynamic modules to load"
 msgstr "準備載入的模組"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1375
 msgid "MODULE1,MODULE2,..."
 msgstr "模組 1、模組 2、..."
 
@@ -372,7 +372,7 @@ msgstr "組態中沒有設定鍵 %s"
 # modifier has no commonly used translation -- Abel
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
-msgstr "當按下 Ctrl、Shift、Alt 等輔助按鍵時發出聲響"
+msgstr "當按下 Ctrl、Shift、Alt 等特殊按鍵時發出聲響"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
@@ -390,7 +390,7 @@ msgstr "從靜止加速至最高速度所需的毫秒數目"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "等待指定的毫秒數目後，滑鼠按鍵才會生效"
+msgstr "等待指定的毫秒數目後，滑鼠鍵才會生效"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -406,11 +406,11 @@ msgstr "加速所需的毫秒數目"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "initial delay in milliseconds"
-msgstr "開始前的延遲時間 (毫秒)"
+msgstr "開始前的延遲時間(毫秒)"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
 msgid "minimum interval in milliseconds"
-msgstr "時間間隔下限 (毫秒)"
+msgstr "時間間隔下限(毫秒)"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
@@ -460,7 +460,7 @@ msgstr "預設的說明文件瀏覽器是否需要終端機方可運行"
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "在‘exec’設定鍵所定義的終端機中，執行其它程式所需的參數。"
+msgstr "執行‘exec’設定鍵所指定的終端機時，需要哪些參數來執行其它程式。"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -472,11 +472,11 @@ msgstr "終端機程式"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr "當啟動的程式需要終端機時選用的終端機程式"
+msgstr "當啟動的程式需要終端機時，使用哪個終端機程式"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr "視窗總管預設使用的工作區名稱的清單。"
+msgstr "一系列視窗總管預設使用的工作區名稱。"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
@@ -484,7 +484,7 @@ msgstr "後備視窗總管"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr "當找不到用戶自選的視窗總管時，執行本設定中指定的後備視窗總管"
+msgstr "當找不到用戶首選的視窗總管時，執行這裡指定的後備視窗總管"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -500,7 +500,7 @@ msgstr "視窗總管應開啟的工作區數目"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager"
-msgstr "用戶自選的視窗總管"
+msgstr "用戶首選的視窗總管"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid "Window manager to try first"
@@ -600,7 +600,7 @@ msgstr "預設字型"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:6
 msgid "Enable Accessibility"
-msgstr "啟用輔助功能"
+msgstr "啟用無障礙環境"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:7
 msgid "Enable Animations"
@@ -640,7 +640,7 @@ msgstr "選單可出現圖示"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menus Have Tearoff"
-msgstr "選單中顯示可移離選單列的控制項"
+msgstr "顯示可將選單卸離選單列的元件"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -684,7 +684,7 @@ msgstr "使用自選字型"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Whether Applications should have accessibility support"
-msgstr "程式應否支援輔助功能"
+msgstr "程式應否支援無障礙環境"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid ""
@@ -700,13 +700,13 @@ msgstr "選單項目旁邊應否顯示圖示"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Whether menus should have a tearoff"
-msgstr "應否顯示可讓選單移離選單列的控制項"
+msgstr "應否顯示可讓選單卸離選單列的元件"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr "用戶能否在選單中隨時為選單項目設定捷徑鍵"
+msgstr "使用者能否在選單中隨時為選單項目設定捷徑鍵"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
