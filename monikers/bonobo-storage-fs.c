@@ -9,8 +9,12 @@
  *   Miguel de Icaza (miguel@gnu.org)
  */
 #include <config.h>
+#include <stdio.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <errno.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
 #include <storage-modules/bonobo-storage-fs.h>
@@ -33,8 +37,49 @@ fs_get_info (BonoboStorage *storage,
 	     const Bonobo_StorageInfoFields mask,
 	     CORBA_Environment *ev)
 {
-	g_warning ("Not implemented");
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	Bonobo_StorageInfo *si;
+	struct stat st;
+	char *full = NULL;
+	
+	full = g_concat_dir_and_file (storage_fs->path, path);
 
+	if (stat (full, &st) == -1)
+		goto get_info_except;
+
+	si = Bonobo_StorageInfo__alloc ();
+	
+	si->size = st.st_size;
+	si->name = CORBA_string_dup (path);
+
+	if (S_ISDIR (st.st_mode)) {
+		si->type = Bonobo_STORAGE_TYPE_DIRECTORY;
+		si->content_type = CORBA_string_dup ("x-directory/normal");
+	} else {
+		si->type = Bonobo_STORAGE_TYPE_REGULAR;
+		si->content_type = 
+			CORBA_string_dup ("application/octet-stream");
+	}
+
+	return si;
+
+ get_info_except:
+
+	if (full)
+		g_free (full);
+	
+	if (errno == EACCES) 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NoPermission, 
+				     NULL);
+	else if (errno == ENOENT) 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NotFound, 
+				     NULL);
+	else 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_IOError, NULL);
+	
 	return CORBA_OBJECT_NIL;
 }
 
@@ -45,12 +90,16 @@ fs_set_info (BonoboStorage *storage,
 	     const Bonobo_StorageInfoFields mask,
 	     CORBA_Environment *ev)
 {
-	g_warning ("Not implemented");
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+			     ex_Bonobo_Storage_NoPermission, 
+			     NULL);
 }
 
 static BonoboStream *
-fs_open_stream (BonoboStorage *storage, const CORBA_char *path, 
-		Bonobo_Storage_OpenMode mode, CORBA_Environment *ev)
+fs_open_stream (BonoboStorage *storage, 
+		const CORBA_char *path, 
+		Bonobo_Storage_OpenMode mode, 
+		CORBA_Environment *ev)
 {
 	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
 	BonoboStream *stream;
@@ -78,18 +127,39 @@ fs_open_storage (BonoboStorage *storage, const CORBA_char *path,
 	return new_storage;
 }
 
-static void
-fs_copy_to (BonoboStorage *storage, Bonobo_Storage target, 
-	    CORBA_Environment *ev)
-{
-	g_warning ("Not yet implemented");
-}
 
 static void
 fs_rename (BonoboStorage *storage, const CORBA_char *path, 
 	   const CORBA_char *new_path, CORBA_Environment *ev)
 {
-	g_warning ("Not yet implemented");
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	char *full_old, *full_new;
+
+	full_old = g_concat_dir_and_file (storage_fs->path, path);
+	full_new = g_concat_dir_and_file (storage_fs->path, new_path);
+
+	if (rename (full_old, full_new) == -1) {
+
+		if ((errno == EACCES) || (errno == EPERM) || (errno == EROFS)) 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NoPermission, 
+					     NULL);
+		else if (errno == ENOENT) 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NotFound, 
+					     NULL);
+		else if ((errno == EEXIST) || (errno == ENOTEMPTY)) 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NameExists, 
+					     NULL);
+		else 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_IOError, 
+					     NULL);
+	}
+
+	g_free (full_old);
+	g_free (full_new);
 }
 
 static void
@@ -110,9 +180,113 @@ static Bonobo_Storage_DirectoryList *
 fs_list_contents (BonoboStorage *storage, const CORBA_char *path, 
 		  Bonobo_StorageInfoFields mask, CORBA_Environment *ev)
 {
-	g_error ("Not yet implemented");
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	Bonobo_Storage_DirectoryList *list = NULL;
+	Bonobo_StorageInfo *buf;
+	struct dirent *de;
+	struct stat st;
+	DIR *dir = NULL;
+	gint i, max, v;
+	gchar *full;
 
-	return NULL;
+	if (!(dir = opendir (storage_fs->path)))
+			goto list_contents_except;
+	
+	for (max = 0; readdir (dir); max++)
+		/* do nothing */;
+
+	rewinddir (dir);
+
+	buf = CORBA_sequence_Bonobo_StorageInfo_allocbuf (max);
+	list = Bonobo_Storage_DirectoryList__alloc();
+	list->_buffer = buf;
+	CORBA_sequence_set_release (list, TRUE); 
+	
+	for (i = 0; (de = readdir (dir)) && (i < max); i++) {
+		
+		buf [i].name = CORBA_string_dup (de->d_name);
+		buf [i].size = 0;
+		buf [i].content_type = NULL; 
+
+		full = g_concat_dir_and_file (storage_fs->path, de->d_name);
+		v = stat (full, &st);
+		g_free (full);
+
+		if (v == -1) 
+			goto list_contents_except;
+
+		buf [i].size = st.st_size;
+	
+		if (S_ISDIR (st.st_mode)) { 
+			buf [i].type = Bonobo_STORAGE_TYPE_DIRECTORY;
+			buf [i].content_type = 
+				CORBA_string_dup ("x-directory/normal");
+		} else { 
+			buf [i].type = Bonobo_STORAGE_TYPE_REGULAR;
+			buf [i].content_type = 
+				CORBA_string_dup ("application/octet-stream");
+		}
+	}
+
+	list->_length = i;
+
+	closedir (dir);
+	
+	return list; 
+
+ list_contents_except:
+
+	if (dir)
+		closedir (dir);
+
+	if (list) 
+		CORBA_free (list);
+	
+	if (errno == ENOENT) 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NotFound, 
+				     NULL);
+	else if (errno == ENOTDIR) 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NotStorage, 
+				     NULL);
+	else 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_IOError, NULL);
+	
+	return CORBA_OBJECT_NIL;
+}
+
+static void
+fs_erase (BonoboStorage *storage,
+	  const CORBA_char *path,
+	  CORBA_Environment *ev)
+{
+	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	char *full;
+
+	full = g_concat_dir_and_file (storage_fs->path, path);
+
+	if (remove (full) == -1) {
+
+		if (errno == ENOENT) 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NotFound, 
+					     NULL);
+		else if (errno == ENOTEMPTY) 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NotEmpty, 
+					     NULL);
+		else if ((errno == EACCES) || (errno = EPERM)) 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NoPermission, 
+					     NULL);
+		else 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_IOError, NULL);
+	}
+
+	g_free (full);
 }
 
 static void
@@ -128,11 +302,12 @@ bonobo_storage_fs_class_init (BonoboStorageFSClass *class)
 	sclass->set_info       = fs_set_info;
 	sclass->open_stream    = fs_open_stream;
 	sclass->open_storage   = fs_open_storage;
-	sclass->copy_to        = fs_copy_to;
+	sclass->copy_to        = NULL; /* use the generic method */
 	sclass->rename         = fs_rename;
 	sclass->commit         = fs_commit;
 	sclass->revert         = fs_revert;
 	sclass->list_contents  = fs_list_contents;
+	sclass->erase          = fs_erase;
 	
 	object_class->destroy = bonobo_storage_fs_destroy;
 }
@@ -215,34 +390,40 @@ BonoboStorage *
 bonobo_storage_fs_open (const char *path, gint flags, gint mode,
 			CORBA_Environment *ev)
 {
-	struct stat s;
-	int v;
+	struct stat st;
 	
 	g_return_val_if_fail (path != NULL, NULL);
 
-	if (flags & Bonobo_Storage_CREATE) {
-		if (mkdir (path, mode) == -1) {
-			return NULL;
-		}
+	if ((flags & Bonobo_Storage_CREATE) &&
+	    (mkdir (path, mode) == -1) && (errno != EEXIST)) {
+
+		if (errno == EACCES) 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NoPermission, 
+					     NULL);
+		else 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_IOError, NULL);
+		return NULL;
 	}
 
-	v = stat (path, &s);
-
-	if (flags & Bonobo_Storage_READ) {
-		if (v == -1)
-			return NULL;
+	if (stat (path, &st) == -1) {
 		
-		if (!S_ISDIR (s.st_mode))
-			return NULL;
+		if (errno == ENOENT) 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NotFound, 
+					     NULL);
+		else 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_IOError,
+					     NULL);
+		return NULL;
+	}
 
-	} else if (flags & Bonobo_Storage_WRITE) {
-		if (v == -1) {
-			if (mkdir (path, 0777) == -1)
-				return NULL;
-		} else {
-			if (!S_ISDIR (s.st_mode))
-				return NULL;
-		}
+	if (!S_ISDIR (st.st_mode)) { 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NotStorage, NULL);
+		return NULL;
 	}
 
 	return do_bonobo_storage_fs_create (path);

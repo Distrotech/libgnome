@@ -19,42 +19,89 @@
 
 static BonoboStreamClass *bonobo_stream_fs_parent_class;
 
-static Bonobo_StorageInfo*
-fs_get_info (BonoboStream *stream,
-	     const Bonobo_StorageInfoFields mask,
-	     CORBA_Environment *ev)
+static gint
+bonobo_mode_to_fs (Bonobo_Storage_OpenMode mode)
 {
-	g_warning ("Not implemented");
+	gint fs_mode = 0;
+
+	if (mode & Bonobo_Storage_READ)
+		fs_mode |= O_RDONLY;
+	if (mode & Bonobo_Storage_WRITE)
+		fs_mode |= O_RDWR;
+	if (mode & Bonobo_Storage_CREATE)
+		fs_mode |= O_CREAT | O_RDWR;
+	if (mode & Bonobo_Storage_FAILIFEXIST)
+		fs_mode |= O_EXCL;
+
+	return fs_mode;
+}
+
+static Bonobo_StorageInfo*
+fs_get_info (BonoboStream                   *stream,
+	     const Bonobo_StorageInfoFields  mask,
+	     CORBA_Environment              *ev)
+{
+	BonoboStreamFS *stream_fs = BONOBO_STREAM_FS (stream);
+	Bonobo_StorageInfo *si;
+	struct stat st;
+
+	if (fstat (stream_fs->fd, &st) == -1)
+		goto get_info_except;
+		
+	si = Bonobo_StorageInfo__alloc ();
+
+	si->size = st.st_size;
+	si->type = Bonobo_STORAGE_TYPE_REGULAR;
+	si->name = NULL;
+	si->content_type = NULL;
+	
+	if ((mask & Bonobo_FIELD_CONTENT_TYPE))
+		si->content_type = 
+			CORBA_string_dup ("application/octet-stream");
+
+	return si;
+
+ get_info_except:
+
+	if (errno == EACCES) 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Stream_NoPermission, NULL);
+	else 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Stream_IOError, NULL);
+	
 
 	return CORBA_OBJECT_NIL;
 }
 
 static void
-fs_set_info (BonoboStream *stream,
-	     const Bonobo_StorageInfo *info,
-	     const Bonobo_StorageInfoFields mask,
-	     CORBA_Environment *ev)
+fs_set_info (BonoboStream                   *stream,
+	     const Bonobo_StorageInfo       *info,
+	     const Bonobo_StorageInfoFields  mask,
+	     CORBA_Environment              *ev)
 {
-	g_warning ("Not implemented");
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+			     ex_Bonobo_Stream_NoPermission, NULL);
 }
 
 static void
 fs_write (BonoboStream *stream, const Bonobo_Stream_iobuf *buffer,
 	  CORBA_Environment *ev)
 {
-	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
+	BonoboStreamFS *stream_fs = BONOBO_STREAM_FS (stream);
 
 	errno = EINTR;
-	while (write (sfs->fd, buffer->_buffer, buffer->_length) == -1 
-	       && errno == EINTR);
+	while ((write (stream_fs->fd, buffer->_buffer, buffer->_length) == -1)
+	       && (errno == EINTR));
 
-	if (errno != EINTR){
-		g_warning ("Should signal an exception here");
-		CORBA_exception_set(ev, CORBA_USER_EXCEPTION,
-				    ex_Bonobo_Storage_NameExists, NULL);
-		return;
-	}
-	return;
+	if (errno == EINTR) return;
+
+	if ((errno == EBADF) || (errno == EINVAL))
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Stream_NoPermission, NULL);
+	else 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Stream_IOError, NULL);
 }
 
 static void
@@ -63,112 +110,156 @@ fs_read (BonoboStream         *stream,
 	 Bonobo_Stream_iobuf **buffer,
 	 CORBA_Environment    *ev)
 {
-	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
+	BonoboStreamFS *stream_fs = BONOBO_STREAM_FS (stream);
 	CORBA_octet *data;
-	int v;
+	int bytes_read;
 	
+	if (count < 0) {
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Stream_IOError, NULL);
+		return;
+	}
+
 	*buffer = Bonobo_Stream_iobuf__alloc ();
 	CORBA_sequence_set_release (*buffer, TRUE);
 	data = CORBA_sequence_CORBA_octet_allocbuf (count);
+	(*buffer)->_buffer = data;
+	(*buffer)->_length = 0;
 
 	do {
-		v = read (sfs->fd, data, count);
-	} while (v == -1 && errno == EINTR);
+		bytes_read = read (stream_fs->fd, data, count);
+	} while ((bytes_read == -1) && (errno == EINTR));
 
-	if (v != -1){
-		(*buffer)->_buffer = data;
-		(*buffer)->_length = v;
-	} else {
-		CORBA_free (data);
+
+	if (bytes_read == -1) {
 		CORBA_free (*buffer);
 		*buffer = NULL;
-		CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
-				     ex_Bonobo_Stream_IOError, NULL);
-	}
+
+		if (errno == EACCES) 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Stream_NoPermission, 
+					     NULL);
+		else 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+					     ex_Bonobo_Stream_IOError, NULL);
+	} else
+		(*buffer)->_length = bytes_read;
 }
 
 static CORBA_long
-fs_seek (BonoboStream *stream,
-	 CORBA_long offset, Bonobo_Stream_SeekType whence,
-	 CORBA_Environment *ev)
+fs_seek (BonoboStream           *stream,
+	 CORBA_long              offset, 
+	 Bonobo_Stream_SeekType  whence,
+	 CORBA_Environment      *ev)
 {
-	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
-	int fw;
+	BonoboStreamFS *stream_fs = BONOBO_STREAM_FS (stream);
+	int fs_whence;
+	CORBA_long pos;
 
 	if (whence == Bonobo_Stream_SEEK_CUR)
-		fw = SEEK_CUR;
+		fs_whence = SEEK_CUR;
 	else if (whence == Bonobo_Stream_SEEK_END)
-		fw = SEEK_END;
+		fs_whence = SEEK_END;
 	else
-		fw = SEEK_SET;
+		fs_whence = SEEK_SET;
 
-	return lseek (sfs->fd, offset, fw);
+	if ((pos = lseek (stream_fs->fd, offset, fs_whence)) == -1) {
+
+		if (errno == ESPIPE) 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Stream_NotSupported, 
+					     NULL);
+		else
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Stream_IOError, NULL);
+		return 0;
+	}
+
+	return pos;
 }
 
 static void
-fs_truncate (BonoboStream *stream,
-	     const CORBA_long new_size, 
+fs_truncate (BonoboStream      *stream,
+	     const CORBA_long   new_size, 
 	     CORBA_Environment *ev)
 {
-	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
+	BonoboStreamFS *stream_fs = BONOBO_STREAM_FS (stream);
 
-	if (ftruncate (sfs->fd, new_size) == 0)
+	if (ftruncate (stream_fs->fd, new_size) == 0)
 		return;
 
-	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
-			     ex_Bonobo_Stream_NoPermission, NULL);
+	if (errno == EACCES)
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+				     ex_Bonobo_Stream_NoPermission, NULL);
+	else 
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+				     ex_Bonobo_Stream_IOError, NULL);
 }
 
 static void
-fs_copy_to  (BonoboStream *stream,
-	     const CORBA_char *dest,
-	     const CORBA_long bytes,
-	     CORBA_long *read_bytes,
-	     CORBA_long *written_bytes,
+fs_copy_to  (BonoboStream      *stream,
+	     const CORBA_char  *dest,
+	     const CORBA_long   bytes,
+	     CORBA_long        *read_bytes,
+	     CORBA_long        *written_bytes,
 	     CORBA_Environment *ev)
 {
-	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
-	CORBA_octet *data;
+	BonoboStreamFS *stream_fs = BONOBO_STREAM_FS (stream);
+	gchar data[4096];
 	CORBA_unsigned_long more = bytes;
 	int v, w;
 	int fd_out;
 
-#define READ_CHUNK_SIZE 65536
-
-	data = CORBA_sequence_CORBA_octet_allocbuf (READ_CHUNK_SIZE);
-
 	*read_bytes = 0;
 	*written_bytes = 0;
 
-	fd_out = creat(dest, 0666);
-	if(fd_out == -1)
-		return;
-
+	if ((fd_out = creat(dest, 0644)) == -1)
+		goto copy_to_except;
+     
 	do {
+		if (bytes == -1) 
+			more = sizeof (data);
+
 		do {
-			v = read (sfs->fd, data, MIN(READ_CHUNK_SIZE, more));
-		} while (v == -1 && errno == EINTR);
+			v = read (stream_fs->fd, data, 
+				  MIN(sizeof (data), more));
+		} while ((v == -1) && (errno == EINTR));
 
-		if (v != -1) {
-			*read_bytes += v;
-			more -= v;
-			do {
-				w = write (fd_out, data, v);
-			} while (w == -1 && errno == EINTR);
-			if (w != -1)
-				*written_bytes += w;
-			else if(errno != EINTR) {
-				/* should probably do something to signal an error here */
-				break;
-			}
-		}
-		else if(errno != EINTR) {
-			/* should probably do something to signal an error here */
+		if (v == -1) 
+			goto copy_to_except;
+
+		if (v <= 0) 
 			break;
-		}
-	} while(more > 0 && v > 0);
 
-	close(fd_out);
+		*read_bytes += v;
+		more -= v;
+
+		do {
+			w = write (fd_out, data, v);
+		} while (w == -1 && errno == EINTR);
+		
+		if (w == -1)
+			goto copy_to_except;
+
+		*written_bytes += w;
+			
+	} while (more > 0 && v > 0);
+
+	close (fd_out);
+
+	return;
+
+ copy_to_except:
+
+	if (fd_out != -1)
+		close (fd_out);
+
+	if (errno == EACCES)
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Stream_NoPermission, NULL);
+	else
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Stream_IOError, NULL);
 }
 
 static void
@@ -191,11 +282,12 @@ fs_revert (BonoboStream *stream,
 static void
 fs_destroy (GtkObject *object)
 {
-	BonoboStreamFS *sfs = BONOBO_STREAM_FS (object);
+	BonoboStreamFS *stream_fs = BONOBO_STREAM_FS (object);
 	
-	if (close (sfs->fd)) g_warning ("Close failed");
+	if (close (stream_fs->fd)) 
+		g_warning ("Close failed");
 	
-	sfs->fd = -1;
+	stream_fs->fd = -1;
 }
 
 static void
@@ -204,7 +296,8 @@ bonobo_stream_fs_class_init (BonoboStreamFSClass *klass)
 	GtkObjectClass    *oclass = (GtkObjectClass *) klass;
 	BonoboStreamClass *sclass = BONOBO_STREAM_CLASS (klass);
 	
-	bonobo_stream_fs_parent_class = gtk_type_class (bonobo_stream_get_type ());
+	bonobo_stream_fs_parent_class = 
+		gtk_type_class (bonobo_stream_get_type ());
 
 	sclass->get_info = fs_get_info;
 	sclass->set_info = fs_set_info;
@@ -308,22 +401,67 @@ BonoboStream *
 bonobo_stream_fs_open (const char *path, gint flags, gint mode,
 		       CORBA_Environment *ev)
 {
-	struct stat s;
+	BonoboStream *stream;
+	struct stat st;
 	int v, fd;
-	gint nflags = 0;
+	gint fs_flags;
 
-	g_return_val_if_fail (path != NULL, NULL);
+	if (!path || !ev) {
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_IOError, NULL);
+		return NULL;
+	}
 
-	v = stat (path, &s);
+	if (((v = stat (path, &st)) == -1) && 
+	    !(flags & Bonobo_Storage_CREATE)) {
+		
+		if ((errno == ENOENT) || (errno == ENOTDIR))
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NotFound, 
+					     NULL);
+		else if (errno == EACCES)
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NoPermission, 
+					     NULL);
+		else 
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_IOError, NULL);
+		return NULL;
+	}
 
-	if (v == -1 || S_ISDIR (s.st_mode)) return NULL;
-       
-	
-	if ((flags & Bonobo_Storage_WRITE) ||
-	    (flags & Bonobo_Storage_CREATE)) nflags = O_RDWR;
-	else nflags = O_RDONLY;
+	if ((v != -1) && S_ISDIR(st.st_mode)) {
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NotStream, 
+				     NULL);
+		return NULL;
+	}
+
+
+	fs_flags = bonobo_mode_to_fs (flags);
  
-	if ((fd = open (path, nflags, mode)) == -1) return NULL;
-	    	
-	return bonobo_stream_create (fd);
+	if ((fd = open (path, fs_flags, mode)) == -1) {
+
+		if ((errno == ENOENT) || (errno == ENOTDIR))
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NotFound, 
+					     NULL);
+		else if (errno == EACCES)
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NoPermission, 
+					     NULL);
+		else if (errno == EEXIST)
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_NameExists, 
+					     NULL);
+		else
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+					     ex_Bonobo_Storage_IOError, NULL);
+		return NULL;
+	}
+
+	if (!(stream = bonobo_stream_create (fd)))
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_IOError, NULL);
+
+	return stream;
 }

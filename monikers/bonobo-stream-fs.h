@@ -42,8 +42,7 @@ BonoboStream    *bonobo_stream_fs_construct    (BonoboStreamFS *stream,
 BonoboStream    *bonobo_stream_fs_open         (const char *path, 
 						gint flags,
 						gint mode, 
-						CORBA_Environment *ev);
-	
+						CORBA_Environment *ev);	
 END_GNOME_DECLS
 
 #endif /* _BONOBO_STREAM_FS_H_ */
