@@ -334,7 +334,7 @@ gnome_gconf_gnome_color_picker_get (GnomeColorPicker *picker,
 	switch (type) {
 	case GCONF_VALUE_STRING:
 		gnome_color_picker_get_i16 (picker, &r, &g, &b, &a);
-		g_snprintf (color, 18, "#%04X%04X%04X%04X", r, g, b);
+		g_snprintf (color, 18, "#%04X%04X%04X%04X", r, g, b, a);
 		gconf_value_set_string (retval, color);
 		break;
 	default:
@@ -437,14 +437,12 @@ void
 gnome_gconf_gnome_icon_entry_set (GnomeIconEntry *icon_entry,
 				  GConfValue     *value)
 {
-	GtkWidget *entry;
-
 	g_return_if_fail (icon_entry != NULL);
 	g_return_if_fail (GNOME_IS_ICON_ENTRY (icon_entry));
+	g_return_if_fail (value->type == GCONF_VALUE_STRING);
 	g_return_if_fail (value != NULL);
 
-	entry = gnome_icon_entry_gtk_entry (icon_entry);
-	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
+	gnome_icon_entry_set_icon (icon_entry, gconf_value_string (value));
 }
 
 GConfValue *
