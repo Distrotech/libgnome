@@ -229,12 +229,14 @@ if(!retval) retval = lastval; } \
  * @filename:  filename to test
  * @test:      test to perform on the file
  *
- * test is one of:
- *  G_FILE_TEST_ISFILE, to check if the pathname is a file
- *  G_FILE_TEST_ISLINK, to check if the pathname is a symlink
- *  G_FILE_TEST_ISDIR,  to check if the pathname is a directory
+ * Description: The test should be an ORed expression of:
+ * G_FILE_TEST_ISFILE to check if the pathname is a file,
+ * G_FILE_TEST_ISLINK to check if the pathname is a symlink and/or
+ * G_FILE_TEST_ISDIR to check if the pathname is a directory.
+ * Alternatively, it can just be G_FILE_TEXT_EXISTS to simply test
+ * for existance of any type of file.
  *
- * Returns %TRUE if filename passes the specified test, if the test
+ * Returns: %TRUE if filename passes the specified test, if the test
  * is an ORed expression, then if it passes at least one of those tests
  */
 gboolean
@@ -265,8 +267,9 @@ g_file_test (const char *filename, int test)
  * g_file_exists
  * @filename: pathname to test for existance.
  *
- * Returns true if filename exists
- * left in for binary compatibility for a while FIXME: remove
+ * Description:  Checks if a file exists or not.
+ *
+ * Returns: %TRUE if filename exists, %FALSE otherwise
  */
 gboolean
 g_file_exists (const char *filename)
