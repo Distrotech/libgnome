@@ -17,7 +17,8 @@ dnl blocks, this macro needs to be right at the beggining.
 dnl
 AM_PROG_XML_I18N_TOOLS
 
-AC_DEFINE(GNOME_PLUGIN_SERIAL, 1, [Serial number, incremented each time we do a binary incompatible change])
+GNOME_PLUGIN_SERIAL=2
+AC_DEFINE_UNQUOTED(GNOME_PLUGIN_SERIAL, $GNOME_PLUGIN_SERIAL, [Serial number, incremented each time we do a binary incompatible change])
 
 GNOME_COMMON_INIT
 GNOME_PLATFORM_GNOME_2(yes, force)
