@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome2 1.100.0\n"
-"POT-Creation-Date: 2001-08-14 16:01+0200\n"
-"PO-Revision-Date: 2001-08-07 20:54GMT +0200\n"
+"POT-Creation-Date: 2001-09-25 22:11+0200\n"
+"PO-Revision-Date: 2001-09-20 20:54GMT +0200\n"
 "Last-Translator: Vasif İsmayıloğlu MD <azerb_linux@hotmail.com>\n"
 "Language-Team: Azerbaijani Turkish <linuxaz@azerimal.net>\n"
 "MIME-Version: 1.0\n"
@@ -14,71 +14,150 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 0.8\n"
 
-#: libgnome/gnome-exec.c:406
+#: libgnome/gnome-exec.c:413
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "Terminal tapıla bilmədi, əgər işə düþməzsə xterm işlədilir"
 
-#: libgnome/gnome-url.c:131
+#: libgnome/gnome-url.c:155
 #, c-format
-msgid "Error parsing '%s' (empty result)"
-msgstr "Xəta '%s' (nəticəsiz)"
+msgid "Cannot parse: %s"
+msgstr "Darana bilmir: %s"
 
-#: libgnome/gnome-url.c:151
-#, c-format
-msgid "Mozilla not found as '%s'"
-msgstr "Mozilla '%s' olaraq tapılmadı"
-
-#: libgnome/gnome-url.c:312 libgnome/gnome-url.c:316
-#, c-format
-msgid "Cannot open a pipe: %s"
-msgstr "Boru açıla bilmir: %s"
-
-#: libgnome/gnome-url.c:326 libgnome/gnome-url.c:384
-#, c-format
-msgid "Cannot parse handler template: %s"
-msgstr "Göstərici işə salına bilmədi: %s"
-
-#: libgnome/gnome-url.c:336 libgnome/gnome-url.c:340 libgnome/gnome-url.c:389
-#: libgnome/gnome-url.c:393
-#, c-format
-msgid "Cannot execute command '%s'!"
-msgstr "'%s' Əmr yerinə gətirilə bilmir! "
-
-#: libgnome/gnome-url.c:372
-#, c-format
-msgid "Command '%s' did not return an ID!"
-msgstr "'%s' əmri ID bildirmədi!"
-
+#. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:92
-msgid "Bonobo activation Support"
-msgstr "Bonobo fəallaşdırma Dəstəyi"
-
-#: libgnome/gnome-init.c:379
 msgid "Bonobo Support"
 msgstr "Bonobo Dəstəyi"
 
-#: libgnome/gnome-init.c:436 libgnome/gnome-init.c:450
+#: libgnome/gnome-init.c:143
+msgid "Bonobo activation Support"
+msgstr "Bonobo fəallaşdırma Dəstəyi"
+
+#: libgnome/gnome-init.c:276 libgnome/gnome-init.c:290
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "İsitafadəçilər üçün xas quraşdırma qovluqları yaradıla bilmədi `%s':%s\n"
 
-#: libgnome/gnome-init.c:459
+#: libgnome/gnome-init.c:299
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr "Şəxsi gnome quraşdırma qovluğu üçün 0700 modu verilə bilmədi `%s':%s\n"
 
-#: libgnome/gnome-init.c:466
+#: libgnome/gnome-init.c:306
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Gnome sür'ətləndiriciləri qovluğu yaradıla bilmədi `%s':%s\n"
 
-#: libgnome/test-libgnome.c:22
+#: libgnome/gnome-init.c:358
+msgid "Disable sound server usage"
+msgstr "Səs vericisi istifadəsini bağla"
+
+#: libgnome/gnome-init.c:361
+msgid "Enable sound server usage"
+msgstr "Səs vericisi istifadəsini aç"
+
+#: libgnome/gnome-init.c:364
+#, fuzzy
+msgid "Host:port on which the sound server to use is running"
+msgstr "Qovşaq:istifadə ediləcək səs vericisi qapısı "
+
+#: libgnome/gnome-init.c:366
+msgid "HOSTNAME:PORT"
+msgstr "QOVŞAQADI:QAPI"
+
+#: libgnome/gnome-init.c:384
+msgid "GNOME Virtual Filesystem"
+msgstr "GNOME Virtual Fayl Sistemi"
+
+#: libgnome/gnome-init.c:405
+msgid "GNOME Library"
+msgstr "GNOME Kitabxanası"
+
+#: libgnome/test-libgnome.c:24
 msgid "Test option."
 msgstr "Sınaq seçənəyi"
 
-#: libgnome/test-libgnome.c:167
+#: libgnome/test-libgnome.c:157
 msgid "The Application Name"
 msgstr "Proqram Tə'minatı Adı"
+
+#: libgnome/gnome-gconf.c:165
+msgid "GNOME GConf Support"
+msgstr "GNOME GConf Dəstəyi"
+
+#: libgnome/gnome-help.c:110 libgnome/gnome-help.c:159
+msgid "Internal error"
+msgstr "Daxili xəta"
+
+#: libgnome/gnome-help.c:122 libgnome/gnome-help.c:179
+#, c-format
+msgid "Help document %s for %s not found"
+msgstr "%s yardım faylı %s üçün tapıla bilmədi"
+
+#: libgnome/gnome-i18n.c:85
+msgid "Too many alias levels for a locale, may indicate a loop"
+msgstr "Lokal üçün həddindən artıq ləqəb səviyyəsi lupa işarət edə bilər"
+
+#: libgnome/gnome-program.c:476
+msgid "Human readable name"
+msgstr "İnsannın oxuyabiləcəyi ad"
+
+#: libgnome/gnome-program.c:477
+msgid "Human readable name of this application"
+msgstr "Bu proqramın insanın oxuyabiləcəyi adı"
+
+#: libgnome/gnome-program.c:486
+msgid "GNOME path"
+msgstr "GNOME cığırı"
+
+#: libgnome/gnome-program.c:487
+msgid "Path in which to look for installed files"
+msgstr "Qurulu faylların axtarılacağı cığır"
+
+#: libgnome/gnome-program.c:502
+msgid "App version"
+msgstr "Prq buraxılışı"
+
+#: libgnome/gnome-program.c:503
+msgid "Version of this application"
+msgstr "Bu təminatın buraxılışı"
+
+#: libgnome/gnome-program.c:1251
+msgid "Help options"
+msgstr "Yardım seçənəkləri"
+
+#: libgnome/gnome-program.c:1256
+msgid "Application options"
+msgstr "Təminat seçənəkləri"
+
+#: libgnome/gnome-program.c:1272
+msgid "Dynamic modules to load"
+msgstr "Yüklənəcək dinamik modullar"
+
+#: libgnome/gnome-program.c:1273
+msgid "MODULE1,MODULE2,..."
+msgstr "MODUL1,MODUL2,..."
+
+#: tests/test-storage.c:474
+msgid "Can not bonobo_init"
+msgstr "bonobo_init aparıla bilmir"
+
+#~ msgid "),"
+#~ msgstr "),"
+
+#~ msgid "Error parsing '%s' (empty result)"
+#~ msgstr "Xəta '%s' (nəticəsiz)"
+
+#~ msgid "Mozilla not found as '%s'"
+#~ msgstr "Mozilla '%s' olaraq tapılmadı"
+
+#~ msgid "Cannot parse handler template: %s"
+#~ msgstr "Göstərici işə salına bilmədi: %s"
+
+#~ msgid "Cannot execute command '%s'!"
+#~ msgstr "'%s' Əmr yerinə gətirilə bilmir! "
+
+#~ msgid "Command '%s' did not return an ID!"
+#~ msgstr "'%s' əmri ID bildirmədi!"
