@@ -46,16 +46,17 @@ report_errno (int fd)
   _exit (1);
 }
 
-/* Fork and execute some program in the background.  Returns -1 and
-   sets errno on error.  Returns 0 on success.  Should correctly
-   report errno returns from a failing child invocation.  DIR is the
-   directory in which to exec the child; if NULL the current directory
-   is used.  Searches $PATH to find the child.  */
+/* Fork and execute some program in the background.  Returns -1 on
+ * error.  Returns PID on success.  Should correctly report errno returns
+ * from a failing child invocation.  DIR is the directory in which to
+ * exec the child; if NULL the current directory is used.  Searches $PATH
+ * to find the child.
+ */
 int
 gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
 			      int envc, char * const envv[])
 {
-  pid_t pid;
+  int pid;
   int status, count, dummy;
   int p[2];
 
@@ -73,8 +74,18 @@ gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
       pid = fork ();
       if (pid == (pid_t) -1)
 	report_errno (p[1]);
-      if (pid != 0)
+
+      if (pid != 0) {
+
+	if(waitpid(pid, &status, WNOHANG) > 0) {
+	  /* lame!!!! */
+	  status *= -1;
+	  write(p[1], &status, sizeof(status));
+	} else
+	  write(p[1], &pid, sizeof(pid));
+
 	_exit (0);
+      }
 
       /* Child of the child.  */
       fcntl (p[1], F_SETFD, 1);
@@ -93,28 +104,28 @@ gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
 	}
 
       execvp (argv[0], argv);
-      /* This call never returns.  */
-      report_errno (p[1]);
+      _exit(errno); /* xxx lamehack */
     }
 
   close (p[1]);
 
   /* Ignore errors.  FIXME: maybe only ignore EOFs.  */
-  count = read (p[0], &status, sizeof status);
+  count = read (p[0], &status, sizeof(status));
 
   /* Wait for the child, since we know it will exit shortly.  */
   if (waitpid (pid, &dummy, 0) == -1)
     return -1;
 
-  if (count == sizeof status)
+  if (count == sizeof(status))
     {
-      /* The read succeeded, which means the child failed.  STATUS is
-	 the errno value.  */
-      errno = status;
-      return -1;
-    }
 
-  return 0;
+      if(status <= 0) {
+	/* the child failed.  STATUS is the errno value.  */
+	errno = status;
+	return -1;
+      } else
+	return status;
+    }
 }
 
 int

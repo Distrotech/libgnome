@@ -23,11 +23,11 @@
 BEGIN_GNOME_DECLS
 
 
-/* Fork and execute some program in the background.  Returns -1 and
-   sets errno on error.  Returns 0 on success.  Should correctly
-   report errno returns from a failing child invocation.  DIR is the
-   directory in which to exec the child; if NULL the current directory
-   is used.  Searches $PATH to find the child.  */
+/* Fork and execute some program in the background.  Returns -1 on
+   error.  Returns PID on success.  Should correctly report errno
+   returns from a failing child invocation.  DIR is the directory in
+   which to exec the child; if NULL the current directory is used.
+   Searches $PATH to find the child.  */
 int gnome_execute_async (const char *dir, int argc, char * const argv[]);
 
 /* Like gnome_execute_async, but each string in ENVV is added to the
