@@ -832,7 +832,8 @@ main (int argc, char **argv)
     argv[2] = NULL;
     return (gnome_execute_async(NULL, 2, argv) >= 0);
   } else
-    return (mozilla_remote_commands (dpy, (Window) remote_window,
-				     remote_commands, isLocal));
+    if (remote_commands)
+        return (mozilla_remote_commands (dpy, (Window) remote_window,
+					 remote_commands, isLocal));
 
 }
