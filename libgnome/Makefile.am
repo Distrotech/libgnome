@@ -7,9 +7,6 @@
 LIB_VERSION=0:0:0
 LIB_VERSION_NUM=0.0.0
 
-GNOME_MAKEENUMS = $(top_srcdir)/tools/gnome-makeenums.pl
-GNOME_MAKETYPES = $(top_builddir)/tools/gnome-maketypes.awk
-
 lib_LTLIBRARIES = libgnome-2.la
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
@@ -20,7 +17,7 @@ INCLUDES = \
 	-I..					\
 	-I$(srcdir)/..				\
 	$(WARN_CFLAGS)				\
-	$(GNOMESUPPORT_CFLAGS)			\
+	$(LIBGNOMEBASE_CFLAGS)			\
 	$(GLIB_CFLAGS)				\
 	$(OAF_CFLAGS)				\
 	$(GCONF_CFLAGS)				\
@@ -39,7 +36,6 @@ INCLUDES = \
 	-DG_LOG_DOMAIN=\"Gnome\"
 
 libgnome_2_la_SOURCES = \
-	gnome-program.c		\
 	gnome-config.c		\
 	gnome-ditem.c		\
 	gnome-exec.c		\
@@ -56,13 +52,10 @@ libgnome_2_la_SOURCES = \
 	libgnometypes.c
 
 libgnome_headers = \
-	gnome-program.h		\
         gnome-config.h 		\
-	gnome-defs.h   		\
 	gnome-fileconvert.h	\
 	gnome-ditem.h		\
 	gnome-exec.h		\
-	gnome-i18n.h 		\
 	gnome-regex.h		\
 	gnome-remote.h		\
 	gnome-score.h		\
@@ -70,15 +63,13 @@ libgnome_headers = \
 	gnome-url.h		\
 	gnome-util.h   		\
 	gnome-paper.h		\
-	libgnome.h		\
-	gnome-portability.h
+	libgnome.h
 
 libgnomeinclude_HEADERS = \
 	libgnometypebuiltins.h	\
 	$(libgnome_headers)
 
 noinst_HEADERS = \
-	gnome-i18nP.h				\
 	gnome-triggersP.h			\
 	libgnomeP.h
 
@@ -115,11 +106,9 @@ libgnometypebuiltins_evals.c: $(GNOME_MAKEENUMS) libgnome.defs
 
 EXTRA_DIST = \
 	parse-path.cP			\
-	gnome-portability.h.in		\
 	libgnome-2.0.pc.in
 
 BUILT_SOURCES = \
-	gnome-portability.h		\
 	libgnometypebuiltins.h		\
 	libgnometypebuiltins_evals.c	\
 	libgnometypebuiltins_ids.c	\
@@ -130,7 +119,7 @@ gnome-config.o: parse-path.cP
 
 libgnome_2_la_LDFLAGS = -version-info $(LIB_VERSION)
 libgnome_2_la_LIBADD =		\
-	$(GNOMESUPPORT_LIBS)	\
+	$(LIBGNOMEBASE_LIBS)	\
 	$(OAF_LIBS)		\
 	$(GCONF_LIBS)		\
 	$(LIBXML_LIBS)		\
