@@ -1,16 +1,18 @@
 # Serbian translation of libgnome
-# Courtesy of Prevod.org team (http://www.prevod.org/) -- 2003.
-# 
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2003, 2004.
+#
 # This file is distributed under the same license as the libgnome package.
-# 
+#
 # Maintainer: Danilo Šegan <dsegan@gmx.net>
+# Reviewed on 2004-02-02 by: Bojan Suzić <bojans@teol.net>
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.2\n"
-"POT-Creation-Date: 2004-02-03 10:27+0100\n"
-"PO-Revision-Date: 2003-08-25 19:09+0200\n"
-"Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
+"Project-Id-Version: libgnome 2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-12 01:23+0100\n"
+"PO-Revision-Date: 2004-02-12 01:26+0100\n"
+"Last-Translator: Bojan Suzic <bojans@teol.net>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -111,8 +113,7 @@ msgstr "Nije pronađen dokument za pomoć %s/%s"
 
 #: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
-"Previše imena za jedan lokalitet, možda je u pitanju međusobno pozivanje"
+msgstr "Previše imena za jedan lokalitet, možda je u pitanju međusobno pozivanje"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -160,11 +161,11 @@ msgstr "SERVER:PORT"
 
 #: libgnome/gnome-init.c:412
 msgid "GNOME Virtual Filesystem"
-msgstr "Gnomov Virtuelni Sistem Datoteka"
+msgstr "Gnomov virtuelni sistem datoteka"
 
 #: libgnome/gnome-init.c:433
 msgid "GNOME Library"
-msgstr "Gnomova Biblioteka"
+msgstr "Gnomova biblioteka"
 
 #: libgnome/gnome-program.c:427
 msgid "Popt Table"
@@ -209,7 +210,7 @@ msgstr "Putanja u kojoj da traži postavljene datoteke"
 # bug: App->Application
 #: libgnome/gnome-program.c:473
 msgid "App ID"
-msgstr "ID Programa"
+msgstr "ID programa"
 
 #: libgnome/gnome-program.c:474
 msgid "ID string to use for this application"
@@ -562,8 +563,8 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
-"Određuje kako se iscrtava slika postavljena pomoću wallpaper_filename. "
-"Moguće vrednosti su „none“, „wallpaper“, „centered“, „scaled“, „stretched“."
+"Određuje kako se iscrtava slika postavljena pomoću wallpaper_filename. Moguće "
+"vrednosti su „none“, „wallpaper“, „centered“, „scaled“, „stretched“."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -795,6 +796,47 @@ msgstr "Da li da prikaže stanje na desnoj strani prozora"
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Da li da koristi prilagođeno pismo u Gtk+ programima."
 
+#: schemas/desktop_gnome_lockdown.schemas.in.h:1
+msgid "Disable command line"
+msgstr "Onemogući red naredbi"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable print setup"
+msgstr "Onemogući podešavanje štampe"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:3
+msgid "Disable printing"
+msgstr "Onemogući štampu"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:4
+msgid "Disable saving files to disk"
+msgstr "Onemogući čuvanje datoteka na disk"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:5
+msgid ""
+"Prevent the user from accessing the terminal or specifying a command line to "
+"be executed. For example, this would disable access to the panel's \"Run "
+"Application\" dialog."
+msgstr "Spreči korisnika da pristupa terminalu ili da izdaje naredbu za izvršenje.  Na primer, ovo će onemogućiti pristup prozorčetu „Pokreni program“ sa panela."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all application's \"Print Setup\" dialogs."
+msgstr "Spreči korisnika da menja podešavanja štampe.  Na primer, ovo će onemogućiti pristup prozorčetu „Podešavanje štampe“ svakog programa."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:7
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all application's \"Print\" dialogs."
+msgstr "Spreči korisnika da štampa.  Na primer, ovo će onemogućiti pristup prozorčetu „Štampaj“ svakog programa."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:8
+msgid ""
+"Prevent the user from saving files to disk. For example, this would disable "
+"access to all application's \"Save as\" dialogs."
+msgstr "Spreči korisnika da čuva datoteke na disku.  Na primer, ovo će onemogućiti pristup prozorčetu „Sačuvaj kao“ svakog programa."
+
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
 msgstr "Ime datoteke u kojoj se nalazi zvuk zvona koji treba pustiti"
@@ -864,8 +906,8 @@ msgid ""
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Ime fonta za kursor. Ukoliko nije postavljeno, koristi se uobičajeni font. "
-"Ova vrednost sa šalje Iks serveru samo na početku rada, pa izmene u toku "
-"rada neće imati uticaja dok se ponovo ne prijavite."
+"Ova vrednost sa šalje Iks serveru samo na početku rada, pa izmene u toku rada "
+"neće imati uticaja dok se ponovo ne prijavite."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -972,70 +1014,3 @@ msgstr "Da li je ili nije uključeno zaključavanje tastature."
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Da li se može odložiti ekran za odmor od kucanja."
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Kako baratati adresama za pomoć (ghelp)"
-
-#~ msgid "How to handle http URLs"
-#~ msgstr "Kako baratati HTTP adresama"
-
-#~ msgid "How to handle https URLs"
-#~ msgstr "Kako baratati HTTPS adresama"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Kako baratati adresama za pomoć (info)"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Kako baratati adresama za pomoć (man)"
-
-#~ msgid "How to handle trash URLs"
-#~ msgstr "Kako baratati adresama za smeće (trash)"
-
-#~ msgid "Run program in terminal"
-#~ msgstr "Pokreni program u terminalu"
-
-#~ msgid "Set to true to have a program specified in command handle http URLs"
-#~ msgstr "Postavite kako bi program naveden kao naredba baratao HTTP adresama"
-
-#~ msgid "Set to true to have a program specified in command handle https URLs"
-#~ msgstr ""
-#~ "Postavite kako bi program naveden kao naredba baratao HTTPS adresama"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Postavite kako bi navedeni program baratao adresama za pomoć (ghelp)"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr "Postavite kako bi navedeni program baratao adresama za pomoć (info)"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr "Postavite kako bi navedeni program baratao adresama za pomoć (man)"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in trash/command handle trash URLs"
-#~ msgstr "Postavite kako bi navedeni program baratao smećem"
-
-#~ msgid "True if the program to handle this URL should be run in a terminal"
-#~ msgstr "Postavite ako program za ovu adresu treba da radi u terminalu"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Program za pomoćne stranice (ghelp)"
-
-#~ msgid "URL handler for http uris"
-#~ msgstr "Program za HTTP adrese"
-
-#~ msgid "URL handler for https uris"
-#~ msgstr "Program za HTTPS adrese"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Program za pomoćne stranice (info)"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Program za pomoćne stranice (man)"
-
-#~ msgid "URL handler for trash pages"
-#~ msgstr "Program za stranice sa smećem"
