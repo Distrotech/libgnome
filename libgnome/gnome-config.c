@@ -751,6 +751,7 @@ gnome_config_push_prefix (char *path)
 
 	p->p_back = prefix_list;
 	p->p_prefix = strdup (path);
+	prefix_list = p;
 }
 
 void

@@ -1,6 +1,5 @@
 ## Process this file with automake to produce Makefile.in
-
-scoredir=/var/lib/games
+scoredir=$(localstatedir)/var/lib/games
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
@@ -9,11 +8,11 @@ libgnomeincludedir = $(includedir)/libgnome
 INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) \
 	-DGNOMELIBDIR=\""$(libdir)"\" \
 	-DGNOMEDATADIR=\""$(datadir)"\" \
-	-DGNOMEBINDIR=\""$(bindir)\"" \ 
-	-DGNOMELOCALSTATEDIR=\""$(localstatedirir)\"" \ 
-	-DGNOMELOCALEDIR=\""$(libdir)/locale\"" \
+	-DGNOMEBINDIR=\""$(bindir)"\"\ 
+	-DGNOMELOCALSTATEDIR=\""$(localstatedir)"\" \
+	-DGNOMELOCALEDIR=\""$(libdir)/locale"\" \
 	-I$(top_srcdir)/intl \
-	 -I$(srcdir)/../programs
+	-I$(srcdir)/../programs
 
 lib_LTLIBRARIES = libgnome.la
 
@@ -54,7 +53,9 @@ libgnome_la_LIBADD = -lgdk -lglib -lm
 bin_PROGRAMS = gnome-score-helper
 
 gnome_score_helper_SOURCES = gnome-score-helper.c
-gnome_score_helper_LDADD = -lglib
+gnome_score_helper_LDADD = \
+	$(top_builddir)/libgnome/libgnome.la \
+	-lglib
 
 install-data-local:
 	-chgrp games $(bindir)/gnome-score-helper

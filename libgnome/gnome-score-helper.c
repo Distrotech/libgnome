@@ -150,14 +150,13 @@ log_score(gchar *progname, gchar *username, gfloat score)
 	/* Certifiable spaghetti code. There has to be a nicer way to do this,
 	   I'm sure */
 	
-	for(item = scores, pos = 0;
-	    item; item = item->next, pos++)
+	for(item = scores, pos = 0; item; item = item->next, pos++)
 	{
 		if(((struct ascore_t *)item->data)->score < anitem->score)
 		{
 			scores = g_list_insert(scores, anitem, pos);
 			we_are_top_ten = TRUE;
-			goto out_of_loop; /* I'm not familiar enough with how far out "break" takes us */
+			break;
 		}
 	}
  out_of_loop:
