@@ -124,8 +124,8 @@ gnome_storage_fs_get_type (void)
 	if (!type){
 		GtkTypeInfo info = {
 			"IDL:GNOME/StorageFS:1.0",
-			sizeof (GnomeStorage),
-			sizeof (GnomeStorageClass),
+			sizeof (GnomeStorageFS),
+			sizeof (GnomeStorageFSClass),
 			(GtkClassInitFunc) gnome_storage_fs_class_init,
 			(GtkObjectInitFunc) gnome_storage_init,
 			NULL, /* reserved 1 */
