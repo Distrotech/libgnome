@@ -24,6 +24,7 @@
 #include <gconf/gconf-value.h>
 #include <gtk/gtkentry.h>
 #include <gtk/gtkrange.h>
+#include <gtk/gtkspinbutton.h>
 #include <gtk/gtktogglebutton.h>
 #include <gtk/gtkradiobutton.h>
 #include "gnome-color-picker.h"
@@ -32,6 +33,10 @@ GConfValue *gnome_gconf_gtk_entry_get          (GtkEntry         *entry,
 						GConfValueType    type);
 void        gnome_gconf_gtk_entry_set          (GtkEntry         *entry,
 						GConfValue       *value);
+GConfValue *gnome_gconf_spin_button_get        (GtkSpinButton    *spin_button,
+						GConfValueType    type);
+void        gnome_gconf_spin_button_set        (GtkSpinButton   *spin_button,
+						GConfValue      *value);
 GConfValue *gnome_gconf_gtk_radio_button_get   (GtkRadioButton   *radio,
 						GConfValueType    type);
 void        gnome_gconf_gtk_radio_button_set   (GtkRadioButton   *radio,

@@ -88,6 +88,60 @@ gnome_gconf_gtk_entry_set (GtkEntry       *entry,
 }
 
 GConfValue *
+gnome_gconf_spin_button_get (GtkSpinButton *spin_button,
+			     GConfValueType  type)
+{
+	GConfValue *retval = NULL;
+	gint i;
+	gfloat f;
+
+	g_return_val_if_fail (spin_button != NULL, NULL);
+	g_return_val_if_fail (GTK_IS_SPIN_BUTTON (spin_button), NULL);
+	g_return_val_if_fail ((type == GCONF_VALUE_INT) ||
+			      (type == GCONF_VALUE_FLOAT), NULL);
+
+	switch (type) {
+	case GCONF_VALUE_INT:
+		i = gtk_spin_button_get_value_as_int (spin_button);
+		gconf_value_set_int (retval, i);
+		break;
+	case GCONF_VALUE_FLOAT:
+		f = gtk_spin_button_get_value_as_float (spin_button);
+		gconf_value_set_float (retval, f);
+		break;
+	default:
+		break;
+	}
+
+	return retval;
+}
+
+void
+gnome_gconf_spin_button_set (GtkSpinButton *spin_button,
+			     GConfValue    *value)
+{
+	float f;
+
+	g_return_if_fail (spin_button != NULL);
+	g_return_if_fail (GTK_IS_SPIN_BUTTON (spin_button));
+	g_return_if_fail ((value->type == GCONF_VALUE_INT) ||
+			  (value->type == GCONF_VALUE_FLOAT));
+
+	switch (value->type) {
+	case GCONF_VALUE_INT:
+		f = gconf_value_int (value);
+		gtk_spin_button_set_value (spin_button, f);
+		break;
+	case GCONF_VALUE_FLOAT:
+		f = gconf_value_float (value);
+		gtk_spin_button_set_value (spin_button, f);
+		break;
+	default:
+		break;
+	}
+}
+
+GConfValue *
 gnome_gconf_gtk_radio_button_get (GtkRadioButton  *radio,
 				  GConfValueType   type)
 {
