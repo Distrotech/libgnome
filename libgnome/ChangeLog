@@ -1,3 +1,10 @@
+Wed Dec 15 14:15:37 1999  George Lebl <jirka@5z.com>
+
+	* gnome-i18n.c: make sure we don't get into an infinite loop by
+	  descending only 30 levels before giving a warning.  This would
+	  only be the case for broken locale.alias, but we wanna handle it.
+	  I could have sworn that I did this before, guess not.
+
 Tue Dec 14 00:04:18 1999  George Lebl <jirka@5z.com>
 
 	* gnome-mime-info.c: current_lang is a list of languages.  Also

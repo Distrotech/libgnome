@@ -42,6 +42,7 @@ static char *
 unalias_lang (char *lang)
 {
   char *p;
+  int i;
   if (!alias_table)
     {
       read_aliases ("/usr/share/locale/locale.alias");
@@ -49,8 +50,20 @@ unalias_lang (char *lang)
       read_aliases ("/usr/lib/X11/locale/locale.alias");
       read_aliases ("/usr/openwin/lib/locale/locale.alias");
     }
+  i = 0;
   while ((p=g_hash_table_lookup(alias_table,lang)) && strcmp(p, lang))
+    {
       lang = p;
+      if (i++ == 30)
+        {
+          static gboolean said_before = FALSE;
+	  if (!said_before)
+            g_warning (_("Too many alias levels for a locale, "
+			 "may indicate a loop"));
+	  said_before = TRUE;
+	  return lang;
+	}
+    }
   return lang;
 }
 
