@@ -145,7 +145,8 @@ void gnome_triggers_add_trigger(GnomeTrigger nt, ...)
 {
   va_list l;
   va_start(l, nt);
-  gnome_triggers_vadd_trigger(nt, l);
+  /* FIXME: this is incorrect */
+  /*  gnome_triggers_vadd_trigger(nt, l);*/
 }
 
 static GnomeTrigger
@@ -228,7 +229,8 @@ gnome_triggers_do(char *msg, char *level, ...)
 {
   va_list l;
   va_start(l, level);
-  gnome_triggers_vdo(msg, level, l);
+  /* FIXME: this is incorrect */
+  /*  gnome_triggers_vdo(msg, level, l);*/
 }
 
 void
