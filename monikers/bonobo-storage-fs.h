@@ -21,14 +21,15 @@ typedef struct {
 	BonoboStorageClass parent_class;
 } BonoboStorageFSClass;
 
-GtkType         bonobo_storage_fs_get_type     (void);
-BonoboStorage   *bonobo_storage_fs_construct    (BonoboStorageFS *storage,
-					       Bonobo_Storage corba_storage,
-					       const char *path, const char *open_mode);
-BonoboStorage   *bonobo_storage_fs_open         (const char *path,
-					       gint flags, gint mode);
-BonoboStorage   *bonobo_storage_fs_create       (BonoboStorageFS *storage_fs,
-					       const CORBA_char *path);
+GtkType        bonobo_storage_fs_get_type  (void);
+BonoboStorage *bonobo_storage_fs_construct (BonoboStorageFS *storage,
+					    Bonobo_Storage corba_storage,
+					    const char *path, const char *open_mode);
+BonoboStorage *bonobo_storage_fs_open      (const char *path,
+					    gint flags, gint mode);
+BonoboStorage *bonobo_storage_fs_create    (BonoboStorageFS *storage_fs,
+					    const CORBA_char *path);
+
 END_GNOME_DECLS
 
 #endif /* _BONOBO_STORAGE_FS_H_ */

@@ -27,57 +27,67 @@ bonobo_storage_fs_destroy (GtkObject *object)
 	g_free (storage_fs->path);
 }
 
-static BonoboStream *
-fs_create_stream (BonoboStorage *storage, const CORBA_char *path, CORBA_Environment *ev)
+static Bonobo_StorageInfo*
+fs_get_info (BonoboStorage *storage,
+	     const CORBA_char *path,
+	     const Bonobo_StorageInfoFields mask,
+	     CORBA_Environment *ev)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
-	BonoboStream *stream;
-	char *full;
+	g_warning ("Not implemented");
 
-	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = bonobo_stream_fs_create (full);
-	g_free (full);
+	return CORBA_OBJECT_NIL;
+}
 
-	return stream;
+static void
+fs_set_info (BonoboStorage *storage,
+	     const CORBA_char *path,
+	     const Bonobo_StorageInfo *info,
+	     const Bonobo_StorageInfoFields mask,
+	     CORBA_Environment *ev)
+{
+	g_warning ("Not implemented");
 }
 
 static BonoboStream *
-fs_open_stream (BonoboStorage *storage, const CORBA_char *path, Bonobo_Storage_OpenMode mode, CORBA_Environment *ev)
+fs_open_stream (BonoboStorage *storage, const CORBA_char *path, 
+		Bonobo_Storage_OpenMode mode, CORBA_Environment *ev)
 {
 	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
 	BonoboStream *stream;
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = bonobo_stream_fs_open (full, mode);
+	stream = bonobo_stream_fs_open (full, mode, 0644);
 	g_free (full);
 
 	return stream;
 }
 
 static BonoboStorage *
-fs_create_storage (BonoboStorage *storage, const CORBA_char *path, CORBA_Environment *ev)
+fs_open_storage (BonoboStorage *storage, const CORBA_char *path, 
+		 Bonobo_Storage_OpenMode mode, CORBA_Environment *ev)
 {
 	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
 	BonoboStorage *new_storage;
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	new_storage = bonobo_storage_fs_open (path, 
-					      Bonobo_Storage_CREATE, 0644);
+	new_storage = bonobo_storage_fs_open (full, mode, 0644);
 	g_free (full);
 
 	return new_storage;
 }
 
 static void
-fs_copy_to (BonoboStorage *storage, Bonobo_Storage target, CORBA_Environment *ev)
+fs_copy_to (BonoboStorage *storage, Bonobo_Storage target, 
+	    CORBA_Environment *ev)
 {
 	g_warning ("Not yet implemented");
 }
 
 static void
-fs_rename (BonoboStorage *storage, const CORBA_char *path, const CORBA_char *new_path, CORBA_Environment *ev)
+fs_rename (BonoboStorage *storage, const CORBA_char *path, 
+	   const CORBA_char *new_path, CORBA_Environment *ev)
 {
 	g_warning ("Not yet implemented");
 }
@@ -85,10 +95,20 @@ fs_rename (BonoboStorage *storage, const CORBA_char *path, const CORBA_char *new
 static void
 fs_commit (BonoboStorage *storage, CORBA_Environment *ev)
 {
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+			     ex_Bonobo_Stream_NotSupported, NULL);
 }
 
-static Bonobo_Storage_directory_list *
-fs_list_contents (BonoboStorage *storage, const CORBA_char *path, CORBA_Environment *ev)
+static void
+fs_revert (BonoboStorage *storage, CORBA_Environment *ev)
+{
+	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+			     ex_Bonobo_Stream_NotSupported, NULL);
+}
+
+static Bonobo_Storage_DirectoryList *
+fs_list_contents (BonoboStorage *storage, const CORBA_char *path, 
+		  Bonobo_StorageInfoFields mask, CORBA_Environment *ev)
 {
 	g_error ("Not yet implemented");
 
@@ -101,14 +121,17 @@ bonobo_storage_fs_class_init (BonoboStorageFSClass *class)
 	GtkObjectClass *object_class = (GtkObjectClass *) class;
 	BonoboStorageClass *sclass = BONOBO_STORAGE_CLASS (class);
 	
-	bonobo_storage_fs_parent_class = gtk_type_class (bonobo_storage_get_type ());
+	bonobo_storage_fs_parent_class = 
+		gtk_type_class (bonobo_storage_get_type ());
 
-	sclass->create_stream  = fs_create_stream;
+	sclass->get_info       = fs_get_info;
+	sclass->set_info       = fs_set_info;
 	sclass->open_stream    = fs_open_stream;
-	sclass->create_storage = fs_create_storage;
+	sclass->open_storage   = fs_open_storage;
 	sclass->copy_to        = fs_copy_to;
 	sclass->rename         = fs_rename;
 	sclass->commit         = fs_commit;
+	sclass->revert         = fs_revert;
 	sclass->list_contents  = fs_list_contents;
 	
 	object_class->destroy = bonobo_storage_fs_destroy;
@@ -184,7 +207,7 @@ do_bonobo_storage_fs_create (const char *path)
  * bonobo_storage_fs_open:
  * @path: path to existing directory that represents the storage
  * @flags: open flags.
- * @mode: mode used if @flags containst BONOBO_SS_CREATE for the storage.
+ * @mode: mode used if @flags containst Bonobo_Storage_CREATE for the storage.
  *
  * Returns a BonoboStorage object that represents the storage at @path
  */

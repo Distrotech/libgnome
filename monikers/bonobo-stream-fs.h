@@ -36,11 +36,12 @@ typedef struct {
 	BonoboStreamClass parent_class;
 } BonoboStreamFSClass;
 
-GtkType         bonobo_stream_fs_get_type     (void);
-BonoboStream    *bonobo_stream_fs_open         (const gchar *path, gint flags);
+GtkType          bonobo_stream_fs_get_type     (void);
+BonoboStream    *bonobo_stream_fs_open         (const char *path, gint flags,
+						gint mode);
 BonoboStream    *bonobo_stream_fs_create       (const CORBA_char *path);
 BonoboStream    *bonobo_stream_fs_construct    (BonoboStreamFS *stream,
-					      Bonobo_Stream corba_stream);
+						Bonobo_Stream corba_stream);
 	
 END_GNOME_DECLS
 

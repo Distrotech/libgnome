@@ -19,7 +19,26 @@
 
 static BonoboStreamClass *bonobo_stream_fs_parent_class;
 
-static CORBA_long
+static Bonobo_StorageInfo*
+fs_get_info (BonoboStream *stream,
+	     const Bonobo_StorageInfoFields mask,
+	     CORBA_Environment *ev)
+{
+	g_warning ("Not implemented");
+
+	return CORBA_OBJECT_NIL;
+}
+
+static void
+fs_set_info (BonoboStream *stream,
+	     const Bonobo_StorageInfo *info,
+	     const Bonobo_StorageInfoFields mask,
+	     CORBA_Environment *ev)
+{
+	g_warning ("Not implemented");
+}
+
+static void
 fs_write (BonoboStream *stream, const Bonobo_Stream_iobuf *buffer,
 	  CORBA_Environment *ev)
 {
@@ -33,9 +52,9 @@ fs_write (BonoboStream *stream, const Bonobo_Stream_iobuf *buffer,
 		g_warning ("Should signal an exception here");
 		CORBA_exception_set(ev, CORBA_USER_EXCEPTION,
 				    ex_Bonobo_Storage_NameExists, NULL);
-		return 0;
+		return;
 	}
-	return buffer->_length;
+	return;
 }
 
 static void
@@ -153,80 +172,52 @@ fs_copy_to  (BonoboStream *stream,
 }
 
 static void
-fs_commit   (BonoboStream *stream,
-	     CORBA_Environment *ev)
+fs_commit (BonoboStream *stream,
+	   CORBA_Environment *ev)
 {
-	g_warning ("Implement fs commit");
+        CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+                             ex_Bonobo_Stream_NotSupported, NULL);
 }
 
 static void
-fs_close (BonoboStream *stream,
-	  CORBA_Environment *ev)
-{
-	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
-
-	if (close (sfs->fd))
-		g_warning ("Close failed");
-	sfs->fd = -1;
-}
-
-static CORBA_boolean
-fs_eos (BonoboStream *stream,
-	CORBA_Environment *ev)
-{
-	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
-	off_t offset;
-	struct stat st;
-
-	if (fstat (sfs->fd, &st)) {
-		g_warning ("fstat failed");
-		return 1;
-	}
-
-	offset = lseek (sfs->fd, 0, SEEK_CUR);
-
-	if (offset == -1) {
-		g_warning ("seek failed");
-		return 1;
-	}
-
-	if (offset == st.st_size)
-		return 1;
-	
-	return 0;
-}
-	
-static CORBA_long
-fs_length (BonoboStream *stream,
+fs_revert (BonoboStream *stream,
 	   CORBA_Environment *ev)
 {
-	BonoboStreamFS *sfs = BONOBO_STREAM_FS (stream);
-	struct stat st;
-
-	if (fstat (sfs->fd, &st)) {
-		g_warning ("Fstat failed");
-		return 0;
-	} else 
-		return st.st_size;
+        CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+                             ex_Bonobo_Stream_NotSupported, NULL);
 }
-	   
+
+
+static void
+fs_destroy (GtkObject *object)
+{
+	BonoboStreamFS *sfs = BONOBO_STREAM_FS (object);
+	
+	if (close (sfs->fd)) g_warning ("Close failed");
+	
+	sfs->fd = -1;
+}
 
 static void
 bonobo_stream_fs_class_init (BonoboStreamFSClass *klass)
 {
+	GtkObjectClass    *oclass = (GtkObjectClass *) klass;
 	BonoboStreamClass *sclass = BONOBO_STREAM_CLASS (klass);
 	
 	bonobo_stream_fs_parent_class = gtk_type_class (bonobo_stream_get_type ());
 
+	sclass->get_info = fs_get_info;
+	sclass->set_info = fs_set_info;
 	sclass->write    = fs_write;
 	sclass->read     = fs_read;
 	sclass->seek     = fs_seek;
 	sclass->truncate = fs_truncate;
 	sclass->copy_to  = fs_copy_to;
-	sclass->commit   = fs_commit;
-	sclass->close    = fs_close;
-	sclass->eos      = fs_eos;
-	sclass->length   = fs_length;
+        sclass->commit   = fs_commit;
+        sclass->revert   = fs_revert;
+
+
+	oclass->destroy = fs_destroy;
 }
 
 /**
@@ -314,42 +305,25 @@ bonobo_stream_create (int fd)
  * @path.  
  */
 BonoboStream *
-bonobo_stream_fs_open (const gchar *path, gint flags)
+bonobo_stream_fs_open (const char *path, gint flags, gint mode)
 {
 	struct stat s;
 	int v, fd;
-	char *full;
+	gint nflags = 0;
 
 	g_return_val_if_fail (path != NULL, NULL);
 
-	full = g_strdup (path);
-	
-	v = stat (full, &s);
+	v = stat (path, &s);
 
-	if (v == -1 || S_ISDIR (s.st_mode)) {
-		g_free (full);
-		return NULL;
-	}
+	if (v == -1 || S_ISDIR (s.st_mode)) return NULL;
+       
 	
-	if (flags == Bonobo_Storage_READ) {
-		fd = open (full, O_RDONLY);
-		if (fd == -1) {
-			g_free (full);
-			return NULL;
-		}
-	} else if (flags == Bonobo_Storage_WRITE) {
-		fd = open (full, O_RDWR);
-		if (fd == -1) {
-			g_free (full);
-			return NULL;
-		}
-	} else {
-		g_free(full);
-		return NULL;
-	}
-	
-	g_free (full);
-	
+	if ((flags & Bonobo_Storage_WRITE) ||
+	    (flags & Bonobo_Storage_CREATE)) nflags = O_RDWR;
+	else nflags = O_RDONLY;
+ 
+	if ((fd = open (path, nflags, mode)) == -1) return NULL;
+	    	
 	return bonobo_stream_create (fd);
 }
 

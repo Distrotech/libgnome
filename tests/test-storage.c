@@ -44,35 +44,40 @@ main (int argc, char *argv [])
 	o = BONOBO_OBJECT(storage)->corba_objref;
 	printf("Storage %p\n",o);
   
-	s = Bonobo_Storage_create_storage(o,"testdir1",&ev);
+	s = Bonobo_Storage_open_storage
+		(o, "testdir1", Bonobo_Storage_CREATE, &ev);
 	printf("CORBA STORAGE %p\n",s);
 
-	s = Bonobo_Storage_create_storage(s,"subdir1",&ev);
+	s = Bonobo_Storage_open_storage
+		(s, "subdir1", Bonobo_Storage_CREATE, &ev);
 	printf("CORBA STORAGE %p\n",s);
 
-	s = Bonobo_Storage_create_storage(o,"testdir1",&ev);
+	s = Bonobo_Storage_open_storage
+		(o, "testdir1", Bonobo_Storage_CREATE, &ev);
 	printf("CORBA STORAGE %p\n",s);
  
 	Bonobo_Storage_commit(o,&ev);
 
-	s = Bonobo_Storage_open_storage(o,"testdir1",Bonobo_Storage_READ,&ev);
+	s = Bonobo_Storage_open_storage
+		(o, "testdir1", Bonobo_Storage_READ, &ev);
 	printf("CORBA STORAGE %p\n",s);
 
-	s = Bonobo_Storage_open_storage(s,"subdir1",Bonobo_Storage_READ,&ev);
+	s = Bonobo_Storage_open_storage
+		(s, "subdir1", Bonobo_Storage_READ, &ev);
 	printf("CORBA STORAGE %p\n",s);
   
 
   
 	{
-		Bonobo_Storage_directory_list *list;
+		Bonobo_Storage_DirectoryList *list;
 		int i;
 
-		list = Bonobo_Storage_list_contents(o,"/",&ev);
+		list = Bonobo_Storage_list_contents(o, "/", 0, &ev);
 		printf("DIRLIST %p\n",list);
 
 		if (list) {
-			for (i=0;i<list->_length;i++) {
-				printf("DIR: %s\n",list->_buffer[i]);
+			for (i=0; i < list->_length; i++) {
+				printf("DIR: %s\n",list->_buffer[i].name);
 			}
 			CORBA_free(list);
 		}
@@ -82,19 +87,24 @@ main (int argc, char *argv [])
 
 	{
 		Bonobo_Stream_iobuf *buf;
-		CORBA_long i;
+	      
 		buf = Bonobo_Stream_iobuf__alloc ();
 		buf->_buffer = CORBA_sequence_CORBA_octet_allocbuf (1000);
 		strcpy(buf->_buffer,"This is a Test\n");
 		buf->_length = strlen(buf->_buffer);
 
-		s = Bonobo_Storage_create_stream(o,"t.txt",&ev);
+		s = Bonobo_Storage_open_stream
+			(o, "t.txt", Bonobo_Storage_CREATE, &ev);
 		printf("CORBA STREAM %p\n",s);
 
-		i = Bonobo_Stream_write(s, buf, &ev);
-		printf("Written: %d\n",i);
+		CORBA_exception_init(&ev);
 
-		//Bonobo_Stream_close(s, &ev);
+		Bonobo_Stream_write(s, buf, &ev);
+		if (ev._major == CORBA_NO_EXCEPTION)
+			printf("Write OK\n");
+		else printf("Write failed\n");
+
+		Bonobo_Unknown_unref(s, &ev);
 
 	}
     
