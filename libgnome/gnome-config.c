@@ -1518,7 +1518,7 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
 	p = (char *) string;
 	count = 0;
 	do {
-		char *tmp = p;
+		char *s, *tmp = p;
 
 		esc_spcs = 0;
 		while (*p && (esc_spcs ? 1 : (*p != ' '))){
@@ -1528,7 +1528,16 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
 			p++;
 		}
 
- 		(*argvp)[count++] = (char *) g_strndup (tmp, p - tmp);
+ 		s = (char *) g_strndup (tmp, p - tmp);
+
+		(*argvp)[count++] = tmp = s;
+
+		do {
+			if (*s == '\\') 
+				s++;				
+			*tmp++ = *s++;
+		} while (*s);
+		*tmp = '\0';
 
 		while (*p && *p == ' ')
 			p++;
