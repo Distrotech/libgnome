@@ -55,12 +55,16 @@ DEFINE_DESKTOP_PROP_BOOLEAN (statusbar_dialog, "statusbar-dialog");
 /**
  * Description:
  * Determine whether or not the statusbar is interactive.
+ *
+ * replaced by /desktop/gnome/interface/statusbar-interactive gconf key.
  **/
 DEFINE_DESKTOP_PROP_BOOLEAN (statusbar_interactive, "statusbar-interactive");
 
 /**
  * Description:
  * Determine whether or not the statusbar's meter is on the right-hand side. 
+ *
+ * replaced by /desktop/gnome/interface/statusbar-meter-on-right gconf key.
  **/
 DEFINE_DESKTOP_PROP_BOOLEAN (statusbar_meter_on_right, "statusbar-meter-on-right");
 
@@ -68,21 +72,29 @@ DEFINE_DESKTOP_PROP_BOOLEAN (statusbar_meter_on_right, "statusbar-meter-on-right
  * Description:
  * Determine whether or not a menu bar is, by default,
  * detachable from its parent frame.
+ *
+ * replaced by /desktop/gnome/interface/menubar-detachable gconf key.
  */
 DEFINE_DESKTOP_PROP_BOOLEAN (menubar_detachable, "menubar-detachable");
 
 /**
  * Description:
+ *
+ * replaced by /desktop/gnome/interface/menubar-relief gconf key.
  */
 DEFINE_DESKTOP_PROP_BOOLEAN (menubar_relief, "menubar-relief");
 
 /**
  * Description:
+ *
+ * replaced by /desktop/gnome/interface/toolbar-detachable gconf key.
  */
 DEFINE_DESKTOP_PROP_BOOLEAN (toolbar_detachable, "toolbar-detachable");
 
 /**
  * Description:
+ *
+ * replaced by /desktop/gnome/interface/toolbar-relief gconf key.
  */
 DEFINE_DESKTOP_PROP_BOOLEAN (toolbar_relief, "toolbar-relief");
 
@@ -98,6 +110,8 @@ DEFINE_DESKTOP_PROP_BOOLEAN (toolbar_lines, "toolbar-lines");
 
 /**
  * Description:
+ *
+ * replaced by /desktop/gnome/interface/toolbar-labels gconf key.
  */
 DEFINE_DESKTOP_PROP_BOOLEAN (toolbar_labels, "toolbar-labels");
 
@@ -108,6 +122,8 @@ DEFINE_DESKTOP_PROP_BOOLEAN (dialog_centered, "dialog-centered");
 
 /**
  * Description:
+ *
+ * replaced by /desktop/gnome/interface/menus-have-tearoff gconf key.
  */
 DEFINE_DESKTOP_PROP_BOOLEAN (menus_have_tearoff, "menus-have-tearoff");
 
