@@ -26,6 +26,13 @@
 
 #define DEFAULT_SIZE 5
 
+/**
+ * gnome_regex_cache_new:
+ * 
+ * Creates a new regular expression cache object.
+ * 
+ * Return value: the new cache object.
+ **/
 GnomeRegexCache *
 gnome_regex_cache_new (void)
 {
@@ -50,6 +57,12 @@ free_element (GnomeRegexCache *rxc, int elt)
 	}
 }
 
+/**
+ * gnome_regex_cache_destroy:
+ * @rxc: A regular expression cache object
+ * 
+ * Destroys a regular expression cache object.
+ **/
 void
 gnome_regex_cache_destroy (GnomeRegexCache *rxc)
 {
@@ -64,6 +77,15 @@ gnome_regex_cache_destroy (GnomeRegexCache *rxc)
 	g_free (rxc);
 }
 
+/**
+ * gnome_regex_cache_set_size:
+ * @rxc: A regular expression cache object
+ * @new_size: new size of cache
+ * 
+ * Sets the maxiumum number of regular expressions the cache can
+ * hold.  If this is less than the number of currently cached
+ * expressions, then the oldest expressions are deleted.
+ **/
 void
 gnome_regex_cache_set_size (GnomeRegexCache *rxc, int new_size)
 {
@@ -90,6 +112,18 @@ gnome_regex_cache_set_size (GnomeRegexCache *rxc, int new_size)
 	}
 }
 
+/**
+ * gnome_regex_cache_compile:
+ * @rxc: A regular expression cache object
+ * @pattern: A string representing a regular expression
+ * @flags: Flags to pass to regcomp()
+ * 
+ * This compiles a regular expression.  If the expression is cached,
+ * the previously computed value is returned.  Otherwise, the
+ * expression is compiled, cached, and then returned.
+ * 
+ * Return value: a compiled regular expression, or %NULL on error.
+ **/
 regex_t *
 gnome_regex_cache_compile (GnomeRegexCache *rxc, const char *pattern,
 			   int flags)

@@ -34,12 +34,23 @@
 extern int errno;
 #endif
 
-/* Fork and execute some program in the background.  Returns -1 on
- * error.  Returns PID on success.  Should correctly report errno returns
- * from a failing child invocation.  DIR is the directory in which to
- * exec the child; if NULL the current directory is used.  Searches $PATH
- * to find the child.
- */
+/**
+ * gnome_execute_async_with_env:
+ * @dir: Directory in which child should be execd, or NULL for current
+ *       directory
+ * @argc: Number of arguments
+ * @argv: Argument vector to exec child
+ * @envc: Number of environment slots
+ * @envv: Environment vector
+ * 
+ * This function forks and executes some program in the background.
+ * On error, returns %-1; in this case, errno should hold a useful
+ * value.  Searches the path to find the child.  Environment settings
+ * in @envv are added to the existing environment -- they do not
+ * completely replace it.
+ * 
+ * Return value: the process id, or %-1 on error.
+ **/
 int
 gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
 			      int envc, char * const envv[])
@@ -115,12 +126,36 @@ gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
   return child_pid;
 }
 
+/**
+ * gnome_execute_async:
+ * @dir: Directory in which child should be execd, or NULL for current
+ *       directory
+ * @argc: Number of arguments
+ * @argv: Argument vector to exec child
+ * 
+ * Like gnome_execute_async_with_env(), but doesn't add anything to
+ * child's environment.
+ * 
+ * Return value: process id of child, or %-1 on error.
+ **/
 int
 gnome_execute_async (const char *dir, int argc, char * const argv[])
 {
   return gnome_execute_async_with_env (dir, argc, argv, 0, NULL);
 }
 
+/**
+ * gnome_execute_shell:
+ * @dir: Directory in which child should be execd, or NULL for current
+ *       directory
+ * @commandline: Shell command to execute
+ * 
+ * Like gnome_execute_async_with_env(), but uses the user's shell to
+ * run the desired program.  Note that the pid of the shell is
+ * returned, not the pid of the user's program.
+ * 
+ * Return value: process id of shell, or %-1 on error.
+ **/
 int
 gnome_execute_shell (const char *dir, const char *commandline)
 {
