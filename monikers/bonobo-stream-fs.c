@@ -170,6 +170,7 @@ gnome_stream_create (GnomeStorageFS *parent, int fd)
 		return NULL;
 	
 	stream_fs->fd = fd;
+	stream_fs->parent = parent;
 	
 	corba_stream = create_gnome_stream_fs (
 		GNOME_OBJECT (stream_fs));
@@ -188,12 +189,17 @@ gnome_stream_fs_open (GnomeStorageFS *parent, const CORBA_char *path, GNOME_Stor
 	struct stat s;
 	int v, fd;
 	char *full;
-	
-	g_return_val_if_fail (parent != NULL, NULL);
-	g_return_val_if_fail (GNOME_IS_STORAGE_FS (parent), NULL);
+
+	if (parent != NULL){
+		g_return_val_if_fail (GNOME_IS_STORAGE_FS (parent), NULL);
+	}
 	g_return_val_if_fail (path != NULL, NULL);
 
-	full = g_concat_dir_and_file (parent->path, path);
+	if (parent)
+		full = g_concat_dir_and_file (parent->path, path);
+	else
+		full = g_strdup (path);
+	
 	v = stat (full, &s);
 
 	if (mode == GNOME_Storage_READ){
@@ -231,9 +237,10 @@ gnome_stream_fs_create (GnomeStorageFS *fs, const CORBA_char *path)
 {
 	char *full;
 	int fd;
-	
-	g_return_val_if_fail (fs != NULL, NULL);
-	g_return_val_if_fail (GNOME_IS_STORAGE_FS (fs), NULL);
+
+	if (fs != NULL){
+		g_return_val_if_fail (GNOME_IS_STORAGE_FS (fs), NULL);
+	}
 	g_return_val_if_fail (path != NULL, NULL);
 	
 	full = g_concat_dir_and_file (fs->path, path);

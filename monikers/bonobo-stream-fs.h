@@ -23,6 +23,7 @@ struct _GnomeStreamFS {
 	GnomeStream stream;
 	int fd;
 	char *path;
+	GnomeStorageFS *parent;
 };
 
 typedef struct {
