@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
-"PO-Revision-Date: 2003-05-01 23:45+0200\n"
+"POT-Creation-Date: 2003-06-20 02:26+0200\n"
+"PO-Revision-Date: 2003-06-20 02:27+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -434,6 +434,18 @@ msgstr "minsta intervall i millisekunder"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "bildpunkter per sekund"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+"Lista med program för hjälpmedelstekniker som ska startas då inloggning sker "
+"till GNOME-skrivbordet"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Apps"
+msgstr "Starta program för hjälpmedelstekniker"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -899,43 +911,81 @@ msgid "Whether to play sounds on user events."
 msgstr "Huruvida ljud ska spelas vid användarhändelser."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Hur ghelp-URL:er ska hanteras"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Hur info-URL:er ska hanteras"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Hur man-URL:er ska hanteras"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Hur papperskorgs-URL:er hanteras"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Kör program i terminalfönster"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Ställ till sant för att ett program som är angivet i programs/ghelp ska "
+"hantera ghelp-URL:er"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Ställ till sant för att ett program som är angivet i programs/info ska "
+"hantera info-URL:er"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Ställ till sant för att ett program som är angivet i programs/man ska "
+"hantera man-URL:er"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Ställ till sant för att ett program som är angivet i trash/command ska "
 "hantera papperskorgs-URL:er"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Sant om programmet för att hantera denna URL ska köras i ett terminalfönster"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "URL-hanterare för ghelp-sidor"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "URL-hanterare för infosidor"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "URL-hanterare för mansidor"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "URL-hanterare för papperskorgssidor"
+
+#~ msgid "Startup Assistive Technology Applications"
+#~ msgstr "Starta program för hjälpmedelstekniker"
 
 #~ msgid "Default URL show handler"
 #~ msgstr "Standard-URL-visningshanterare"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Hur program-URL:er ska hanteras"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Hur ghelp-URL:er ska hanteras"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Hur info-URL:er ska hanteras"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Hur man-URL:er ska hanteras"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Hur inställnings-URL:er ska hanteras"
@@ -967,25 +1017,6 @@ msgstr "URL-hanterare för papperskorgssidor"
 #~ "ska hantera inställnings-URL:er"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Ställ till sant för att ett program som är angivet i programs/ghelp ska "
-#~ "hantera ghelp-URL:er"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Ställ till sant för att ett program som är angivet i programs/info ska "
-#~ "hantera info-URL:er"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Ställ till sant för att ett program som är angivet i programs/man ska "
-#~ "hantera man-URL:er"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -1015,15 +1046,6 @@ msgstr "URL-hanterare för papperskorgssidor"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "URL-hanterare för programsidor"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "URL-hanterare för ghelp-sidor"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "URL-hanterare för infosidor"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "URL-hanterare för mansidor"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "URL-hanterare för inställningssidor"
