@@ -45,7 +45,7 @@ impl_Bonobo_PropertyBag_getKeys (PortableServer_Servant  servant,
 	char            *path;
 	Bonobo_KeyList  *retval;
 	GSList          *slist, *sl;
-	GError          *err;
+	GError          *err = NULL;
 	int              length;
 	int              n;
 
@@ -93,7 +93,7 @@ impl_Bonobo_PropertyBag_getType (PortableServer_Servant  servant,
 	BonoboConfigBag *cb = GET_BAG_FROM_SERVANT (servant);
 	char            *path;
 	GConfValue      *value;
-	GError          *err;
+	GError          *err = NULL;
 
 	if (strchr (key, '/')) {
 		bonobo_exception_set (ev, ex_Bonobo_PropertyBag_NotFound);
@@ -166,7 +166,7 @@ impl_Bonobo_PropertyBag_getValue (PortableServer_Servant  servant,
 	BonoboConfigBag *cb = GET_BAG_FROM_SERVANT (servant);
 	char            *path;
 	GConfValue      *value;
-	GError          *err;
+	GError          *err = NULL;
  
 	if (strchr (key, '/')) {
 		bonobo_exception_set (ev, ex_Bonobo_PropertyBag_NotFound);
@@ -197,7 +197,7 @@ impl_Bonobo_PropertyBag_setValue (PortableServer_Servant  servant,
 {
 	BonoboConfigBag *cb = GET_BAG_FROM_SERVANT (servant);
 	char            *path;
-	GError          *err;
+	GError          *err = NULL;
 	
 	if (strchr (key, '/')) {
 		bonobo_exception_set (ev, ex_Bonobo_PropertyBag_NotFound);
@@ -248,7 +248,7 @@ impl_Bonobo_PropertyBag_getValues (PortableServer_Servant servant,
 	char *path;
 	Bonobo_PropertySet *retval;
 	GSList *slist, *sl;
-	GError *err;
+	GError *err = NULL;
 	int length;
 	int n;
 
@@ -318,7 +318,7 @@ impl_Bonobo_PropertyBag_getDefault (PortableServer_Servant  servant,
 	BonoboConfigBag *cb = GET_BAG_FROM_SERVANT (servant);
 	char            *path;
 	GConfValue      *value;
-	GError          *err;
+	GError          *err = NULL;
 
 	if (strchr (key, '/')) {
 		bonobo_exception_set (ev, ex_Bonobo_PropertyBag_NotFound);
@@ -347,7 +347,7 @@ impl_Bonobo_PropertyBag_getDocTitle (PortableServer_Servant  servant,
 	char            *path;
 	CORBA_char      *retval;
 	GConfSchema     *schema;
-	GError          *err;
+	GError          *err = NULL;
 
 	if (strchr (key, '/')) {
 		bonobo_exception_set (ev, ex_Bonobo_PropertyBag_NotFound);
@@ -379,7 +379,7 @@ impl_Bonobo_PropertyBag_getDoc (PortableServer_Servant  servant,
 	char            *path;
 	CORBA_char      *retval;
 	GConfSchema     *schema;
-	GError          *err;
+	GError          *err = NULL;
 
 	if (strchr (key, '/')) {
 		bonobo_exception_set (ev, ex_Bonobo_PropertyBag_NotFound);
@@ -412,7 +412,7 @@ impl_Bonobo_PropertyBag_getFlags (PortableServer_Servant  servant,
 	char                 *path;
 	Bonobo_PropertyFlags  retval = 0;
 	GConfEntry           *entry;
-	GError               *err;
+	GError               *err = NULL;
 
 	if (strchr (key, '/')) {
 		bonobo_exception_set (ev, ex_Bonobo_PropertyBag_NotFound);

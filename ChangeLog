@@ -1,3 +1,17 @@
+2002-07-29  Mark McLoughlin  <mark@skynet.ie>
+
+	* monikers/bonobo-config-bag.c:
+	(impl_Bonobo_PropertyBag_getKeys),
+	(impl_Bonobo_PropertyBag_getType),
+	(impl_Bonobo_PropertyBag_getValue),
+	(impl_Bonobo_PropertyBag_setValue),
+	(impl_Bonobo_PropertyBag_getValues),
+	(impl_Bonobo_PropertyBag_getDefault),
+	(impl_Bonobo_PropertyBag_getDocTitle),
+	(impl_Bonobo_PropertyBag_getDoc),
+	(impl_Bonobo_PropertyBag_getFlags): initialise GError* to NULL.
+	Should fix crash seen in #89158.
+
 2002-07-25  Pablo Saratxaga  <pablo@mandrakesoft.com>
 
 	* configure.in: Added Bosnian (bs) to ALL_LINGUAS
