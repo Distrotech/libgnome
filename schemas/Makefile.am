@@ -11,6 +11,7 @@ schema_in_files = \
 	desktop_gnome_background.schemas.in			\
 	desktop_gnome_file_views.schemas.in			\
 	desktop_gnome_interface.schemas.in			\
+	desktop_gnome_lockdown.schemas.in			\
 	desktop_gnome_peripherals_mouse.schemas.in		\
 	desktop_gnome_peripherals_keyboard.schemas.in		\
 	desktop_gnome_sound.schemas.in				\
