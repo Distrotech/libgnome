@@ -51,6 +51,7 @@ libgnome_2_la_SOURCES = \
 	gnome-util.c		\
 	gnome-paper.c		\
 	gnome-preferences.c	\
+	gnome-marshal-main.c	\
 	libgnome-init.c
 
 libgnome_headers = \
@@ -68,7 +69,7 @@ libgnome_headers = \
 	gnome-util.h   		\
 	gnome-paper.h		\
 	gnome-preferences.h	\
-	gnome-marshal-main.c	\
+	gnome-marshal.h		\
 	libgnome-init.h		\
 	libgnome.h
 

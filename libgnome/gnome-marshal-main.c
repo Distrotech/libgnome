@@ -27,6 +27,7 @@
 #include <libgnomeP.h>
 
 #include <gobject/genums.h>
+#include <gobject/gboxed.h>
 #include <gobject/gvaluetypes.h>
 
-#include "gnomemarshal.c"
+#include "gnome-marshal.c"
