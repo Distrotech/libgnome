@@ -282,11 +282,11 @@ gnome_stream_fs_open (GnomeStorageFS *parent, const CORBA_char *path, GNOME_Stor
 	
 	v = stat (full, &s);
 
-  if (v == -1){
-    g_free (full);
-    return NULL;
-  }
-
+	if (v == -1){
+		g_free (full);
+		return NULL;
+	}
+	
 	if (mode == GNOME_Storage_READ){
 		fd = open (full, O_RDONLY);
 		if (fd == -1){
@@ -300,12 +300,12 @@ gnome_stream_fs_open (GnomeStorageFS *parent, const CORBA_char *path, GNOME_Stor
 			return NULL;
 		}
 	} else {
-    g_free(full);
+		g_free(full);
 		return NULL;
 	}
-
+	
 	g_free (full);
-
+	
 	return gnome_stream_create (parent, fd);
 }
 
