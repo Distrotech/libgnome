@@ -728,8 +728,11 @@ try_app_regexs (const char *file, const char *key, int *size, char **buffer)
 	short_circuit = NULL;
 	desired_key = (char *) key;
 	type_desired = ! strcmp (key, "type");
-	g_hash_table_foreach (app_rx_hash, try_one_app_regex,
-			      (gpointer) file);
+
+	if (app_rx_hash)
+		g_hash_table_foreach (app_rx_hash, try_one_app_regex,
+				      (gpointer) file);
+
 	if (! short_circuit)
 		return GNOME_METADATA_NOT_FOUND;
 
