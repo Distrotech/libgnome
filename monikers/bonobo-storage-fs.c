@@ -42,7 +42,7 @@ fs_open_stream (GnomeStorage *storage, const CORBA_char *path, CORBA_Environment
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = gnome_stream_open (path);
+	stream = gnome_stream_open (storage, path, "r+");
 	g_free (full);
 
 	return stream;
