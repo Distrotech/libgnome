@@ -57,6 +57,7 @@ gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
 {
   int comm_pipes[2];
   int child_errno, itmp;
+  char **cpargv;
   pid_t child_pid, immediate_child_pid; /* XXX this routine assumes
 					   pid_t is signed */
 
@@ -98,8 +99,12 @@ gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
 
       if(dir) chdir(dir);
 
+      cpargv = alloca((argc + 1) * sizeof(char *));
+      memcpy(cpargv, argv, argc * sizeof(char *));
+      cpargv[argc] = NULL;
+
       /* doit */
-      execvp(argv[0], argv);
+      execvp(cpargv[0], cpargv);
 
       /* failed */
       itmp = errno;
