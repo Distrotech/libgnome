@@ -1,3 +1,12 @@
+2001-05-02  Michael Meeks  <michael@ximian.com>
+
+	* libgnome-init.c (libbonobo_class_init): kill BonoboObjectClietn.
+	(gnome_program_get_config_database): split out (get_db): into here
+	never cut and paste code.
+	(gnome_program_get_config_database),
+	(gnome_program_get_desktop_config_database): upd.
+	re-order to remove redundant prototypes.
+
 2001-05-01  Michael Meeks  <michael@ximian.com>
 
 	* Makefile.am: fixup corba dependencies more genericaly, add
