@@ -52,6 +52,7 @@ GList*		gnome_unit_name_list	(void);
 const Unit	*gnome_unit_with_name	(const gchar *name);
 
 gdouble		gnome_paper_convert	(double psvalue, const Unit *unit);
+double          gnome_paper_convert_to_points (double othervalue, const Unit *unit);
 
 END_GNOME_DECLS
 

@@ -364,3 +364,22 @@ gnome_paper_convert (double psvalue, const Unit *unit)
 
   return psvalue / unit->factor;
 }
+
+/**
+ * gnome_paper_convert_to_points: convert from other units to points.
+ * Needed for gnome-paper-selector.
+ * @psvalue: value in points
+ * @unit: unit to convert to
+ * 
+ * converts from value represented in points
+ * to value represented in given units.
+ * 
+ * Return Value: value in points
+ **/
+double 
+gnome_paper_convert_to_points (double othervalue, const Unit *unit)
+{
+  g_return_val_if_fail (unit, othervalue);
+
+  return othervalue * unit->factor;
+}
