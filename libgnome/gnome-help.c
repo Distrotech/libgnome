@@ -23,6 +23,7 @@
 
 #include <config.h>
 
+#include <string.h>
 #include <glib.h>
 
 #include "gnome-i18nP.h"
@@ -33,7 +34,7 @@
 #include "gnome-help.h"
 
 static char *
-locate_help_file (const char *path, const char *filename)
+locate_help_file (const char *path, const char *doc_name)
 {
 	int i;
 	char *exts[] = { ".xml", ".sgml", ".html", NULL };
@@ -51,7 +52,7 @@ locate_help_file (const char *path, const char *filename)
 
 		for (i = 0; exts[i] != NULL; i++) {
 			char * full = g_strconcat (path, "/", lang, "/",
-						   filename, exts[i], NULL);
+						   doc_name, exts[i], NULL);
 			if (g_file_test (full, G_FILE_TEST_EXISTS)) {
 				return full;
 			}
@@ -68,19 +69,8 @@ display_help_file (GnomeProgram *program,
 		   const char *link_id,
 		   GError **error)
 {
-	GError *err;
 	char *url;
 	gboolean ret;
-
-	if (file == NULL) {
-		g_set_error (error,
-			     GNOME_HELP_ERROR,
-			     GNOME_HELP_ERROR_NOT_FOUND,
-			     _("Help file %s for %s not found"),
-			     filename, 
-			     gnome_program_get_app_id (program));
-		return FALSE;
-	}
 
 	if (link_id != NULL)
 		url = g_strdup_printf ("ghelp://%s?%s", file, link_id);
@@ -121,12 +111,20 @@ gnome_help_display (GnomeProgram  *program,
 		return FALSE;
 	}
 
-	file = locate_help_file (path, filename);
+	file = locate_help_file (path, doc_name);
 
 	g_free (path);
 
-	/* This function handles file==NULL and returns
-	 * appropriate error */
+	if (file == NULL) {
+		g_set_error (error,
+			     GNOME_HELP_ERROR,
+			     GNOME_HELP_ERROR_NOT_FOUND,
+			     _("Help document %s for %s not found"),
+			     doc_name, 
+			     gnome_program_get_app_id (program));
+		return FALSE;
+	}
+
 	ret = display_help_file (program, file, link_id, error);
 
 	g_free (file);
@@ -140,7 +138,7 @@ gnome_help_display_desktop (GnomeProgram  *program,
 			    const char    *link_id,
 			    GError       **error)
 {
-	GList *ret_locations, *li;
+	GSList *ret_locations, *li;
 	char *file;
 	gboolean ret;
 
@@ -166,16 +164,24 @@ gnome_help_display_desktop (GnomeProgram  *program,
 	for (li = ret_locations; li != NULL; li = li->next) {
 		char *path = li->data;
 
-		file = locate_help_file (path, filename);
+		file = locate_help_file (path, doc_name);
 		if (file != NULL)
 			break;
 	}
 
-	g_list_foreach (ret_locations, (GFunc)g_free, NULL);
-	g_list_free (ret_locations);
+	g_slist_foreach (ret_locations, (GFunc)g_free, NULL);
+	g_slist_free (ret_locations);
 
-	/* This function handles file==NULL and returns
-	 * appropriate error (not found) */
+	if (file == NULL) {
+		g_set_error (error,
+			     GNOME_HELP_ERROR,
+			     GNOME_HELP_ERROR_NOT_FOUND,
+			     _("Help document %s for %s not found"),
+			     doc_name, 
+			     gnome_program_get_app_id (program));
+		return FALSE;
+	}
+
 	ret = display_help_file (program, file, link_id, error);
 
 	g_free (file);
@@ -203,14 +209,14 @@ gnome_help_display_uri (const char    *help_uri,
 				     GNOME_HELP_ERROR_PARSE,
 				     "%s",
 				     err->message);
-			g_clear_error (err);
+			g_clear_error (&err);
 		} else if (err->code == GNOME_URL_ERROR_EXEC) {
 			g_set_error (error,
 				     GNOME_HELP_ERROR,
 				     GNOME_HELP_ERROR_EXEC,
 				     "%s",
 				     err->message);
-			g_clear_error (err);
+			g_clear_error (&err);
 		} else {
 			g_propagate_error (error, err);
 		}
