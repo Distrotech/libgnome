@@ -4,9 +4,6 @@
 # Targets
 #
 
-LIB_VERSION=0:0:0
-LIB_VERSION_NUM=0.0.0
-
 lib_LTLIBRARIES = libgnome-2.la
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
@@ -134,19 +131,11 @@ BUILT_SOURCES = \
 	libgnometypebuiltins.c		
 
 libgnome_2_la_LDFLAGS = \
-	-version-info $(LIB_VERSION)	\
+	-version-info $(LIBGNOME_CURRENT:)$(LIBGNOME_REVISION):$(LIBGNOME_AGE) \
 	-export-symbols-regex "^[^_].*"
 
 libgnome_2_la_LIBADD =		\
 	$(LIBGNOME_LIBS)
-
-noinst_PROGRAMS = \
-	test-libgnome
-
-test_libgnome_SOURCES = test-libgnome.c
-test_libgnome_LDADD = \
-	$(LIBGNOME_LIBS) \
-	libgnome-2.la
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libgnome-2.0.pc
