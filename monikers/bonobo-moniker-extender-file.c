@@ -19,6 +19,7 @@
 #include <bonobo/bonobo-generic-factory.h>
 #include <bonobo/bonobo-main.h>
 #include <bonobo/bonobo-stream.h>
+#include <bonobo/bonobo-exception.h>
 #include <bonobo/bonobo-moniker.h>
 #include <bonobo/bonobo-moniker-util.h>
 #include <bonobo/bonobo-moniker-extender.h>
@@ -129,23 +130,24 @@ file_extender_resolve (BonoboMonikerExtender *extender,
 static void
 extender_destroy_cb (BonoboMonikerExtender *extender, gpointer dummy)
 {
-	gpointer impl_ptr;
+	BonoboObject *factory = BONOBO_OBJECT (extender_factory);
+	gpointer      impl_ptr;
 
 	running_objects--;
 
 	if (running_objects > 0)
 		return;
 
-	if (extender_factory) {
-		impl_ptr = gtk_object_get_data (GTK_OBJECT (extender_factory), 
-						"OAF_IMPL_PTR");
+	extender_factory = NULL;
+
+	if (factory) {
+		impl_ptr = gtk_object_get_data (
+			GTK_OBJECT (factory), "OAF_IMPL_PTR");
+
+		bonobo_object_unref (factory);
 
 		oaf_plugin_unuse (impl_ptr);
-		
-		bonobo_object_unref (BONOBO_OBJECT (extender_factory));
 	}
-	
-	extender_factory = NULL;
 }
 
 static BonoboObject *
@@ -171,27 +173,29 @@ file_extender_factory (BonoboGenericFactory *this,
 
 static CORBA_Object
 make_file_extender_factory (PortableServer_POA poa,
-			    const char *iid,
-			    gpointer impl_ptr,
+			    const char        *iid,
+			    gpointer           impl_ptr,
 			    CORBA_Environment *ev)
 {
         CORBA_Object object_ref;
+
+        oaf_plugin_use (poa, impl_ptr);
 
 	extender_factory = bonobo_generic_factory_new (
 		"OAFIID:Bonobo_MonikerExtender_fileFactory",
 		file_extender_factory, NULL);	
 
-	gtk_object_set_data (GTK_OBJECT (extender_factory), "OAF_IMPL_PTR", 
+	gtk_object_set_data (GTK_OBJECT (extender_factory), 
+			     "OAF_IMPL_PTR", 
 			     impl_ptr);
 
-        object_ref = bonobo_object_corba_objref (BONOBO_OBJECT(extender_factory));
-        if (object_ref == CORBA_OBJECT_NIL 
-            || ev->_major != CORBA_NO_EXCEPTION) {
+        object_ref = bonobo_object_corba_objref (
+		BONOBO_OBJECT (extender_factory));
+
+        if (BONOBO_EX (ev) || object_ref == CORBA_OBJECT_NIL) {
                 printf ("Server cannot get objref\n");
                 return CORBA_OBJECT_NIL;
         }
-
-        oaf_plugin_use (poa, impl_ptr);
 
         return object_ref;
 }
