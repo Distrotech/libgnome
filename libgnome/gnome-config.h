@@ -200,6 +200,7 @@ void *gnome_config_iterator_next (void *iterator_handle, char **key, char **valu
 void gnome_config_drop_all       (void);
 
 void gnome_config_sync           (void);
+void gnome_config_sync_file      (char *path);
 
 /* This routine drops the information about /file, meaning changes
    done to this file will be dropped, it will no delete the file */

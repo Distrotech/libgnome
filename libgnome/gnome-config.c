@@ -565,13 +565,14 @@ free_profile (TProfile *p)
 
 
 static void 
-dump_profile (TProfile *p)
+dump_profile (TProfile *p, int one_only)
 {
 	FILE *profile;
     
 	if (!p)
 		return;
-	dump_profile (p->link);
+	if(!one_only)
+		dump_profile (p->link);
 	
 	/*
 	 * was this profile written to?, if not it's not necessary to dump
@@ -625,9 +626,45 @@ dump_profile (TProfile *p)
 void 
 gnome_config_sync (void)
 {
-	dump_profile (Base);
+	dump_profile (Base,FALSE);
 	CALL_SYNC_HANDLER();
 	gnome_config_drop_all();
+}
+
+/**
+ * gnome_config_sync_file:
+ * @path: A gnome-config path
+ *
+ * Writes all of the information modified by gnome-config to the
+ * disk for the given file.
+ *
+ * Note: the gnome_config code does not write anything to the
+ * configuration files until this routine or gnome_config_sync 
+ * is actually invoked.
+ */
+void 
+gnome_config_sync_file (char *path)
+{
+	TProfile *p;
+	ParsedPath *pp;
+	char *fake_path;
+	
+	if (!path)
+		return;
+
+	fake_path = g_concat_dir_and_file (path, "section/key");
+	pp = parse_path (fake_path, priv);
+	g_free (fake_path);
+
+	for (p = Base; p; p = p->link){
+		if (strcmp (pp->file, p->filename) != 0)
+			continue;
+		if(!p->written_to)
+			break;
+		dump_profile (p,TRUE);
+		gnome_config_drop_file(path);
+	}
+	release_path (pp);
 }
 
 /**
