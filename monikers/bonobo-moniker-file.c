@@ -9,13 +9,10 @@
  * Copyright 2000, Helix Code, Inc.
  */
 #include <config.h>
-#include <bonobo/bonobo-storage.h>
+
 #include <bonobo/bonobo-exception.h>
-#include <bonobo/bonobo-moniker.h>
-#include <bonobo/bonobo-moniker-extender.h>
+#include <bonobo/bonobo-storage.h>
 #include <bonobo/bonobo-moniker-util.h>
-#include <libgnome/gnome-mime.h>
-#include <liboaf/liboaf.h>
 
 #include "bonobo-moniker-std.h"
 

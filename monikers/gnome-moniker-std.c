@@ -1,22 +1,6 @@
 #include <config.h>
-#include <stdlib.h>
 
-#include <glib.h>
-#include <libgnome/gnome-defs.h>
-#include <libgnome/gnome-i18n.h>
-#include <libgnomeui/gnome-init.h>
-
-#include <liboaf/liboaf.h>
-
-#include <bonobo/bonobo-object.h>
-#include <bonobo/bonobo-context.h>
-#include <bonobo/bonobo-moniker.h>
 #include <bonobo/bonobo-shlib-factory.h>
-#include <bonobo/bonobo-main.h>
-#include <bonobo/bonobo-exception.h>
-
-#include <gtk/gtk.h>
-
 #include "bonobo-moniker-std.h"
 
 static BonoboObject *
@@ -78,7 +62,7 @@ bonobo_std_moniker_factory (BonoboGenericFactory *this,
 }
 
 
-BONOBO_OAF_SHLIB_FACTORY_MULTI ("OAFIID:Bonobo_Moniker_stdFactory",
+BONOBO_OAF_SHLIB_FACTORY_MULTI ("OAFIID:Bonobo_Moniker_std_Factory",
 				"bonobo standard moniker",
 				bonobo_std_moniker_factory,
 				NULL);
