@@ -72,7 +72,8 @@ gnome_history_get_recently_used (void)
 	gchar *filename = gnome_util_home_file("document_history");
 	gchar aline[512], **parts;
 	
-	infile = fopen(filename, "r");
+	infile = fopen(filename, "rt");
+
 	if(infile){
 		while(fgets(aline, sizeof(aline), infile)){
 			g_strchomp(aline);
@@ -110,7 +111,8 @@ write_history(GList *ents)
 	gchar *filename = gnome_util_home_file("document_history");
 	gint n;
 	
-	outfile = fopen(filename, "w");
+	outfile = fopen(filename, "wt");
+
 	if(outfile) {
 		n = g_list_length(ents) - NUM_ENTS;
 		if(n < 0) n = 0;
