@@ -2,7 +2,7 @@ AC_PREREQ(2.52)
 AC_INIT(libgnome)
 
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(libgnome2, 1.96.0)
+AM_INIT_AUTOMAKE(libgnome2, 1.99.0)
 
 AM_MAINTAINER_MODE
 
@@ -81,11 +81,11 @@ AM_CONDITIONAL(HAVE_CSL, test x$have_csl = xyes)
 dnl
 dnl Start of pkg-config checks
 dnl
-PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.1 gmodule-2.0 >= 1.3.1 gnome-vfs-2.0 libxml-2.0 libbonobo-2.0 >= 1.100.0)
+PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.7 gmodule-2.0 >= 1.3.7 gnome-vfs-2.0 >= 1.1 libxml-2.0 >= 2.4.1 libbonobo-2.0 >= 1.100.0)
 AC_SUBST(LIBGNOME_CFLAGS)
 AC_SUBST(LIBGNOME_LIBS)
 
-PKG_CHECK_MODULES(LIBGNOME_CSL, glib-2.0 >= 1.3.1 $CSL)
+PKG_CHECK_MODULES(LIBGNOME_CSL, glib-2.0 >= 1.3.7 $CSL)
 AC_SUBST(LIBGNOME_CSL_CFLAGS)
 AC_SUBST(LIBGNOME_CSL_LIBS)
 
