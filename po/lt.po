@@ -1,19 +1,21 @@
-# Lithuanian translation of gnome-libs.
+# Lithuanian translation of libgnome.
 # Copyright (C) 2000-2001 Free Software Foundation, Inc.
 # Kęstutis Kružikas <DrKestas@takas.lt>, 2000
 # Gediminas Paulauskas <menesis@delfi.lt>, 2000-2001
+# Tomas Kuliavas <tokul@users.sourceforge.net>, 2004.
+# Žygimantas Beručka <uid0@akl.lt>, 2004.
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-libs 1.2.12\n"
+"Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-24 11:14+0100\n"
-"PO-Revision-Date: 2003-11-07 15:02+0200\n"
-"Last-Translator: Tomas Kuliavas <tokul@users.sourceforge.net>\n"
+"POT-Creation-Date: 2004-03-07 18:52+0200\n"
+"PO-Revision-Date: 2004-03-07 19:43+0200\n"
+"Last-Translator: Žygimantas Beručka <uid0@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -65,13 +67,11 @@ msgstr "Vartotojo sąsajos įvykiai"
 
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr ""
-"Nepavyko rasti terminalo programos, bandoma panaudoti xterm, nors gali ir "
-"nepavykti"
+msgstr "Nepavyko rasti terminalo, naudojama xterm, nors gali ir neveikti"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
-msgstr "GNOME GConf Palaikymas"
+msgstr "GNOME GConf palaikymas"
 
 #: libgnome/gnome-help.c:159
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
@@ -87,8 +87,8 @@ msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
-"Negalima rodyti pagalbos puslapių, kadangi %s yra ne katalogas. Patikrinkite "
-"GNOME sistemos įdiegimo tvarką."
+"Negalima parodyti pagalbos, kadangi %s yra ne katalogas. Patikrinkite "
+"GNOME sistemos įdiegimą."
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, c-format
@@ -97,12 +97,12 @@ msgid ""
 "installation"
 msgstr ""
 "Negalima rasti pagalbos bylų tarp %s ir %s. Patikrinkite GNOME sistemos "
-"įdiegimo tvarką"
+"įdiegimą"
 
 #: libgnome/gnome-help.c:339
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr "Nepavyko aptikti doc_id bylų %s tarp pagalbos sistemos įdiegimo vietos"
+msgstr "Nepavyko aptikti doc_id bylų %s tarp pagalbos kelyje"
 
 #: libgnome/gnome-help.c:360
 #, c-format
@@ -116,17 +116,17 @@ msgstr "Per daug lokalės nukreipimo lygių, galimas uždaras nuorodų ciklas"
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
 msgid "Bonobo Support"
-msgstr "Bonobo Palaikymas"
+msgstr "Bonobo palaikymas"
 
 #: libgnome/gnome-init.c:142
 msgid "Bonobo activation Support"
-msgstr "Bonobo aktyvavimo Palaikymas"
+msgstr "Bonobo aktyvavimo palaikymas"
 
 #: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Nepavyko sukurti vartotojo gnome nustatymų saugojimo katalogo `%s': %s\n"
+"Nepavyko sukurti vartotojo gnome nustatymų katalogo „%s“: %s\n"
 
 #: libgnome/gnome-init.c:328
 #, c-format
@@ -160,15 +160,15 @@ msgstr "HOSTAS:PRIEV"
 
 #: libgnome/gnome-init.c:412
 msgid "GNOME Virtual Filesystem"
-msgstr "GNOME Virtuali Bylų Sistema"
+msgstr "GNOME virtuali bylų sistema"
 
 #: libgnome/gnome-init.c:433
 msgid "GNOME Library"
-msgstr "GNOME Biblioteka"
+msgstr "GNOME biblioteka"
 
 #: libgnome/gnome-program.c:427
 msgid "Popt Table"
-msgstr "Popt Lentelė"
+msgstr "Popt lentelė"
 
 #: libgnome/gnome-program.c:428
 msgid "The table of options for popt"
@@ -176,7 +176,7 @@ msgstr "Popt opcijų lentelė"
 
 #: libgnome/gnome-program.c:435
 msgid "Popt Flags"
-msgstr "Popt Opcijos"
+msgstr "Popt opcijos"
 
 #: libgnome/gnome-program.c:436
 msgid "The flags to use for popt"
@@ -184,7 +184,7 @@ msgstr "Opcijos naudojamos su popt"
 
 #: libgnome/gnome-program.c:444
 msgid "Popt Context"
-msgstr "Popt Turinys"
+msgstr "Popt turinys"
 
 #: libgnome/gnome-program.c:445
 msgid "The popt context pointer that GnomeProgram is using"
@@ -224,15 +224,15 @@ msgstr "Programos versija"
 
 #: libgnome/gnome-program.c:489
 msgid "GNOME Prefix"
-msgstr "GNOME Pradinis kelias"
+msgstr "GNOME kelio priešdėlis"
 
 #: libgnome/gnome-program.c:490
 msgid "Prefix where GNOME was installed"
-msgstr "Kelias iki vietos, kur įdiegta GNOME sistema"
+msgstr "Kelio, kur įdiegtas GNOME, priešdėlis"
 
 #: libgnome/gnome-program.c:499
 msgid "GNOME Libdir"
-msgstr "GNOME Bibliotekų vieta"
+msgstr "GNOME bibliotekų vieta"
 
 #: libgnome/gnome-program.c:500
 msgid "Library prefix where GNOME was installed"
@@ -240,7 +240,7 @@ msgstr "Kelias iki vietos, kur įdiegtos GNOME bibliotekos"
 
 #: libgnome/gnome-program.c:509
 msgid "GNOME Datadir"
-msgstr "GNOME Duomenų vieta"
+msgstr "GNOME duomenų vieta"
 
 #: libgnome/gnome-program.c:510
 msgid "Data prefix where GNOME was installed"
@@ -248,7 +248,7 @@ msgstr "Kelias iki vietos, kur saugomi GNOME programų duomenys"
 
 #: libgnome/gnome-program.c:519
 msgid "GNOME Sysconfdir"
-msgstr "GNOME Nustatymų vieta"
+msgstr "GNOME nustatymų vieta"
 
 #: libgnome/gnome-program.c:520
 msgid "Configuration prefix where GNOME was installed"
@@ -256,7 +256,7 @@ msgstr "Kelias iki vietos, kur saugomi GNOME programų nustatymai"
 
 #: libgnome/gnome-program.c:530
 msgid "GNOME App Prefix"
-msgstr "GNOME Programų kelias"
+msgstr "GNOME programų kelio priešdėlis"
 
 #: libgnome/gnome-program.c:531
 msgid "Prefix where this application was installed"
@@ -264,7 +264,7 @@ msgstr "Kelias iki vietos, kur įdiegta ši programa"
 
 #: libgnome/gnome-program.c:539
 msgid "GNOME App Libdir"
-msgstr "GNOME Prog Bibliotekų vieta"
+msgstr "GNOME prog bibliotekų vieta"
 
 #: libgnome/gnome-program.c:540
 msgid "Library prefix where this application was installed"
@@ -272,7 +272,7 @@ msgstr "Kelias iki vietos, kur ši programa įdiegė savo bibliotekas"
 
 #: libgnome/gnome-program.c:549
 msgid "GNOME App Datadir"
-msgstr "GNOME Prog Duomenų vieta"
+msgstr "GNOME prog duomenų vieta"
 
 #: libgnome/gnome-program.c:550
 msgid "Data prefix where this application was installed"
@@ -280,7 +280,7 @@ msgstr "Kelias iki vietos, kur ši programa saugo savo duomenis"
 
 #: libgnome/gnome-program.c:559
 msgid "GNOME App Sysconfdir"
-msgstr "GNOME Prog Nustatymų vieta"
+msgstr "GNOME prog sistemos nustatymų vieta"
 
 #: libgnome/gnome-program.c:560
 msgid "Configuration prefix where this application was installed"
@@ -288,7 +288,7 @@ msgstr "Kelias iki vietos, kur ši programa saugo savo nustatymus"
 
 #: libgnome/gnome-program.c:569
 msgid "Create Directories"
-msgstr "Sukurti Katalogus"
+msgstr "Sukurti katalogus"
 
 #: libgnome/gnome-program.c:570
 msgid "Create standard GNOME directories on startup"
@@ -296,7 +296,7 @@ msgstr "Sukurti įprastus GNOME aplinkos katalogus paleidimo metu"
 
 #: libgnome/gnome-program.c:579
 msgid "Enable Sound"
-msgstr "Įjungti Garsą"
+msgstr "Įjungti garsą"
 
 #: libgnome/gnome-program.c:580
 msgid "Enable sound on startup"
@@ -312,11 +312,11 @@ msgstr "Kaip prisijungti prie esd"
 
 #: libgnome/gnome-program.c:1354
 msgid "Help options"
-msgstr "Pagalbos nuostatos"
+msgstr "Pagalbos nustatymai"
 
 #: libgnome/gnome-program.c:1359
 msgid "Application options"
-msgstr "Programos nuostatos"
+msgstr "Programos nustatymai"
 
 #: libgnome/gnome-program.c:1375
 msgid "Dynamic modules to load"
@@ -366,7 +366,7 @@ msgstr "Klaida išvedant adresą: %s\n"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr "Papildoma Vardų gamykla"
+msgstr "Papildoma vardų gamykla"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
-msgstr "Paleisti Pagalbinių Technologijo Programas"
+msgstr "Paleisti pagalbinių technologijų programas"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -496,7 +496,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
-msgstr "Paleidimo Parametrai"
+msgstr "Paleidimo parametrai"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
 msgid "Terminal application"
@@ -542,7 +542,7 @@ msgstr "Langų tvarkyklė, kurią reiktų pabandyti pirmiausiai"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
-msgstr "Spalvos Šešėlių Tipas"
+msgstr "Spalvos šešėlių tipas"
 
 #: schemas/desktop_gnome_background.schemas.in.h:2
 msgid ""
@@ -550,11 +550,11 @@ msgid ""
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
 "Nustato kaip turi būti apdorojamas foninis paveikslėlis. Galimos reikšmės "
-"yra \"joks\", \"fonas\", \"centruotas\", \"išdidintas\", \"išplėstas\"."
+"yra \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
-msgstr "Valdyti Aplinkos Foną"
+msgstr "Piešti darbalaukio foną"
 
 #: schemas/desktop_gnome_background.schemas.in.h:4
 msgid "File to use for the background image"
@@ -562,21 +562,20 @@ msgstr "Byla naudotina fono paveikslėliui"
 
 #: schemas/desktop_gnome_background.schemas.in.h:5
 msgid "Have GNOME draw the desktop background"
-msgstr "Ar GNOME turi valdyti aplinkos foną"
+msgstr "Ar GNOME turi piešti darbalaukio foną"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"Kaip keisti fono spalvos šešėlį. Galimos reikšmės yra \"horizontalus-"
-"persiliejimas\", \"verticalus-persiliejimas\" ir \"vientisas\""
+"Kaip keisti fono spalvos šešėlį. Galimos reikšmės yra \"horizontal-gradient\", "
+"\"vertical-gradient\" ir \"solid\""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr ""
-"Kairė arba viršutinė spalva kai naudojami persiliejimai arba kai naudojama "
-"vientisa spalva."
+"Kairė arba viršutinė spalva kai naudojami persiliejimai arba vientisa spalva."
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
@@ -584,37 +583,37 @@ msgstr "Foniniam piešiniui galiojamas nepermatomumo nustatymas"
 
 #: schemas/desktop_gnome_background.schemas.in.h:9
 msgid "Picture Filename"
-msgstr "Paveikslėlio Bylos Vardas"
+msgstr "Paveikslėlio bylos pavadinimas"
 
 #: schemas/desktop_gnome_background.schemas.in.h:10
 msgid "Picture Opacity"
-msgstr "Paveikslėlio Neskaidrumas"
+msgstr "Paveikslėlio neskaidrumas"
 
 #: schemas/desktop_gnome_background.schemas.in.h:11
 msgid "Picture Options"
-msgstr "Paveikslėlių Nustatymai"
+msgstr "Paveikslėlio nustatymai"
 
 #: schemas/desktop_gnome_background.schemas.in.h:12
 msgid "Primary Color"
-msgstr "Pradinė Spalva"
+msgstr "Pradinė spalva"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr ""
-"Dešinė arba apatinė spalva kai naudojami persiliejimai, arba kai nenaudojama "
-"vientisa spalva."
+"Dešinė arba apatinė spalva kai naudojami persiliejimai, nenaudojama "
+"vientisai spalvai."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
-msgstr "Antrinė Spalva"
+msgstr "Antrinė spalva"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:1
 msgid "File Icon Theme"
-msgstr "Bylų Ženklų Tema"
+msgstr "Bylų ikonų tema"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons"
-msgstr "Tema naudojama rodant bylų ženklus/ikonas"
+msgstr "Tema naudojama rodant bylų piktogramas/ikonas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -622,15 +621,15 @@ msgstr "Standartinės temos naudojamos gtk+ pradinis vardas."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
-msgstr "Gali Keisti Sparčius Klavišus"
+msgstr "Gali keisti sparčius klavišus"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
-msgstr "Mirksintis Žymeklis"
+msgstr "Mirksintis žymeklis"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:4
 msgid "Cursor Blink Time"
-msgstr "Žymeklio Mirgėjimo Laikas"
+msgstr "Žymeklio mirgėjimo laikas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:5
 msgid "Default font"
@@ -638,32 +637,32 @@ msgstr "Standartinis šriftas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:6
 msgid "Enable Accessibility"
-msgstr "Naudoti Prieinamumą"
+msgstr "Įjungti prieinamumą"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:7
 msgid "Enable Animations"
-msgstr "Įjungta Animaciją"
+msgstr "Įjungti animaciją"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
-msgstr "GTK IM Preedit Stilius"
+msgstr "GTK IM Preedit stilius"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Status Style"
-msgstr "GTK IM Būsenos Stilius"
+msgstr "GTK IM būsenos stilius"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:10
 msgid "Gtk+ Theme"
-msgstr "Gtk+ Tema"
+msgstr "Gtk+ tema"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:11
 msgid "Icon Theme"
-msgstr "Ženklų Tema"
+msgstr "Ikonų tema"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr ""
-"Ženklų tema, kuri yra naudojama rodant skydelį, bylų naršyklę ir kitus "
+"Ikonų tema, kuri yra naudojama rodant skydelį, bylų naršyklę ir kitus "
 "darbalaukio elementus."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
@@ -672,15 +671,15 @@ msgstr "Žymeklio mirksėjimo ciklo trukmė, milisekundėmis"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Menubar Detachable"
-msgstr "Meniu Juosta Nukabinama"
+msgstr "Meniu juosta nukabinama"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:15
 msgid "Menus Have Icons"
-msgstr "Meniu Turi Ženklus"
+msgstr "Meniu turi ikonas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menus Have Tearoff"
-msgstr "Meniu Nuplėšiami"
+msgstr "Meniu atkabinami"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Monospace font"
@@ -707,7 +706,7 @@ msgstr "Standartinio gtk+ naudojamo šrifto vardas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Status Bar on Right"
-msgstr "Būklės Juosta Dešinėje"
+msgstr "Būklės juosta dešinėje"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "This specifies the size of icons displayed in toolbars"
@@ -715,31 +714,31 @@ msgstr "Čia keičiamas ženklų, rodomų įrankių juostose, dydis"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Toolbar Detachable"
-msgstr "Įrankių Juosta Judinama"
+msgstr "Įrankių juosta judinama"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Icon Size"
-msgstr "Įrankių Juostos Ženklų Dydis"
+msgstr "Įrankių juostos piktogramų dydis"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Style"
-msgstr "Įrankių Juostos Stilius"
+msgstr "Įrankių juostos stilius"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
 msgstr ""
-"Įrankių Juostos Stilius. Galimos reikšmės yra \"abu\", \"abu_horiz\", "
-"\"ženklas\" ir \"tekstas\""
+"Įrankių juostos stilius. Galimos reikšmės yra \"both\", \"both_horiz\", "
+"\"icon\" ir \"text\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
-msgstr "Naudoti Specialų Šriftą"
+msgstr "Naudoti vartotojo parinktą šriftą"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
-msgstr "Ar Programos turėtų turėti prieinamumo įrankių palaikymą"
+msgstr "Ar programos turėtų turėti prieinamumo įrankių palaikymą"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid ""
@@ -785,48 +784,52 @@ msgstr "Ar rodyti būsenos juostą dešinėje pusėje"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "Ar su gtk+ programomis naudoti specialų šriftą."
+msgstr "Ar su gtk+ programomis naudoti vartotojo parinktą šriftą."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
-msgstr ""
+msgstr "Atjungti komandinę eilutę"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable print setup"
-msgstr ""
+msgstr "Atjungti spausdinimo nustaymus"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable printing"
-msgstr ""
+msgstr "Atjungti spausdinimą"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable saving files to disk"
-msgstr ""
+msgstr "Atjungti bylų saugojimą į diską"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
-msgstr ""
+msgstr "Užkirsti kelią vartotojui pasiekti terminalą arba nurodyti vykdomą komandinę "
+"eilutę. Pvz., tai atjungs priėjimą prie skydelio „Paleisti programą“ dialogo."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all application's \"Print Setup\" dialogs."
-msgstr ""
+msgstr "Užkirsti kelią vartotojui keisti spausdinimo nustatymus. Pvz., tai atjungs "
+"priėjimą prie visų proramų „Spausdinimo nustatymai“ dialogų."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all application's \"Print\" dialogs."
-msgstr ""
+msgstr "Užkirsti kelią vartotojui spausdinti. Pvz., tai atjungtų priėjimą prie visų "
+"programų „Spausdinti“ dialogų."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all application's \"Save as\" dialogs."
-msgstr ""
+msgstr "Užkirsti kelią vartotojui išsaugoti bylas į diską. Pvz., tai atjungtų priėjimą "
+"prie visų programų „Išsaugoti kaip“ dialogų."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -834,19 +837,19 @@ msgstr "Byla, sauganti grotiną sisteminio garso signalą."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr "Speciali Klaviatūros Garso Byla"
+msgstr "Speciali klaviatūros varpelio byla"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "galimo reikšmės yra \"įjungta\", \"išjungta\" ir \"specialus\"."
+msgstr "galimos reikšmės yra \"on\", \"off\" ir \"custom\"."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
-"Pelės judėjimo akseleratorius. Reikšmė -1 išsaugo standartinius sistemos "
-"nustatymus."
+"Pelės judėjimo akseleratorius. Reikšmė -1 yra standartinė sistemos "
+"reikšmė."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -886,11 +889,11 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
-msgstr "Dvigubo Spraglerėjimo Laikas"
+msgstr "Dvigubo spraglerėjimo laikas"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
-msgstr "Tempimo Riba"
+msgstr "Tempimo riba"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
@@ -916,11 +919,11 @@ msgstr "Dvigubo paspaudimo trukmė"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
-msgstr "Rodyti Žymeklį"
+msgstr "Rasti žymeklį"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
-msgstr "Judesio Riba"
+msgstr "Traukos riba"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
@@ -928,7 +931,7 @@ msgstr "Pelės mygtukų padėtis"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
-msgstr "Viengubas Paspaudimas"
+msgstr "Viengubas paspaudimas"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
