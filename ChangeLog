@@ -1,3 +1,12 @@
+2001-04-12  Martin Baulig  <baulig@suse.de>
+
+	* configure.in (--disable-deprecated): Put back this command
+	line argument; also define `EXCLUDE_DEPRECATED' automake
+	conditional.
+
+	* acconfig.h (GNOME_EXCLUDE_DEPRECATED_SOURCE): Added.
+	(GNOME_EXCLUDE_DEPRECATED): Added.
+
 2001-04-11  Martin Baulig  <baulig@suse.de>
 
 	* libgnome/: This has now been copied over in CVS. There's a
