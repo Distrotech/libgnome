@@ -979,24 +979,28 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 				       char ***argvp, gboolean *def, gint priv)
 {
 	ParsedPath *pp;
-	char *p, *r;
+	char *p;
 	const char *rr;
 	int count, esc_spcs;
 
 	pp = parse_path (path, priv);
 	rr = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file, def);
 
-	if (r == NULL) {
+	if (rr == NULL) {
 		*argvp = NULL;
 		*argcp = 0;
 		return;
 	}
 
-	/* Figure out how large to make return vector.  Start at 1
-	   because we want to make NULL-terminated array.  */
+	/* Figure out how large to make return vector.  Start at 2
+	   because we want to make NULL-terminated array, and because
+	   the loop doesn't count the final element.  */
 	count = 2;
-	r = g_strdup (rr);
-	for (p = r; *p; ++p) {
+	for (p = (char *) rr; *p; ++p) {
+		/* The way that entries are constructed by
+		   gnome_config_set_vector ensures we'll never see an
+		   unpaired `\' at the end of a string.  So this is
+		   safe.  */
 	        if (*p == '\\') {
 			++p;
 		} else if (*p == ' ') {
@@ -1008,10 +1012,10 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 	*argvp = (char **) g_malloc (count * sizeof (char *));
 	(*argvp)[count - 1] = NULL;
 
-	p = r;
+	p = (char *) rr;
 	count = 0;
 	do {
- 		(*argvp)[count++] = p;
+		char *tmp = p;
 
 		esc_spcs = 0;
 		while (*p && (esc_spcs ? 1 : (*p != ' '))){
@@ -1021,10 +1025,12 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 			p++;
 		}
 
+ 		(*argvp)[count++] = strndup (tmp, p - tmp);
+
 		while (*p && *p == ' ')
 			p++;
 	} while (*p);
-	
+
 	release_path (pp);
 }
 
@@ -1108,7 +1114,7 @@ _gnome_config_set_vector (const char *path, int argc,
 	p = value = g_malloc (len);
 	for (i = 0; i < argc; ++i) {
 		for (s = argv[i]; *s; ++s) {
-			if (*s == ' ')
+			if (*s == ' ' || *s == '\\')
 				*p++ = '\\';
 			*p++ = *s;
 		}
