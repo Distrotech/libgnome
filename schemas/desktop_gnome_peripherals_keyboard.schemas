@@ -46,8 +46,8 @@
       </locale>
     </schema>
     <schema>
-      <applyto>/desktop/gnome/peripherals/keyboard/clickvolume</applyto>
-      <key>/schemas/desktop/gnome/peripherals/keyboard/clickvolume</key>
+      <applyto>/desktop/gnome/peripherals/keyboard/click_volume</applyto>
+      <key>/schemas/desktop/gnome/peripherals/keyboard/click_volume</key>
       <owner>gnome</owner>
       <type>int</type>
       <default>0</default>
@@ -56,6 +56,18 @@
         <long></long>
       </locale>
     </schema>
+    <!-- Keyboard bell -->
+    <schema>
+      <applyto>/desktop/gnome/peripherals/keyboard/bell_mode</applyto>
+      <key>/schemas/desktop/gnome/peripherals/keyboard/bell_mode</key>
+      <owner>gnome</owner>
+      <type>string</type>
+      <default>on</default>
+      <locale name="C">
+        <short></short>
+        <long>possible values are on, off, and custom.</long>
+      </locale>
+    </schema>      
     <schema>
       <applyto>/desktop/gnome/peripherals/keyboard/bell_percent</applyto>
       <key>/schemas/desktop/gnome/peripherals/keyboard/bell_percent</key>
@@ -87,6 +99,16 @@
       <locale name="C">
         <short></short>
         <long></long>
+      </locale>
+    </schema>
+    <schema>
+      <applyto>/desktop/gnome/peripherals/keyboard/bell_custom_file</applyto>
+      <key>/schemas/desktop/gnome/peripherals/keyboard/bell_custom_file</key>
+      <owner>gnome</owner>
+      <type>string</type>
+      <locale name="C">
+        <short>Keyboard Bell Custom Filename</short>
+        <long>File name of the bell sound to be played</long>
       </locale>
     </schema>
   </schemalist>
