@@ -7,12 +7,13 @@
 # Konventioner:
 #
 #   application -> program
+#   moniker -> protokolhåndtering (til URI'er, f.eks. "file://enfil" el. "ftp://enanden")
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
-"POT-Creation-Date: 2002-01-26 18:15+0100\n"
-"PO-Revision-Date: 2002-01-25 22:47+0100\n"
+"POT-Creation-Date: 2002-01-30 21:37+0100\n"
+"PO-Revision-Date: 2002-01-30 21:37+0100\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
@@ -294,17 +295,21 @@ msgstr "MODUL1,MODUL2,..."
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr "Ekstra aliasfabrikker"
+msgstr "Ekstra protokolhåndtering-fabrik"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
-msgstr "Gconf-alias"
+msgstr "Gconf-protokolhåndtering"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr "omdirigeringsalias til konfiguration"
+msgstr "omdirigeringsprotokolhåndtering til konfiguration"
 
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
 msgstr "Nøglen %s ikke fundet i konfigurationen"
+
+#: monikers/bonobo-config-bag.c:216
+msgid "Unknown type"
+msgstr "Ukendt type"
