@@ -48,7 +48,7 @@ idls =							\
 
 idl_flags = -I $(datadir)/idl -D__GNOME_COMPILATION
 
-$(CORBA_SOURCE): $(idls)
+$(CORBA_SOURCE): $(idls) $(ORBIT_IDL)
 	$(ORBIT_IDL) $(top_srcdir)/idl/Gnome.idl -I$(top_srcdir)/idl $(idl_flags)
 
 libgnome_src = \
