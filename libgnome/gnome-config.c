@@ -291,7 +291,7 @@ load (const char *file)
 		case FirstBrace:
 		case KeyDef:
 		case KeyDefOnKey:
-			if (c == '['){
+			if (c == '[' && state != KeyDefOnKey){
 				TSecHeader *temp;
 		
 				temp = SecHeader;
