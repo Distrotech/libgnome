@@ -1,3 +1,9 @@
+2004-04-13  Colin Walters  <walters@redhat.com>
+
+	* libgnome/gnome-program.c: Remove G_PARAM_CONSTRUCT_ONLY from
+	sound properties, since they are set slightly after object
+	initialization.
+
 2004-04-09  Guntupalli Karunakar  <karunakar@freedomink.org>
 
         * configure.in: Added "gu" (Gujarati) to ALL_LINGUAS.

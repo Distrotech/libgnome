@@ -579,8 +579,7 @@ gnome_program_class_init (GnomeProgramClass *class)
 			      _("Enable Sound"), 
 			      _("Enable sound on startup"),
 			       TRUE,
-			       (G_PARAM_READABLE | G_PARAM_WRITABLE |
-				G_PARAM_CONSTRUCT_ONLY)));
+			       (G_PARAM_READABLE | G_PARAM_WRITABLE)));
 
     g_object_class_install_property
 	(object_class,
@@ -589,8 +588,7 @@ gnome_program_class_init (GnomeProgramClass *class)
 			      _("Espeaker"), 
 			      _("How to connect to esd"),
 			      NULL,
-			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-			       G_PARAM_CONSTRUCT_ONLY)));
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE)));
 
     object_class->finalize  = gnome_program_finalize;
 }
