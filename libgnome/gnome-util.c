@@ -164,7 +164,7 @@ if(!retval) retval = lastval; } \
     goto out;
 
   /* Now try $GNOMEDIR */
-  envvar = getenv("GNOMEDIR");
+  envvar = g_getenv("GNOMEDIR");
   if (envvar && prefix_rel)
     {
       int i;
@@ -318,7 +318,7 @@ gnome_util_user_shell (void)
 		"/bin/csh", "/bin/sh", 0
 	};
 
-	if ((shell = getenv ("SHELL"))){
+	if ((shell = g_getenv ("SHELL"))){
 		return g_strdup (shell);
 	}
 	pw = getpwuid(getuid());
@@ -420,7 +420,7 @@ gnome_is_program_in_path (const gchar *program)
 	gchar *f;
 	
 	if (!paths)
-	  paths = g_strsplit(getenv("PATH"), ":", -1);
+	  paths = g_strsplit(g_getenv("PATH"), ":", -1);
 
 	p = paths;
 	while (*p){

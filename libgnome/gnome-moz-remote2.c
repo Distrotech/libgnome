@@ -297,7 +297,7 @@ int main(int argc, char **argv)
   int i;
   Display *dpy;
 
-  dpy_name = getenv("DISPLAY");
+  dpy_name = g_getenv("DISPLAY");
 
   gnome_program_init("gnome_moz_remote", VERSION, argc, argv, GNOME_PARAM_POPT_TABLE, options, LIBGNOME_INIT, NULL);
 
