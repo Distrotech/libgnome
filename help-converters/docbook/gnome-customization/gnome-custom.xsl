@@ -4,12 +4,12 @@
                 xmlns="http://www.w3.org/TR/xhtml1/transitional"
                 exclude-result-prefixes="#default">
 
-<!--****************************Parameters**********************-->
-<xsl:param name="local.l10n.xml" select="document('l10n.xml')"/>
-
 <!--******************************Admonitions*******************-->
 
 <!--********************************Variables*******************-->
+
+<!-- Localization -->
+<xsl:param name="local.l10n.xml" select="document('l10n.xml')"/>
 
 <!-- Should graphics be included in admonitions? 0 or 1 -->
 <xsl:param name="admon.graphics" select="1"/>
@@ -18,7 +18,7 @@
 <xsl:param name="admon.graphics.path">./stylesheet/</xsl:param>
 
 <!-- Specifies the default graphic file if none is given. -->
-<xsl:param name="graphic.default.extension" select="'.png'" doc:type="string"/>
+<xsl:param name="graphic.default.extension" select="'png'" doc:type="string"/>
 
 <!--*******************************Templates********************-->
 
@@ -56,37 +56,79 @@
   </div>
 </xsl:template>
 
+<!-- ****************************Emphasis************************-->
+
+<!-- Custom template to make the application tag bold fixed width -->
+<xsl:template match="application">
+  <xsl:call-template name="inline.boldmonoseq"/>
+</xsl:template>
 
 <!-- ***************************Author**********************-->
 
-<!-- Adds the string "Written By:" to the author tag in the 
-	 title page.  Also adds a maintainer by the role attribute 
-	 to the author tag so the program maintainer can be specified 
-	 and the application name in the condition attribute. -->
+<!-- Adds the string "Author/Authors" to the author tag in the 
+	 title page. Also prints editors and othercredit   -->
 
-<xsl:template match="author" mode="titlepage.mode">
+<xsl:template match="artheader/author|articleinfo/author|bookinfo/author|authorgroup/author|editor" mode="titlepage.mode">
+<xsl:variable name="author.org" select=".//orgname"/>
+<xsl:variable name="author.email" select=".//email"/>
+<dl>
+ <dt><xsl:call-template name="person.name"/></dt>
+ <xsl:if test="$author.org">
+    <dd><strong>
+        <xsl:call-template name="gentext">
+           <xsl:with-param name="key" select="'Affiliation'"/>
+         </xsl:call-template><xsl:text>: </xsl:text>
+        </strong> 
+        <xsl:apply-templates select="$author.org"/></dd>
+ </xsl:if> 
+ <xsl:if test="$author.email">
+    <dd><strong>        
+         <xsl:call-template name="gentext">
+           <xsl:with-param name="key" select="'Email'"/>
+         </xsl:call-template><xsl:text>: </xsl:text>
 
-  <xsl:call-template name="person.name"/>
-  <br/>
-
+        </strong> 
+        <xsl:apply-templates select="$author.email"/></dd>
+ </xsl:if> 
+</dl>
 </xsl:template>
 
 <xsl:template match="authorgroup" mode="titlepage.mode">
 
-  <xsl:choose>
-    <xsl:when test="@role=''">
-      <h2>
-	  <xsl:call-template name="gentext" mode="titlepage.mode">
-	    <xsl:with-param name="key" select="'Author'"/>
-	  </xsl:call-template>
+      <!-- count the number of authors -->
+       <xsl:variable name="numaut" select="count(author)"/>
+         <xsl:choose>	
+          <xsl:when test="$numaut > 1">
+           <h2>    
+	    <xsl:call-template name="gentext" mode="titlepage.mode">
+	     <xsl:with-param name="key" select="'Authors'"/>
+	    </xsl:call-template>
+	    </h2>
+	   </xsl:when>
+	   <xsl:when test="$numaut = 1">
+            <h2>    
+	     <xsl:call-template name="gentext" mode="titlepage.mode">
+	      <xsl:with-param name="key" select="'Author'"/>
+	     </xsl:call-template>
+	    </h2>
+	   </xsl:when>
+	   <xsl:otherwise>
+           </xsl:otherwise>
+	   </xsl:choose>
+	 <xsl:apply-templates select="author" mode="titlepage.mode"/>
+        <!-- Now let us deal with editors -->
+        <xsl:variable name="editors" select="editor"/>
+	<xsl:if test="$editors">
+	  <h2> 
+             <xsl:call-template name="gentext" mode="titlepage.mode">
+	      <xsl:with-param name="key" select="'Editedby'"/>
+	     </xsl:call-template>
 	  </h2>
-	  <xsl:apply-templates mode="titlepage.mode"/>
-    </xsl:when>
-    <xsl:when test="@role='maintainer'">
-    </xsl:when>
-  </xsl:choose>
-  
-</xsl:template>
+          <xsl:apply-templates select="editor" mode="titlepage.mode"/>
+        </xsl:if>
+        <!-- finally, everyone else --> 
+        <xsl:apply-templates select="othercredit" mode="titlepage.mode"/>
+ </xsl:template>
 
 <!-- **************************Copyright*************************-->
 
@@ -135,8 +177,10 @@
 <!-- ************************Glossary***************************-->
 
 <!-- Importing the Norman Walsh's stylesheet as the basis. -->
-
-<xsl:template match="glossterm">
+<!--
+<xsl:import href="/usr/share/sgml/docbook/stylesheet/xsl/nwalsh-1.45/html/chunk.xsl"/>
+-->
+<xsl:template match="glossentry/glossterm">
   <dt>
     <b>
       <xsl:apply-templates/>
@@ -274,6 +318,240 @@
   <xsl:apply-templates mode="inline-address"/>
 </xsl:template>
 
+
+<xsl:template match="legalnotice/title" mode="titlepage.mode">
+  <h2><xsl:apply-templates/></h2>
+</xsl:template>
+
+
+
+<!-- *********************Navigation header/footer************************-->
+
+<!-- Custom template to add <<< and >>> to navigation header/footer -->
+
+<!-- ==================================================================== -->
+
+<xsl:template name="header.navigation">
+  <xsl:param name="prev" select="/foo"/>
+  <xsl:param name="next" select="/foo"/>
+  <xsl:variable name="home" select="/*[1]"/>
+  <xsl:variable name="up" select="parent::*"/>
+
+  <xsl:if test="$suppress.navigation = '0'">
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">
+            <xsl:apply-templates select="." mode="object.title.markup"/>
+          </th>
+        </tr>
+        <tr>
+          <td width="20%" align="left">
+            <xsl:if test="count($prev)>0">
+              <a accesskey="p">
+                <xsl:attribute name="href">
+                  <xsl:call-template name="href.target">
+                    <xsl:with-param name="object" select="$prev"/>
+                  </xsl:call-template>
+                </xsl:attribute>
+		<xsl:text>&lt;&lt;&lt;&#160;</xsl:text>
+                <xsl:call-template name="gentext">
+                  <xsl:with-param name="key">nav-prev</xsl:with-param>
+                </xsl:call-template>
+              </a>
+            </xsl:if>
+            <xsl:text>&#160;</xsl:text>
+          </td>
+          <th width="60%" align="center">
+            <xsl:choose>
+              <xsl:when test="count($up) > 0 and $up != $home">
+                <xsl:apply-templates select="$up" mode="object.title.markup"/>
+              </xsl:when>
+              <xsl:otherwise>&#160;</xsl:otherwise>
+            </xsl:choose>
+          </th>
+          <td width="20%" align="right">
+            <xsl:text>&#160;</xsl:text>
+            <xsl:if test="count($next)>0">
+              <a accesskey="n">
+                <xsl:attribute name="href">
+                  <xsl:call-template name="href.target">
+                    <xsl:with-param name="object" select="$next"/>
+                  </xsl:call-template>
+                </xsl:attribute>
+                <xsl:call-template name="gentext">
+                  <xsl:with-param name="key">nav-next</xsl:with-param>
+                </xsl:call-template>
+		<xsl:text>&#160;&gt;&gt;&gt;</xsl:text>
+              </a>
+            </xsl:if>
+          </td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+  </xsl:if>
+</xsl:template>
+
+<!-- ==================================================================== -->
+
+<xsl:template name="footer.navigation">
+  <xsl:param name="prev" select="/foo"/>
+  <xsl:param name="next" select="/foo"/>
+  <xsl:variable name="home" select="/*[1]"/>
+  <xsl:variable name="up" select="parent::*"/>
+
+  <xsl:if test="$suppress.navigation = '0'">
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left">
+            <xsl:if test="count($prev)>0">
+              <a accesskey="p">
+                <xsl:attribute name="href">
+                  <xsl:call-template name="href.target">
+                    <xsl:with-param name="object" select="$prev"/>
+                  </xsl:call-template>
+                </xsl:attribute>
+		<xsl:text>&lt;&lt;&lt;&#160;</xsl:text>
+                <xsl:call-template name="gentext">
+                  <xsl:with-param name="key">nav-prev</xsl:with-param>
+                </xsl:call-template>
+              </a>
+            </xsl:if>
+            <xsl:text>&#160;</xsl:text>
+          </td>
+          <td width="20%" align="center">
+            <xsl:choose>
+              <xsl:when test="$home != .">
+                <a accesskey="h">
+                  <xsl:attribute name="href">
+                    <xsl:call-template name="href.target">
+                      <xsl:with-param name="object" select="$home"/>
+                    </xsl:call-template>
+                  </xsl:attribute>
+                  <xsl:call-template name="gentext">
+                    <xsl:with-param name="key">nav-home</xsl:with-param>
+                  </xsl:call-template>
+                </a>
+              </xsl:when>
+              <xsl:otherwise>&#160;</xsl:otherwise>
+            </xsl:choose>
+          </td>
+          <td width="40%" align="right">
+            <xsl:text>&#160;</xsl:text>
+            <xsl:if test="count($next)>0">
+              <a accesskey="n">
+                <xsl:attribute name="href">
+                  <xsl:call-template name="href.target">
+                    <xsl:with-param name="object" select="$next"/>
+                  </xsl:call-template>
+                </xsl:attribute>
+                <xsl:call-template name="gentext">
+                  <xsl:with-param name="key">nav-next</xsl:with-param>
+                </xsl:call-template>
+		<xsl:text>&#160;&gt;&gt;&gt;</xsl:text>
+              </a>
+            </xsl:if>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="40%" align="left">
+            <xsl:apply-templates select="$prev" mode="object.title.markup"/>
+            <xsl:text>&#160;</xsl:text>
+          </td>
+          <td width="20%" align="center">
+            <xsl:choose>
+              <xsl:when test="count($up)>0">
+                <a accesskey="u">
+                  <xsl:attribute name="href">
+                    <xsl:call-template name="href.target">
+                      <xsl:with-param name="object" select="$up"/>
+                    </xsl:call-template>
+                  </xsl:attribute>
+                  <xsl:call-template name="gentext">
+                    <xsl:with-param name="key">nav-up</xsl:with-param>
+                  </xsl:call-template>
+                </a>
+              </xsl:when>
+              <xsl:otherwise>&#160;</xsl:otherwise>
+            </xsl:choose>
+          </td>
+          <td width="40%" align="right">
+            <xsl:text>&#160;</xsl:text>
+            <xsl:apply-templates select="$next" mode="object.title.markup"/>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </xsl:if>
+</xsl:template>
+
+
+<!-- ***************************Othercredit**********************-->
+
+<!-- Puts Othercredit on title page.  -->
+
+<xsl:template match="othercredit" mode="titlepage.mode">
+<xsl:variable name="contrib" select="string(contrib)"/>
+
+<!-- The following piece of code tries to find all <othercredit> witht
+he same contrib field so that they can be listed under the same
+heading. Borrowed from Walsh's modular stylesheets -->
+
+  <xsl:if test="not(preceding-sibling::othercredit[string(contrib)=$contrib])">
+       <xsl:if test="contrib">
+         <h2><xsl:apply-templates mode="titlepage.mode"
+          select="contrib"/></h2>
+       </xsl:if> 
+        <dl>
+ 	<xsl:apply-templates select= "." mode="titlepage.othercredits"/>
+         <xsl:apply-templates
+       select="following-sibling::othercredit[string(contrib)=$contrib]" 
+       mode="titlepage.othercredits"/>
+        </dl>
+  </xsl:if>
+
+
+</xsl:template>
+
+<xsl:template match="othercredit" mode="titlepage.othercredits">
+<xsl:variable name="author.org" select=".//orgname"/>
+<xsl:variable name="author.email" select=".//email"/>
+
+         <dt><xsl:call-template name="person.name"/></dt>
+	 <xsl:if test="$author.org">
+	      <dd><strong>
+               <xsl:call-template name="gentext">
+                <xsl:with-param name="key" select="'Affiliation'"/>
+               </xsl:call-template><xsl:text>: </xsl:text>
+               </strong> 
+               <xsl:apply-templates select="$author.org"/>
+	      </dd>
+         </xsl:if> 
+         <xsl:if test="$author.email">
+           <dd><strong>        
+            <xsl:call-template name="gentext">
+             <xsl:with-param name="key" select="'Email'"/>
+            </xsl:call-template><xsl:text>: </xsl:text>
+           </strong> 
+           <xsl:apply-templates select="$author.email"/>
+	   </dd>
+         </xsl:if> 
+</xsl:template>
+
+<!-- This makes part title to be shown as "Part I. Basics", rather
+      than "Basics" --> 
+
+
+<xsl:template match="part/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="component.title">
+    <xsl:with-param name="node" select="ancestor::part[1]"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- *******************************Procedure*******************-->
 
 <xsl:param name="formal.procedures">
@@ -322,7 +600,7 @@
 
   <div class="{name(.)}">
     <h2><xsl:call-template name="gentext">
-              <xsl:with-param name="key" select="'RevHistory'"/>
+              <xsl:with-param name="key" select="'History'"/>
             </xsl:call-template>
     </h2>
     <table border="1" width="100%" summary="Revision history">
@@ -367,35 +645,24 @@
   <xsl:param name="numcols" select="'4'"/>  
   <xsl:variable name="revnumber" select=".//revnumber"/>
   <xsl:variable name="revdate"   select=".//date"/>
-  <xsl:variable name="revauthor" select=".//authorinitials"/>
   <xsl:variable name="revremark" select=".//revremark|.//revdescription"/>
 
-  <xsl:variable name="author.name">
-    <xsl:if test="$revremark">
-	  <xsl:value-of select=".//revdescription/para/author"/>
-	  			   
-				   <!-- select="substring-after( substring-before( $revremark[1], 'Publisher:'),
-				   'Author:')"-->
-	</xsl:if>
-  </xsl:variable>
+  <xsl:variable name="revision.authors"
+  select="$revremark/para[@role='author']|.//authorinitials"/> 
 
-  <xsl:variable name="person.name">
-    <xsl:call-template name="person.name"/>
-  </xsl:variable>
 
-  <xsl:variable name="publisher.name">
-    <xsl:value-of select="substring-after( $revremark[1], 'Publisher:')"/>
-  </xsl:variable>
+
+  <xsl:variable name="revision.publisher" select="$revremark/para[@role='publisher']"/>
+
+
+  <xsl:variable name="revision.other" select="$revremark/para[@role='']"/>
+
 
   <tr>
     <td align="left">
-      <p>  
-	    <xsl:value-of select="//title"/>
-	    <xsl:if test="$revnumber != '1.0'">
-	      <xsl:text> V</xsl:text>
-	      <xsl:apply-templates select="$revnumber[1]" mode="titlepage.mode"/>
-	    </xsl:if>
-	  </p>
+         <p>  
+         <xsl:value-of select="$revnumber"/>
+	 </p>
 	</td>
 
 	<td align="left">
@@ -405,21 +672,25 @@
 	</td>
 
 	<td align="left">
-	  <p>
-	    <xsl:value-of select="$author.name"/>
-	  </p><p>
-	    <xsl:text>(</xsl:text>
-		<xsl:value-of select="$revremark[1]/para/email"/>
-		<xsl:text>)</xsl:text>
-	  </p>
+
+	    <xsl:apply-templates
+	     select="$revision.authors"/>
+
 	</td>
 
 	<td align="left">
-	  <p>  
-		<xsl:value-of select="$publisher.name"/>
-	  </p>
+           <xsl:apply-templates
+	  select="$revision.publisher"/>
+
 	</td>
   </tr>
+  <xsl:if test="$revision.other">
+    <tr>
+      <td align="left" colspan="4">
+        <xsl:apply-templates select="$revision.other"/>
+      </td>
+    </tr>
+  </xsl:if>
 </xsl:template>
 
 <xsl:template match="revision/revnumber" mode="titlepage.mode">
@@ -478,7 +749,7 @@
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="book.titlepage.recto.auto.mode" select="bookinfo/author"/>
     
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="book.titlepage.recto.auto.mode" select="bookinfo/publisher"/>
-    
+	
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="book.titlepage.recto.auto.mode" select="bookinfo/copyright"/>
     
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="book.titlepage.recto.auto.mode" select="bookinfo/legalnotice"/>
@@ -488,17 +759,14 @@
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="book.titlepage.recto.auto.mode" select="bookinfo/revision"/>
     
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="book.titlepage.recto.auto.mode" select="bookinfo/releaseinfo"/>
-
+  
 </xsl:template>
     
     
     
     
     
-    
-    
-    
-    
+	
     
     
     
@@ -521,81 +789,25 @@
   
 
 <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.before.recto">
-    <img align="right" src="stylesheet/gnome-logo-large.png" alt="GNOME Logo"/>
   
 </xsl:template>
 
   
 
 <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.before.verso">
+    <img align="left" src="stylesheet/gnome-logo-icon.png" alt="GNOME Logo"/>
   
 </xsl:template>
 
 
 <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage">
-<!-- Added to create a separate titlepage -->
-<!--
-  <xsl:param name="next" select="."/>
-  <xsl:variable name="id">titlepage</xsl:variable>
-  <xsl:choose>
-    <xsl:when test="$generate.titlepage.link != 0">
-
-      <xsl:variable name="filename">
-        <xsl:call-template name="make-relative-filename">
-          <xsl:with-param name="base.dir" select="$base.dir"/>
-          <xsl:with-param name="base.name" select="concat($id,$html.ext)"/>
-        </xsl:call-template>
-      </xsl:variable>
-
-      <xsl:variable name="title">
-        <xsl:apply-templates select="." mode="title.markup"/>
-      </xsl:variable>
-
-      <xsl:call-template name="write.chunk">
-        <xsl:with-param name="filename" select="$filename"/>
-        <xsl:with-param name="content">
-          <html>
-            <head>
-              <title><xsl:value-of select="$title"/></title>
-            </head>
-            <body>
-              <xsl:call-template name="body.attributes"/>
-	    	  <xsl:call-template name="user.header.navigation"/>
-
-	    	  <xsl:call-template name="header.navigation">
-			<xsl:with-param name="next" select="$next"/>
-		      </xsl:call-template>
-
-		      <xsl:call-template name="user.header.content"/>
-			  <div class="titlepage">
-			    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.before.recto"/>
-			    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.recto"/>
-			    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.before.verso"/>
-			    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.verso"/>
-			    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.separator"/>
-			  </div>	
-		      <xsl:call-template name="user.footer.content"/>
-
-		      <xsl:call-template name="footer.navigation">
-			<xsl:with-param name="next" select="$next"/>
-		      </xsl:call-template>
-
-		      <xsl:call-template name="user.footer.navigation"/>
-            </body>
-          </html>
-        </xsl:with-param>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:otherwise>-->
-	  <div class="titlepage">
-	    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.before.recto"/>
-	    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.recto"/>
-	    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.before.verso"/>
-	    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.verso"/>
-	    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.separator"/>
-	  </div>
-<!--    </xsl:otherwise>
-  </xsl:choose>-->
+  <div class="titlepage">
+    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.before.recto"/>
+    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.recto"/>
+    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.before.verso"/>
+    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.verso"/>
+    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="book.titlepage.separator"/>
+  </div>
 </xsl:template>
 
 <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="*" mode="book.titlepage.recto.mode">
@@ -617,6 +829,12 @@
 </xsl:template>
 
 <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="subtitle" mode="book.titlepage.recto.auto.mode">
+<div use-attribute-sets="book.titlepage.recto.style">
+<xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" select="." mode="book.titlepage.recto.mode"/>
+</div>
+</xsl:template>
+
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="authorgroup" mode="book.titlepage.recto.auto.mode">
 <div use-attribute-sets="book.titlepage.recto.style">
 <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" select="." mode="book.titlepage.recto.mode"/>
 </div>
@@ -663,13 +881,7 @@
 <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" select="." mode="book.titlepage.recto.mode"/>
 </div>
 </xsl:template>
-<!--
-<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="abstract" mode="book.titlepage.recto.auto.mode">
-<div use-attribute-sets="book.titlepage.recto.style">
-<xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" select="." mode="book.titlepage.recto.mode"/>
-</div>
-</xsl:template>
--->
+
 
   
 
@@ -709,7 +921,7 @@
     
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="article.titlepage.recto.auto.mode" select="articleinfo/publisher"/>
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="article.titlepage.recto.auto.mode" select="artheader/publisher"/>
-    
+	
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="article.titlepage.recto.auto.mode" select="articleinfo/copyright"/>
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="article.titlepage.recto.auto.mode" select="artheader/copyright"/>
     
@@ -724,20 +936,14 @@
     
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="article.titlepage.recto.auto.mode" select="articleinfo/releaseinfo"/>
   <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="article.titlepage.recto.auto.mode" select="artheader/releaseinfo"/>
-<!--    
-  <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="article.titlepage.recto.auto.mode" select="articleinfo/abstract"/>
-  <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" mode="article.titlepage.recto.auto.mode" select="artheader/abstract"/>
--->  
+  
 </xsl:template>
     
     
     
     
     
-    
-    
-    
-    
+	
     
     
     
@@ -760,81 +966,25 @@
   
 
 <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.before.recto">
-    <img align="right" src="stylesheet/gnome-logo-large.png" alt="GNOME Logo"/>
   
 </xsl:template>
 
   
 
 <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.before.verso">
+    <img align="left" src="stylesheet/gnome-logo-icon.png" alt="GNOME Logo"/>
   
 </xsl:template>
 
 
 <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage">
-<!-- Added to create a separate titlepage. -->
-<!--
-  <xsl:param name="next" select="."/>
-  <xsl:variable name="id">titlepage</xsl:variable>
-  <xsl:choose>
-    <xsl:when test="$generate.titlepage.link != 0">
-	
-	  <xsl:variable name="filename">
-	    <xsl:call-template name="make-relative-filename">
-		  <xsl:with-param name="base.dir" select="$base.dir"/>
-		  <xsl:with-param name="base.name" select="concat($id,$html.ext)"/>
-		</xsl:call-template>
-	  </xsl:variable>
-	  
-	  <xsl:variable name="title">
-	    <xsl:apply-templates select="." mode="title.markup"/>
-	  </xsl:variable>
-	  
-	  <xsl:call-template name="write.chunk">
-	    <xsl:with-param name="filename" select="$filename"/>
-		<xsl:with-param name="content">
-		  <html>
-		    <head>
-			  <title><xsl:value-of select="$title"/></title>
-			</head>
-			<body>
-			  <xsl:call-template name="body.attributes"/>
-			  <xsl:call-template name="user.header.navigation"/>
-			  
-			  <xsl:call-template name="header.navigation">
-			    <xsl:with-param name="next" select="$next"/>
-			  </xsl:call-template>
-			  
-			  <xsl:call-template name="user.header.content"/>
-              <div class="titlepage">
-                <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.before.recto"/>
-                <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.recto"/>
-                <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.before.verso"/>
-                <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.verso"/>
-                <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.separator"/>
-              </div>
-			  <xsl:call-template name="user.footer.content"/>
-			  
-			  <xsl:call-template name="footer.navigation">
-			    <xsl:with-param name="next" select="$next"/>
-			  </xsl:call-template>
-			  
-			  <xsl:call-template name="user.footer.navigation"/>
-			</body>
-		  </html>
-		</xsl:with-param>
-	  </xsl:call-template>
-    </xsl:when>
-	<xsl:otherwise>-->
-              <div class="titlepage">
-                <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.before.recto"/>
-                <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.recto"/>
-                <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.before.verso"/>
-                <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.verso"/>
-                <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.separator"/>
-              </div>
-<!--	</xsl:otherwise>
-  </xsl:choose>-->
+  <div class="titlepage">
+    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.before.recto"/>
+    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.recto"/>
+    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.before.verso"/>
+    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.verso"/>
+    <xsl:call-template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="article.titlepage.separator"/>
+  </div>
 </xsl:template>
 
 <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="*" mode="article.titlepage.recto.mode">
@@ -908,13 +1058,89 @@
 <xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" select="." mode="article.titlepage.recto.mode"/>
 </div>
 </xsl:template>
-<!--
-<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="abstract" mode="article.titlepage.recto.auto.mode">
-<div use-attribute-sets="article.titlepage.recto.style">
-<xsl:apply-templates xmlns:xsl="http://www.w3.org/1999/XSL/Transform" select="." mode="article.titlepage.recto.mode"/>
-</div>
+
+
+<!--**************************TOC*********************************-->
+
+<!-- Should books have a TOC? 0 or 1 -->
+<xsl:param name="generate.book.toc" select="1" doc:type="boolean"/>
+
+<!-- Should articles have a TOC? 0 or 1 -->
+<xsl:param name="generate.article.toc" select="1" doc:type="boolean"/>
+
+<!-- Should parts have a TOC? 0 or 1 -->
+<xsl:param name="generate.part.toc" select="1" doc:type="boolean"/>
+
+<!-- Should chapters be labeled? 0 or 1 -->
+<xsl:param name="chapter.autolabel" select="1" doc:type="boolean"/>
+
+<!-- Should sections be labeled? 0 or 1 -->
+<xsl:param name="section.autolabel" select="1" doc:type ="boolean"/>
+
+<!-- Related to section labels, should those labels include the chapter
+     number in them (i.e., 1.1, 1.2, 1.3, 1.4 ) -->
+<xsl:param name="section.label.includes.component.label" select="1" doc:type="boolean"/>
+
+<!-- Makes the id as the filename for each chunk. -->
+<xsl:param name="use.id.as.filename" select="1" doc:type='boolean'/>
+
+<!-- Should the first section have its own chunk? 0 or 1 -->
+<xsl:param name="chunk.first.sections" select ="1"/>
+
+<!-- This template is called from book/part toc. 
+     We commented out "subtoc" stuff. As a result, book/part tocs only
+     contain chapters /appendices/prefaces, but not sect*. -->
+
+<xsl:template match="preface|chapter|appendix|article" mode="toc">
+
+<!--  <xsl:variable name="subtoc">
+    <xsl:element name="{$toc.list.type}">
+      <xsl:apply-templates select="section|sect1|bridgehead" mode="toc"/>
+    </xsl:element>
+  </xsl:variable>
+
+  <xsl:variable name="subtoc.list">
+    <xsl:choose>
+      <xsl:when test="$toc.dd.type = ''">
+        <xsl:copy-of select="$subtoc"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:element name="{$toc.dd.type}">
+          <xsl:copy-of select="$subtoc"/>
+        </xsl:element>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable> -->
+
+  <xsl:element name="{$toc.listitem.type}">
+    <xsl:variable name="label">
+      <xsl:apply-templates select="." mode="label.markup"/>
+    </xsl:variable>
+    <xsl:copy-of select="$label"/>
+    <xsl:if test="$label != ''">
+      <xsl:value-of select="$autotoc.label.separator"/>
+    </xsl:if>
+    <a>
+      <xsl:attribute name="href">
+        <xsl:call-template name="href.target"/>
+      </xsl:attribute>
+      <xsl:apply-templates select="." mode="title.markup"/>
+    </a>
+<!--    <xsl:if test="$toc.listitem.type = 'li'
+                  and $toc.section.depth>0 and section|sect1">
+      <xsl:copy-of select="$subtoc.list"/>
+    </xsl:if> --> 
+  </xsl:element>
+<!--  <xsl:if test="$toc.listitem.type != 'li'
+                and $toc.section.depth>0 and section|sect1">
+    <xsl:copy-of select="$subtoc.list"/>
+  </xsl:if> -->
 </xsl:template>
--->
+
+
+
+
+<!-- **************************Top Level*************************-->
 
 <!-- ***************************Variablelist********************-->
 
