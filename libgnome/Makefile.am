@@ -18,7 +18,8 @@ INCLUDES = -I.. -I$(srcdir)/.. $(SUPPORTINCS) \
 	-DGNOMELOCALSTATEDIR=\""$(localstatedir)"\" \
 	-DGNOMELOCALEDIR=\""$(gnomelocaledir)"\" \
 	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\" \
-	-DVERSION=\""$(VERSION)"\"
+	-DVERSION=\""$(VERSION)"\" \
+	-DG_LOG_DOMAIN=\"Gnome\"
 
 libgnome_la_SOURCES = \
 	gnome-config.c		\
