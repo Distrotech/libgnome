@@ -524,8 +524,6 @@ gnome_gconf_get_app_settings_relative (const gchar *subkey)
  * Our global GConfClient, and module stuff
  */
 static void gnome_default_gconf_client_error_handler (GConfClient                  *client,
-                                                      GConfClientParentWindowFunc   parent_func,
-                                                      gpointer                      parent_user_data,
                                                       GError                       *error);
 
 
@@ -588,14 +586,12 @@ GnomeModuleInfo gnome_gconf_module_info = {
 
 
 typedef struct {
-        GConfClientParentWindowFunc   parent_func;
-        gpointer                      parent_user_data;
         GConfClient                  *client;
 } ErrorIdleData;
 
 static guint error_handler_idle = 0;
 static GSList *pending_errors = NULL;
-static ErrorIdleData eid = { NULL, NULL, NULL };
+static ErrorIdleData eid = { NULL };
 
 static gint
 error_idle_func(gpointer data)
@@ -605,7 +601,6 @@ error_idle_func(gpointer data)
         gboolean have_overridden = FALSE;
         gchar* mesg = NULL;
         const gchar* fmt = NULL;
-        GtkWidget *parent = NULL;
         
         error_handler_idle = 0;
 
@@ -638,12 +633,6 @@ error_idle_func(gpointer data)
 
         g_free(mesg);
         
-        if (eid.parent_func)
-                parent = (*eid.parent_func) (eid.client, eid.parent_user_data);
-
-        if (parent)
-                gnome_dialog_set_parent(GNOME_DIALOG(dialog), GTK_WINDOW(parent));
-
         gtk_widget_show_all(dialog);
 
 
@@ -665,8 +654,6 @@ error_idle_func(gpointer data)
         pending_errors = NULL;
         
         gtk_object_unref(GTK_OBJECT(eid.client));
-        eid.parent_func = NULL;
-        eid.parent_user_data = NULL;
         eid.client = NULL;
 
         return FALSE;
@@ -674,8 +661,6 @@ error_idle_func(gpointer data)
 
 static void
 gnome_default_gconf_client_error_handler (GConfClient                  *client,
-                                          GConfClientParentWindowFunc   parent_func,
-                                          gpointer                      parent_user_data,
                                           GError                       *error)
 {
         gtk_object_ref(GTK_OBJECT(client));
@@ -684,8 +669,6 @@ gnome_default_gconf_client_error_handler (GConfClient                  *client,
                 gtk_object_unref(GTK_OBJECT(eid.client));
         }
         
-        eid.parent_func = parent_func;
-        eid.parent_user_data = parent_user_data;
         eid.client = client;
         
         pending_errors = g_slist_append(pending_errors, g_error_copy(error));
