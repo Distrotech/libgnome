@@ -1,3 +1,9 @@
+1999-09-21  Federico Mena Quintero  <federico@redhat.com>
+
+	* gnome-i18n.c (gnome_i18n_init): Take out the patch for the
+	umpteenth time.  As was discussed on gnome-hackers, it is
+	Wrong(tm) to set an arbitrary default value for LC_ALL.
+
 1999-09-19  Owen Taylor  <otaylor@redhat.com>
 
 	* gnome-exec.c (gnome_execute_async_with_env_fds): Return
