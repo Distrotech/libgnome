@@ -75,21 +75,14 @@ typedef struct {
 	char *path, *opath;
 } ParsedPath;
 
-struct _prefix_list {
-	char *p_prefix;
-	struct _prefix_list *p_back;
-};
-
-typedef struct _prefix_list prefix_list_t;
-
 /*
  * Prefix for all the configuration operations
  * iff the path does not begin with / or with #
  */
 
-#define prefix (prefix_list ? prefix_list->p_prefix : NULL)
+#define prefix (prefix_list ? prefix_list->data : NULL)
 
-static prefix_list_t *prefix_list;
+static GSList *prefix_list;
 
 static TProfile *Current = 0;
 
@@ -698,8 +691,8 @@ gnome_config_clean_key (const char *path)
 		return;
 	}
 	for (; section; section = section->link){
-		if (strcasecmp (section->section_name, pp->section))
-			continue;
+	        if (strcasecmp (section->section_name, pp->section))
+		        continue;
 		for (key = section->keys; key; key = key->link){
 			if (strcasecmp (key->key_name, pp->key))
 				continue;
@@ -975,24 +968,17 @@ gnome_config_set_vector (const char *path, int argc,
 void
 gnome_config_push_prefix (const char *path)
 {
-	prefix_list_t *p = g_malloc (sizeof (prefix_list_t));
-
-	p->p_back = prefix_list;
-	p->p_prefix = g_strdup (path);
-	prefix_list = p;
+  prefix_list = g_slist_prepend(prefix_list, g_strdup(path));
 }
 
 void
 gnome_config_pop_prefix (void)
 {
-	prefix_list_t *p = prefix_list;
-	
-	if (!p)
-		return;
-
-	g_free (p->p_prefix);
-	prefix_list = p->p_back;
-	g_free (p);
+  if(prefix_list)
+    {
+      g_free(prefix_list->data);
+      prefix_list = g_slist_remove_link(prefix_list, prefix_list);
+    }
 }
 
 #ifdef TEST
