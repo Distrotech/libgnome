@@ -19,21 +19,20 @@
 static GnomeStreamClass *gnome_stream_fs_parent_class;
 
 static CORBA_long
-fs_write (GnomeStream *stream, CORBA_long count,
-	  const GNOME_Stream_iobuf *buffer,
+fs_write (GnomeStream *stream, const GNOME_Stream_iobuf *buffer,
 	  CORBA_Environment *ev)
 {
 	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
 
 	errno = EINTR;
-	while (write (sfs->fd, buffer->_buffer, count) == -1 
+	while (write (sfs->fd, buffer->_buffer, buffer->_length) == -1 
 	       && errno == EINTR);
 
 	if (errno != EINTR){
 		g_warning ("Should signal an exception here");
 		return 0;
 	}
-	return count;
+	return buffer->_length;
 }
 
 static CORBA_long
@@ -62,17 +61,14 @@ fs_read (GnomeStream *stream, CORBA_long count,
 	return v;
 }
 
-static void
+static CORBA_long
 fs_seek (GnomeStream *stream,
 	 CORBA_long offset, CORBA_long whence,
 	 CORBA_Environment *ev)
 {
 	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
 
-	if (lseek (sfs->fd, offset, whence) != -1){
-		return;
-	}
-	g_warning ("Signal exception");
+	return lseek (sfs->fd, offset, whence);
 }
 
 static void
