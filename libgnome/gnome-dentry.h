@@ -27,6 +27,7 @@ GnomeDesktopEntry *gnome_desktop_entry_load_flags (char *file, int clean_from_me
 void gnome_desktop_entry_save (GnomeDesktopEntry *dentry);
 void gnome_desktop_entry_free (GnomeDesktopEntry *item);
 void gnome_desktop_entry_launch (GnomeDesktopEntry *item);
+void gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[]);
 
 char *gnome_is_program_in_path (char *progname);
 
