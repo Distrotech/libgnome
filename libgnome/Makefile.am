@@ -45,7 +45,6 @@ libgnome_2_la_SOURCES = \
 	gnome-i18nP.h		\
 	gnome-url.c		\
 	gnome-util.c		\
-	gnome-preferences.c	\
 	gnome-score.c		\
 	gnome-marshal-main.c	\
 	gnome-init.c
@@ -61,7 +60,6 @@ libgnome_headers = \
 	gnome-gconf.h		\
 	gnome-url.h		\
 	gnome-util.h   		\
-	gnome-preferences.h	\
 	gnome-macros.h		\
 	gnome-marshal.h		\
 	gnome-score.h		\
