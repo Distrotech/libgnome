@@ -42,7 +42,8 @@ fs_get_info (BonoboStorage *storage,
 	Bonobo_StorageInfo *si;
 	struct stat st;
 	char *full = NULL;
-	
+	gboolean dangling = FALSE;
+
 	if (mask & ~(Bonobo_FIELD_CONTENT_TYPE | Bonobo_FIELD_SIZE |
 		     Bonobo_FIELD_TYPE)) {
 		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
@@ -51,9 +52,12 @@ fs_get_info (BonoboStorage *storage,
 	}
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-
-	if (stat (full, &st) == -1)
-		goto get_info_except;
+	if (stat (full, &st) == -1) {
+		if (lstat (full, &st) == -1)
+			goto get_info_except;
+		else
+			dangling = TRUE;
+	}
 
 	si = Bonobo_StorageInfo__alloc ();
 	
@@ -65,8 +69,12 @@ fs_get_info (BonoboStorage *storage,
 		si->content_type = CORBA_string_dup ("x-directory/normal");
 	} else {
 		si->type = Bonobo_STORAGE_TYPE_REGULAR;
-		si->content_type = 
-			CORBA_string_dup (gnome_mime_type_of_file (full));
+		if (dangling)
+			si->content_type =
+				CORBA_string_dup ("x-symlink/dangling");
+		else
+			si->content_type = 
+				CORBA_string_dup (gnome_mime_type_of_file (full));
 	}
 
 	g_free (full);
@@ -235,8 +243,36 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 		full = g_concat_dir_and_file (storage_fs->path, de->d_name);
 		v = stat (full, &st);
 
-		if (v == -1)
+		if (v == -1) {
+			/*
+			 * The stat failed -- two common cases are where
+			 * the file was removed between the call to readdir
+			 * and the iteration, and where the file is a dangling
+			 * symlink.
+			 */
+			if (errno == ENOENT || errno == ELOOP) {
+				v = lstat (full, &st);
+				if (v == 0) {
+					/* FIXME - x-symlink/dangling is odd */
+					buf [i].size = st.st_size;
+					buf [i].type = Bonobo_STORAGE_TYPE_REGULAR;
+					buf [i].content_type =
+						CORBA_string_dup ("x-symlink/dangling");
+					g_free (full);
+					num_entries++;
+					continue;
+				}
+			}
+
+			/* Unless it's something grave, just skip the file */
+			if (errno != ENOMEM && errno != EFAULT && errno != ENOTDIR) {
+				i--;
+				g_free (full);
+				continue;
+			}
+
 			goto list_contents_except;
+		}
 
 		buf [i].size = st.st_size;
 	
