@@ -72,13 +72,15 @@ GtkWidget   *gnome_file_selector_new         (const gchar *history_id,
 GtkWidget   *gnome_file_selector_new_custom  (const gchar *history_id,
 					      const gchar *dialog_title,
 					      GtkWidget *selector_widget,
-					      GtkWidget *browse_dialog);
+					      GtkWidget *browse_dialog,
+					      guint32 flags);
 
 void         gnome_file_selector_construct   (GnomeFileSelector *selector,
                                               const gchar *history_id,
 					      const gchar *dialog_title,
 					      GtkWidget *selector_widget,
-					      GtkWidget *browse_dialog);
+					      GtkWidget *browse_dialog,
+					      guint32 flags);
 
 
 END_GNOME_DECLS
