@@ -56,6 +56,9 @@ libgnomeinclude_HEADERS = \
 	gnome-string.h		\
 	libgnome.h
 
+noinst_HEADERS = \
+	gnome-i18nP.h
+
 EXTRA_DIST = lib_date.README
 
 libgnome_la_LDFLAGS = -version-info 0:0:0 -rpath $(libdir)

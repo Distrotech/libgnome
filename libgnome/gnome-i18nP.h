@@ -1,12 +1,13 @@
 /*
- * Handles all of the internationalization configuration options.
+ * Handles i18n for the Gnome libraries. Libraries need to use
+ * dgettext in order to use a non-default translation domain.
  * Author: Tom Tromey <tromey@creche.cygnus.com>
  */
 
-#ifndef __GNOME_I18N_H__
-#define __GNOME_I18N_H__
+#ifndef __GNOME_I18NP_H__
+#define __GNOME_I18NP_H__
 
-#ifdef  __GNOME_I18NP_H__
+#ifdef  __GNOME_I18N_H__
 #warning "You should use either gnome-i18n.h OR gnome-i18nP.h"
 #endif
 
@@ -14,7 +15,8 @@ BEGIN_GNOME_DECLS
 
 #ifdef ENABLE_NLS
 #    include <libintl.h>
-#    define _(String) gettext (String)
+#    undef _
+#    define _(String) dgettext (PACKAGE, String)
 #    ifdef gettext_noop
 #        define N_(String) gettext_noop (String)
 #    else
