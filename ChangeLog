@@ -1,3 +1,15 @@
+2001-07-08  Seth Nickell  <snickell@stanford.edu>
+
+	* libgnome/libgnome-init.c: (gnome_oaf_pre_args_parse):
+
+	Don't call g_thread_init () if it has already been called
+	by another library / application / what have you. g_thread_init
+	can only be called *once*.
+	
+	* po/ChangeLog:
+
+	Curse you gettext.
+
 Thu Jun 28 22:58:23 2001  Owen Taylor  <otaylor@redhat.com>
 
 	* libgnome/gnome-program.c: g_type_init() no longer
