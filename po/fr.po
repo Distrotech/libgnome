@@ -1,0 +1,148 @@
+# libgnome fr.po
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Christophe Merlet (RedFox) <redfox@eikonex.org>, 2001.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgnome 1.96.0\n"
+"POT-Creation-Date: 2001-05-30 11:50+0200\n"
+"PO-Revision-Date: 2001-05-30 12:25+0200\n"
+"Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
+"Language-Team: Gnome French Team <gnomefr@gnomefr.traduc.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. FIXME: use GError
+#: libgnome/gnome-ditem.c:579
+msgid "Unknown desktop file"
+msgstr "Fichier de bureau inconnu"
+
+#. we are not an application so just exit
+#. with an error
+#: libgnome/gnome-ditem.c:922
+msgid "Attempting to launch a non-application"
+msgstr "Tentative de lancer une non-application"
+
+#. FIXME: use GError
+#: libgnome/gnome-ditem.c:1051
+msgid "Trying to execute an item with no 'Exec'"
+msgstr "Essaye d'exécuter un élément sans « Exec »"
+
+#: libgnome/gnome-ditem.c:1094 libgnome/gnome-ditem.c:1187
+msgid "No exec field for this drop"
+msgstr "Aucun champ exec pour ce lacher"
+
+#: libgnome/gnome-ditem.c:1125
+msgid "Nothing to replace with a file in the exec string"
+msgstr "Rien à remplacer avec un fichier dans la chaîne exec"
+
+#: libgnome/gnome-ditem.c:1238
+msgid "There was no argument to replace with dropped files"
+msgstr "Il n'y a aucun argument à remplacer avec les fichiers déposés"
+
+#: libgnome/gnome-ditem.c:1331
+msgid "Dropped URLs on an app that can only take files"
+msgstr ""
+"URLs lachées sur une applications qui ne peut accepter que des fichiers"
+
+#: libgnome/gnome-exec.c:392
+msgid "Cannot find a terminal, using xterm, even if it may not work"
+msgstr ""
+"Ne peut trouver un terminal, utilise xterm, même si il peut ne pas "
+"fonctionner"
+
+#: libgnome/gnome-moz-remote2.c:111
+msgid "Specify X display to use."
+msgstr "Spécifie le visuel X à utiliser."
+
+#: libgnome/gnome-moz-remote2.c:112
+msgid "Put the X connection in synchronous mode."
+msgstr "Mets la connexion X en mode synchrone."
+
+#: libgnome/gnome-moz-remote2.c:113
+msgid "Specify the X window ID of Netscape."
+msgstr "Spécifie l'ID de la fenêtre X de Netscape"
+
+#: libgnome/gnome-moz-remote2.c:115
+msgid "Don't raise the Netscape window."
+msgstr "Ne pas élever la fenêtre de Netscape"
+
+#: libgnome/gnome-moz-remote2.c:116
+msgid "Show the given URL in a new window."
+msgstr "Afficher l'URL donné dans une nouvelle fenêtre"
+
+#: libgnome/gnome-moz-remote2.c:117
+msgid "Close the specified window."
+msgstr "Ferme la fenêtre spécifié."
+
+#: libgnome/gnome-moz-remote2.c:118
+msgid "Print the X window ID of the utilized window."
+msgstr "Affiche l'ID de la fenêtre X de la fenêtre utilisée."
+
+#: libgnome/gnome-url.c:122
+#, c-format
+msgid "Error parsing '%s' (empty result)"
+msgstr "Erreur d'analyse de « %s » (résultat vide)"
+
+#: libgnome/gnome-url.c:138
+#, c-format
+msgid "Mozilla not found as '%s'"
+msgstr "Mozilla n'a pas été trouvé comme « %s »"
+
+#: libgnome/gnome-url.c:296 libgnome/gnome-url.c:300
+#, c-format
+msgid "Cannot open a pipe: %s"
+msgstr "Ne peut ouvrir un tube : %s"
+
+#: libgnome/gnome-url.c:310 libgnome/gnome-url.c:368
+#, c-format
+msgid "Cannot parse handler template: %s"
+msgstr "ne peut analyser le modèle du gestionnaire : %s"
+
+#: libgnome/gnome-url.c:320 libgnome/gnome-url.c:324 libgnome/gnome-url.c:373
+#: libgnome/gnome-url.c:377
+#, c-format
+msgid "Cannot execute command '%s'!"
+msgstr "Ne peut exécuter la commande « %s » !"
+
+#: libgnome/gnome-url.c:356
+#, c-format
+msgid "Command '%s' did not return an ID!"
+msgstr "La commande « %s » n'a pas retourné d'ID !"
+
+#: libgnome/libgnome-init.c:81
+msgid "GNOME OAF Support"
+msgstr "Support GNOME OAF"
+
+#: libgnome/libgnome-init.c:301
+msgid "Bonobo Support"
+msgstr "Support Bonobo"
+
+#: libgnome/libgnome-init.c:358 libgnome/libgnome-init.c:372
+#, c-format
+msgid "Could not create per-user gnome configuration directory `%s': %s\n"
+msgstr ""
+"Ne peut créer un répertoire de configuration par utilisateur « %s » : %s\n"
+
+#: libgnome/libgnome-init.c:381
+#, c-format
+msgid ""
+"Could not set mode 0700 on private per-user gnome configuration directory "
+"`%s': %s\n"
+msgstr ""
+"Ne peut définir le mode à 0700 sur le répertoire de configuration privé par "
+"utilisateur « %s » : %s\n"
+
+#: libgnome/libgnome-init.c:388
+#, c-format
+msgid "Could not create gnome accelerators directory `%s': %s\n"
+msgstr "Ne peut créer le répertoire d'accélérateurs gnome « %s » : %s\n"
+
+#: libgnome/test-libgnome.c:20
+msgid "Test option."
+msgstr "Option de test."
+
+#: libgnome/test-libgnome.c:153
+msgid "The Application Name"
+msgstr "La nom de l'application"
