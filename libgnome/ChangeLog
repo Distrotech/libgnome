@@ -1,3 +1,10 @@
+1999-12-23  Havoc Pennington  <hp@redhat.com>
+
+	* gnomelib-init.c (libgnome_userdir_setup): Clean up this
+	code. Include strerror() in error messages, don't dump core (just
+	fprintf() then exit(1)), indent reasonably, don't use -1 as a
+	truth value.
+
 1999-12-21  Havoc Pennington  <hp@redhat.com>
 
 	* gnome-ditem.c: new functions to get the best comment/name to
