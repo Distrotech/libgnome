@@ -1,5 +1,10 @@
 2000-08-31  Martin Baulig  <baulig@suse.de>
 
+	* gnome-i18n.c (gnome_i18n_get_language_list): Mark this as
+	deprecated and call g_i18n_get_language_list().  Moved most
+	stuff from this file into glib; you need the glib-2.0.patch
+	in the patches/ directory in order to use it.
+
 	* gnomelib-init.c: Initialize the gnome-vfs module.
 
 Wed Aug 30 22:22:47 2000  George Lebl <jirka@5z.com>
