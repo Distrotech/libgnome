@@ -8,8 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome cvs\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
-"PO-Revision-Date: 2003-05-26 00:04+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-07-03 13:12+0200\n"
+"PO-Revision-Date: 2003-07-03 19:30+0100\n"
 "Last-Translator: Reinout van Schouwen <reinout@cs.vu.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -364,6 +365,11 @@ msgstr "De standaardactie ondersteunt dit protocol niet."
 msgid "Unknown error code: %d"
 msgstr "Onbekende foutcode: %d"
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr "Er is een fout opgetreden bij het tonen van url: %s\n"
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Extra bijnaam-fabriek"
@@ -435,6 +441,16 @@ msgstr "minimuminterval in milliseconden"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "pixels per seconde"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -704,7 +720,9 @@ msgid "Toolbar Style"
 msgstr "Werkbalkstijl"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Werkbalkstijl. Geldige waarden zijn \"both\", \"both_horiz\", \"icon\" en "
 "\"text\""
@@ -734,28 +752,28 @@ msgid "Whether menus should have a tearoff"
 msgstr "Of menu's een losscheurrand moeten hebben"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-"Of de gebruiker dynamisch een nieuwe sneltoetsbinding aangeven wanneer een "
-"menu is geopend"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "Of de cursor moet knipperen"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
 "Of de gebruiker menubalken kan losscheuren en los op het scherm kan "
 "neerzetten"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 "Of de gebruiker werkbalken kan losscheuren en los op het scherm kan "
 "neerzetten"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"Of de gebruiker dynamisch een nieuwe sneltoetsbinding kan aangeven wanneer "
+"een menu opduikt"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -764,20 +782,19 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "Of er een aangepast lettertype gebruikt moet worden door gtk+."
+msgstr "Of gtk+-toepassingen een aangepast lettertype moeten gebruiken."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
-msgstr ""
-"Bestandsnaam van het geluid wat afgespeeld moet worden als terminal-bel"
+msgstr "Bestandsnaam van af te spelen geluid als beltoon"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr "Aangepaste bestandsnaam toetsenbord beltoon"
+msgstr "Aangepaste bestandsnaam toetsenbordbeltoon"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
-msgstr "mogelijke waarden zijn 'on', 'off', en 'custom' (aangepast)."
+msgid "possible values are \"on\", \"off\", and \"custom\"."
+msgstr "mogelijke waarden zijn \"on\", \"off\", en \"custom\" (aangepast)."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -802,9 +819,9 @@ msgstr "Cursorthema"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Naam van het cursorthema. Slechts voor X-servers die Xcursor ondersteunen, "
 "zoals XFree86 4.3 en latere versies. Deze waarde wordt alleen doorgegeven "
@@ -833,13 +850,14 @@ msgstr "Sleepdrempel"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"Naam van het lettertype van de cursor. Als het ingesteld wordt op 'unset', "
-"dan zal het standaardlettertype gebruikt worden. Om veranderingen te "
-"activeren zult u zich opnieuw moeten aanmelden."
+"Naam van het lettertype van de cursor. Als het niet ingesteld is, wordt het "
+"standaardlettertype gebruikt. Deze waarde wordt alleen bij het starten van "
+"elke sessie doorgegeven aan de X-server, dus om veranderingen te activeren "
+"zult u zich opnieuw moeten aanmelden."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -890,11 +908,11 @@ msgstr "Links en rechts omdraaien voor linkshandige muizen"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Enable ESD"
-msgstr "ESD gebruiken"
+msgstr "ESD inschakelen"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:2
 msgid "Enable sound server startup."
-msgstr "Geluidserver gebruiken."
+msgstr "Geluidsserver inschakelen."
 
 #: schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Sounds for events"
@@ -904,26 +922,114 @@ msgstr "Geluiden voor gebeurtenissen"
 msgid "Whether to play sounds on user events."
 msgstr "Of er geluiden afgespeeld moeten worden bij bepaalde gebeurtenissen."
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr "Externe miniaturiseringsprogramma's uitschakelen"
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+"Instellen op waar om alle externe miniaturiseringsprogramma's uit te "
+"schakelen, ongeacht of ze individueel ingeschakeld/uitgeschakeld zijn."
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr "Uitstellen van pauzes toestaan"
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr "Pauze-tijd"
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr "Aantal minuten tijd om te typen voordat pauze-modus begint."
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr "Aantal minuten dat de tikpauze duurt."
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr "Tijd om te typen"
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr "Of het op slot zetten van het toetsenbord is ingeschakeld"
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr "Of het op slot zetten van het toetsenbord is ingeschakeld"
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr "Of het tikpauze-scherm al dan niet kan worden uitgesteld."
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Hoe ghelp-URLs af te handelen"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Hoe info-URLs af te handelen"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Hoe man-URLs af te handelen"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Hoe Prullenbak-URLs af te handelen"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Programma uitvoeren in terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Instellen op 'true' (waar) om een programma, gespecificeerd in programs/"
+"ghelp, ghelp-URLs te laten afhandelen"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Instellen op 'true' (waar) om een programma, gespecificeerd in programs/"
+"info, info-URLs te laten afhandelen"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Instellen op 'true' (waar) om een programma, gespecificeerd in programs/man, "
+"man-URLs te laten afhandelen"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Instellen op 'true' (waar) om een programma, gespecificeerd in trash/"
 "command, prullenbak-URLs te laten afhandelen"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "Waar als het programma uitgevoerd moet worden in een terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "URL-weergave voor ghelppagina's"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "URL-weergave voor info pagina's"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "URL-weergave voor man pagina's"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "URL-weergave voor Prullenbak pagina's"
 
@@ -934,15 +1040,6 @@ msgstr "URL-weergave voor Prullenbak pagina's"
 #~ msgstr ""
 #~ "Hoe de URLs weergegeven moeten worden die door programma's doorgegeven "
 #~ "worden"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Hoe ghelp URLs weergegeven moeten worden"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Hoe info URLs weergegeven moeten worden"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Hoe man URLs weergegeven moeten worden"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Hoe Voorkeuren-URLs weergegeven moeten worden"
@@ -974,25 +1071,6 @@ msgstr "URL-weergave voor Prullenbak pagina's"
 #~ "preferences/command, Voorkeuren-URLs te laten afhandelen"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Instellen op 'true\" (waar) om een programma, gespecificeerd in programs/"
-#~ "ghelp, ghelp-URLs te laten afhandelen"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Instellen op 'true\" (waar) om een programma, gespecificeerd in programs/"
-#~ "info, info-URLs te laten afhandelen"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Instellen op 'true\" (waar) om een programma, gespecificeerd in programs/"
-#~ "man, man-URLs te laten afhandelen"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -1022,15 +1100,6 @@ msgstr "URL-weergave voor Prullenbak pagina's"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "URL-weergave voor programmapagina's"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "URL-weergave voor ghelppagina's"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "URL-weergave voor info pagina's"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "URL-weergave voor man pagina's"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "URL-weergave voor Voorkeuren-pagina's"
