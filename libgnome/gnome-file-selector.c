@@ -33,8 +33,6 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtkcombo.h>
 #include <gtk/gtkfilesel.h>
 #include <gtk/gtklist.h>
 #include <gtk/gtklistitem.h>
@@ -47,8 +45,6 @@
 #include <libgnomevfs/gnome-vfs.h>
 
 struct _GnomeFileSelectorPrivate {
-    GtkWidget *combo;
-    GtkWidget *entry;
 };
 	
 
@@ -57,11 +53,7 @@ static void gnome_file_selector_init        (GnomeFileSelector      *fselector);
 static void gnome_file_selector_destroy         (GtkObject       *object);
 static void gnome_file_selector_finalize        (GObject         *object);
 
-static gchar *   get_entry_text_handler         (GnomeSelector   *selector);
-static void      set_entry_text_handler         (GnomeSelector   *selector,
-                                                 const gchar     *text);
 static void      activate_entry_handler         (GnomeSelector   *selector);
-static void      history_changed_handler        (GnomeSelector   *selector);
 
 static gboolean  check_filename_handler         (GnomeSelector   *selector,
                                                  const gchar     *filename);
@@ -70,7 +62,7 @@ static gboolean  check_directory_handler        (GnomeSelector   *selector,
 static void      update_file_list_handler       (GnomeSelector   *selector);
 
 
-static GnomeSelectorClass *parent_class;
+static GnomeEntryClass *parent_class;
 
 guint
 gnome_file_selector_get_type (void)
@@ -90,7 +82,7 @@ gnome_file_selector_get_type (void)
 	};
 
 	fselector_type = gtk_type_unique 
-	    (gnome_selector_get_type (), &fselector_info);
+	    (gnome_entry_get_type (), &fselector_info);
     }
 
     return fselector_type;
@@ -107,53 +99,25 @@ gnome_file_selector_class_init (GnomeFileSelectorClass *class)
     object_class = (GtkObjectClass *) class;
     gobject_class = (GObjectClass *) class;
 
-    parent_class = gtk_type_class (gnome_selector_get_type ());
+    parent_class = gtk_type_class (gnome_entry_get_type ());
 
     object_class->destroy = gnome_file_selector_destroy;
     gobject_class->finalize = gnome_file_selector_finalize;
 
-    selector_class->get_entry_text = get_entry_text_handler;
-    selector_class->set_entry_text = set_entry_text_handler;
     selector_class->activate_entry = activate_entry_handler;
-    selector_class->history_changed = history_changed_handler;
 
     selector_class->check_filename = check_filename_handler;
     selector_class->check_directory = check_directory_handler;
     selector_class->update_file_list = update_file_list_handler;
 }
 
-static gchar *
-get_entry_text_handler (GnomeSelector *selector)
-{
-    GnomeFileSelector *fselector;
-    gchar *text;
-
-    g_return_val_if_fail (selector != NULL, NULL);
-    g_return_val_if_fail (GNOME_IS_FILE_SELECTOR (selector), NULL);
-
-    fselector = GNOME_FILE_SELECTOR (selector);
-
-    text = gtk_entry_get_text (GTK_ENTRY (fselector->_priv->entry));
-    return g_strdup (text);
-}
-
-static void
-set_entry_text_handler (GnomeSelector *selector, const gchar *text)
-{
-    GnomeFileSelector *fselector;
-
-    g_return_if_fail (selector != NULL);
-    g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
-
-    fselector = GNOME_FILE_SELECTOR (selector);
-
-    gtk_entry_set_text (GTK_ENTRY (fselector->_priv->entry), text);
-}
-
 static void
 activate_entry_handler (GnomeSelector *selector)
 {
     GnomeFileSelector *fselector;
+    GnomeVFSResult result;
+    GnomeVFSFileInfo *info;
+    GnomeVFSURI *uri;
     gchar *text;
 
     g_return_if_fail (selector != NULL);
@@ -161,59 +125,9 @@ activate_entry_handler (GnomeSelector *selector)
 
     fselector = GNOME_FILE_SELECTOR (selector);
 
-    text = gtk_entry_get_text (GTK_ENTRY (fselector->_priv->entry));
-    gnome_selector_prepend_history (selector, TRUE, text);
+    if (GNOME_SELECTOR_CLASS (parent_class)->activate_entry)
+	(* GNOME_SELECTOR_CLASS (parent_class)->activate_entry) (selector);
 
-    gtk_signal_emit_by_name (GTK_OBJECT (fselector->_priv->entry),
-			     "activate");
-}
-
-static void
-history_changed_handler (GnomeSelector *selector)
-{
-    GnomeFileSelector *fselector;
-    GtkWidget *list_widget;
-    GList *items = NULL;
-    GSList *c;
-
-    g_return_if_fail (selector != NULL);
-    g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
-
-    fselector = GNOME_FILE_SELECTOR (selector);
-
-    g_message (G_STRLOC);
-
-    list_widget = GTK_COMBO (fselector->_priv->combo)->list;
-
-    gtk_list_clear_items (GTK_LIST (list_widget), 0, -1);
-
-    for (c = selector->_priv->history; c; c = c->next) {
-	GnomeSelectorHistoryItem *hitem = c->data;
-	GtkWidget *item;
-
-	g_print ("HISTORY: `%s'\n", hitem->text);
-
-	item = gtk_list_item_new_with_label (hitem->text);
-	items = g_list_prepend (items, item);
-	gtk_widget_show_all (item);
-    }
-
-    items = g_list_reverse (items);
-
-    gtk_list_prepend_items (GTK_LIST (list_widget), items);
-}
-
-static void
-entry_activated_cb (GtkWidget *widget, gpointer data)
-{
-    GnomeSelector *selector;
-    GnomeVFSResult result;
-    GnomeVFSFileInfo *info;
-    GnomeVFSURI *uri;
-
-    gchar *text = NULL;
-
-    selector = GNOME_SELECTOR (data);
     text = gnome_selector_get_entry_text (selector);
 
     g_message (G_STRLOC ": '%s'", text);
@@ -533,29 +447,10 @@ gnome_file_selector_construct (GnomeFileSelector *fselector,
 			       GtkWidget *browse_dialog,
 			       guint32 flags)
 {
+    guint32 newflags = flags;
+
     g_return_if_fail (fselector != NULL);
     g_return_if_fail (GNOME_IS_FILE_SELECTOR (fselector));
-
-    /* Create the default entry widget if requested. */
-    if (flags & GNOME_SELECTOR_DEFAULT_ENTRY_WIDGET) {
-	if (entry_widget != NULL) {
-	    g_warning (G_STRLOC ": It makes no sense to use "
-		       "GNOME_SELECTOR_DEFAULT_ENTRY_WIDGET "
-		       "and pass a `entry_widget' as well.");
-	    return;
-	}
-
-	entry_widget = gtk_combo_new ();
-
-	gtk_combo_disable_activate (GTK_COMBO (entry_widget));
-	gtk_combo_set_case_sensitive (GTK_COMBO (entry_widget), TRUE);
-
-	fselector->_priv->combo = entry_widget;
-	fselector->_priv->entry = GTK_COMBO (entry_widget)->entry;
-
-	gtk_signal_connect (GTK_OBJECT (fselector->_priv->entry),
-			    "activate", entry_activated_cb, fselector);
-    }
 
     /* Create the default browser dialog if requested. */
     if (flags & GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG) {
@@ -580,12 +475,14 @@ gnome_file_selector_construct (GnomeFileSelector *fselector,
 			    fselector);
 
 	browse_dialog = GTK_WIDGET (filesel);
+
+	newflags &= ~GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG;
     }
 
-    gnome_selector_construct (GNOME_SELECTOR (fselector),
-			      history_id, dialog_title,
-			      entry_widget, selector_widget,
-			      browse_dialog, flags);
+    gnome_entry_construct_full (GNOME_ENTRY (fselector),
+				history_id, dialog_title,
+				entry_widget, selector_widget,
+				browse_dialog, newflags);
 
     if (flags & GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG) {
 	/* We need to unref this since it isn't put in any

@@ -35,7 +35,7 @@
 
 #include <gtk/gtkvbox.h>
 #include <libgnome/gnome-defs.h>
-#include "gnome-selector.h"
+#include "gnome-entry.h"
 
 
 BEGIN_GNOME_DECLS
@@ -54,14 +54,14 @@ typedef struct _GnomeFileSelectorPrivate  GnomeFileSelectorPrivate;
 typedef struct _GnomeFileSelectorClass    GnomeFileSelectorClass;
 
 struct _GnomeFileSelector {
-        GnomeSelector selector;
+        GnomeEntry entry;
         
         /*< private >*/
         GnomeFileSelectorPrivate *_priv;
 };
 
 struct _GnomeFileSelectorClass {
-        GnomeSelectorClass parent_class;
+        GnomeEntryClass parent_class;
 };
 
 
