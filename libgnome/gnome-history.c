@@ -1,8 +1,21 @@
-/*
- * Author: Elliot Lee (sopwith@cuc.edu)
- *
- * Elliot: please, stick your names to the files you create
- */
+/* gnome-history.c - Keep history about file visitations.
+   Copyright (C) 1998 Elliot Lee
+
+   The Gnome Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public License as
+   published by the Free Software Foundation; either version 2 of the
+   License, or (at your option) any later version.
+
+   The Gnome Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with the Gnome Library; see the file COPYING.LIB.  If not,
+   write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+   Boston, MA 02111-1307, USA.  */
+
 #include <stdio.h>
 #include <glib.h>
 
@@ -17,16 +30,25 @@ static void write_history(GList *ents);
 static void free_history_list_entry(gpointer data,gpointer user_data);
 
 void
-gnome_history_recently_used(GnomeHistoryEntry ent)
+gnome_history_recently_used (char *filename, char *filetype,
+			     char *creator, char *desc)
 {
 	GList *ents;
+	GnomeHistoryEntry ent;
+
+	ent = g_new (struct _GnomeHistoryEntry, 1);
+	ent->filename = g_strdup (filename);
+	ent->filetype = g_strdup (filetype);
+	ent->creator = g_strdup (creator);
+	ent->desc = g_strdup (desc);
 	ents = gnome_history_get_recently_used();
 	ents = g_list_append(ents, ent);
 	write_history(ents);
 	gnome_history_free_recently_used_list(ents);
 }
 
-GList *gnome_history_get_recently_used(void)
+GList *
+gnome_history_get_recently_used (void)
 {
 	GnomeHistoryEntry anent;
 	GList *retval = NULL;
@@ -90,8 +112,8 @@ gnome_history_free_recently_used_list(GList *alist)
 	g_list_free(alist);
 }
 
-static void free_history_list_entry(gpointer data,
-				    gpointer user_data)
+static void
+free_history_list_entry(gpointer data, gpointer user_data)
 {
 	GnomeHistoryEntry anent;
 	
