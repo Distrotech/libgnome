@@ -888,7 +888,7 @@ _gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
 			   def);
 
 	/* It isn't an error if the key is not found.  */
-	if (r != NULL)
+	if (r == NULL)
 		return 0;
 
 	v = atoi (r);
@@ -908,7 +908,7 @@ _gnome_config_get_float_with_default (const char *path, gboolean *def, gint priv
 			   def);
 
 	/* It isn't an error if the key is not found.  */
-	if (r != NULL)
+	if (r == NULL)
 		return 0;
 
 	v = strtod(r, NULL);
@@ -1002,7 +1002,7 @@ _gnome_config_get_bool_with_default (const char *path, gboolean *def,
 			   def);
 
 	/* It isn't an error if the key is not found.  */
-	if (r != NULL)
+	if (r == NULL)
 		return 0;
 
 	if (!strcasecmp (r, "true")){
