@@ -378,16 +378,16 @@ gnome_util_user_shell (void)
 	};
 
 	if ((shell = getenv ("SHELL"))){
-		return strdup (shell);
+		return g_strdup (shell);
 	}
 	pw = getpwuid(getuid());
 	if (pw && pw->pw_shell) {
-		return strdup (pw->pw_shell);
+		return g_strdup (pw->pw_shell);
 	} 
 
 	for (i = 0; shells [i]; i++) {
 		if (g_file_exists (shells [i])){
-			return strdup (shells[i]);
+			return g_strdup (shells[i]);
 		}
 	}
 
