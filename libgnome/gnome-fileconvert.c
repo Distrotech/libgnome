@@ -13,18 +13,30 @@
 
 #define TYPES_CVT_FILENAME "types.cvt"
 
+typedef gint Cost;
+#define UNREACHABLE 32000 /*MAXINT or something*/
+#define NOCOST 0
+#define MINCOST 1
+
+#define IMPOSSIBLE_PATH NULL
+
 typedef struct _FileConverter FileConverter;
+typedef struct _FileType FileType;
+
 struct _FileConverter {
-  gchar *fromtype;
-  gchar *totype;
+  FileType *fromtype;
+  FileType *totype;
+  gint cost;
   gchar *cmdline;
-  gint tag; /* Used for knowing whether we have visited
-	       this node yet */
-  GList *links;
 };
 
-static GList *FileConverters = NULL; /* A list of all the FileConverter's we
-			       read in */
+struct _FileType {
+  gchar *name;
+  GList *arcs;
+  gint cost;
+  gint done;
+  FileConverter *best_way_here;
+};
 
 static GList *
 gfc_get_path(gchar *fromtype, gchar *totype);
@@ -46,34 +58,42 @@ gnome_file_convert_fd(gint fd, gchar *fromtype, gchar *totype)
 {
   GList *convlist, *l;
   gint infd, outfd;
-  FileConverter *anode;
-
-  srand(time(NULL));
+  FileConverter *converter;
 
   convlist = gfc_get_path(fromtype, totype);
-
+  if(!convlist) return -1;
   for(l = convlist, infd = fd; l; l = l->next) {
-    anode = l->data;
-    g_print("%s %s: %s\n", anode->fromtype, anode->totype,
-	    anode->cmdline);
-    if(anode->cmdline == NULL)
+    if(!(converter = l->data)) {
+	infd = -1;
+	break;
+      }
+#ifdef DEBUG_FILECONVERT
+    g_print("%s %s: %s\n", converter->fromtype->name, converter->totype->name,
+	    converter->cmdline);
+#endif
+    if(converter->cmdline == NULL)
       continue;
-    outfd = gfc_run_pipe(anode->cmdline, infd);
+    outfd = gfc_run_pipe(converter->cmdline, infd);
     if(infd != fd) close(infd);
     infd = outfd;
   }
+  g_list_free(convlist);
   return infd;
 }
 
 /* Probably could use gnome_config routines for this,
    as soon as miguel redoes it */
-static void
+GHashTable *
 gfc_read_FileConverters(void)
 {
   gchar aline[512];
   gchar **parts;
   FILE *conffile;
-  FileConverter *newnode;
+  FileConverter *newarc;
+  FileType *fromtype, *totype;
+  GHashTable *file_types;
+
+  file_types = g_hash_table_new(g_str_hash, g_str_equal);
 
   conffile = fopen(TYPES_CVT_FILENAME, "r");
 
@@ -84,88 +104,130 @@ gfc_read_FileConverters(void)
 	 || aline[0] == '\0')
 	continue;
       parts = gnome_string_split(aline, " ", 3);
-      newnode = g_new(FileConverter, 1);
-      newnode->fromtype = parts[0];
-      newnode->totype = parts[1];
-      newnode->cmdline = parts[2];
+
+      if (! (fromtype = g_hash_table_lookup(file_types, parts[0])))
+        {
+           fromtype = g_new(FileType, 1);
+           fromtype->name = parts[0];
+           fromtype->arcs = NULL;
+           g_hash_table_insert(file_types, fromtype->name, fromtype);
+        }
+      if (! (totype = g_hash_table_lookup(file_types, parts[1])))
+        {
+           totype = g_new(FileType, 1);
+           totype->name = parts[1];
+           totype->arcs = NULL;
+           g_hash_table_insert(file_types, totype->name, totype);
+        }
+
+      newarc = g_new(FileConverter, 1);
+      newarc->fromtype = fromtype;
+      newarc->totype = totype;
+      newarc->cost = 1; /* replace this with something from the config file */
+      if(newarc->cost < MINCOST) /* non-positive costs cause infinite loops */
+        newarc->cost = MINCOST;
+      newarc->cmdline = parts[2];
+      fromtype->arcs = g_list_prepend(fromtype->arcs, newarc);
+
       g_free(parts);
-      newnode->tag = 0; newnode->links = NULL;
-      FileConverters = g_list_append(FileConverters, newnode);
     }
   }
+  return file_types;
 }
 
-static void
-gfc_make_links(void)
+
+/* Used as callback from g_hash_table_foreach */
+void 
+gfc_reset_path(gpointer key, FileType *node, gpointer userdata)
 {
-  GList *tmp1, *tmp2;
-  FileConverter *anode1, *anode2;
-  for(tmp1 = FileConverters; tmp1; tmp1 = tmp1->next)
-    {
-      for(tmp2 = FileConverters; tmp2; tmp2 = tmp2->next)
-	{
-	  if(tmp1 == tmp2)
-	    break;
-	  anode1 = tmp1->data; anode2 = tmp2->data;
-	  if(!strcmp(anode1->fromtype, anode2->totype))
-	    anode2->links = g_list_append(anode2->links,
-					  anode1);
-	}
-    }
+  node->best_way_here = NULL;
+  node->cost = UNREACHABLE;
 }
 
-/* This is a recursive function. Probably very slow,
-   who knows. The anode->tag member helps a lot tho,
-   and ensures we never get into any loops */
+/* Calculates shortest paths from from_node using Dijkstra's algorithm.
+ * Returns list of converters to get from from_node to to_node.
+ * The queue is just a GList but that'll be OK for these small graphs. 
+ */
 static GList *
-gfc_try_path(GList *inlist,
-	     gchar *fromtype,
-	     gchar *realtotype,
-	     gint tag)
+gfc_shortest_path(GHashTable *file_types,
+	     FileType *from_node,  
+	     FileType *to_node)
 {
-  GList *retval, *tmp, *tmp2;
-  FileConverter *anode;
-  for(tmp = inlist; tmp; tmp = tmp->next)
+  GList *nodes_to_do, *best, *best_route=NULL, *tmp;
+  FileType *node, *current_node;
+  FileConverter *arc;
+  Cost  new_cost;
+
+  /* Reset all the path data */
+  g_hash_table_foreach(file_types, (GHFunc)gfc_reset_path, NULL);
+  
+  /* Start with from_node */
+  from_node->cost = NOCOST;
+  from_node->best_way_here = NULL;
+  nodes_to_do = g_list_append(NULL, from_node);
+
+  /* Find shortest paths */
+  while(nodes_to_do)
     {
-      anode = tmp->data;
-      if(anode->tag == tag)
-	continue;
-      if(!strcmp(fromtype, anode->fromtype))
-	{
-	  retval = g_list_append(NULL, anode);
-	  if(!strcmp(realtotype, anode->totype))
-	      return retval;
-	  anode->tag = tag;
-	  tmp2 = gfc_try_path(anode->links, anode->totype,
-			      realtotype, tag);
-	  if(tmp2)
-	    return g_list_concat(retval, tmp2);
-	  else
-	    g_list_free(retval);
+      /* Find cheapest remaining reachable node */
+      best = NULL;
+      for(tmp = nodes_to_do; tmp; tmp = tmp->next)
+        if(!best || ((FileType *)tmp->data)->cost < ((FileType *)best->data)->cost)
+	  best = tmp;
+      current_node = ((FileType *)best->data);
+      nodes_to_do = g_list_remove_link(nodes_to_do, best);
+      g_list_free(best);
+
+      /* if to_node is found we are done, retrace the path here and return it*/
+      if(current_node == to_node) {
+          for(arc = to_node->best_way_here; arc; arc = arc->fromtype->best_way_here)
+            best_route = g_list_prepend(best_route, arc);
+          return best_route;
 	}
+
+      /* Explore all converters available from current_node */    
+      for(tmp = current_node->arcs; tmp; tmp = tmp->next)
+        {
+          arc = tmp->data;
+          new_cost = current_node->cost + arc->cost;
+          node = arc->totype;
+          if(new_cost < node->cost)
+            {
+              if(node->cost == UNREACHABLE)
+	        nodes_to_do = g_list_prepend(nodes_to_do, node);
+              node->cost = new_cost;
+              node->best_way_here = arc;
+	    }
+         }
     }
-  return NULL;
+  /* no route to to_node found */
+  return IMPOSSIBLE_PATH;
 }
 
-/* This algorithm probably isn't optimal
-   - it uses the "first-found" rather than "shortest-found"
-   path */
+
+/* Get the list of converters required to convert fromtype to totype */
 static GList *
 gfc_get_path(gchar *fromtype, gchar *totype)
 {
+  static GHashTable *file_types;
   static gboolean read_datfile = FALSE;
+  FileType *from_node, *to_node;
 
   if(!read_datfile)
     {
-      gfc_read_FileConverters();
-      gfc_make_links();
+      file_types = gfc_read_FileConverters();
       read_datfile = TRUE;
     }
 
-  if(!strcmp(fromtype, totype))
-    return NULL;
+  /* Look up the start and goal types */
+  from_node = (FileType *) g_hash_table_lookup(file_types,  fromtype);
+  to_node = (FileType *) g_hash_table_lookup(file_types,  totype);
+  
+  /* Give up if asked for an unknown file type */
+  if(from_node == NULL || to_node == NULL)
+    return IMPOSSIBLE_PATH;
 
-  return gfc_try_path(FileConverters, fromtype, totype, rand());
+  return gfc_shortest_path(file_types, from_node, to_node);
 }
 
 static gint
