@@ -33,6 +33,7 @@ libgnome_la_SOURCES = \
 	gnome-i18n.c		\
 	gnome-mime.c		\
 	gnome-parse.c		\
+	gnome-remote.c		\
 	gnome-score.c		\
 	gnome-string.c		\
 	gnome-triggers.c	\
@@ -54,6 +55,7 @@ libgnomeinclude_HEADERS = \
 	gnome-history.h		\
 	gnome-i18n.h 		\
 	gnome-mime.h		\
+	gnome-remote.h		\
 	gnome-parse.h		\
 	gnome-score.h		\
 	gnome-string.h		\

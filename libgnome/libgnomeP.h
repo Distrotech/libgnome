@@ -12,6 +12,7 @@
 #include "libgnome/gnome-hook.h"
 #include "libgnome/gnome-i18nP.h"
 #include "libgnome/gnome-parse.h"
+#include "libgnome/gnome-remote.h"
 #include "libgnome/gnome-score.h"
 #include "libgnome/gnome-string.h"
 #include "libgnome/gnome-triggers.h"

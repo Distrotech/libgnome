@@ -9,9 +9,7 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <glib.h>
-#include "gnome-defs.h"
-#include "gnome-util.h"
-#include "gnome-i18nP.h"
+#include "libgnomeP.h"
 #include <errno.h>
 
 char *gnome_user_home_dir = 0;

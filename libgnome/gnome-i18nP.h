@@ -34,10 +34,10 @@ BEGIN_GNOME_DECLS
 #endif
 
 const char *gnome_i18n_get_language(void);
-
 GList      *gnome_i18n_get_language_list (const gchar *category_name);
-
 void gnome_i18n_init (void);
+void	   gnome_i18n_set_preferred_language (const char *val);
+const char *gnome_i18n_get_preferred_language (void);
 
 END_GNOME_DECLS
 
