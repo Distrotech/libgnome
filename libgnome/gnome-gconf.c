@@ -55,7 +55,7 @@ gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
         gchar *dir;
         gchar *key;
 
-        dir = g_strconcat("/apps/gnome-settings/",
+        dir = g_strconcat("/desktop/gnome",
                           gnome_program_get_app_id (gnome_program_get()),
                           NULL);
 
