@@ -23,11 +23,9 @@ libgnome_la_SOURCES = \
 	gnomelib-init.c         \
 	gnome-dentry.c          \
 	gnome-dl.c		\
-	gnome-dns.c		\
 	gnome-fileconvert.c	\
 	gnome-history.c		\
 	gnome-mime.c		\
-	gnome-net.c		\
 	gnome-score.c		\
 	gnome-string.c		\
 	gnome-triggers.c
@@ -39,12 +37,10 @@ libgnomeinclude_HEADERS = \
 	gnome-hook.h   		\
 	gnome-util.h   		\
 	gnome-dl.h		\
-	gnome-dns.h    		\
 	gnome-dentry.h 		\
 	gnome-history.h		\
 	gnome-i18n.h 		\
 	gnome-mime.h		\
-	gnome-net.h		\
 	gnome-triggers.h 	\
 	gnome-score.h		\
 	gnome-string.h		\
@@ -52,7 +48,7 @@ libgnomeinclude_HEADERS = \
 
 
 libgnome_la_LDFLAGS = -version-info 0:0:0 -rpath $(libdir)
-libgnome_la_LIBADD = -lgdk -lglib -lm $(DL_LIB)
+libgnome_la_LIBADD = -lglib -lm $(DL_LIB)
 
 bin_PROGRAMS = dns-helper
 
