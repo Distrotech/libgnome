@@ -1,5 +1,21 @@
 2001-04-30  Martin Baulig  <baulig@suse.de>
 
+	* gnome-selector.h (GnomeSelector): Made this a BonoboObject.
+	(GNOME_TYPE_SELECTOR_ASYNC_HANDLE): New #define.
+	(gnome_selector_async_handle_get_type): New function.
+	(GNOME_TYPE_SELECTION_MODE): New #define.
+	(gnome_selection_mode_get_type): New function.
+
+	* gnome-selector.c: Use GObject and removed all GTK+ stuff.
+	(PROP_ENTRY_WIDGET, PROP_SELECTOR_WIDGET, PROP_BROWSE_DIALOG):
+	Removed these properties.
+
+	* gnome-selector.[ch], gnome-selectorP.h: Moved here from libgnomeui.
+
+	* libgnome.h: #include <libgnome/gnome-selector.h>.
+
+2001-04-30  Martin Baulig  <baulig@suse.de>
+
 	* Makefile.am (libgnome_2_la_SOURCES): Added the CORBA sources.
 	(libgnome_headers): Install Gnome.h.
 

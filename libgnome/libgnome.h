@@ -45,6 +45,7 @@
 #include <libgnome/gnome-marshal.h>
 
 #include <libgnome/Gnome.h>
+#include <libgnome/gnome-selector.h>
 
 #include <libgnome/libgnome-init.h>
 
