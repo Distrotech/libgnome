@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-24 11:14+0100\n"
-"PO-Revision-Date: 2003-10-01 10:34-0400\n"
-"Last-Translator: Evandro Fernandes Giovanini <evandrofg@ig.com.br>\n"
+"POT-Creation-Date: 2004-03-15 15:25+0100\n"
+"PO-Revision-Date: 2004-03-15 15:13-0300\n"
+"Last-Translator: Raphael Higino <raphaelh@uai.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +18,11 @@ msgstr ""
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
-msgstr "Mensagem de Erro"
+msgstr "Mensagem de erro"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
 msgid "Informational message"
-msgstr "Mensagem de Informação"
+msgstr "Mensagem informativa"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
 msgid "Log in"
@@ -34,11 +34,11 @@ msgstr "Sair do ambiente"
 
 #: gnome-data/gnome-2.soundlist.in.h:5
 msgid "Miscellaneous message"
-msgstr "Mensagem Diversa"
+msgstr "Mensagem diversa"
 
 #: gnome-data/gnome-2.soundlist.in.h:6
 msgid "Question dialog"
-msgstr "Diálogo de Pergunta"
+msgstr "Diálogo de pergunta"
 
 #: gnome-data/gnome-2.soundlist.in.h:7
 msgid "System events"
@@ -46,7 +46,7 @@ msgstr "Eventos de sistema"
 
 #: gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning message"
-msgstr "Mensagens de Aviso"
+msgstr "Mensagens de aviso"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
@@ -242,11 +242,11 @@ msgstr "Prefixo onde as bibliotecas do GNOME foram instaladas"
 
 #: libgnome/gnome-program.c:509
 msgid "GNOME Datadir"
-msgstr "Datadir do GNOME"
+msgstr "Diretório de dados do GNOME"
 
 #: libgnome/gnome-program.c:510
 msgid "Data prefix where GNOME was installed"
-msgstr "Prefixo onde os arquivos compartilhados do GNOME foram instalados"
+msgstr "Prefixo onde os arquivos de dados do GNOME foram instalados"
 
 #: libgnome/gnome-program.c:519
 msgid "GNOME Sysconfdir"
@@ -295,11 +295,11 @@ msgstr "Criar Diretórios"
 
 #: libgnome/gnome-program.c:570
 msgid "Create standard GNOME directories on startup"
-msgstr "Criar os diretórios padrões do GNOME ao iniciar"
+msgstr "Criar os diretórios padrão do GNOME ao iniciar"
 
 #: libgnome/gnome-program.c:579
 msgid "Enable Sound"
-msgstr "Ativar áudio"
+msgstr "Ativar Áudio"
 
 #: libgnome/gnome-program.c:580
 msgid "Enable sound on startup"
@@ -323,11 +323,11 @@ msgstr "Opções da Aplicação"
 
 #: libgnome/gnome-program.c:1375
 msgid "Dynamic modules to load"
-msgstr "Módulos dinâmicos a carregar"
+msgstr "Módulos dinâmicos para carregar"
 
 #: libgnome/gnome-program.c:1376
 msgid "MODULE1,MODULE2,..."
-msgstr "MODULE1,MODULE2,..."
+msgstr "MÓDULO1,MÓDULO2,..."
 
 #: libgnome/gnome-url.c:81
 msgid "Unknown internal error while displaying this location."
@@ -392,7 +392,7 @@ msgstr "Chave %s não encontrada na configuração"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
-msgstr "Bipar quando um modificador for pressionado"
+msgstr "Emitir um bip quando um modificador for pressionado"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
@@ -427,7 +427,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
-msgstr "Por quanto tempo acelerar em milisegundos"
+msgstr "por quanto tempo acelerar em milisegundos"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "initial delay in milliseconds"
@@ -558,10 +558,7 @@ msgstr "Tipo de gradiente de cor"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr ""
-"Determina como a imagem definida por wallpaper_filename é renderizada. Os "
-"valores possíveis são \"none\", \"wallpaper\", \"centered\", \"scaled\", "
-"\"stretched\"."
+msgstr "Determina como a imagem definida por arquivo_papel_de_parede é renderizada. Os valores possíveis são \"nenhum\", \"papel de parede\", \"centralizado\", \"dimensionado\", \"estendido\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -579,9 +576,7 @@ msgstr "Fazer com que o GNOME desenhe o fundo da área de trabalho"
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
-msgstr ""
-"Como fazer gradiente na cor de fundo. Os valores possíveis são \"horizontal-"
-"gradient\", \"vertical-gradient\" e \"solid\""
+msgstr "Como fazer gradiente na cor de fundo. Os valores possíveis são \"gradiente-horizontal\", \"gradiente-vertical\" e \"sólido\""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -589,8 +584,7 @@ msgstr "Cor da esquerda ou topo ao desenhar gradientes, ou a cor sólida."
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
-msgstr ""
-"Opacidade com que se deve desenhar a figura do fundo da área de trabalho"
+msgstr "Opacidade com que deve ser desenhada a figura do fundo da área de trabalho"
 
 #: schemas/desktop_gnome_background.schemas.in.h:9
 msgid "Picture Filename"
@@ -632,7 +626,7 @@ msgstr "Nome base do tema padrão usado pelo gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
-msgstr "Pode-se Mudar Aceleradores"
+msgstr "Aceleradores Podem ser Mudados"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
@@ -648,7 +642,7 @@ msgstr "Fonte padrão"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:6
 msgid "Enable Accessibility"
-msgstr "Ativar acessibilidade"
+msgstr "Ativar Acessibilidade"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:7
 msgid "Enable Animations"
@@ -688,7 +682,7 @@ msgstr "Os Menus Têm Ícones"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menus Have Tearoff"
-msgstr "Os Menus Têm Tearoff"
+msgstr "Os Menus Rolam"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Monospace font"
@@ -697,9 +691,7 @@ msgstr "Fonte monoespaçada"
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr ""
-"Nome de uma fonte monoespaçada (largura-fixa) a ser usada em locais como "
-"terminais."
+msgstr "Nome de uma fonte monoespaçada (largura-fixa) para ser usada em locais como terminais."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -715,7 +707,7 @@ msgstr "Nome da fonte padrão usada pelo gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Status Bar on Right"
-msgstr "Barra de Status na Direita"
+msgstr "Barra de Status à Direita"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "This specifies the size of icons displayed in toolbars"
@@ -764,11 +756,11 @@ msgstr "Se os menus devem mostrar um ícone próximo à entrada de menu"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether menus should have a tearoff"
-msgstr "Se os menus devem ter uma tearoff"
+msgstr "Se os menus devem rolar"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the cursor should blink"
-msgstr "Se o cursor devem piscar"
+msgstr "Se o cursor deve piscar"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach menubars and move them around"
@@ -788,72 +780,70 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
-msgstr "Se deve-se mostrar um medidor da barra de status na direita"
+msgstr "Se deve ser mostrado um medidor da barra de status à direita"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "Se deve-se usar uma fonte customizada nas aplicações gtk+."
+msgstr "Se deve ser usada uma fonte personalizada nas aplicações gtk+."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
-msgstr ""
+msgstr "Desabilitar linha de comando"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable print setup"
-msgstr ""
+msgstr "Desabilitar configuração de impressão"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable printing"
-msgstr ""
+msgstr "Desabilitar impressão"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable saving files to disk"
-msgstr ""
+msgstr "Desabilitar gravação de arquivos em disco"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
-msgstr ""
+msgstr "Evitar que o usuário acesse o terminal ou especifique uma linha de comando para ser executada. Por exemplo, isso desabilitaria o acesso à caixa de diálogo \"Executar Aplicação\" do painel."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all application's \"Print Setup\" dialogs."
-msgstr ""
+msgstr "Evitar que o usuário modifique as configurações de impressão. Por exemplo, isso desabilitaria o acesso à caixa de diálogo \"Configuração de Impressão\" de todas as aplicações."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all application's \"Print\" dialogs."
-msgstr ""
+msgstr "Evitar que o usuário imprima. Por exemplo, isso desabilitaria o acesso à caixa de diálogo \"Imprimir\" em todas as aplicações."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all application's \"Save as\" dialogs."
-msgstr ""
+msgstr "Evitar que o usuário salve arquivos no disco. Por exemplo, isso desabilitaria o acesso à caixa de diálogo \"Salvar como\" em todas as aplicações."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
-msgstr "Nome do arquivo do som da campainha que será tocado"
+msgstr "Nome do arquivo do som de campainha que será tocado"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr "Nome do Arquivo Customizado da Campainha do Teclado"
+msgstr "Nome do Arquivo Personalizado da Campainha do Teclado"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "valores possíveis são \"on\", \"off\" e \"custom\"."
+msgstr "valores possíveis são \"ligado\", \"desligado\" e \"personalizado\"."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr ""
-"Multiplicador de aceleração para a moção do mouse. Um valor de -1 é o padrão "
-"do sistema."
+msgstr "Multiplicador de aceleração para o movimento do mouse. Um valor de -1 é o padrão do sistema."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -887,9 +877,7 @@ msgstr "Distância antes que um arrasto seja iniciado"
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
-msgstr ""
-"Distância em pixels que o ponteiro deve andar antes da moção acelerada do "
-"mouse ser iniciada. Um valor de -1 é o padrão do sistema."
+msgstr "Distância em pixels que o ponteiro deve andar antes do movimento acelerado do mouse ser iniciado. Um valor de -1 é o padrão do sistema."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -927,7 +915,7 @@ msgstr "Localizar Ponteiro"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
-msgstr "Limiar da Moção"
+msgstr "Limiar do Movimento"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
@@ -969,7 +957,7 @@ msgstr "Sons para eventos"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
-msgstr "Se deve-se tocar sons para eventos do usuário."
+msgstr "Se devem ser tocados sons para eventos do usuário."
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
