@@ -1,3 +1,10 @@
+1999-09-29  Elliot Lee  <sopwith@redhat.com>
+
+	* gnome-exec.c: Fix strange race condition. I don't think pipes
+ 	are persistent across multiple forks() - in this case the child
+ 	was closing the read end of the pipe, and the child of the child
+ 	was getting SIGPIPE even though the parent had the fd open still.
+
 Sun Sep 26 10:37:26 1999  George Lebl  <jirka@5z.com>
 
 	* gnome-i18n.c from KUSANO Takayuki <AE5T-KSN@asahi-net.or.jp> to

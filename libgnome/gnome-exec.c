@@ -85,6 +85,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 {
   int comm_pipes[2];
   int child_errno, itmp, i, open_max;
+  int res;
   char **cpargv;
   pid_t child_pid, immediate_child_pid; /* XXX this routine assumes
 					   pid_t is signed */
@@ -101,7 +102,6 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
     return -1;
 
   case 0: /* START PROCESS 1: child */
-    close(comm_pipes[0]);
     child_pid = fork();
 
     switch(child_pid) {
@@ -116,10 +116,10 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
     case 0:                 /* START PROCESS 2: child of child */
       /* pre-exec setup */
+      set_cloexec (comm_pipes[0]);
       set_cloexec (comm_pipes[1]);
-
       child_pid = getpid();
-      write(comm_pipes[1], &child_pid, sizeof(child_pid));
+      res = write(comm_pipes[1], &child_pid, sizeof(child_pid));
 
       if(envv) {
 	for(itmp = 0; itmp < envc; itmp++)
@@ -140,16 +140,18 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 	  for (i = 3; i < open_max; i++)
 	    set_cloexec (i);
 
-	  close(0);
-	  /* Open stdin as being nothingness, so that if someone tries to
-	     read from this they don't hang up the whole GNOME session. BUGFIX #1548 */
-	  stdinfd = open("/dev/null", O_RDONLY);
-	  g_assert(stdinfd >= 0);
-	  if(stdinfd != 0)
-	    {
-	      dup2(stdinfd, 0);
-	      close(stdinfd);
-	    }
+	  if(comm_pipes[1] != 0) {
+	    close(0);
+	    /* Open stdin as being nothingness, so that if someone tries to
+	       read from this they don't hang up the whole GNOME session. BUGFIX #1548 */
+	    stdinfd = open("/dev/null", O_RDONLY);
+	    g_assert(stdinfd >= 0);
+	    if(stdinfd != 0)
+	      {
+		dup2(stdinfd, 0);
+		close(stdinfd);
+	      }
+	  }
 	}
       signal (SIGPIPE, SIG_DFL);
       /* doit */
@@ -169,7 +171,8 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
   close(comm_pipes[1]);
 
-  if (read (comm_pipes[0], &child_pid, sizeof(child_pid)) != sizeof(child_pid))
+  res = read (comm_pipes[0], &child_pid, sizeof(child_pid));
+  if (res != sizeof(child_pid))
     {
       child_pid = -1; /* really weird things happened */
     }
