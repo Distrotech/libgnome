@@ -80,11 +80,6 @@ typedef struct TProfile {
 	struct TProfile *link;
 } TProfile;
 
-typedef struct {
-	char *file, *section, *key, *def;
-	char *path, *opath;
-} ParsedPath;
-
 /*
  * Prefix for all the configuration operations
  * iff the path does not begin with / or with #
@@ -118,80 +113,19 @@ static void *sync_handler_data;
 #define CALL_SYNC_HANDLER() { if(sync_handler) (*sync_handler)(sync_handler_data); }
 
 
-static void
-release_path (ParsedPath *p)
-{
-	g_free (p->file);
-	g_free (p->opath);
-	g_free (p);
-}
 
-static ParsedPath *
-parse_path (const char *path, gint priv)
-{
-	ParsedPath *p = g_malloc (sizeof (ParsedPath));
+/* The `release_path' and `parsed_path' routines are inside the
+   following file.  It is in a separate file to allow the test-suite
+   to get at it, without needing to export special symbols.
 
-	g_assert(path != NULL);
-	
-	if (*path == '/' || prefix == NULL)
-		p->opath = g_strdup (path);
-	else
-		p->opath = g_copy_strings (prefix, path, NULL);
+   typedef struct {
+	char *file, *section, *key, *def;
+	char *path, *opath;
+   } ParsedPath;
 
-	p->path = p->opath;
-
-	if (*p->path == '='){
-		/* If it is an absolute path name */
-		p->path++;
-		p->file    = g_strdup (strtok (p->path, "="));
-		p->section = strtok (NULL, "/=");
-		p->key     = strtok (NULL, "=");
-		p->def     = strtok (NULL, "=");
-	} else {
-		char *end;
-
-		p->file    = p->path;
-		p->def     = NULL;
-		p->section = NULL;
-		p->key     = NULL;
-		if ((end = strchr (p->path, '='))) {
-			*end = 0;
-			p->def = end + 1;
-		} else 
-			end = p->path + strlen (p->path);
-
-		/* Look backwards for a slash, to split key from the filename/section */
-		while (end > p->path){
-			end--;
-			if (*end == '/'){
-				*end = 0;
-				p->key = end + 1;
-				break;
-			}
-		}
-
-		/* Look backwards for the next slash, to get the section name */
-		while (end > p->path){
-			end--;
-			if (*end == '/'){
-				*end = 0;
-				p->section = end + 1;
-				break;
-			}
-		}
-		if (*p->file == '/')
-			p->file++;
-
-		if (priv){
-			p->file = g_concat_dir_and_file (gnome_user_private_dir,
-							 p->file);
-		} else {
-			p->file = g_concat_dir_and_file (gnome_user_dir,
-							 p->file);
-		}
-	}
-	return p;
-}
+   static void release_path (ParsedPath *p);
+   static ParsedPath *parse_path (const char *path, gint priv); */
+#include "parse-path.cP"
 
 static int 
 is_loaded (const char *filename, TSecHeader **section)
@@ -1398,30 +1332,4 @@ main ()
 	x ("/file/archivo/archivo/seccion/llave=valor", "USERDIR/file/archivo/archivo", "seccion", "llave", "valor");
 	
 }
-#endif
-
-#ifdef TEST_INTERNALS
-
-void
-_test_suite_gnome_config_parse_path (const char *path, gint priv)
-{
-	ParsedPath *p = parse_path (path, priv); 
-
-#if 0
-	printf ("%s|%s|%d - %s|%s|%s|%s|%s|%s|\n", (char*) prefix, path, priv,
-		p->file, p->section, p->key, p->def, p->path, p->opath);
-#else
-	printf ("parse_path (%d):\n\n", priv);
-	printf ("   Prefix:\t%s\n", (char*) prefix);
-	printf ("   Path:\t%s\n\n", path);
-	printf ("   File:\t%s\n", p->file);
-	printf ("   Section:\t%s\n", p->section);
-	printf ("   Key:\t\t%s\n", p->key);
-	printf ("   Def:\t\t%s\n", p->def);
-	printf ("   Path:\t%s\n", p->path);
-	printf ("   OPath:\t%s\n\n", p->opath);
-#endif
-	fflush (stdout);
-}
-
 #endif

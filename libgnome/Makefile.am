@@ -66,14 +66,17 @@ libgnomeinclude_HEADERS = \
 	lib_defs.h		\
 	libgnome.h
 
-noinst_HEADERS = \
-	gnome-i18nP.h		\
-	libgnomeP.h \
-	gnome-triggersP.h
+noinst_HEADERS =				\
+	gnome-i18nP.h				\
+	gnome-triggersP.h			\
+	libgnomeP.h
 
-EXTRA_DIST = lib_date.README
+EXTRA_DIST = lib_date.README parse-path.cP
 
-libgnome_la_LDFLAGS = -version-info 30:0:30 -rpath $(libdir)
+#just to be sure, add an explicit dependency
+gnome-config.o: parse-path.cP
+
+libgnome_la_LDFLAGS = -version-info 30:0:30 #-rpath $(libdir)
 libgnome_la_LIBADD = $(GLIB_LIBS) -lm $(DL_LIB)
 
 bin_PROGRAMS = dns-helper gnome-dump-metadata gnome-moz-remote gconfigger
@@ -84,7 +87,7 @@ dns_helper_LDADD = $(NSL_LIBS)
 gnome_dump_metadata_SOURCES = gnome-dump.c
 gnome_dump_metadata_LDADD = libgnome.la $(LIBSUPPORT) \
 	$(LIBGNOME_LIBS) $(INTLLIBS)
-gnome_dump_metadata_LDFLAGS = `glib-config --libs`
+gnome_dump_metadata_LDFLAGS = $(GLIB_LIBS)
 
 gnome_moz_remote_SOURCES = gnome-moz-remote.c vroot.h
 gnome_moz_remote_LDADD = libgnome.la $(LIBSUPPORT) $(LIBGNOME_LIBS) \
