@@ -442,17 +442,20 @@ load_mime_type_info (void)
 }
 
 static void
-gnome_mime_init ()
+gnome_mime_init (void)
 {
+	const GList *lang_list;
 	/*
 	 * The hash tables that store the mime keys.
 	 */
 	specific_types = g_hash_table_new (g_str_hash, g_str_equal);
 	generic_types  = g_hash_table_new (g_str_hash, g_str_equal);
 
-	current_lang = gnome_i18n_get_language_list ("LC_MESSAGES");
-	if(current_lang)
-		current_lang = g_list_reverse(current_lang);
+	lang_list = gnome_i18n_get_language_list ("LC_MESSAGES");
+	if(lang_list)
+		current_lang = g_list_reverse(g_list_copy((GList *)lang_list));
+	else
+		current_lang = NULL;
 
 	/*
 	 * Setup the descriptors for the information loading

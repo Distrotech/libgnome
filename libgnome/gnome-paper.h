@@ -41,7 +41,7 @@ typedef struct _GnomeUnit  GnomeUnit;
 typedef GnomePaper Paper;
 typedef GnomeUnit Unit;
 
-GList*		 gnome_paper_name_list	(void);
+const GList	 *gnome_paper_name_list	(void);
 const GnomePaper *gnome_paper_with_name	(const gchar *papername);
 const GnomePaper *gnome_paper_with_size	(double pswidth, double psheight);
 
@@ -55,7 +55,7 @@ gdouble		 gnome_paper_bmargin	(const GnomePaper *paper);
 
 const gchar	 *gnome_paper_name_default	(void);
 
-GList*		 gnome_unit_name_list	(void);
+const GList*	 gnome_unit_name_list	(void);
 const GnomeUnit	 *gnome_unit_with_name	(const gchar *unitname);
 const GnomeUnit  *gnome_unit_with_abbrev(const gchar *abbreviation);
 

@@ -134,7 +134,7 @@ unit_abbrev_compare (const GnomeUnit *a, const gchar *b)
  *
  * Returns: internal list of paper specifications
  **/
-GList*
+const GList*
 gnome_paper_name_list (void)
 {
   if (!paper_name_list)
@@ -326,7 +326,7 @@ gnome_paper_bmargin (const GnomePaper *paper)
  * 
  * Returns: internal list of units
  **/
-GList*
+const GList*
 gnome_unit_name_list (void)
 {
   if (!unit_name_list)

@@ -1507,7 +1507,7 @@ _gnome_config_get_translated_string_with_default (const char *path,
 						  gboolean *def,
 						  gboolean priv)
 {
-	GList *language_list;
+	const GList *language_list;
 
 	char *value= NULL;
 
@@ -1836,7 +1836,7 @@ void
 _gnome_config_set_translated_string (const char *path, const char *value,
 				     gboolean priv)
 {
-	GList *language_list;
+	const GList *language_list;
 	const char *lang;
 	char *tkey;
 

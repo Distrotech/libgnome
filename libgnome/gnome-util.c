@@ -319,7 +319,7 @@ gnome_util_user_shell (void)
 	};
 
 	if ((shell = getenv ("SHELL"))){
-		return strdup (shell);
+		return g_strdup (shell);
 	}
 	pw = getpwuid(getuid());
 	if (pw && pw->pw_shell) {

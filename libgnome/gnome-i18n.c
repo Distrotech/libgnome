@@ -275,7 +275,7 @@ static GHashTable *category_table= NULL;
  * 
  * Return value: the list of languages, this list should not be freed as it is owned by gnome-i18n
  **/
-GList *
+const GList *
 gnome_i18n_get_language_list (const gchar *category_name)
 {
   GList *list;
@@ -395,7 +395,7 @@ gnome_i18n_init (void)
  * 
  * Return value: the preferred language as set in the Gnome config database.
  **/
-const char *
+char *
 gnome_i18n_get_preferred_language (void)
 {
   return gnome_config_get_string (LANGKEY);
