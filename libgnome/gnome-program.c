@@ -84,7 +84,6 @@ struct _GnomeProgramPrivate {
 
 enum {
     PROP_0,
-    PROP_ARGV,
     PROP_MODULE_INFO,
     PROP_MODULES,
     PROP_APP_ID,
@@ -110,6 +109,7 @@ static GQuark quark_set_prop = 0;
 static GPtrArray *program_modules = NULL;
 static GPtrArray *program_module_list = NULL;
 static gboolean program_initialized = FALSE;
+static GnomeProgram *global_program = NULL;
 
 static guint last_property_id = PROP_LAST;
 static gpointer parent_class = NULL;
@@ -452,12 +452,17 @@ gnome_program_constructor (GType type, guint n_construct_properties,
 	    if (a_module && a_module->init_pass)
 		a_module->constructor (type, n_cparams, cparams, a_module);
 	}
-
-	program_initialized = TRUE;
     }
 
     program = (GnomeProgram *) G_OBJECT_CLASS (parent_class)->constructor
 	(type, n_cparams, cparams);
+
+    if (!program_initialized) {
+	global_program = program;
+	g_object_ref (G_OBJECT (global_program));
+
+	program_initialized = TRUE;
+    }
 
     return G_OBJECT (program);
 }
@@ -476,15 +481,6 @@ gnome_program_class_init (GnomeProgramClass *class)
     object_class->constructor = gnome_program_constructor;
     object_class->set_property = gnome_program_set_property;
     object_class->get_property = gnome_program_get_property;
-
-    g_object_class_install_property
-	(object_class,
-	 PROP_ARGV,
-	 g_param_spec_value_array ("argv", NULL, NULL,
-				   g_param_spec_string ("arg", NULL, NULL,
-							NULL,
-							(G_PARAM_READABLE)),
-				   (G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY)));
 
     g_object_class_install_property
 	(object_class,
@@ -642,15 +638,7 @@ gnome_module_info_get_type (void)
 GnomeProgram *
 gnome_program_get (void)
 {
-    static GnomeProgram *gnome_app = NULL;
-
-    if (!gnome_app) {
-	g_type_init (G_TYPE_DEBUG_NONE);
-
-	gnome_app = g_object_new (GNOME_TYPE_PROGRAM, NULL);
-    }
-
-    return gnome_app;
+    return global_program;
 }
 
 /**
@@ -1023,6 +1011,11 @@ gnome_program_module_register (const GnomeModuleInfo *module_info)
 
     g_return_if_fail (module_info);
 
+    if (program_initialized) {
+	g_warning (G_STRLOC ": cannot load modules after program is initialized");
+	return;
+    }
+
     if (!program_modules)
 	program_modules = g_ptr_array_new();
 
@@ -1189,6 +1182,11 @@ gnome_program_module_load (const char *mod_name)
 
     g_return_if_fail (mod_name != NULL);
 
+    if (program_initialized) {
+	g_warning (G_STRLOC ": cannot load modules after program is initialized");
+	return;
+    }
+
     g_snprintf (tbuf, sizeof(tbuf), "lib%s.so.0", mod_name);
 
     mh = g_module_open (mod_name, G_MODULE_BIND_LAZY);
@@ -1311,20 +1309,9 @@ gnome_program_initv (const char *app_id, const char *app_version,
 		     const char *first_property_name, va_list args)
 {
     GnomeProgram *program;
-    GValueArray *val_array;
     int i;
 
     g_type_init (G_TYPE_DEBUG_NONE);
-
-    val_array = g_value_array_new (0);
-    for (i = 0; i < argc; i++) {
-	GValue value = { 0, };
-
-	g_value_init (&value, G_TYPE_STRING);
-	g_value_set_string (&value, argv [i]);
-	g_value_array_append (val_array, &value);
-	g_value_unset (&value);
-    }
 
     if (!program_initialized) {
 	const char *ctmp;
@@ -1344,9 +1331,6 @@ gnome_program_initv (const char *app_id, const char *app_version,
 
     program = g_object_new_valist (GNOME_TYPE_PROGRAM,
 				   first_property_name, args);
-
-    g_object_set (G_OBJECT (program), "argv", val_array, "app_id", app_id,
-		  "app_version", app_version, NULL);
 
     gnome_program_preinit (program, app_id, app_version, argc, argv);
     gnome_program_parse_args (program);
