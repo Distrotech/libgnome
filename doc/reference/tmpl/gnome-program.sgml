@@ -1,0 +1,410 @@
+<!-- ##### SECTION Title ##### -->
+GnomeProgram
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT GnomeProgramPrivate ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ENUM GnomeFileDomain ##### -->
+<para>
+
+</para>
+
+@GNOME_FILE_DOMAIN_UNKNOWN: 
+@GNOME_FILE_DOMAIN_LIBDIR: 
+@GNOME_FILE_DOMAIN_DATADIR: 
+@GNOME_FILE_DOMAIN_SOUND: 
+@GNOME_FILE_DOMAIN_PIXMAP: 
+@GNOME_FILE_DOMAIN_CONFIG: 
+@GNOME_FILE_DOMAIN_HELP: 
+@GNOME_FILE_DOMAIN_APP_LIBDIR: 
+@GNOME_FILE_DOMAIN_APP_DATADIR: 
+@GNOME_FILE_DOMAIN_APP_SOUND: 
+@GNOME_FILE_DOMAIN_APP_PIXMAP: 
+@GNOME_FILE_DOMAIN_APP_CONFIG: 
+@GNOME_FILE_DOMAIN_APP_HELP: 
+
+<!-- ##### FUNCTION gnome_program_get ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION gnome_program_get_human_readable_name ##### -->
+<para>
+
+</para>
+
+@program: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gnome_program_get_app_id ##### -->
+<para>
+
+</para>
+
+@program: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gnome_program_get_app_version ##### -->
+<para>
+
+</para>
+
+@program: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gnome_program_locate_file ##### -->
+<para>
+
+</para>
+
+@program: 
+@domain: 
+@file_name: 
+@only_if_exists: 
+@ret_locations: 
+@Returns: 
+
+
+<!-- ##### MACRO GNOME_PARAM_MODULE_INFO ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_MODULES ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_POPT_TABLE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_POPT_FLAGS ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_POPT_CONTEXT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_CREATE_DIRECTORIES ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_ENABLE_SOUND ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_ESPEAKER ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_APP_ID ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_APP_VERSION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_GNOME_PREFIX ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_GNOME_SYSCONFDIR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_GNOME_DATADIR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_GNOME_LIBDIR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_APP_PREFIX ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_APP_SYSCONFDIR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_APP_DATADIR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_APP_LIBDIR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_HUMAN_READABLE_NAME ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_PARAM_GNOME_PATH ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GNOME_TYPE_MODULE_INFO ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION gnome_module_info_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### STRUCT GnomeModuleInfo ##### -->
+<para>
+
+</para>
+
+@requirements: 
+@instance_init: 
+@pre_args_parse: 
+@post_args_parse: 
+@options: 
+@init_pass: 
+@class_init: 
+@expansion1: 
+@expansion2: 
+
+<!-- ##### STRUCT GnomeModuleRequirement ##### -->
+<para>
+
+</para>
+
+@required_version: 
+@module_info: 
+
+<!-- ##### USER_FUNCTION GnomeModuleInitHook ##### -->
+<para>
+
+</para>
+
+@mod_info: 
+
+
+<!-- ##### USER_FUNCTION GnomeModuleClassInitHook ##### -->
+<para>
+
+</para>
+
+@klass: 
+@mod_info: 
+
+
+<!-- ##### USER_FUNCTION GnomeModuleHook ##### -->
+<para>
+
+</para>
+
+@program: 
+@mod_info: 
+
+
+<!-- ##### FUNCTION gnome_program_module_register ##### -->
+<para>
+
+</para>
+
+@module_info: 
+
+
+<!-- ##### FUNCTION gnome_program_module_registered ##### -->
+<para>
+
+</para>
+
+@module_info: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gnome_program_module_load ##### -->
+<para>
+
+</para>
+
+@mod_name: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gnome_program_install_property ##### -->
+<para>
+
+</para>
+
+@pclass: 
+@get_fn: 
+@set_fn: 
+@pspec: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gnome_program_preinit ##### -->
+<para>
+
+</para>
+
+@program: 
+@app_id: 
+@app_version: 
+@argc: 
+@argv: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gnome_program_parse_args ##### -->
+<para>
+
+</para>
+
+@program: 
+
+
+<!-- ##### FUNCTION gnome_program_postinit ##### -->
+<para>
+
+</para>
+
+@program: 
+
+
+<!-- ##### MACRO GNOME_PROGRAM_STANDARD_PROPERTIES ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION gnome_program_init ##### -->
+<para>
+
+</para>
+
+@app_id: 
+@app_version: 
+@module_info: 
+@argc: 
+@argv: 
+@first_property_name: 
+@Varargs: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gnome_program_initv ##### -->
+<para>
+
+</para>
+
+@type: 
+@app_id: 
+@app_version: 
+@module_info: 
+@argc: 
+@argv: 
+@first_property_name: 
+@args: 
+@Returns: 
+
+
+<!-- ##### VARIABLE program_invocation_short_name ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### VARIABLE program_invocation_name ##### -->
+<para>
+
+</para>
+
+
