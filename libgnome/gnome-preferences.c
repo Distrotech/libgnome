@@ -27,17 +27,7 @@
 static void
 do_warning (void)
 {
-	static gboolean slept = FALSE;
-	g_warning ("*************************************");
-	g_warning ("gnome_preferences_* are being used in");
-	g_warning ("this program, these will disappear soon!");
-	g_warning ("Please fix your code!!!!!!!!!!!!!!!!!");
-	g_warning ("*************************************");
-	if ( ! slept) {
-		g_warning ("Sleeping 2 seconds to annoy lazy developers");
-		sleep (2);
-	}
-	slept = TRUE;
+	g_warning ("gnome_preferences_* are deprecated and will be removed before GNOME 2.0.\n");
 }
 
 #define DEFINE_DESKTOP_PROP_BOOLEAN(c_name, prop_name)  \
