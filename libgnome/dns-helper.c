@@ -55,8 +55,7 @@ int main(int argc, char *argv[])
 	
   while(1) {
     /* block on read from client */
-    nread = read(0, hostname, 4096);
-    hostname[4095] = '\0';
+    nread = read(0, hostname, 4095);
 		
     /* will return 0 if parent exits. */
 
@@ -66,6 +65,7 @@ int main(int argc, char *argv[])
     if (nread < 0)
       _exit(1);
 		
+    hostname[nread] = '\0';
     host = gethostbyname(hostname);
 		
     if (host == NULL)
