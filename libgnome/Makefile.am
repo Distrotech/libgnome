@@ -43,7 +43,7 @@ idls =							\
 	$(top_srcdir)/idl/Gnome.idl			\
 	$(top_srcdir)/idl/Gnome_Desktop.idl
 
-idl_flags = -I $(datadir)/idl -D__GNOME_COMPILATION
+idl_flags = -I @BONOBO_IDLDIR@ -D__GNOME_COMPILATION
 
 $(CORBA_SOURCE): $(idls) $(ORBIT_IDL)
 	$(ORBIT_IDL) $(top_srcdir)/idl/Gnome.idl -I$(top_srcdir)/idl $(idl_flags)

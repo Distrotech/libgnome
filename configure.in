@@ -68,8 +68,11 @@ AC_SUBST(MONIKER_LIBS)
 GNOME_VFS_VERSION=`$PKG_CONFIG --modversion gnome-vfs-2.0`
 AC_SUBST(GNOME_VFS_VERSION)
 
-AC_PATH_PROG(ORBIT_IDL, orbit-idl, no)
+ORBIT_IDL="`$PKG_CONFIG --variable=orbit_idl ORBit-2.0`"
 AC_SUBST(ORBIT_IDL)
+
+BONOBO_IDLDIR="`$PKG_CONFIG --variable=idldir libbonobo-2.0`"
+AC_SUBST(BONOBO_IDLDIR)
 
 AC_CHECK_LIB(popt, poptStrippedArgv,, AC_MSG_ERROR([popt 1.5 or newer is required to build
 gnome-libs. You can download the latest version from ftp://people.redhat.com/sopwith/popt/]))
