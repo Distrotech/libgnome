@@ -85,7 +85,7 @@ sysconf_DATA = paper.config
 libgnome_la_LDFLAGS = -version-info 30:0:30 -rpath $(libdir)
 libgnome_la_LIBADD = $(GLIB_LIBS) -lm $(DL_LIB)
 
-bin_PROGRAMS = dns-helper gnome-dump-metadata
+bin_PROGRAMS = dns-helper gnome-dump-metadata gnome-moz-remote
 
 dns_helper_SOURCES = dns-helper.c
 dns_helper_LDADD = $(NSL_LIBS)
@@ -94,6 +94,11 @@ gnome_dump_metadata_SOURCES = gnome-dump.c
 gnome_dump_metadata_LDADD = libgnome.la $(LIBSUPPORT) \
 	$(LIBGNOME_LIBS) $(INTLLIBS)
 gnome_dump_metadata_LDFLAGS = `glib-config --libs`
+
+gnome_moz_remote_SOURCES = gnome-moz-remote.c vroot.h
+gnome_moz_remote_LDADD = libgnome.la $(LIBSUPPORT) $(LIBGNOME_LIBS) \
+	$(X_LIBS) $(X_PRE_LIBS) -lXmu -lX11 $(X_EXTRA_LIBS)
+
 
 install-data-local:
 	$(mkinstalldirs) $(scoredir)
