@@ -14,13 +14,6 @@ INCLUDES = \
 	-DVERSION=\""$(VERSION)"\"			\
 	-DG_LOG_DOMAIN=\"GnomeMonikers\"
 
-OAF_FILES = 						\
-	Bonobo_Moniker_ditem.oaf
-	GNOME_Moniker_std.oaf
-
-clean-local:
-	-rm -f $(OAF_FILES)
-
 EXTRA_DIST = \
 	Bonobo_Moniker_ditem.oaf.in \
 	GNOME_Moniker_std.oaf.in.in
@@ -34,7 +27,18 @@ monikerdir = $(libdir)/bonobo/monikers
 GNOME_Moniker_std.oaf.in : $(srcdir)/GNOME_Moniker_std.oaf.in.in
 	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir)|" \
 	 $(srcdir)/GNOME_Moniker_std.oaf.in.in > GNOME_Moniker_std.oaf.in
+
 CLEANFILES+=GNOME_Moniker_std.oaf GNOME_Moniker_std.oaf.in
+
+oafdir = $(datadir)/oaf
+oaf_DATA = \
+	Bonobo_Moniker_ditem.oaf \
+	GNOME_Moniker_std.oaf
+
+@XML_I18N_MERGE_OAF_RULE@
+
+clean-local:
+	-rm -f $(oaf_DATA)
 
 libmoniker_gnome_std_la_SOURCES = \
 	gnome-moniker-std.c		\

@@ -1,5 +1,6 @@
 noinst_PROGRAMS = \
-	test-storage
+	test-storage \
+	test-moniker
 
 INCLUDES = \
 	-I$(srcdir) -I$(top_srcdir) \
@@ -8,6 +9,8 @@ INCLUDES = \
 LDADD =	$(LIBGNOME_LIBS)
 
 test_storage_SOURCES = test-storage.c
+
+test_moniker_SOURCES = test-moniker.c
 
 TESTS_ENVIRONMENT =					\
 	LD_LIBRARY_PATH=$(top_builddir)/libgnome/.libs/	\

@@ -11,6 +11,12 @@ if test -z "$CERTIFIED_GNOMIE"; then
   exit 1
 fi
 
+dnl
+dnl Due to the sed scripts being split on 90 line
+dnl blocks, this macro needs to be right at the beggining.
+dnl
+AM_PROG_XML_I18N_TOOLS
+
 GNOME_COMMON_INIT
 GNOME_PLATFORM_GNOME_2(yes, force)
 
