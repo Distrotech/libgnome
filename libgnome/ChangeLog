@@ -1,3 +1,8 @@
+Fri May 19 22:33:09 2000  George Lebl <jirka@5z.com>
+
+	* gnome-url.c: use poptParseArgvString to parse the handler and
+	  use gnome_exec_async instead of a shell.  No more evil URLs.
+
 Fri May 19 00:01:36 2000  George Lebl <jirka@5z.com>
 
 	* gnome-config.c: add #include <ctype.h> for tolower

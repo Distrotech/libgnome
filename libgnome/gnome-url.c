@@ -25,6 +25,7 @@
 #include <libgnome/gnome-config.h>
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>
+#include "gnome-popt.h" /* poptParseArgvString */
 #include "gnome-url.h"
 
 #define DEFAULT_HANDLER "gnome-moz-remote --newwin \"%s\""
@@ -92,9 +93,11 @@ gnome_url_default_handler ()
 void
 gnome_url_show(const gchar *url)
 {
-	gint len;
-	gchar *pos, *template, *cmd;
+	gint i;
+	gchar *pos, *template;
 	gboolean free_template = FALSE;
+	int argc;
+       	char **argv;
 	
 	g_return_if_fail (url != NULL);
 	pos = strchr (url, ':');
@@ -119,13 +122,33 @@ gnome_url_show(const gchar *url)
 		g_free (protocol);
 	} else /* no : ? -- this shouldn't happen.  Use default handler */
 		template = gnome_url_default_handler ();
-	
-	len = strlen (template) + strlen (url);
-	cmd = g_new (gchar, len);
-	g_snprintf (cmd, len, template, url);
+
+	/* we use a popt function as it does exactly what we want to do and
+	   gnome already uses popt */
+	if(poptParseArgvString(template, &argc, &argv) != 0) {
+		/* can't parse */
+		g_warning("Parse error of '%s'", template);
+		return;
+	}
+
+	/* we can just replace the entry in the array since the
+	 * array is all in one buffer, we won't leak */
+	for(i = 0; i < argc; i++) {
+		if(strcmp(argv[i], "%s") == 0)
+			/* we can safely cast as it will not get freed nor
+			 * modified */
+			argv[i] = (char *)url;
+	}
+
+	/* use execute async, and not the shell, shell is evil and a
+	 * security hole */
+	gnome_execute_async (NULL, argc, argv);
+
 	if (free_template)
 		g_free (template);
 
-	gnome_execute_shell (NULL, cmd);
-	g_free (cmd);
+	/* the way the poptParseArgvString works is that the entire thing
+	 * is allocated as one buffer, so just free will suffice, also
+	 * it must be free and not g_free */
+	free(argv);
 }
