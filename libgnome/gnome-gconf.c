@@ -37,6 +37,16 @@ extern struct poptOption gconf_options[];
 #include <libgnome/libgnome.h>
 #include "gnome-gconf.h"
 
+/**
+ * gnome_gconf_get_gnome_libs_settings_relative:
+ * @subkey: key part below the gnome desktop settings directory
+ *
+ * Description:  Gets the full key name for a GNOME desktop specific
+ * setting.  That is something that affects the whole desktop.  This
+ * space should only be used by the gnome library and core applications.
+ *
+ * Returns:  A newly allocated string
+ **/
 gchar*
 gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
 {
@@ -58,19 +68,32 @@ gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
         return key;
 }
 
+/**
+ * gnome_gconf_get_app_settings_relative:
+ * @program: #GnomeProgram pointer or %NULL for the default
+ * @subkey: key part below the gnome desktop settings directory
+ *
+ * Description:  Gets the full key name for an application specific
+ * setting.  That is "/apps/<application_id>/<subkey>".
+ *
+ * Returns:  A newly allocated string
+ **/
 gchar*
-gnome_gconf_get_app_settings_relative (const gchar *subkey)
+gnome_gconf_get_app_settings_relative (GnomeProgram *program, const gchar *subkey)
 {
         gchar *dir;
         gchar *key;
 
-        dir = g_strconcat("/apps/",
-                          gnome_program_get_name(gnome_program_get()),
-                          NULL);
+	if (program == NULL)
+		program = gnome_program_get ();
+
+        dir = g_strconcat ("/apps/",
+			   gnome_program_get_name (program),
+			   NULL);
 
         if (subkey && *subkey) {
-                key = gconf_concat_dir_and_key(dir, subkey);
-                g_free(dir);
+                key = gconf_concat_dir_and_key (dir, subkey);
+                g_free (dir);
         } else {
                 /* subkey == "" */
                 key = dir;

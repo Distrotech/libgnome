@@ -34,7 +34,8 @@
 /* Get keys relative to the gnome-libs internal per-app directory and the
    application author per-app directory */
 gchar      *gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey);
-gchar      *gnome_gconf_get_app_settings_relative        (const gchar *subkey);
+gchar      *gnome_gconf_get_app_settings_relative        (GnomeProgram *program,
+							  const gchar *subkey);
 
 /* GNOME GConf module; basically what this does is
    create a global GConfClient for a GNOME application; it's used
