@@ -1,4 +1,5 @@
-#include <config.h>
+#include "config.h"
+#include <string.h>
 
 #include <bonobo/bonobo-shlib-factory.h>
 #include "bonobo-moniker-std.h"
