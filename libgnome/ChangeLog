@@ -1,3 +1,35 @@
+Sun Jan 16 02:43:14 2000  George Lebl <jirka@5z.com>
+
+	* gnome-ditem.[ch]: Add a basic "Type" attribute to the structure and
+	  gnome_desktop_item_get_type/set_type accessors
+	  Get and store other sections found in the file.
+	  Fix recognition of files by looking at all lines for the initial
+	  section header.
+	  Add a GNOME_DESKTOP_ITEM_LOAD_NO_OTHER_SECTIONS flag that will
+	  inhibit reading of other sections from files to speed up loading.
+	  Use gnome_config_sync_file and not gnome_config_sync
+	  Remove the tree reading/writing support, it's not justifiable
+	  for this to be in ditem, we need a separate simpler loader for
+	  trees.
+	  Add get_order/set_order functions for getting and setting the
+	  order of items for a directory ditem.
+	  Still read and store keys that have an empty value.
+	  Store the entire location in location, not just the basename.
+	  The _get_languages function gets a union of all languages from
+	  name and comment.
+	  The _save function sets the location to the new location.
+	  The _get_file_status no longer takes 'under' as we store the entire
+	  Actually start a terminal if we need to.
+	  Check the type (if set) before a launch (assume
+	  "KonsoleApplication" for kde things is an application for the
+	  terminal)
+	  Make world peace possible.
+	  Fix getting the terminal flag
+	  Allow clearing of names, comments and attributes by passing
+	  nulls as the new value.
+	  Allow mass clearing of names and comments.
+	  For _set_name and _set_comment default language to "C" if NULL.
+
 Sat Jan 15 00:53:48 2000  George Lebl <jirka@5z.com>
 
 	* gnome-dentry.c, gnome-exec.c, gnome-moz-remote2.c, gnome-util.c:
