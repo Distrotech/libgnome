@@ -18,8 +18,8 @@ typedef struct {
 	char *location;		/* path of this dentry */
 	char *geometry;		/* geometry for this icon */
 	
-	/* These are computed from icon_base */
 	unsigned int multiple_args:1;
+	unsigned int is_kde:1;  /* If this is a .kdelink file */
 } GnomeDesktopEntry;
 
 GnomeDesktopEntry *gnome_desktop_entry_load (const char *file);

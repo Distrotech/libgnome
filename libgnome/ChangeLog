@@ -1,3 +1,14 @@
+1999-04-05 Owen Taylor  <otaylor@redhat.com>
+
+	* gnome-dentry.c (gnome_desktop_entry_launch_with_args): Always
+	use /bin/sh to launch desktop entries, not the user shell.
+
+1999-03-11 Owen Taylor  <otaylor@redhat.com>
+
+	* gnome-dentry.[ch]: Add support for reading in .kdelnk
+	files and doing the proper subsitutions when launching
+	.kdelnk files.
+
 1999-04-05  Owen Taylor  <otaylor@redhat.com>
 
 	* dns-helper.c (main): NULL terminate the input

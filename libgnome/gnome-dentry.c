@@ -52,6 +52,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 	int exec_length;
 	char *icon_base;
 	char *p = NULL;
+	gboolean is_kde = FALSE;
 	
 	g_assert (file != NULL);
 
@@ -62,7 +63,18 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 	name = gnome_config_get_translated_string ("Name");
 	if (!name) {
 		gnome_config_pop_prefix ();
-		return NULL;
+
+		prefix = g_strconcat ("=", file, "=/KDE Desktop Entry/", NULL);
+		gnome_config_push_prefix (prefix);
+		g_free (prefix);
+
+		is_kde = TRUE;
+
+		name = gnome_config_get_translated_string ("Name");
+		if (!name) {
+			gnome_config_pop_prefix ();
+			return NULL;
+		}
 	}
 
 	/* FIXME: we only test for presence of Exec/TryExec keys if
@@ -103,12 +115,27 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 	newitem->geometry      = gnome_config_get_string ("Geometry");
 	newitem->multiple_args = gnome_config_get_bool   ("MultipleArgs=0");
 	newitem->location      = g_strdup (file);
-	icon_base	       = gnome_config_get_string ("Icon");
-	
+	newitem->is_kde       =  is_kde;
+
+	icon_base              = gnome_config_get_string ("Icon");
+
 	if (icon_base && *icon_base) {
 		/* Sigh, now we need to make them local to the gnome install */
 		if (*icon_base != '/') {
-			newitem->icon = gnome_pixmap_file (icon_base);
+			/* We look for KDE icons in hardcoded /usr/share/icons
+			 * I don't how we can efficiently look in the "right"
+			 * place - maybe a configure time test for KDE location?
+			 */
+			if (newitem->is_kde) {
+				gchar *iconname = g_concat_dir_and_file ("/usr/share/icons/", icon_base);
+				if (g_file_exists (iconname))
+					newitem->icon = iconname;
+				else {
+					g_free (iconname);
+					newitem->icon = NULL;
+				}
+			} else
+				newitem->icon = gnome_pixmap_file (icon_base);
 			g_free (icon_base);
 		} else
 			newitem->icon = icon_base;
@@ -185,8 +212,9 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	
 /* XXX:this should have same clean_from_memory logic as above maybe??? */
 	
-	g_assert (dentry != NULL);
-	g_assert (dentry->location != NULL);
+	g_return_if_fail (dentry != NULL);
+	g_return_if_fail (dentry->location != NULL);
+	g_return_if_fail (!dentry->is_kde);
 
 	prefix = g_strconcat ("=", dentry->location, "=/Desktop Entry/", NULL);
 	gnome_config_clean_section (prefix);
@@ -251,6 +279,79 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
 	}
 }
 
+/* Replace the KDE subsitution strings %... in this argument
+ * if any are found, returns g_malloc()'d string containing
+ * new argument, otherwise NULL.
+ */
+static gchar *
+gnome_desktop_entry_sub_kde_arg (GnomeDesktopEntry *item, gchar *arg)
+{
+	char *p, *q;
+	char tmp;
+	GString *result = NULL;
+
+	p = arg;
+	q = strchr(arg, '%');
+	while (q) {
+		tmp = *q;
+		*q = '\0';
+		if (!result)
+			result = g_string_new (p);
+		else
+			g_string_append (result, p);
+		*q = tmp;
+
+		q++;
+		switch (*q) {
+		case '\0':
+			q = NULL;
+			p = NULL;
+			break;
+		case 'c':
+			/* The comment field */
+			if (item->comment)
+				g_string_append (result, item->comment);
+			break;
+		case 'i':
+			/* The item field */
+			if (item->icon) {
+				g_string_append (result, "-icon ");
+				g_string_append (result, item->icon);
+			}
+			break;
+		case 'm':
+			/* The mini-icon field. Ignore for now.
+			 * sometime this seems to be %mi, so we
+			 * ignore that too.
+			 */
+			if (*(q+1) == 'i')
+				q++;
+			break;
+		case 'f': /* File arguments */
+		case 'u': /* File arguments as URLs */
+		default:
+			break;
+		}
+
+		if (q) {
+			p = q + 1;
+			q = strchr (p, '%');
+		}
+	}
+
+	if (result) {
+		char *r = result->str;
+		
+		if (p)
+			g_string_append (result, p);
+		arg = result->str;
+		g_string_free (result, FALSE);
+
+		return r;
+	} else
+		return NULL;
+}
+
 /**
  * gnome_desktop_entry_launch_with_args:
  * @item: a gnome desktop entry.
@@ -265,67 +366,74 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 {
 	char *uargv[4];
 	char *exec_str;
+	char **term_argv;
+	int term_argc = 0;
+	char *xterm_argv[2];
+	char **argv;
+	GSList *args_to_free = NULL;
+	gchar *sub_arg;
+	int i, argc;
 
 	g_assert (item != NULL);
 
-	if (item->terminal) {
-		char **term_argv;
-		int term_argc;
-		char *xterm_argv[2];
-		char **argv;
-		int i, argc;
-
-		gnome_config_get_vector ("/Gnome/Applications/Terminal",
-					 &term_argc, &term_argv);
-		if (term_argv == NULL) {
-			term_argc = 2;
-			term_argv = xterm_argv;
-			xterm_argv[0] = "xterm";
-			xterm_argv[1] = "-e";
+	if (!item->terminal && the_argc == 0 && !item->is_kde)
+	    exec_str = g_strjoinv (" ", (char **)(item->exec));
+	else {
+		if (item->terminal) {
+			gnome_config_get_vector ("/Gnome/Applications/Terminal",
+						 &term_argc, &term_argv);
+			if (term_argv == NULL) {
+				term_argc = 2;
+				term_argv = xterm_argv;
+				xterm_argv[0] = "xterm";
+				xterm_argv[1] = "-e";
+			}
 		}
-
+		
+		/* ... terminal arguments */
 		argc = the_argc + term_argc + item->exec_length;
 		argv = (char **) g_malloc ((argc + 1) * sizeof (char *));
 
+		/* Assemble together... */
+
+		/* ... terminal arguments */
 		for (i = 0; i < term_argc; ++i)
 			argv[i] = term_argv[i];
 
-		for (i = 0; i < item->exec_length; ++i)
-			argv[term_argc + i] = item->exec[i];
-
+		/* ... arguments from the desktop file */
+		for (i = 0; i < item->exec_length; ++i) {
+			if (item->is_kde) {
+				sub_arg = gnome_desktop_entry_sub_kde_arg (item, item->exec[i]);
+				if (sub_arg) {
+					args_to_free = g_slist_prepend (args_to_free, sub_arg);
+					argv[term_argc + i] = sub_arg;
+				} else
+					argv[term_argc + i] = item->exec[i];
+			} else
+				argv[term_argc + i] = item->exec[i];
+		}
+		
+		/* ... supplied arguments */
 		for (i = 0; i < the_argc; i++)
 			argv[term_argc + item->exec_length + i] = the_argv [i];
 		
 		argv[argc] = NULL;
 		
 		exec_str = g_strjoinv (" ", (char **)argv);
-
-		if (term_argv != xterm_argv)
+		
+		/* clean up */
+		if (term_argc && term_argv != xterm_argv)
 			g_strfreev (term_argv);
 
-		g_free ((char *) argv);
-	} else {
-		if (the_argc != 0){
-			char **argv;
-			int i, argc;
-			argc = the_argc + item->exec_length;
-			argv = (char **) g_malloc ((argc + 1) * sizeof (char *));
-
-			for (i = 0; i < item->exec_length; i++)
-				argv [i] = item->exec [i];
-			for (i = 0; i < the_argc; i++)
-				argv [item->exec_length + i] = the_argv [i];
-			argv [argc] = NULL;
-
-			exec_str = g_strjoinv (" ", (char **)argv);
-
-			g_free ((char *) argv);
-		} else {
-			exec_str = g_strjoinv (" ", (char **)(item->exec));
+		if (args_to_free) {
+			g_slist_foreach (args_to_free, (GFunc)g_free, NULL);
+			g_slist_free (args_to_free);
 		}
+		
+		g_free ((char *) argv);
 	}
 
-	uargv[0] = gnome_util_user_shell ();
+	uargv[0] = "/bin/sh";
 	uargv[1] = "-c";
 	uargv[2] = exec_str;
 	uargv[3] = NULL;
@@ -333,7 +441,6 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	/* FIXME: do something if there's an error.  */
 	gnome_execute_async (NULL, 4, uargv);
 
-	free (uargv[0]);
 	g_free (exec_str);
 }
 
