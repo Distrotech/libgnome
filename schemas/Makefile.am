@@ -32,4 +32,4 @@ if GCONF_SCHEMAS_INSTALL
 	fi
 endif
 
-EXTRA_DIST = $(schema_in_files)
+EXTRA_DIST = $(schema_DATA)
