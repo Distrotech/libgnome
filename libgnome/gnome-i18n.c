@@ -248,7 +248,7 @@ static GHashTable *category_table= NULL;
  * is appended to the list if it does not already appear (other routines depend on this behaviour).
  * If @category_name is %NULL, then LC_ALL is assumed.
  * 
- * Return value: the list of languages
+ * Return value: the list of languages, this list should not be freed as it is owned by gnome-i18n
  **/
 GList *
 gnome_i18n_get_language_list (const gchar *category_name)
