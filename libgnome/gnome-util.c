@@ -55,7 +55,8 @@ const char gnome_file_domain_app_help[]="help";
 char *
 gnome_file_locate (const char *domain, const char *filename, gboolean only_if_exists, GSList **ret_locations)
 {
-  char *retval = NULL, *lastval, *dir = NULL, *prefix_rel = NULL, *envvar, *attr_name, *attr_rel;
+  char *retval = NULL, *lastval, *dir = NULL, *prefix_rel = NULL, *envvar = NULL;
+  const char *attr_name = NULL, *attr_rel = NULL;
   char fnbuf[PATH_MAX];
 
   g_return_val_if_fail(domain, NULL);

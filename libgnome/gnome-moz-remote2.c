@@ -269,7 +269,7 @@ mozilla_window_goto(Display *dpy, Window winid, const char *url)
 
 int main(int argc, char **argv)
 {
-  char **args;
+  const char **args;
   poptContext ctx;
   int i;
   Display *dpy;

@@ -650,7 +650,7 @@ gnome_desktop_entry_copy (GnomeDesktopEntry * source)
 	newitem->name          = g_strdup (source->name);
 	newitem->comment       = g_strdup (source->comment);
 	newitem->exec_length   = source->exec_length;
-	newitem->exec          = g_copy_vector (source->exec);
+	newitem->exec          = g_copy_vector ((const char **)source->exec);
 	newitem->tryexec       = g_strdup (source->tryexec);
 	newitem->docpath       = g_strdup (source->docpath);
 	newitem->terminal      = source->terminal;
