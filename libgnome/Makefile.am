@@ -67,7 +67,7 @@ noinst_HEADERS = \
 
 EXTRA_DIST = lib_date.README
 
-libgnome_la_LDFLAGS = -version-info 0:0:0 -rpath $(libdir)
+libgnome_la_LDFLAGS = -version-info 26:0:26 -rpath $(libdir)
 libgnome_la_LIBADD = $(GLIB_LIBS) -lm $(DL_LIB)
 
 bin_PROGRAMS = dns-helper
