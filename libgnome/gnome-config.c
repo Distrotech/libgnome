@@ -572,7 +572,7 @@ dump_profile (TProfile *p, int one_only)
 	if (!p)
 		return;
 	if(!one_only)
-		dump_profile (p->link);
+		dump_profile (p->link,FALSE);
 	
 	/*
 	 * was this profile written to?, if not it's not necessary to dump
@@ -642,8 +642,19 @@ gnome_config_sync (void)
  * configuration files until this routine or gnome_config_sync 
  * is actually invoked.
  */
+/**
+ * gnome_config_private_sync_file:
+ * @path: A gnome-config path
+ *
+ * Writes all of the information modified by gnome-config to the
+ * disk for the given private file.
+ *
+ * Note: the gnome_config code does not write anything to the
+ * configuration files until this routine or gnome_config_sync 
+ * is actually invoked.
+ */
 void 
-gnome_config_sync_file (char *path)
+_gnome_config_sync_file (char *path, int priv)
 {
 	TProfile *p;
 	ParsedPath *pp;
