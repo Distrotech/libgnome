@@ -42,7 +42,8 @@
 #include <libgnome/gnome-url.h>
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-ditem.h>
-#include <libgnome/gnomelib-init.h>
+
+extern GnomeModuleInfo libgnome_module_info;
 
 #ifdef COMPAT_1_0
 #include <compat/1.0/libgnome/libgnome-compat-1.0.h>

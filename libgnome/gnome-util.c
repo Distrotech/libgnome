@@ -54,7 +54,6 @@
 #include "gnome-defs.h"
 #include "gnome-util.h"
 #include "gnome-program.h"
-#include "gnomelib-init.h"
 
 /**
  * g_concat_dir_and_file:
