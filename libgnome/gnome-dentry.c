@@ -528,7 +528,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	int i, argc, uargs=4;
 	int envc = 0;
 	char **envp = NULL;
-	char *xalf;
+	char *xalf = NULL;
 
 	g_assert (item != NULL);
 
