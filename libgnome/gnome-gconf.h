@@ -33,8 +33,11 @@
 #include <gtk/gtkspinbutton.h>
 #include <gtk/gtktogglebutton.h>
 #include <gtk/gtkradiobutton.h>
-#include <libgnomebase/gnome-program.h>
 #include "gnome-color-picker.h"
+
+#include <libgnomebase/gnome-program.h>
+#include <libgnome/libgnome-init.h>
+
 /* GTK Widgets */
 GConfValue *gnome_gconf_gtk_entry_get          (GtkEntry         *entry,
 						GConfValueType    type);
@@ -76,10 +79,7 @@ gchar      *gnome_gconf_get_app_settings_relative        (const gchar *subkey);
    GConf
 */
 
-GConfClient *gnome_get_gconf_client (void);
-
-extern GnomeModuleInfo gnome_gconf_module_info;
-#define GNOME_GCONF_INIT GNOME_PARAM_MODULE,&gnome_gconf_module_info
+#define gnome_get_gconf_client() gnome_program_get_gconf_client (gnome_program_get ())
 
 #endif
 
