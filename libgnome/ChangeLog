@@ -1,3 +1,14 @@
+2001-08-03  Martin Baulig  <baulig@suse.de>
+
+	* Makefile.am: Create gnomesoundplugin_csl.la and install it
+	in $(libdir)/gnome-2.0/sound-plugins/ if we have CSL.
+
+	* gnome-sound.[ch]: The new GNOME Sound API.
+
+	* gnome-sound-csl.c: This is the sound plugin module for CSL.
+
+	* test-sound.c: New file.
+
 2001-08-01  Martin Baulig  <baulig@suse.de>
 
 	* gnome-paper.[ch]: Removed.

@@ -30,20 +30,107 @@
 
 G_BEGIN_DECLS
 
-/* Use this with the Esound functions */
-extern int gnome_sound_connection;
+typedef struct _GnomeSoundSample GnomeSoundSample;
+typedef struct _GnomeSoundPlugin GnomeSoundPlugin;
 
-/* Initialize esd connection */
-void gnome_sound_init(const char *hostname);
+struct _GnomeSoundPlugin {
+    gulong version;
+    const gchar *name;
 
-/* Closes esd connection */
-void gnome_sound_shutdown(void);
+    gboolean (*init) (const gchar *backend_args,
+		      GError **error);
+    void (*shutdown) (GError **error);
 
-/* Returns the Esound sample ID for the sample */
-int gnome_sound_sample_load(const char *sample_name, const char *filename);
+    void (*play_file) (const gchar *filename,
+		       GError **error);
 
-/* Loads sample, plays sample, frees sample */
-void gnome_sound_play (const char * filename);
+    GnomeSoundSample * (*sample_new) (const gchar *name,
+				      GError **error);
+    int (*sample_write) (GnomeSoundSample *gs,
+			 guint n_bytes, gpointer bytes,
+			 GError **error);
+    void (*sample_write_done) (GnomeSoundSample *gs,
+			       GError **error);
+
+    GnomeSoundSample * (*sample_new_from_file) (const gchar *filename,
+						GError **error);
+    void (*sample_play) (GnomeSoundSample *gs,
+			 GError **error);
+    gboolean (*sample_is_playing) (GnomeSoundSample *gs,
+				   GError **error);
+    void (*sample_stop) (GnomeSoundSample *gs,
+			 GError **error);
+    void (*sample_wait_done) (GnomeSoundSample *gs,
+			      GError **error);
+    void (*sample_release) (GnomeSoundSample *gs,
+			    GError **error);
+};
+
+typedef enum
+{
+    /* no sound driver */
+    GNOME_SOUND_ERROR_NODRIVER,
+    /* not implemented */
+    GNOME_SOUND_ERROR_NOT_IMPLEMENTED,
+    /* device busy */
+    GNOME_SOUND_ERROR_DEVICE_BUSY,
+    /* I/O eror */
+    GNOME_SOUND_ERROR_IO,
+    /* Insufficient permissions */
+    GNOME_SOUND_ERROR_PERMS,
+    /* misc error */
+    GNOME_SOUND_ERROR_MISC
+} GnomeSoundError;
+
+#define GNOME_SOUND_ERROR gnome_sound_error_quark ()
+GQuark gnome_sound_error_quark (void) G_GNUC_CONST;
+
+void gnome_sound_init (const gchar *driver_name,
+		       const gchar *backend_args,
+		       const GnomeSoundPlugin *opt_plugin,
+		       GError **error);
+
+void gnome_sound_shutdown (GError **error);
+
+void gnome_sound_play (const char *filename,
+		       GError **error);
+
+GnomeSoundSample *
+gnome_sound_sample_new_from_file (const char *filename,
+				  GError **error);
+
+GnomeSoundSample *
+gnome_sound_sample_new (const char *sample_name,
+			GError **error);
+
+int
+gnome_sound_sample_write (GnomeSoundSample *gs,
+			  guint n_bytes, gpointer bytes,
+			  GError **error);
+
+void
+gnome_sound_sample_write_done (GnomeSoundSample *gs,
+			       GError **error);
+
+void
+gnome_sound_sample_play (GnomeSoundSample *gs,
+			 GError **error);
+
+gboolean
+gnome_sound_sample_is_playing (GnomeSoundSample *gs,
+			       GError **error);
+
+void
+gnome_sound_sample_stop (GnomeSoundSample *gs,
+			 GError **error);
+
+void
+gnome_sound_sample_wait_done (GnomeSoundSample *gs,
+			      GError **error);
+
+void
+gnome_sound_sample_release (GnomeSoundSample *gs,
+			    GError **error);
 
 G_END_DECLS
 
