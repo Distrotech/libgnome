@@ -1,5 +1,11 @@
 2001-05-31  Martin Baulig  <baulig@suse.de>
 
+	* Gnome_Selector.idl (GNOME::Selector::getControl): raises(SelectorHasNoUI).
+	(GNOME::SelectorFactory::createSelector): Return a Bonobo::Unknown which can
+	be QI'ed for GNOME::Selector and Bonobo::Control.
+
+2001-05-31  Martin Baulig  <baulig@suse.de>
+
 	* Gnome_Selector.idl (GNOME::Selector::AsyncID): Moved to GNOME::AsyncID.
 	(GNOME::SelectorDialog): Removed this interface.
 	(GNOME::Selector): Improved this interface a lot.
