@@ -174,6 +174,8 @@ unlock (void)
 void
 gnome_metadata_lock ()
 {
+	if (! database)
+		init ();
 	lock ();
 }
 
