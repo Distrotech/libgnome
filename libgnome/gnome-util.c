@@ -286,7 +286,7 @@ g_file_exists (const char *filename)
  *
  * NOTE: This function is deprecated.  Use GLib's g_strconcat() instead.
  */
-#undef g_copy_strings
+#if 0
 char *
 g_copy_strings (const char *first, ...)
 {
@@ -321,6 +321,7 @@ g_copy_strings (const char *first, ...)
 	
 	return result;
 }
+#endif
 
 /**
  * g_unix_error_string:
