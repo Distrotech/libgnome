@@ -73,15 +73,6 @@ main(int argc, char **argv) {
 		return(0);
 	}
 
-	/* use libxml2 catalog routine to retrieve catalog *
-	 * info to speed dtd resolution                    */
-	gdb_catalogs = getenv("SGML_CATALOG_FILES");
-	if (gdb_catalogs == NULL) {
-		fprintf(stderr, "Variable $SGML_CATALOG_FILES not set\n");
-	} else {
-		xmlLoadCatalogs(gdb_catalogs);
-	}
-
 	gdb_docname = argv[1];
 
 
