@@ -5,7 +5,7 @@ includedir=@includedir@
 
 Name: libgnome
 Description: libgnome
-Requires: glib-2.0 ORBit-2.0 gconf-2.0 @LIBGNOME_EXTRA_DEPS@
+Requires: glib-2.0 ORBit-2.0 gconf-2.0 libgnomebase-2.0 @LIBGNOME_EXTRA_DEPS@
 Version: @VERSION@
-Libs: -L${libdir} -lgnome-@GNOME_INTERFACE_VERSION@
-Cflags: -I${includedir}/gnome/@GNOME_INTERFACE_VERSION@
+Libs: -L${libdir} -lgnome-2
+Cflags: -I${includedir}/gnome/2
