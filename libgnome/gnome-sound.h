@@ -52,8 +52,16 @@ struct _GnomeSoundPlugin {
     void (*sample_write_done) (GnomeSoundSample *gs,
 			       GError **error);
 
+    void (*cache_add_sample) (GnomeSoundSample *sample,
+			      GError **error);
+    void (*cache_remove_sample) (GnomeSoundSample *sample,
+				 GError **error);
+
     GnomeSoundSample * (*sample_new_from_file) (const gchar *filename,
 						GError **error);
+    GnomeSoundSample * (*sample_new_from_cache) (const gchar *name,
+						 GError **error);
+
     void (*sample_play) (GnomeSoundSample *gs,
 			 GError **error);
     gboolean (*sample_is_playing) (GnomeSoundSample *gs,
@@ -92,12 +100,24 @@ void gnome_sound_init (const gchar *driver_name,
 
 void gnome_sound_shutdown (GError **error);
 
+gboolean gnome_sound_enabled (void);
+
 void gnome_sound_play (const char *filename,
 		       GError **error);
+
+void
+gnome_sound_cache_add_sample (GnomeSoundSample *sample, GError **error);
+
+void
+gnome_sound_cache_remove_sample (GnomeSoundSample *sample, GError **error);
 
 GnomeSoundSample *
 gnome_sound_sample_new_from_file (const char *filename,
 				  GError **error);
+
+GnomeSoundSample *
+gnome_sound_sample_new_from_cache (const char *name,
+				   GError **error);
 
 GnomeSoundSample *
 gnome_sound_sample_new (const char *sample_name,

@@ -86,6 +86,33 @@ gnome_sound_csl_sample_new_from_file (const char *filename, GError **error)
 }
 
 static GnomeSoundSample *
+gnome_sound_csl_sample_new_from_cache (const char *name, GError **error)
+{
+    CslErrorType err;
+    CslSample *sample;
+    GnomeSoundSample *retval;
+
+    if (!gnome_sound_csl_driver)
+	return NULL;
+
+    err = csl_sample_new_from_cache (gnome_sound_csl_driver, name,
+				    "gnome_sound_csl_sample_new", NULL,
+				    &sample);
+    if (err) {
+	csl_warning ("unable to create sample from cache '%s': %s",
+		     name, csl_strerror (err));
+	return NULL;
+    }
+
+    retval = g_new0 (GnomeSoundSample, 1);
+    retval->sample = sample;
+
+    g_ptr_array_add (active_samples, retval);
+
+    return retval;
+}
+
+static GnomeSoundSample *
 gnome_sound_csl_sample_new (const char *sample_name, GError **error)
 {
     CslErrorType err;
@@ -112,6 +139,18 @@ gnome_sound_csl_sample_new (const char *sample_name, GError **error)
     return retval;
 }
 
+static void
+gnome_sound_csl_cache_add_sample (GnomeSoundSample *gs, GError **error)
+{
+    csl_sample_cache_add (gs->sample);
+}
+
+static void
+gnome_sound_csl_cache_remove_sample (GnomeSoundSample *gs, GError **error)
+{
+    csl_sample_cache_remove (gs->sample);
+}
+
 static int
 gnome_sound_csl_sample_write (GnomeSoundSample *gs,
 			      guint n_bytes, gpointer bytes,
@@ -121,7 +160,7 @@ gnome_sound_csl_sample_write (GnomeSoundSample *gs,
 }
 
 static void
-gnome_sound_csl_sample_write_done (GnomeSoundSample *gs)
+gnome_sound_csl_sample_write_done (GnomeSoundSample *gs, GError **error)
 {
     csl_sample_write_done (gs->sample);
 }
@@ -209,7 +248,10 @@ GnomeSoundPlugin gnome_sound_plugin = {
     gnome_sound_csl_sample_new,
     gnome_sound_csl_sample_write,
     gnome_sound_csl_sample_write_done,
+    gnome_sound_csl_cache_add_sample,
+    gnome_sound_csl_cache_remove_sample,
     gnome_sound_csl_sample_new_from_file,
+    gnome_sound_csl_sample_new_from_cache,
     gnome_sound_csl_sample_play,
     gnome_sound_csl_sample_is_playing,
     gnome_sound_csl_sample_stop,

@@ -27,6 +27,7 @@
 #define __GNOME_TRIGGERS_H__
 
 #include <glib.h>
+#include <libgnome/gnome-sound.h>
 
 G_BEGIN_DECLS
 
@@ -50,7 +51,7 @@ struct _GnomeTrigger {
 		gchar *command;
 		struct {
 			gchar *file;
-			int cache_id;
+			GnomeSoundSample *sample;
 		} media;
 	} u;
         gchar *level;

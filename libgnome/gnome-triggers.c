@@ -29,15 +29,8 @@
 
 #include "gnome-triggers.h"
 #include "gnome-triggersP.h"
-#include "gnome-config.h"
 #include "gnome-util.h"
-#if 0
 #include "gnome-sound.h"
-
-#ifdef HAVE_ESD
-#include <esd.h>
-#endif
-#endif
 
 #include <unistd.h>
 #include <stdio.h>
@@ -92,158 +85,6 @@ void
 gnome_triggers_init(void)
 {
 }
-
-#if 0
-/* snarfed almost directly from sound-properties. */
-static gint
-gnome_triggers_read_path(const char *config_path)
-{
-  DIR *dirh;
-  char *category_name, *sample_name, *sample_file, *ctmp;
-  gpointer top_iter, event_iter;
-  struct dirent *dent;
-  GnomeTrigger nt;
-  GString *tmpstr;
-
-  nt.type = GTRIG_MEDIAPLAY;
-  nt.level = NULL;
-  nt.u.media.cache_id = -1;
-
-  dirh = opendir(config_path);
-  if(!dirh)
-    return -1;
-
-  tmpstr = g_string_new(NULL);
-
-  while((dent = readdir(dirh))) {
-    /* ignore no-good dir entries.
-       We ignore "gnome" because the system sounds are listed in there.
-    */
-    if (!strcmp(dent->d_name, ".")
-	|| !strcmp(dent->d_name, "..")
-	|| !strcmp(dent->d_name, "gnome")
-	|| !strcmp(dent->d_name, "gnome.soundlist"))
-      continue;
-
-    g_string_sprintf(tmpstr, "=%s/%s=", config_path, dent->d_name);
-
-    gnome_config_push_prefix(tmpstr->str);
-
-    event_iter = gnome_config_init_iterator_sections(tmpstr->str);
-    while((event_iter = gnome_config_iterator_next(event_iter,
-						   &sample_name, NULL))) {
-      if(!strcmp(sample_name, "__section_info__"))
-	goto continue_loop;
-
-      g_string_sprintf(tmpstr, "%s/file", sample_name);
-      sample_file = gnome_config_get_string(tmpstr->str);
-
-      if(!sample_file || !*sample_file) {
-	g_free(sample_name);
-	continue;
-      }
-
-      if(*sample_file != '/') {
-	char *tmp = gnome_sound_file(sample_file);
-	g_free(sample_file);
-	sample_file = tmp;
-      }
-
-      ctmp = g_strdup(dent->d_name);
-      if(strstr(ctmp, ".soundlist"))
-	*strstr(ctmp, ".soundlist") = '\0';
-
-      nt.u.media.file = sample_file;
-      gnome_triggers_add_trigger(&nt, ctmp, sample_name, NULL);
-      
-      g_free(ctmp);
-
-    continue_loop:
-      g_free(sample_name);
-    }
-
-    gnome_config_pop_prefix();
-  }
-  closedir(dirh);
-
-  g_string_free(tmpstr, TRUE);
-
-  return 0;
-}
-/**
- * gnome_triggers_readfile:
- * @infilename: A file listing triggers to install in the currently
- * running program.
- *
- * The file should be of the format:
- *
- *    level section type params
- *
- * Where 'level' indicates the message severity at which this trigger
- * should be activated, 'section' is a colon-separated list indicating
- * which part of the "message classification tree" this trigger will
- * be activated for, 'type' is either "command" (run the command
- * specified in 'params') or 'play' (play the esd sound sample named
- * 'params').
- *
- * Returns 0 on success.  1 otherwise.
- *
- */
-gint
-gnome_triggers_readfile(const char *infilename)
-{
-  GnomeTrigger* nt;
-  char aline[512];
-  char **subnames = NULL;
-  char **parts = NULL;
-  FILE *infile;
-  int i;
-
-  infile = fopen(infilename, "r");
-  if(infile == NULL)
-    return 1;
-
-  nt = gnome_trigger_dup(NULL);
-  while(fgets(aline, sizeof(aline), infile)) {
-    i = strlen(aline) - 1;
-    while(isspace(aline[i])) aline[i--] = '\0';
-
-    if(aline[0] == '\0' || aline[0] == '#')
-      continue;
-
-    parts = g_strsplit(aline, " ", 4);
-    if(!parts || !parts[0] || !parts[1] || !parts[2] || !parts[3]) {
-      g_strfreev(parts);
-      g_warning("Invalid triggers line \'%s\'\n", aline);
-      continue;
-    }
-
-    if(!strcmp(parts[1], "NULL")) {
-      subnames = g_malloc(sizeof(gchar *));
-      subnames[0] = NULL;
-    } else
-      subnames = g_strsplit(parts[1], ":", -1);
-
-    if(!strcmp(parts[2], "command"))
-      nt->type = GTRIG_COMMAND;
-    else if(!strcmp(parts[2], "play"))
-      nt->type = GTRIG_MEDIAPLAY;
-    nt->u.command = parts[3];
-    if(!strcmp(parts[0], "NULL"))
-      nt->level = NULL;
-    else
-      nt->level = parts[0];
-    gnome_triggers_vadd_trigger(nt, subnames);
-
-    g_strfreev(subnames);
-    g_strfreev(parts);
-  }
-  g_free(nt);
-  fclose(infile);
-
-  return 0;
-}
-#endif
 
 /**
  * gnome_triggers_add_trigger:
@@ -412,28 +253,24 @@ gnome_triggers_do(const char *msg, const char *level, ...)
 static void
 gnome_triggers_play_sound(const char *sndname)
 {
-#if defined(HAVE_ESD) && 0
-  int sid;
-  static GHashTable *sound_ids = NULL;
+  GnomeSoundSample *sample;
+  static GHashTable *sound_samples = NULL;
 
-  if(gnome_sound_connection < 0) return;
+  if(!gnome_sound_enabled()) return;
 
-  if(!sound_ids)
-    sound_ids = g_hash_table_new(g_str_hash, g_str_equal);
+  if(!sound_samples)
+    sound_samples = g_hash_table_new(g_str_hash, g_str_equal);
 
-  sid = GPOINTER_TO_INT(g_hash_table_lookup(sound_ids, sndname));
+  sample = g_hash_table_lookup(sound_samples, sndname);
 
-  if(!sid) {
-    sid = esd_sample_getid(gnome_sound_connection, sndname);
-    if(sid >= 0) sid++;
-    g_hash_table_insert(sound_ids, g_strdup(sndname), GINT_TO_POINTER(sid));
+  if(!sample) {
+    sample = gnome_sound_sample_new_from_cache(sndname, NULL);
+    if(sample)
+      g_hash_table_insert(sound_samples, g_strdup(sndname), sample);
   }
 
-  if(sid < 0) return;
-  sid--;
-  esd_sample_play(gnome_sound_connection, sid);
-#endif
-  /* If there's no esound, this is just a no-op */
+  if(!sample) return;
+  gnome_sound_sample_play(sample, NULL);
 }
 
 /**
@@ -593,13 +430,11 @@ gnome_trigger_do_mediaplay(GnomeTrigger* t,
 			   const char *level,
 			   const char *supinfo[])
 {
-#if defined(HAVE_ESD) && 0
-  if(gnome_sound_connection == -1)
+  if(!gnome_sound_enabled())
     return;
 
-  if(t->u.media.cache_id >= 0)
-    esd_sample_play(gnome_sound_connection, t->u.media.cache_id);
-  else if(t->u.media.cache_id == -1)
-    gnome_sound_play(t->u.media.file);
-#endif
+  if(t->u.media.sample)
+    gnome_sound_sample_play(t->u.media.sample, NULL);
+  else if(t->u.media.file)
+    gnome_sound_play(t->u.media.file, NULL);
 }

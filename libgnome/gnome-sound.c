@@ -53,7 +53,25 @@ gnome_sound_play (const char *filename, GError **error)
     if (sound_plugin)
 	sound_plugin->play_file (filename, error);
     else
-    _gnome_sound_error_nodriver (error);
+	_gnome_sound_error_nodriver (error);
+}
+
+void 
+gnome_sound_cache_add_sample (GnomeSoundSample *gs, GError **error)
+{
+    if (sound_plugin)
+	sound_plugin->cache_add_sample (gs, error);
+    else
+	_gnome_sound_error_nodriver (error);
+}
+
+void 
+gnome_sound_cache_remove_sample (GnomeSoundSample *gs, GError **error)
+{
+    if (sound_plugin)
+	sound_plugin->cache_remove_sample (gs, error);
+    else
+	_gnome_sound_error_nodriver (error);
 }
 
 GnomeSoundSample *
@@ -61,6 +79,17 @@ gnome_sound_sample_new_from_file (const char *filename, GError **error)
 {
     if (sound_plugin)
 	return sound_plugin->sample_new_from_file (filename, error);
+    else {
+	_gnome_sound_error_nodriver (error);
+	return NULL;
+    }
+}
+
+GnomeSoundSample *
+gnome_sound_sample_new_from_cache (const char *name, GError **error)
+{
+    if (sound_plugin)
+	return sound_plugin->sample_new_from_cache (name, error);
     else {
 	_gnome_sound_error_nodriver (error);
 	return NULL;
@@ -222,4 +251,10 @@ gnome_sound_shutdown (GError **error)
 	g_module_close (sound_plugin_module);
 	sound_plugin_module = NULL;
     }
+}
+
+gboolean
+gnome_sound_enabled (void)
+{
+    return sound_plugin != NULL;
 }

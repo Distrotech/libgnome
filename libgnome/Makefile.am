@@ -55,6 +55,7 @@ libgnome_src = \
 	libgnometypebuiltins.c	\
 	gnome-program.c		\
 	gnome-sound.c		\
+	gnome-triggers.c	\
 	gnome-exec.c		\
 	gnome-url.c		\
 	gnome-util.c		\
