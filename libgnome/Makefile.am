@@ -51,6 +51,8 @@ idl_flags = -I $(datadir)/idl -D__GNOME_COMPILATION
 $(CORBA_SOURCE): $(idls)
 	$(ORBIT_IDL) $(top_srcdir)/idl/Gnome.idl -I$(top_srcdir)/idl $(idl_flags)
 
+libgnometypebuiltins.h libgnometypebuiltins.c: $(CORBA_SOURCE)
+
 libgnome_2_la_SOURCES = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
