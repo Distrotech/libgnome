@@ -802,6 +802,58 @@ gnome_config_get_bool_with_default (const char *path, int *def)
 }
 
 void
+gnome_config_get_vector_with_default (const char *path, int *argcp,
+				      char ***argvp, int *def)
+{
+	ParsedPath *pp;
+	const char *r, *p, *last;
+	char *tmp;
+	int  v;
+	int count;
+
+	pp = parse_path (path);
+	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
+			   def);
+
+	g_return_if_fail(r != NULL);
+
+	/* Figure out how large to make return vector.  Start at 1
+	   because we want to make NULL-terminated array.  */
+	count = 1;
+	for (p = r; *p; ++p) {
+	        if (*p == '\\') {
+		        if (! *p)
+			        break;
+			++p;
+		} else if (*p == ' ') {
+		        ++count;
+		}
+	}
+
+	*argcp = count - 1;
+	*argvp = (char **) g_malloc (count * sizeof (char *));
+	(*argvp)[count - 1] = NULL;
+
+	count = 0;
+	last = r;
+	for (p = r; *p; ++p) {
+	        if (*p == '\\') {
+		        if (! *p)
+			        break;
+			++p;
+		} else if (*p == ' ') {
+		        tmp = g_malloc (p - last + 1);
+			strncpy (tmp, last, p - last);
+			tmp[p - last] = '\0';
+		        (*argvp)[count++] = tmp;
+			last = p;
+		}
+	}
+
+	release_path (pp);
+}
+
+void
 gnome_config_set_string (const char *path, const char *new_value)
 {
 	ParsedPath *pp;
@@ -836,6 +888,39 @@ gnome_config_set_bool (const char *path, int new_value)
 	pp = parse_path (path);
 	r = access_config (SET, pp->section, pp->key,
 			   new_value ? "true" : "false", pp->file, NULL);
+	release_path (pp);
+}
+
+void
+gnome_config_set_vector (const char *path, int argc,
+			 const char *const argv[])
+{
+	ParsedPath *pp;
+	char *value, *p;
+	const char *s;
+	int i, len;
+
+	/* Compute length of quoted string.  We cheat and just use
+	   twice the sum of the lengths of all the strings.  Sigh.  */
+	len = 1;
+	for (i = 0; i < argc; ++i) {
+		len += 2 * strlen (argv[i]) + 1;
+	}
+
+	p = value = g_malloc (len);
+	for (i = 0; i < argc; ++i) {
+		for (s = argv[i]; *s; ++s) {
+			if (*s == ' ')
+				*p++ = '\\';
+			*p++ = *s;
+		}
+		*p++ = ' ';
+	}
+	*p = '\0';
+
+	pp = parse_path (path);
+	access_config (SET, pp->section, pp->key, value, pp->file, NULL);
+	g_free (value);
 	release_path (pp);
 }
 
