@@ -885,7 +885,31 @@ _gnome_config_get_translated_string_with_default (const char *path,
 
       if (strcmp (lang, "C") == 0)
 	{
-	  value= _gnome_config_get_string_with_default (path, def, priv);
+	  value = _gnome_config_get_string_with_default (path, def, priv);
+	  if (value)
+	    return value;
+	  else
+	    {
+	      /* FIXME: this "else" block should go away in some time.
+	       * We use it to handle the old broken files that were
+	       * written by the old buggy set_translated_string
+	       * function, which *did* append the "[C]" suffix.
+	       */
+
+	      gchar *tkey;
+
+	      tkey = g_copy_strings (path, "[C]", NULL);
+	      value = _gnome_config_get_string_with_default (tkey, def, priv);
+	      g_free (tkey);
+
+	      if (!value || *value == '\0')
+		{
+		  g_free (value);
+		  value = NULL;
+		}
+
+	      return value;
+	    }
 	}
       else
 	{
