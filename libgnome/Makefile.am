@@ -17,7 +17,7 @@ INCLUDES = \
 	-I..					\
 	-I$(srcdir)/..				\
 	$(SUPPORTINCS)				\
-	$(GLIB_CFLAGS) $(GDK_IMLIB_CFLAGS)	\
+	$(GLIB_CFLAGS)				\
 	$(GNOME_VFS_CFLAGS)			\
 	-DGNOMELIBDIR=\""$(libdir)"\"		\
 	-DGNOMEDATADIR=\""$(datadir)"\"		\
