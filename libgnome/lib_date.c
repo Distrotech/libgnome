@@ -10,6 +10,7 @@
 #include <stdlib.h>                                 /*  MODULE TYPE:  (sys)  */
 #include <string.h>                                 /*  MODULE TYPE:  (sys)  */
 #include <ctype.h>                                  /*  MODULE TYPE:  (sys)  */
+#include <stdio.h>
 #include "lib_defs.h"                               /*  MODULE TYPE:  (dat)  */
 /*****************************************************************************/
 /*  MODULE INTERFACE:                                                        */

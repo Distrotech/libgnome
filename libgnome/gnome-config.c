@@ -29,6 +29,11 @@
 #include <glib.h>
 #include "libgnome.h"
 
+#ifndef HAVE_STRNDUP
+/* Like strdup, but only copy N chars.  */
+extern char *strndup (const char *s, size_t n);
+#endif
+
 #define STRSIZE 4096
 #define overflow (next == &CharBuffer [STRSIZE-1])
 

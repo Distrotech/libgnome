@@ -207,7 +207,6 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 {
 	char **argv;
 	int i, argc;
-	char *command;
 	char *uargv[4];
 
 	g_assert (item != NULL);

@@ -137,7 +137,6 @@ void gnome_triggers_add_trigger(GnomeTrigger nt, ...)
   va_list l;
   gint nstrings, i;
   gchar **strings;
-  gchar *retval;
   
   /* Count number of strings */
   
@@ -244,7 +243,6 @@ gnome_triggers_do(char *msg, char *level, ...)
   va_list l;
   gint nstrings, i;
   gchar **strings;
-  gchar *retval;
   
   /* Count number of strings */
   va_start(l, level);
