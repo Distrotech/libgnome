@@ -332,6 +332,7 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 			else
 				key = g_strdup("Comment");
 			gnome_config_set_string (key, e->comment);
+			g_free(key);
 		}
 	}
 

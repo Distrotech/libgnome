@@ -31,7 +31,8 @@ read_aliases (char *file)
       p = strtok (NULL,"\t ");
       if(!p)
 	continue;
-      g_hash_table_insert (alias_table, g_strdup(buf), g_strdup(p));
+      if (!g_hash_table_lookup (alias_table, buf))
+	g_hash_table_insert (alias_table, g_strdup(buf), g_strdup(p));
     }
   fclose (fp);
 }
