@@ -279,13 +279,15 @@ gnome_sound_sample_load_wav(const char *file)
 }
 
 int
-gnome_sound_sample_load(const char *filename)
+gnome_sound_sample_load(const char *sample_name, const char *filename)
 {
 #ifdef HAVE_LIBESD
   GnomeSoundSample *s = NULL;
   int sample_id;
   int size;
   int confirm = 0;
+
+  if(gnome_sound_connection < 0) return -1;
 
   s = gnome_sound_sample_load_wav(filename);
   if(s)
@@ -308,7 +310,7 @@ gnome_sound_sample_load(const char *filename)
 	  /* "name" of all samples is currently "E", should be name of sound 
 	   * file, or event type, for later identification */
 	  s->id = esd_sample_cache (gnome_sound_connection, s->format, s->rate,
-				    size * 2, "E");
+				    size * 2, (char *)sample_name);
 	  write (gnome_sound_connection, s->data, size * 2);
 	  confirm = esd_confirm_sample_cache (gnome_sound_connection);
 	  if (s->id <= 0 || confirm != s->id)
@@ -337,7 +339,9 @@ gnome_sound_play (const char * filename)
 #ifdef HAVE_LIBESD
   int sample;
 
-  sample = gnome_sound_sample_load (filename);
+  if(gnome_sound_connection < 0) return;
+
+  sample = gnome_sound_sample_load ("temp", filename);
   esd_sample_play(gnome_sound_connection, sample);
   fsync (gnome_sound_connection);
   esd_sample_free(gnome_sound_connection, sample);

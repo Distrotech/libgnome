@@ -1,8 +1,16 @@
+#include "config.h"
+
 /* By Elliot Lee */
 
 #include "gnome-triggers.h"
+#include "gnome-config.h"
 #include "gnome-util.h"
 #include "gnome-string.h"
+#include "gnome-sound.h"
+#ifdef HAVE_LIBESD
+#include <esd.h>
+#endif
+
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
@@ -37,20 +45,32 @@ gnome_triggerlist_free(TriggerList t);
 static void
 gnome_trigger_free(GnomeTrigger t);
 static void
-gnome_trigger_do(GnomeTrigger t, char *msg, char *level, char *supinfo[]);
+gnome_trigger_do(GnomeTrigger t, const char *msg, const char *level,
+		 const char *supinfo[]);
 static void
 gnome_trigger_do_function(GnomeTrigger t,
-			  char *msg, char *level, char *supinfo[]);
+			  const char *msg, const char *level,
+			  const char *supinfo[]);
 static void
 gnome_trigger_do_command(GnomeTrigger t,
-			 char *msg, char *level, char *supinfo[]);
+			 const char *msg, const char *level,
+			 const char *supinfo[]);
 static void
 gnome_trigger_do_mediaplay(GnomeTrigger t,
-			   char *msg, char *level, char *supinfo[]);
+			   const char *msg,
+			   const char *level,
+			   const char *supinfo[]);
 
 /* FILEWIDE VARIABLES */
 
 static TriggerList topnode = NULL;
+static int trigger_msg_sample_ids[] = {
+  -1, /* info */
+  -1, /* warning */
+  -1, /* error */
+  -1, /* question */
+  -1, /* generic */
+};
 
 static GnomeTriggerTypeFunction actiontypes[] =
 /* This list should have entries for all the trigger types in
@@ -68,6 +88,9 @@ void
 gnome_triggers_init(void)
 {
   char *fn;
+  char *val;
+  int n;
+
   fn = gnome_datadir_file("gnome/triggers/list");
   if(fn) {
     gnome_triggers_readfile(fn);
@@ -79,6 +102,33 @@ gnome_triggers_init(void)
     gnome_triggers_readfile(fn);
     g_free(fn);
   }
+
+#ifdef HAVE_LIBESD
+  val = gnome_config_get_string("/sounds/standard events/info");
+  if(val)
+    trigger_msg_sample_ids[0] = gnome_sound_sample_load("info", val);
+  g_free(val);
+
+  val = gnome_config_get_string("/sounds/standard events/warning");
+  if(val)
+    trigger_msg_sample_ids[1] = gnome_sound_sample_load("warning", val);
+  g_free(val);
+
+  val = gnome_config_get_string("/sounds/standard events/error");
+  if(val)
+    trigger_msg_sample_ids[2] = gnome_sound_sample_load("error", val);
+  g_free(val);
+
+  val = gnome_config_get_string("/sounds/standard events/question");
+  if(val)
+    trigger_msg_sample_ids[3] = gnome_sound_sample_load("question", val);
+  g_free(val);
+
+  val = gnome_config_get_string("/sounds/standard events/generic");
+  if(val)
+    trigger_msg_sample_ids[4] = gnome_sound_sample_load("generic", val);
+  g_free(val);
+#endif
 }
 
 gint
@@ -241,7 +291,7 @@ void gnome_triggers_vadd_trigger(GnomeTrigger nt,
 }
 
 void
-gnome_triggers_do(char *msg, char *level, ...)
+gnome_triggers_do(const char *msg, const char *level, ...)
 {
   va_list l;
   gint nstrings, i;
@@ -271,10 +321,25 @@ gnome_triggers_do(char *msg, char *level, ...)
 }
 
 void
-gnome_triggers_vdo(char *msg, char *level, char *supinfo[])
+gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 {
   TriggerList curnode = topnode;
   int i, j;
+
+#ifdef HAVE_LIBESD
+  int level_num = -1;
+
+  if(!strcmp(level, "info")) level_num = 0;
+  else if(!strcmp(level, "warning")) level_num = 1;
+  else if(!strcmp(level, "error")) level_num = 2;
+  else if(!strcmp(level, "question")) level_num = 3;
+  else if(!strcmp(level, "generic")) level_num = 4;
+
+  if(level_num >= 0
+     && trigger_msg_sample_ids[level_num] >= 0)
+    esd_sample_play(gnome_sound_connection,
+		    trigger_msg_sample_ids[level_num]);
+#endif
 
   for(i = 0; curnode && supinfo[i]; i++)
     {
@@ -354,7 +419,10 @@ gnome_triggerlist_free(TriggerList t)
 }
 
 static void
-gnome_trigger_do(GnomeTrigger t, char *msg, char * level, char *supinfo[])
+gnome_trigger_do(GnomeTrigger t,
+		 const char *msg,
+		 const char * level,
+		 const char *supinfo[])
 {
   g_return_if_fail(t != NULL);
 
@@ -363,13 +431,18 @@ gnome_trigger_do(GnomeTrigger t, char *msg, char * level, char *supinfo[])
 
 static void
 gnome_trigger_do_function(GnomeTrigger t,
-			  char *msg, char *level, char *supinfo[])
+			  const char *msg,
+			  const char *level,
+			  const char *supinfo[])
 {
   t->u.function(msg, level, supinfo);
 }
 
 static void
-gnome_trigger_do_command(GnomeTrigger t, char *msg, char *level, char *supinfo[])
+gnome_trigger_do_command(GnomeTrigger t,
+			 const char *msg,
+			 const char *level,
+			 const char *supinfo[])
 {
   char **argv;
   int nsupinfos, i;
@@ -401,8 +474,10 @@ gnome_trigger_do_command(GnomeTrigger t, char *msg, char *level, char *supinfo[]
 }
 
 static void
-gnome_trigger_do_mediaplay(GnomeTrigger t, char *msg, char *level,
-			   char *supinfo[])
+gnome_trigger_do_mediaplay(GnomeTrigger t,
+			   const char *msg,
+			   const char *level,
+			   const char *supinfo[])
 {
 #ifdef HAVE_ESD
 #else

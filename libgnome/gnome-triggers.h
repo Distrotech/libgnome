@@ -41,9 +41,10 @@ void gnome_triggers_add_trigger(GnomeTrigger nt, ...);
 void gnome_triggers_vadd_trigger(GnomeTrigger nt,
 				 char *supinfo[]);
 
-void gnome_triggers_do(char *msg, char *level, ...);
+void gnome_triggers_do(const char *msg, const char *level, ...);
 
-void gnome_triggers_vdo(char *msg, char *level, char *supinfo[]);
+void gnome_triggers_vdo(const char *msg, const char *level,
+			const char *supinfo[]);
 
 void gnome_triggers_destroy(void);
 

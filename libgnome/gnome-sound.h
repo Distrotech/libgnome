@@ -34,7 +34,7 @@ void gnome_sound_init(char *hostname);
 void gnome_sound_shutdown(void);
 
 /* Returns the Esound sample ID for the sample */
-int gnome_sound_sample_load(const char *filename);
+int gnome_sound_sample_load(const char *sample_name, const char *filename);
 
 /* Loads sample, plays sample, frees sample */
 void gnome_sound_play (const char * filename);

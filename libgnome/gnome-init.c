@@ -62,7 +62,11 @@ gnomelib_init (char *app_id)
 
 	gnome_i18n_init ();
 
-	gnome_sound_init();
+	if(getenv("ESOUNDHOST"))
+		gnome_sound_init(getenv("ESOUNDHOST"));
+	else
+		gnome_sound_init("localhost");
+
 	gnome_triggers_init();
 
 	setlocale (LC_ALL, "");
