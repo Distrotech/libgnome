@@ -32,6 +32,11 @@
 #include "libgnome/gnome-portability.h"
 #include "libgnome/gnomelib-init2.h"
 
+const char gnome_param_popt_table[] = "P:!/gnomelib_popt_table",
+  gnome_param_popt_flags[] = "I:!/gnomelib_popt_flags",
+  gnome_param_popt_context[] = "P:!/gnomelib_popt_context",
+  gnome_param_module[] = "P:!/gnomelib_register_module";
+
 /* data encapsulated by GnomeProgram:
    state
    attributes (string -> GnomeAttribute lookups)

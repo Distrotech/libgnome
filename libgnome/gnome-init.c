@@ -14,6 +14,15 @@
 #include "libgnomeP.h"
 #include <errno.h>
 
+const char libgnome_param_create_directories[]="B:libgnome/create_directories";
+const char libgnome_param_espeaker[]="S:libgnome/espeaker";
+const char libgnome_param_enable_sound[]="B:libgnome/enable_sound";
+const char libgnome_param_file_locator[]="P:libgnome/file_locator";
+const char libgnome_param_app_prefix[]="S:libgnome/app_prefix";
+const char libgnome_param_app_sysconfdir[]="S:libgnome/app_sysconfdir";
+const char libgnome_param_app_datadir[]="S:libgnome/app_datadir";
+const char libgnome_param_app_libdir[]="S:libgnome/app_libdir";
+
 char *gnome_user_dir = NULL, *gnome_user_private_dir = NULL, *gnome_user_accels_dir = NULL;
 
 static void libgnome_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info);

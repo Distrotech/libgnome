@@ -141,10 +141,11 @@ void gnome_program_module_load(GnomeProgram *app, const char *mod_name); /* do t
   Attribute type 'A' IS VALID FOR 'set' OPERATIONS ONLY! Libraries should provide
   separate #define constants for append and set on string vectors.
 */
-#define GNOME_PARAM_POPT_TABLE "P:!/gnomelib_popt_table"
-#define GNOME_PARAM_POPT_FLAGS "I:!/gnomelib_popt_flags"
-#define GNOME_PARAM_POPT_CONTEXT "P:!/gnomelib_popt_context"
-#define GNOME_PARAM_MODULE "P:!/gnomelib_register_module"
+extern const char gnome_param_popt_table[], gnome_param_popt_flags[], gnome_param_popt_context[], gnome_param_module[];
+#define GNOME_PARAM_POPT_TABLE gnome_param_popt_table
+#define GNOME_PARAM_POPT_FLAGS gnome_param_popt_flags
+#define GNOME_PARAM_POPT_CONTEXT gnome_param_popt_context
+#define GNOME_PARAM_MODULE gnome_param_module
 
 /*
  * If the application writer wishes to use getopt()-style arg
