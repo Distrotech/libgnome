@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version:libgnome.HEAD\n"
-"POT-Creation-Date: 2003-06-06 04:54+0200\n"
+"POT-Creation-Date: 2003-08-11 20:21+0200\n"
 "PO-Revision-Date: 2003-07-05 10:29+0530\n"
 "Last-Translator: FSF-India <locale@gnu.org.in>\n"
 "Language-Team: Malayalam <locale@gnu.org.in>\n"
@@ -15,48 +15,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
-msgid "Error Messages"
+#, fuzzy
+msgid "Error message"
 msgstr "തെറ്റിയ സന്ദേശങ്ങള്‌"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
-msgid "GNOME system events"
-msgstr ""
-
-#: gnome-data/gnome-2.soundlist.in.h:3
-msgid "Informational Messages"
+#, fuzzy
+msgid "Informational message"
 msgstr "വിവര സന്ദേശങ്ങള്"
 
-#: gnome-data/gnome-2.soundlist.in.h:4
-msgid "Login"
+#: gnome-data/gnome-2.soundlist.in.h:3
+#, fuzzy
+msgid "Log in"
 msgstr "ലോഗിന്"
 
-#: gnome-data/gnome-2.soundlist.in.h:5
-msgid "Logout"
+#: gnome-data/gnome-2.soundlist.in.h:4
+#, fuzzy
+msgid "Log out"
 msgstr "പുറത്ത് കടക്കുക"
 
-#: gnome-data/gnome-2.soundlist.in.h:6
-msgid "Miscellaneous Messages"
+#: gnome-data/gnome-2.soundlist.in.h:5
+#, fuzzy
+msgid "Miscellaneous message"
 msgstr "പലവക സന്ദേശങ്ങള്"
 
-#: gnome-data/gnome-2.soundlist.in.h:7
-msgid "Question Dialogs"
+#: gnome-data/gnome-2.soundlist.in.h:6
+#, fuzzy
+msgid "Question dialog"
 msgstr "ചോദ്യ സംവാദം"
 
+#: gnome-data/gnome-2.soundlist.in.h:7
+#, fuzzy
+msgid "System events"
+msgstr "ശബ്ദ മുന്ഗണനകള്"
+
 #: gnome-data/gnome-2.soundlist.in.h:8
-msgid "Warning Messages"
+#, fuzzy
+msgid "Warning message"
 msgstr "മുന്നറിയിപ്പ് സന്ദേശങ്ങള്‌"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
-msgid "Action button click"
+msgid "Choose menu item"
 msgstr ""
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
-#, fuzzy
-msgid "Check box toggled"
-msgstr "അടയാളപ്പെടുത്തിയത് പരിശോധിക്കുക"
+msgid "Click on command button"
+msgstr ""
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
-msgid "Menu item activation"
+msgid "Select check box"
 msgstr ""
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
@@ -369,6 +376,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 #, fuzzy
 msgid "Extra Moniker factory"
@@ -436,6 +448,16 @@ msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
 msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
@@ -689,94 +711,105 @@ msgid "Menus Have Tearoff"
 msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
-msgid "Name of the GTK+ input method Preedit Style used by gtk+."
+msgid "Monospace font"
 msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
-msgid "Name of the GTK+ input method Status Style used by gtk+."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
+msgid "Name of the GTK+ input method Preedit Style used by gtk+."
+msgstr ""
+
+#: schemas/desktop_gnome_interface.schemas.in.h:20
+msgid "Name of the GTK+ input method Status Style used by gtk+."
+msgstr ""
+
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 #, fuzzy
 msgid "Name of the default font used by gtk+."
 msgstr "സ്വതേ ഉപയോഗിക്കുന്ന അക്ഷരരൂപത്തിന്റെ പേ‌ര‌‌് "
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 #, fuzzy
 msgid "Status Bar on Right"
 msgstr "അവസ്ഥാപട്ട ദൃശ്യമാണ‍്."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr ""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 #, fuzzy
 msgid "Toolbar Detachable"
 msgstr "ആയുധപ്പട്ടയുടെ ശൈലി"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 #, fuzzy
 msgid "Toolbar Icon Size"
 msgstr "ആയുധപട്ട സൂചകവലിപ്പം"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Style"
 msgstr "ആയുധപട്ടയുടെ ശൈലി"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#: schemas/desktop_gnome_interface.schemas.in.h:27
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 #, fuzzy
 msgid "Use Custom Font"
 msgstr "ഇഷ്ടപ്പെട്ട ഘടന ഉപയോഗിക്കുക"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
 msgstr ""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 #, fuzzy
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "സ്ഥിരതയില്ലാത്ത അവസ്ഥ പ്രദ‌‌ര്ശിപ്പിക്കേണ്ടതുണ്ടോ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 #, fuzzy
 msgid "Whether menus should have a tearoff"
 msgstr "ചെറുജാലകം ദൃശ്യമാക്കേണ്ടതു‌ണ്ടോ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the cursor should blink"
 msgstr "സ്ഥാനസൂചി മിന്നുന്ന സമയത്ത്"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:36
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 #, fuzzy
 msgid "Whether to display a status bar meter on the right"
 msgstr "ഈ ടാഗ് പശ്ചാത്തല ഉയരത്തെ സ്വാധീനിക്കുന്നുണ്ടോ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 #, fuzzy
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "ക്രമീകരണ സൂചകം ദൃശ്യമാക്കേണ്ടതു‌ണ്ടോ"
@@ -790,7 +823,7 @@ msgid "Keyboard Bell Custom Filename"
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -817,9 +850,9 @@ msgstr "സ്ഥാനസൂചി രംഗവിധാനം"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
@@ -842,8 +875,8 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 
@@ -910,25 +943,112 @@ msgstr "ശബ്ദ മുന്ഗണനകള്"
 msgid "Whether to play sounds on user events."
 msgstr "ചെറുജാലകം ദൃശ്യമാക്കേണ്ടതു‌ണ്ടോ"
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 #, fuzzy
-msgid "How to handle trash URLs"
+msgid "How to handle ghelp URLs"
 msgstr "ചവറ്റുകുട്ടയിലേക്ക് പോകുക"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 #, fuzzy
+msgid "How to handle info URLs"
+msgstr "ചവറ്റുകുട്ടയിലേക്ക് പോകുക"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#, fuzzy
+msgid "How to handle man URLs"
+msgstr "ചവറ്റുകുട്ടയിലേക്ക് പോകുക"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#, fuzzy
+msgid "How to handle trash URLs"
+msgstr "ചവറ്റുകുട്ടയിലേക്ക് പോകുക"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#, fuzzy
 msgid "Run program in terminal"
 msgstr "ടെ‍ര്മ്മിനലില് പ്രവ‍ര്ത്തിപ്പിക്കുക"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr ""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr ""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr ""
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Check box toggled"
+#~ msgstr "അടയാളപ്പെടുത്തിയത് പരിശോധിക്കുക"

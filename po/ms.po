@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-07-20 22:02+0800\n"
+"POT-Creation-Date: 2003-08-11 20:21+0200\n"
 "PO-Revision-Date: 2003-07-20 22:33+0800\n"
 "Last-Translator: Hasbullah Bin Pit <sebol@ikhlas.com>\n"
 "Language-Team: Malay <gabai-penyumbang@lists.sourceforge.net>\n"
@@ -63,7 +63,8 @@ msgstr "Acara antaramuka pengguna"
 
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "Tidak menjumpai terminal, menggunakan xterm, jika ianya tak boleh dijalankan"
+msgstr ""
+"Tidak menjumpai terminal, menggunakan xterm, jika ianya tak boleh dijalankan"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
@@ -77,17 +78,23 @@ msgstr "Tidak menjumpai domain GNOME_FILE_DOMAIN_APP_HELP"
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Tidak menjumpai domain GNOME_FILE_DOMAIN_APP_HELPi."
 
-#: libgnome/gnome-help.c:185
-#: libgnome/gnome-help.c:200
+#: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
 #, c-format
-msgid "Unable to show help as %s is not a directory.  Please check your installation."
-msgstr "Tak dapat memapar bantuan, %s adalah bukan direktori. Sila periksa pemasangan anda."
+msgid ""
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
+msgstr ""
+"Tak dapat memapar bantuan, %s adalah bukan direktori. Sila periksa "
+"pemasangan anda."
 
-#: libgnome/gnome-help.c:209
-#: libgnome/gnome-help.c:225
+#: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, c-format
-msgid "Unable to find the help files in either %s or %s.  Please check your installation"
-msgstr "Tak dapat memapar fail bantuan samada %s atau %s . Sila periksa pemasangan anda"
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
+msgstr ""
+"Tak dapat memapar fail bantuan samada %s atau %s . Sila periksa pemasangan "
+"anda"
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -112,33 +119,24 @@ msgstr "Sokongan Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Sokongan pengaktifan Bonobo"
 
-#: libgnome/gnome-init.c:305
-#: libgnome/gnome-init.c:319
+#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
-msgid ""
-"Could not create per-user gnome configuration directory `%s': %s\n"
-""
-msgstr ""
-"Tak dpaat hantar direktori konfigurasi per-user gnome `%s': %s\n"
-""
+msgid "Could not create per-user gnome configuration directory `%s': %s\n"
+msgstr "Tak dpaat hantar direktori konfigurasi per-user gnome `%s': %s\n"
 
 #: libgnome/gnome-init.c:328
 #, c-format
 msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
-""
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
 msgstr ""
-"Tak dapat menetapkan mod 0700 pada direktori konfigurasi gnome persendirian `%s': %s\n"
-""
+"Tak dapat menetapkan mod 0700 pada direktori konfigurasi gnome persendirian `"
+"%s': %s\n"
 
 #: libgnome/gnome-init.c:335
 #, c-format
-msgid ""
-"Could not create gnome accelerators directory `%s': %s\n"
-""
-msgstr ""
-"Tak dapat mencpta direktori pemecut gnome `%s': %s\n"
-""
+msgid "Could not create gnome accelerators directory `%s': %s\n"
+msgstr "Tak dapat mencpta direktori pemecut gnome `%s': %s\n"
 
 #: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
@@ -337,12 +335,20 @@ msgid "The specified location is invalid."
 msgstr "Lokasi dinyatakan tidak sah."
 
 #: libgnome/gnome-url.c:95
-msgid "There was an error parsing the default action command associated with this location."
-msgstr "Terdapat ralat menghantar arahan aksi default yang dikaitkan dengan lokasi ini."
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr ""
+"Terdapat ralat menghantar arahan aksi default yang dikaitkan dengan lokasi "
+"ini."
 
 #: libgnome/gnome-url.c:103
-msgid "There was an error launching the default action command associated with this location."
-msgstr "Terdapat ralat melancarkan arahan aksi default yang dikaitkan dengan lokasi ini."
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
+msgstr ""
+"Terdapat ralat melancarkan arahan aksi default yang dikaitkan dengan lokasi "
+"ini."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
@@ -359,12 +365,8 @@ msgstr "Kod ralat tak diketahui: %d"
 
 #: libgnome/gnome-open.c:35
 #, c-format
-msgid ""
-"Error showing url: %s\n"
-""
-msgstr ""
-"Ralat memapar url: %s\n"
-""
+msgid "Error showing url: %s\n"
+msgstr "Ralat memapar url: %s\n"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -398,16 +400,20 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Dimatikan jika dua kekunci ditekan serentak."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "Tak menerima kekunci sebagai ditekan melainkan ditekan selama @delay milisaat"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr ""
+"Tak menerima kekunci sebagai ditekan melainkan ditekan selama @delay milisaat"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Berapa milisaat untuk ia pergi drpd 0 ke kelajuan maksimum"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "Berapa milisaat ditunggu sebelum kekunci pergerakan tetikus mula beroperasi"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
+msgstr ""
+"Berapa milisaat ditunggu sebelum kekunci pergerakan tetikus mula beroperasi"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -434,8 +440,12 @@ msgid "pixels per seconds"
 msgstr "piksel per saat"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
-msgid "List of assistive technology applications to start when logging into the GNOME desktop"
-msgstr "Senarai aplikasi teknologi penolong untuk dimulakan bola logmasuk ke desktop GNOME"
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+"Senarai aplikasi teknologi penolong untuk dimulakan bola logmasuk ke desktop "
+"GNOME"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -483,8 +493,11 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "Samada pelihat bantuan default memerlukan terminal untuk dilaksanakan"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Hujah digunakan untuk melaksanakan program pada terminal ditakrifkan dengan kekunci 'exec'"
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"Hujah digunakan untuk melaksanakan program pada terminal ditakrifkan dengan "
+"kekunci 'exec'"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -497,7 +510,8 @@ msgstr "Aplikasi terminal"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr "Program terminal untuk digunakan bila memulakan aplikasi yang memerlukannya"
+msgstr ""
+"Program terminal untuk digunakan bila memulakan aplikasi yang memerlukannya"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
@@ -509,7 +523,8 @@ msgstr "Pengurus tetingkap gantian"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr "Pengurus tetingkap gantian jika pengurus tetingkap pengguna tak dijumpai"
+msgstr ""
+"Pengurus tetingkap gantian jika pengurus tetingkap pengguna tak dijumpai"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -536,8 +551,13 @@ msgid "Color Shading Type"
 msgstr "Jenis Kesuraman Warna"
 
 #: schemas/desktop_gnome_background.schemas.in.h:2
-msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr "Menentukan bagaimana imej ditetapkan oleh  wallpaper_filename  dirender. Nilai yang boleh ialah \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+msgid ""
+"Determines how the image set by wallpaper_filename is rendered. Possible "
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+msgstr ""
+"Menentukan bagaimana imej ditetapkan oleh  wallpaper_filename  dirender. "
+"Nilai yang boleh ialah \"none\", \"wallpaper\", \"centered\", \"scaled\", "
+"\"stretched\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -552,8 +572,12 @@ msgid "Have GNOME draw the desktop background"
 msgstr "Adakah GNOME melukis latarbelakang desktop"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
-msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
-msgstr "Bagaimana menyuramkan warna latarbelakang. Nilai yang boleh adalah \"horizontal-gradient\", \"vertical-gradient\", dan \"solid\""
+msgid ""
+"How to shade the background color. Possible values are \"horizontal-gradient"
+"\", \"vertical-gradient\", and \"solid\""
+msgstr ""
+"Bagaimana menyuramkan warna latarbelakang. Nilai yang boleh adalah "
+"\"horizontal-gradient\", \"vertical-gradient\", dan \"solid\""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -581,7 +605,10 @@ msgstr "Warna Utama"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "warna Kanan atau Bawah bila melukis gradien, tak digunakan untuk warna tegar.Warna Kanan atau Bawah bila melukis gradien, tidak digunakan untuk warna tegar."
+msgstr ""
+"warna Kanan atau Bawah bila melukis gradien, tak digunakan untuk warna tegar."
+"Warna Kanan atau Bawah bila melukis gradien, tidak digunakan untuk warna "
+"tegar."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -664,8 +691,11 @@ msgid "Monospace font"
 msgstr "Font monoruang"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr "Nama bagi font monoruang (lebar-tetap) untuk digunakan pada lokasi seperti terminal."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr ""
+"Nama bagi font monoruang (lebar-tetap) untuk digunakan pada lokasi seperti "
+"terminal."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -700,8 +730,12 @@ msgid "Toolbar Style"
 msgstr "Gaya Toolbar"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:27
-msgid "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and \"text\""
-msgstr "Gaya Toolbar. Nilai sah adalan \"both\", \"both_horiz\", \"icon\" dan \"text\""
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
+msgstr ""
+"Gaya Toolbar. Nilai sah adalan \"both\", \"both_horiz\", \"icon\" dan \"text"
+"\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
@@ -712,8 +746,12 @@ msgid "Whether Applications should have accessibility support"
 msgstr "Samada Aplikasi patut mempunyai sokongan kebolehcapaian"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
-msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
-msgstr "Samada animasi patut dipaparkan. Nota: Ini adalah kekunci global, ia menukar kelakuan bagi pengurus tetingkap, panel dll."
+msgid ""
+"Whether animations should be displayed. Note: This is a global key, it "
+"changes the behaviour of the window manager, the panel etc."
+msgstr ""
+"Samada animasi patut dipaparkan. Nota: Ini adalah kekunci global, ia menukar "
+"kelakuan bagi pengurus tetingkap, panel dll."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
@@ -733,10 +771,13 @@ msgstr "Samada pengguna boleh melerai bar menu dan mengerakkan ke sekeliling"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the user can detach toolbars and move them around"
-msgstr "Samada pengguna boleh meleraikan toolbar dan menggerakkannya sekeliling"
+msgstr ""
+"Samada pengguna boleh meleraikan toolbar dan menggerakkannya sekeliling"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:36
-msgid "Whether the user can dynamically type a new accelerator when a menu is popped up"
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
 msgstr "Samada pengguna boleh menaip pemecut baru bila menu dipopup"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:37
@@ -760,8 +801,11 @@ msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "nilai yang boleh adalah \"on\", \"off\" dan \"custom\"."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
-msgid "Acceleration multiplier for mouse motion. A value of -1 is the system default."
-msgstr "Pendarab pemecut bagi pergerakan tetikus. Nilai -1 adalah default sistem."
+msgid ""
+"Acceleration multiplier for mouse motion. A value of -1 is the system "
+"default."
+msgstr ""
+"Pendarab pemecut bagi pergerakan tetikus. Nilai -1 adalah default sistem."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -776,7 +820,11 @@ msgid "Cursor theme"
 msgstr "Tema kursor"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-msgid "Cursor theme name. Used only by Xservers that support Xcursor, such as XFree86 4.3 and later. This value is only propagated to the X server at the start of each session, so changing it mid-session won't have an effect until the next time you log in."
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
@@ -784,8 +832,12 @@ msgid "Distance before a drag is started"
 msgstr "Jarak sebelum heretat dimulakan"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
-msgid "Distance in pixels the pointer must move before accelerated mouse motion is activated. A value of -1 is the system default."
-msgstr "Jarak dalam piksel dimana pentuding mesti gerak sebelum pergerakan tetikus dipecut diaktifkan. Nilai -1 adalah default sistem"
+msgid ""
+"Distance in pixels the pointer must move before accelerated mouse motion is "
+"activated. A value of -1 is the system default."
+msgstr ""
+"Jarak dalam piksel dimana pentuding mesti gerak sebelum pergerakan tetikus "
+"dipecut diaktifkan. Nilai -1 adalah default sistem"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -796,12 +848,19 @@ msgid "Drag Threshold"
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-msgid "Font name of the cursor. If unset, the default font is used. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in."
+msgid ""
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
+"session won't have an effect until the next time you log in."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
-msgid "Highlights the current location of the pointer when the Control key is pressed and released"
-msgstr "Serlahkan lokasi semasa bagi pentuding bila kekunci Kawalan ditekan atau dilepaskan"
+msgid ""
+"Highlights the current location of the pointer when the Control key is "
+"pressed and released"
+msgstr ""
+"Serlahkan lokasi semasa bagi pentuding bila kekunci Kawalan ditekan atau "
+"dilepaskan"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
@@ -828,7 +887,10 @@ msgid "Single click to open icons"
 msgstr "Klik tunggal untuk membuka ikon"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid "Size of the cursor referenced by cursor_theme. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in."
+msgid ""
+"Size of the cursor referenced by cursor_theme. This value is only propagated "
+"to the X server start of each session, so changing it mid-session won't have "
+"an effect until the next time you log in."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
@@ -856,7 +918,9 @@ msgid "Disable all external thumbnailers"
 msgstr ""
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
-msgid "Set to true to disable all external thumbnailer programs, independent on whether they are independently disabled/enabled."
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
 msgstr ""
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
@@ -912,24 +976,36 @@ msgid "Run program in terminal"
 msgstr "Laksana program pada terminal"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr "Tetapkan kepada benar supaya program dinyatakan pada programs/ghelp mengendali URL ghelp"
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Tetapkan kepada benar supaya program dinyatakan pada programs/ghelp "
+"mengendali URL ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid "Set to true to have a program specified in programs/info handle info URLs"
-msgstr "Tetapkan kepada benar supaya program dinyatakan pada programs/info mengendali URL info"
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Tetapkan kepada benar supaya program dinyatakan pada programs/info "
+"mengendali URL info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
 msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr "Tetapkan kepada Benar supaya program dinyatakan pada programs/man mengendali URL man"
+msgstr ""
+"Tetapkan kepada Benar supaya program dinyatakan pada programs/man mengendali "
+"URL man"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid "Set to true to have a program specified in trash/command handle trash URLs"
-msgstr "Tetapkan kepada Benar supaya program dinyatakan pada sampah/arahan mengendali URL sampah"
+msgid ""
+"Set to true to have a program specified in trash/command handle trash URLs"
+msgstr ""
+"Tetapkan kepada Benar supaya program dinyatakan pada sampah/arahan "
+"mengendali URL sampah"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
-msgstr "Benar jika program yang mendendali URL ini patut dilaksanakan pada terminal"
+msgstr ""
+"Benar jika program yang mendendali URL ini patut dilaksanakan pada terminal"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:11
 msgid "URL handler for ghelp pages"
@@ -946,4 +1022,3 @@ msgstr "Pengendali URL bagi halaman man"
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Pengendali URL bagi halaman sampah"
-
