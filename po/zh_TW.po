@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.1.90\n"
 "POT-Creation-Date: 2003-01-14 09:54+0800\n"
-"PO-Revision-Date: 2003-01-14 10:21+0800\n"
+"PO-Revision-Date: 2003-01-18 16:33+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: traditional Chinese <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgstr "找不到說明文件 %s/%s"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "語系的別名太多，這有可能表示形成迴圈"
+msgstr "某語系的別稱太多，這有可能表示出現循環"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -336,18 +336,19 @@ msgstr "類型不詳"
 msgid "Key %s not found in configuration"
 msgstr "組態中沒有設定鍵 %s"
 
+# modifier has no commonly used translation -- Abel
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
-msgstr ""
+msgstr "當按下 Ctrl、Shift、Alt 等輔助按鍵時發出聲響"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
-msgstr ""
+msgstr "如果同時按下兩個鍵則停止功能。"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr ""
+msgstr "除非按下某鍵持續超過 @delay 毫秒，否則作廢。"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
@@ -356,7 +357,7 @@ msgstr "由 0 加速至最高速度所需的毫秒數目"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr ""
+msgstr "等待指定的毫秒數目後，滑鼠按鍵才會生效"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -364,7 +365,7 @@ msgstr "最高速度時每秒可移動多少像素"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr ""
+msgstr "若在 @delay 毫秒內多次按下同一按鍵，則第一次以後的按鍵作廢"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -372,11 +373,11 @@ msgstr "加速所需的毫秒數目"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "initial delay in milliseconds"
-msgstr ""
+msgstr "開始前的延遲時間 (毫秒)"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
 msgid "minimum interval in milliseconds"
-msgstr ""
+msgstr "時間間隔下限 (毫秒)"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
@@ -442,7 +443,7 @@ msgstr "當啟動的程式需要終端機時選用的終端機程式"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr ""
+msgstr "視窗管理程式預設使用的工作區名稱的清單。"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
@@ -474,7 +475,7 @@ msgstr "最先嘗試執行的視窗管理程式"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
-msgstr ""
+msgstr "背景顏色顯示方式"
 
 #: schemas/desktop_gnome_background.schemas.in.h:2
 msgid ""
@@ -554,11 +555,11 @@ msgstr "可更改捷徑鍵"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
-msgstr ""
+msgstr "游標可閃爍"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:4
 msgid "Cursor Blink Time"
-msgstr ""
+msgstr "游標閃爍周期"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:5
 msgid "Default font"
@@ -574,7 +575,7 @@ msgstr "啟用動畫"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
-msgstr ""
+msgstr "GTK 輸入法預編輯區域樣式"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Status Style"
@@ -610,11 +611,11 @@ msgstr "選單中顯示可移離選單列的線條"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
+msgstr "GTK+ 輸入法所使用的「預編輯(Preedit)區域」樣式的名稱。"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "gtk+ 所使用的「GTK+ 輸入法狀態樣式」名稱"
+msgstr "GTK+ 輸入法所使用的「狀態區域」樣式的名稱。"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the default font used by gtk+."
@@ -657,6 +658,8 @@ msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
+"應否平滑移動桌面的各種視窗元件。請注意：這是整體的設定，它會更改視窗管理程"
+"式、面板等等的運作方式。"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
@@ -708,11 +711,11 @@ msgstr "可使用的值為 on、off 及 custom。"
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr ""
+msgstr "滑鼠移動的加速度。-1 表示使用系統的預設值。"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
-msgstr ""
+msgstr "鼠標字型檔"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
 msgid "Distance before a drag is started"
@@ -722,7 +725,7 @@ msgstr "滑鼠移動作為拖曳計算所需的長度"
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
-msgstr ""
+msgstr "鼠標加速前所需的移動距離 (像素)。-1 表示使用系統預設值。"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid "Double Click Time"
@@ -738,6 +741,9 @@ msgid ""
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
+"鼠標使用的字型檔名稱。如果沒有設定，會使用預設的鼠標字型檔。本設定值只會在作"
+"業階段開始時傳送至 X 伺服程式，因此使用 X Window 時更改設定是不會生效的，必須"
+"登出再登入後才會生效。"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid ""
@@ -755,7 +761,7 @@ msgstr "標示鼠標位置"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid "Motion Threshold"
-msgstr ""
+msgstr "臨界移動距離"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Mouse button orientation"
@@ -783,7 +789,7 @@ msgstr "啟動時開啟音效伺服程式。"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Sounds for events"
-msgstr "音效代表事件"
+msgstr "代表事件的音效"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
@@ -842,55 +848,71 @@ msgid ""
 "Set to true to have a program specified in applications/command handle "
 "applications URLs"
 msgstr ""
+"如選用本選項，就會透過 applications/command 設定鍵中所指定的程式來處理應用程"
+"式 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid ""
 "Set to true to have a program specified in preferences/command handle "
 "preferences URLs"
 msgstr ""
+"如選用本選項，就會透過 preferences/command 設定鍵中所指定的程式來處理偏好設"
+"定 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid ""
 "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
+"如選用本選項，就會透過 programs/ghelp 設定鍵中所指定的程式來處理 ghelp URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
 msgid ""
 "Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
+"如選用本選項，就會透過 programs/info 設定鍵中所指定的程式來處理 info URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:17
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr ""
+"如選用本選項，就會透過 programs/man 設定鍵中所指定的程式來處理 manpage URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid ""
 "Set to true to have a program specified in programs/unknown handle unknown "
 "URLs"
 msgstr ""
+"如選用本選項，就會透過 programs/unknown 設定鍵中所指定的程式來處理不明的 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:19
 msgid ""
 "Set to true to have a program specified in server-settings/command handle "
 "server-settings URLs"
 msgstr ""
+"如選用本選項，就會透過 server-settings/command 設定鍵中所指定的程式來處理有關"
+"伺服程式設定的 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid ""
 "Set to true to have a program specified in start-here/command handle start-"
 "here URLs"
 msgstr ""
+"如選用本選項，就會透過 start-here/command 設定鍵中所指定的程式來處理「起點」 "
+"URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:21
 msgid ""
 "Set to true to have a program specified in system-settings/command handle "
 "system-settings URLs"
 msgstr ""
+"如選用本選項，就會透過 system-settings/command 設定鍵中所指定的程式來處理有關"
+"系統設定的 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:22
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
+"如選用本選項，就會透過 trash/command 設定鍵中所指定的程式來處理有關垃圾桶的 "
+"URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:23
 msgid "True if the program to handle this URL should be run in a terminal"
