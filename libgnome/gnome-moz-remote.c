@@ -169,7 +169,8 @@ mozilla_remote_obtain_lock (Display *dpy, Window window)
   if (! lock_data)
     {
       lock_data = (char *) malloc (255);
-      sprintf (lock_data, "pid%d@", getpid ());
+      g_snprintf (lock_data, 255, "pid%d@", getpid ());
+
       if (gethostname (lock_data + strlen (lock_data), 100))
 	{
 	  perror ("gethostname");
@@ -652,7 +653,7 @@ main (int argc, char **argv)
   if (url_string) {
     char buf[512], *argv[3];
 
-    g_snprintf(buf, 512, "openURL(%s%s)", url_string,
+    g_snprintf(buf, sizeof(buf), "openURL(%s%s)", url_string,
 	       new_window ? ",new-window" : "");
     if (!mozilla_remote_cmd(dpy, (Window) remote_window, buf, raise_p))
       exit(0);

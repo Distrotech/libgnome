@@ -1258,7 +1258,7 @@ _gnome_config_set_int (const char *path, int new_value, gint priv)
 	const char *r;
 	
 	pp = parse_path (path, priv);
-	sprintf (intbuf, "%d", new_value);
+	g_snprintf (intbuf, sizeof(intbuf), "%d", new_value);
 	r = access_config (SET, pp->section, pp->key, intbuf, pp->file,
 			   NULL);
 	release_path (pp);
@@ -1273,7 +1273,7 @@ _gnome_config_set_float (const char *path, gdouble new_value, gint priv)
 	const char *r;
 	
 	pp = parse_path (path, priv);
-	sprintf (floatbuf, "%.17g", new_value);
+	g_snprintf (floatbuf, sizeof(floatbuf), "%.17g", new_value);
 	r = access_config (SET, pp->section, pp->key, floatbuf, pp->file,
 			   NULL);
 	release_path (pp);
