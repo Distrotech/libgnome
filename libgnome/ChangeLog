@@ -1,3 +1,13 @@
+Fri Mar 19 12:53:11 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-config.c: when we want to reread the file when it was changed
+	  on disk we must wipe our current memory of it, dropping files
+	  caused a possible segfault and current wasn't reset when we
+	  dropped all.
+
+	* parse-path.cP: when we set pp->file to the error string, don't free
+	  it when releasing the path
+
 1999-03-18  Federico Mena Quintero  <federico@nuclecu.unam.mx>
 
 	* Makefile.am (libgnome_la_LDFLAGS): Updated library version number.

@@ -132,6 +132,43 @@ static TProfile *Base = 0;
    static ParsedPath *parse_path (const char *path, gint priv); */
 #include "parse-path.cP"
 
+static void 
+free_keys (TKeys *p)
+{
+	if (!p)
+		return;
+	free_keys (p->link);
+	g_free (p->key_name);
+	g_free (p->value);
+	g_free (p);
+}
+
+static void 
+free_sections (TSecHeader *p)
+{
+	if (!p)
+		return;
+	free_sections (p->link);
+	free_keys (p->keys);
+	g_free (p->section_name);
+	p->link = 0;
+	p->keys = 0;
+	g_free (p);
+}
+
+static void 
+free_profile (TProfile *p)
+{
+	if (!p)
+		return;
+	if(Current == p)
+		Current = NULL;
+	free_profile (p->link);
+	free_sections (p->section);
+	g_free (p->filename);
+	g_free (p);
+}
+
 static int 
 is_loaded (const char *filename, TSecHeader **section)
 {
@@ -147,9 +184,16 @@ is_loaded (const char *filename, TSecHeader **section)
 		if (Current->last_checked != time (NULL)){
 			if (stat (filename, &st) == -1)
 				st.st_mtime = 0;
-			Current->last_checked = time (NULL);
-			if (Current->mtime != st.st_mtime)
+			if (Current->mtime != st.st_mtime) {
+				Current = NULL;
+				free_sections (Current->section);
+				Current->section = NULL;
+				Current->filename[0] = '\0';
+				Current->written_to = TRUE;
+				Current->to_be_deleted = FALSE;
 				return 0;
+			}
+			Current->last_checked = time (NULL);
 		}
 		*section = Current->section;
 		return 1;
@@ -170,9 +214,17 @@ is_loaded (const char *filename, TSecHeader **section)
 			if (p->last_checked != time (NULL)){
 				if (stat (filename, &st) == -1)
 					st.st_mtime = 0;
-				p->last_checked = time (NULL);
-				if (p->mtime != st.st_mtime)
+				if (p->mtime != st.st_mtime) {
+					if(p == Current)
+						Current = NULL;
+					free_sections (p->section);
+					p->section = NULL;
+					p->filename[0] = '\0';
+					p->written_to = TRUE;
+					p->to_be_deleted = FALSE;
 					return 0;
+				}
+				p->last_checked = time (NULL);
 			}
 			Current = p;
 			*section = p->section;
@@ -540,42 +592,6 @@ check_path(char *path, mode_t newmode)
 	return TRUE;
 }
 
-static void 
-free_keys (TKeys *p)
-{
-	if (!p)
-		return;
-	free_keys (p->link);
-	g_free (p->key_name);
-	g_free (p->value);
-	g_free (p);
-}
-
-static void 
-free_sections (TSecHeader *p)
-{
-	if (!p)
-		return;
-	free_sections (p->link);
-	free_keys (p->keys);
-	g_free (p->section_name);
-	p->link = 0;
-	p->keys = 0;
-	g_free (p);
-}
-
-static void 
-free_profile (TProfile *p)
-{
-	if (!p)
-		return;
-	if(Current == p)
-		Current = NULL;
-	free_profile (p->link);
-	free_sections (p->section);
-	g_free (p->filename);
-	g_free (p);
-}
 
 
 static void 
@@ -592,9 +608,8 @@ dump_profile (TProfile *p, int one_only)
 	 * was this profile written to?, if not it's not necessary to dump
 	 * it to disk
 	 */
-	if (!p->to_be_deleted)
-		if(!p->written_to)
-			return;
+	if (!p->to_be_deleted && !p->written_to)
+		return;
 	
 
 	/* .ado: p->filename can be empty, it's better to jump over */
@@ -731,7 +746,7 @@ _gnome_config_clean_file (const char *path, gint priv)
 			continue;
 		
 		free_sections (p->section);
-		p->section = 0;
+		p->section = NULL;
 		p->written_to = TRUE;
 		p->to_be_deleted = TRUE;
 		release_path (pp);
@@ -782,8 +797,10 @@ _gnome_config_drop_file (const char *path, gint priv)
 			Base = p->link;
 		
 		free_sections (p->section);
-		g_free(p->filename);
-		g_free(p);
+		p->section = NULL;
+		p->filename[0] = '\0';
+		p->written_to = TRUE;
+		p->to_be_deleted = FALSE;
 		release_path (pp);
 		return;
 	}
@@ -1166,7 +1183,8 @@ void
 gnome_config_drop_all (void)
 {
 	free_profile (Base);
-	Base = 0;
+	Base = NULL;
+	Current = NULL;
 }
 
 /**

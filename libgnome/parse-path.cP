@@ -10,7 +10,8 @@ static const char * GNOME_CONFIG_PARSE_ERROR = "__(null)__";
 static void
 release_path (ParsedPath *p)
 {
-	g_free (p->file);
+	if(p->file != GNOME_CONFIG_PARSE_ERROR)
+		g_free (p->file);
 	g_free (p->opath);
 	g_free (p);
 }
@@ -25,12 +26,13 @@ parse_path (const char *path, gint priv)
 	if (*path == '/' || prefix == NULL)
 		p->opath = g_strdup (path);
 	else
-		p->opath = g_strconcat (prefix, path, NULL);
+		p->opath = g_strconcat (prefix, path,NULL);
+		/*p->opath = g_concat_dir_and_file (prefix, path);*/
 
 	p->path    = p->opath;
-	p->file    = GNOME_CONFIG_PARSE_ERROR;
-	p->section = GNOME_CONFIG_PARSE_ERROR;
-	p->key     = GNOME_CONFIG_PARSE_ERROR;
+	p->file    = (char *)GNOME_CONFIG_PARSE_ERROR;
+	p->section = (char *)GNOME_CONFIG_PARSE_ERROR;
+	p->key     = (char *)GNOME_CONFIG_PARSE_ERROR;
 
 	if (*p->path == '='){
 		char *token;
