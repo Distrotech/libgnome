@@ -592,10 +592,10 @@ gnome_file_selector_construct (GnomeFileSelector *fselector,
 	newflags &= ~GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG;
     }
 
-    gnome_entry_construct_full (GNOME_ENTRY (fselector),
-				history_id, dialog_title,
-				entry_widget, selector_widget,
-				browse_dialog, newflags);
+    gnome_selector_construct (GNOME_SELECTOR (fselector),
+			      history_id, dialog_title,
+			      entry_widget, selector_widget,
+			      browse_dialog, newflags);
 
     if (flags & GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG) {
 	/* We need to unref this since it isn't put in any
