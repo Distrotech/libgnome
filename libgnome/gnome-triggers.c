@@ -135,9 +135,32 @@ gnome_triggers_readfile(gchar *infilename)
 void gnome_triggers_add_trigger(GnomeTrigger nt, ...)
 {
   va_list l;
+  gint nstrings, i;
+  gchar **strings;
+  gchar *retval;
+  
+  /* Count number of strings */
+  
   va_start(l, nt);
-  /* FIXME: this is incorrect */
-  /*  gnome_triggers_vadd_trigger(nt, l);*/
+  for (nstrings = 0; va_arg(l, gchar *); nstrings++);
+  va_end(l);
+  
+  /* Build list */
+  
+  strings = g_new(gchar *, nstrings + 1);
+  
+  va_start(l, nt);
+  
+  for (i = 0; i < nstrings; i++)
+    strings[i] = va_arg(l, gchar *);
+  strings[i] = NULL;
+  
+  va_end(l);
+  
+  /* And pass them to the real function */
+  
+  gnome_triggers_vadd_trigger(nt, strings);
+  g_free(strings);
 }
 
 static GnomeTrigger
@@ -219,9 +242,31 @@ void
 gnome_triggers_do(char *msg, char *level, ...)
 {
   va_list l;
+  gint nstrings, i;
+  gchar **strings;
+  gchar *retval;
+  
+  /* Count number of strings */
   va_start(l, level);
-  /* FIXME: this is incorrect */
-  /*  gnome_triggers_vdo(msg, level, l);*/
+  for (nstrings = 0; va_arg(l, gchar *); nstrings++);
+  va_end(l);
+  
+  /* Build list */
+  
+  strings = g_new(gchar *, nstrings + 1);
+  
+  va_start(l, level);
+  
+  for (i = 0; i < nstrings; i++)
+    strings[i] = va_arg(l, gchar *);
+  strings[i] = NULL;
+  
+  va_end(l);
+  
+  /* And pass them to the real function */
+  
+  gnome_triggers_vdo(msg, level, strings);
+  g_free(strings);
 }
 
 void
