@@ -75,6 +75,11 @@ gnome_mime_type_or_default (gchar * filename, gchar * defaultv)
 			mime_fill_from_file (f);
 			g_free (f);
 		}
+		f = gnome_datadir_file("mime.types");
+		if (f) {
+			mime_fill_from_file (f);
+			g_free (f);
+		}
 	}
 	result = g_hash_table_lookup (mime_hash, ext);
 	if (!result) {

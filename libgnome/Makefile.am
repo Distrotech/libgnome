@@ -5,8 +5,6 @@
 #
 lib_LTLIBRARIES = libgnome.la
 
-scoredir=$(localstatedir)/games
-
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 libgnomeincludedir = $(includedir)/libgnome
@@ -76,11 +74,6 @@ noinst_HEADERS = \
 
 EXTRA_DIST = lib_date.README
 
-sysconf_DATA = paper.config
-
-soundlistdir = $(sysconfdir)/sound/events
-soundlist_DATA = gnome.soundlist
-
 libgnome_la_LDFLAGS = -version-info 30:0:30 -rpath $(libdir)
 libgnome_la_LIBADD = $(GLIB_LIBS) -lm $(DL_LIB)
 
@@ -101,7 +94,3 @@ gnome_moz_remote_LDADD = libgnome.la $(LIBSUPPORT) $(LIBGNOME_LIBS) \
 gconfigger_SOURCES = gconfigger.c
 gconfigger_LDADD = libgnome.la $(LIBSUPPORT) \
 	$(LIBGNOME_LIBS) $(INTLLIBS)
-
-install-data-local:
-	$(mkinstalldirs) $(scoredir)
-	-chgrp games $(scoredir) && chmod g=rwXs $(scoredir)
