@@ -96,14 +96,14 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 	
 	newitem = g_new (GnomeDesktopEntry, 1);
 
-	newitem->name          = gnome_config_get_translated_string ("Name");
+	newitem->name          = name;
 	newitem->comment       = gnome_config_get_translated_string ("Comment");
 	newitem->exec_length   = exec_length;
 	newitem->exec          = exec_vector;
 	newitem->tryexec       = try_file;
 	newitem->docpath       = gnome_config_get_string ("DocPath");
 	newitem->terminal      = gnome_config_get_bool   ("Terminal=0");
-	newitem->type          = gnome_config_get_string ("Type");
+	newitem->type          = type;
 	newitem->geometry      = gnome_config_get_string ("Geometry");
 	newitem->multiple_args = gnome_config_get_bool   ("MultipleArgs=0");
 	newitem->location      = g_strdup (file);
@@ -116,9 +116,11 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 			g_free (icon_base);
 		} else
 			newitem->icon = icon_base;
-	} else 
+	} else {
 		/*no icon*/
+		if(icon_base) g_free(icon_base);
 		newitem->icon = NULL;
+	}
 	gnome_config_pop_prefix ();
 	
 	if (clean_from_memory){
@@ -205,6 +207,7 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
       free_if_empty (item->name);
       free_if_empty (item->comment);
       g_strfreev (item->exec);
+      free_if_empty (item->tryexec);
       free_if_empty (item->icon);
       free_if_empty (item->docpath);
       free_if_empty (item->type);
@@ -217,9 +220,8 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
 void
 gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[])
 {
-	char **argv;
-	int i, argc;
 	char *uargv[4];
+	char *exec_str;
 
 	g_assert (item != NULL);
 
@@ -227,6 +229,8 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		char **term_argv;
 		int term_argc;
 		char *xterm_argv[2];
+		char **argv;
+		int i, argc;
 
 		gnome_config_get_vector ("/Gnome/Applications/Terminal",
 					 &term_argc, &term_argv);
@@ -242,8 +246,6 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 
 		for (i = 0; i < term_argc; ++i)
 			argv[i] = term_argv[i];
-		if (term_argv != xterm_argv)
-			g_strfreev (term_argv);
 
 		for (i = 0; i < item->exec_length; ++i)
 			argv[term_argc + i] = item->exec[i];
@@ -252,8 +254,17 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 			argv[term_argc + item->exec_length + i] = the_argv [i];
 		
 		argv[argc] = NULL;
+		
+		exec_str = g_strjoinv (" ", (char **)argv);
+
+		if (term_argv != xterm_argv)
+			g_strfreev (term_argv);
+
+		g_free ((char *) argv);
 	} else {
 		if (the_argc != 0){
+			char **argv;
+			int i, argc;
 			argc = the_argc + item->exec_length;
 			argv = (char **) malloc ((argc + 1) * sizeof (char *));
 
@@ -262,24 +273,25 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 			for (i = 0; i < the_argc; i++)
 				argv [item->exec_length + i] = the_argv [i];
 			argv [argc] = NULL;
+
+			exec_str = g_strjoinv (" ", (char **)argv);
+
+			g_free ((char *) argv);
 		} else {
-			argc = item->exec_length;
-			argv = item->exec;
+			exec_str = g_strjoinv (" ", (char **)(item->exec));
 		}
 	}
 
 	uargv[0] = gnome_util_user_shell ();
 	uargv[1] = "-c";
-	uargv[2] = g_strjoinv (" ", (char **)argv);
+	uargv[2] = exec_str;
 	uargv[3] = NULL;
 
 	/* FIXME: do something if there's an error.  */
 	gnome_execute_async (NULL, 4, uargv);
 
-	if (argv != item->exec)
-		g_free ((char *) argv);
 	g_free (uargv[0]);
-	g_free (uargv[2]);
+	g_free (exec_str);
 }
 
 void
@@ -300,6 +312,7 @@ gnome_desktop_entry_destroy (GnomeDesktopEntry *item)
       gnome_config_clean_file (prefix);
       g_free (prefix);
       gnome_desktop_entry_free (item);
+      gnome_config_sync();
 }
 
 GnomeDesktopEntry *gnome_desktop_entry_copy (GnomeDesktopEntry * source)
