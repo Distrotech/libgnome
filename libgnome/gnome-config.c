@@ -134,8 +134,19 @@ parse_path (const char *path, gint priv)
 	/* If it is an absolute path name */
 	if ((*path == '/') || (*path == '=') || prefix == NULL)
 		p->opath = g_strdup (path);
-	else
-		p->opath = g_copy_strings (prefix, path, NULL);
+	else {
+		char *tmp = (char*) prefix;
+
+		/* If the config prefix does not end with a slash,
+		   we need to append one. */
+
+		end = strlen (tmp) ? tmp + strlen (tmp) - 1 : tmp;
+
+		if (*end != '/')
+			p->opath = g_copy_strings (prefix, "/", path, NULL);
+		else
+			p->opath = g_copy_strings (prefix, path, NULL);
+	}
 
 	p->path = p->opath;
 	
