@@ -1,7 +1,7 @@
-#ifndef __unused__
+#ifndef __g_unused__
 #ifdef __GNUC__
-#define __unused__	__attribute__ ((unused))
+#define __g_unused__	__attribute__ ((unused))
 #else
-#define __unused__
+#define __g_unused__
 #endif
 #endif
