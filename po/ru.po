@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "POT-Creation-Date: 2003-02-04 14:50+0300\n"
-"PO-Revision-Date: 2003-02-04 16:10+0300\n"
+"PO-Revision-Date: 2003-02-05 16:56+0300\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -743,70 +743,77 @@ msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
+"Следует ли отображать анимацию. Замечание: это глобальный ключ, его "
+"изменение окажет влияние на поведение оконного менеджера, панели и т.д.."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "Следует ли отображать значки в элементах меню"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Whether menus should have a tearoff"
-msgstr ""
+msgstr "Следует ли меню иметь линию разрыва"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
+"Может ли пользователь динамически вводить новый ускоритель, когда меню появляется"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
-msgstr ""
+msgstr "Следует ли мигать курсору"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
+"Может ли пользователь отцеплять меню и передвигать их по экрану"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
+"Может ли пользователь отцеплять панели инструментов и передвигать их по экрану"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
-msgstr ""
+msgstr "Следует ли отображать строку состояния справа"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr ""
+msgstr "Использовать ли другой шрифт в приложениях"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
-msgstr ""
+msgstr "Имя файла для звука гудка"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr ""
+msgstr "Имя файла клавиатурного гудка"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are on, off, and custom."
-msgstr ""
+msgstr "возможные значения: \"on\", \"off\" и \"custom\""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
+"Множитель ускорения движения мыши. Значение -1 является "
+"исходным системным."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
-msgstr ""
+msgstr "Шрифт курсора"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
 msgid "Cursor size"
-msgstr ""
+msgstr "Размер курсора"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
 msgid "Cursor theme"
-msgstr ""
+msgstr "Тема курсора"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
@@ -815,24 +822,31 @@ msgid ""
 "of each session, so changing it mid-session won't have an effect until the "
 "next time you log in."
 msgstr ""
+"Тема курсора. Используется только серверами системы  Xservers, которые "
+"поддерживают расширение Xcursor, такими как XFree86 4.3 и более поздними. "
+"Это значение передаётся системе X только при начале каждого сеанса, так что "
+"изменения, внесённые в середине сеанса, не будут иметь эффекта до следующего "
+"входа в сеанс."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
-msgstr ""
+msgstr "Расстояние, прежде чем процесс перенести-и-бросить начнётся"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
+"Расстояние в пикселях, на которое надо передвинуть указатель, прежде чем будет "
+"активировано ускорение движения мыши. Значение -1 является исходным системным."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
-msgstr ""
+msgstr "Время двойного щелчка"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
-msgstr ""
+msgstr "Порог начала переноса"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
@@ -840,36 +854,41 @@ msgid ""
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
+"Шрифт курсора. Если не установлено, исходный шрифт будет использован. Это значение "
+"передаётся системе X только при начале сеанса, так что изменения, внесённые "
+"в середине сеанса, не будут иметь эффекта до следующего входа в сеанс."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr ""
+"Подсвечивать ли текущее положение указателя, когда нажата и отпущена клавиша "
+"\"Control\""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
-msgstr ""
+msgstr "Длина двойного щелчка"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
-msgstr ""
+msgstr "Определять положение указателя"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
-msgstr ""
+msgstr "Порог движения"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
-msgstr ""
+msgstr "Ориентация кнопок мыши"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
-msgstr ""
+msgstr "Одиночный щёлчок"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
-msgstr ""
+msgstr "Открывать значки одиночным щелчком"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid ""
@@ -877,171 +896,193 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
+"Размер курсора, определяемый темой курсора. Это значение "
+"передаётся системе X только при начале сеанса, так что изменения, внесённые "
+"в середине сеанса, не будут иметь эффекта до следующего входа в сеанс."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr ""
+msgstr "Менять местами правую и левую кнопки для мышей под левую руку"
 
 # libgnome/gnome-program.c:578
 #: schemas/desktop_gnome_sound.schemas.in.h:1
-#, fuzzy
 msgid "Enable ESD"
-msgstr "Включить звук"
+msgstr "Включить демон ESD"
 
 # libgnome/gnome-init.c:360
 #: schemas/desktop_gnome_sound.schemas.in.h:2
-#, fuzzy
 msgid "Enable sound server startup."
-msgstr "Включить использование сервера звука"
+msgstr "Включить использование сервера звука."
 
 #: schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Sounds for events"
-msgstr ""
+msgstr "Звуки для событий"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
-msgstr ""
+msgstr "Следует ли подавать звуки при наступлении событий"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "Default URL show handler"
-msgstr ""
+msgstr "Исходный обработчик ссылок (URL)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "How to handle applications URLs"
-msgstr ""
+msgstr "Как обрабатывать ссылки (URL) приложений"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid "How to handle ghelp URLs"
-msgstr ""
+msgstr "Как обрабатыать ссылки (URL) системы помощи ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle info URLs"
-msgstr ""
+msgstr "Как обрабатывать ссылки (URL) системы помощи info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "How to handle man URLs"
-msgstr ""
+msgstr "Как обрабатывать ссылки (URL) системы помощи man"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:6
 msgid "How to handle preferences URLs"
-msgstr ""
+msgstr "Как обрабатывать ссылки (URL) настроек"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:7
 msgid "How to handle server-settings URLs"
-msgstr ""
+msgstr "Как обрабатывать ссылки (URL) установок сервера"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
 msgid "How to handle start-here URLs"
-msgstr ""
+msgstr "Как обрабатывать ссылки (URL) типа start-here"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid "How to handle system-settings URLs"
-msgstr ""
+msgstr "Как обрабатывать ссылки (URL) установок системы"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
-msgstr ""
+msgstr "Как обрабатывать ссылки (URL) мусорной корзины"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:11
 msgid "How to handle unknown URLs"
-msgstr ""
+msgstr "Как обрабатывать ссылки (URL) нераспознанного типа"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:12
 msgid "Run program in terminal"
-msgstr ""
+msgstr "Запускать программу в терминале"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:13
 msgid ""
 "Set to true to have a program specified in applications/command handle "
 "applications URLs"
 msgstr ""
+"Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
+"типа applications/command ссылок (URL) на приложения"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid ""
 "Set to true to have a program specified in preferences/command handle "
 "preferences URLs"
 msgstr ""
+"Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
+"типа preferences/command  ссылок (URL) на настройки"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid ""
 "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
+"Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
+"типа programs/ghelp ссылок (URL) на систему помощи ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
 msgid ""
 "Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
+"Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
+"типа programs/info ссылок (URL) на систему помощи info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:17
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr ""
+"Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
+"типа programs/man ссылок (URL) на систему помощи man"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid ""
 "Set to true to have a program specified in programs/unknown handle unknown "
 "URLs"
 msgstr ""
+"Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
+"типа programs/unknown ссылок (URL) неизвестного типа"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:19
 msgid ""
 "Set to true to have a program specified in server-settings/command handle "
 "server-settings URLs"
 msgstr ""
+"Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
+"типа server-settings/command ссылок (URL) установок сервера"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid ""
 "Set to true to have a program specified in start-here/command handle start-"
 "here URLs"
 msgstr ""
+"Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
+"типа start-here/command ссылок (URL) типа start-here"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:21
 msgid ""
 "Set to true to have a program specified in system-settings/command handle "
 "system-settings URLs"
 msgstr ""
+"Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
+"типа system-settings/command ссылок (URL) установок системы"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:22
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
+"Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
+"типа trash/command ссылок (URL) мусорной корзины"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:23
 msgid "True if the program to handle this URL should be run in a terminal"
-msgstr ""
+msgstr "ИСТИННО, если программа для обработки ссылок (URL) данного типа должна "
+"запускаться в терминале"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:24
 msgid "URL handler for applications pages"
-msgstr ""
+msgstr "Обработчик ссылок (URL) для страниц приложений"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:25
 msgid "URL handler for ghelp pages"
-msgstr ""
+msgstr "Обработчик ссылок (URL) для страниц системы помощи ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:26
 msgid "URL handler for info pages"
-msgstr ""
+msgstr "Обработчик ссылок (URL) для страниц системы помощи info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:27
 msgid "URL handler for man pages"
-msgstr ""
+msgstr "Обработчик ссылок (URL) для страниц системы помощи man"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:28
 msgid "URL handler for preferences pages"
-msgstr ""
+msgstr "Обработчик ссылок (URL) для страниц настроек"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:29
 msgid "URL handler for server-settings pages"
-msgstr ""
+msgstr "Обработчик ссылок (URL) для страниц установок сервера"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:30
 msgid "URL handler for start-here pages"
-msgstr ""
+msgstr "Обработчик ссылок (URL) для страниц типа start-here"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:31
 msgid "URL handler for system-settings pages"
-msgstr ""
+msgstr "Обработчик ссылок (URL) для страниц установок системы"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:32
 msgid "URL handler for trash pages"
-msgstr ""
+msgstr "Обработчик ссылок (URL) для страниц мусорной корзины"
 
