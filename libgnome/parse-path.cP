@@ -5,7 +5,7 @@ typedef struct {
 	char *path, *opath;
 } ParsedPath;
 
-const char * GNOME_CONFIG_PARSE_ERROR = "__(null)__";
+static const char * GNOME_CONFIG_PARSE_ERROR = "__(null)__";
 
 static void
 release_path (ParsedPath *p)

@@ -1,3 +1,8 @@
+Sat Feb 20 03:11:29 1999  Timur Bakeyev <mc@bat.ru>
+
+	* parse-path.cP (GNOME_CONFIG_PARSE_ERROR): Declared static, as other-
+	wise it polute global namespase (and gives linker errors).
+
 1999-02-18  Felix Bellaby <felix@pooh.u-net.com>
 
 	* parse-path.cP (parse_path): warn when invalid paths are parsed.
