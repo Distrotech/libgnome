@@ -661,16 +661,7 @@ _gnome_config_clean_file (const char *path, gint priv)
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 
-	/* this is the current so don't look no further*/
-	if (Current && strcmp (pp->file, Current->filename) == 0) {
-		free_sections (Current->section);
-		Current->section = 0;
-		Current->written_to = TRUE;
-		Current->to_be_deleted = TRUE;
-		Current = NULL;
-		release_path (pp);
-		return;
-	}
+	Current = NULL;
 	
 	for (p = Base; p; p = p->link){
 		if (strcmp (pp->file, p->filename) != 0)
@@ -716,17 +707,7 @@ _gnome_config_drop_file (const char *path, gint priv)
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 
-	/*this is the current so don't look no further*/
-	if (Current && strcmp (pp->file, Current->filename) == 0) {
-		free_sections (Current->section);
-		Current->section = 0;
-		Current->filename [0] = 0;
-		Current->written_to = TRUE;
-		Current->to_be_deleted = FALSE;
-		Current = NULL;
-		release_path (pp);
-		return;
-	}
+	Current = NULL;
 	
 	for (last = NULL,p = Base; p; last = p, p = p->link){
 		if (strcmp (pp->file, p->filename) != 0)
