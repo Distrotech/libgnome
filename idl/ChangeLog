@@ -1,3 +1,13 @@
+2001-06-10  Martin Baulig  <baulig@suse.de>
+
+	* Gnome_Desktop.idl (GNOME::ExtraAttributes): New typedef. This is an alias
+	for Bonobo::PropertySet, but it has a "magic" meaning: if a struct contains
+	a member of this type, the ditem moniker fills it with all fields which are
+	not in the struct.
+	(GNOME::DesktopEntryType): New enum type.
+	(GNOME::DesktopEntry): Change type of `Exec' to string.
+	Added TryExec, URL, SortOder, Type and Attributes.
+
 2001-06-06  Martin Baulig  <baulig@suse.de>
 
 	* Gnome.idl (GNOME::stringlist): Moved this typedef here.
