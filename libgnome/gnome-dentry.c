@@ -203,7 +203,7 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
 }
 
 void
-gnome_desktop_entry_launch (GnomeDesktopEntry *item)
+gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[])
 {
 	char **argv;
 	int i, argc;
@@ -224,7 +224,7 @@ gnome_desktop_entry_launch (GnomeDesktopEntry *item)
 			xterm_argv[1] = "-e";
 		}
 
-		argc = term_argc + item->exec_length;
+		argc = the_argc + term_argc + item->exec_length;
 		argv = (char **) malloc ((argc + 1) * sizeof (char *));
 
 		for (i = 0; i < term_argc; ++i)
@@ -235,10 +235,23 @@ gnome_desktop_entry_launch (GnomeDesktopEntry *item)
 		for (i = 0; i < item->exec_length; ++i)
 			argv[term_argc + i] = item->exec[i];
 
+		for (i = 0; i < the_argc; i++)
+			argv[term_argc + item->exec_length + i] = the_argv [i];
+		
 		argv[argc] = NULL;
 	} else {
-		argc = item->exec_length;
-		argv = item->exec;
+		if (argc != 0){
+			argc = the_argc + item->exec_length;
+			argv = (char **) malloc ((argc + 1) * sizeof (char *));
+
+			for (i = 0; i < item->exec_length; i++)
+				argv [i] = item->exec [i];
+			for (i = 0; i < the_argc; i++)
+				argv [item->exec_length + i] = the_argv [i];
+		} else {
+			argc = item->exec_length;
+			argv = item->exec;
+		}
 	}
 
 	/* FIXME: do something if there's an error.  */
@@ -246,4 +259,10 @@ gnome_desktop_entry_launch (GnomeDesktopEntry *item)
 
 	if (argv != item->exec)
 		g_free ((char *) argv);
+}
+
+void
+gnome_desktop_entry_launch (GnomeDesktopEntry *item)
+{
+	gnome_desktop_entry_launch_with_args (item, 0, 0);
 }

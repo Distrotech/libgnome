@@ -985,7 +985,8 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 	char *p;
 	const char *rr;
 	int count, esc_spcs;
-
+	int space_seen;
+	
 	pp = parse_path (path, priv);
 	rr = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file, def);
 
@@ -996,9 +997,11 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 	}
 
 	/* Figure out how large to make return vector.  Start at 2
-	   because we want to make NULL-terminated array, and because
-	   the loop doesn't count the final element.  */
+	 * because we want to make NULL-terminated array, and because
+	 * the loop doesn't count the final element.
+	 */
 	count = 2;
+	space_seen = 0;
 	for (p = (char *) rr; *p; ++p) {
 		/* The way that entries are constructed by
 		   gnome_config_set_vector ensures we'll never see an
@@ -1007,13 +1010,15 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 	        if (*p == '\\') {
 			++p;
 		} else if (*p == ' ') {
-		        ++count;
+			space_seen = 1;
+		} else if (space_seen){
+			count++;
+			space_seen = 0;
 		}
 	}
 
 	*argcp = count - 1;
-	*argvp = (char **) g_malloc (count * sizeof (char *));
-	(*argvp)[count - 1] = NULL;
+	*argvp = (char **) g_malloc0 (count * sizeof (char *));
 
 	p = (char *) rr;
 	count = 0;
