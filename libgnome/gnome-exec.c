@@ -54,7 +54,7 @@ int
 gnome_execute_async (const char *dir, int argc, char * const argv[])
 {
   pid_t pid;
-  int status, count;
+  int status, count, dummy;
   int p[2];
 
   if (pipe (p) == -1)
@@ -83,25 +83,26 @@ gnome_execute_async (const char *dir, int argc, char * const argv[])
 	chdir (dir);
 
       execvp (argv[0], argv);
+      /* This call never returns.  */
       report_errno (p[1]);
-      _exit(1);
     }
 
   close (p[1]);
 
   /* Ignore errors.  FIXME: maybe only ignore EOFs.  */
   count = read (p[0], &status, sizeof status);
+
+  /* Wait for the child, since we know it will exit shortly.  */
+  if (waitpid (pid, &dummy, 0) == -1)
+    return -1;
+
   if (count == sizeof status)
     {
       /* The read succeeded, which means the child failed.  STATUS is
 	 the errno value.  */
       errno = status;
-      waitpid (pid, &status, 0);
       return -1;
     }
-  /* Wait for the child, since we know it will exit shortly.  */
-  if (waitpid (pid, &status, 0) == -1)
-    return -1;
 
   return 0;
 }
@@ -116,8 +117,8 @@ gnome_execute_shell (const char *dir, const char *commandline)
 
   argv[0] = gnome_util_user_shell ();
   argv[1] = "-c";
-  argv[2] = commandline; /* compiler complains; I can't figure out how to 
-			    fix it due to execvp()'s signature. */
+  /* This cast is safe.  It sucks that we need it, though.  */
+  argv[2] = (char *) commandline;
   argv[3] = NULL;
 
   r = gnome_execute_async (dir, 4, argv);
