@@ -20,6 +20,7 @@
  *
  */
 
+#define USE_GNOME_DB2HTML3
 #ifdef USE_GNOME_DB2HTML3
 
 #include <config.h>
@@ -34,6 +35,7 @@
 #include <libxml/HTMLtree.h>
 #include <libxml/DOCBparser.h>
 #include <libxml/catalog.h>
+#include <libxslt/xsltconfig.h>
 #include <libxslt/xslt.h>
 #include <libxslt/xsltInternals.h>
 #include <libxslt/transform.h>

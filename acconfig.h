@@ -18,3 +18,17 @@
 #undef HAVE_ALLOCA_H
 #undef GETTEXT_PACKAGE
 
+/* For the help converters */
+#undef HAVE_LIBBZ2
+#undef bzCompress
+#undef bzCompressInit
+#undef bzDecompress
+#undef bzDecompressInit
+#undef bzclose
+#undef bzdopen
+#undef bzerror
+#undef bzflush
+#undef bzopen
+#undef bzread
+#undef bzwrite
+

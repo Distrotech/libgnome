@@ -3,11 +3,14 @@ SUBDIRS= docbook gnome-customization
 INCLUDES = \
         -DGNOMELOCALEDIR=\""$(datadir)/locale"\"        \
 	-DPREFIXDIR=\""$(prefix)"\" 			\
-	$(GNOME_DB2HTML3_FLAG)
+	$(LIBGNOME_CFLAGS)				\
+	$(XSLT_CFLAGS)				
 
-LDADD = 
+bin_PROGRAMS = gnome2-db2html
 
-bin_PROGRAMS = gnome-db2html3
-
-gnome_db2html3_SOURCES = \
+gnome2_db2html_SOURCES = \
 	gnome-db2html3.c
+
+gnome2_db2html_LDADD = \
+	$(LIBGNOME_LIBS)				\
+	$(XSLT_LIBS)

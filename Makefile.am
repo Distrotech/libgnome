@@ -1,4 +1,4 @@
-SUBDIRS = libgnome po doc tests
+SUBDIRS = libgnome help-converters po doc tests
 
 EXTRA_DIST = \
 	message-of-doom		\
