@@ -1,17 +1,16 @@
 INCLUDES = \
 	-I$(top_srcdir) 				\
-	$(BONOBOUI_CFLAGS)				\
-	-DPLUGIN_DIR=\""$(PLUGIN_DIR)"\"		\
-	-DG_LOG_DOMAIN=\"Bonoboui\"			\
+	$(LIBGNOME_CFLAGS)				\
+	-DG_LOG_DOMAIN=\"libgnome\"			\
 	-DVERSION=\"$(VERSION)\"
 
-Bonobo_Moniker_extra.server.in: Bonobo_Moniker_extra.server.in.in
+GNOME_Moniker_std.server.in: GNOME_Moniker_std.server.in.in
 	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir)|" $< > $@
 
-CLEANFILES+=Bonobo_Moniker_extra.server Bonobo_Moniker_extra.server.in
+CLEANFILES+=GNOME_Moniker_std.server GNOME_Moniker_std.server.in
 
 serverdir = $(libdir)/bonobo/servers
-server_DATA = Bonobo_Moniker_extra.server
+server_DATA = GNOME_Moniker_std.server
 
 @INTLTOOL_SERVER_RULE@
 
@@ -26,6 +25,6 @@ libmoniker_extra_2_la_SOURCES =			\
 	bonobo-moniker-extra.h            	\
 	bonobo-moniker-extra.c			
 
-libmoniker_extra_2_la_LDFLAGS = -module -avoid-version $(BONOBOUI_LIBS)
+libmoniker_extra_2_la_LDFLAGS = -module -avoid-version $(LIBGNOME_LIBS)
 
-EXTRA_DIST = Bonobo_Moniker_extra.server.in.in
+EXTRA_DIST = GNOME_Moniker_std.server.in.in
