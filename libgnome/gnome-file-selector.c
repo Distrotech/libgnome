@@ -45,6 +45,8 @@
 
 #include <libgnomevfs/gnome-vfs.h>
 
+#undef DEBUG_ASYNC_STUFF
+
 typedef struct _GnomeFileSelectorAsyncData      GnomeFileSelectorAsyncData;
 typedef struct _GnomeFileSelectorSubAsyncData   GnomeFileSelectorSubAsyncData;
 
@@ -157,8 +159,6 @@ free_the_async_data (gpointer data)
     fselector = async_data->fselector;
 
     /* free the async data. */
-    g_message (G_STRLOC ": unref %p -> %p", async_data,
-	       async_data->fselector);
     gtk_object_unref (GTK_OBJECT (async_data->fselector));
     _gnome_selector_deep_free_slist (async_data->uri_list);
     if (async_data->uri)
@@ -179,8 +179,10 @@ add_uri_async_done_cb (GnomeFileSelectorAsyncData *async_data)
      * well.
      */
 
+#ifdef DEBUG_ASYNC_STUFF
     g_message (G_STRLOC ": %p - %d - %p", async_data, async_data->completed,
 	       async_data->async_ops);
+#endif
 
     if (!async_data->completed || async_data->async_ops != NULL)
 	return;
@@ -194,8 +196,10 @@ add_uri_async_done_cb (GnomeFileSelectorAsyncData *async_data)
 				async_data->position, async_data->list_id,
 				async_handle));
 
+#ifdef DEBUG_ASYNC_STUFF
     g_message (G_STRLOC ": %p - async reading completed (%s).",
 	       async_data->fselector, path);
+#endif
 
     g_free (path);
 
@@ -224,8 +228,10 @@ add_uri_async_add_cb (GnomeSelector *selector,
     async_data->async_ops = g_slist_remove (async_data->async_ops,
 					    sub_async_data);
 
+#ifdef DEBUG_ASYNC_STUFF
     g_message (G_STRLOC ": %p - %p - `%s'", async_data->async_ops,
 	       sub_async_data, uri);
+#endif
 
     add_uri_async_done_cb (async_data);
 }
@@ -263,9 +269,6 @@ add_uri_async_cb (GnomeVFSAsyncHandle *handle, GList *results,
 	    g_free (uri);
 	    continue;
 	}
-
-	g_message (G_STRLOC ": `%s' - %d", uri,
-		   file->file_info->type);
 
 	if (file->file_info->type == GNOME_VFS_FILE_TYPE_DIRECTORY) {
 	    GnomeFileSelectorSubAsyncData *sub_async_data;
@@ -341,8 +344,6 @@ add_uri_handler (GnomeSelector *selector, const gchar *uri, gint position,
     g_return_if_fail (uri != NULL);
     g_return_if_fail (async_handle != NULL);
 
-    g_message (G_STRLOC ": `%s'", uri);
-
     fselector = GNOME_FILE_SELECTOR (selector);
 
     async_data = g_new0 (GnomeFileSelectorAsyncData, 1);
@@ -355,8 +356,6 @@ add_uri_handler (GnomeSelector *selector, const gchar *uri, gint position,
 
     gnome_vfs_uri_ref (async_data->uri);
     gtk_object_ref (GTK_OBJECT (async_data->fselector));
-    g_message (G_STRLOC ": ref %p -> %p", async_data,
-	       async_data->fselector);
 
     fake_list.data = async_data->uri;
     fake_list.prev = NULL;
@@ -386,8 +385,6 @@ add_uri_list_async_done_cb (GnomeFileSelectorAsyncData *async_data)
 
     if (!async_data->completed || async_data->async_ops != NULL)
 	return;
-
-    g_message (G_STRLOC);
 
     async_handle = async_data->async_handle;
 
@@ -437,8 +434,6 @@ add_uri_list_handler (GnomeSelector *selector, GSList *list,
     g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
     g_return_if_fail (async_handle != NULL);
 
-    g_message (G_STRLOC ": %p", list);
-
     fselector = GNOME_FILE_SELECTOR (selector);
 
     async_data = g_new0 (GnomeFileSelectorAsyncData, 1);
@@ -450,8 +445,6 @@ add_uri_list_handler (GnomeSelector *selector, GSList *list,
     async_data->list_id = list_id;
 
     gtk_object_ref (GTK_OBJECT (async_data->fselector));
-    g_message (G_STRLOC ": ref %p -> %p", async_data,
-	       async_data->fselector);
 
     _gnome_selector_async_handle_add (async_handle, async_data,
 				      free_the_async_data);
@@ -464,8 +457,6 @@ add_uri_list_handler (GnomeSelector *selector, GSList *list,
 
 	async_data->async_ops = g_slist_prepend
 	    (async_data->async_ops, sub_async_data);
-
-	g_message (G_STRLOC ": adding `%s'", (gchar *) c->data);
 
 	gnome_selector_add_uri (GNOME_SELECTOR (fselector),
 				&sub_async_data->async_handle,
@@ -621,8 +612,10 @@ add_directory_handler (GnomeSelector *selector, const gchar *uri,
 
     fselector = GNOME_FILE_SELECTOR (selector);
 
+#ifdef DEBUG_ASYNC_STUFF
     g_message (G_STRLOC ": %p - starting async reading (%s).",
 	       selector, uri);
+#endif
 
     vfs_uri = gnome_vfs_uri_new (uri);
 
@@ -636,8 +629,6 @@ add_directory_handler (GnomeSelector *selector, const gchar *uri,
 
     gnome_vfs_uri_ref (async_data->uri);
     gtk_object_ref (GTK_OBJECT (async_data->fselector));
-    g_message (G_STRLOC ": ref %p -> %p", async_data,
-	       async_data->fselector);
 
     _gnome_selector_async_handle_add (async_handle, async_data,
 				      free_the_async_data);
@@ -827,8 +818,6 @@ check_uri_handler (GnomeSelector *selector, const gchar *uri,
 
     gnome_vfs_uri_ref (async_data->uri);
     gtk_object_ref (GTK_OBJECT (async_data->fselector));
-    g_message (G_STRLOC ": ref %p -> %p", async_data,
-	       async_data->fselector);
 
     fake_list.data = async_data->uri;
     fake_list.prev = NULL;
