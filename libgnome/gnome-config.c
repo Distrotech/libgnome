@@ -127,7 +127,6 @@ static ParsedPath *
 parse_path (const char *path, gint priv)
 {
 	ParsedPath *p = g_malloc (sizeof (ParsedPath));
-	char *sep, *q;
 
 	g_assert(path != NULL);
 	
@@ -141,15 +140,14 @@ parse_path (const char *path, gint priv)
 	if (*p->path == '='){
 		/* If it is an absolute path name */
 		p->path++;
-		p->file    = g_strdup (strtok (p->path, "="));
+		p->file    = strtok (p->path, "=");
 		p->section = strtok (NULL, "/=");
 		p->key     = strtok (NULL, "=");
 		p->def     = strtok (NULL, "=");
 	} else {
 		char *end;
-		sep = "/=";
 
-		p->file    = g_strdup (p->path);
+		p->file    = p->path;
 		p->def     = NULL;
 		p->section = NULL;
 		p->key     = NULL;
@@ -178,17 +176,16 @@ parse_path (const char *path, gint priv)
 				break;
 			}
 		}
-		q = p->file;
-		
 		if (*p->file == '/')
 			p->file++;
 
 		if (priv){
-			p->file = g_concat_dir_and_file (gnome_user_private_dir, q);
+			p->file = g_concat_dir_and_file (gnome_user_private_dir,
+							 p->file);
 		} else {
-			p->file = g_concat_dir_and_file (gnome_user_dir, q);
+			p->file = g_concat_dir_and_file (gnome_user_dir,
+							 p->file);
 		}
-		g_free (q);
 	}
 	return p;
 }
@@ -978,7 +975,7 @@ _gnome_config_get_translated_string_with_default (const char *path,
 				   we want to try `pt' as a backup.  */
 				n = strcspn (lang, "@_");
 				if (lang[n]) {
-					char *copy = strndup (lang, n);
+					char *copy = g_strndup (lang, n);
 					tkey = g_copy_strings (path, "[",
 							       copy, "]",
 							       NULL);
@@ -1087,7 +1084,7 @@ gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
 			p++;
 		}
 
- 		(*argvp)[count++] = (char *) strndup (tmp, p - tmp);
+ 		(*argvp)[count++] = (char *) g_strndup (tmp, p - tmp);
 
 		while (*p && *p == ' ')
 			p++;
