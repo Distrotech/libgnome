@@ -1117,13 +1117,20 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
 	 */
 	if(!iterator_handle)
 		return NULL; 
+
+	if (key)
+		*key = NULL;
+	if (value)
+		*value = NULL;
 	
 	if (iter->type == 0){
 		TKeys *keys;
 		keys = iter->value;
 		if (keys){
-			*key   = g_strdup (keys->key_name);
-			*value = g_strdup (keys->value);
+			if (key)
+				*key   = g_strdup (keys->key_name);
+			if (value)
+				*value = g_strdup (keys->value);
 			keys   = keys->link;
 			iter->value = keys;
 			return iter;
@@ -1136,7 +1143,8 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
 		section = iter->value;
 
 		if (section){
-			*key = g_strdup (section->section_name);
+			if (key)
+				*key = g_strdup (section->section_name);
 			section = section->link;
 			iter->value = section;
 			return iter;
