@@ -15,6 +15,7 @@
 
 extern char *gnome_user_home_dir;
 extern char *gnome_user_dir;
+extern char *gnome_user_private_dir;
 extern char *gnome_app_id;
 
 void gnomelib_init (char *app_id);

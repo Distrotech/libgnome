@@ -99,7 +99,7 @@ release_path (ParsedPath *p)
 }
 
 static ParsedPath *
-parse_path (const char *path)
+parse_path (const char *path, gint priv)
 {
 	ParsedPath *p = g_malloc (sizeof (ParsedPath));
 	char *sep;
@@ -155,7 +155,12 @@ parse_path (const char *path)
 		}
 		if (*p->file == '/')
 			p->file++;
-		p->file = g_concat_dir_and_file (gnome_user_dir, p->file);
+		if(priv)
+			p->file = g_concat_dir_and_file (gnome_user_private_dir,
+							 p->file);
+		else
+			p->file = g_concat_dir_and_file (gnome_user_dir,
+							 p->file);
 	}
 	return p;
 }
@@ -596,7 +601,7 @@ free_profile (TProfile *p)
 }
 
 void 
-gnome_config_clean_file (const char *path)
+_gnome_config_clean_file (const char *path, gint priv)
 {
 	TProfile *p;
 	ParsedPath *pp;
@@ -606,7 +611,7 @@ gnome_config_clean_file (const char *path)
 		return;
 
 	fake_path = g_copy_strings (path, "/section/key", NULL);
-	pp = parse_path (fake_path);
+	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
 	for (p = Base; p; p = p->link){
@@ -623,7 +628,7 @@ gnome_config_clean_file (const char *path)
 }
 
 void *
-gnome_config_init_iterator (const char *path)
+_gnome_config_init_iterator (const char *path, gint priv)
 {
 	TProfile   *New;
 	TSecHeader *section;
@@ -633,7 +638,7 @@ gnome_config_init_iterator (const char *path)
 
 
 	fake_path = g_copy_strings (path, "/key", NULL);
-	pp = parse_path (fake_path);
+	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
 	if (!is_loaded (pp->file, &section)){
@@ -663,7 +668,7 @@ gnome_config_init_iterator (const char *path)
 }
 
 void *
-gnome_config_init_iterator_sections (const char *path)
+_gnome_config_init_iterator_sections (const char *path, gint priv)
 {
 	TProfile   *New;
 	TSecHeader *section;
@@ -673,7 +678,7 @@ gnome_config_init_iterator_sections (const char *path)
 
 
 	fake_path = g_copy_strings (path, "/section/key", NULL);
-	pp = parse_path (fake_path);
+	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
 	if (!is_loaded (pp->file, &section)){
@@ -731,7 +736,7 @@ gnome_config_iterator_next (void *s, char **key, char **value)
 }
 
 void 
-gnome_config_clean_section (const char *path)
+_gnome_config_clean_section (const char *path, gint priv)
 {
 	TProfile   *New;
 	TSecHeader *section;
@@ -739,7 +744,7 @@ gnome_config_clean_section (const char *path)
 	char *fake_path;
 
 	fake_path = g_copy_strings (path, "/key", NULL);
-	pp = parse_path (fake_path);
+	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
 	if (!is_loaded (pp->file, &section)){
@@ -767,7 +772,7 @@ gnome_config_clean_section (const char *path)
 }
 
 void 
-gnome_config_clean_key (const char *path)
+_gnome_config_clean_key (const char *path, gint priv)
 	/* *section_name, char *file */
 {
 	TProfile   *New;
@@ -775,7 +780,7 @@ gnome_config_clean_key (const char *path)
 	TKeys *key;
 	ParsedPath *pp;
 	
-	pp = parse_path (path);
+	pp = parse_path (path, priv);
 	
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
@@ -803,7 +808,7 @@ gnome_config_clean_key (const char *path)
 }
 
 gboolean 
-gnome_config_has_section (const char *path)
+_gnome_config_has_section (const char *path, gint priv)
 	/* char *section_name, char *profile */
 {
 	TProfile   *New;
@@ -812,7 +817,7 @@ gnome_config_has_section (const char *path)
 	char *fake_path;
 
 	fake_path = g_copy_strings (path, "/key", NULL);
-	pp = parse_path (fake_path);
+	pp = parse_path (fake_path,priv);
 	g_free (fake_path);
 	
 	if (!is_loaded (pp->file, &section)){
@@ -846,13 +851,13 @@ gnome_config_drop_all (void)
 }
 
 gint
-gnome_config_get_int_with_default (const char *path, gboolean *def)
+_gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
 {
 	ParsedPath *pp;
 	const char *r;
 	int  v;
 	
-	pp = parse_path (path);
+	pp = parse_path (path, priv);
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
 			   def);
 
@@ -864,8 +869,9 @@ gnome_config_get_int_with_default (const char *path, gboolean *def)
 }
 
 char *
-gnome_config_get_translated_string_with_default (const char *path,
-						 gboolean *def)
+_gnome_config_get_translated_string_with_default (const char *path,
+						 gboolean *def,
+						 gint priv)
 {
   const char *lang;
   char *tkey;
@@ -876,31 +882,32 @@ gnome_config_get_translated_string_with_default (const char *path,
   if (lang)
     {
       tkey = g_copy_strings (path, "[", lang, "]", NULL);
-      value = gnome_config_get_string_with_default (tkey, def);
+      value = _gnome_config_get_string_with_default (tkey, def, priv);
       g_free (tkey);
 
       if(!value || *value == '\0')
 	{
 	  g_free(value);
 	  /* Fall back to untranslated case */
-	  value = gnome_config_get_string (path);
+	  value = _gnome_config_get_string_with_default (path, def, priv);
 	}
 
     }
   else
-    value = gnome_config_get_string (path);
+    value = _gnome_config_get_string_with_default (path, def, priv);
 
   return value;
 }
 
 char *
-gnome_config_get_string_with_default (const char *path, gboolean *def)
+_gnome_config_get_string_with_default (const char *path, gboolean *def,
+				       gint priv)
 {
 	ParsedPath *pp;
 	const char *r;
 	char *ret = NULL;
 	
-	pp = parse_path (path);
+	pp = parse_path (path, priv);
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
 			   def);
 	if (r)
@@ -910,13 +917,14 @@ gnome_config_get_string_with_default (const char *path, gboolean *def)
 }
 
 gboolean
-gnome_config_get_bool_with_default (const char *path, gboolean *def)
+_gnome_config_get_bool_with_default (const char *path, gboolean *def,
+				     gint priv)
 {
 	ParsedPath *pp;
 	const char *r;
 	int  v;
 	
-	pp = parse_path (path);
+	pp = parse_path (path, priv);
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
 			   def);
 
@@ -935,15 +943,15 @@ gnome_config_get_bool_with_default (const char *path, gboolean *def)
 }
 
 void
-gnome_config_get_vector_with_default (const char *path, int *argcp,
-				      char ***argvp, gboolean *def)
+_gnome_config_get_vector_with_default (const char *path, int *argcp,
+				       char ***argvp, gboolean *def, gint priv)
 {
 	ParsedPath *pp;
 	const char *r, *p, *last;
 	char *tmp;
 	int count;
 
-	pp = parse_path (path);
+	pp = parse_path (path, priv);
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
 			   def);
 
@@ -986,7 +994,8 @@ gnome_config_get_vector_with_default (const char *path, int *argcp,
 }
 
 void
-gnome_config_set_translated_string (const char *path, const char *value)
+_gnome_config_set_translated_string (const char *path, const char *value,
+				     gint priv)
 {
   const char *lang;
   char *tkey;
@@ -996,33 +1005,33 @@ gnome_config_set_translated_string (const char *path, const char *value)
   if (lang)
     {
       tkey = g_copy_strings (path, "[", lang, "]", NULL);
-      gnome_config_set_string(tkey, value);
+      _gnome_config_set_string(tkey, value, priv);
       g_free (tkey);
     }
   else
-    gnome_config_set_string (path, value);
+    _gnome_config_set_string (path, value, priv);
 }
 
 void
-gnome_config_set_string (const char *path, const char *new_value)
+_gnome_config_set_string (const char *path, const char *new_value, gint priv)
 {
 	ParsedPath *pp;
 	const char *r;
 	
-	pp = parse_path (path);
+	pp = parse_path (path, priv);
 	r = access_config (SET, pp->section, pp->key, new_value, pp->file,
 			   NULL);
 	release_path (pp);
 }
 
 void
-gnome_config_set_int (const char *path, int new_value)
+_gnome_config_set_int (const char *path, int new_value, gint priv)
 {
 	ParsedPath *pp;
 	char intbuf [40];
 	const char *r;
 	
-	pp = parse_path (path);
+	pp = parse_path (path, priv);
 	sprintf (intbuf, "%d", new_value);
 	r = access_config (SET, pp->section, pp->key, intbuf, pp->file,
 			   NULL);
@@ -1030,20 +1039,21 @@ gnome_config_set_int (const char *path, int new_value)
 }
 
 void
-gnome_config_set_bool (const char *path, gboolean new_value)
+_gnome_config_set_bool (const char *path, gboolean new_value, gint priv)
 {
 	ParsedPath *pp;
 	const char *r;
 	
-	pp = parse_path (path);
+	pp = parse_path (path, priv);
 	r = access_config (SET, pp->section, pp->key,
 			   new_value ? "true" : "false", pp->file, NULL);
 	release_path (pp);
 }
 
 void
-gnome_config_set_vector (const char *path, int argc,
-			 const char *const argv[])
+_gnome_config_set_vector (const char *path, int argc,
+			  const char *const argv[],
+			  gint priv)
 {
 	ParsedPath *pp;
 	char *value, *p;
@@ -1068,7 +1078,7 @@ gnome_config_set_vector (const char *path, int argc,
 	}
 	*p = '\0';
 
-	pp = parse_path (path);
+	pp = parse_path (path, priv);
 	access_config (SET, pp->section, pp->key, value, pp->file, NULL);
 	g_free (value);
 	release_path (pp);
@@ -1098,7 +1108,7 @@ x (char *str, char *file, char *sec, char *key, char *val)
 	ParsedPath *pp;
 
 	printf ("%s\n", str);
-	pp = parse_path (str);
+	pp = parse_path (str, FALSE);
 	printf ("   file: %s [%s]\n", pp->file, file);
 	printf ("   sect: %s [%s]\n", pp->section, sec);
 	printf ("   key:  %s [%s]\n", pp->key, key);

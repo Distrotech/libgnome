@@ -43,50 +43,139 @@ BEGIN_GNOME_DECLS
    default was return, 0 otherwise.  If DEF is NULL then it will not
    be set.  */
 
-char *gnome_config_get_string_with_default    (const char *path,
-					       gboolean *def);
-char *gnome_config_get_translated_string_with_default(const char *path,
-						      gboolean *def);
-gint  gnome_config_get_int_with_default        (const char *path,
-					       gboolean *def);
-gboolean gnome_config_get_bool_with_default   (const char *path,
-					       gboolean *def);
-void gnome_config_get_vector_with_default     (const char *path, gint *argcp,
-					       char ***argvp,
-					       gboolean *def);
+/*use the wrappers below*/
+char *_gnome_config_get_string_with_default    (const char *path,
+					        gboolean *def,
+						gint priv);
+char *_gnome_config_get_translated_string_with_default(const char *path,
+						       gboolean *def,
+						       gint priv);
+gint  _gnome_config_get_int_with_default       (const char *path,
+					        gboolean *def,
+						gint priv);
+gboolean _gnome_config_get_bool_with_default   (const char *path,
+					        gboolean *def,
+					        gint priv);
+void _gnome_config_get_vector_with_default     (const char *path, gint *argcp,
+					        char ***argvp,
+					        gboolean *def,
+					        gint priv);
+
+/*these just call the above functions, but devide them into two groups,
+  in the future these may be different functions, so use these defines*/
+/*normal functions*/
+#define gnome_config_get_string_with_default(Path,Def) \
+	(_gnome_config_get_string_with_default((Path),(Def),FALSE))
+#define gnome_config_get_translated_string_with_default(Path,Def) \
+	(_gnome_config_get_translated_string_with_default((Path),(Def),FALSE))
+#define gnome_config_get_int_with_default(Path,Def) \
+	(_gnome_config_get_int_with_default((Path),(Def),FALSE))
+#define gnome_config_get_bool_with_default(Path,Def) \
+	(_gnome_config_get_bool_with_default((Path),(Def),FALSE))
+#define gnome_config_get_vector_with_default(Path, Argcp, Argvp, Def) \
+        (_gnome_config_get_vector_with_default ((Path),(Argcp),(Argvp), \
+						(Def),FALSE))
+
+/*private functions*/
+#define gnome_config_private_get_string_with_default(Path,Def) \
+	(_gnome_config_get_string_with_default((Path),(Def),TRUE))
+#define gnome_config_private_get_translated_string_with_default(Path,Def) \
+	(_gnome_config_get_translated_string_with_default((Path), (Def),TRUE))
+#define gnome_config_private_get_int_with_default(Path,Def) \
+	(_gnome_config_get_int_with_default((Path),(Def),TRUE))
+#define gnome_config_private_get_bool_with_default(Path,Def) \
+	(_gnome_config_get_bool_with_default((Path),(Def),TRUE))
+#define gnome_config_private_get_vector_with_default(Path, Argcp, Argvp, Def) \
+        (_gnome_config_get_vector_with_default ((Path),(Argcp), (Argvp), \
+        					(Def), TRUE))
 
 /* Convenience wrappers for the case when you don't care if you see
    the default.  */
-
+/*normal functions*/
 #define gnome_config_get_string(Path) \
-	(gnome_config_get_string_with_default ((Path), NULL))
+	(_gnome_config_get_string_with_default ((Path), NULL, FALSE))
 #define gnome_config_get_translated_string(Path) \
-	(gnome_config_get_translated_string_with_default ((Path), NULL))
+	(_gnome_config_get_translated_string_with_default ((Path), NULL, FALSE))
 #define gnome_config_get_int(Path) \
-	(gnome_config_get_int_with_default ((Path), NULL))
+	(_gnome_config_get_int_with_default ((Path), NULL, FALSE))
 #define gnome_config_get_bool(Path) \
-	(gnome_config_get_bool_with_default ((Path), NULL))
+	(_gnome_config_get_bool_with_default ((Path), NULL, FALSE))
 #define gnome_config_get_vector(Path, Argcp, Argvp) \
-        (gnome_config_get_vector_with_default ((Path), (Argcp), (Argvp), NULL))
+        (_gnome_config_get_vector_with_default ((Path), (Argcp), (Argvp), \
+        					NULL, FALSE))
+
+/*private functions*/
+#define gnome_config_private_get_string(Path) \
+	(_gnome_config_get_string_with_default ((Path), NULL, TRUE))
+#define gnome_config_private_get_translated_string(Path) \
+	(_gnome_config_get_translated_string_with_default ((Path), NULL, TRUE))
+#define gnome_config_private_get_int(Path) \
+	(_gnome_config_get_int_with_default ((Path), NULL, TRUE))
+#define gnome_config_private_get_bool(Path) \
+	(_gnome_config_get_bool_with_default ((Path), NULL, TRUE))
+#define gnome_config_private_get_vector(Path, Argcp, Argvp) \
+        (_gnome_config_get_vector_with_default ((Path), (Argcp), (Argvp), \
+        					NULL, TRUE))
+
+/* Set a config variable.  Use the warppers below*/
+void _gnome_config_set_string     (const char *path, const char *value,
+				   gint priv);
+void _gnome_config_set_translated_string (const char *path, const char *value,
+					  gint priv);
+void _gnome_config_set_int        (const char *path, int value,
+				   gint priv);
+void _gnome_config_set_bool       (const char *path, gboolean value,
+				   gint priv);
+void _gnome_config_set_vector     (const char *path,
+				   int argc,
+				   const char * const argv[],
+				   gint priv);
 
 
-/* Set a config variable.  */
-void gnome_config_set_string     (const char *path, const char *value);
-void gnome_config_set_translated_string (const char *path, const char *value);
-void gnome_config_set_int        (const char *path, int value);
-void gnome_config_set_bool       (const char *path, gboolean value);
-void gnome_config_set_vector     (const char *path,
-				  int argc,
-				  const char * const argv[]);
+/* normal functions */
+#define gnome_config_set_string(Path,Val) \
+	(_gnome_config_set_string((Path),(Val),FALSE))
+#define gnome_config_set_translated_string(Path,Val) \
+	(_gnome_config_set_translated_string((Path),(Val),FALSE))
+#define gnome_config_set_int(Path,Val) \
+	(_gnome_config_set_int((Path),(Val),FALSE))
+#define gnome_config_set_bool(Path,Val) \
+	(_gnome_config_set_bool((Path),(Val),FALSE))
+#define gnome_config_set_vector(Path,Argc,Argv) \
+	(_gnome_config_set_vector((Path),(Argc),(Argv),FALSE))
+
+/* private functions */
+#define gnome_config_private_set_string(Path,Val) \
+	(_gnome_config_set_string((Path),(Val),TRUE))
+#define gnome_config_private_set_translated_string(Path,Val) \
+	(_gnome_config_set_translated_string((Path),(Val),TRUE))
+#define gnome_config_private_set_int(Path,Val) \
+	(_gnome_config_set_int((Path),(Val),TRUE))
+#define gnome_config_private_set_bool(Path,Val) \
+	(_gnome_config_set_bool((Path),(Val),TRUE))
+#define gnome_config_private_set_vector(Path,Argc,Argv) \
+	(_gnome_config_set_vector((Path),(Argc),(Argv),TRUE))
 
 /* Returns true if /path/section is defined */
-gboolean  gnome_config_has_section    (const char *path);
+gboolean  _gnome_config_has_section    (const char *path, gint priv);
+#define gnome_config_has_section(Path) \
+	(_gnome_config_has_section((Path),FALSE))
+#define gnome_config_private_has_section(Path) \
+	(_gnome_config_has_section((Path),TRUE))
 
 /* Returns a pointer for iterating on /file/section contents */
-void *gnome_config_init_iterator (const char *path);
+void *_gnome_config_init_iterator (const char *path, gint priv);
+#define gnome_config_init_iterator(Path) \
+	(_gnome_config_init_iterator((Path),FALSE))
+#define gnome_config_private_init_iterator(Path) \
+	(_gnome_config_init_iterator((Path),TRUE))
 
 /* Returns a pointer for iterating on /file contents */
-void *gnome_config_init_iterator_sections (const char *path);
+void *_gnome_config_init_iterator_sections (const char *path, gint priv);
+#define gnome_config_init_iterator_sections(Path) \
+	(_gnome_config_init_iterator_sections((Path),FALSE))
+#define gnome_config_private_init_iterator_sections(Path) \
+	(_gnome_config_init_iterator_sections((Path),TRUE))
 
 /* Get next key and value value from a section */
 void *gnome_config_iterator_next (void *s, char **key, char **value);
@@ -96,13 +185,25 @@ void gnome_config_drop_all       (void);
 void gnome_config_sync           (void);
 
 /* This routine drops the information about /file */
-void gnome_config_clean_file     (const char *path);
+void _gnome_config_clean_file     (const char *path, gint priv);
+#define gnome_config_clean_file(Path) \
+	(_gnome_config_clean_file((Path),FALSE))
+#define gnome_config_private_clean_file(Path) \
+	(_gnome_config_clean_file((Path),TRUE))
 
 /* This routine drops all of the information related to /file/section */
-void gnome_config_clean_section  (const char *path);
+void _gnome_config_clean_section  (const char *path, gint priv);
+#define gnome_config_clean_section(Path) \
+	(_gnome_config_clean_section((Path),FALSE))
+#define gnome_config_private_clean_section(Path) \
+	(_gnome_config_clean_section((Path),TRUE))
 
 /* Drops the information for a specific key */
-void gnome_config_clean_key (const char *path);
+void _gnome_config_clean_key (const char *path, gint priv);
+#define gnome_config_clean_key(Path) \
+	(_gnome_config_clean_key((Path),FALSE))
+#define gnome_config_private_clean_key(Path) \
+	(_gnome_config_clean_key((Path),TRUE))
 
 /* Set an active prefix and remove an active prefix */
 void gnome_config_push_prefix (const char *path);
