@@ -657,7 +657,7 @@ gnome_program_version_check(const char *required_version,
 		       const char *provided_version)
 {
   if(required_version && provided_version)
-    return (rpmvercmp(required_version, provided_version) >= 0);
+    return (rpmvercmp(provided_version, required_version) >= 0);
   else
     return TRUE;
 }
@@ -714,14 +714,16 @@ gnome_program_module_register(GnomeProgram *app,
 	    {
 	      /* The required version is not installed */
 	      /* I18N needed */
-	      g_message("Module '%s' requires version '%s' of module '%s' "
-			"to be installed, and you only have version '%s' of '%s'. "
-			"Aborting initialization.",
-			module_info->name,
-			module_info->requirements[i].required_version,
-			dep_mod->name,
-			dep_mod->version,
-			dep_mod->name);
+	      fprintf(stderr,
+                      "Module '%s' requires version '%s' of module '%s' "
+                      "to be installed, and you only have version '%s' of '%s'. "
+                      "Aborting application.",
+                      module_info->name,
+                      module_info->requirements[i].required_version,
+                      dep_mod->name,
+                      dep_mod->version,
+                      dep_mod->name);
+              exit(1);
 	    }
 	}
     }

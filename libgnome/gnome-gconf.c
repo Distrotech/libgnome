@@ -446,20 +446,27 @@ gnome_gconf_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
         gconf_postinit(app, (GnomeModuleInfo*)mod_info);
 
         global_client = gconf_client_new();
+
+        /* We own it; if we ever had a way to "shut down" we
+           might unref it as well, but we don't, so we always
+           just let gconfd catch on to our death */
+        gtk_object_ref(GTK_OBJECT(global_client));
+        gtk_object_sink(GTK_OBJECT(global_client));
 }
 
 extern GnomeModuleInfo gtk_module_info;
 
 static GnomeModuleRequirement gnome_gconf_requirements[] = {
-  { "1.2.5", &gtk_module_info },
-  { liboaf_version, &liboafgnome_module_info },
-  { NULL, NULL }
+        { "1.2.5", &gtk_module_info },
+        /* VERSION is also our version note - it's all libgnomeui */
+        { VERSION, &liboafgnome_module_info },
+        { NULL, NULL }
 };
 
 GnomeModuleInfo gnome_gconf_module_info = {
-  "gnome-gconf", VERSION, N_("GNOME GConf Support"),
-  gnome_gconf_requirements,
-  gnome_gconf_pre_args_parse, gnome_gconf_post_args_parse,
-  gconf_options
+        "gnome-gconf", VERSION, N_("GNOME GConf Support"),
+        gnome_gconf_requirements,
+        gnome_gconf_pre_args_parse, gnome_gconf_post_args_parse,
+        gconf_options
 };
 

@@ -1,3 +1,12 @@
+2000-01-13  Havoc Pennington  <hp@redhat.com>
+
+	* gnomelib-init2.c (gnome_program_module_register): Dump
+	bad-module-version message to stderr instead of stdout, and 
+	then exit(1) (we can't really continue, it will segfault
+	most of the time no doubt)
+	(gnome_program_version_check): reverse the version args 
+	to rpmvercmp
+
 Thu Jan 13 14:49:03 2000  George Lebl <jirka@5z.com>
 
 	* gnome-i18n.c: fixup the inline doc to be more clear that the
