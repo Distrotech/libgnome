@@ -320,6 +320,9 @@ add_directory_handler (GnomeSelector *selector, const gchar *uri, gint position)
     gnome_vfs_uri_ref (async_data->uri);
     gtk_object_ref (GTK_OBJECT (fselector));
 
+    fselector->_priv->async_ops = g_slist_prepend
+	(fselector->_priv->async_ops, async_data);
+
     gnome_vfs_async_load_directory_uri (&async_data->handle, vfs_uri,
 					fselector->_priv->file_info_options,
 					NULL, FALSE,
