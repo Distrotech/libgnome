@@ -344,6 +344,11 @@ load (const char *file)
 		case FirstBrace:
 		case KeyDef:
 		case KeyDefOnKey:
+			if (c == '#') {
+				state = IgnoreToEOL;
+				break;
+			}
+
 			if (c == '[' && state != KeyDefOnKey){
 				TSecHeader *temp;
 		
