@@ -42,13 +42,13 @@ static const Unit units[] =
   /* XXX does anyone *really* measure paper size in feet?  meters? */
 
   /* human name, abreviation, points per unit */
-  { "Feet",       "ft",	866.4 },
-  { "Meter",      "m",  2540 },
-  { "Decimeter",  "dm",	254.0 },
-  { "Millimeter", "mm",	2.54 },
+  { "Feet",       "ft",	864 },
+  { "Meter",      "m",  2834.6457 },
+  { "Decimeter",  "dm",	283.46457 },
+  { "Millimeter", "mm",	2.8346457 },
   { "Point",      "pt",	1. },
-  { "Centimeter", "cm",	25.4 },
-  { "Inch",       "in",	72.2 },
+  { "Centimeter", "cm",	28.346457 },
+  { "Inch",       "in",	72 },
   { 0 }
 };
 
