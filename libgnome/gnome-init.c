@@ -44,7 +44,7 @@
 
 char *gnome_user_dir = NULL, *gnome_user_private_dir = NULL, *gnome_user_accels_dir = NULL;
 
-static void libgnome_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info);
+static void libgnome_post_args_parse(GnomeProgram *app, GnomeModuleInfo *mod_info);
 static void libgnome_loadinit(const GnomeModuleInfo *mod_info);
 static void libgnome_option_cb(poptContext ctx, enum poptCallbackReason reason,
 			       const struct poptOption *opt, const char *arg,
@@ -87,7 +87,7 @@ GnomeModuleInfo libgnome_module_info = {
 
 static void
 libgnome_post_args_parse (GnomeProgram *program,
-			  const GnomeModuleInfo *mod_info)
+			  GnomeModuleInfo *mod_info)
 {
     GValue value = { 0, };
     gboolean create_dirs_val;

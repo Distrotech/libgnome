@@ -58,13 +58,13 @@ set_property (GObject *object, guint param_id,
 }
 
 static void
-test_pre_args_parse (GnomeProgram *program, const GnomeModuleInfo *mod_info)
+test_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
     g_message (G_STRLOC ": %p", program);
 }
 
 static void
-test_post_args_parse (GnomeProgram *program, const GnomeModuleInfo *mod_info)
+test_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
     g_message (G_STRLOC ": %p", program);
 }

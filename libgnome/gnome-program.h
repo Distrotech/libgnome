@@ -133,7 +133,7 @@ typedef void (*GnomeModuleConstructor) (GType type, guint n_construct_props,
 					GObjectConstructParam *construct_props,
 					const GnomeModuleInfo *mod_info);
 typedef void (*GnomeModuleHook) (GnomeProgram *program,
-				 const GnomeModuleInfo *mod_info);
+				 GnomeModuleInfo *mod_info);
 
 struct _GnomeModuleInfo {
     const char *name, *version, *description;
