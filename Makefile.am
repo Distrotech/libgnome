@@ -1,4 +1,4 @@
-SUBDIRS = libgnome monikers schemas gnome-data help-converters po doc
+SUBDIRS = libgnome monikers schemas gnome-data po doc
 
 EXTRA_DIST = \
 	COPYING.LIB		\
