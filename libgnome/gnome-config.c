@@ -141,22 +141,50 @@ parse_path (const char *path)
 		p->opath = g_copy_strings (prefix, path, NULL);
 
 	p->path = p->opath;
-	
-	if (*p->path == '='){
-		sep = "=";
-		p->path++;
-	} else
-		sep = "/=";
-	
-	p->file    = strtok (p->path, sep);
-	p->section = strtok (NULL, "/=");
-	p->key     = strtok (NULL, "=");
-	p->def     = strtok (NULL, "=");
 
-	/* Was it a Gnome-relative pathname? */
-	if (*sep == '/'){
-		char *f = g_concat_dir_and_file (gnome_user_dir, p->file);
-		p->file = f;
+	if (*p->path == '='){
+		/* If it is an absolute path name */
+		p->path++;
+		p->file    = strtok (p->path, "=");
+		p->section = strtok (NULL, "/=");
+		p->key     = strtok (NULL, "=");
+		p->def     = strtok (NULL, "=");
+	} else {
+		char *end;
+		sep = "/=";
+
+		p->file    = p->path;
+		p->def     = NULL;
+		p->section = NULL;
+		p->key     = NULL;
+		if (end = strchr (p->path, '=')){
+			*end = 0;
+			p->def = end + 1;
+		} else 
+			end = p->path + strlen (p->path);
+
+		/* Look backwards for a slash, to split key from the filename/section */
+		while (end > p->path){
+			end--;
+			if (*end == '/'){
+				*end = 0;
+				p->key = end + 1;
+				break;
+			}
+		}
+
+		/* Look backwards for the next slash, to get the section name */
+		while (end > p->path){
+			end--;
+			if (*end == '/'){
+				*end = 0;
+				p->section = end + 1;
+				break;
+			}
+		}
+		if (*p->file == '/')
+			p->file++;
+		p->file = g_concat_dir_and_file (gnome_user_dir, p->file);
 	}
 	return p;
 }
@@ -767,3 +795,29 @@ gnome_config_pop_prefix (void)
 	prefix_list = p->p_back;
 	free (p);
 }
+
+#ifdef TEST
+x (char *str, char *file, char *sec, char *key, char *val)
+{
+	ParsedPath *pp;
+
+	printf ("%s\n", str);
+	pp = parse_path (str);
+	printf ("   file: %s [%s]\n", pp->file, file);
+	printf ("   sect: %s [%s]\n", pp->section, sec);
+	printf ("   key:  %s [%s]\n", pp->key, key);
+	printf ("   def:  %s [%s]\n", pp->def, val);
+}
+
+main ()
+{
+	gnome_user_dir = "USERDIR";
+	x ("=/tmp/file=seccion/llave=valor", "/tmp/file", "seccion", "llave", "valor");
+	x ("=/tmp/file=seccion/llave", "/tmp/file", "seccion", "llave", NULL);
+	x ("/file/seccion/llave=valor", "USERDIR/file", "seccion", "llave", "valor");
+	x ("/file/seccion/llave", "USERDIR/file", "seccion", "llave", NULL);
+	x ("/file/archivo/archivo/seccion/llave", "USERDIR/file/archivo/archivo", "seccion", "llave", NULL);
+	x ("/file/archivo/archivo/seccion/llave=valor", "USERDIR/file/archivo/archivo", "seccion", "llave", "valor");
+	
+}
+#endif
