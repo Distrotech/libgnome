@@ -58,10 +58,6 @@
 /* TO DO:
    Fix all FIXME comments
 
-   Let system provide a fallback database as well.  This would be used
-   to let applications set their own icons by default, etc.  This
-   would also be how the initial setup is primed
-
    Think about having a way to allow ordering of regexs
 
    We need a way to figure out when to remove metadata entries.  That
@@ -668,6 +664,11 @@ static char *short_circuit = NULL;
    function.  */
 static char *desired_key;
 
+/* The final (I hope) evil global: true if we're searching for the
+   `type' key.  We optimize this case a little since we expect it to
+   happen frequently.  */
+static int type_desired;
+
 /* This is called for each hash table entry.  If the regular
    expression match succeeds, we search for the desired key.  If that
    succeeds, we set SHORT_CIRCUIT to the value.  */
@@ -678,12 +679,13 @@ try_one_app_regex (gpointer key, gpointer value, gpointer user_data)
 	char *filename = (char *) user_data;
 	regex_t *rx;
 	GSList *list;
-	struct app_ent *ent;
+	struct app_ent *ent = (struct app_ent *) value;
 
 	static GnomeRegexCache *app_rx_cache = NULL;
 
-	/* Already found the answer, just marking time now.  */
-	if (short_circuit)
+	/* Already found the answer, just marking time now.  Or,
+	   searching for type and this entry doesn't have it.  */
+	if (short_circuit || (type_desired && ! ent->type_set))
 		return;
 
 	if (! app_rx_cache)
@@ -716,10 +718,11 @@ try_app_regexs (const char *file, const char *key, int *size, char **buffer)
 
 	short_circuit = NULL;
 	desired_key = (char *) key;
+	type_desired = ! strcmp (key, "type");
 	g_hash_table_foreach (app_rx_hash, try_one_app_regex,
 			      (gpointer) file);
 	if (! short_circuit)
-		return 1;
+		return GNOME_METADATA_NOT_FOUND;
 
 	*size = strlen (short_circuit) + 1;
 	*buffer = strdup (short_circuit);
@@ -738,7 +741,7 @@ app_get_by_type (const char *type, const char *key, int *size, char **buffer)
 
 	ent = (struct app_ent *) g_hash_table_lookup (app_type_hash, type);
 	if (! ent)
-		return 1;
+		return GNOME_METADATA_NOT_FOUND;
 
 	for (list = ent->mappings; list != NULL; list = list->next) {
 		struct kv *pair = (struct kv *) list->data;
@@ -749,7 +752,7 @@ app_get_by_type (const char *type, const char *key, int *size, char **buffer)
 		}
 	}
 
-	return 1;
+	return GNOME_METADATA_NOT_FOUND;
 }
 
 
@@ -818,7 +821,7 @@ try_regexs (const char *file, const char *key, int *size, char **buffer)
 	char *p, *end;
 
 	if (metadata_get_list ("regex", key, &value))
-		return 1;
+		return GNOME_METADATA_NOT_FOUND;
 
 	if (! rxcache)
 		rxcache = gnome_regex_cache_new ();
@@ -834,7 +837,7 @@ try_regexs (const char *file, const char *key, int *size, char **buffer)
 		p += strlen (p) + 1;
 	}
 
-	return 1;
+	return GNOME_METADATA_NOT_FOUND;
 }
 
 /* Run the `file' command and use its output to determine the file's
@@ -867,6 +870,19 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 	   application.  */
 	if (! try_app_regexs (file, name, size, buffer))
 		return 0;
+
+	if (! strcmp (name, "type")) {
+		/* We're trying to fetch the type, so there's no point
+		   trying the same requests again.  */
+		if (is_fast)
+			return GNOME_METADATA_NOT_FOUND;
+		type = run_file (file);
+		if (! type)
+			return GNOME_METADATA_NOT_FOUND;
+		*size = strlen (type) + 1;
+		*buffer = type;
+		return 0;
+	}
 
 	/* Phase 4: see if `type' is set.  */
 	if (! metadata_get ("file", file, "type", &type_size, &type)) {
