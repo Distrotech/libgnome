@@ -548,13 +548,7 @@ gnome_gconf_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
         
         gconf_postinit(app, (GnomeModuleInfo*)mod_info);
 
-        global_client = gconf_client_new();
-
-        /* We own it; if we ever had a way to "shut down" we
-           might unref it as well, but we don't, so we always
-           just let gconfd catch on to our death */
-        gtk_object_ref(GTK_OBJECT(global_client));
-        gtk_object_sink(GTK_OBJECT(global_client));
+        global_client = gconf_client_get_default();
 
         gconf_client_add_dir(global_client,
                              "/desktop/gnome",
