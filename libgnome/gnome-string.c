@@ -91,12 +91,11 @@ gnome_join_vstrings(gchar *separator, gchar **strings)
 	return retval;
 }
 
-inline
 gchar *
 gnome_chomp_string(gchar *astring, gboolean in_place)
 {
 	int i;
-	gchar *retval;
+	gchar *retval, *end;
 
 	g_return_val_if_fail(astring != NULL, NULL);
 
@@ -105,6 +104,13 @@ gnome_chomp_string(gchar *astring, gboolean in_place)
 	else
 		retval = astring;
 
-	i = strlen(retval) - 1;
-	while(isspace(retval[i])) retval[i--] = '\0';
+	i = strlen (retval);
+	if (!i)
+		return retval;
+
+	*end = retval + i - 1;
+ 	for (; end >= retval && isspace (*end); end--)
+		*end = '\0';
+
+	return retval;
 }

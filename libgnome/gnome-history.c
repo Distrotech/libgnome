@@ -65,7 +65,8 @@ write_history_entry(GnomeHistoryEntry ent, FILE *outfile)
 		ent->filename, ent->filetype, ent->creator, ent->desc);
 }
 
-static void write_history(GList *ents)
+static void
+write_history(GList *ents)
 {
 	FILE *outfile;
 	gchar *filename = gnome_util_home_file("document_history");
