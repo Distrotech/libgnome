@@ -1,54 +1,52 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 /*
- * gnome-storage-fs.c: Sample file-system based Storage implementation
- *
- * This is just a sample file-system based Storage implementation.
- * it is only used for debugging purposes
+ * gnome-storage-vfs.c: Gnome VFS based storage implementation
  *
  * Author:
- *   Miguel de Icaza (miguel@gnu.org)
+ *   Michael Meeks <michael@helixcode.com>
  */
 #include <config.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
-#include <storage-modules/gnome-storage-fs.h>
-#include <bonobo/bonobo-stream-fs.h>
+#include <storage-modules/bonobo-storage-vfs.h>
+#include "bonobo-stream-vfs.h"
 
-static BonoboStorageClass *bonobo_storage_fs_parent_class;
+static BonoboStorageClass *bonobo_storage_vfs_parent_class;
 
 static void
-bonobo_storage_fs_destroy (GtkObject *object)
+bonobo_storage_vfs_destroy (GtkObject *object)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (object);
+	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (object);
 
-	g_free (storage_fs->path);
+	g_free (storage_vfs->path);
 }
 
 static BonoboStream *
 fs_create_stream (BonoboStorage *storage, const CORBA_char *path, CORBA_Environment *ev)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (storage);
 	BonoboStream *stream;
 	char *full;
 
-	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = bonobo_stream_fs_create (full);
+	full = g_concat_dir_and_file (storage_vfs->path, path);
+	stream = bonobo_stream_vfs_create (full);
 	g_free (full);
 
 	return stream;
 }
 
 static BonoboStream *
-fs_open_stream (BonoboStorage *storage, const CORBA_char *path, Bonobo_Storage_OpenMode mode, CORBA_Environment *ev)
+fs_open_stream (BonoboStorage *storage, const CORBA_char *path,
+		Bonobo_Storage_OpenMode mode, CORBA_Environment *ev)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (storage);
 	BonoboStream *stream;
 	char *full;
 
-	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = bonobo_stream_fs_open (full, mode);
+	full = g_concat_dir_and_file (storage_vfs->path, path);
+	stream = bonobo_stream_vfs_open (full, mode);
 	g_free (full);
 
 	return stream;
@@ -57,12 +55,12 @@ fs_open_stream (BonoboStorage *storage, const CORBA_char *path, Bonobo_Storage_O
 static BonoboStorage *
 fs_create_storage (BonoboStorage *storage, const CORBA_char *path, CORBA_Environment *ev)
 {
-	BonoboStorageFS *storage_fs = BONOBO_STORAGE_FS (storage);
+	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (storage);
 	BonoboStorage *new_storage;
 	char *full;
 
-	full = g_concat_dir_and_file (storage_fs->path, path);
-	new_storage = bonobo_storage_fs_create (BONOBO_STORAGE_FS (storage), path);
+	full = g_concat_dir_and_file (storage_vfs->path, path);
+	new_storage = bonobo_storage_vfs_create (BONOBO_STORAGE_VFS (storage), path);
 	g_free (full);
 
 	return new_storage;
@@ -75,7 +73,8 @@ fs_copy_to (BonoboStorage *storage, Bonobo_Storage target, CORBA_Environment *ev
 }
 
 static void
-fs_rename (BonoboStorage *storage, const CORBA_char *path, const CORBA_char *new_path, CORBA_Environment *ev)
+fs_rename (BonoboStorage *storage, const CORBA_char *path,
+	   const CORBA_char *new_path, CORBA_Environment *ev)
 {
 	g_warning ("Not yet implemented");
 }
@@ -86,7 +85,8 @@ fs_commit (BonoboStorage *storage, CORBA_Environment *ev)
 }
 
 static Bonobo_Storage_directory_list *
-fs_list_contents (BonoboStorage *storage, const CORBA_char *path, CORBA_Environment *ev)
+fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
+		  CORBA_Environment *ev)
 {
 	g_error ("Not yet implemented");
 
@@ -94,12 +94,12 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path, CORBA_Environm
 }
 
 static void
-bonobo_storage_fs_class_init (BonoboStorageFSClass *class)
+bonobo_storage_vfs_class_init (BonoboStorageVfsClass *class)
 {
 	GtkObjectClass *object_class = (GtkObjectClass *) class;
 	BonoboStorageClass *sclass = BONOBO_STORAGE_CLASS (class);
 	
-	bonobo_storage_fs_parent_class = gtk_type_class (bonobo_storage_get_type ());
+	bonobo_storage_vfs_parent_class = gtk_type_class (bonobo_storage_get_type ());
 
 	sclass->create_stream  = fs_create_stream;
 	sclass->open_stream    = fs_open_stream;
@@ -109,7 +109,7 @@ bonobo_storage_fs_class_init (BonoboStorageFSClass *class)
 	sclass->commit         = fs_commit;
 	sclass->list_contents  = fs_list_contents;
 	
-	object_class->destroy = bonobo_storage_fs_destroy;
+	object_class->destroy = bonobo_storage_vfs_destroy;
 }
 
 static void
@@ -118,16 +118,16 @@ bonobo_storage_init (BonoboObject *object)
 }
 
 GtkType
-bonobo_storage_fs_get_type (void)
+bonobo_storage_vfs_get_type (void)
 {
 	static GtkType type = 0;
 
 	if (!type){
 		GtkTypeInfo info = {
-			"IDL:GNOME/StorageFS:1.0",
-			sizeof (BonoboStorageFS),
-			sizeof (BonoboStorageFSClass),
-			(GtkClassInitFunc) bonobo_storage_fs_class_init,
+			"IDL:GNOME/StorageVfs:1.0",
+			sizeof (BonoboStorageVfs),
+			sizeof (BonoboStorageVfsClass),
+			(GtkClassInitFunc) bonobo_storage_vfs_class_init,
 			(GtkObjectInitFunc) bonobo_storage_init,
 			NULL, /* reserved 1 */
 			NULL, /* reserved 2 */
@@ -141,9 +141,9 @@ bonobo_storage_fs_get_type (void)
 }
 
 BonoboStorage *
-bonobo_storage_fs_construct (BonoboStorageFS *storage,
-			    Bonobo_Storage corba_storage,
-			    const char *path, const char *open_mode)
+bonobo_storage_vfs_construct (BonoboStorageVfs *storage,
+			      Bonobo_Storage corba_storage,
+			      const char *path, const char *open_mode)
 {
 	g_return_val_if_fail (storage != NULL, NULL);
 	g_return_val_if_fail (BONOBO_IS_STORAGE (storage), NULL);
@@ -156,7 +156,7 @@ bonobo_storage_fs_construct (BonoboStorageFS *storage,
 }
 
 static Bonobo_Storage
-create_bonobo_storage_fs (BonoboObject *object)
+create_bonobo_storage_vfs (BonoboObject *object)
 {
 	POA_Bonobo_Storage *servant;
 	CORBA_Environment ev;
@@ -180,27 +180,27 @@ create_bonobo_storage_fs (BonoboObject *object)
  * Creates the Gtk object and the corba server bound to it
  */
 static BonoboStorage *
-do_bonobo_storage_fs_create (char *path)
+do_bonobo_storage_vfs_create (char *path)
 {
-	BonoboStorageFS *storage_fs;
+	BonoboStorageVfs *storage_vfs;
 	Bonobo_Storage corba_storage;
 
-	storage_fs = gtk_type_new (bonobo_storage_fs_get_type ());
-	storage_fs->path = g_strdup (path);
+	storage_vfs = gtk_type_new (bonobo_storage_vfs_get_type ());
+	storage_vfs->path = g_strdup (path);
 	
-	corba_storage = create_bonobo_storage_fs (
-		BONOBO_OBJECT (storage_fs));
+	corba_storage = create_bonobo_storage_vfs (
+		BONOBO_OBJECT (storage_vfs));
 	if (corba_storage == CORBA_OBJECT_NIL){
-		gtk_object_destroy (GTK_OBJECT (storage_fs));
+		gtk_object_destroy (GTK_OBJECT (storage_vfs));
 		return NULL;
 	}
 
-	return bonobo_storage_construct
-		(BONOBO_STORAGE (storage_fs), corba_storage);
+	return bonobo_storage_construct (
+		BONOBO_STORAGE (storage_vfs), corba_storage);
 }
 
 /** 
- * bonobo_storage_fs_open:
+ * bonobo_storage_vfs_open:
  * @path: path to existing directory that represents the storage
  * @flags: open flags.
  * @mode: mode used if @flags containst BONOBO_SS_CREATE for the storage.
@@ -208,7 +208,7 @@ do_bonobo_storage_fs_create (char *path)
  * Returns a BonoboStorage object that represents the storage at @path
  */
 BonoboStorage *
-bonobo_storage_fs_open (const char *path, gint flags, gint mode)
+bonobo_storage_vfs_open (const char *path, gint flags, gint mode)
 {
 	struct stat s;
 	int v;
@@ -223,7 +223,7 @@ bonobo_storage_fs_open (const char *path, gint flags, gint mode)
 
 	v = stat (path, &s);
 
-	if (flags & BONOBO_SS_READ){
+	if (flags & BONOBO_SS_READ) {
 		if (v == -1)
 			return NULL;
 		
@@ -231,7 +231,7 @@ bonobo_storage_fs_open (const char *path, gint flags, gint mode)
 			return NULL;
 
 	} else if (flags & (BONOBO_SS_RDWR|BONOBO_SS_WRITE)){
-		if (v == -1){
+		if (v == -1) {
 			if (mkdir (path, 0777) == -1)
 				return NULL;
 		} else {
@@ -240,7 +240,7 @@ bonobo_storage_fs_open (const char *path, gint flags, gint mode)
 		}
 	}
 
-	return do_bonobo_storage_fs_create (g_strdup (path));
+	return do_bonobo_storage_vfs_create (g_strdup (path));
 }
 
 /*
@@ -249,6 +249,6 @@ bonobo_storage_fs_open (const char *path, gint flags, gint mode)
 BonoboStorage *
 bonobo_storage_driver_open (const char *path, gint flags, gint mode)
 {
-	return bonobo_storage_fs_open (path, flags, mode);
+	return bonobo_storage_vfs_open (path, flags, mode);
 }
 

@@ -43,8 +43,10 @@ libstorage_LTLIBRARIES =	\
 	libstorage_vfs.la
 
 libstorage_vfs_la_SOURCES =	\
-	gnome-storage-vfs.c	\
-	gnome-storage-vfs.h
+	bonobo-storage-vfs.c	\
+	bonobo-storage-vfs.h	\
+	bonobo-stream-vfs.c	\
+	bonobo-stream-vfs.h
 
 libstorage_vfs_la_CFLAGS =	\
 	$(VFS_CFLAGS)
