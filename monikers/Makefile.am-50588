@@ -36,7 +36,7 @@ libstorage_fs_la_LDFLAGS = 	\
 	$(common_ldflags)
 
 #
-# VFS storage module
+# VFS storage module - disabled for now.
 #
 if HAVE_VFS
 libstoragedir = $(libdir)
