@@ -115,7 +115,7 @@ remove_this_key (gpointer key, gpointer value, gpointer user_data)
 {
 	if (strcmp (key, user_data) == 0){
 		g_free (key);
-		g_free (user_data);
+		g_free (value);
 		return TRUE;
 	}
 

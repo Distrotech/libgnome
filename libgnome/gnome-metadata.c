@@ -236,7 +236,7 @@ metadata_set (const char *space, const char *object, const char *key,
 		if (p == end) {
 			/* Not found, so add it.  */
 			int len = strlen (xitem) + 1;
-			char *n = malloc (value.size + len);
+			char *n = g_malloc (value.size + len);
 			memcpy (n, value.data, value.size);
 			strcpy (n + value.size, xitem);
 
@@ -244,7 +244,7 @@ metadata_set (const char *space, const char *object, const char *key,
 			value.size += len;
 
 			database->put (database, &dkey, &value, 0);
-			free (n);
+			g_free (n);
 		}
 	} else {
 		/* Not found, so set initial value.  */
@@ -411,7 +411,7 @@ metadata_get (const char *space, const char *object, const char *key,
 {
 	int r = metadata_get_no_dup (space, object, key, size, buffer);
 	if (! r) {
-		char *n = malloc (*size);
+		char *n = g_malloc (*size);
 		memcpy (n, *buffer, *size);
 		*buffer = n;
 	}
@@ -468,7 +468,7 @@ add_hash_entry (GHashTable *hash, char *hashkey, char *key, char *value)
 
 	ent = (struct app_ent *) g_hash_table_lookup (hash, hashkey);
 	if (! ent) {
-		ent = malloc (sizeof (struct app_ent));
+		ent = g_malloc (sizeof (struct app_ent));
 		ent->type_set = 0;
 		ent->mappings = NULL;
 		g_hash_table_insert (hash, hashkey, ent);
@@ -477,15 +477,15 @@ add_hash_entry (GHashTable *hash, char *hashkey, char *key, char *value)
 	for (list = ent->mappings; list; list = list->next) {
 		struct kv *pair = (struct kv *) list->data;
 		if (! strcmp (pair->key, key)) {
-			free (pair->value);
-			pair->value = strdup (value);
+			g_free (pair->value);
+			pair->value = g_strdup (value);
 			return;
 		}
 	}
 
-	newpair = (struct kv *) malloc (sizeof (struct kv));
-	newpair->key = strdup (key);
-	newpair->value = strdup (value);
+	newpair = (struct kv *) g_malloc (sizeof (struct kv));
+	newpair->key = g_strdup (key);
+	newpair->value = g_strdup (value);
 	ent->mappings = g_slist_prepend (ent->mappings, newpair);
 
 	if (! strcmp (key, "type"))
@@ -517,7 +517,7 @@ scan_app_file (const struct dirent *ent)
 	filename = g_concat_dir_and_file (gnome_metadata_app_dir,
 					  ent->d_name);
 	f = fopen (filename, "r");
-	free (filename);
+	g_free (filename);
 	/* We just don't care about errors.  */
 	if (! f)
 		return 0;
@@ -572,7 +572,7 @@ scan_app_file (const struct dirent *ent)
 					/* This isn't a leak: the keys
 					   are kept by the hash.  */
 					current_key
-						= strdup (&line->str[start]);
+						= g_strdup (&line->str[start]);
 				} else {
 					current_hash = save;
 				}
@@ -615,9 +615,9 @@ static void
 free_mapping (gpointer data, gpointer user_data)
 {
 	struct kv *m = (struct kv *) data;
-	free (m->key);
-	free (m->value);
-	free (m);
+	g_free (m->key);
+	g_free (m->value);
+	g_free (m);
 }
 
 /* This is called to free a hash entry.  */
@@ -627,8 +627,8 @@ free_hash_entry (gpointer key, gpointer value, gpointer user_data)
 	struct app_ent *ent = (struct app_ent *) value;
 	g_slist_foreach (ent->mappings, free_mapping, NULL);
 	g_slist_free (ent->mappings);
-	free (ent);
-	free (key);
+	g_free (ent);
+	g_free (key);
 }
 
 /* If the application install directory has changed, throw away our
@@ -666,7 +666,7 @@ maybe_scan_app_dir (void)
 	if (scandir (gnome_metadata_app_dir, &list,
 		     (gpointer)scan_app_file, alphasort) != -1)
 		if  (list)
-			free (list);
+			g_free (list);
 }
 
 /* This is set if we've already found a suitable regex match.  It lets
@@ -743,7 +743,7 @@ try_app_regexs (const char *file, const char *key, int *size, char **buffer)
 		return GNOME_METADATA_NOT_FOUND;
 
 	*size = strlen (short_circuit) + 1;
-	*buffer = strdup (short_circuit);
+	*buffer = g_strdup (short_circuit);
 	return 0;
 }
 
@@ -765,7 +765,7 @@ app_get_by_type (const char *type, const char *key, int *size, char **buffer)
 		struct kv *pair = (struct kv *) list->data;
 		if (! strcmp (pair->key, key)) {
 			*size = strlen (pair->value) + 1;
-			*buffer = strdup (pair->value);
+			*buffer = g_strdup (pair->value);
 			return 0;
 		}
 	}
@@ -827,7 +827,7 @@ gnome_metadata_list (const char *file)
 
 	if (! database && init ())
 		return NULL;
-
+	
 	if (metadata_get_list ("file", file, &value))
 		return NULL;
 
@@ -839,12 +839,12 @@ gnome_metadata_list (const char *file)
 	}
 
 	/* Allocate one extra slot for trailing NULL.  */
-	result = (char **) malloc ((num + 1) * sizeof (char *));
+	result = (char **) g_malloc ((num + 1) * sizeof (char *));
 
 	p = value.data;
 	for (i = 0; i < num; ++i) {
 		int len = strlen (p);
-		result[i] = strdup (p);
+		result[i] = g_strdup (p);
 		p += len + 1;
 	}
 	result[i] = NULL;
@@ -883,7 +883,7 @@ try_regexs (const char *file, const char *key, int *size, char **buffer)
 }
 
 /* Run the `file' command and use its output to determine the file's
-   type.  Return NULL if no match, or malloc'd type name on success.  */
+   type.  Return NULL if no match, or g_malloc'd type name on success.  */
 static char *
 run_file (const char *file)
 {
@@ -892,7 +892,7 @@ run_file (const char *file)
      ready.  */
 	extern const char *gnome_mime_type_from_magic (const char *); /* FIXME */
 	const char *type = gnome_mime_type_from_magic (file);
-	return type ? strdup (type) : NULL;
+	return type ? g_strdup (type) : NULL;
 #else
 	return NULL;
 #endif
@@ -957,7 +957,7 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 	/* See if `mime.types' has the answer.  */
 	type = gnome_mime_type_or_default ((char *) file, NULL);
 	if (type) {
-		type = strdup (type);
+		type = g_strdup (type);
 		goto got_type;
 	}
 
@@ -976,7 +976,7 @@ got_type:
 		   associated with the type.  */
 		r = app_get_by_type (type, name, size, buffer);
 	}
-	free (type);
+	g_free (type);
 	return r;
 }
 
@@ -988,7 +988,7 @@ got_type:
  * @data: Return parameter for data
  *
  * Get a piece of metadata associated with @file.  @size and @buffer
- * are result parameters.  *@buffer is malloc()d.
+ * are result parameters.  *@buffer is g_malloc()d.
  *
  * Returns %0, or an error code.  On error *@buffer will be set to %NULL.
  */
