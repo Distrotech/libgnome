@@ -1,3 +1,4 @@
+/* -*- Mode: C; c-set-style: gnu indent-tabs-mode: t; c-basic-offset: 4; tab-width: 8 -*- */
 /*
  * Copyright (C) 2000 SuSE GmbH
  * Author: Martin Baulig <baulig@suse.de>
@@ -53,14 +54,14 @@ typedef struct _GnomeFileSelectorPrivate  GnomeFileSelectorPrivate;
 typedef struct _GnomeFileSelectorClass    GnomeFileSelectorClass;
 
 struct _GnomeFileSelector {
-        GnomeSelector selector;
+    GnomeSelector selector;
         
-        /*< private >*/
-        GnomeFileSelectorPrivate *_priv;
+    /*< private >*/
+    GnomeFileSelectorPrivate *_priv;
 };
 
 struct _GnomeFileSelectorClass {
-        GnomeSelectorClass parent_class;
+    GnomeSelectorClass parent_class;
 };
 
 
