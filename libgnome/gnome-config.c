@@ -1,4 +1,4 @@
-u/*
+/*
  * Configuration-File Functions.
  *
  *  Copyright 1993, 1994, 1997 The Free Software Foundation
@@ -895,10 +895,13 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
 {
 	iterator_type *iter = iterator_handle;
 
-	if(!iterator_handle) return NULL; /* g_return_if_fail is not appropriate
-			       since this is not really a failure, but
-			       passing in an "empty" iterator
-			       (we return NULL at times) */
+        /*
+	 * g_return_if_fail is not appropriate since this is not
+	 * really a failure, but passing in an "empty" iterator (we
+	 * return NULL at times)
+	 */
+	if(!iterator_handle)
+		return NULL; 
 	
 	if (iter->type == 0){
 		TKeys *keys;
