@@ -183,7 +183,9 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 			g_free (icon_base);
 		} else
 			newitem->icon = icon_base;
-	} 
+	} else 
+		/*no icon*/
+		newitem->icon = NULL;
 	gnome_config_pop_prefix ();
 	
 	if (clean_from_memory){
