@@ -5,13 +5,7 @@
  */
 
 #ifndef __GNOME_I18NP_H__
-#define __GNOME_I18NP_H__
-
-#ifdef  __GNOME_I18N_H__
-#warning "You should use either gnome-i18n.h OR gnome-i18nP.h"
-#endif
-
-BEGIN_GNOME_DECLS
+#define __GNOME_I18NP_H__ 1
 
 #ifdef ENABLE_NLS
 #    include <libintl.h>
@@ -33,12 +27,6 @@ BEGIN_GNOME_DECLS
 #    define N_(String) (String)
 #endif
 
-const char *gnome_i18n_get_language(void);
-GList      *gnome_i18n_get_language_list (const gchar *category_name);
-void gnome_i18n_init (void);
-void	   gnome_i18n_set_preferred_language (const char *val);
-const char *gnome_i18n_get_preferred_language (void);
+#include "libgnome/gnome-i18n.h"
 
-END_GNOME_DECLS
-
-#endif /* __GNOME_UTIL_H__ */
+#endif /* __GNOME_I18NP_H__ */

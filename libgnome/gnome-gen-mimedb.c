@@ -23,8 +23,7 @@ int main(int argc, char *argv[])
 
 	FILE *f;
 
-	gnome_do_not_create_directories = 1;
-	gnomelib_init("gnome-gen-mimedb", VERSION);
+	gnome_program_init("gnome-gen-mimedb", VERSION, argc, argv, LIBGNOME_PARAM_CREATE_DIRECTORIES, FALSE, NULL);
 
 	if(argc > 1) {
 		if(argv[1][0] == '-') {

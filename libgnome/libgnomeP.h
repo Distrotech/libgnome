@@ -20,31 +20,9 @@
 #ifndef LIBGNOMEP_H
 #define LIBGNOMEP_H
 
+#include <glib.h>
 #include "libgnome/gnome-defs.h"
-#include "libgnome/gnome-config.h"
-#include "libgnome/gnome-dentry.h"
-#include "libgnome/gnome-exec.h"
-#include "libgnome/gnome-help.h"
 #include "libgnome/gnome-i18nP.h"
-#include "libgnome/gnome-metadata.h"
-#include "libgnome/gnome-mime.h"
-#include "libgnome/gnome-paper.h"
-#include "libgnome/gnome-popt.h"
-#include "libgnome/gnome-remote.h"
-#include "libgnome/gnome-score.h"
-#include "libgnome/gnome-sound.h"
-#include "libgnome/gnome-triggers.h"
-#include "libgnome/gnome-triggersP.h"
-#include "libgnome/gnome-util.h"
-#include "libgnome/gnome-url.h"
-
-extern char *gnome_user_home_dir;
-extern char *gnome_user_dir;
-extern char *gnome_user_private_dir;
-extern char *gnome_user_accels_dir;
-extern char *gnome_app_id, *gnome_app_version;
-extern char gnome_do_not_create_directories;
-
-void gnomelib_init (const char *app_id, const char *app_version);
+#include "libgnome/libgnome.h"
 
 #endif /* LIBGNOMEP_H */

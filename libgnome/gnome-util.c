@@ -45,7 +45,7 @@ gnome_dirrelative_file (const char *base, const char *sub, const char *filename,
 		}
 
 		odir = dir; ofil = fil;
-		dir = g_concat_dir_and_file (gnome_util_user_home (), sub);
+		dir = g_concat_dir_and_file (g_get_home_dir (), sub);
 		fil = g_concat_dir_and_file (dir, filename);
 
 		if (strcmp (odir, dir) != 0 && g_file_exists (fil)) {
@@ -277,71 +277,6 @@ g_file_exists (const char *filename)
 }
 
 /**
- * g_copy_strings:
- * @first: first string
- *
- * returns a new allocated char * with the concatenation of its arguments,
- * the list of strings is terminated by a NULL pointer.
- *
- * NOTE: This function is deprecated.  Use GLib's g_strconcat() instead.
- */
-#if 0
-char *
-g_copy_strings (const char *first, ...)
-{
-	va_list ap;
-	int len;
-	char *data, *result;
-	static int warned = 0;
-
-	if(!warned) {
-	  g_warning("\ng_copy_strings is about to disappear. Please recompile your apps. <<----");
-	  warned = 1;
-	}
-
-	if (!first)
-		return 0;
-	
-	len = strlen (first);
-	va_start (ap, first);
-	
-	while ((data = va_arg (ap, char *))!=0)
-		len += strlen (data);
-	
-	len++;
-	
-	result = g_malloc (len);
-	va_end (ap);
-	va_start (ap, first);
-	strcpy (result, first);
-	while ((data = va_arg (ap, char *)) != 0)
-		strcat (result, data);
-	va_end (ap);
-	
-	return result;
-}
-#endif
-
-/**
- * g_unix_error_string:
- * @error_num: The errno number.
- *
- * Returns a pointer to a static buffer containing the description of
- * the error reported by the errno.
- */
-const gchar *
-g_unix_error_string (int error_num)
-{
-  static GString *buffer = NULL;
-
-  if(!buffer)
-    buffer = g_string_new(NULL);
-
-  g_string_sprintf (buffer, "%s (%d)", g_strerror (error_num), error_num);
-  return buffer->str;
-}
-
-/**
  * g_concat_dir_and_file:
  * @dir:  directory name
  * @file: filename.
@@ -452,60 +387,6 @@ g_copy_vector (char **vec)
 	
 	return new_vec;
 }
-
-/* should be in order of decreasing frequency, since
-   the first ones are checked first. */
-
-/* FIXME add more? Too many obscure ones will just slow things down.  */
-
-static const char * const image_extensions[] = {
-  "png",
-  "xpm",
-  "jpeg",
-  "jpg",
-  "gif",
-  NULL
-};
-
-
-/**
- * g_is_image_filename:
- * @path: Filename or file path.
- *
- * Deprecated. Extra lame way of figuring if a filename is an image file.  You
- * should use the gnome_mime functions instead and match against "image/".
- *
- * Returns: TRUE if the filename is an image.
- */
-gboolean
-g_is_image_filename (const char *path)
-{
-	const char * s;
-	int i = 0;
-	
-	g_return_val_if_fail (path != NULL, FALSE);
-
-	{
-		static int warn_shown = 0;
-
-		if (!warn_shown){
-			warn_shown = 1;
-			g_warning ("g_is_image_filename called, you "
-				   "should use gnome-mime instead\n");
-		}
-	}
-	s = g_extension_pointer (path);
-	
-	while (image_extensions [i]) {
-		if ( strcasecmp (image_extensions[i], s) == 0 ) {
-			return TRUE;
-		}
-		++i;
-	}
-	return FALSE;
-}
-
-
 
 /**
  * gnome_is_program_in_path:

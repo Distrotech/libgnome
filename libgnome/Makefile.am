@@ -34,7 +34,6 @@ libgnome_la_SOURCES = \
 	gnome-metadata.c	\
 	gnome-mime.c		\
 	gnome-mime-info.c	\
-	gnome-popt.c		\
 	gnome-regex.c		\
 	gnome-remote.c		\
 	gnome-score.c		\
@@ -43,7 +42,8 @@ libgnome_la_SOURCES = \
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-paper.c		\
-	gnomelib-init.c
+	gnomelib-init.c		\
+	gnomelib-init2.c
 
 libgnomeinclude_HEADERS = \
         gnome-config.h 		\
@@ -58,7 +58,6 @@ libgnomeinclude_HEADERS = \
 	gnome-metadata.h	\
 	gnome-mime.h		\
 	gnome-mime-info.h	\
-	gnome-popt.h		\
 	gnome-regex.h		\
 	gnome-remote.h		\
 	gnome-score.h		\
@@ -67,7 +66,10 @@ libgnomeinclude_HEADERS = \
 	gnome-url.h		\
 	gnome-util.h   		\
 	gnome-paper.h		\
-	libgnome.h
+	libgnome.h		\
+	gnomelib-init.h		\
+	gnomelib-init2.h	\
+	gnome-portability.h
 
 noinst_HEADERS =				\
 	gnome-i18nP.h				\
@@ -75,7 +77,8 @@ noinst_HEADERS =				\
 	libgnomeP.h
 
 
-EXTRA_DIST = parse-path.cP 
+EXTRA_DIST = parse-path.cP gnome-portability.h.in
+BUILT_SOURCES=gnome-portability.h
 
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP

@@ -15,12 +15,12 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-/* Note: Keep this file in sync with libgnomeP.h.  */
-
 #ifndef LIBGNOME_H
 #define LIBGNOME_H
 
+#include "libgnome/gnome-portability.h"
 #include "libgnome/gnome-defs.h"
+
 #include "libgnome/gnome-config.h"
 #include "libgnome/gnome-dentry.h"
 #include "libgnome/gnome-exec.h"
@@ -29,32 +29,16 @@
 #include "libgnome/gnome-metadata.h"
 #include "libgnome/gnome-mime.h"
 #include "libgnome/gnome-mime-info.h"
+
 /* Should this be in gnome-print? */
 #include "libgnome/gnome-paper.h"
-#include "libgnome/gnome-popt.h"
 #include "libgnome/gnome-remote.h"
 #include "libgnome/gnome-score.h"
 #include "libgnome/gnome-sound.h"
 #include "libgnome/gnome-triggers.h"
 #include "libgnome/gnome-util.h"
 #include "libgnome/gnome-url.h"
-
-extern char *gnome_user_home_dir;
-extern char *gnome_user_dir;
-extern char *gnome_user_private_dir;
-extern char *gnome_user_accels_dir;
-extern char *gnome_app_id, *gnome_app_version;
-extern char gnome_do_not_create_directories;
-
-BEGIN_GNOME_DECLS
-
-void gnomelib_init (const char *app_id, const char *app_version);
-
-END_GNOME_DECLS
+#include "libgnome/gnomelib-init2.h"
+#include "libgnome/gnomelib-init.h"
 
 #endif /* LIBGNOME_H */
-
-
-
-
-

@@ -35,13 +35,11 @@ struct poptOption options[] = {
   {NULL, '\0', 0, NULL, 0}
 };
 
-#define USAGE() printf("Usage: config-access get|set <config path>\n")
+#define USAGE() printf("Usage: gconfigger get|set <config path>\n")
 
 int main(int argc, char *argv[])
 {
-  gnomelib_register_popt_table(options, "config-access options");
-  gnomelib_init("config-access", VERSION);
-  poptFreeContext(gnomelib_parse_args(argc, argv, 0));
+  gnome_program_init("gconfigger", VERSION, argc, argv, GNOME_PARAM_POPT_TABLE, options, NULL);
 
   gnome_config_sync();
 

@@ -30,6 +30,7 @@ sub parse_entries {
 
     while (<$file>) {
 	# Read lines until we have no open comments
+
 	while (m@/\*
 	       ([^*]|\*(?!/))*$
 	       @x) {
@@ -37,6 +38,7 @@ sub parse_entries {
 	    defined ($new = <$file>) || die "Unmatched comment";
 	    $_ .= $new;
 	}
+
 	# Now strip comments
 	s@/\*(?!<)
 	    ([^*]+|\*(?!/))*
@@ -119,10 +121,12 @@ if ($gen_defs) {
 }
 
 ENUMERATION:
+foreach $afile(@ARGV) {
+open(STDIN, $afile);
 while (<>) {
-    if (eof) {
-	close (ARGV);		# reset line numbering
-	$firstenum = 1;		# Flag to print filename at next enum
+    if (eof || /\sDEPRECATED/) {
+      $firstenum = 1;		# Flag to print filename at next enum
+      last;
     }
 
     if (m@^\s*typedef\s+enum\s*
@@ -217,4 +221,6 @@ while (<>) {
 	    print "};\n";
 	}
     }
+}
+close (STDIN);		# reset line numbering
 }

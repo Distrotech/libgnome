@@ -1,0 +1,33 @@
+#ifndef GNOME_PORTABILITY_H
+#define GNOME_PORTABILITY_H 1
+
+#if !defined(g_alloca)
+
+#  if @GNOME_HAVE_ALLOCA_H@ /* GNOME_HAVE_ALLOCA_H */
+#  include <alloca.h>
+#  endif
+
+#  include <string.h>
+
+#  if defined(__GNUC__)
+
+#    if defined(__STRICT_ANSI__)
+#      define alloca __builtin_alloca
+#    endif
+
+#  elif !(@GNOME_HAVE_ALLOCA_H@)
+
+#    if defined(_AIX)
+ #pragma alloca
+#    elif !defined(alloca) /* predefined by HP cc +Olibcalls */
+char *alloca ();
+#    endif
+
+#  endif /* __GNUC__ etc. */
+
+#  define g_alloca alloca
+#  define g_alloca0(x) memset(g_alloca(x), '\0', (x))
+
+#endif /* !defined(g_alloca) */
+
+#endif /* GNOME_PORTABILITY_H */

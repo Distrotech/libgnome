@@ -1,3 +1,17 @@
+1999-10-07  Elliot Lee  <sopwith@redhat.com>
+	* gnomelib-init2.[ch]: New implementation.
+	* gnomelib-init.[ch]: Use new init system.
+	* Makefile.am: Add gnome-portability.h, gnomelib-init{,2}.h to headers, remove gnome-popt.h from headers.
+	Add gnomelib-init2.c to sources, remove gnome-popt.c from sources.
+	* gconfigger.c, gnome-gen-mimedb.c, gnome-moz-remote.c: Use new init setup.
+	* gnome-i18n.h, gnome-i18nP.h: Instead of duplicating everything in two header files, add hooks so we can
+	avoid doing that.
+	* gnome-mime-info.c, gnome-util.c, gnome-util.h: Avoid using deprecated functions.
+	* gnome-mime.c: Case-insensitive file extension hashing.
+	* gnome-portability.h.in: New file (gives us a working g_alloca on any system).
+	* libgnome.h: Add new header files
+	* libgnomeP.h: avoid duplication with libgnome.h
+
 1999-10-06  Owen Taylor  <otaylor@redhat.com>
 
 	* gnome-config.c (access_config_extended): Always refill

@@ -282,16 +282,42 @@ maybe_reload (void)
 	last_checked = time (NULL);
 }
 
+static gint
+g_lowerstr_equal (gconstpointer v, gconstpointer v2)
+{
+  return strcasecmp ((const gchar*) v, (const gchar*)v2) == 0;
+}
+
+/* a char* hash function from ASU */
+static guint
+g_lowerstr_hash (gconstpointer v)
+{
+  const char *s = (char*)v;
+  const char *p;
+  guint h=0, g;
+
+  for(p = s; *p != '\0'; p += 1) {
+    h = ( h << 4 ) + tolower(*p);
+    if ( ( g = h & 0xf0000000 ) ) {
+      h = h ^ (g >> 24);
+      h = h ^ g;
+    }
+  }
+
+  return h /* % M */;
+}
+
+
 static void
 mime_init (void)
 {
-	mime_extensions [0] = g_hash_table_new (g_str_hash, g_str_equal);
-	mime_extensions [1] = g_hash_table_new (g_str_hash, g_str_equal);
+	mime_extensions [0] = g_hash_table_new (g_lowerstr_hash, g_lowerstr_equal);
+	mime_extensions [1] = g_hash_table_new (g_lowerstr_hash, g_lowerstr_equal);
 
 	gnome_mime_dir.dirname = gnome_unconditional_datadir_file ("mime-info");
 	gnome_mime_dir.system_dir = TRUE;
 
-	user_mime_dir.dirname  = g_concat_dir_and_file (gnome_util_user_home (), ".gnome/mime-info");
+	user_mime_dir.dirname  = g_concat_dir_and_file (g_get_home_dir (), ".gnome/mime-info");
 	user_mime_dir.system_dir = FALSE;
 	mime_load (&gnome_mime_dir);
 	mime_load (&user_mime_dir);

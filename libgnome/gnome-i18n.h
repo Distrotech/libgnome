@@ -4,13 +4,11 @@
  */
 
 #ifndef __GNOME_I18N_H__
-#define __GNOME_I18N_H__
-
-#ifdef  __GNOME_I18NP_H__
-#warning "You should use either gnome-i18n.h OR gnome-i18nP.h"
-#endif
+#define __GNOME_I18N_H__ 1
 
 BEGIN_GNOME_DECLS
+
+#if !defined(__GNOME_I18NP_H__)
 
 #ifdef ENABLE_NLS
 #    include <libintl.h>
@@ -34,6 +32,8 @@ BEGIN_GNOME_DECLS
 #    define bindtextdomain(Domain,Directory) (Domain)
 #    define _(String) (String)
 #    define N_(String) (String)
+#endif
+
 #endif
 
 const char *gnome_i18n_get_language(void);

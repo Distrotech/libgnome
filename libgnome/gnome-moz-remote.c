@@ -847,9 +847,7 @@ main (int argc, char **argv)
   Display *dpy;
 
   /* Parse arguments ... */
-  gnomelib_init("gnome-moz-remote", VERSION);
-  gnomelib_register_popt_table(options, "gnome-moz-remote options");
-  poptFreeContext(gnomelib_parse_args(argc, argv, 0));
+  gnome_program_init("gnome-moz-remote", VERSION, argc, argv, GNOME_PARAM_POPT_TABLE, options, NULL);
 
   dpy = XOpenDisplay (dpy_string);
   if (! dpy)
