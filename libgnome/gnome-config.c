@@ -16,14 +16,14 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the G_Free Software
+   along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
 /* #include <config.h> */
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>	/* For g_free() and atoi() */
+#include <stdlib.h>	/* atoi() */
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <glib.h>
@@ -114,7 +114,7 @@ parse_path (const char *path)
 	g_assert(path != NULL);
 	
 	if (*path == '/' || prefix == NULL)
-		p->opath = strdup (path);
+		p->opath = g_strdup (path);
 	else
 		p->opath = g_copy_strings (prefix, path, NULL);
 
@@ -276,7 +276,7 @@ load (const char *file)
 			if (c == ']' || overflow){
 				*next = '\0';
 				next = CharBuffer;
-				SecHeader->section_name = strdup (CharBuffer);
+				SecHeader->section_name = g_strdup (CharBuffer);
 				state = IgnoreToEOL;
 			} else
 				*next++ = c;
@@ -322,7 +322,7 @@ load (const char *file)
 				*next = '\0';
 				SecHeader->keys = (TKeys *) g_malloc (sizeof (TKeys));
 				SecHeader->keys->link = temp;
-				SecHeader->keys->key_name = strdup (CharBuffer);
+				SecHeader->keys->key_name = g_strdup (CharBuffer);
 				state = KeyValue;
 				next = CharBuffer;
 			} else {
@@ -362,8 +362,8 @@ new_key (TSecHeader *section, const char *key_name, const char *value)
 	TKeys *key;
     
 	key = (TKeys *) g_malloc (sizeof (TKeys));
-	key->key_name = strdup (key_name);
-	key->value   = strdup (value);
+	key->key_name = g_strdup (key_name);
+	key->value   = g_strdup (value);
 	key->link = section->keys;
 	section->keys = key;
 }
@@ -386,7 +386,7 @@ access_config (access_type mode, const char *section_name,
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
-		New->filename = strdup (filename);
+		New->filename = g_strdup (filename);
 		New->section = load (filename);
 		New->mtime = st.st_mtime;
 		Base = New;
@@ -406,7 +406,7 @@ access_config (access_type mode, const char *section_name,
 				continue;
 			if (mode == SET){
 				g_free (key->value);
-				key->value = strdup (def);
+				key->value = g_strdup (def);
 			}
 			return key->value;
 		}
@@ -421,7 +421,7 @@ access_config (access_type mode, const char *section_name,
 	/* Non existent section */
 	if ((mode == SET) && def){
 		section = (TSecHeader *) g_malloc (sizeof (TSecHeader));
-		section->section_name = strdup (section_name);
+		section->section_name = g_strdup (section_name);
 		section->keys = 0;
 		new_key (section, key_name, def);
 		section->link = Current->section;
@@ -441,7 +441,7 @@ dump_keys (FILE *profile, TKeys *p)
 	if (*p->key_name) {
 		char *t = escape_string_and_dup (p->value);
 		fprintf (profile, "%s=%s\n", p->key_name, t);
-		free (t);
+		g_free (t);
 	}
 }
 
@@ -451,7 +451,7 @@ dump_sections (FILE *profile, TSecHeader *p)
 	if (!p)
 		return;
 	dump_sections (profile, p->link);
-	if (p->section_name [0]){
+	if (p->section_name && p->section_name [0]){
 		fprintf (profile, "\n[%s]\n", p->section_name);
 		dump_keys (profile, p->keys);
 	}
@@ -565,7 +565,7 @@ gnome_config_init_iterator (const char *path)
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
-		New->filename = strdup (pp->file);
+		New->filename = g_strdup (pp->file);
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
 		Base = New;
@@ -605,7 +605,7 @@ gnome_config_init_iterator_sections (const char *path)
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
-		New->filename = strdup (pp->file);
+		New->filename = g_strdup (pp->file);
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
 		Base = New;
@@ -771,7 +771,7 @@ gnome_config_get_string_with_default (const char *path, int *def)
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
 			   def);
 	if (r)
-		ret = strdup (r);
+		ret = g_strdup (r);
 	release_path (pp);
 	return ret;
 }
@@ -930,7 +930,7 @@ gnome_config_push_prefix (const char *path)
 	prefix_list_t *p = g_malloc (sizeof (prefix_list_t));
 
 	p->p_back = prefix_list;
-	p->p_prefix = strdup (path);
+	p->p_prefix = g_strdup (path);
 	prefix_list = p;
 }
 
@@ -942,9 +942,9 @@ gnome_config_pop_prefix (void)
 	if (!p)
 		return;
 
-	free (p->p_prefix);
+	g_free (p->p_prefix);
 	prefix_list = p->p_back;
-	free (p);
+	g_free (p);
 }
 
 #ifdef TEST
