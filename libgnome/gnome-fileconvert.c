@@ -130,6 +130,7 @@ gfc_read_FileConverters(void)
 
       g_free(parts);
     }
+    fclose(conffile);
   }
   return file_types;
 }

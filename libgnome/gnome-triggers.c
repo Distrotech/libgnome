@@ -253,6 +253,7 @@ gnome_triggers_readfile(gchar *infilename)
     g_strfreev(parts);
   }
   g_free(nt);
+  fclose(infile);
 
   return 0;
 }
