@@ -158,15 +158,17 @@ gnome_desktop_entry_load (char *file)
 	
 	newitem = g_new (GnomeDesktopEntry, 1);
 
-	newitem->name      = get_translated_string ("Name");
-	newitem->comment   = get_translated_string ("Comment");
-	newitem->exec      = exec_file;
-	newitem->tryexec   = try_file;
-	newitem->icon_base = gnome_config_get_string ("Icon");
-	newitem->docpath   = gnome_config_get_string ("DocPath");
-	newitem->terminal  = gnome_config_get_bool   ("Terminal=0");
-	newitem->type      = gnome_config_get_string ("Type");
-	newitem->location  = g_strdup (file);
+	newitem->name          = get_translated_string ("Name");
+	newitem->comment       = get_translated_string ("Comment");
+	newitem->exec          = exec_file;
+	newitem->tryexec       = try_file;
+	newitem->icon_base     = gnome_config_get_string ("Icon");
+	newitem->docpath       = gnome_config_get_string ("DocPath");
+	newitem->terminal      = gnome_config_get_bool   ("Terminal=0");
+	newitem->type          = gnome_config_get_string ("Type");
+	newitem->need_arg      = gnome_config_get_bool   ("NeedArg=0");
+	newitem->multiple_args = gnome_config_get_bool ("MultipleArgs=0");
+	newitem->location      = g_strdup (file);
 	
 	if (newitem->icon_base && *newitem->icon_base) {
 		dot = strstr (newitem->icon_base, ".xpm");
@@ -201,6 +203,10 @@ gnome_desktop_entry_load (char *file)
 			newitem->opaque_icon = 0;
 	}
 	gnome_config_pop_prefix ();
+	prefix = g_copy_strings ("=", file, "=", NULL);
+	gnome_config_clean_file (prefix);
+	g_free (prefix);
+	
 	return newitem;
 }
 

@@ -18,6 +18,8 @@ typedef struct {
 	char *small_icon;
 	char *transparent_icon;
 	char *opaque_icon;
+	unsigned int need_arg:1;
+	unsigned int multiple_args:1;
 } GnomeDesktopEntry;
 
 GnomeDesktopEntry *gnome_desktop_entry_load (char *file);
