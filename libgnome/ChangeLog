@@ -1,5 +1,19 @@
 2001-06-01  Martin Baulig  <baulig@suse.de>
 
+	* gnome-selector.c (PROP_PBAG_HISTORY): Implemented this property.
+	(PROP_PBAG_AUTO_ACTIVATE_ENTRY): New property.
+	(get_uri_handler, set_uri_handler): The default implementation is to save/return the
+	URI, so make sure to call the parent handler in derived classes.
+	(set_entry_text_handler): Call gnome_selector_activate_entry if the
+	PROP_PBAG_AUTO_ACTIVATE_ENTRY property is set.
+	(activate_entry_handler): Add the entry text to the history.
+
+	* gnome-selector.h (gnome_selector_load_history, gnome_selector_save_history): Removed.
+	(gnome_selector_prepend_history, gnome_selector_append_history): Removed the
+	`gboolean save' argument.
+
+2001-06-01  Martin Baulig  <baulig@suse.de>
+
 	* gnome-selector.c
 	(PROP_PBAG_ENTRY_TEXT, PROP_PBAG_HISTORY, PROP_PBAG_MAX_HISTORY_LINES): New properties
 	in the PropertyBag.
