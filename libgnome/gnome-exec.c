@@ -378,7 +378,6 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 	terminal = gconf_client_get_string (client, "/desktop/gnome/applications/terminal/exec", NULL);
 	g_object_unref (G_OBJECT (client));
 	
-	g_message (G_STRLOC ": |%s|", terminal);
 	if (terminal) {
 		gchar *exec_flag;
 		exec_flag = gconf_client_get_string (client, "/desktop/gnome/applications/terminal/exec_arg", NULL);

@@ -1,3 +1,8 @@
+2002-03-12  Laszlo Peter  <laca@ireland.sun.com>
+
+	* libgnome/gnome-exec.c (gnome_prepend_terminal_to_vector):
+	remove a g_message that causes seg. fault on Solaris.
+
 2002-03-09  Michael Meeks  <michael@ximian.com>
 
 	* schemas/desktop_gnome_interface.schemas: set
