@@ -1,6 +1,8 @@
 #ifndef __GNOME_UTIL_H__
 #define __GNOME_UTIL_H__
 
+#include <stdlib.h>
+
 BEGIN_GNOME_DECLS
 
 #define PATH_SEP '/'
@@ -14,14 +16,28 @@ char *gnome_unconditional_datadir_file (char *filename);
 char *gnome_unconditional_pixmap_file (char *filename);
 int   g_file_exists (char *filename);
 char *g_copy_strings (const char *first, ...);
-char *g_unix_error_string (int error_num);
+const char *g_unix_error_string (int error_num);
+
 char *g_concat_dir_and_file (const char *dir, const char *file);
-char *gnome_util_user_home(void);
-char *gnome_util_prepend_user_home(char *file);
-char *gnome_util_home_file(char *file);
-char *gnome_util_user_config(void);
-char *gnome_util_prepend_user_config(char *file);
-char *gnome_util_user_config_file(char *file);
+
+/* returns the home directory of the user
+ * This one is NOT to be free'd as it points into the 
+ * env structure.
+ * 
+ */
+#define gnome_util_user_home() getenv("HOME")
+
+/* pass in a string, and it will add the users home dir ie,
+ * pass in .gnome/bookmarks.html and it will return
+ * /home/imain/.gnome/bookmarks.html
+ * 
+ * Remember to g_free() returned value! */
+#define gnome_util_prepend_user_home(x) (g_concat_dir_and_file(gnome_util_user_home(), (x)))
+
+/* very similar to above, but adds $HOME/.gnome/ to beginning
+ * This is meant to be the most useful version.
+ */
+#define gnome_util_home_file(afile) (g_copy_strings(gnome_util_user_home(), "/.gnome/", (afile), NULL))
 
 END_GNOME_DECLS
 

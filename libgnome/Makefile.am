@@ -28,6 +28,7 @@ libgnome_la_SOURCES = \
 	gnome-fileconvert.c	\
 	gnome-help.c		\
 	gnome-history.c		\
+	gnome-i18n.c		\
 	gnome-mime.c		\
 	gnome-parse.c		\
 	gnome-score.c		\

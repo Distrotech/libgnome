@@ -27,6 +27,8 @@ BEGIN_GNOME_DECLS
 #    define N_(String) (String)
 #endif
 
+const char *gnome_i18n_get_language(void);
+
 END_GNOME_DECLS
 
 #endif /* __GNOME_UTIL_H__ */

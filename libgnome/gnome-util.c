@@ -137,44 +137,39 @@ g_file_exists (char *filename)
 char *
 g_copy_strings (const char *first, ...)
 {
-	va_list ap;
-	int len;
-	char *data, *result;
-	
-	if (!first)
-		return NULL;
-	
-	len = strlen (first);
-	va_start (ap, first);
-	
-	while ((data = va_arg (ap, char *)) != NULL)
-		len += strlen (data);
-	
-	len++;
-	
-	result = (char *) g_malloc (len);
-	va_end (ap);
-	va_start (ap, first);
-	strcpy (result, first);
-	while ((data = va_arg (ap, char *)) != NULL)
-		strcat (result, data);
-	va_end (ap);
-	
-	return result;
-}
+  va_list ap;
+  GString *tmpstr;
+  char *data; /* used to get the args, and to hold the return value
+		 after args have been processed */
 
+  tmpstr = g_string_new(first);
+
+  va_start (ap, first);
+  while ((data = va_arg (ap, char *)) != NULL)
+    g_string_append(tmpstr, data);
+  va_end (ap);
+
+  data = tmpstr->str;
+
+  g_string_free(tmpstr, FALSE);
+
+  return data;
+}
 
 /* DOC: g_unix_error_string (int error_num)
  * Returns a pointer to a static location with a description of the errno
  */
-char *
+const gchar *
 g_unix_error_string (int error_num)
 {
-	static char buffer [256];
-	sprintf (buffer, "%s (%d)", g_strerror (error_num), error_num);
-	return buffer;
-}
+  static GString *buffer = NULL;
 
+  if(!buffer)
+    buffer = g_string_new(NULL);
+
+  g_string_sprintf (buffer, "%s (%d)", g_strerror (error_num), error_num);
+  return buffer->str;
+}
 
 /* DOC: g_concat_dir_and_file (const char *dir, const char *file)
  * returns a new allocated string that is the concatenation of dir and file,
@@ -183,74 +178,10 @@ g_unix_error_string (int error_num)
 char *
 g_concat_dir_and_file (const char *dir, const char *file)
 {
-	int l = strlen (dir);
-	
-	if (dir [l - 1] == PATH_SEP)
-		return g_copy_strings (dir, file, NULL);
-	else
+        /* If the directory name doesn't have a / on the end, we need
+	   to add one so we get a proper path to the file */
+	if (dir [strlen(dir) - 1] != PATH_SEP)
 		return g_copy_strings (dir, PATH_SEP_STR, file, NULL);
-}
-
-
-/* returns the home directory of the user
- * This one is NOT to be free'd as it points into the 
- * env structure.
- * 
- */
-
-char *
-gnome_util_user_home(void)
-{
-	static char *home_dir;
-	static int init = 1;
-	
-	if (init) {
-		home_dir = getenv("HOME");
-		init = 0;
-	}
-	
-	return(home_dir);
-}
-
-char *gnome_util_prepend_user_config(char *file);
-char *gnome_util_user_config_file(char *file);
-
-char *
-gnome_util_user_config(void)
-{
-	static char *home_dir;
-	static int init = 1;
-	
-	if (init) {
-		home_dir = getenv("HOME");
-		init = 0;
-	}
-	
-	return(home_dir);
-}
-
-/* pass in a string, and it will add the users home dir ie,
- * pass in .gnome/bookmarks.html and it will return
- * /home/imain/.gnome/bookmarks.html
- * 
- * Remember to g_free() returned value! */
-
-char *
-gnome_util_prepend_user_home(char *file)
-{
-	return g_concat_dir_and_file(gnome_util_user_home(), file);
-}
-
-/* very similar to above, but adds $HOME/.gnome/ to beginning
- * This is meant to be the most useful version.
- */
-
-char *
-gnome_util_home_file(char *file)
-{
-	char *path = g_concat_dir_and_file(gnome_util_user_home(), ".gnome");
-	char *ret = g_copy_strings(path, "/", file, NULL);
-
-	g_free(path);
-	return ret;
+	else
+		return g_copy_strings (dir, file, NULL);
 }

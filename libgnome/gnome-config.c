@@ -762,6 +762,36 @@ gnome_config_get_int_with_default (const char *path, gboolean *def)
 }
 
 char *
+gnome_config_get_translated_string_with_default (const char *path,
+						 gboolean *def)
+{
+  const char *lang;
+  char *tkey;
+  char *value;
+
+  lang = gnome_i18n_get_language();
+
+  if (lang)
+    {
+      tkey = g_copy_strings (path, "[", lang, "]", NULL);
+      value = gnome_config_get_string_with_default (tkey, def);
+      g_free (tkey);
+
+      if(!value || *value == '\0')
+	{
+	  g_free(value);
+	  /* Fall back to untranslated case */
+	  value = gnome_config_get_string (path);
+	}
+
+    }
+  else
+    value = gnome_config_get_string (path);
+
+  return value;
+}
+
+char *
 gnome_config_get_string_with_default (const char *path, gboolean *def)
 {
 	ParsedPath *pp;
@@ -809,7 +839,6 @@ gnome_config_get_vector_with_default (const char *path, int *argcp,
 	ParsedPath *pp;
 	const char *r, *p, *last;
 	char *tmp;
-	int  v;
 	int count;
 
 	pp = parse_path (path);
@@ -852,6 +881,24 @@ gnome_config_get_vector_with_default (const char *path, int *argcp,
 	}
 
 	release_path (pp);
+}
+
+void
+gnome_config_set_translated_string (const char *path, const char *value)
+{
+  const char *lang;
+  char *tkey;
+
+  lang = gnome_i18n_get_language();
+
+  if (lang)
+    {
+      tkey = g_copy_strings (path, "[", lang, "]", NULL);
+      gnome_config_set_string(tkey, value);
+      g_free (tkey);
+    }
+  else
+    gnome_config_set_string (path, value);
 }
 
 void

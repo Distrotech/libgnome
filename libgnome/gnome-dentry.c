@@ -17,94 +17,31 @@
 #include "gnome-util.h"
 #include "gnome-config.h"
 #include "gnome-dentry.h"
+#include "gnome-string.h"
 
 #define free_if_empty(x) { if (x) g_free (x); }
 
 int
 gnome_is_program_in_path (char *program)
 {
-	static char *path;
-	static char **paths;
+	static char **paths = NULL;
 	char **p;
 	char *f;
+	gboolean program_file_exists;
 	
-	if (!path){
-		char *p;
-		int i, pc = 1;
+	if (!paths)
+	  paths = gnome_string_split(getenv("PATH"), ":", -1);
 
-		path = g_strdup (getenv ("PATH"));
-		for (p = path; *p; p++)
-			if (*p == ':')
-				pc++;
-
-		paths = (char **) g_malloc (sizeof (char *) * (pc+1));
-
-		for (p = path, i = 0; i < pc; i++){
-			paths [i] = strtok (p, ":");
-			p = NULL;
-		}
-		paths [pc] = NULL;
-	}
 	p = paths;
 	while (*p){
 		f = g_concat_dir_and_file (*p, program);
-		if (g_file_exists (f)){
-			g_free (f);
-			return 1;
-		}
-		g_free (f);
+		program_file_exists = g_file_exists(f);
+		g_free(f);
+		if (program_file_exists)
+		  return 1;
 		p++;
 	}
 	return 0;
-}
-
-/* Are the following two functions useful enough to be put into gnome-config? */
-
-static char *
-get_translated_string (char *key)
-{
-	/* FIXME: I don't know if getenv("LANG") is the right way to get the language */
-
-	char *lang;
-	char *tkey;
-	char *value;
-
-	lang = getenv ("LANG");
-
-	if (lang) {
-		tkey = g_copy_strings (key, "[", lang, "]", NULL);
-		value = gnome_config_get_string (tkey);
-		g_free (tkey);
-
-		if (value && *value == '\0') {
-			g_free (value);
-			value = NULL;
-		}
-
-		if (!value)
-			value = gnome_config_get_string (key); /* Fall back to untranslated case */
-	} else
-		value = gnome_config_get_string (key);
-
-	return value;
-}
-
-static void
-put_translated_string (char *key, char *string)
-{
-	/* FIXME: same as previous function */
-
-	char *lang;
-	char *tkey;
-
-	lang = getenv ("LANG");
-
-	if (lang) {
-		tkey = g_copy_strings (key, "[", lang, "]", NULL);
-		gnome_config_set_string (tkey, string);
-		g_free (tkey);
-	} else
-		gnome_config_set_string (key, string);
 }
 	      
 GnomeDesktopEntry *
@@ -123,7 +60,7 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	gnome_config_push_prefix (prefix);
 	g_free (prefix);
 
-	name = get_translated_string ("Name");
+	name = gnome_config_get_translated_string ("Name");
 	if (!name) {
 		gnome_config_pop_prefix ();
 		return 0;
@@ -164,8 +101,8 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	
 	newitem = g_new (GnomeDesktopEntry, 1);
 
-	newitem->name          = get_translated_string ("Name");
-	newitem->comment       = get_translated_string ("Comment");
+	newitem->name          = gnome_config_get_translated_string ("Name");
+	newitem->comment       = gnome_config_get_translated_string ("Comment");
 	newitem->exec          = exec_file;
 	newitem->tryexec       = try_file;
 	newitem->docpath       = gnome_config_get_string ("DocPath");
@@ -220,10 +157,10 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	g_free (prefix);
 
 	if (dentry->name)
-		put_translated_string ("Name", dentry->name);
+		gnome_config_set_translated_string ("Name", dentry->name);
 
 	if (dentry->comment)
-		put_translated_string ("Comment", dentry->comment);
+		gnome_config_set_translated_string ("Comment", dentry->comment);
 
 	if (dentry->exec)
 		gnome_config_set_string ("Exec", dentry->exec);

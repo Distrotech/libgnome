@@ -45,6 +45,8 @@ BEGIN_GNOME_DECLS
 
 char *gnome_config_get_string_with_default    (const char *path,
 					       gboolean *def);
+char *gnome_config_get_translated_string_with_default(const char *path,
+						      gboolean *def);
 gint  gnome_config_get_int_with_default        (const char *path,
 					       gboolean *def);
 gboolean gnome_config_get_bool_with_default   (const char *path,
@@ -58,6 +60,8 @@ void gnome_config_get_vector_with_default     (const char *path, gint *argcp,
 
 #define gnome_config_get_string(Path) \
 	(gnome_config_get_string_with_default ((Path), NULL))
+#define gnome_config_get_translated_string(Path) \
+	(gnome_config_get_translated_string_with_default ((Path), NULL))
 #define gnome_config_get_int(Path) \
 	(gnome_config_get_int_with_default ((Path), NULL))
 #define gnome_config_get_bool(Path) \
@@ -68,6 +72,7 @@ void gnome_config_get_vector_with_default     (const char *path, gint *argcp,
 
 /* Set a config variable.  */
 void gnome_config_set_string     (const char *path, const char *value);
+void gnome_config_set_translated_string (const char *path, const char *value);
 void gnome_config_set_int        (const char *path, int value);
 void gnome_config_set_bool       (const char *path, gboolean value);
 void gnome_config_set_vector     (const char *path,

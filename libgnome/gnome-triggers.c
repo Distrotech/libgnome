@@ -71,7 +71,7 @@ gnome_triggers_init(void)
     g_free(fn);
   }
 
-  fn = gnome_util_prepend_user_home(".gnome/triggers/list");
+  fn = gnome_util_home_file("triggers/list");
   if(fn) {
     gnome_triggers_readfile(fn);
     g_free(fn);
