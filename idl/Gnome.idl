@@ -29,6 +29,13 @@ module GNOME {
 
     typedef Bonobo::PropertySet ExtraAttributes;
 
+    enum Encoding {
+	ENCODING_NONE,
+	ENCODING_UNKNOWN,
+	ENCODING_UTF8,
+	ENCODING_LEGACY_MIXED
+    };
+
 };
 
 #if !defined(__GNOME_COMPILATION) && defined(__ORBIT_IDL__)
