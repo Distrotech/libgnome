@@ -270,6 +270,45 @@ g_file_exists (const char *filename)
 }
 
 /**
+ * g_copy_strings:
+ * @first: first string
+ *
+ * returns a new allocated char * with the concatenation of its arguments,
+ * the list of strings is terminated by a NULL pointer.
+ *
+ * NOTE: This function is deprecated.  Use GLib's g_strconcat() instead.
+ */
+#undef g_copy_strings
+char *
+g_copy_strings (const char *first, ...)
+{
+	va_list ap;
+	int len;
+	char *data, *result;
+	
+	if (!first)
+		return 0;
+	
+	len = strlen (first);
+	va_start (ap, first);
+	
+	while ((data = va_arg (ap, char *))!=0)
+		len += strlen (data);
+	
+	len++;
+	
+	result = g_malloc (len);
+	va_end (ap);
+	va_start (ap, first);
+	strcpy (result, first);
+	while ((data = va_arg (ap, char *)) != 0)
+		strcat (result, data);
+	va_end (ap);
+	
+	return result;
+}
+
+/**
  * g_unix_error_string:
  * @error_num: The errno number.
  *
