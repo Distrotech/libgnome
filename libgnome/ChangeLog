@@ -1,3 +1,13 @@
+Sun Oct 14 20:12:14 2001  George Lebl <jirka@5z.com>
+
+	* gnome-program.c: popt IS the evil incarnate.  There is no
+	  reasonable way to pass data to the callbacks.  And we don't want
+	  to modify or use the options.  So add a hack that sets
+	  a data on the context with the GnomeProgram, so in a callback
+	  if you want to get the GnomeProgram object you'd do
+	  g_dataset_get_data (popt_context, "GnomeProgram");  Evil?
+	  yes.  And it's the only way to do this sanely.
+
 2001-10-10  Glynn Foster <glynn.foster@sun.com>
 
 	* gnome-gconf.c: Change to use proper gconf key for desktop wide

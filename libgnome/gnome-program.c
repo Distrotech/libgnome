@@ -666,8 +666,10 @@ gnome_program_finalize (GObject* object)
 	g_strfreev (self->_priv->argv);
 	self->_priv->argv = NULL;
 
-	if (self->_priv->arg_context != NULL)
+	if (self->_priv->arg_context != NULL) {
 		poptFreeContext (self->_priv->arg_context);
+		g_dataset_destroy (self->_priv->arg_context);
+	}
 	self->_priv->arg_context = NULL;
 
 	if (self->_priv->top_options_table != NULL)
@@ -1203,6 +1205,19 @@ gnome_program_module_register (const GnomeModuleInfo *module_info)
     }
 }
 
+static void
+set_context_data (poptContext con,
+		  enum poptCallbackReason reason,
+		  const struct poptOption * opt,
+		  const char * arg, void * data)
+{
+	GnomeProgram *program = data;
+
+	if (reason == POPT_CALLBACK_REASON_PRE)
+		g_dataset_set_data (con, "GnomeProgram", program);
+}
+
+
 /**
  * gnome_program_preinit:
  * @program: Application object
@@ -1291,9 +1306,20 @@ gnome_program_preinit (GnomeProgram *program,
     {
 	struct poptOption includer = {NULL, '\0', POPT_ARG_INCLUDE_TABLE,
 				      NULL, 0, NULL, NULL};
+	struct poptOption callback =
+		{ NULL, '\0', POPT_ARG_CALLBACK | POPT_CBFLAG_PRE,
+		  &set_context_data, 0,
+		  /* GOD THIS IS EVIL!  But popt is so UTERLY FUCKED IT'S
+		   * NOT EVEN FUNNY.  For some reason it passes 'descrip'
+		   * as 'data' to the callback, and there is no other way
+		   * to pass data.  Fun, eh? */
+		  (const char *)program,
+		  NULL };
 
 	program->_priv->top_options_table = g_array_new
 	    (TRUE, TRUE, sizeof (struct poptOption));
+
+	g_array_append_val (program->_priv->top_options_table, callback);
 
 	/* Put the special popt table in first */
 	includer.arg = poptHelpOptions;
