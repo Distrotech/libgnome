@@ -56,6 +56,7 @@ libgnome_2_la_SOURCES = \
 
 libgnome_headers = \
 	gnome-program.h		\
+	gnome-i18n.h		\
         gnome-config.h 		\
 	gnome-fileconvert.h	\
 	gnome-ditem.h		\
