@@ -20,6 +20,12 @@ typedef struct {
 	
 	unsigned int multiple_args:1;
 	unsigned int is_kde:1;  /* If this is a .kdelink file */
+	
+	int wm_classes_length;
+	char **wm_classes;	/* A vector of WM_CLASSes windows that this
+				   app will create */
+	GList *dnd_entries;	/* A list of vectors, in which the first element is the
+				   mime type and the rest is the execution vector */
 } GnomeDesktopEntry;
 
 GnomeDesktopEntry *gnome_desktop_entry_load (const char *file);
@@ -30,7 +36,13 @@ void gnome_desktop_entry_save (GnomeDesktopEntry *dentry);
 void gnome_desktop_entry_free (GnomeDesktopEntry *item);
 void gnome_desktop_entry_destroy (GnomeDesktopEntry *item);
 void gnome_desktop_entry_launch (GnomeDesktopEntry *item);
-void gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[]);
+void gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item,
+					   int the_argc,
+					   char *the_argv[]);
+int gnome_desktop_entry_launch_full (GnomeDesktopEntry *item,
+				     int the_argc,
+				     char *the_argv[],
+				     int info, gpointer data);
 
 GnomeDesktopEntry *gnome_desktop_entry_copy (GnomeDesktopEntry * source);
 

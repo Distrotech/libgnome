@@ -889,7 +889,7 @@ _gnome_config_drop_file (const char *path, gint priv)
  * Creates an iterator handle that can be used to
  * iterate over the keys in a section in a gnome configuration
  * file.  @path must refer to a section.  The returned value
- * can be used as an iterator for gnome_config_iterator_next().
+ * can be used as an iterator for #gnome_config_iterator_next().
  *
  * Returns the iterator handle.
  */
@@ -900,7 +900,7 @@ _gnome_config_drop_file (const char *path, gint priv)
  * Creates an iterator handle that can be used to
  * iterate over the keys in a section in a private gnome configuration
  * file.  @path must refer to a section.  The returned value
- * can be used as an iterator for gnome_config_iterator_next().
+ * can be used as an iterator for #gnome_config_iterator_next().
  *
  * Returns the iterator handle.
  */
@@ -958,7 +958,7 @@ _gnome_config_init_iterator (const char *path, gint priv)
  * Creates an iterator handle that can be used to iterate over the
  * sections in a gnome configuration file.  @path must refer to a
  * gnome configuration file.  The returned value can be used as an
- * iterator for gnome_config_iterator_next().
+ * iterator for #gnome_config_iterator_next().
  *
  * Returns the iterator handle.
  */
@@ -969,7 +969,7 @@ _gnome_config_init_iterator (const char *path, gint priv)
  * Creates an iterator handle that can be used to iterate over the
  * sections in a private gnome configuration file.  @path must refer to a
  * gnome configuration file.  The returned value can be used as an
- * iterator for gnome_config_iterator_next().
+ * iterator for #gnome_config_iterator_next().
  *
  * Returns the iterator handle.
  */
@@ -1597,6 +1597,10 @@ _gnome_config_get_bool_with_default (const char *path, gboolean *def,
  * @argcp: Returns the number of elements in 'argvp'
  * @argvp: Returns the array of strings found in 'rr'.
  *
+ * Creates a new vector from a string as it stored in the config file,
+ * breaks the string on spaces except if the space is escaped with a
+ * backslash.
+ *
  */
 void
 gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
@@ -1612,11 +1616,7 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
 	count = 2;
 	space_seen = 0;
 	for (p = (char *) string; *p; ++p) {
-		/* The way that entries are constructed by
-		   gnome_config_set_vector ensures we'll never see an
-		   unpaired `\' at the end of a string.  So this is
-		   safe.  */
-	        if (*p == '\\') {
+	        if (*p == '\\' && *(p+1)) {
 			++p;
 		} else if (*p == ' ') {
 			space_seen = 1;

@@ -16,6 +16,7 @@
 #include "gnome-defs.h"
 #include "gnome-util.h"
 #include "gnome-config.h"
+#include "gnome-mime.h"
 #include "gnome-dentry.h"
 #include "gnome-exec.h"
 
@@ -52,6 +53,9 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 	int exec_length;
 	char *icon_base;
 	char *p = NULL;
+	void *iterator;
+	char *key,*value;
+	GList *dnd;
 	gboolean is_kde = FALSE;
 	
 	g_assert (file != NULL);
@@ -102,7 +106,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 			g_free (p);
 	}
 	
-	newitem = g_new (GnomeDesktopEntry, 1);
+	newitem = g_new0 (GnomeDesktopEntry, 1);
 
 	newitem->name          = name;
 	newitem->comment       = gnome_config_get_translated_string ("Comment");
@@ -115,8 +119,9 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 	newitem->geometry      = gnome_config_get_string ("Geometry");
 	newitem->multiple_args = gnome_config_get_bool   ("MultipleArgs=0");
 	newitem->location      = g_strdup (file);
-	newitem->is_kde       =  is_kde;
-
+	newitem->is_kde        = is_kde;
+	gnome_config_get_vector ("WMClasses", &newitem->wm_classes_length, &newitem->wm_classes);
+	
 	icon_base              = gnome_config_get_string ("Icon");
 
 	if (icon_base && *icon_base) {
@@ -145,6 +150,36 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
 		newitem->icon = NULL;
 	}
 	gnome_config_pop_prefix ();
+
+	gnome_config_push_prefix ("");
+	/*This is bad, but gnome_config leaves us no choice*/
+	if(is_kde)
+		prefix = g_strconcat ("=", file, "=/KDE Desktop Entry/", NULL);
+	else
+		prefix = g_strconcat ("=", file, "=/Desktop Entry/", NULL);
+	iterator = gnome_config_init_iterator(prefix);
+	g_free(prefix);
+	dnd = NULL;
+	while((iterator=gnome_config_iterator_next(iterator,&key,&value))) {
+		if(strncmp(key,"DropAction",10)==0) {
+			char **argv;
+			int argc;
+			
+			gnome_config_make_vector(value,&argc,&argv);
+			if(argc<=1) {
+				g_strfreev(argv);
+				g_free(key);
+				g_free(value);
+				continue;
+			}
+
+			dnd = g_list_append(dnd,argv);
+		}
+		g_free(key);
+		g_free(value);
+	}
+	newitem->dnd_entries = dnd;
+	gnome_config_pop_prefix();
 	
 	if (clean_from_memory_after_load){
 		prefix = g_strconcat ("=", file, "=", NULL);
@@ -250,6 +285,28 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	if (dentry->type)
 		gnome_config_set_string ("Type", dentry->type);
 
+	if (dentry->wm_classes)
+		gnome_config_set_vector ("WMClasses", dentry->wm_classes_length,
+					 (const char * const *) dentry->wm_classes);
+	
+	if (dentry->dnd_entries) {
+		GList *dnd = dentry->dnd_entries;
+		int i;
+		for(i=0;dnd;i++,dnd=g_list_next(dnd)) {
+			char **argv=dnd->data;
+			int argc;
+			char *s;
+			if(!argv) continue;
+			for(argc=0;argv[argc];argc++)
+				;
+			if(argc<2) continue;
+			s = g_strdup_printf("DropAction%d",i);
+			gnome_config_set_vector (s, argc,
+						 (const char * const *)argv);
+			g_free(s);
+		}
+	}
+
 	gnome_config_pop_prefix ();
 	prefix = g_strconcat ("=", dentry->location, "=", NULL);
 	gnome_config_sync_file (prefix);
@@ -278,8 +335,102 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
 		free_if_empty (item->type);
 		free_if_empty (item->location);
 		free_if_empty (item->geometry);
+		g_strfreev (item->wm_classes);
+		g_list_foreach(item->dnd_entries,(GFunc)g_strfreev,NULL);
+		g_list_free(item->dnd_entries);
 		g_free (item);
 	}
+}
+
+/* Replace %s and %f and %u, by data from drops, this may later
+   work for kde entries as well, it will ignore any other %<letter>
+   to let it be substituted later for kde entries
+   %s == directly the data as a string
+   %f == list of files dropped
+   %u == list of files as url's*/
+static gchar *
+gnome_desktop_entry_sub_data (gchar *arg, gpointer data)
+{
+	char *p, *q;
+	char tmp;
+	GString *result = NULL;
+	GList *list,*li;
+
+	p = arg;
+	q = strchr(arg, '%');
+	while (q) {
+		tmp = *q;
+		*q = '\0';
+		if (!result)
+			result = g_string_new (p);
+		else
+			g_string_append (result, p);
+		*q = tmp;
+
+		q++;
+		switch (*q) {
+		case '\0':
+			g_string_append_c (result, '%');
+			q = NULL;
+			p = NULL;
+			break;
+		case 's':
+			/* put in directly the data as a string */
+			if(data)
+				g_string_append(result,(char *)data);
+			break;
+		case 'f':
+			/* get a list of files from data */
+			if(data) {
+				list = gnome_uri_list_extract_filenames((char *)data);
+				
+				for(li=list;li;li=g_list_next(li)) {
+					if(li!=list)
+						g_string_append_c (result, ' ');
+					g_string_append (result, (char *)(li->data));
+				}
+
+				gnome_uri_list_free_strings(list);
+			}
+			break;
+		case 'u':
+			/* get a list of url's from data */
+			if(data) {
+				list = gnome_uri_list_extract_uris((char *)data);
+				
+				for(li=list;li;li=g_list_next(li)) {
+					if(li!=list)
+						g_string_append_c (result, ' ');
+					g_string_append (result, (char *)(li->data));
+				}
+
+				gnome_uri_list_free_strings(list);
+			}
+			break;
+		default:
+			g_string_append_c (result, '%');
+			g_string_append_c (result, *q);
+			break;
+		}
+
+		if (q) {
+			p = q + 1;
+			q = strchr (p, '%');
+		}
+	}
+
+	if (result) {
+		char *r = result->str;
+		
+		if (p)
+			g_string_append (result, p);
+		arg = result->str;
+		g_string_free (result, FALSE);
+
+		return r;
+	} else
+		return NULL;
+
 }
 
 /* Replace the KDE subsitution strings %... in this argument
@@ -356,16 +507,27 @@ gnome_desktop_entry_sub_kde_arg (GnomeDesktopEntry *item, gchar *arg)
 }
 
 /**
- * gnome_desktop_entry_launch_with_args:
+ * gnome_desktop_entry_launch_full:
  * @item: a gnome desktop entry.
  * @the_argc: the number of arguments to invoke the desktop entry with.
  * @the_argv: a vector of arguments for calling the program in @item
+ * @info: the info field from the drop data (<0 means this isn't a drop launch)
+ * @data: the selection data from the drop (NULL means this isn't a drop launch)
  *
  * Launches the program associated with @item with @the_argv as its
- * arguments.
+ * arguments. It can also use an alternative execution vector in that was
+ * set for one of the drop targets. The info specifies the index of the 
+ * vector in dnd_entries, it can be -1 to mean this isn't a drop launch,
+ * or you can set data to NULL to mean the same thing. The name info comes
+ * from the fact that most likely that will be the info field in the
+ * GtkTargets array.
+ *
+ * Returns the pid of the process that was run
  */
-void
-gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[])
+int
+gnome_desktop_entry_launch_full (GnomeDesktopEntry *item,
+				 int the_argc, char *the_argv[],
+				 int info, gpointer data)
 {
 	char *uargv[4];
 	char *exec_str;
@@ -376,12 +538,34 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	GSList *args_to_free = NULL;
 	gchar *sub_arg;
 	int i, argc;
+	int pid;
 
 	g_assert (item != NULL);
 
-	if (!item->terminal && the_argc == 0 && !item->is_kde)
+	/*if info is over a thousand, use the drop execution string*/
+	if (!item->terminal && the_argc == 0 && !item->is_kde && (info<0 || !data))
 	    exec_str = g_strjoinv (" ", (char **)(item->exec));
 	else {
+		char **exec_argv;
+		int exec_argc;
+		
+		/*decide which exec vector are we using*/
+		if(info<0 || !data) {
+			exec_argv = item->exec;
+			exec_argc = item->exec_length;
+		} else {
+			char **a = g_list_nth_data(item->dnd_entries,info);
+			/*this is not a good entry or it doesn't exist*/
+			if(!a || !a[1]) {
+				exec_argv = item->exec;
+				exec_argc = item->exec_length;
+			} else {
+				exec_argv = &a[1];
+				for(exec_argc=0;a[exec_argc+1];exec_argc++)
+					;
+			}
+		}
+
 		if (item->terminal) {
 			gnome_config_get_vector ("/Gnome/Applications/Terminal",
 						 &term_argc, &term_argv);
@@ -394,7 +578,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		}
 		
 		/* ... terminal arguments */
-		argc = the_argc + term_argc + item->exec_length;
+		argc = the_argc + term_argc + exec_argc;
 		argv = (char **) g_malloc ((argc + 1) * sizeof (char *));
 
 		/* Assemble together... */
@@ -404,21 +588,32 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 			argv[i] = term_argv[i];
 
 		/* ... arguments from the desktop file */
-		for (i = 0; i < item->exec_length; ++i) {
+		for (i = 0; i < exec_argc; ++i) {
+			char *arg;
+			arg = exec_argv[i];
+
+			if (info>=0 && data) {
+				sub_arg = gnome_desktop_entry_sub_data(arg,data);
+				if(sub_arg) {
+					args_to_free = g_slist_prepend (args_to_free, sub_arg);
+					arg = sub_arg;
+				}
+			}
+
 			if (item->is_kde) {
-				sub_arg = gnome_desktop_entry_sub_kde_arg (item, item->exec[i]);
+				sub_arg = gnome_desktop_entry_sub_kde_arg (item, arg);
 				if (sub_arg) {
 					args_to_free = g_slist_prepend (args_to_free, sub_arg);
-					argv[term_argc + i] = sub_arg;
-				} else
-					argv[term_argc + i] = item->exec[i];
-			} else
-				argv[term_argc + i] = item->exec[i];
+					arg = sub_arg;
+				}
+			}
+
+			argv[term_argc + i] = arg;
 		}
 		
 		/* ... supplied arguments */
 		for (i = 0; i < the_argc; i++)
-			argv[term_argc + item->exec_length + i] = the_argv [i];
+			argv[term_argc + exec_argc + i] = the_argv [i];
 		
 		argv[argc] = NULL;
 		
@@ -442,9 +637,26 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	uargv[3] = NULL;
 
 	/* FIXME: do something if there's an error.  */
-	gnome_execute_async (NULL, 4, uargv);
+	pid = gnome_execute_async (NULL, 4, uargv);
 
 	g_free (exec_str);
+	
+	return pid;
+}
+
+/**
+ * gnome_desktop_entry_launch_with_args:
+ * @item: a gnome desktop entry.
+ * @the_argc: the number of arguments to invoke the desktop entry with.
+ * @the_argv: a vector of arguments for calling the program in @item
+ *
+ * Launches the program associated with @item with @the_argv as its
+ * arguments.
+ */
+void
+gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[])
+{
+	gnome_desktop_entry_launch_full (item, the_argc, the_argv, -1, NULL);
 }
 
 /**
@@ -456,7 +668,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 void
 gnome_desktop_entry_launch (GnomeDesktopEntry *item)
 {
-	gnome_desktop_entry_launch_with_args (item, 0, 0);
+	gnome_desktop_entry_launch_full (item, 0, 0, -1, NULL);
 }
 
 /**
@@ -481,6 +693,15 @@ gnome_desktop_entry_destroy (GnomeDesktopEntry *item)
       g_free (prefix);
 }
 
+static GList *
+copy_list_of_vectors(GList *list)
+{
+	GList *new=NULL;
+	for(;list;list=g_list_next(list))
+		new = g_list_prepend(new, g_copy_vector(list->data));
+	return g_list_reverse(new);
+}
+
 /**
  * gnome_desktop_entry_copy:
  * @source: a GnomeDesktop entry.
@@ -493,7 +714,7 @@ gnome_desktop_entry_copy (GnomeDesktopEntry * source)
 	GnomeDesktopEntry * newitem;
 	
 	g_return_val_if_fail (source != NULL, NULL);
-	newitem = g_new (GnomeDesktopEntry, 1);
+	newitem = g_new0 (GnomeDesktopEntry, 1);
 	
 	newitem->name          = g_strdup (source->name);
 	newitem->comment       = g_strdup (source->comment);
@@ -506,7 +727,13 @@ gnome_desktop_entry_copy (GnomeDesktopEntry * source)
 	newitem->geometry      = g_strdup (source->geometry);
 	newitem->multiple_args = source->multiple_args;
 	newitem->location      = g_strdup (source->location);
-	newitem->icon	         = g_strdup (source->icon);
+	newitem->icon	       = g_strdup (source->icon);
+	newitem->is_kde	       = source->is_kde;
+
+	newitem->wm_classes_length   = source->wm_classes_length;
+	newitem->wm_classes          = g_copy_vector (source->wm_classes);
+
+	newitem->dnd_entries   = copy_list_of_vectors(source->dnd_entries);
 	
 	return newitem;
 }
