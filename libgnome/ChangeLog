@@ -1,3 +1,10 @@
+Sat Jan 08 19:06:47 2000  George Lebl <jirka@5z.com>
+
+	* gnome-ditem.[ch]:  Switch exec from a vector to a simple string.
+	  change the _get_command and _set_command to return/take a simple
+	  string.  Also changed reading of .order file to not use a fixed
+	  buffer for reading.
+
 Sat Jan 01 18:45:26 2000  George Lebl <jirka@5z.com>
 
 	* gnome-config.c,gnome-help.c,gnome-mime-info.c: Use LC_MESSAGES
