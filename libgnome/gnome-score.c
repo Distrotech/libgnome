@@ -469,6 +469,7 @@ gnome_score_get_notable (const gchar * gamename,
      {
 	*names = NULL;
 	*scores = NULL;
+	*scoretimes = NULL;
 	retval = 0;
      }
    return retval;
