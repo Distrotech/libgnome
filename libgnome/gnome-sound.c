@@ -37,6 +37,8 @@
 #include <esd.h>
 #endif
 
+static char *esound_hostname;
+
 int gnome_sound_connection = -1;
 
 typedef struct _sample
@@ -288,6 +290,27 @@ gnome_sound_sample_load_wav(const char *file)
 }
 #endif
 
+#ifdef HAVE_ESD
+/*
+ * This does delayed initialization of Esound
+ */
+static gboolean
+use_sound (void)
+{
+  if (gnome_sound_connection == -1){
+    if (esound_hostname){
+      gnome_sound_connection = esd_open_sound (esound_hostname);
+      if (gnome_sound_connection == -1){
+	g_free (esound_hostname);
+	esound_hostname = NULL;
+	return FALSE;
+      }
+    }
+  }
+  return TRUE;
+}
+#endif
+
 #if defined(HAVE_LIBAUDIOFILE) && defined(HAVE_ESD)
 #include <audiofile.h>
 
@@ -373,7 +396,7 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
   int size;
   int confirm = 0;
 
-  if(gnome_sound_connection < 0)
+  if (!use_sound ())
     return -2;
 
   if(!filename || !*filename)
@@ -442,7 +465,8 @@ gnome_sound_play (const char * filename)
   char buf[23];
   int sample;
 
-  if(gnome_sound_connection < 0) return;
+  if(!use_sound ())
+    return;
 
   srand(time(NULL));
   g_snprintf(buf, sizeof(buf), "%d-%d", getpid(), rand());
@@ -464,6 +488,7 @@ void
 gnome_sound_init(const char *hostname)
 {
 #ifdef HAVE_ESD
+  esound_hostname = g_strdup (hostname);
   if(gnome_sound_connection < 0)
     gnome_sound_connection = esd_open_sound((char *)hostname);
 #endif
@@ -481,6 +506,8 @@ gnome_sound_shutdown(void)
 	if(gnome_sound_connection >= 0){
 		esd_close(gnome_sound_connection);
 		gnome_sound_connection = -1;
+		g_free (esound_hostname);
+		esound_hostname = NULL;
 	}
 #endif
 }
