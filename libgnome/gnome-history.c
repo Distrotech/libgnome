@@ -99,8 +99,8 @@ write_history(GList *ents)
 		if(n < 0) n = 0;
 		g_list_foreach(g_list_nth(ents, n),
 			       (GFunc)write_history_entry, outfile);
+		fclose(outfile);
 	}
-	fclose(outfile);
 	g_free(filename);
 }
 

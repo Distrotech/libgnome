@@ -93,6 +93,7 @@ gnome_triggers_init(void)
     g_free(fn);
   }
 #endif
+
   if(gnome_sound_connection >= 0
      && gnome_config_get_bool("/sound/system/settings/event_sounds=true")) {
 
@@ -252,6 +253,7 @@ gnome_triggers_readfile(gchar *infilename)
     g_strfreev(parts);
   }
   g_free(nt);
+  fclose(infile);
 
   return 0;
 }

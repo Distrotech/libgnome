@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
 
   if(fwrite(ents, sizeof(GnomeMagicEntry), nents, f) != nents){
     fprintf (stderr, "%s: Error while writing the contents of %s\n", argv [0], out_filename);
+    fclose(f);
     return 1;
   }
 

@@ -292,6 +292,7 @@ gnome_magic_parse(const gchar *filename, gint *nents)
 
     g_array_append_val(array, newent);
   }
+  fclose(infile);
 
   newent.type = T_END;
   g_array_append_val(array, newent);
@@ -415,7 +416,10 @@ gnome_mime_type_from_magic(const gchar *filename)
       ents = gnome_magic_parse(fn, NULL);
     g_free(fn);
   }
-  if(!ents) return NULL;
+  if(!ents) {
+	  fclose(fh);
+	  return NULL;
+  }
 
   for(i = 0; ents[i].type != T_END; i++) {
     if(gnome_magic_matches_p(fh, &ents[i]))
