@@ -482,15 +482,16 @@ join_with_quotes(char *argv[])
 		if(!p) {
 			g_string_sprintfa(gs,"%s'%s'",i==0?"":" ",argv[i]);
 		} else {
-			char *s = g_strdup(argv[i]);
+			char *str, *s;
 			g_string_sprintfa(gs,"%s'",i==0?"":" ");
+			s = str = g_strdup(argv[i]);
 			while((p = strchr(s,'\''))) {
 				*p='\0';
 				g_string_sprintfa(gs,"%s'\\''",s);
 				s = p+1;
 			}
 			g_string_sprintfa(gs,"%s'",s);
-			g_free(s);
+			g_free(str);
 		}
 	}
 	ret = gs->str;
