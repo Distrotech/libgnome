@@ -23,7 +23,7 @@
   @NOTATION@
 */
 
-#include <libgnomebase/gnome-defs.h>
+
 #include <stdlib.h>
 #include <liboaf/liboaf.h>
 

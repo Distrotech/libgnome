@@ -34,14 +34,14 @@
 
 
 #include <gtk/gtkvbox.h>
-#include <libgnomebase/gnome-defs.h>
+
 #include "gnome-entry.h"
 
 #include <libgnomevfs/gnome-vfs-types.h>
 #include <libgnomevfs/gnome-vfs-directory-filter.h>
 
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 
 #define GNOME_TYPE_FILE_SELECTOR            (gnome_file_selector_get_type ())
@@ -78,6 +78,6 @@ void       gnome_file_selector_set_filter    (GnomeFileSelector *fselector,
 
 void       gnome_file_selector_clear_filter  (GnomeFileSelector *fselector);
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif
