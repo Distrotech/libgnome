@@ -49,9 +49,7 @@ typedef struct _GnomeProgram          GnomeProgram;
 typedef struct _GnomeProgramPrivate   GnomeProgramPrivate;
 typedef struct _GnomeProgramClass     GnomeProgramClass;
 
-typedef enum _GnomeFileDomain         GnomeFileDomain;
-
-enum _GnomeFileDomain {
+typedef enum {
     GNOME_FILE_DOMAIN_UNKNOWN = 0,
     GNOME_FILE_DOMAIN_LIBDIR,
     GNOME_FILE_DOMAIN_DATADIR,
@@ -60,7 +58,7 @@ enum _GnomeFileDomain {
     GNOME_FILE_DOMAIN_CONFIG,
     GNOME_FILE_DOMAIN_HELP,
     GNOME_FILE_DOMAIN_APP_HELP
-};
+} GnomeFileDomain;
 
 struct _GnomeProgram
 {
