@@ -24,7 +24,7 @@
   @NOTATION@
  */
 
-#include <libgnomeP.h>
+#include <libgnome/libgnome.h>
 
 #include <gobject/genums.h>
 #include <gobject/gboxed.h>

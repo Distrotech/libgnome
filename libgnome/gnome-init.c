@@ -39,8 +39,8 @@
 #include <glib.h>
 
 #include <libgnome/libgnome-init.h>
+#include <libgnome/gnome-util.h>
 
-#include "libgnomeP.h"
 #include <errno.h>
 
 #include <gobject/gobject.h>

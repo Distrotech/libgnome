@@ -49,9 +49,11 @@
 #include <sys/stat.h>
 #include <pwd.h>
 #include <limits.h>
-#include "libgnomeP.h"
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-util.h>
+
+#define PATH_SEP '/'
+#define PATH_SEP_STR "/"
 
 /**
  * g_concat_dir_and_file:
