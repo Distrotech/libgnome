@@ -22,6 +22,7 @@ libgnome_la_SOURCES = \
 	gnome-config.c		\
 	gnomelib-init.c         \
 	gnome-dentry.c          \
+	gnome-dl.c		\
 	gnome-dns.c		\
 	gnome-fileconvert.c	\
 	gnome-history.c		\
@@ -36,6 +37,7 @@ libgnomeinclude_HEADERS = \
 	gnome-fileconvert.h	\
 	gnome-hook.h   		\
 	gnome-util.h   		\
+	gnome-dl.h		\
 	gnome-dns.h    		\
 	gnome-dentry.h 		\
 	gnome-history.h		\
