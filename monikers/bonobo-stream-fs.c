@@ -207,9 +207,9 @@ fs_length (GnomeStream *stream,
 	   
 
 static void
-gnome_stream_fs_class_init (GnomeStreamFSClass *class)
+gnome_stream_fs_class_init (GnomeStreamFSClass *klass)
 {
-	GnomeStreamClass *sclass = GNOME_STREAM_CLASS (class);
+	GnomeStreamClass *sclass = GNOME_STREAM_CLASS (klass);
 	
 	gnome_stream_fs_parent_class = gtk_type_class (gnome_stream_get_type ());
 
