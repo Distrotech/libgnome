@@ -958,8 +958,28 @@ _gnome_config_get_translated_string_with_default (const char *path,
 			g_free (tkey);
 
 			if (!value || *value == '\0') {
+				size_t n;
+
 				g_free (value);
 				value= NULL;
+
+				/* Sometimes the locale info looks
+				   like `pt_PT@verbose'.  In this case
+				   we want to try `pt' as a backup.  */
+				n = strcspn (lang, "@_");
+				if (lang[n]) {
+					char *copy = strndup (lang, n);
+					tkey = g_copy_strings (path, "[",
+							       copy, "]",
+							       NULL);
+					value = _gnome_config_get_string_with_default (tkey, def, priv);
+					g_free (tkey);
+					g_free (copy);
+					if (! value || *value == '\0') {
+						g_free (value);
+						value = NULL;
+					}
+				}
 			}
 		}
 		language_list= language_list->next;
@@ -1257,129 +1277,4 @@ main ()
 	x ("/file/archivo/archivo/seccion/llave=valor", "USERDIR/file/archivo/archivo", "seccion", "llave", "valor");
 	
 }
-#endif
-
-#ifndef AVOID_THIS_EXTRA_COOL_HACK
-
-/* THIS WILL BE GONE SOON (Can be removed at any time, nothing but old
- * binaries depends on this).
- */
-#undef gnome_config_get_string_with_default
-#undef gnome_config_get_translated_string_with_default
-#undef gnome_config_get_int_with_default
-#undef gnome_config_get_bool_with_default
-#undef gnome_config_get_vector_with_default
-
-char *
-gnome_config_get_string_with_default (const char *path, gboolean *def)
-{
-	return _gnome_config_get_string_with_default(path,def,FALSE);
-}
-
-char *
-gnome_config_get_translated_string_with_default (const char *path, gboolean *def)
-{
-	return _gnome_config_get_translated_string_with_default(path, def, FALSE);
-}
-
-gint
-gnome_config_get_int_with_default (const char *path, gboolean *def)
-{
-	return _gnome_config_get_int_with_default(path, def, FALSE);
-}
-
-gboolean
-gnome_config_get_bool_with_default (const char *path, gboolean *def)
-{
-	return _gnome_config_get_bool_with_default (path, def, FALSE);
-}
-
-void
-gnome_config_get_vector_with_default     (const char *path, gint *argcp, char ***argvp, gboolean *def)
-{
-        _gnome_config_get_vector_with_default (path, argcp, argvp, def, FALSE);
-}
-
-#undef gnome_config_set_string
-#undef gnome_config_set_translated_string
-#undef gnome_config_set_int
-#undef gnome_config_set_bool
-#undef gnome_config_set_vector
-
-void
-gnome_config_set_string (const char *path, const char *value)
-{
-	_gnome_config_set_string (path, value, FALSE);
-}
-
-void
-gnome_config_set_translated_string(const char *path, const char *val)
-{
-	
-	_gnome_config_set_translated_string (path, val, FALSE);
-}
-
-void
-gnome_config_set_int(const char *path, int value)
-{
-	_gnome_config_set_int (path, value, FALSE);
-}
-
-void
-gnome_config_set_bool(const char *path, gboolean value)
-{
-	_gnome_config_set_bool (path, value, FALSE);
-}
-
-void
-gnome_config_set_vector(const char *path, int argc, const char * const argv[])
-{
-	_gnome_config_set_vector (path, argc, argv, FALSE);
-}
-
-#undef gnome_config_clean_key
-#undef gnome_config_clean_section
-#undef gnome_config_clean_file
-#undef gnome_config_has_section
-#undef gnome_config_init_iterator
-#undef gnome_config_init_iterator_sections
-
-void
-gnome_config_clean_key(const char *path)
-{
-	_gnome_config_clean_key(path,FALSE);
-}
-
-void
-gnome_config_clean_section(const char *path)
-{
-	_gnome_config_clean_section(path,FALSE);
-}
-
-void
-gnome_config_clean_file(const char *path)
-{
-	_gnome_config_clean_file(path,FALSE);
-}
-
-gboolean
-gnome_config_has_section(const char *path)
-{
-	return _gnome_config_has_section(path,FALSE);
-}
-
-
-void *
-gnome_config_init_iterator(const char *path)
-{
-	return _gnome_config_init_iterator(path,FALSE);
-}
-
-
-void *
-gnome_config_init_iterator_sections(const char *path)
-{
-	return _gnome_config_init_iterator_sections(path,FALSE);
-}
-
 #endif
