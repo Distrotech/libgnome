@@ -35,7 +35,8 @@
 const char gnome_param_popt_table[] = "P:!/gnomelib_popt_table",
   gnome_param_popt_flags[] = "I:!/gnomelib_popt_flags",
   gnome_param_popt_context[] = "P:!/gnomelib_popt_context",
-  gnome_param_module[] = "P:!/gnomelib_register_module";
+  gnome_param_module[] = "P:!/gnomelib_register_module",
+  gnome_param_human_readable_name[] = "S:!/human_readable_name";
 
 /* data encapsulated by GnomeProgram:
    state
@@ -147,6 +148,37 @@ gnome_program_get_version(GnomeProgram *app)
   g_return_val_if_fail (app->state >= APP_PREINIT_DONE, NULL);
 
   return app->app_version;
+}
+
+/**
+ * gnome_program_get_human_readable_name
+ * @app: The application object
+ *
+ * Description:
+ * This function returns a pointer to a static string that the
+ * application has provided as a human readable name. The app
+ * should provide the name with the GNOME_PARAM_HUMAN_READABLE_NAME
+ * init argument. Returns NULL if no name was set.
+ *
+ * Returns: application human-readable name string.
+ */
+
+const char*
+gnome_program_get_human_readable_name(GnomeProgram *app)
+{
+  const GnomeAttributeValue* val;
+  
+  g_return_val_if_fail (app, NULL);
+  g_return_val_if_fail (app->state >= APP_PREINIT_DONE, NULL);
+
+  val = gnome_program_attribute_get(app, GNOME_PARAM_HUMAN_READABLE_NAME);
+
+  if (val) {
+    g_assert(val->type == GNOME_ATTRIBUTE_STRING);
+    return val->u.string_value;
+  } else {
+    return NULL;
+  }
 }
 
 /***** attributes *****/
