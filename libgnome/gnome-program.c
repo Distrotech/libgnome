@@ -822,11 +822,11 @@ gnome_program_install_property (GnomeProgramClass *pclass,
  * the APP specific prefixes (during the initialization part of the
  * application).
  *
- * The @ret_locations list and its contents should be freed by the caller.
+ * The @ret_locations list and its contents should be freed by the caller, as
+ * should the returned string.
  *
  * Returns: The full path to the file (if it exists or only_if_exists is
- *          %FALSE) or %NULL.
- */
+ *          %FALSE) or %NULL.  */
 gchar *
 gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 			   const gchar *file_name, gboolean only_if_exists,

@@ -30,8 +30,7 @@ G_BEGIN_DECLS
 
 /**
  * GnomeHelpError:
- * @GNOME_HELP_ERROR_INTERNAL: Something went wrong interally. This should
- * never happen (could possibly be caused by lack of memory).
+ * @GNOME_HELP_ERROR_INTERNAL: Something went wrong interally.  This is most likely caused by resource problems or a bad installation.
  * @GNOME_HELP_ERROR_NOT_FOUND: Help file does not exist.
  **/
 typedef enum {
@@ -45,16 +44,22 @@ GQuark gnome_help_error_quark (void) G_GNUC_CONST;
 /* Errors that could be returned can be from gnome-url
  * and g-spawn */
 
-gboolean	gnome_help_display         (GnomeProgram  *program,
-					    const char    *doc_name,
-					    const char    *link_id,
-					    GError       **error);
-gboolean	gnome_help_display_desktop (GnomeProgram  *program,
-					    const char    *doc_name,
-					    const char    *link_id,
-					    GError       **error);
-gboolean	gnome_help_display_uri     (const char    *help_uri,
-					    GError       **error);
+gboolean gnome_help_display             (const char    *file_name,
+					 const char    *link_id,
+					 GError       **error);
+gboolean gnome_help_display_with_doc_id (GnomeProgram  *program,
+					 const char    *doc_id,
+					 const char    *file_name,
+					 const char    *link_id,
+					 GError       **error);
+gboolean gnome_help_display_desktop     (GnomeProgram  *program,
+					 const char    *doc_id,
+					 const char    *file_name,
+					 const char    *link_id,
+					 GError       **error);
+gboolean gnome_help_display_uri         (const char    *help_uri,
+					 GError       **error);
+
 
 G_END_DECLS
 

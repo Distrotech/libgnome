@@ -1,6 +1,7 @@
 /* -*- Mode: C; c-set-style: gnu indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 /* gnome-help.c
  * Copyright (C) 2001 Sid Vicious
+ * Copyright (C) 2001 Jonathan Blandford <jrb@alum.mit.edu>
  * All rights reserved.
  *
  * This library is free software; you can redistribute it and/or
@@ -22,6 +23,9 @@
  */
 
 #include <config.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 #include <string.h>
 #include <glib.h>
@@ -37,7 +41,7 @@ static char *
 locate_help_file (const char *path, const char *doc_name)
 {
 	int i;
-	char *exts[] = { ".xml", ".sgml", ".html", NULL };
+	char *exts[] = { ".xml", ".docbook", ".sgml", ".html", "", NULL };
 	const GList *lang_list = gnome_i18n_get_language_list ("LC_MESSAGES");
 
 	for (;lang_list != NULL; lang_list = lang_list->next) {
@@ -63,121 +67,191 @@ locate_help_file (const char *path, const char *doc_name)
 	return NULL;
 }
 
-static gboolean
-display_help_file (GnomeProgram *program,
-		   const char *file,
-		   const char *link_id,
-		   GError **error)
-{
-	char *url;
-	gboolean ret;
-
-	if (link_id != NULL)
-		url = g_strdup_printf ("ghelp://%s?%s", file, link_id);
-	else
-		url = g_strdup_printf ("ghelp://%s", file);
-
-	ret = gnome_help_display_uri (url, error);
-
-	g_free (url);
-
-	return ret;
-}
-
 /**
- * gnome_help_display
- * @program: The current application object.
- * @doc_name: The name of the help document to display.
+ * gnome_help_display:
+ * @file_name: The name of the help document to display.
  * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
  * requested document.
  * @error: A #GError instance that will hold the specifics of any error which
- * occurs during processing.
- *
- * Displays the help file in @doc_name from an application by passing to the
- * preferred help browser of the user with the "ghelp://" scheme prepended.
- * Note that this function only looks for the help file in the application's
- * help domain (#GNOME_FILE_DOMAIN_APP_HELP). To display help files from the
- * global GNOME domain, you will want to use gnome_help_display_desktop().
- *
+ * occurs during processing, or %NULL
+ * 
+ * Displays the help file specified by @file_name at location @link_id in the
+ * preferred help browser of the user.
+ * 
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
  * contain the actual error).
- */
-
+ **/
 gboolean
-gnome_help_display (GnomeProgram  *program,
-		    const char    *doc_name,
+gnome_help_display (const char    *file_name,
 		    const char    *link_id,
 		    GError       **error)
 {
-	char *path;
-	char *file;
-	gboolean ret;
+	return gnome_help_display_with_doc_id (NULL, NULL, file_name, link_id, error);
+}
+
+/**
+ * gnome_help_display_with_doc_id
+ * @program: The current application object, or %NULL for the default one.
+ * @doc_id: The document identifier, or %NULL for the app_id
+ * @file_name: The name of the help document to display.
+ * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
+ * requested document.
+ * @error: A #GError instance that will hold the specifics of any error which
+ * occurs during processing, or %NULL
+ *
+ * Displays the help file specified by @file_name at location @link_id within
+ * the @doc_id domain in the preferred help browser of the user.  Most of the
+ * time, you want to call @gnome_help_display() instead.
+ *
+ * This function will display the help through creating a "ghelp" URI, by looking for
+ * @file_name in the applications installed help location (found by
+ * #GNOME_FILE_DOMAIN_APP_HELP) and its app_id.  The resulting URI is roughly in
+ * the form "ghelp:appid/file_name?link_id".  If a matching file cannot be
+ * found, %FALSE is returned and @error is set.
+ *
+ * Please note that this only displays application help.  To display help files
+ * from the global GNOME domain, you will want to use
+ * #gnome_help_display_desktop().
+ *
+ * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
+ * contain the actual error).  */
+gboolean
+gnome_help_display_with_doc_id (GnomeProgram  *program,
+				const char    *doc_id,
+				const char    *file_name,
+				const char    *link_id,
+				GError       **error)
+{
+	gchar *local_help_path;
+	gchar *global_help_path;
+	gchar *file;
+	gboolean absolute_uri;
+	struct stat local_help_st;
+	struct stat global_help_st;
+	gchar *uri;
+	gboolean retval;
 
 	if (program == NULL)
 		program = gnome_program_get ();
+	if (doc_id == NULL)
+		doc_id = gnome_program_get_app_id (program);
 
-	path = gnome_program_locate_file (program,
-					  GNOME_FILE_DOMAIN_APP_HELP,
-					  "",
-					  FALSE /* only_if_exists */,
-					  NULL /* ret_locations */);
-
-	if (path == NULL) {
+	local_help_path = gnome_program_locate_file (program,
+						     GNOME_FILE_DOMAIN_APP_HELP,
+						     "",
+						     FALSE /* only_if_exists */,
+						     NULL /* ret_locations */);
+	
+	if (local_help_path == NULL) {
 		g_set_error (error,
 			     GNOME_HELP_ERROR,
 			     GNOME_HELP_ERROR_INTERNAL,
-			     _("Internal error"));
+			     _("Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"));
 		return FALSE;
 	}
 
-	file = locate_help_file (path, doc_name);
+	global_help_path = gnome_program_locate_file (program,
+						      GNOME_FILE_DOMAIN_HELP,
+						      "",
+						      FALSE /* only_if_exists */,
+						      NULL /* ret_locations */);
+	if (global_help_path == NULL) {
+		g_free (local_help_path);
+		g_set_error (error,
+			     GNOME_HELP_ERROR,
+			     GNOME_HELP_ERROR_INTERNAL,
+			     _("Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-libs was compiled incorrectly."));
+		return FALSE;
+	}
 
-	g_free (path);
+	stat (local_help_path, &local_help_st);
+	stat (global_help_path, &global_help_st);
+	g_free (global_help_path);
+
+	if (! S_ISDIR (local_help_st.st_mode)) {
+		g_free (local_help_path);
+		g_set_error (error,
+			     GNOME_HELP_ERROR,
+			     GNOME_HELP_ERROR_INTERNAL,
+			     _("Unable to show help as file %s is not a directory.  This implies an incorrect installation."),
+			     local_help_path);
+		return FALSE;
+	}
+
+	if (local_help_st.st_ino == global_help_st.st_ino)
+		absolute_uri = FALSE;
+	else
+		absolute_uri = TRUE;
+
+	file = locate_help_file (local_help_path, file_name);
+	g_free (local_help_path);
 
 	if (file == NULL) {
 		g_set_error (error,
 			     GNOME_HELP_ERROR,
 			     GNOME_HELP_ERROR_NOT_FOUND,
 			     _("Help document %s for %s not found"),
-			     doc_name, 
-			     gnome_program_get_app_id (program));
+			     file_name, 
+			     doc_id);
 		return FALSE;
 	}
 
-	ret = display_help_file (program, file, link_id, error);
+	if (absolute_uri) {
+		if (link_id)
+			uri = g_strconcat ("ghelp://", file, "?", link_id, NULL);
+		else
+			uri = g_strconcat ("ghelp://", file, NULL);
+	} else {
+		if (link_id)
+			uri = g_strconcat ("ghelp://", doc_id, "/", file_name, "?", link_id, NULL);
+		else
+			uri = g_strconcat ("ghelp://", doc_id, "/", file_name, NULL);
+	}
+
+	retval = gnome_help_display_uri (uri, error);
 
 	g_free (file);
+	g_free (uri);
 
-	return ret;
+	return retval;
 }
 
 /**
  * gnome_help_display_desktop
- * @program: The current application object.
- * @doc_name: The name of the help document to display.
+ * @program: The current application object, or %NULL for the default one.
+ * @file_name: The name of the help document to display.
  * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
  * requested document.
  * @error: A #GError instance that will hold the specifics of any error which
- * occurs during processing.
+ * occurs during processing, or %NULL
  *
- * Displays the GNOME help file in @doc_name by prepending "ghelp://" to the
- * name and passing it to the user's preferred help browser. This function only
- * looks in the #GNOME_FILE_DOMAIN_HELP domain for help files. To search for
- * files in the application's own domain, use gnome_help_display().
+ * Displays the GNOME system help file specified by @file_name at location
+ * @link_id in the preferred help browser of the user.  This is done by creating
+ * a "ghelp" URI, by looking for @file_name in the system help domain
+ * (#GNOME_FILE_DOMAIN_HELP) and it's app_id.  This domain is determined when
+ * the library is compiled.  If a matching file cannot be found, %FALSE is
+ * returned and @error is set.
+ *
+ * Please note that this only displays system help.  To display help files
+ * for an application, you will want to use #gnome_help_display().
  *
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
  * contain the actual error).
  */
-
 gboolean
 gnome_help_display_desktop (GnomeProgram  *program,
-			    const char    *doc_name,
+			    const char    *doc_id,
+			    const char    *file_name,
 			    const char    *link_id,
 			    GError       **error)
 {
 	GSList *ret_locations, *li;
 	char *file;
-	gboolean ret;
+	gboolean retval;
+	char *url;
+
+	g_return_val_if_fail (doc_id != NULL, FALSE);
+	g_return_val_if_fail (file_name != NULL, FALSE);
 
 	if (program == NULL)
 		program = gnome_program_get ();
@@ -185,15 +259,16 @@ gnome_help_display_desktop (GnomeProgram  *program,
 	ret_locations = NULL;
 	gnome_program_locate_file (program,
 				   GNOME_FILE_DOMAIN_HELP,
-				   "",
+				   doc_id,
 				   FALSE /* only_if_exists */,
 				   &ret_locations);
 
 	if (ret_locations == NULL) {
 		g_set_error (error,
 			     GNOME_HELP_ERROR,
-			     GNOME_HELP_ERROR_INTERNAL,
-			     _("Internal error"));
+			     GNOME_HELP_ERROR_NOT_FOUND,
+			     _("Unable to find doc_id %s in the help path"),
+			     doc_id);
 		return FALSE;
 	}
 
@@ -201,7 +276,7 @@ gnome_help_display_desktop (GnomeProgram  *program,
 	for (li = ret_locations; li != NULL; li = li->next) {
 		char *path = li->data;
 
-		file = locate_help_file (path, doc_name);
+		file = locate_help_file (path, file_name);
 		if (file != NULL)
 			break;
 	}
@@ -213,24 +288,28 @@ gnome_help_display_desktop (GnomeProgram  *program,
 		g_set_error (error,
 			     GNOME_HELP_ERROR,
 			     GNOME_HELP_ERROR_NOT_FOUND,
-			     _("Help document %s for %s not found"),
-			     doc_name, 
-			     gnome_program_get_app_id (program));
+			     _("Help document %s/%s not found"),
+			     doc_id, 
+			     file_name);
 		return FALSE;
 	}
-
-	ret = display_help_file (program, file, link_id, error);
-
 	g_free (file);
 
-	return ret;
+	if (link_id != NULL)
+		url = g_strdup_printf ("ghelp://%s/%s?%s", doc_id, file_name, link_id);
+	else
+		url = g_strdup_printf ("ghelp://%s/%s", doc_id, file_name);
+
+	retval = gnome_help_display_uri (url, error);
+
+	return retval;
 }
 
 /**
  * gnome_help_display_uri
  * @help_uri: The URI to display.
  * @error: A #GError instance that will hold the specifics of any error which
- * occurs during processing.
+ * occurs during processing, or %NULL
  *
  * Displays @help_uri in the user's preferred viewer. You should never need to
  * call this function directly in code, since it is just a wrapper for
@@ -246,13 +325,14 @@ gboolean
 gnome_help_display_uri (const char    *help_uri,
 			GError       **error)
 {
-	GError *err;
-	gboolean ret;
+	GError *real_error;
+	gboolean retval;
 
-	err = NULL;
-	ret = gnome_url_show (help_uri, &err);
-	g_propagate_error (error, err);
-	return ret;
+	real_error = NULL;
+	retval = gnome_url_show (help_uri, &real_error);
+	g_propagate_error (error, real_error);
+
+	return retval;
 }
 
 /**

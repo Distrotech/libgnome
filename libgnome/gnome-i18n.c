@@ -253,10 +253,10 @@ static GHashTable *category_table= NULL;
  * gnome_i18n_get_language_list:
  * @category_name: Name of category to look up, e.g. %"LC_MESSAGES".
  * 
- * This computes a list of language strings.  It searches in the
- * standard environment variables to find the list, which is sorted
- * in order from most desirable to least desirable.  The `C' locale is appended
- * to the list if it does not already appear (other routines depend on this
+ * This computes a list of language strings that the user wants.  It searches in
+ * the standard environment variables to find the list, which is sorted in order
+ * from most desirable to least desirable.  The `C' locale is appended to the
+ * list if it does not already appear (other routines depend on this
  * behaviour). If @category_name is %NULL, then %LC_ALL is assumed.
  * 
  * Return value: the list of languages, this list should not be freed as it is
