@@ -225,15 +225,12 @@ vfs_copy_to  (BonoboStream      *stream,
 	      CORBA_Environment *ev)
 {
 	BonoboStreamVfs *sfs = BONOBO_STREAM_VFS (stream);
-	CORBA_octet     *data;
+#define READ_CHUNK_SIZE 65536
+	CORBA_octet      data [READ_CHUNK_SIZE];
 	CORBA_unsigned_long more = bytes;
 	GnomeVFSHandle  *fd_out;
 	GnomeVFSResult   res;
 	GnomeVFSFileSize rsize, wsize;
-
-#define READ_CHUNK_SIZE 65536
-
-	data = CORBA_sequence_CORBA_octet_allocbuf (READ_CHUNK_SIZE);
 
 	*read_bytes = 0;
 	*written_bytes = 0;
