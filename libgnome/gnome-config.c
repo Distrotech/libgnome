@@ -71,6 +71,7 @@ typedef struct TSecHeader {
 typedef struct TProfile {
 	char *filename;
 	time_t mtime;
+	int written_to;
 	TSecHeader *section;
 	struct TProfile *link;
 } TProfile;
@@ -412,6 +413,7 @@ access_config (access_type mode, const char *section_name,
 		New->filename = g_strdup (filename);
 		New->section = load (filename);
 		New->mtime = st.st_mtime;
+		New->written_to = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -437,6 +439,7 @@ access_config (access_type mode, const char *section_name,
 		/* No key found */
 		if (mode == SET){
 			new_key (section, key_name, def);
+			Current->written_to = TRUE;
 			return 0;
 		}
 	}
@@ -449,6 +452,7 @@ access_config (access_type mode, const char *section_name,
 		new_key (section, key_name, def);
 		section->link = Current->section;
 		Current->section = section;
+		Current->written_to = TRUE;
 	} 
 	if (def_used)
 		*def_used = TRUE;
@@ -571,6 +575,11 @@ dump_profile (TProfile *p)
 	if (!p)
 		return;
 	dump_profile (p->link);
+	
+	/*was this profile written to?, if not it's not necessary to dump
+	  it to disk*/
+	if(!p->written_to)
+		return;
 
 	/* .ado: p->filename can be empty, it's better to jump over */
 	if (p->filename[0] != (char) 0)
@@ -579,6 +588,9 @@ dump_profile (TProfile *p)
 			dump_sections (profile, p->section);
 			fclose (profile);
 		}
+	
+	/*mark this to not be dumped any more*/
+	p->written_to = FALSE;
 }
 
 /*
@@ -647,6 +659,7 @@ _gnome_config_clean_file (const char *path, gint priv)
 		free_sections (p->section);
 		p->section = 0;
 		p->filename [0] = 0;
+		p->written_to = TRUE;
 		release_path (pp);
 		return;
 	}
@@ -676,6 +689,7 @@ _gnome_config_init_iterator (const char *path, gint priv)
 		New->filename = g_strdup (pp->file);
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
+		New->written_to = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -716,6 +730,7 @@ _gnome_config_init_iterator_sections (const char *path, gint priv)
 		New->filename = g_strdup (pp->file);
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
+		New->written_to = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -782,6 +797,7 @@ _gnome_config_clean_section (const char *path, gint priv)
 		New->filename = g_strdup (pp->file);
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
+		New->written_to = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -793,6 +809,7 @@ _gnome_config_clean_section (const char *path, gint priv)
 		if (strcasecmp (section->section_name, pp->section))
 			continue;
 		section->section_name [0] = 0;
+		Current->written_to = TRUE;
 	}
 	release_path (pp);
 }
@@ -817,6 +834,7 @@ _gnome_config_clean_key (const char *path, gint priv)
 		New->filename = g_strdup (pp->file);
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
+		New->written_to = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -828,6 +846,7 @@ _gnome_config_clean_key (const char *path, gint priv)
 			if (strcasecmp (key->key_name, pp->key))
 				continue;
 			key->key_name [0] = 0;
+			Current->written_to = TRUE;
 		}
 	}
 	release_path (pp);
@@ -855,6 +874,7 @@ _gnome_config_has_section (const char *path, gint priv)
 		New->filename = g_strdup (pp->file);
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
+		New->written_to = FALSE;
 		Base = New;
 		section = New->section;
 		Current = New;
