@@ -2,8 +2,8 @@
 
 BEGIN {
   type_name = "";	# GtkEnumType
-  type_macro = "";	# GTK_TYPE_ENUM_TYPE
-  type_ident = "";	# _gtk_enum_type
+  type_macro = "";	# G_TYPE_ENUM
+  type_ident = "";	# _g_enum_type
   type_counter = 0;
   gen_macros = 0;
   gen_entries = 0;
@@ -41,7 +41,7 @@ function set_type (set_type_1)
 {
   type_counter += 1;
   type_name = set_type_1;
-  type_macro = "GTK_TYPE_";
+  type_macro = "G_TYPE_";
   
   tmp = type_name;
 # OK, the following is ridiculous, and sed s///g would be far easier
@@ -53,27 +53,25 @@ function set_type (set_type_1)
   gsub ("@", "", tmp);
   type_macro = type_macro toupper (tmp);
   type_ident = "_" tolower (tmp);
-
-  sub ("^GTK_TYPE_GTK_", "GTK_TYPE_", type_macro);
 }
 
 function generate (generate_what)
 {
   if (gen_macros)
     {
-      printf ("extern GtkType %s;\n", type_macro);
+      printf ("extern GType %s;\n", type_macro);
     }
   if (gen_entries)
     {
       printf ("  { \"%s\", &%s,\n", type_name, type_macro);
       if (generate_what == "BOXED")
-	printf ("    GTK_TYPE_%s, %s, %s, %s, %s },\n", generate_what, boxed_init, boxed_copy, boxed_free, is_refcounted);
+	printf ("    G_TYPE_%s, %s, %s, %s, %s },\n", generate_what, boxed_init, boxed_copy, boxed_free, is_refcounted);
       else
-	printf ("    GTK_TYPE_%s, %s_values },\n", generate_what, type_ident);
+	printf ("    G_TYPE_%s, %s_values },\n", generate_what, type_ident);
     }
   if (gen_vars)
     {
-      printf ("GtkType %s = 0;\n", type_macro);
+      printf ("GType %s = 0;\n", type_macro);
     }
 }
 
