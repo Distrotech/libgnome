@@ -66,35 +66,14 @@ gnomelib_parse_args (int argc, char *argv[], int popt_flags)
 {
 	poptContext retval;
 	int nextopt;
+	struct poptOption end_opt;
 
-	/* On non-glibc systems, this is not set up for us.  */
-	if (!program_invocation_name) {
-		char *arg;
-	  
-		program_invocation_name = argv[0];
-		arg = strrchr (argv[0], '/');
-		program_invocation_short_name =
-			arg ? (arg + 1) : program_invocation_name;
-	}
+	memset(&end_opt, 0, sizeof(end_opt));
+	g_array_append_val(opt_tables, end_opt);
 
-	retval = poptGetContext(gnome_app_id, argc, argv,
-				(struct poptOption *)opt_tables->data,
-				popt_flags);
-
-	poptReadDefaultConfig(retval, TRUE);
-
-	while((nextopt = poptGetNextOpt(retval)) > 0)
-		/* do nothing */ ;
-
-	if(nextopt != -1) {
-		printf(_("Error on option %s: %s.\nRun '%s --help' to see a full list of available command line options.\n"),
-		       poptBadOption(retval, 0),
-		       poptStrerror(nextopt),
-		       argv[0]);
-		exit(1);
-	}
-
-	g_array_free(opt_tables, TRUE); opt_tables = NULL;
+	gnome_program_init(g_basename(argv[0]), "broken!", argc, argv, GNOME_PARAM_POPT_FLAGS, popt_flags,
+			   GNOME_PARAM_POPT_TABLE, opt_tables->data, NULL);
+	gnome_program_attributes_get(gnome_program_get(), GNOME_PARAM_POPT_CONTEXT, &retval, NULL);
 
 	return retval;
 }

@@ -42,6 +42,7 @@ extern char *gnome_user_accels_dir;
 /* Backwards compat */
 #define gnome_app_id gnome_program_get_name(gnome_program_get())
 #define gnome_app_version gnome_program_get_version(gnome_program_get())
+
 #define gnomelib_init(app_id, app_version) gnome_program_init(app_id, app_version, 0, NULL, NULL)
 
 END_GNOME_DECLS
