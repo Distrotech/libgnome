@@ -469,13 +469,11 @@ main (int argc, char *argv [])
 
 	CORBA_exception_init (&ev);
 
-	g_type_init (G_TYPE_DEBUG_NONE);
-
-	orb = oaf_init (argc, argv);
-	
-	if (bonobo_init (orb, NULL, NULL) == FALSE)
+	if (!bonobo_init (&argc, argv))
 		g_error (_("Can not bonobo_init"));
 
+	orb = bonobo_orb ();
+	
 	while ((driver = driver_list [dn++])) {
 		printf ("TEST DRIVER: %s\n", driver);
 		
