@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome-2\n"
-"POT-Creation-Date: 2001-06-16 15:06+0200\n"
+"POT-Creation-Date: 2001-08-04 02:37+0200\n"
 "PO-Revision-Date: 2001-06-16 15:00+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -15,62 +15,10 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. FIXME: ue GError
-#. we are not an application so just exit
-#. with an error
-#: libgnome/gnome-ditem.c:470
-msgid "Attempting to launch a non-application"
-msgstr "Försöker starta något som inte är ett program"
-
-#. FIXME: use GError
-#: libgnome/gnome-ditem.c:596
-msgid "Trying to execute an item with no 'Exec'"
-msgstr "Försöker köra ett objekt utan något \"Exec\""
-
-#: libgnome/gnome-ditem.c:639 libgnome/gnome-ditem.c:732
-msgid "No exec field for this drop"
-msgstr "Detta släpp har inget exec-fält"
-
-#: libgnome/gnome-ditem.c:670
-msgid "Nothing to replace with a file in the exec string"
-msgstr "Inget att ersätta med en fil i exec-strängen"
-
-#: libgnome/gnome-ditem.c:783
-msgid "There was no argument to replace with dropped files"
-msgstr "Det fanns inget argument som kunde ersättas med släppta filer"
-
-#: libgnome/gnome-exec.c:407
+#: libgnome/gnome-exec.c:406
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Kan inte hitta en terminal, använder xterm, även om det kanske inte fungerar"
-
-#: libgnome/gnome-moz-remote2.c:111
-msgid "Specify X display to use."
-msgstr "Ange den X-display som skall användas."
-
-#: libgnome/gnome-moz-remote2.c:112
-msgid "Put the X connection in synchronous mode."
-msgstr "Ställ X-anslutningen i synkront läge."
-
-#: libgnome/gnome-moz-remote2.c:113
-msgid "Specify the X window ID of Netscape."
-msgstr "Ange X-fönster-ID:t hos Netscape."
-
-#: libgnome/gnome-moz-remote2.c:115
-msgid "Don't raise the Netscape window."
-msgstr "Höj inte Netscape-fönstret."
-
-#: libgnome/gnome-moz-remote2.c:116
-msgid "Show the given URL in a new window."
-msgstr "Visa den givna URL:en i ett nytt fönster."
-
-#: libgnome/gnome-moz-remote2.c:117
-msgid "Close the specified window."
-msgstr "Stäng det angivna fönstret."
-
-#: libgnome/gnome-moz-remote2.c:118
-msgid "Print the X window ID of the utilized window."
-msgstr "Visa X-fönster-ID:t hos det använda fönstret."
 
 #: libgnome/gnome-url.c:131
 #, c-format
@@ -103,30 +51,31 @@ msgstr "Kan inte köra kommandot \"%s\"!"
 msgid "Command '%s' did not return an ID!"
 msgstr "Kommandot \"%s\" returnerade inte ett ID!"
 
-#: libgnome/libgnome-init.c:81
-msgid "GNOME OAF Support"
-msgstr "Stöd för OAF i GNOME"
+#: libgnome/gnome-init.c:85
+#, fuzzy
+msgid "Bonobo activation Support"
+msgstr "Stöd för Bonobo"
 
-#: libgnome/libgnome-init.c:320
+#: libgnome/gnome-init.c:372
 msgid "Bonobo Support"
 msgstr "Stöd för Bonobo"
 
-#: libgnome/libgnome-init.c:377 libgnome/libgnome-init.c:391
+#: libgnome/gnome-init.c:429 libgnome/gnome-init.c:443
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Kunde inte skapa användarspecifik gnome-konfigurationskatalog \"%s\": %s\n"
 
-#: libgnome/libgnome-init.c:400
+#: libgnome/gnome-init.c:452
 #, c-format
 msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory "
-"`%s': %s\n"
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
 msgstr ""
-"Kunde inte ändra rättigheterna till 0700 på den användarspecifika "
-"gnome-konfigurationskatalogen \"%s\": %s\n"
+"Kunde inte ändra rättigheterna till 0700 på den användarspecifika gnome-"
+"konfigurationskatalogen \"%s\": %s\n"
 
-#: libgnome/libgnome-init.c:407
+#: libgnome/gnome-init.c:459
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Kunde inte skapa katalogen \"%s\" för kortkommandon i gnome: %s\n"
@@ -138,3 +87,42 @@ msgstr "Testalternativ."
 #: libgnome/test-libgnome.c:167
 msgid "The Application Name"
 msgstr "Programnamnet"
+
+#~ msgid "Attempting to launch a non-application"
+#~ msgstr "Försöker starta något som inte är ett program"
+
+#~ msgid "Trying to execute an item with no 'Exec'"
+#~ msgstr "Försöker köra ett objekt utan något \"Exec\""
+
+#~ msgid "No exec field for this drop"
+#~ msgstr "Detta släpp har inget exec-fält"
+
+#~ msgid "Nothing to replace with a file in the exec string"
+#~ msgstr "Inget att ersätta med en fil i exec-strängen"
+
+#~ msgid "There was no argument to replace with dropped files"
+#~ msgstr "Det fanns inget argument som kunde ersättas med släppta filer"
+
+#~ msgid "Specify X display to use."
+#~ msgstr "Ange den X-display som skall användas."
+
+#~ msgid "Put the X connection in synchronous mode."
+#~ msgstr "Ställ X-anslutningen i synkront läge."
+
+#~ msgid "Specify the X window ID of Netscape."
+#~ msgstr "Ange X-fönster-ID:t hos Netscape."
+
+#~ msgid "Don't raise the Netscape window."
+#~ msgstr "Höj inte Netscape-fönstret."
+
+#~ msgid "Show the given URL in a new window."
+#~ msgstr "Visa den givna URL:en i ett nytt fönster."
+
+#~ msgid "Close the specified window."
+#~ msgstr "Stäng det angivna fönstret."
+
+#~ msgid "Print the X window ID of the utilized window."
+#~ msgstr "Visa X-fönster-ID:t hos det använda fönstret."
+
+#~ msgid "GNOME OAF Support"
+#~ msgstr "Stöd för OAF i GNOME"

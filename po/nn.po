@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 1.2.7\n"
-"POT-Creation-Date: 2001-04-21 14:49-0400\n"
+"POT-Creation-Date: 2001-08-04 02:37+0200\n"
 "PO-Revision-Date: 2001-04-21 14:51-04:00\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -13,133 +13,79 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: libgnome/gnome-ditem.c:566 libgnome/gnome-ditem.c:924
-#, c-format
-msgid "Unknown desktop file format %d"
-msgstr ""
-
-#. we are not an application so just exit
-#. with an error
-#: libgnome/gnome-ditem.c:913 libgnome/gnome-ditem.c:920
-msgid "Attempting to launch a non-application"
-msgstr ""
-
-#: libgnome/gnome-ditem.c:1030
-msgid "Trying to execute an item with no 'Exec'"
-msgstr ""
-
-#: libgnome/gnome-ditem.c:1082 libgnome/gnome-ditem.c:1175
-msgid "No exec field for this drop"
-msgstr ""
-
-#: libgnome/gnome-ditem.c:1113
-msgid "Nothing to replace with a file in the exec string"
-msgstr ""
-
-#: libgnome/gnome-ditem.c:1226
-msgid "There was no argument to replace with dropped files"
-msgstr ""
-
-#: libgnome/gnome-ditem.c:1314
-msgid "Dropped URLs on an app that can only take files"
-msgstr ""
-
-#: libgnome/gnome-exec.c:393
+#: libgnome/gnome-exec.c:406
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 
-#: libgnome/gnome-moz-remote2.c:111
-msgid "Specify X display to use."
-msgstr "X-display som skal brukast"
-
-#: libgnome/gnome-moz-remote2.c:112
-msgid "Put the X connection in synchronous mode."
-msgstr ""
-
-#: libgnome/gnome-moz-remote2.c:113
-msgid "Specify the X window ID of Netscape."
-msgstr ""
-
-#: libgnome/gnome-moz-remote2.c:115
-msgid "Don't raise the Netscape window."
-msgstr "Ikkje lukk Netscape-vindauget."
-
-#: libgnome/gnome-moz-remote2.c:116
-msgid "Show the given URL in a new window."
-msgstr ""
-
-#: libgnome/gnome-moz-remote2.c:117
-msgid "Close the specified window."
-msgstr "Lukk spesifisert vindauge."
-
-#: libgnome/gnome-moz-remote2.c:118
-msgid "Print the X window ID of the utilized window."
-msgstr ""
-
-#: libgnome/gnome-url.c:123
+#: libgnome/gnome-url.c:131
 #, c-format
 msgid "Error parsing '%s' (empty result)"
 msgstr ""
 
-#: libgnome/gnome-url.c:139
+#: libgnome/gnome-url.c:151
 #, c-format
 msgid "Mozilla not found as '%s'"
 msgstr ""
 
-#: libgnome/gnome-url.c:297 libgnome/gnome-url.c:301
+#: libgnome/gnome-url.c:312 libgnome/gnome-url.c:316
 #, c-format
 msgid "Cannot open a pipe: %s"
 msgstr ""
 
-#: libgnome/gnome-url.c:311 libgnome/gnome-url.c:369
+#: libgnome/gnome-url.c:326 libgnome/gnome-url.c:384
 #, c-format
 msgid "Cannot parse handler template: %s"
 msgstr ""
 
-#: libgnome/gnome-url.c:321 libgnome/gnome-url.c:325 libgnome/gnome-url.c:374
-#: libgnome/gnome-url.c:378
+#: libgnome/gnome-url.c:336 libgnome/gnome-url.c:340 libgnome/gnome-url.c:389
+#: libgnome/gnome-url.c:393
 #, c-format
 msgid "Cannot execute command '%s'!"
 msgstr ""
 
-#: libgnome/gnome-url.c:357
+#: libgnome/gnome-url.c:372
 #, c-format
 msgid "Command '%s' did not return an ID!"
 msgstr ""
 
-#: libgnome/libgnome-init.c:79
-msgid "GNOME OAF Support"
+#: libgnome/gnome-init.c:85
+msgid "Bonobo activation Support"
 msgstr ""
 
-#: libgnome/libgnome-init.c:107
+#: libgnome/gnome-init.c:372
 msgid "Bonobo Support"
 msgstr ""
 
-#: libgnome/libgnome-init.c:299
-msgid "GNOME GConf Support"
-msgstr ""
-
-#: libgnome/libgnome-init.c:418 libgnome/libgnome-init.c:432
+#: libgnome/gnome-init.c:429 libgnome/gnome-init.c:443
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 
-#: libgnome/libgnome-init.c:441
+#: libgnome/gnome-init.c:452
 #, c-format
 msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory "
-"`%s': %s\n"
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
 msgstr ""
 
-#: libgnome/libgnome-init.c:448
+#: libgnome/gnome-init.c:459
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr ""
 
-#: libgnome/test-libgnome.c:18
+#: libgnome/test-libgnome.c:22
 msgid "Test option."
 msgstr "Test alternativ"
 
-#: libgnome/test-libgnome.c:141
+#: libgnome/test-libgnome.c:167
 msgid "The Application Name"
 msgstr "Applikasjonens navn"
+
+#~ msgid "Specify X display to use."
+#~ msgstr "X-display som skal brukast"
+
+#~ msgid "Don't raise the Netscape window."
+#~ msgstr "Ikkje lukk Netscape-vindauget."
+
+#~ msgid "Close the specified window."
+#~ msgstr "Lukk spesifisert vindauge."

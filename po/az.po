@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 1.96.0\n"
-"POT-Creation-Date: 2001-05-30 11:50+0200\n"
+"POT-Creation-Date: 2001-08-04 02:37+0200\n"
 "PO-Revision-Date: 2001-06-01 17:17GMT +0200\n"
 "Last-Translator: Vasif İsmayıloğlu MD <azerb_linux@hotmail.com>\n"
 "Language-Team: Azerbaijani Turkish <linuxaz@azerimal.net>\n"
@@ -14,139 +14,119 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 0.8\n"
 
-#. FIXME: use GError
-#: libgnome/gnome-ditem.c:579
-msgid "Unknown desktop file"
-msgstr "Namə'lum masa üstü faylı"
-
-#. we are not an application so just exit
-#. with an error
-#: libgnome/gnome-ditem.c:922
-msgid "Attempting to launch a non-application"
-msgstr "Proqram tə'minatı xarici fayl başladılır "
-
-#. FIXME: use GError
-#: libgnome/gnome-ditem.c:1051
-msgid "Trying to execute an item with no 'Exec'"
-msgstr " 'Exec' olmayan proqram tə'minatı başladılmaya çalışılır "
-
-#: libgnome/gnome-ditem.c:1094 libgnome/gnome-ditem.c:1187
-msgid "No exec field for this drop"
-msgstr "Bu grup üçün proqram tə'minatı girdişi tapılmadı"
-
-#: libgnome/gnome-ditem.c:1125
-msgid "Nothing to replace with a file in the exec string"
-msgstr "Exec axışı ilə dəyişdirilə bilən bir şey tapılmadı"
-
-#: libgnome/gnome-ditem.c:1238
-msgid "There was no argument to replace with dropped files"
-msgstr ""
-"Buraxılan fayllarla dəyişdirilə bilən hər hansı bir arqument "
-"tapılmadı"
-
-#: libgnome/gnome-ditem.c:1331
-msgid "Dropped URLs on an app that can only take files"
-msgstr ""
-"Təkcə faylları qəbul edə bilən proqram tə'minatı üstünə "
-"buraxılan URLlər"
-
-#: libgnome/gnome-exec.c:392
+#: libgnome/gnome-exec.c:406
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "Terminal tapýla bilmədi, əgər iýə düþməzsə xterm iýlədilir"
 
-#: libgnome/gnome-moz-remote2.c:111
-msgid "Specify X display to use."
-msgstr "İstifadə üçün X ekranı seçin."
-
-#: libgnome/gnome-moz-remote2.c:112
-msgid "Put the X connection in synchronous mode."
-msgstr "Senxronizasiya tərzdə X bağlantısı yarat."
-
-#: libgnome/gnome-moz-remote2.c:113
-msgid "Specify the X window ID of Netscape."
-msgstr "Netscape üçün X pəncərə IDsi seçin."
-
-#: libgnome/gnome-moz-remote2.c:115
-msgid "Don't raise the Netscape window."
-msgstr "Netscape pəncərəsini böyütmə."
-
-#: libgnome/gnome-moz-remote2.c:116
-msgid "Show the given URL in a new window."
-msgstr "Verilən URLyi yeni pəncərədə göstər."
-
-#: libgnome/gnome-moz-remote2.c:117
-msgid "Close the specified window."
-msgstr "Bu pəncərəyi qapat."
-
-#: libgnome/gnome-moz-remote2.c:118
-msgid "Print the X window ID of the utilized window."
-msgstr "Pəncərənin X pəncərə IDsini çap et."
-
-#: libgnome/gnome-url.c:122
+#: libgnome/gnome-url.c:131
 #, c-format
 msgid "Error parsing '%s' (empty result)"
 msgstr "Xəta '%s' (nəticəsiz)"
 
-#: libgnome/gnome-url.c:138
+#: libgnome/gnome-url.c:151
 #, c-format
 msgid "Mozilla not found as '%s'"
 msgstr "Mozilla '%s' olaraq tapılmadı"
 
-#: libgnome/gnome-url.c:296 libgnome/gnome-url.c:300
+#: libgnome/gnome-url.c:312 libgnome/gnome-url.c:316
 #, c-format
 msgid "Cannot open a pipe: %s"
 msgstr "Boru açıla bilmir: %s"
 
-#: libgnome/gnome-url.c:310 libgnome/gnome-url.c:368
+#: libgnome/gnome-url.c:326 libgnome/gnome-url.c:384
 #, c-format
 msgid "Cannot parse handler template: %s"
 msgstr "Göstərici işə salına bilmədi: %s"
 
-#: libgnome/gnome-url.c:320 libgnome/gnome-url.c:324 libgnome/gnome-url.c:373
-#: libgnome/gnome-url.c:377
+#: libgnome/gnome-url.c:336 libgnome/gnome-url.c:340 libgnome/gnome-url.c:389
+#: libgnome/gnome-url.c:393
 #, c-format
 msgid "Cannot execute command '%s'!"
 msgstr "'%s' Əmr yerinə gətirilə bilmir! "
 
-#: libgnome/gnome-url.c:356
+#: libgnome/gnome-url.c:372
 #, c-format
 msgid "Command '%s' did not return an ID!"
 msgstr "'%s' əmri ID bildirmədi!"
 
-#: libgnome/libgnome-init.c:81
-msgid "GNOME OAF Support"
-msgstr "GNOME OAF Dəstəyi"
+#: libgnome/gnome-init.c:85
+#, fuzzy
+msgid "Bonobo activation Support"
+msgstr "Bonobo Dəstəyi"
 
-#: libgnome/libgnome-init.c:301
+#: libgnome/gnome-init.c:372
 msgid "Bonobo Support"
 msgstr "Bonobo Dəstəyi"
 
-#: libgnome/libgnome-init.c:358 libgnome/libgnome-init.c:372
+#: libgnome/gnome-init.c:429 libgnome/gnome-init.c:443
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"İsitafadəçilər üçün xas quraşdırma qovluqları yaradıla bilmədi "
-"`%s':%s\n"
+"İsitafadəçilər üçün xas quraşdırma qovluqları yaradıla bilmədi `%s':%s\n"
 
-#: libgnome/libgnome-init.c:381
+#: libgnome/gnome-init.c:452
 #, c-format
 msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory "
-"`%s': %s\n"
-msgstr ""
-"Şəxsi gnome quraşdırma qovluğu üçün 0700 modu verilə "
-"bilmədi`%s':%s\n"
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
+msgstr "Şəxsi gnome quraşdırma qovluğu üçün 0700 modu verilə bilmədi`%s':%s\n"
 
-#: libgnome/libgnome-init.c:388
+#: libgnome/gnome-init.c:459
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Gnome sür'ətləndiriciləri qovluğu yaradıla bilmədi `%s':%s\n"
 
-#: libgnome/test-libgnome.c:20
+#: libgnome/test-libgnome.c:22
 msgid "Test option."
 msgstr "Sınaq seçənəyi"
 
-#: libgnome/test-libgnome.c:153
+#: libgnome/test-libgnome.c:167
 msgid "The Application Name"
 msgstr "Proqram Tə'minatı Adı"
 
+#~ msgid "Unknown desktop file"
+#~ msgstr "Namə'lum masa üstü faylı"
+
+#~ msgid "Attempting to launch a non-application"
+#~ msgstr "Proqram tə'minatı xarici fayl başladılır "
+
+#~ msgid "Trying to execute an item with no 'Exec'"
+#~ msgstr " 'Exec' olmayan proqram tə'minatı başladılmaya çalışılır "
+
+#~ msgid "No exec field for this drop"
+#~ msgstr "Bu grup üçün proqram tə'minatı girdişi tapılmadı"
+
+#~ msgid "Nothing to replace with a file in the exec string"
+#~ msgstr "Exec axışı ilə dəyişdirilə bilən bir şey tapılmadı"
+
+#~ msgid "There was no argument to replace with dropped files"
+#~ msgstr ""
+#~ "Buraxılan fayllarla dəyişdirilə bilən hər hansı bir arqument tapılmadı"
+
+#~ msgid "Dropped URLs on an app that can only take files"
+#~ msgstr ""
+#~ "Təkcə faylları qəbul edə bilən proqram tə'minatı üstünə buraxılan URLlər"
+
+#~ msgid "Specify X display to use."
+#~ msgstr "İstifadə üçün X ekranı seçin."
+
+#~ msgid "Put the X connection in synchronous mode."
+#~ msgstr "Senxronizasiya tərzdə X bağlantısı yarat."
+
+#~ msgid "Specify the X window ID of Netscape."
+#~ msgstr "Netscape üçün X pəncərə IDsi seçin."
+
+#~ msgid "Don't raise the Netscape window."
+#~ msgstr "Netscape pəncərəsini böyütmə."
+
+#~ msgid "Show the given URL in a new window."
+#~ msgstr "Verilən URLyi yeni pəncərədə göstər."
+
+#~ msgid "Close the specified window."
+#~ msgstr "Bu pəncərəyi qapat."
+
+#~ msgid "Print the X window ID of the utilized window."
+#~ msgstr "Pəncərənin X pəncərə IDsini çap et."
+
+#~ msgid "GNOME OAF Support"
+#~ msgstr "GNOME OAF Dəstəyi"
