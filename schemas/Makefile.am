@@ -7,6 +7,8 @@ schema_DATA = \
 	desktop_gnome_applications_window_manager.schemas	\
 	desktop_gnome_interface.schemas				\
 	desktop_gnome_peripherals_mouse.schemas			\
+	desktop_gnome_peripherals_keyboard.schemas		\
+	desktop_gnome_background.schemas			\
 	desktop_gnome_url_handlers.schemas
 
 # don't do this if we are building in eg. rpm
