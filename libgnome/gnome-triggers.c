@@ -414,6 +414,9 @@ gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 		    trigger_msg_sample_ids[level_num]);
 #endif
 
+  if(!supinfo)
+    return;
+
   for(i = 0; curnode && supinfo[i]; i++)
     {
 
