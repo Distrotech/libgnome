@@ -99,7 +99,7 @@ gnome_libdir_file (const char *filename)
 }
 
 /**
- * gnome_sharedir_file:
+ * gnome_datadir_file:
  * @filename: shared filename to locate
  *
  * Locates a shared file either in the GNOMEDIR tree, the GNOME
@@ -397,75 +397,6 @@ gnome_util_user_shell (void)
 }
 
 /**
- * g_filename_index:
- * @path: Pathname
- *
- * 
- */
-#if 0
-#undef g_filename_index
-int
-g_filename_index (const char * path)
-{
-	int last_path_sep;
-	static int warned = 0;
-
-	if(!warned) {
-		g_warning("\ng_filename_index is about to disappear. Please recompile your apps. <<----");
-		warned = 1;
-	}
-	
-	g_return_val_if_fail(path != NULL, 0);
-
-	/* Note that the last character
-	 * is skipped; if it's a /, we
-	 * don't want to see it
-	 * anyway.
-	 */
-	last_path_sep = strlen (path) - 2;
-	
-	while (last_path_sep >= 0){
-		if (path [last_path_sep] == PATH_SEP)
-			break;
-		--last_path_sep;
-	}
-
-	 /* This is 0 if -1 was reached, i.e. no path separators were found. */
-	return last_path_sep + 1;
-
-	/*
-	 * FIXME when I wrote this I didn't know about strrchr; perhaps
-	 * return (g_filename_pointer(path) - path); would work?
-	 */
-}
-
-
-#undef g_filename_pointer
-const char *
-g_filename_pointer (const gchar * path)
-{
-	char * s;
-	static int warned = 0;
-
-	if (!warned){
-		g_warning("\ng_filename_pointer is about to disappear. Please recompile your apps. <<----");
-		warned = 1;
-	}
-	
-	g_return_val_if_fail (path != NULL, NULL);
-	
-	s = strrchr (path, PATH_SEP);
-	
-	if (s == NULL)
-		return path; /* There is no directory part. */
-	else {
-		++s; /* skip path separator */
-		return s;
-	}
-}
-#endif
-
-/**
  * g_extension_pointer:
  * @path: a filename or file path
  *
@@ -539,8 +470,8 @@ static const char * const image_extensions[] = {
  * g_is_image_filename:
  * @path: Filename or file path.
  *
- * Extra lame way of figuring if a filename is an image file.  You
- * should use the gnome_mime functions and match against "image/".
+ * Deprecated. Extra lame way of figuring if a filename is an image file.  You
+ * should use the gnome_mime functions instead and match against "image/".
  *
  * Returns: TRUE if the filename is an image.
  */
