@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
-"PO-Revision-Date: 2003-05-06 00:30+0100\n"
+"POT-Creation-Date: 2003-06-26 00:51+0100\n"
+"PO-Revision-Date: 2003-06-26 00:55+0100\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -363,6 +363,11 @@ msgstr "A acção por omissão não suporta este protocolo."
 msgid "Unknown error code: %d"
 msgstr "Código de erro desconhecido: %d"
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr "Erro ao mostrar o url: %s\n"
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Fábrica de Moniker Extra"
@@ -434,6 +439,18 @@ msgstr "intrevalo mínimo em milisegundos"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "pixeis por segundo"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+"Lista de aplicações de tecnologia assistiva a lançar ao iniciar uma sessão "
+"no ambiente de trabalho GNOME"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr "Iniciar Aplicações de Tecnologia Assistiva"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -705,8 +722,12 @@ msgid "Toolbar Style"
 msgstr "Estilo Barras"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
-msgstr "Estilo Barra. Valores válidos são ambos, ambos_horiz, ícones e texto"
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
+msgstr ""
+"Estilo Barra Ferramentas. Valores válidos são \"ambos\", \"ambos_horiz\", "
+"\"ícones\" e \"texto\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
@@ -733,25 +754,25 @@ msgid "Whether menus should have a tearoff"
 msgstr "Se os menus podem ou não ser destacáveis"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
+msgid "Whether the cursor should blink"
+msgstr "Se o cursor deverá ou não piscar"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:32
+msgid "Whether the user can detach menubars and move them around"
+msgstr "Se o utilizador pode ou não destacar barras de menu e arrasta-las"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:33
+msgid "Whether the user can detach toolbars and move them around"
+msgstr ""
+"Se o utilizador pode ou não destacar barras de ferramentas e arrasta-las"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
+"Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "Se o utilizador pode indicar dinamicamente um novo atalho quando um menu é "
 "mostrado"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
-msgid "Whether the cursor should blink"
-msgstr "Se o cursor deverá ou não piscar"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:33
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Se o utilizador pode ou não destacar barras de menu e arrasta-las"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:34
-msgid "Whether the user can detach toolbars and move them around"
-msgstr ""
-"Se o utilizador pode ou não destacar barras de ferramentas e arrasta-las"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -770,8 +791,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Nome de Ficheiro de Campainha de Teclado Costumizado"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
-msgstr "valores possíveis são ligado, desligado e costumizado."
+msgid "possible values are \"on\", \"off\", and \"custom\"."
+msgstr "valores possíveis são \"ligado\", \"desligado\" e \"costumizado\"."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -796,9 +817,9 @@ msgstr "Tema cursor"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Nome do tema do cursor. Utilizado apenas por Xservers que suportem Xcursor, "
 "tais como o XFree86 4.3 ou posterior. Este valor apenas é propagado ao "
@@ -828,8 +849,8 @@ msgstr "Margem Arrasto"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Nome da fonte do cursor. Se não definido, a fonte por omissão é utilizada. "
@@ -899,27 +920,84 @@ msgstr "Sons para eventos"
 msgid "Whether to play sounds on user events."
 msgstr "Se tocar ou não sons para eventos de utilizador."
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr "Desabilitar todos os geradores de amostras externos"
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+"Definir como verdadeiro para desabilitar todas as aplicações externas de "
+"geração de amostras, independentemente de serem ou não activadas/desactivadas "
+"independentemente."
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Como gerir URLs ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Como gerir URLs de informação"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Como gerir URLs de manual"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Como gerir URLs de lixo"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Executar aplicação na consola"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+"comandos de gestão de URLs ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+"comandos de gestão de URLs de informação"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+"comandos de gestão de URLs de manual"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
 "comandos de gestão de URLs de lixo"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Verdadeiro se a aplicação a gerir este URL deverá ser executada numa consola"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "Gestor de URLs para páginas ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "Gestor de URLs para páginas info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "Gestor de URLs para páginas man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Gestor de URLs para páginas de lixo"
 
@@ -928,15 +1006,6 @@ msgstr "Gestor de URLs para páginas de lixo"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Como gerir URLs de aplicações"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Como gerir URLs ghelp"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Como gerir URLs de informação"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Como gerir URLs de manual"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Como gerir URLs de preferncias"
@@ -968,25 +1037,6 @@ msgstr "Gestor de URLs para páginas de lixo"
 #~ "comandos de gestão de URLs de preferências"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-#~ "comandos de gestão de URLs ghelp"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-#~ "comandos de gestão de URLs de informação"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-#~ "comandos de gestão de URLs de manual"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -1016,15 +1066,6 @@ msgstr "Gestor de URLs para páginas de lixo"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "Gestor de URLs para páginas de aplicações"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Gestor de URLs para páginas ghelp"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Gestor de URLs para páginas info"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Gestor de URLs para páginas man"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "Gestor de URLs para páginas preferências"
