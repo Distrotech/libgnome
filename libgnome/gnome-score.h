@@ -2,6 +2,7 @@
 #define __GNOME_SCORE_H__ 1
 
 #include <time.h>
+#include <glib.h>
 
 BEGIN_GNOME_DECLS
 /*
