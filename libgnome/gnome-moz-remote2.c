@@ -113,9 +113,9 @@ static struct poptOption options[] = {
   {"id", '\0', POPT_ARG_STRING, &win_id, 0, N_("Specify the X window ID of Netscape."), "WIN-ID"},
   
   {"noraise", '\0', POPT_ARG_NONE, &win_noraise, 0, N_("Don't raise the Netscape window."), NULL},
-  {"newwin", '\0', POPT_ARG_NONE, &win_new, 0, N_("Show the given URL in a new window"), NULL},
-  {"closewin", '\0', POPT_ARG_NONE, &win_close, 0, N_("Close the specified window"), NULL},
-  {"print-id", '\0', POPT_ARG_INT, &win_ids_print, 0, N_("Print the X window ID of the utilized window"), NULL},
+  {"newwin", '\0', POPT_ARG_NONE, &win_new, 0, N_("Show the given URL in a new window."), NULL},
+  {"closewin", '\0', POPT_ARG_NONE, &win_close, 0, N_("Close the specified window."), NULL},
+  {"print-id", '\0', POPT_ARG_INT, &win_ids_print, 0, N_("Print the X window ID of the utilized window."), NULL},
   {NULL}
 };
 
