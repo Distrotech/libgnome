@@ -120,8 +120,11 @@ vfs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 	uri = g_concat_dir_and_file (storage_vfs->path, path);
 
 	result = gnome_vfs_directory_list_load (
-		&dir_list, uri, GNOME_VFS_FILE_INFO_DEFAULT,
-		NULL);
+		&dir_list, uri, 
+		(mask & Bonobo_FIELD_CONTENT_TYPE) ?
+		GNOME_VFS_FILE_INFO_GET_MIME_TYPE :
+		GNOME_VFS_FILE_INFO_DEFAULT, NULL);
+
 	if (result != GNOME_VFS_OK) {
 		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
 				     ex_Bonobo_Storage_NotFound, NULL);
@@ -137,14 +140,10 @@ vfs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 
 	i = 0;
 	for (info = gnome_vfs_directory_list_first (dir_list);
-	     info; info = gnome_vfs_directory_list_next (dir_list)) {
-		list->_buffer [i].name = CORBA_string_dup (info->name);
-	       
-		/* FIXME: pre-borked */
-		list->_buffer [i].size = 0;
-		list->_buffer [i].content_type = CORBA_string_dup ("");
-		i++;
-	}
+	     info; info = gnome_vfs_directory_list_next (dir_list))
+
+		bonobo_stream_vfs_storageinfo_from_file_info (
+			&list->_buffer [i++], info);
 
 	gnome_vfs_directory_list_destroy (dir_list);
 
@@ -181,13 +180,15 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode,
 	    
 	else if (flags & Bonobo_Storage_READ) {
 		if (result != GNOME_VFS_OK) {
-			g_warning ("Error getting info on '%s'", path);
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+					     ex_Bonobo_Stream_NoPermission, NULL);
 			return NULL;
 		}
 
 		if ((info->valid_fields & GNOME_VFS_FILE_INFO_FIELDS_TYPE) &&
 		    (info->type != GNOME_VFS_FILE_TYPE_DIRECTORY)) {
-			g_warning ("Not a storage: '%s'", path);
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+					     ex_Bonobo_Stream_IOError, NULL);
 			return NULL;
 		}
 
@@ -197,7 +198,8 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode,
 		else
 			if ((info->valid_fields & GNOME_VFS_FILE_INFO_FIELDS_TYPE) &&
 			    (info->type != GNOME_VFS_FILE_TYPE_DIRECTORY)) {
-				g_warning ("Not a storage: '%s'", path);
+				CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+						     ex_Bonobo_Stream_IOError, NULL);
 				return NULL;
 			}
 	}
@@ -209,7 +211,8 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode,
 			GNOME_VFS_PERM_GROUP_ALL);
 
 		if (result != GNOME_VFS_OK) {
-			g_warning ("Error creating: '%s'", path);
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+					     ex_Bonobo_Stream_NoPermission, NULL);
 			return NULL;
 		}
 	}
@@ -229,12 +232,14 @@ vfs_open_storage (BonoboStorage *storage,
 	char *full;
 
 	full = g_concat_dir_and_file (storage_vfs->path, path);
+
 	result = gnome_vfs_make_directory (full, GNOME_VFS_PERM_USER_ALL);
 	if (result == GNOME_VFS_OK ||
 	    result == GNOME_VFS_ERROR_FILE_EXISTS)
 		new_storage = do_bonobo_storage_vfs_create (full);
 	else
 		new_storage = NULL;
+
 	g_free (full);
 
 	return new_storage;
@@ -245,11 +250,20 @@ vfs_erase (BonoboStorage *storage,
 	   const CORBA_char *path,
 	   CORBA_Environment *ev)
 {
-	g_warning ("FIXME: erase not yet implemented");
+	BonoboStorageVfs *storage_vfs = BONOBO_STORAGE_VFS (storage);
+	GnomeVFSResult    result;
+	char *full;
 
-	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
-			     ex_Bonobo_Storage_NoPermission, 
-			     NULL);
+	full = g_concat_dir_and_file (storage_vfs->path, path);
+
+	result = gnome_vfs_unlink (full);
+
+	g_free (full);
+
+	if (result != GNOME_VFS_OK)
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NoPermission, 
+				     NULL);
 }
 
 static void
