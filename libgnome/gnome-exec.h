@@ -29,6 +29,9 @@ BEGIN_GNOME_DECLS
    which to exec the child; if NULL the current directory is used.
    Searches $PATH to find the child.  */
 int gnome_execute_async (const char *dir, int argc, char * const argv[]);
+int gnome_execute_async_with_fds (const char *dir, int argc, 
+				  char * const argv[]);
+
 
 /* Like gnome_execute_async, but each string in ENVV is added to the
    child's environment.  If you want to set the environment exactly,
@@ -38,12 +41,17 @@ int gnome_execute_async (const char *dir, int argc, char * const argv[]);
 int gnome_execute_async_with_env (const char *dir,
 				  int argc, char * const argv[],
 				  int envc, char * const envv[]);
+int gnome_execute_async_with_env_with_fds (const char *dir, int argc, 
+					   char * const argv[], int envc, 
+					   char * const envv[]);
+
+
 
 /* Fork and execute commandline using the user's shell. Calls 
    gnome_execute_async so it does the same things and returns 
    the same things. */
 int gnome_execute_shell (const char *dir, const char *commandline);
-
+int gnome_execute_shell_with_fds (const char *dir, const char *commandline);
 END_GNOME_DECLS
 
 #endif /* GNOME_EXEC_H */
