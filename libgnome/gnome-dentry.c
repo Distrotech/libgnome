@@ -285,7 +285,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		}
 
 		argc = the_argc + term_argc + item->exec_length;
-		argv = (char **) malloc ((argc + 1) * sizeof (char *));
+		argv = (char **) g_malloc ((argc + 1) * sizeof (char *));
 
 		for (i = 0; i < term_argc; ++i)
 			argv[i] = term_argv[i];
@@ -309,7 +309,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 			char **argv;
 			int i, argc;
 			argc = the_argc + item->exec_length;
-			argv = (char **) malloc ((argc + 1) * sizeof (char *));
+			argv = (char **) g_malloc ((argc + 1) * sizeof (char *));
 
 			for (i = 0; i < item->exec_length; i++)
 				argv [i] = item->exec [i];

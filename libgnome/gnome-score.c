@@ -68,7 +68,7 @@ print_ascore (struct ascore_t *ascore, FILE * outfile)
 static void
 free_ascore(struct ascore_t *data)
 {
-   free(data->username);
+   g_free(data->username);
    g_free(data);
 }
 

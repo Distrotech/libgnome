@@ -257,7 +257,7 @@ gnome_execute_shell_fds (const char *dir, const char *commandline,
   argv[3] = NULL;
 
   r = gnome_execute_async_with_env_fds (dir, 4, argv, 0, NULL, close_fds);
-  free (argv[0]);
+  g_free (argv[0]);
   return r;
 }
 

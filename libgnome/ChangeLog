@@ -1,3 +1,8 @@
+Tue Mar 23 19:28:41 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-score.c,gnome-exec.c,gnome-entry.c: stuff that is allocated
+	  with g_malloc has to be free'd with g_free and vice versa
+
 Sun Mar 21 00:53:26 1999  George Lebl  <jirka@5z.com>
 
 	* gnome-fileconvert.c: include string.h
