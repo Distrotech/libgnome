@@ -473,16 +473,3 @@ GnomeModuleInfo libgnome_module_info = {
 	gnomelib_options,
 	NULL, NULL, NULL, NULL
 };
-
-#include <libgnomevfs/gnome-vfs-mime.h>
-/* This declaration is only here to make -Werror happy. */
-extern const char *gnome_mime_type (const char *);
-
-const char *
-gnome_mime_type (const char *filename)
-{
-    g_warning (G_STRLOC ": You will be killed if you use this function!");
-
-    return gnome_vfs_mime_type_from_name (filename);
-}
-
