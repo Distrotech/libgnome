@@ -208,8 +208,8 @@ if(!retval) retval = lastval; } \
  *  G_FILE_TEST_ISLINK, to check if the pathname is a symlink
  *  G_FILE_TEST_ISDIR,  to check if the pathname is a directory
  *
- * Returns true if filename passes the specified test (an or expression of
- * tests)
+ * Returns %TRUE if filename passes the specified test, if the test
+ * is an ORed expression, then if it passes at least one of those tests
  */
 gboolean
 g_file_test (const char *filename, int test)
@@ -224,11 +224,11 @@ g_file_test (const char *filename, int test)
       
       if(stat (filename, &s) != 0)
 	return FALSE;
-      if((test & G_FILE_TEST_ISFILE) && !S_ISREG(s.st_mode))
-	return FALSE;
-      if((test & G_FILE_TEST_ISLINK) && !S_ISLNK(s.st_mode))
-	return FALSE;
-      if((test & G_FILE_TEST_ISDIR) && !S_ISDIR(s.st_mode))
+      /* this should test if the file is at least one of those things 
+	 specified */
+      if((!(test & G_FILE_TEST_ISFILE) || !S_ISREG(s.st_mode)) &&
+	 (!(test & G_FILE_TEST_ISLINK) || !S_ISLNK(s.st_mode)) &&
+	 (!(test & G_FILE_TEST_ISDIR) || !S_ISDIR(s.st_mode)))
 	return FALSE;
 
       return TRUE;

@@ -1,3 +1,12 @@
+Tue Jan 18 00:30:56 2000  George Lebl <jirka@5z.com>
+
+	* gnome-util.c: (g_file_test) make the tests work sanely again.
+	  This had been changed to test an and of the conditions which
+	  doesn't make sense as something can never be a dir, a regular
+	  file and a link at the same time.  So it now agains properly
+	  tests an OR of the conditions, which also fixes
+	  gnome-pixmap-entry and anything else that used the function.
+
 Mon Jan 17 14:21:09 2000  George Lebl <jirka@5z.com>
 
 	* gnome-ditem.c: test for gnome-terminal's existence and fall back
