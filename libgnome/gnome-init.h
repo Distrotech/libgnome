@@ -1,8 +1,9 @@
 /*
  * Copyright (C) 1997, 1998, 1999, 2000 Free Software Foundation
+ *               2001 SuSE Linux AG
  * All rights reserved.
  *
- * This file is part of the Gnome Library.
+ * This file is part of GNOME 2.0.
  *
  * The Gnome Library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public License as
