@@ -631,7 +631,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	}
 		
 	/* FIXME: do something if there's an error.  */
-	if (strcmp (item->type, "URL") == 0) {
+	if (item->type && strcmp (item->type, "URL") == 0) {
 		gnome_url_show (exec_str);
 	} else {
 		gnome_execute_async_with_env (NULL, uargs, uargv, envc, envp);
