@@ -25,6 +25,6 @@ libmoniker_extra_2_la_SOURCES =			\
 	bonobo-moniker-extra.h            	\
 	bonobo-moniker-extra.c			
 
-libmoniker_extra_2_la_LDFLAGS = -module -avoid-version $(LIBGNOME_LIBS)
+libmoniker_extra_2_la_LDFLAGS = -module -avoid-version -no-undefined $(LIBGNOME_LIBS)
 
 EXTRA_DIST = GNOME_Moniker_std.server.in.in

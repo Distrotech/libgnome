@@ -1,3 +1,29 @@
+2003-05-08  Masahiro Sakai  <sakai@tom.sfc.keio.ac.jp>
+
+	* configure.in: call AC_LIBTOOL_WIN32_DLL which is necessary for
+	building shared library on win32 platform.
+
+	* libgnome/Makefile.am (libgnome_2_la_LDFLAGS): add -no-undefined
+	which is necessary for building shared library on some platforms
+	(e.g. Win32, BeOS).
+
+	* libgnome/libgnome-2.0.pc.in (Libs): add -lpopt.
+
+	* help-converters/gnome-vfs-module/Makefile.am:
+	(module_flags): add -module and -no-undefined.
+	(libvfs_help_la_LIBADD): add $(top_builddir)/libgnome/libgnome-2.la.
+
+	* help-converters/gnome-vfs-module/help-methods.conf.in: remove "lib"
+	prefix and ".so" suffix from module names. Because these are added
+	automatically by g_module_build_path(), and they breaks on Cygwin.
+	Cygwin uses "cyg" and ".dll" respectively.
+
+	* monikers/GNOME_Moniker_std.server.in.in: remove ".so" from module
+	name.
+
+	* monikers/Makefile.am (libmoniker_extra_2_la_LDFLAGS): add
+	-no-undefined.
+
 2003-05-05  Christian Rose  <menthos@menthos.com>
 
 	* configure.in: Added sr and sr@Latn to ALL_LINGUAS.

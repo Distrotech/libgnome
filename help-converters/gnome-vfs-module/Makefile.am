@@ -5,14 +5,16 @@ INCLUDES =						\
 
 modules_LTLIBRARIES=libvfs-help.la
 
-module_flags = -export_dynamic -avoid-version
+module_flags = -export_dynamic -avoid-version -module -no-undefined
 modulesdir   = $(libdir)/gnome-vfs-2.0/modules
 
 libvfs_help_la_SOURCES = 				\
 	help-method.c		help-method.h		
 
 libvfs_help_la_LDFLAGS = $(module_flags)
-libvfs_help_la_LIBADD = $(HELP_VFS_MODULE_LIBS)
+libvfs_help_la_LIBADD = \
+	$(top_builddir)/libgnome/libgnome-2.la \
+	$(HELP_VFS_MODULE_LIBS)
 
 modulesconfdir=$(sysconfdir)/gnome-vfs-2.0/modules
 modulesconf_DATA = help-methods.conf

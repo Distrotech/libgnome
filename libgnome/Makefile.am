@@ -132,6 +132,7 @@ BUILT_SOURCES = \
 
 libgnome_2_la_LDFLAGS = \
 	-version-info $(LIBGNOME_CURRENT):$(LIBGNOME_REVISION):$(LIBGNOME_AGE) \
+	-no-undefined \
 	-export-symbols-regex "^[^_].*"
 
 libgnome_2_la_LIBADD =		\
