@@ -52,10 +52,26 @@ char *alloca ();
 #include <ctype.h>
 #include <errno.h>
 
+#ifdef PREFER_DB1
+#ifdef HAVE_DB1_DB_H
+# include <db1/db.h>
+#else
+# ifdef HAVE_DB_185_H
+#  include <db_185.h>
+# else
+#  include <db.h>
+# endif
+#endif
+#else
 #ifdef HAVE_DB_185_H
 # include <db_185.h>
 #else
-# include <db.h>
+# ifdef HAVE_DB_H
+#  include <db.h>
+# else
+#  include <db1/db.h>
+# endif
+#endif
 #endif
 
 #include "libgnomeP.h"
@@ -130,6 +146,20 @@ static char *lock_directory;
 #define LIST "list"
 #define LISTLEN 4
 
+#ifdef G_THREADS_ENABLED
+
+/* This mutex is used whenever we are locking the database.  This
+   includes initialization.  We used to have fine-grained locking
+   whenever the database (or any other global) was used.  However,
+   since this was done in lock() and unlock(), a recursive mutex was
+   required.  glib 1.2 doesn't have these, so instead we adopt the
+   simpler, but less efficient, strategy of locking the database
+   around the body of every exported function.  This works because the
+   exported functions never call each other.  */
+G_LOCK_DEFINE_STATIC (database_mu);
+
+#endif /* G_THREADS_ENABLED */
+
 
 
 /* Initialize the database.  Returns 0 on success.  */
@@ -138,12 +168,13 @@ init (void)
 {
 	char *filename;
 
-	/* assert (! database); */
+	/* g_assert (! database); */
 	if (gnome_metadata_db_file_name)
 		filename = gnome_metadata_db_file_name;
 	else
 		filename = gnome_util_home_file ("metadata.db");
-	database = dbopen (filename, O_CREAT | O_RDWR, 0700, DB_HASH, NULL);
+	database = dbopen (filename, O_CREAT | O_RDWR, 0700,
+			   DB_HASH, NULL);
 	if (filename != gnome_metadata_db_file_name)
 		g_free (filename);
 	lock_directory = gnome_util_home_file ("metadata.lock");
@@ -168,8 +199,9 @@ lock (void)
 		while (mkdir (lock_directory, 0)) {
 			attempts++;
 			if (errno != EEXIST) {
-				/* Don't know what to do here.  */
-				return;
+				/* Don't know what to do here.
+				   Pretend that we have the lock.  */
+			  return;
 			}
 			/* The utter lameness of this is without
 			   question.  FIXME: at least use usleep to
@@ -209,11 +241,15 @@ unlock (void)
  * many metadata operations to speed up metadata access.
  */
 void
-gnome_metadata_lock ()
+gnome_metadata_lock (void)
 {
+	G_LOCK (database_mu);
 	if (! database)
 		init ();
+	/* An explicit lock only locks out other processes.  The
+	   per-thread locking is internal to this module.  */
 	lock ();
+	G_UNLOCK (database_mu);
 }
 
 /**
@@ -223,9 +259,11 @@ gnome_metadata_lock ()
  * many metadata operations to speed up metadata access.
  */
 void
-gnome_metadata_unlock ()
+gnome_metadata_unlock (void)
 {
+	G_LOCK (database_mu);
 	unlock ();
+	G_UNLOCK (database_mu);
 }
 
 /* Set a piece of metadata.  */
@@ -786,15 +824,14 @@ try_one_app_regex (gpointer key, gpointer value, gpointer user_data)
 		app_rx_cache = gnome_regex_cache_new ();
 
 	rx = gnome_regex_cache_compile (app_rx_cache, rx_text, REG_EXTENDED);
-	if (! rx || regexec (rx, filename, 0, 0, 0))
-		return;
-
-	ent = (struct app_ent *) value;
-	for (list = ent->mappings; list; list = list->next) {
-		struct kv *pair = (struct kv *) list->data;
-		if (! strcmp (pair->key, desired_key)) {
-			short_circuit = pair->value;
-			return;
+	if (rx && ! regexec (rx, filename, 0, 0, 0)) {
+		ent = (struct app_ent *) value;
+		for (list = ent->mappings; list; list = list->next) {
+			struct kv *pair = (struct kv *) list->data;
+			if (! strcmp (pair->key, desired_key)) {
+				short_circuit = pair->value;
+				return;
+			}
 		}
 	}
 }
@@ -808,6 +845,8 @@ try_one_app_regex (gpointer key, gpointer value, gpointer user_data)
 static int
 try_app_regexs (const char *file, const char *key, int *size, char **buffer)
 {
+	int r;
+
 	maybe_scan_app_dir ();
 
 	short_circuit = NULL;
@@ -818,12 +857,15 @@ try_app_regexs (const char *file, const char *key, int *size, char **buffer)
 		g_hash_table_foreach (app_rx_hash, try_one_app_regex,
 				      (gpointer) file);
 
-	if (! short_circuit)
-		return GNOME_METADATA_NOT_FOUND;
+	if (! short_circuit) {
+		r = GNOME_METADATA_NOT_FOUND;
+	} else {
+		*size = strlen (short_circuit) + 1;
+		*buffer = g_strdup (short_circuit);
+		r = 0;
+	}
 
-	*size = strlen (short_circuit) + 1;
-	*buffer = g_strdup (short_circuit);
-	return 0;
+	return r;
 }
 
 /* See if there is some data associated with TYPE and KEY in the
@@ -833,26 +875,32 @@ app_get_by_type (const char *type, const char *key, int *size, char **buffer)
 {
 	struct app_ent *ent;
 	GSList *list;
+	int r = GNOME_METADATA_NOT_FOUND;
 
 	maybe_scan_app_dir ();
 
-	if (!app_type_hash)
-		return GNOME_METADATA_NOT_FOUND;
-	
-	ent = (struct app_ent *) g_hash_table_lookup (app_type_hash, type);
-	if (! ent)
-		return GNOME_METADATA_NOT_FOUND;
-
-	for (list = ent->mappings; list != NULL; list = list->next) {
-		struct kv *pair = (struct kv *) list->data;
-		if (! strcmp (pair->key, key)) {
-			*size = strlen (pair->value) + 1;
-			*buffer = g_strdup (pair->value);
-			return 0;
+	if (!app_type_hash) {
+		r = GNOME_METADATA_NOT_FOUND;
+	} else {
+		ent = (struct app_ent *) g_hash_table_lookup (app_type_hash,
+							      type);
+		if (! ent)
+			r = GNOME_METADATA_NOT_FOUND;
+		else {
+			for (list = ent->mappings; list != NULL;
+			     list = list->next) {
+				struct kv *pair = (struct kv *) list->data;
+				if (! strcmp (pair->key, key)) {
+					*size = strlen (pair->value) + 1;
+					*buffer = g_strdup (pair->value);
+					r = 0;
+					break;
+				}
+			}
 		}
 	}
 
-	return GNOME_METADATA_NOT_FOUND;
+	return r;
 }
 
 
@@ -872,7 +920,11 @@ int
 gnome_metadata_set (const char *file, const char *name,
 		    int size, const char *data)
 {
-	return metadata_set ("file", file, name, size, data);
+	int r;
+	G_LOCK (database_mu);
+	r = metadata_set ("file", file, name, size, data);
+	G_UNLOCK (database_mu);
+	return r;
 }
 
 /**
@@ -887,33 +939,30 @@ gnome_metadata_set (const char *file, const char *name,
 int
 gnome_metadata_remove (const char *file, const char *name)
 {
-	return metadata_remove ("file", file, name);
+	int r;
+	G_LOCK (database_mu);
+	r = metadata_remove ("file", file, name);
+	G_UNLOCK (database_mu);
+	return r;
 }
 
-/**
- * gnome_metadata_list
- * @file: File name.
- *
- * Returns an array of all metadata keys associated with @file.  The
- * array is %NULL terminated.  The result can be freed with
- * g_strfreev().  This only returns keys for which there
- * is a particular association with @file.  It will not return keys
- * for which a regex or other match succeeds.
- */
-char **
-gnome_metadata_list (const char *file)
+
+
+/* Do the work of gnome_metadata_list, but assume the lock is held.  */
+static char **
+metadata_list_nolock (const char *file)
 {
 	DBT value;
 	int num, i;
-	char **result, *p, *dd;
+	char **result = NULL, *p, *dd;
 
 	if (! database && init ())
-		return NULL;
+		goto done;
 	
 	ZERO (value);
 
 	if (metadata_get_list ("file", file, &value))
-		return NULL;
+		goto done;
 
 	/* Count number of strings in data value.  */
 	dd = (char *) value.data;
@@ -933,6 +982,27 @@ gnome_metadata_list (const char *file)
 	}
 	result[i] = NULL;
 
+ done:
+	return result;
+}
+
+/**
+ * gnome_metadata_list
+ * @file: File name.
+ *
+ * Returns an array of all metadata keys associated with @file.  The
+ * array is %NULL terminated.  The result can be freed with
+ * g_strfreev().  This only returns keys for which there
+ * is a particular association with @file.  It will not return keys
+ * for which a regex or other match succeeds.
+ */
+char **
+gnome_metadata_list (const char *file)
+{
+	char **result;
+	G_LOCK (database_mu);
+	result = metadata_list_nolock (file);
+	G_UNLOCK (database_mu);
 	return result;
 }
 
@@ -945,27 +1015,32 @@ try_regexs (const char *file, const char *key, int *size, char **buffer)
 {
 	DBT value;
 	char *p, *end;
+	int r = GNOME_METADATA_NOT_FOUND;
 
 	ZERO (value);
 
 	if (metadata_get_list ("regex", key, &value))
-		return GNOME_METADATA_NOT_FOUND;
+		r = GNOME_METADATA_NOT_FOUND;
+	else {
+		if (! rxcache)
+			rxcache = gnome_regex_cache_new ();
 
-	if (! rxcache)
-		rxcache = gnome_regex_cache_new ();
-
-	p = value.data;
-	end = (char *) value.data + value.size;
-	while (p < end) {
-		regex_t *buf;
-		buf = gnome_regex_cache_compile (rxcache, p, REG_EXTENDED);
-		if (buf && ! regexec (buf, file, 0, 0, 0)) {
-			return metadata_get ("regex", p, key, size, buffer);
+		p = value.data;
+		end = (char *) value.data + value.size;
+		while (p < end) {
+			regex_t *buf;
+			buf = gnome_regex_cache_compile (rxcache, p,
+							 REG_EXTENDED);
+			if (buf && ! regexec (buf, file, 0, 0, 0)) {
+				r = metadata_get ("regex", p, key,
+						  size, buffer);
+				break;
+			}
+			p += strlen (p) + 1;
 		}
-		p += strlen (p) + 1;
 	}
 
-	return GNOME_METADATA_NOT_FOUND;
+	return r;
 }
 
 /* Run the `file' command and use its output to determine the file's
@@ -973,14 +1048,10 @@ try_regexs (const char *file, const char *key, int *size, char **buffer)
 static char *
 run_file (const char *file)
 {
-#if 0
-  /* This is what the code will look like once the magic functions are
-     ready.  */
+	/* This is what the code will look like once the magic
+	   functions are ready.  */
 	const char *type = gnome_mime_type_from_magic (file);
 	return type ? g_strdup (type) : NULL;
-#else
-	return NULL;
-#endif
 }
 
 /* Do all the work for _get and _get_fast.  */
@@ -1084,9 +1155,11 @@ gnome_metadata_get (const char *file, const char *name,
 		    int *size, char **buffer)
 {
 	int r;
+	G_LOCK (database_mu);
 	lock ();
 	r = get_worker (file, name, size, buffer, 0);
 	unlock ();
+	G_UNLOCK (database_mu);
 	return r;
 }
 
@@ -1108,9 +1181,11 @@ gnome_metadata_get_fast (const char *file, const char *name,
 			 int *size, char **buffer)
 {
 	int r;
+	G_LOCK (database_mu);
 	lock ();
 	r = get_worker (file, name, size, buffer, 1);
 	unlock ();
+	G_UNLOCK (database_mu);
 	return r;
 }
 
@@ -1133,7 +1208,7 @@ worker (const char *from, const char *to, int op)
 	/* Could use metadata_get_list here.  That would be more
 	   efficient, but perhaps messier.  */
 
-	keys = gnome_metadata_list (from);
+	keys = metadata_list_nolock (from);
 	if (! keys){
 		unlock ();
 		return 0;
@@ -1183,7 +1258,11 @@ worker (const char *from, const char *to, int op)
 int
 gnome_metadata_rename (const char *from, const char *to)
 {
-	return worker (from, to, RENAME);
+	int r;
+	G_LOCK (database_mu);
+	r = worker (from, to, RENAME);
+	G_UNLOCK (database_mu);
+	return r;
 }
 
 /**
@@ -1199,7 +1278,11 @@ gnome_metadata_rename (const char *from, const char *to)
 int
 gnome_metadata_copy (const char *from, const char *to)
 {
-	return worker (from, to, COPY);
+	int r;
+	G_LOCK (database_mu);
+	r = worker (from, to, COPY);
+	G_UNLOCK (database_mu);
+	return r;
 }
 
 /**
@@ -1214,7 +1297,11 @@ gnome_metadata_copy (const char *from, const char *to)
 int
 gnome_metadata_delete (const char *file)
 {
-	return worker (file, NULL, DELETE);
+	int r;
+	G_LOCK (database_mu);
+	r = worker (file, NULL, DELETE);
+	G_UNLOCK (database_mu);
+	return r;
 }
 
 
@@ -1233,7 +1320,9 @@ void
 gnome_metadata_regex_add (const char *regex, const char *key,
 			   int size, const char *data)
 {
+	G_LOCK (database_mu);
 	metadata_set ("regex", regex, key, size, data);
+	G_UNLOCK (database_mu);
 }
 
 /**
@@ -1247,7 +1336,9 @@ gnome_metadata_regex_add (const char *regex, const char *key,
 void
 gnome_metadata_regex_remove (const char *regex, const char *key)
 {
+	G_LOCK (database_mu);
 	metadata_remove ("regex", regex, key);
+	G_UNLOCK (database_mu);
 }
 
 /**
@@ -1265,7 +1356,9 @@ void
 gnome_metadata_type_add (const char *type, const char *key,
 			 int size, const char *data)
 {
+	G_LOCK (database_mu);
 	metadata_set ("type", type, key, size, data);
+	G_UNLOCK (database_mu);
 }
 
 /**
@@ -1279,5 +1372,7 @@ gnome_metadata_type_add (const char *type, const char *key,
 void
 gnome_metadata_type_remove (const char *type, const char *key)
 {
+	G_LOCK (database_mu);
 	metadata_remove ("type", type, key);
+	G_UNLOCK (database_mu);
 }

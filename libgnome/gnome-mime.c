@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 1997 Paolo Molaro
  * Copyright 1998 Miguel de Icaza.
  *
@@ -38,11 +38,20 @@ typedef struct {
 static mime_dir_source_t gnome_mime_dir, user_mime_dir;
 static time_t last_checked;
 
+#ifdef G_THREADS_ENABLED
+
+/* We lock this mutex whenever we modify global state in this module.  */
+G_LOCK_DEFINE_STATIC (mime_mutex);
+
+#endif /* G_LOCK_DEFINE_STATIC */
+
+
+
 static char *
 get_priority (char *def, int *priority)
 {
 	*priority = 0;
-	
+
 	if (*def == ','){
 		def++;
 		if (*def == '1'){
@@ -65,7 +74,7 @@ add_to_key (char *mime_type, char *def)
 {
 	int priority = 1;
 	char *s, *p, *ext;
-	
+
 	if (strncmp (def, "ext", 3) == 0){
 		char *tokp;
 
@@ -90,13 +99,13 @@ add_to_key (char *mime_type, char *def)
 
 		if (!*def)
 			return;
-		
+
 		mp = g_new (RegexMimePair, 1);
 		if (regcomp (&mp->regex, def, REG_EXTENDED | REG_NOSUB)){
 			g_free (mp);
 			return;
 		}
-		mp->mime_type = mime_type;
+		mp->mime_type = g_strdup (mime_type);
 
 		mime_regexs [priority] = g_list_prepend (mime_regexs [priority], mp);
 	}
@@ -108,8 +117,7 @@ mime_fill_from_file (const char *filename)
 	FILE *f;
 	char buf [1024];
 	char *current_key;
-	gboolean used;
-	
+
 	g_assert (filename != NULL);
 
 	f = fopen (filename, "r");
@@ -118,7 +126,6 @@ mime_fill_from_file (const char *filename)
 		return;
 
 	current_key = NULL;
-	used = FALSE;
 	while (fgets (buf, sizeof (buf), f)){
 		char *p;
 
@@ -132,10 +139,10 @@ mime_fill_from_file (const char *filename)
 			else
 				break;
 		}
-		
+
 		if (!buf [0])
 			continue;
-		
+
 		if (buf [0] == '\t' || buf [0] == ' '){
 			if (current_key){
 				char *p = buf;
@@ -145,20 +152,22 @@ mime_fill_from_file (const char *filename)
 
 				if (*p == 0)
 					continue;
-				
+
 				add_to_key (current_key, p);
-				used = TRUE;
 			}
 		} else {
-			if (!used && current_key)
+			if (current_key)
 				g_free (current_key);
+
 			current_key = g_strdup (buf);
 			if (current_key [strlen (current_key)-1] == ':')
 				current_key [strlen (current_key)-1] = 0;
-			
-			used = FALSE;
 		}
 	}
+
+	if (current_key)
+		g_free (current_key);
+
 	fclose (f);
 }
 
@@ -172,7 +181,7 @@ mime_load (mime_dir_source_t *source)
 
 	g_return_if_fail (source != NULL);
 	g_return_if_fail (source->dirname != NULL);
-	
+
 	if (stat (source->dirname, &source->s) != -1)
 		source->valid = TRUE;
 	else
@@ -183,7 +192,7 @@ mime_load (mime_dir_source_t *source)
 		source->valid = FALSE;
 		return;
 	}
-	
+
 	if (source->system_dir){
 		filename = g_concat_dir_and_file (source->dirname, "gnome.mime");
 		mime_fill_from_file (filename);
@@ -191,19 +200,19 @@ mime_load (mime_dir_source_t *source)
 	}
 
 	while ((dent = readdir (dir)) != NULL){
-		
+
 		int len = strlen (dent->d_name);
 
 		if (len <= extlen)
 			continue;
 		if (strcmp (dent->d_name + len - extlen, ".mime"))
 			continue;
-		
+
 		if (source->system_dir && !strcmp (dent->d_name, "gnome.mime"))
 			continue;
 		if (!source->system_dir && !strcmp (dent->d_name, "user.mime"))
 			continue;
-		
+
 		filename = g_concat_dir_and_file (source->dirname, dent->d_name);
 
 		mime_fill_from_file (filename);
@@ -234,7 +243,7 @@ maybe_reload (void)
 	gboolean need_reload = FALSE;
 	struct stat s;
 	int i;
-	
+
 	if (last_checked + 5 >= now)
 		return;
 
@@ -247,13 +256,13 @@ maybe_reload (void)
 			need_reload = TRUE;
 
 	last_checked = now;
-	
+
 	if (!need_reload)
 		return;
 
 	for (i = 0; i < 2; i++){
 		GList *l;
-		
+
 		g_hash_table_foreach_remove (mime_extensions [i], mime_hash_func, NULL);
 
 		for (l = mime_regexs [i]; l; l = l->next){
@@ -281,7 +290,7 @@ mime_init (void)
 
 	gnome_mime_dir.dirname = gnome_unconditional_datadir_file ("mime-info");
 	gnome_mime_dir.system_dir = TRUE;
-	
+
 	user_mime_dir.dirname  = g_concat_dir_and_file (gnome_util_user_home (), ".gnome/mime-info");
 	user_mime_dir.system_dir = FALSE;
 	mime_load (&gnome_mime_dir);
@@ -307,9 +316,12 @@ gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 {
 	const gchar *ext;
 	int priority;
-	
+	const gchar *result = defaultv;
+
+	G_LOCK (mime_mutex);
+
 	if (!filename)
-		return defaultv;
+		goto done;
 	ext = strrchr (filename, '.');
 	if (ext)
 		++ext;
@@ -318,26 +330,32 @@ gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 		mime_init ();
 
 	maybe_reload ();
-	
+
 	for (priority = 1; priority >= 0; priority--){
 		GList *l;
 		char *res;
 
 		if (ext){
 			res = g_hash_table_lookup (mime_extensions [priority], ext);
-			if (res)
-				return res;
+			if (res) {
+				result = res;
+				goto done;
+			}
 		}
 
 		for (l = mime_regexs [priority]; l; l = l->next){
 			RegexMimePair *mp = l->data;
-			
-			if (regexec (&mp->regex, filename, 0, 0, 0) == 0)
-				return mp->mime_type;
+
+			if (regexec (&mp->regex, filename, 0, 0, 0) == 0) {
+				result = mp->mime_type;
+				goto done;
+			}
 		}
 	}
 
-	return defaultv;
+ done:
+	G_UNLOCK (mime_mutex);
+	return result;
 }
 
 /**
@@ -375,7 +393,7 @@ gnome_mime_type_or_default_of_file (const char *existing_filename,
 	mime_type = (char *)gnome_mime_type_from_magic (existing_filename);
 	if (mime_type)
 		return mime_type;
-	
+
 	return gnome_mime_type_or_default (existing_filename, defaultv);
 }
 
@@ -392,12 +410,6 @@ gnome_mime_type_or_default_of_file (const char *existing_filename,
 const char *
 gnome_mime_type_of_file (const char *existing_filename)
 {
-	char *mime_type;
-
-	mime_type = (char *)gnome_mime_type_from_magic (existing_filename);
-	if (mime_type)
-		return mime_type;
-
 	return gnome_mime_type_or_default_of_file (existing_filename, "text/plain");
 }
 
@@ -409,17 +421,17 @@ gnome_mime_type_of_file (const char *existing_filename)
  * Returns a GList containing strings allocated with g_malloc
  * that have been splitted from @uri-list.
  */
-GList*        
+GList*
 gnome_uri_list_extract_uris (const gchar* uri_list)
 {
 	const gchar *p, *q;
 	gchar *retval;
 	GList *result = NULL;
-	
+
 	g_return_val_if_fail (uri_list != NULL, NULL);
 
 	p = uri_list;
-	
+
 	/* We don't actually try to validate the URI according to RFC
 	 * 2396, or even check for allowed characters - we just ignore
 	 * comments and trim whitespace off the ends.  We also
@@ -429,20 +441,20 @@ gnome_uri_list_extract_uris (const gchar* uri_list)
 		if (*p != '#') {
 			while (isspace(*p))
 				p++;
-			
+
 			q = p;
 			while (*q && (*q != '\n') && (*q != '\r'))
 				q++;
-		  
+
 			if (q > p) {
 			        q--;
 				while (q > p && isspace(*q))
 					q--;
-				
+
 				retval = g_malloc (q - p + 2);
 				strncpy (retval, p, q - p + 1);
 				retval[q - p + 1] = '\0';
-				
+
 				result = g_list_prepend (result, retval);
 			}
 		}
@@ -450,7 +462,7 @@ gnome_uri_list_extract_uris (const gchar* uri_list)
 		if (p)
 			p++;
 	}
-	
+
 	return g_list_reverse (result);
 }
 
@@ -464,19 +476,19 @@ gnome_uri_list_extract_uris (const gchar* uri_list)
  * Note that unlike gnome_uri_list_extract_uris() function, this
  * will discard any non-file uri from the result value.
  */
-GList*        
+GList*
 gnome_uri_list_extract_filenames (const gchar* uri_list)
 {
 	GList *tmp_list, *node, *result;
-	
+
 	g_return_val_if_fail (uri_list != NULL, NULL);
-	
+
 	result = gnome_uri_list_extract_uris (uri_list);
 
 	tmp_list = result;
 	while (tmp_list) {
 		gchar *s = tmp_list->data;
-		
+
 		node = tmp_list;
 		tmp_list = tmp_list->next;
 
@@ -497,7 +509,7 @@ gnome_uri_list_extract_filenames (const gchar* uri_list)
  *
  * Releases all of the resources allocated by @list.
  */
-void          
+void
 gnome_uri_list_free_strings      (GList *list)
 {
 	g_list_foreach (list, (GFunc)g_free, NULL);

@@ -344,6 +344,11 @@ load (const char *file)
 		case FirstBrace:
 		case KeyDef:
 		case KeyDefOnKey:
+			if (c == '#') {
+				state = IgnoreToEOL;
+				break;
+			}
+
 			if (c == '[' && state != KeyDefOnKey){
 				TSecHeader *temp;
 		
@@ -512,6 +517,13 @@ access_config_extended (access_type mode, const char *section_name,
 	const char *ret_val;
 	gboolean internal_def;
 
+	static time_t cache_time = 0;
+	static char *cache_filename = NULL;
+	static char *cache_overrride_filename = NULL;
+	static char *cache_global_filename = NULL;
+	gboolean cache_valid;
+	time_t now;
+
 	switch (mode) {
 	case SET:
 		/* fall through to normal behaviour */
@@ -519,53 +531,83 @@ access_config_extended (access_type mode, const char *section_name,
 		ret_val = access_config (mode, section_name, key_name, def,
 					 filename, def_used);
 		g_free(filename);
+ 		cache_time = 0;  /* Invalidate cache.  */
 		return ret_val;
 	case LOOKUP:
-		/* check the system wide override config tree first */
-		tmp = g_concat_dir_and_file ("gnome/config-override",rel_file);
-		filename = gnome_config_file (tmp);
-		g_free (tmp);
-		if (filename) {
+ 		now = time (NULL);
+ 		cache_valid = (cache_filename &&
+ 			       strcmp (cache_filename, rel_file) == 0 &&
+ 			       now - cache_time <= 2);
+ 		if (!cache_valid) {
+ 			if (cache_filename) 
+				g_free (cache_filename);
+
+ 			cache_filename = g_strdup (rel_file);
+ 			cache_time = now;
+
+ 			if (cache_overrride_filename)
+				g_free (cache_overrride_filename);
+
+ 			tmp = g_concat_dir_and_file ("gnome/config-override",rel_file);
+ 			filename = gnome_config_file (tmp);
+ 			g_free (tmp);
+ 			cache_overrride_filename = filename ? g_strdup (filename) : NULL;
+			
+ 			if (cache_global_filename)
+				g_free (cache_global_filename);
+
+			tmp = g_concat_dir_and_file ("gnome/config", rel_file);
+			filename = gnome_config_file (tmp);
+			g_free (tmp);
+			cache_global_filename = filename ? g_strdup (filename) : NULL;
+ 		}
+
+		if (cache_overrride_filename) {
 			/* the required config file exists */
 			ret_val = access_config (mode, section_name, key_name,
-						 NULL,filename, &internal_def);
-			g_free (filename);
+						 NULL,
+						 cache_overrride_filename,
+						 &internal_def);
 			if (!internal_def) {
-				if (def_used) *def_used = FALSE;
+				if (def_used)
+					*def_used = FALSE;
 				return ret_val;
 			}
 			g_assert (ret_val == NULL);
 		}
+
 		/* fall through to the user config section */
 		filename = gnome_util_home_file (rel_file);
 		ret_val = access_config (mode, section_name, key_name, NULL,
 					 filename, &internal_def);
 		g_free (filename);
 		if (!internal_def) {
-			if (def_used) *def_used = FALSE;
+			if (def_used) 
+				*def_used = FALSE;
 			return ret_val;
 		}
 		g_assert (ret_val == NULL);
+
 		/* fall through to the system wide config default tree */
-		tmp = g_concat_dir_and_file ("gnome/config", rel_file);
-		filename = gnome_config_file (tmp);
-		g_free (tmp);
-		if (filename) {
+		if (cache_global_filename) {
 			/* the file exists */
 			ret_val = access_config (mode, section_name, key_name,
-						 def, filename, def_used);
-			g_free (filename);
+						 def,
+						 cache_global_filename,
+						 def_used);
 			return ret_val;
 		} else {
 			/* it doesn't -- use the default value */
-			if (def_used) *def_used = TRUE;
+			if (def_used) 
+				*def_used = TRUE;
 			return def;
 		}
 	}
 	g_assert_not_reached ();
 
 	/* keep the compiler happy */
-	if (def_used) *def_used = TRUE;
+	if (def_used) 
+		*def_used = TRUE;
 	return def;
 }
 
@@ -1618,6 +1660,10 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
 	for (p = (char *) string; *p; ++p) {
 	        if (*p == '\\' && *(p+1)) {
 			++p;
+			if (space_seen){
+				count++;
+				space_seen = 0;
+			}
 		} else if (*p == ' ') {
 			space_seen = 1;
 		} else if (space_seen){
@@ -1646,11 +1692,12 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
 
 		(*argvp)[count++] = tmp = s;
 
-		do {
+		while (*s) {
 			if (*s == '\\') 
 				s++;				
+			if (!*s) break;
 			*tmp++ = *s++;
-		} while (*s);
+		}
 		*tmp = '\0';
 
 		while (*p && *p == ' ')

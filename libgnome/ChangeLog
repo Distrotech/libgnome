@@ -1,3 +1,216 @@
+Sun Dec 05 01:32:35 1999  George Lebl <jirka@5z.com>
+
+	* gnome-dentry.c: fix the quoting, now we don't quote the exec vector
+	  from the dentry as this is the expected behaviour, but we do quote
+	  the arguments passed to gnome_desktop_entry_launch_with_args so
+	  that we work with filenames with spaces.  This will completely
+	  fix #4010.
+
+Fri Dec 03 21:23:56 1999  George Lebl <jirka@5z.com>
+
+	* gnome-dentry.c: fix a segfault in join_with_quotes, fixes #4010
+
+1999-11-11  Jacob Berkman  <jberkman@andrew.cmu.edu>
+
+	* gnome-config.c (gnome_config_make_vector): correctly
+	handle the "a \b c" case (escaped character between 2
+	spaces)
+	(gnome_config_make_vector): george also suggested this
+	fix
+
+	Fixes bug #3475
+
+1999-10-27  Elliot Lee  <sopwith@redhat.com>
+	* gnome-util.c: Use g_strdup not strdup.
+
+1999-10-06  Owen Taylor  <otaylor@redhat.com>
+
+	* gnome-config.c (access_config_extended): Always refill
+	the cache with valid values immediately after invalidating
+	this. This simplifies code, and (more importantly) fixes
+	a bug where we could return with cache_filename_value2
+	pointing to freed memory, and then later try to free
+	it again. (Bug #2618)
+
+1999-10-05  Owen Taylor  <otaylor@redhat.com>
+
+	(Bug #2593)
+	* gnome-i18n.c (read_aliases): Fix a memory leak by not
+	overwriting old entries in the alias hash table.
+
+	* gnome-dentry.c (gnome_desktop_entry_save): Fix a mem-leak
+	when saving desktop entries with comments.
+
+1999-10-04  Elliot Lee  <sopwith@redhat.com>
+	* gnome-sound.c: Don't set audio stream byte order - use what audiofile gives
+	us.
+
+1999-10-04  Elliot Lee  <sopwith@redhat.com>
+	* gnome-i18n.c: Revert a bugnum-less commit.
+	
+Mon Oct 04 11:24:51 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-i18n.c: in case the aliases would have a real infinite
+	  loop of the kind a=b, b=a, give up after 50 lookups
+
+1999-09-29  Elliot Lee  <sopwith@redhat.com>
+
+	* gnome-exec.c: Fix strange race condition. I don't think pipes
+ 	are persistent across multiple forks() - in this case the child
+ 	was closing the read end of the pipe, and the child of the child
+ 	was getting SIGPIPE even though the parent had the fd open still.
+
+Sun Sep 26 10:37:26 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-i18n.c from KUSANO Takayuki <AE5T-KSN@asahi-net.or.jp> to
+	  avoid infinite loops in alias lookup
+
+1999-09-21  Federico Mena Quintero  <federico@redhat.com>
+
+	* gnome-i18n.c (gnome_i18n_init): Take out the patch for the
+	umpteenth time.  As was discussed on gnome-hackers, it is
+	Wrong(tm) to set an arbitrary default value for LC_ALL.
+
+1999-09-19  Owen Taylor  <otaylor@redhat.com>
+
+	* gnome-exec.c (gnome_execute_async_with_env_fds): Return
+	  -1 in case of failure. Also, some code cleanups.
+
+1999-09-17  Anders Carlsson  <anders.carlsson@tordata.se>
+
+	* gnome-i18n.c (gnome_i18n_init): Set LC_CTYPE to en_US if it isn't
+	  already set. This prevents falling back to the "C" locale which
+	  doesn't support 8-bit characters
+
+Mon Sep 13 22:01:29 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-i18n.c: gnome_i18n_get_language_list now also tries to
+	  figure out aliases by reading in alias files from some standard
+	  locations
+
+1999-09-08  Martin Baulig  <martin@home-of-linux.org>
+
+	* gnome-triggers.h (GnomeTriggerType, _GnomeTriggerType):
+	Use `typedef enum { ... } GnomeTriggerType' instead of
+ 	`typedef enum _GnomeTriggerType { ... } GnomeTriggerType'.
+
+1999-09-01  Jacob Berkman  <jberkman@andrew.cmu.edu>
+
+	* gnome-dentry.c (gnome_desktop_entry_load_flags_conditional): 
+	default type to Directory for KDE dentries.  Unfortunately for
+	directories, they do not specify the Type (at least for KDE 1.1.1)
+	Also, look in the KDE_ICONDIR for KDE icons
+
+	This fixes bug #2015
+
+1999-08-31  Federico Mena Quintero  <federico@redhat.com>
+
+	* gnome-metadata.c: Arrange order of #ifdef tests for db.
+
+	* gnome-dump.c: Likewise.
+
+1999-08-30  Federico Mena Quintero  <federico@redhat.com>
+
+	* gnome-triggers.h: Make it build.
+
+1999-08-29  Tom Tromey  <tromey@cygnus.com>
+
+	* gnome-mime.c (mime_mutex): New global.
+	(gnome_mime_type_or_default): Lock mutex.
+	(gnome_mime_type_of_file): Removed redundant call to
+	gnome_mime_type_from_magic.
+
+1999-08-28  Tom Tromey  <tromey@cygnus.com>
+
+	* gnome-metadata.c (metadata_list_nolock): New function.
+	(gnome_metadata_list): Use it.
+	(worker): Use it.
+	(init): Don't re-check `database'.
+
+	* gnome-metadata.c (database_mu): Now an ordinary static mutex.
+	(TLOCK): Removed.
+	(TUNLOCK): Likewise.
+	(lock): Removed `thread' argument.
+	(unlock): Likewise.
+	(Various): All mutex locking now done around body of exported
+	functions.
+
+Sat Aug 28 10:33:28 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-dentry.c: fix warnings
+
+1999-08-28  Ettore Perazzoli  <ettore@comm2000.it>
+
+	* gnome-metadata.c: Temporarily #define `TUNLOCK()' and `TLOCK()'
+	to no-ops even if gthreads are available, to let gnome-libs
+	compile with GLib 1.2 again.
+
+1999-08-27  Tom Tromey  <tromey@cygnus.com>
+
+	* gnome-metadata.c (database_mu): New global.
+	(init): Lock and unlock mutex.
+	(lock): Likewise.  Added `thread' argument.  Updated all callers.
+	(unlock): Likewise.
+	(TLOCK): New macro.
+	(TUNLOCK): Likewise.
+	(try_app_regexs): Likewise.
+	(app_get_by_type): Likewise.
+	(try_regexs): Likewise.  Also, increment `p' inside the loop.
+	(run_file): Enable code.
+
+Fri Aug 27 15:40:57 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-dentry.[ch]: add functions for getting the i18n lists,
+	  and implement it using g_dataset instead of hash_table
+
+	* gnome-dentry.c: don't just concatenate the argument list when
+	  launching with argument list, but add quotes around each
+	  argument, and escape quotes inside arguments, and then
+	  concatenate with spaces
+
+Fri Aug 27 10:29:27 1999  George Lebl  <jirka@5z.com>
+
+	* gnome-dentry.[ch]: added a structure for translations of
+	  name and comment field and store them in a list that is
+	  in a hashed keyed to the dentry pointer.
+
+Thu Aug 26 20:48:13 1999  George Lebl  <jirka@5z.com>
+
+	* parse-path.cP: append current dir to relative filenames to fix
+	  bug #1968
+
+1999-08-26  Federico Mena Quintero  <federico@redhat.com>
+
+	* gnome-mime.c (add_to_key): Bertrand Guiheneuf
+	<Bertrand.Guiheneuf@inria.fr> showed me how big a doofus I am.
+	Duplicate the key as well when we need to store a regex-based
+	definition.
+
+1999-08-23  Herbert Valerio Riedel  <hvr@hvrlab.dhs.org>
+
+	* gnome-mime-info.c: args to strcmp() casted to (char*)
+
+1999-08-22  Herbert Valerio Riedel  <hvr@hvrlab.dhs.org>
+
+	* gnome-paper.h: redundand extern "C" removed
+
+1999-08-20  Federico Mena Quintero  <federico@redhat.com>
+
+	* gnome-mime-info.c (context_new): Free the temporary string
+	before returning the context that was found.
+
+	* gnome-mime.c (mime_fill_from_file): Free the current key when we
+	are done.
+
+1999-08-17  Havoc Pennington  <hp@pobox.com>
+
+	* libgnome.h: comment about gnome-paper.h
+
+1999-08-14  Morten Welinder  <terra@diku.dk>
+
+	* gnome-config.c (access_config_extended): Add small cache.  Huge
+ 	win on systems with NFS.
+
 1999-08-01  Morten Welinder  <terra@diku.dk>
 
 	* gnome-i18n.c (explode_locale): Return modifier in "modifier",

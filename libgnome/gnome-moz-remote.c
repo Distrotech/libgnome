@@ -825,7 +825,20 @@ escape_url (char *url)
   }
   strcpy (q, url);
 
-  return escaped_url;
+  if(!strncmp("ghelp:", escaped_url, strlen("ghelp:"))) {
+    /* Try to do some fixups so we can display ghelp: URL's */
+    char *retval;
+
+    /* This is really bad-hacky, and won't work for a bunch of ghelp:
+       URL's (e.g. the ones that don't have absolute filenames). Oh
+       well */
+    retval = g_strdup_printf("file:%s", escaped_url + 6);
+
+    g_free(escaped_url);
+
+    return retval;
+  } else
+    return escaped_url;
 }
 
 int

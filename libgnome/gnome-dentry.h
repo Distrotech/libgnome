@@ -34,6 +34,19 @@ void gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc
 
 GnomeDesktopEntry *gnome_desktop_entry_copy (GnomeDesktopEntry * source);
 
+/*hacks to make the i18n thing working*/
+
+typedef struct _GnomeDesktopEntryI18N GnomeDesktopEntryI18N;
+struct _GnomeDesktopEntryI18N {
+	char *lang;
+	char *name;
+	char *comment;
+};
+
+GList * gnome_desktop_entry_get_i18n_list (GnomeDesktopEntry *item);
+void gnome_desktop_entry_set_i18n_list (GnomeDesktopEntry *item, GList *list);
+void gnome_desktop_entry_free_i18n_list (GList *list);
+
 END_GNOME_DECLS
 
 #endif

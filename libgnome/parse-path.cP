@@ -38,8 +38,15 @@ parse_path (const char *path, gint priv)
 		char *token;
 		/* If it is an absolute path name */
 		p->path++;
-		if ((token = strtok (p->path, "=")))
-			p->file    = g_strdup (token);
+		if ((token = strtok (p->path, "="))) {
+			if (token[0]=='/')
+				p->file = g_strdup (token);
+			else {
+				char *cwd = g_get_current_dir();
+				p->file = g_concat_dir_and_file(cwd,token);
+				g_free(cwd);
+			}
+		}
 		if ((token = strtok (NULL, "/=")))
 			p->section = token;
 		if ((token = strtok (NULL, "=")))

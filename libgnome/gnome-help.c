@@ -149,7 +149,7 @@ gnome_help_display (void *ignore, GnomeHelpMenuEntry *ref)
 		return;
 	
 	url = alloca (strlen (file)+10);
-	strcpy (url,"file:");
+	strcpy (url,"ghelp:");
 	strcat (url, file);
 	gnome_help_goto (ignore, url);
 	g_free (file);
@@ -186,7 +186,7 @@ gnome_help_pbox_display (void *ignore, gint page_num, GnomeHelpMenuEntry *ref)
 		return;
 	
 	url = alloca (strlen (file)+10);
-	strcpy (url,"file:");
+	strcpy (url,"ghelp:");
 	strcat (url, file);
 	g_free (file);
 
@@ -219,7 +219,7 @@ gnome_help_pbox_goto (void *ignore, int ignore2, GnomeHelpMenuEntry *ref)
 	  return;
 	
 	url = alloca (strlen (file)+10);
-	strcpy (url, "file:");
+	strcpy (url, "ghelp:");
 	strcat (url, file);
 	g_free (file);
 	

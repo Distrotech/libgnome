@@ -25,11 +25,31 @@
 #endif
 #include <sys/types.h>
 
+#ifdef PREFER_DB1
+#ifdef HAVE_DB1_DB_H
+# include <db1/db.h>
+#else
+# ifdef HAVE_DB_185_H
+#  include <db_185.h>
+# else
+#  include <db.h>
+# endif
+#endif
+
+#else
+
 #ifdef HAVE_DB_185_H
 # include <db_185.h>
 #else
-# include <db.h>
+# ifdef HAVE_DB_H
+#  include <db.h>
+# else
+#  include <db1/db.h>
+# endif
 #endif
+
+#endif
+
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>

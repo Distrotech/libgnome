@@ -95,7 +95,6 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
    GList *scores = NULL, *anode;
    gchar *game_score_file;
    gfloat ascore;
-   time_t atime;
    struct ascore_t *anitem, *curscore;
    int i;
    gint retval = 1;
@@ -108,17 +107,18 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
      {
        while(fgets(buf, sizeof(buf), infile))
 	 {
+	     long ltime;
 	     i = strlen (buf) - 1;	/* Chomp */
 	     while (isspace (buf[i]))
 	       buf[i--] = '\0';
 
-	     if(sscanf(buf, "%f %ld %s", &ascore, &atime, name) != 3)
+	     if(sscanf(buf, "%f %ld %s", &ascore, &ltime, name) != 3)
 	       break;
 
 	     anitem = g_new(struct ascore_t, 1);
 	     anitem->score = ascore;
 	     anitem->username = g_strdup (name);
-	     anitem->scoretime = atime;
+	     anitem->scoretime = (time_t)ltime;
 	     scores = g_list_append (scores, (gpointer) anitem);
 	  }
 	fclose (infile);

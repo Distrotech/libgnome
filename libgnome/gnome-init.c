@@ -111,6 +111,12 @@ gnomelib_option_cb(poptContext ctx, enum poptCallbackReason reason,
 		}
 #endif
 		break;
+	case POPT_CALLBACK_REASON_OPTION:
+		if(opt->val == -1) {
+			g_print ("Gnome %s %s\n", gnome_app_id, gnome_app_version);
+			exit(0);
+		}
+		break;
 	default:
 		/* do nothing */
 		break;
@@ -127,6 +133,7 @@ static const struct poptOption gnomelib_options[] = {
 	{ "espeaker", '\0', POPT_ARG_STRING,
 	  &esound_host, 0, N_("Host:port on which the sound server to use is running"),
 	  N_("HOSTNAME:PORT")},
+	{"version", '\0', POPT_ARG_NONE, NULL, -1},
 	POPT_AUTOHELP
 	{ NULL, '\0', 0, NULL, 0 }
 };

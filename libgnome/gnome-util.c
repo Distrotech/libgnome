@@ -33,8 +33,8 @@ gnome_dirrelative_file (const char *base, const char *sub, const char *filename,
 	char *retval = NULL;
 	
 	/* First try the env GNOMEDIR relative path */
-	if (!gnomedir)
-		gnomedir = getenv ("GNOMEDIR");
+	if(!gnomedir)
+	  gnomedir = getenv ("GNOMEDIR");
 	
 	if (gnomedir) {
 		dir = g_concat_dir_and_file (gnomedir, sub);
@@ -77,6 +77,8 @@ gnome_dirrelative_file (const char *base, const char *sub, const char *filename,
 	}
 
 out:	
+	g_assert(retval || !unconditional);
+
 	g_free (dir); g_free (odir); g_free (fil); g_free (ofil);
 
 	return retval;
@@ -376,16 +378,16 @@ gnome_util_user_shell (void)
 	};
 
 	if ((shell = getenv ("SHELL"))){
-		return strdup (shell);
+		return g_strdup (shell);
 	}
 	pw = getpwuid(getuid());
 	if (pw && pw->pw_shell) {
-		return strdup (pw->pw_shell);
+		return g_strdup (pw->pw_shell);
 	} 
 
 	for (i = 0; shells [i]; i++) {
 		if (g_file_exists (shells [i])){
-			return strdup (shells[i]);
+			return g_strdup (shells[i]);
 		}
 	}
 

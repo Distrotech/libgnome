@@ -90,8 +90,10 @@ context_new (GString *str)
 	
 	context = g_hash_table_lookup (table, mime_type);
 
-	if (context)
+	if (context) {
+		g_free (mime_type);
 		return context;
+	}
 	
 	context = g_new (GnomeMimeContext, 1);
 	context->mime_type = mime_type;
@@ -139,7 +141,7 @@ context_destroy_and_unlink (GnomeMimeContext *context)
 static gboolean
 remove_this_key (gpointer key, gpointer value, gpointer user_data)
 {
-	if (strcmp (key, user_data) == 0){
+	if (strcmp ((char*) key, (char*) user_data) == 0){
 		g_free (key);
 		g_free (value);
 		return TRUE;
@@ -544,7 +546,7 @@ gnome_mime_get_keys (const char *mime_type)
 			GList *m;
 
 			for (m = l->next; m; m = m->next){
-				if (strcmp (this, m->data) != 0)
+				if (strcmp ((char*) this, (char*) m->data) != 0)
 					continue;
 				list = g_list_remove (list, m->data);
 				break;
