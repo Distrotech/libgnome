@@ -132,6 +132,7 @@ $(srcdir)/libgnometypebuiltins.h: @REBUILD@ Makefile.am $(libgnome_headers)
 
 EXTRA_DIST = \
 	libgnome-2.0.pc.in		\
+	libgnome-2.0-uninstalled.pc.in	\
 	parse-path.cP
 
 BUILT_SOURCES = \
