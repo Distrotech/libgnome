@@ -111,6 +111,14 @@ static void      check_directory_handler        (GnomeSelector            *selec
 
 static void      activate_entry_handler         (GnomeSelector   *selector);
 
+static void      do_construct_handler           (GnomeSelector   *selector);
+
+
+static GObject*
+gnome_file_selector_constructor (GType                  type,
+				 guint                  n_construct_properties,
+				 GObjectConstructParam *construct_properties);
+
 
 /**
  * gnome_file_selector_get_type
@@ -135,6 +143,8 @@ gnome_file_selector_class_init (GnomeFileSelectorClass *class)
     object_class->destroy = gnome_file_selector_destroy;
     gobject_class->finalize = gnome_file_selector_finalize;
 
+    gobject_class->constructor = gnome_file_selector_constructor;
+
     selector_class->add_uri = add_uri_handler;
 
     selector_class->add_uri_list = add_uri_list_handler; 
@@ -145,6 +155,8 @@ gnome_file_selector_class_init (GnomeFileSelectorClass *class)
 
     selector_class->check_filename = check_filename_handler;
     selector_class->check_directory = check_directory_handler;
+
+    selector_class->do_construct = do_construct_handler;
 }
 
 static void
@@ -852,45 +864,58 @@ check_directory_handler (GnomeSelector *selector, const gchar *directory,
     check_uri_handler (selector, directory, GNOME_SELECTOR_ASYNC_TYPE_CHECK_DIRECTORY, async_handle);
 }
 
-
-/**
- * gnome_file_selector_construct:
- * @fselector: Pointer to GnomeFileSelector object.
- * @history_id: If not %NULL, the text id under which history data is stored
- *
- * Constructs a #GnomeFileSelector object, for language bindings or subclassing
- * use #gnome_file_selector_new from C
- *
- * Returns: 
- */
-void
-gnome_file_selector_construct (GnomeFileSelector *fselector,
-			       const gchar *history_id,
-			       const gchar *dialog_title,
-			       GtkWidget *entry_widget,
-			       GtkWidget *selector_widget,
-			       GtkWidget *browse_dialog,
-			       guint32 flags)
+static gboolean
+get_value_boolean (GnomeFileSelector *fselector, const gchar *prop_name)
 {
-    guint32 newflags = flags;
+    GValue value = { 0, };
+    gboolean retval;
 
-    g_return_if_fail (fselector != NULL);
-    g_return_if_fail (GNOME_IS_FILE_SELECTOR (fselector));
+    g_value_init (&value, G_TYPE_BOOLEAN);
+    g_object_get_property (G_OBJECT (fselector), prop_name, &value);
+    retval = g_value_get_boolean (&value);
+    g_value_unset (&value);
+
+    return retval;
+}
+
+static gboolean
+has_value_widget (GnomeFileSelector *fselector, const gchar *prop_name)
+{
+	GValue value = { 0, };
+	gboolean retval;
+
+	g_value_init (&value, GTK_TYPE_WIDGET);
+	g_object_get_property (G_OBJECT (fselector), prop_name, &value);
+	retval = g_value_get_object (&value) != NULL;
+	g_value_unset (&value);
+
+	return retval;
+}
+
+static void
+do_construct_handler (GnomeSelector *selector)
+{
+    GnomeFileSelector *fselector;
+
+    g_return_if_fail (selector != NULL);
+    g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
+
+    fselector = GNOME_FILE_SELECTOR (selector);
 
     /* Create the default browser dialog if requested. */
-    if (flags & GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG) {
+    if (get_value_boolean (fselector, "use_default_browse_dialog") &&
+	!has_value_widget (fselector, "browse_dialog")) {
 	GtkWidget *filesel_widget;
 	GtkFileSelection *filesel;
+	GValue value = { 0, };
 
-	if (browse_dialog != NULL) {
-	    g_warning (G_STRLOC ": It makes no sense to use "
-		       "GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG "
-		       "and pass a `browse_dialog' as well.");
-	    return;
-	}
+	g_value_init (&value, G_TYPE_STRING);
+	g_object_get_property (G_OBJECT (fselector), "dialog_title", &value);
 
-	filesel_widget = gtk_file_selection_new (dialog_title);
+	filesel_widget = gtk_file_selection_new (g_value_get_string (&value));
 	filesel = GTK_FILE_SELECTION (filesel_widget);
+
+	g_value_unset (&value);
 
 	gtk_signal_connect (GTK_OBJECT (filesel->cancel_button),
 			    "clicked", GTK_SIGNAL_FUNC (browse_dialog_cancel),
@@ -899,22 +924,34 @@ gnome_file_selector_construct (GnomeFileSelector *fselector,
 			    "clicked", GTK_SIGNAL_FUNC (browse_dialog_ok),
 			    fselector);
 
-	browse_dialog = GTK_WIDGET (filesel);
-	fselector->_priv->browse_dialog = browse_dialog;
+	fselector->_priv->browse_dialog = GTK_WIDGET (filesel);
 
-	newflags &= ~GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG;
+	g_value_init (&value, GTK_TYPE_WIDGET);
+	g_value_set_object (&value, G_OBJECT (filesel));
+	g_object_set_property (G_OBJECT (fselector), "browse_dialog", &value);
+	g_value_unset (&value);
     }
 
-    gnome_entry_construct_full (GNOME_ENTRY (fselector),
-				history_id, dialog_title,
-				entry_widget, selector_widget,
-				browse_dialog, newflags);
+    GNOME_CALL_PARENT_HANDLER (GNOME_SELECTOR_CLASS, do_construct, (selector));
+}
 
-    if (flags & GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG) {
-	/* We need to unref this since it isn't put in any
-	 * container so it won't get destroyed otherwise. */
-	gtk_widget_unref (browse_dialog);
-    }
+
+static GObject*
+gnome_file_selector_constructor (GType                  type,
+				 guint                  n_construct_properties,
+				 GObjectConstructParam *construct_properties)
+{
+    GObject *object = G_OBJECT_CLASS (parent_class)->constructor (type,
+								  n_construct_properties,
+								  construct_properties);
+    GnomeFileSelector *fselector = GNOME_FILE_SELECTOR (object);
+
+    g_message (G_STRLOC ": %d - %d", type, GNOME_TYPE_FILE_SELECTOR);
+
+    if (type == GNOME_TYPE_FILE_SELECTOR)
+	gnome_selector_do_construct (GNOME_SELECTOR (fselector));
+
+    return object;
 }
 
 /**
@@ -929,46 +966,21 @@ gnome_file_selector_construct (GnomeFileSelector *fselector,
  */
 GtkWidget *
 gnome_file_selector_new (const gchar *history_id,
-			 const gchar *dialog_title,
-			 guint32 flags)
+			 const gchar *dialog_title)
 {
     GnomeFileSelector *fselector;
 
-    g_return_val_if_fail ((flags & ~GNOME_SELECTOR_USER_FLAGS) == 0, NULL);
-
-    fselector = gtk_type_new (gnome_file_selector_get_type ());
-
-    flags |= GNOME_SELECTOR_DEFAULT_ENTRY_WIDGET |
-	GNOME_SELECTOR_DEFAULT_SELECTOR_WIDGET |
-	GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG |
-	GNOME_SELECTOR_WANT_BROWSE_BUTTON;
-
-    gnome_file_selector_construct (fselector, history_id, dialog_title,
-				   NULL, NULL, NULL, flags);
+    fselector = g_object_new (gnome_file_selector_get_type (),
+			      "use_default_entry_widget", TRUE,
+			      "use_default_selector_widget", TRUE,
+			      "use_default_browse_dialog", TRUE,
+			      "want_browse_button", TRUE,
+			      "history_id", history_id,
+			      "dialog_title", dialog_title,
+			       NULL);
 
     return GTK_WIDGET (fselector);
 }
-
-GtkWidget *
-gnome_file_selector_new_custom (const gchar *history_id,
-				const gchar *dialog_title,
-				GtkWidget *entry_widget,
-				GtkWidget *selector_widget,
-				GtkWidget *browse_dialog,
-				guint32 flags)
-{
-    GnomeFileSelector *fselector;
-
-    fselector = gtk_type_new (gnome_file_selector_get_type ());
-
-    gnome_file_selector_construct (fselector, history_id,
-				   dialog_title, entry_widget,
-				   selector_widget, browse_dialog,
-				   flags);
-
-    return GTK_WIDGET (fselector);
-}
-
 
 static void
 gnome_file_selector_destroy (GtkObject *object)
