@@ -65,7 +65,7 @@ struct _GnomeFileSelectorClass {
 };
 
 
-guint        gnome_file_selector_get_type    (void);
+guint        gnome_file_selector_get_type    (void) G_GNUC_CONST;
 
 GtkWidget   *gnome_file_selector_new         (const gchar *history_id,
                                               const gchar *dialog_title,
