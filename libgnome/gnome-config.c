@@ -200,7 +200,7 @@ parse_path (const char *path, gint priv)
 	 * relative to `gnome_user_dir' or `gnome_user_private_dir'.
 	 */
 
-	if ((*p->opath != '=') && (*p->opath != '/')) {
+	if (*p->opath != '=') {
 		if (*p->file == '/')
 			p->file++;
 
