@@ -41,6 +41,11 @@ enum {
 	KeyValue
 };
 
+typedef struct {
+	int type;
+	void *value;
+} iterator_type;
+
 typedef enum {
 	LOOKUP,
 	SET
@@ -544,6 +549,8 @@ gnome_config_init_iterator (const char *path)
 	TSecHeader *section;
 	ParsedPath *pp;
 	char *fake_path;
+	iterator_type *iter;
+
 
 	fake_path = g_copy_strings (path, "/key", NULL);
 	pp = parse_path (fake_path);
@@ -565,23 +572,82 @@ gnome_config_init_iterator (const char *path)
 	for (; section; section = section->link){
 		if (strcasecmp (section->section_name, pp->section))
 			continue;
-		return section->keys;
+		iter = g_new (iterator_type, 1);
+		iter->type = 0;
+		iter->value = section->keys;
+		release_path (pp);
+		return iter;
 	}
 	release_path (pp);
 	return 0;
 }
 
 void *
+gnome_config_init_iterator_sections (const char *path)
+{
+	TProfile   *New;
+	TSecHeader *section;
+	ParsedPath *pp;
+	char *fake_path;
+	iterator_type *iter;
+
+
+	fake_path = g_copy_strings (path, "/section/key", NULL);
+	pp = parse_path (fake_path);
+	g_free (fake_path);
+	
+	if (!is_loaded (pp->file, &section)){
+		struct stat st;
+		stat (pp->file, &st);
+
+		New = (TProfile *) g_malloc (sizeof (TProfile));
+		New->link = Base;
+		New->filename = strdup (pp->file);
+		New->section = load (pp->file);
+		New->mtime = st.st_mtime;
+		Base = New;
+		section = New->section;
+		Current = New;
+	}
+	iter = g_new (iterator_type, 1);
+	iter->type = 1;
+	iter->value = section;
+	release_path (pp);
+	return iter;
+}
+
+void *
 gnome_config_iterator_next (void *s, char **key, char **value)
 {
-	TKeys *keys = (TKeys *) s;
+	iterator_type *iter = s;
+	
+	if (iter->type == 0){
+		TKeys *keys;
+		keys = iter->value;
+		if (keys){
+			*key   = g_strdup (keys->key_name);
+			*value = g_strdup (keys->value);
+			keys   = keys->link;
+			iter->value = keys;
+			return iter;
+		} else {
+			g_free (iter);
+			return 0;
+		}
+	} else {
+		TSecHeader *section;
+		section = iter->value;
 
-	if (keys){
-		*key   = g_strdup (keys->key_name);
-		*value = g_strdup (keys->value);
-		keys   = keys->link;
+		if (section){
+			*key = g_strdup (section->section_name);
+			section = section->link;
+			iter->value = section;
+			return iter;
+		} else {
+			g_free (iter);
+			return 0;
+		}
 	}
-	return keys;
 }
 
 void 

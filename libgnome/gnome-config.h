@@ -67,6 +67,9 @@ int  gnome_config_has_section    (const char *path);
 /* Returns a pointer for iterating on /file/section contents */
 void *gnome_config_init_iterator (const char *path);
 
+/* Returns a pointer for iterating on /file contents */
+void *gnome_config_init_iterator_sections (const char *path);
+
 /* Get next key and value value from a section */
 void *gnome_config_iterator_next (void *s, char **key, char **value);
 
