@@ -13,17 +13,19 @@ LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 libgnomeincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/libgnome
 
-INCLUDES = -I.. -I$(srcdir)/.. \
-	$(SUPPORTINCS) \
-	$(GLIB_CFLAGS) $(GDK_IMLIB_CFLAGS)  \
-	$(GNOME_VFS_CFLAGS) \
-	-DGNOMELIBDIR=\""$(libdir)"\" \
-	-DGNOMEDATADIR=\""$(datadir)"\" \
-	-DGNOMEBINDIR=\""$(bindir)"\" \
+INCLUDES = \
+	-I..					\
+	-I$(srcdir)/..				\
+	$(SUPPORTINCS)				\
+	$(GLIB_CFLAGS) $(GDK_IMLIB_CFLAGS)	\
+	$(GNOME_VFS_CFLAGS)			\
+	-DGNOMELIBDIR=\""$(libdir)"\"		\
+	-DGNOMEDATADIR=\""$(datadir)"\"		\
+	-DGNOMEBINDIR=\""$(bindir)"\"		\
 	-DGNOMELOCALSTATEDIR=\""$(localstatedir)"\" \
 	-DGNOMELOCALEDIR=\""$(gnomelocaledir)"\" \
-	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\" \
-	-DVERSION=\""$(VERSION)"\" \
+	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\"	\
+	-DVERSION=\""$(VERSION)"\"		\
 	-DGNOMEVFSVERSION=\""$(GNOME_VFS_VERSION)"\" \
 	-DG_LOG_DOMAIN=\"Gnome\"
 
@@ -72,13 +74,13 @@ libgnomeinclude_HEADERS = \
 	gnomelib-init.h	\
 	gnome-portability.h
 
-noinst_HEADERS =				\
+noinst_HEADERS = \
 	gnome-i18nP.h				\
 	gnome-triggersP.h			\
 	libgnomeP.h
 
 EXTRA_DIST = parse-path.cP gnome-portability.h.in
-BUILT_SOURCES=gnome-portability.h
+BUILT_SOURCES = gnome-portability.h
 
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP
@@ -86,20 +88,32 @@ gnome-config.o: parse-path.cP
 libgnome_2_la_LDFLAGS = $(LIBGNOME_LIBS) -version-info $(LIB_VERSION)
 libgnome_2_la_LIBADD = ../support/libgnomesupport.la
 
-bin_PROGRAMS=			\
+bin_PROGRAMS = \
 	gnome-dump-metadata	\
 	gnome-moz-remote	\
 	gnome-gen-mimedb
 
-gnome_dump_metadata_SOURCES = gnome-dump.c
-gnome_dump_metadata_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la \
-	$(LIBGNOME_LIBS) $(INTLLIBS)
+gnome_dump_metadata_SOURCES = \
+	gnome-dump.c
+gnome_dump_metadata_LDADD = \
+	libgnome-$(GNOME_INTERFACE_VERSION).la	\
+	$(LIBGNOME_LIBS)			\
+	$(INTLLIBS)
 gnome_dump_metadata_LDFLAGS = $(GLIB_LIBS)
 
 gnome_moz_remote_SOURCES = gnome-moz-remote2.c vroot.h
-gnome_moz_remote_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la $(LIBGNOME_LIBS) \
-	$(X_LIBS) $(X_PRE_LIBS) -lXext -lX11 $(X_EXTRA_LIBS) $(INTLLIBS)
+gnome_moz_remote_LDADD = \
+	libgnome-$(GNOME_INTERFACE_VERSION).la	\
+	$(LIBGNOME_LIBS)			\
+	$(X_LIBS)				\
+	$(X_PRE_LIBS)				\
+	-lXext					\
+	-lX11					\
+	$(X_EXTRA_LIBS)				\
+	$(INTLLIBS)
 
 gnome_gen_mimedb_SOURCES = gnome-gen-mimedb.c
-gnome_gen_mimedb_LDADD = libgnome-$(GNOME_INTERFACE_VERSION).la \
-	$(LIBGNOME_LIBS) $(INTLLIBS)
+gnome_gen_mimedb_LDADD = \
+	libgnome-$(GNOME_INTERFACE_VERSION).la	\
+	$(LIBGNOME_LIBS)			\
+	$(INTLLIBS)
