@@ -48,8 +48,6 @@
 #include <libgnome/gnome-preferences.h>
 #include <libgnome/gnome-marshal.h>
 
-#include <libgnome/Gnome.h>
-
 #include <libgnome/gnome-init.h>
 
 #endif /* LIBGNOME_H */

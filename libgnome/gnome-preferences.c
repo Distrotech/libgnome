@@ -26,25 +26,12 @@
 static gboolean
 desktop_property_get_boolean (const gchar *name)
 {
-    Bonobo_ConfigDatabase cb;
-
-    cb = gnome_program_get_desktop_config_database (gnome_program_get ());
-    if (cb == CORBA_OBJECT_NIL)
 	return FALSE;
-
-    return bonobo_pbclient_get_boolean (cb, name, NULL);
 }
 
 static void
 desktop_property_set_boolean (const gchar *name, gboolean value)
 {
-    Bonobo_ConfigDatabase cb;
-
-    cb = gnome_program_get_desktop_config_database (gnome_program_get ());
-    if (cb == CORBA_OBJECT_NIL)
-	return;
-
-    bonobo_pbclient_set_boolean (cb, name, value, NULL);
 }
 
 #define DEFINE_DESKTOP_PROP_BOOLEAN(c_name, prop_name)  \

@@ -196,11 +196,7 @@ gnome_help_display_uri (const char    *help_uri,
 	GError *err;
 
 	err = NULL;
-	gnome_url_show_full (NULL /* display_context */,
-			     help_uri /* url to show */,
-			     "help" /* url type */,
-			     GNOME_URL_DISPLAY_NO_RETURN_CONTEXT,
-			     &err);
+	gnome_url_show (help_uri, &err);
 
 	if (err != NULL) {
 		if (err->code == GNOME_URL_ERROR_PARSE) {

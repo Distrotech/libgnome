@@ -1,3 +1,34 @@
+2001-09-02  Anders Carlsson  <andersca@gnu.org>
+
+	* Makefile.am: Remove compilation of Gnome.idl.
+
+	* gnome-exec.c: (gnome_prepend_terminal_to_vector):
+	Use gconf.
+	
+	* gnome-help.c: (gnome_help_display_uri):
+	Use the old gnome_url_show API.
+	
+	* gnome-init.c: (libbonobo_class_init):
+	Don't initialize the bonobo-config monikers.
+	
+	* gnome-init.h:
+	Remove functions to get a ConfigDatabase from a GnomeProgram.
+	
+	* gnome-preferences.c: (desktop_property_get_boolean),
+	(desktop_property_set_boolean):
+	Add a really bad hack (always return FALSE on get_boolean) until
+	we can put GnomePreferences out of its misery.
+	
+	* gnome-url.c: (gnome_url_default_handler), (gnome_url_show):
+	* gnome-url.h:
+	Remove complex API and just export gnome_url_show.
+	
+	* libgnome.h:
+	Don't include Gnome.h
+	
+	* test-libgnome.c: (test_url), (main):
+	Remove moniker tests and use gnome_url_show for the url test.
+
 Sun Sep 02 02:45:37 2001  George Lebl <jirka@5z.com>
 
 	* libgnome.h: add gnome-help.h and gnome-score.h

@@ -7,8 +7,6 @@
 LIB_VERSION=0:0:0
 LIB_VERSION_NUM=0.0.0
 
-ORBIT_IDL = @ORBIT_IDL@
-
 lib_LTLIBRARIES = libgnome-2.la
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
@@ -33,20 +31,6 @@ INCLUDES = \
 	-DGNOMEVFSVERSION=\"$(GNOME_VFS_VERSION)\"		\
 	-DG_LOG_DOMAIN=\"Gnome\"
 
-CORBA_SOURCE =			\
-	Gnome.h			\
-	Gnome-common.c		\
-	Gnome-stubs.c		\
-	Gnome-skels.c
-
-idls =							\
-	$(top_srcdir)/idl/Gnome.idl
-
-idl_flags = -I @BONOBO_IDLDIR@ -D__GNOME_COMPILATION
-
-$(CORBA_SOURCE): $(idls) $(ORBIT_IDL)
-	$(ORBIT_IDL) $(top_srcdir)/idl/Gnome.idl -I$(top_srcdir)/idl $(idl_flags)
-
 libgnome_src = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
@@ -67,12 +51,8 @@ libgnome_src = \
 	gnome-marshal-main.c	\
 	gnome-init.c
 
-$(gnome2_src) : $(CORBA_SOURCE)
-CLEANFILES += $(CORBA_SOURCE)
-
 libgnome_2_la_SOURCES = \
-	$(libgnome_src)		\
-	$(CORBA_SOURCE)
+	$(libgnome_src)		
 
 libinclude_HEADERS = \
 	libgnome.h
@@ -94,7 +74,6 @@ libgnome_headers = \
 	gnome-init.h
 
 libgnomeinclude_HEADERS = \
-	Gnome.h			\
 	libgnometypebuiltins.h	\
 	$(libgnome_headers)
 
@@ -173,8 +152,7 @@ BUILT_SOURCES = \
 	libgnometypebuiltins.h		\
 	libgnometypebuiltins.c		\
 	gnome-marshal.h			\
-	gnome-marshal.c			\
-	$(CORBA_SOURCE)
+	gnome-marshal.c			
 
 libgnome_2_la_LDFLAGS = -version-info $(LIB_VERSION)
 libgnome_2_la_LIBADD =		\

@@ -129,19 +129,6 @@ test_properties (GnomeProgram *program)
 }
 
 static void
-test_bonobo (GnomeProgram *program)
-{
-    Bonobo_ConfigDatabase db;
-
-    db = gnome_program_get_config_database (program);
-
-    g_object_set (G_OBJECT (program), GNOME_PARAM_CONFIG_MONIKER,
-		  "gconf:/test/foo", NULL);
-
-    g_message (G_STRLOC ": %p", db);
-}
-
-static void
 test_exec (void)
 {
     gnome_execute_terminal_shell ("/gnome/head/INSTALL", "lynx http://www.gnu.org/");
@@ -150,7 +137,7 @@ test_exec (void)
 static void
 test_url (void)
 {
-    gnome_url_show ("http://www.gnu.org/");
+    gnome_url_show ("http://www.gnu.org/", NULL);
 }
 
 int
@@ -167,8 +154,6 @@ main (int argc, char **argv)
 				  GNOME_PARAM_POPT_TABLE, options,
 				  GNOME_PARAM_HUMAN_READABLE_NAME,
 				  _("The Application Name"),
-				  GNOME_PARAM_CONFIG_MONIKER,
-				  "xmldb:~/work/foo.xml",
 				  NULL);
 
     g_value_init (&value, G_TYPE_STRING);
@@ -202,8 +187,6 @@ main (int argc, char **argv)
     test_file_locate (program);
 
     test_properties (program);
-
-    test_bonobo (program);
 
     test_exec ();
 
