@@ -405,6 +405,7 @@ gnome_util_user_shell (void)
  *
  * 
  */
+#if 0
 #undef g_filename_index
 int
 g_filename_index (const char * path)
@@ -465,6 +466,7 @@ g_filename_pointer (const gchar * path)
 		return s;
 	}
 }
+#endif
 
 /**
  * g_extension_pointer:
