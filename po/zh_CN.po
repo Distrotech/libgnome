@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2002-01-26 18:15+0100\n"
-"PO-Revision-Date: 2001-09-19 22:16+0800\n"
+"POT-Creation-Date: 2002-02-18 00:18+0800\n"
+"PO-Revision-Date: 2002-02-18 00:33+0800\n"
 "Last-Translator: Wang Jian <lark@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +57,6 @@ msgid "Enable sound server usage"
 msgstr "启用声音服务器"
 
 #: libgnome/gnome-init.c:363
-#, fuzzy
 msgid "Host:port on which the sound server to use is running"
 msgstr "声音服务器使用的“主机:端口”是 "
 
@@ -87,35 +86,37 @@ msgstr "GNOME GConf 支持"
 
 #: libgnome/gnome-help.c:149
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr ""
+msgstr "无法找到 GNOME_FILE_DOMAIN_APP_HELP 域"
 
 #: libgnome/gnome-help.c:163
 msgid ""
 "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
 "libs was compiled incorrectly."
 msgstr ""
+"无法找到 GNOME_FILE_DOMAIN_HELP 域。这表明 gnome-libs 没有正确编译。"
 
-#: libgnome/gnome-help.c:176
+#: libgnome/gnome-help.c:175
 #, c-format
 msgid ""
 "Unable to show help as file %s is not a directory.  This implies an "
 "incorrect installation."
 msgstr ""
+"无法显示帮助，因为文件 %s 不是目录。这表明安装不正确。"
 
 #: libgnome/gnome-help.c:193
 #, c-format
 msgid "Help document %s for %s not found"
-msgstr ""
+msgstr "没有找到 %2$s 的帮助文档 %1$s"
 
 #: libgnome/gnome-help.c:270
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr ""
+msgstr "无法在帮助路径中找到 doc_id %s"
 
 #: libgnome/gnome-help.c:291
 #, c-format
 msgid "Help document %s/%s not found"
-msgstr ""
+msgstr "没有找到帮助文件 %s/%s"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
@@ -123,27 +124,27 @@ msgstr "区域设置有太多的别名级别，可能是循环"
 
 #: libgnome/gnome-program.c:419
 msgid "Popt Table"
-msgstr ""
+msgstr "Popt 表"
 
 #: libgnome/gnome-program.c:420
 msgid "The table of options for popt"
-msgstr ""
+msgstr "popt 的选项表"
 
 #: libgnome/gnome-program.c:427
 msgid "Popt Flags"
-msgstr ""
+msgstr "Popt 标志"
 
 #: libgnome/gnome-program.c:428
 msgid "The flags to use for popt"
-msgstr ""
+msgstr "用于 popt 的标志"
 
 #: libgnome/gnome-program.c:436
 msgid "Popt Context"
-msgstr ""
+msgstr "Popt 上下文"
 
 #: libgnome/gnome-program.c:437
 msgid "The popt context pointer that GnomeProgram is using"
-msgstr ""
+msgstr "GnomeProgram 使用的 popt 上下文指针"
 
 #: libgnome/gnome-program.c:445
 msgid "Human readable name"
@@ -163,12 +164,11 @@ msgstr "搜索安装的文件的路径"
 
 #: libgnome/gnome-program.c:465
 msgid "App ID"
-msgstr ""
+msgstr "程序ID"
 
 #: libgnome/gnome-program.c:466
-#, fuzzy
 msgid "ID string to use for this application"
-msgstr "该程序的版本"
+msgstr "用于该程序的ID字符串"
 
 #: libgnome/gnome-program.c:473
 msgid "App version"
@@ -180,96 +180,91 @@ msgstr "该程序的版本"
 
 #: libgnome/gnome-program.c:481
 msgid "GNOME Prefix"
-msgstr ""
+msgstr "GNOME 前缀"
 
 #: libgnome/gnome-program.c:482
 msgid "Prefix where GNOME was installed"
-msgstr ""
+msgstr "GNOME 安装位置的前缀"
 
 #: libgnome/gnome-program.c:491
-#, fuzzy
 msgid "GNOME Libdir"
-msgstr "GNOME 库"
+msgstr "GNOME 库目录"
 
 #: libgnome/gnome-program.c:492
 msgid "Library prefix where GNOME was installed"
-msgstr ""
+msgstr "GNOME 安装位置的库目录前缀"
 
 #: libgnome/gnome-program.c:501
-#, fuzzy
 msgid "GNOME Datadir"
-msgstr "GNOME 路径"
+msgstr "GNOME 数据目录"
 
 #: libgnome/gnome-program.c:502
 msgid "Data prefix where GNOME was installed"
-msgstr ""
+msgstr "GNOME 安装位置的数据目录前缀"
 
 #: libgnome/gnome-program.c:511
 msgid "GNOME Sysconfdir"
-msgstr ""
+msgstr "GNOME 系统配置目录"
 
 #: libgnome/gnome-program.c:512
 msgid "Configuration prefix where GNOME was installed"
-msgstr ""
+msgstr "配置 GNOME 安装的目录前缀"
 
 #: libgnome/gnome-program.c:522
 msgid "GNOME App Prefix"
-msgstr ""
+msgstr "GNOME 程序前缀"
 
 #: libgnome/gnome-program.c:523
 msgid "Prefix where this application was installed"
-msgstr ""
+msgstr "本程序安装的目录前缀"
 
 #: libgnome/gnome-program.c:531
-#, fuzzy
 msgid "GNOME App Libdir"
-msgstr "GNOME 库"
+msgstr "GNOME 程序库前缀"
 
 #: libgnome/gnome-program.c:532
 msgid "Library prefix where this application was installed"
-msgstr ""
+msgstr "本程序安装的库目录前缀"
 
 #: libgnome/gnome-program.c:541
-#, fuzzy
 msgid "GNOME App Datadir"
-msgstr "GNOME 路径"
+msgstr "GNOME 程序数据目录"
 
 #: libgnome/gnome-program.c:542
 msgid "Data prefix where this application was installed"
-msgstr ""
+msgstr "本程序安装的数据目录前缀"
 
 #: libgnome/gnome-program.c:551
 msgid "GNOME App Sysconfdir"
-msgstr ""
+msgstr "GNOME 程序系统配置目录"
 
 #: libgnome/gnome-program.c:552
 msgid "Configuration prefix where this application was installed"
-msgstr ""
+msgstr "本程序安装的配置目录前缀"
 
 #: libgnome/gnome-program.c:561
 msgid "Create Directories"
-msgstr ""
+msgstr "创建目录"
 
 #: libgnome/gnome-program.c:562
 msgid "Create standard GNOME directories on startup"
-msgstr ""
+msgstr "在启动时创建标准 GNOME 目录"
 
 #: libgnome/gnome-program.c:571
 msgid "Enable Sound"
-msgstr ""
+msgstr "启用声效"
 
 #: libgnome/gnome-program.c:572
-#, fuzzy
 msgid "Enable sound on startup"
-msgstr "启用声音服务器"
+msgstr "启动时启用声效"
 
 #: libgnome/gnome-program.c:581
 msgid "Espeaker"
-msgstr ""
+msgstr "Espeaker"
 
 #: libgnome/gnome-program.c:582
 msgid "How to connect to esd"
-msgstr ""
+msgstr "如何连接 esd"
 
 #: libgnome/gnome-program.c:1318
 msgid "Help options"
@@ -289,20 +284,24 @@ msgstr "MODULE1，MODULE2，..."
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr ""
+msgstr "额外的 Moniker 工厂"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
-msgstr ""
+msgstr "GConf moniker"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr ""
+msgstr "配置间接 moniker"
 
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr ""
+msgstr "配置中没有找到键 %s"
+
+#: monikers/bonobo-config-bag.c:216
+msgid "Unknown type"
+msgstr "未知类型"
 
 #~ msgid "Can not bonobo_init"
 #~ msgstr "无法进行 bonobo_init"
