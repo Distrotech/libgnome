@@ -17,32 +17,7 @@
 
 #include "bonobo-moniker-file.h"
 
-#define PREFIX_LEN (sizeof ("file:") - 1)
-
 static BonoboMonikerClass *bonobo_moniker_file_parent_class;
-
-static Bonobo_Moniker 
-file_parse_display_name (BonoboMoniker     *moniker,
-			 Bonobo_Moniker     parent,
-			 const CORBA_char  *name,
-			 CORBA_Environment *ev)
-{
-	int i;
-	BonoboMonikerFile *m_file = BONOBO_MONIKER_FILE (moniker);
-
-	g_return_val_if_fail (m_file != NULL, CORBA_OBJECT_NIL);
-	g_return_val_if_fail (strlen (name) >= PREFIX_LEN, CORBA_OBJECT_NIL);
-
-	bonobo_moniker_set_parent (moniker, parent, ev);
-
-	i = bonobo_moniker_util_seek_std_separator (name, 0);
-
-	bonobo_moniker_set_name (moniker, name, i);
-
-	return bonobo_moniker_util_new_from_name_full (
-		bonobo_object_corba_objref (BONOBO_OBJECT (m_file)),
-		&name [i], ev);
-}
 
 static Bonobo_Unknown
 file_resolve (BonoboMoniker               *moniker,
@@ -50,7 +25,7 @@ file_resolve (BonoboMoniker               *moniker,
 	      const CORBA_char            *requested_interface,
 	      CORBA_Environment           *ev)
 {
-	const char *fname = bonobo_moniker_get_name (moniker, PREFIX_LEN);
+	const char *fname = bonobo_moniker_get_name (moniker);
 
 	g_warning ("Fname '%s'", fname);
 
@@ -69,6 +44,7 @@ file_resolve (BonoboMoniker               *moniker,
 
 		return CORBA_Object_duplicate (
 			bonobo_object_corba_objref (BONOBO_OBJECT (stream)), ev);
+
 	} else if (!strcmp (requested_interface, "IDL:Bonobo/Storage:1.0")) {
 		BonoboStorage *storage;
 		
@@ -84,34 +60,9 @@ file_resolve (BonoboMoniker               *moniker,
 
 		return CORBA_Object_duplicate (
 			bonobo_object_corba_objref (BONOBO_OBJECT (storage)), ev);
-	} else {
-		Bonobo_Unknown extender;
-		Bonobo_Unknown object;
-		CORBA_Object corba_moniker;
-
-		extender = bonobo_moniker_find_extender ("file", 
-							 requested_interface, 
-							 ev);
-	
-		if (BONOBO_EX (ev) || !extender) {
-			g_warning ("Can't find moniker extender");
-			CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
-					     ex_Bonobo_Moniker_InterfaceNotFound, NULL);
-			return CORBA_OBJECT_NIL;
-		}
-
-		corba_moniker = 
-			bonobo_object_corba_objref (BONOBO_OBJECT (moniker));
-		
-		object = Bonobo_MonikerExtender_resolve (extender, 
-							 corba_moniker, 
-							 "??", 
-							 requested_interface, 
-							 ev);
-		bonobo_object_release_unref (extender, ev);
-
-		return object;
 	}
+
+	return CORBA_OBJECT_NIL;
 }
 
 static void
@@ -122,8 +73,7 @@ bonobo_moniker_file_class_init (BonoboMonikerFileClass *klass)
 	bonobo_moniker_file_parent_class = gtk_type_class (
 		bonobo_moniker_get_type ());
 
-	mclass->parse_display_name = file_parse_display_name;
-	mclass->resolve            = file_resolve;
+	mclass->resolve = file_resolve;
 }
 
 /**
@@ -152,4 +102,12 @@ bonobo_moniker_file_get_type (void)
 	}
 
 	return type;
+}
+
+BonoboMoniker *
+bonobo_moniker_file_new (void)
+{
+	return bonobo_moniker_construct (
+		gtk_type_new (bonobo_moniker_file_get_type ()),
+		CORBA_OBJECT_NIL, "file:");
 }
