@@ -269,7 +269,7 @@ g_file_exists (const char *filename)
 {
 	struct stat s;
 
-	g_return_if_fail (filename != NULL);
+	g_return_val_if_fail (filename != NULL,FALSE);
 	
 	return stat (filename, &s) == 0;
 }

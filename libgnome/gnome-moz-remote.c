@@ -835,5 +835,5 @@ main (int argc, char **argv)
     if (remote_commands)
         return (mozilla_remote_commands (dpy, (Window) remote_window,
 					 remote_commands, isLocal));
-
+  return 0;
 }
