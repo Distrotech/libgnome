@@ -27,20 +27,8 @@
 
 BEGIN_GNOME_DECLS
 
-/* This function displays the given URL in the appropriate viewer.  The
- * Appropriate viewer is user definable, according to these rules:
- *  1) Extract the protocol from URL.  This is defined as everything before
- *     the first colon
- *  2) Check if the key /Gnome/URL Handlers/<protocol>-show exists in the
- *     gnome config database.  If it does, use use this as a command
- *     template.  If it doesn't, check for the key
- *     /Gnome/URL Handlers/default-show, and if that doesn't exist fallback
- *     on the compiled in default.
- *  3) substitute the %s in the template with the URL.
- *  4) call gnome_execute_shell, with this expanded command as the second
- *     argument.
- */
-typedef struct _GnomeURLDisplayContext *GnomeURLDisplayContext;
+typedef struct _GnomeURLDisplayContext GnomeURLDisplayContext;
+
 typedef enum {
   GNOME_URL_DISPLAY_CLOSE_ATEXIT = 1<<0,
   GNOME_URL_DISPLAY_CLOSE = 1<<1,
@@ -56,13 +44,13 @@ typedef enum {
   GNOME_URL_ERROR_PIPE, /* if 'pipe' did not work when getting id,
 			 * handler has not been executed */
   GNOME_URL_ERROR_NO_ID, /* if id could not be gotten, the handler has however
-			 * been executed */
+			  * been executed */
   GNOME_URL_ERROR_NO_MOZILLA /* could not find mozilla for gnome-moz-remote */
 } GnomeURLError;
 
 
 
-typedef gboolean (*GnomeURLHistoryCallback)(GnomeURLDisplayContext display_context,
+typedef gboolean (*GnomeURLHistoryCallback)(GnomeURLDisplayContext *display_context,
 					    const char *url,
 					    const char *url_type,
 					    GnomeURLDisplayFlags flags);
@@ -70,13 +58,27 @@ typedef gboolean (*GnomeURLHistoryCallback)(GnomeURLDisplayContext display_conte
 /* One callback for everyone, sorry folks. */
 extern GnomeURLHistoryCallback gnome_url_history_callback;
 
+/* This function displays the given URL in the appropriate viewer.  The
+ * Appropriate viewer is user definable, according to these rules:
+ *  1) Extract the protocol from URL.  This is defined as everything before
+ *     the first colon
+ *  2) Check if the key /Gnome/URL Handlers/<protocol>-show exists in the
+ *     gnome config database.  If it does, use use this as a command
+ *     template.  If it doesn't, check for the key
+ *     /Gnome/URL Handlers/default-show, and if that doesn't exist fallback
+ *     on the compiled in default.
+ *  3) substitute the %s in the template with the URL.
+ *  4) call gnome_execute_shell, with this expanded command as the second
+ *     argument.
+ */
+
 /* if error is not NULL, it is set to one of the errors above */
-GnomeURLDisplayContext gnome_url_show_full(GnomeURLDisplayContext display_context,
-					   const char *url,
-					   const char *url_type,
-					   GnomeURLDisplayFlags flags,
-					   GnomeURLError *error);
-void gnome_url_display_context_free(GnomeURLDisplayContext display_context,
+GnomeURLDisplayContext *gnome_url_show_full(GnomeURLDisplayContext *display_context,
+					    const char *url,
+					    const char *url_type,
+					    GnomeURLDisplayFlags flags,
+					    GnomeURLError *error);
+void gnome_url_display_context_free(GnomeURLDisplayContext *display_context,
 				    GnomeURLDisplayFlags flags,
 				    GnomeURLError *error);
 

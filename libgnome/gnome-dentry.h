@@ -49,8 +49,8 @@ typedef struct {
 } GnomeDesktopEntry;
 
 GnomeDesktopEntry *gnome_desktop_entry_load (const char *file);
-GnomeDesktopEntry *gnome_desktop_entry_load_flags (const char *file, int clean_from_memory_after_load);
-GnomeDesktopEntry *gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_memory_after_load, int unconditional);
+GnomeDesktopEntry *gnome_desktop_entry_load_flags (const char *file, gboolean clean_from_memory_after_load);
+GnomeDesktopEntry *gnome_desktop_entry_load_flags_conditional (const char *file, gboolean clean_from_memory_after_load, gboolean unconditional);
 GnomeDesktopEntry *gnome_desktop_entry_load_unconditional (const char *file);
 void gnome_desktop_entry_save (GnomeDesktopEntry *dentry);
 void gnome_desktop_entry_free (GnomeDesktopEntry *item);

@@ -61,7 +61,7 @@ const char libgnome_param_human_readable_name[] = "S:libgnome/human_readable_nam
  */
 
 const char*
-gnome_program_get_human_readable_name(GnomeProgram *app)
+gnome_program_get_human_readable_name(const GnomeProgram *app)
 {
   const GnomeAttributeValue* val;
   

@@ -90,7 +90,7 @@ gnome_url_default_handler (void)
 
 /* returns FALSE and sets error if an error was encountered */
 static gboolean
-create_cmd(GnomeURLDisplayContext rdc, const char *template,
+create_cmd(GnomeURLDisplayContext *rdc, const char *template,
 	   const char *url, GnomeURLDisplayFlags flags, int pipe,
 	   char ***cmd, int *argc,
 	   GnomeURLError *error)
@@ -199,8 +199,8 @@ create_cmd(GnomeURLDisplayContext rdc, const char *template,
  * to the user's configuration files.
  *
  **/
-GnomeURLDisplayContext
-gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url,
+GnomeURLDisplayContext *
+gnome_url_show_full(GnomeURLDisplayContext *display_context, const char *url,
 		    const char *url_type, GnomeURLDisplayFlags flags,
 		    GnomeURLError *error)
 {
@@ -208,7 +208,7 @@ gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url,
   char *pos, *template = NULL;
   char path[PATH_MAX];
   gboolean def, free_template = FALSE;
-  GnomeURLDisplayContext rdc = display_context;
+  GnomeURLDisplayContext *rdc = display_context;
 
   if(error) *error = GNOME_URL_NO_ERROR;
 
@@ -400,12 +400,12 @@ gnome_udc_free_all(void)
    * we cannot normally iterate through the list for that very reason here
    * since the list would be changing from underneath us */
   while(free_atexit)
-      gnome_url_display_context_free((GnomeURLDisplayContext)free_atexit->data,
+      gnome_url_display_context_free((GnomeURLDisplayContext *)free_atexit->data,
 				     GNOME_URL_DISPLAY_CLOSE, NULL);
 }
 
 void
-gnome_url_display_context_free(GnomeURLDisplayContext display_context,
+gnome_url_display_context_free(GnomeURLDisplayContext *display_context,
 			       GnomeURLDisplayFlags flags,
 			       GnomeURLError *error)
 {

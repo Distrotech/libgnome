@@ -44,13 +44,13 @@ static void free_history_list_entry(gpointer data,gpointer user_data);
  * just created.
  */
 void
-gnome_history_recently_used (char *filename, char *filetype,
-			     char *creator, char *desc)
+gnome_history_recently_used (const char *filename, const char *filetype,
+			     const char *creator, const char *desc)
 {
 	GList *ents;
-	GnomeHistoryEntry ent;
+	GnomeHistoryEntry * ent;
 
-	ent = g_new (struct _GnomeHistoryEntry, 1);
+	ent = g_new0(GnomeHistoryEntry, 1);
 	ent->filename = g_strdup (filename);
 	ent->filetype = g_strdup (filetype);
 	ent->creator = g_strdup (creator);
@@ -70,7 +70,7 @@ gnome_history_recently_used (char *filename, char *filetype,
 GList *
 gnome_history_get_recently_used (void)
 {
-	GnomeHistoryEntry anent;
+	GnomeHistoryEntry *anent;
 	GList *retval = NULL;
 	FILE *infile;
 	gchar *filename = gnome_util_home_file("document_history");
@@ -102,7 +102,7 @@ gnome_history_get_recently_used (void)
 }
 
 static void
-write_history_entry(GnomeHistoryEntry ent, FILE *outfile)
+write_history_entry(GnomeHistoryEntry *ent, FILE *outfile)
 {
 	fprintf(outfile, "%s %s %s %s\n",
 		ent->filename, ent->filetype, ent->creator, ent->desc);
@@ -143,7 +143,7 @@ gnome_history_free_recently_used_list(GList *alist)
 static void
 free_history_list_entry(gpointer data, gpointer user_data)
 {
-	GnomeHistoryEntry anent;
+	GnomeHistoryEntry *anent;
 	
 	anent = data;
 	g_free(anent->filename);

@@ -77,7 +77,7 @@ char *alloca ();
  * to handle case where locale file didnt exist
  */
 gchar *
-gnome_help_file_find_file (gchar *app, gchar *path)
+gnome_help_file_find_file (const gchar *app, const gchar *path)
 {
 	GList *language_list;
 	GString *buf;
@@ -129,7 +129,7 @@ gnome_help_file_find_file (gchar *app, gchar *path)
  * done.  It looks in LANG, then unser C if LANG is not set
  */
 gchar *
-gnome_help_file_path(gchar *app, gchar *path)
+gnome_help_file_path(const gchar *app, const gchar *path)
 {
 	gchar *res;
 	GString *buf;
@@ -160,7 +160,7 @@ gnome_help_file_path(gchar *app, gchar *path)
  * Cause a help viewer to display help entry defined in @ref.
  */
 void
-gnome_help_display (void *ignore, GnomeHelpMenuEntry *ref)
+gnome_help_display (gpointer ignore, const GnomeHelpMenuEntry *ref)
 {
 	gchar *file, *url;
 	
@@ -195,7 +195,7 @@ gnome_help_display (void *ignore, GnomeHelpMenuEntry *ref)
  * appropriate file.
  */
 void
-gnome_help_pbox_display (void *ignore, gint page_num, GnomeHelpMenuEntry *ref)
+gnome_help_pbox_display (gpointer ignore, gint page_num, const GnomeHelpMenuEntry *ref)
 {
 	gchar *file, *url, *path;
 
@@ -231,7 +231,7 @@ gnome_help_pbox_display (void *ignore, gint page_num, GnomeHelpMenuEntry *ref)
  * though.
  */
 void
-gnome_help_pbox_goto (void *ignore, int ignore2, GnomeHelpMenuEntry *ref)
+gnome_help_pbox_goto (gpointer ignore, int ignore2, const GnomeHelpMenuEntry *ref)
 {
         gchar *file, *url;
 
@@ -258,7 +258,7 @@ gnome_help_pbox_goto (void *ignore, int ignore2, GnomeHelpMenuEntry *ref)
  *
  * Cause a help viewer to display file.
  */
-void gnome_help_goto (void *ignore, gchar *file)
+void gnome_help_goto (gpointer ignore, const gchar *file)
 {
 	
 #ifdef GNOME_ENABLE_DEBUG    

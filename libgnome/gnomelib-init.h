@@ -53,7 +53,7 @@ extern char *gnome_user_accels_dir;
 #define gnome_app_id gnome_program_get_name(gnome_program_get())
 #define gnome_app_version gnome_program_get_version(gnome_program_get())
 
-const char* gnome_program_get_human_readable_name(GnomeProgram *app);
+const char* gnome_program_get_human_readable_name(const GnomeProgram *app);
 
 
 END_GNOME_DECLS

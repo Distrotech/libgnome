@@ -29,7 +29,8 @@ BEGIN_GNOME_DECLS
 #include <sys/types.h>
 #include <regex.h>
 
-typedef struct {
+typedef struct _GnomeRegexCache GnomeRegexCache;
+struct _GnomeRegexCache {
 	char **regexs;		/* Regular expression strings.  */
 	regex_t *patterns;	/* Compiled expressions.  */
 	int size;		/* Total number of cache slots.  */
@@ -39,7 +40,7 @@ typedef struct {
 	   assume that the flags never change.  Another option would
 	   be to put the flag info into this structure and just not
 	   let the user ever change it.  */
-} GnomeRegexCache;
+};
 
 /* Create a new regular expression cache with default number of
    items.  */

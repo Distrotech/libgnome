@@ -526,7 +526,7 @@ maybe_reload (void)
  * should not free the result.
  */
 const char *
-gnome_mime_get_value (const char *mime_type, char *key)
+gnome_mime_get_value (const char *mime_type, const char *key)
 {
 	char *value, *generic_type, *p;
 	GnomeMimeContext *context;
@@ -760,7 +760,7 @@ gnome_mime_composetyped (const char *mime_type)
 }
 
 static gboolean
-gnome_mime_flag (const char *mime_type, gchar *key, gchar *flag)
+gnome_mime_flag (const char *mime_type, const gchar *key, const gchar *flag)
 {
 	const char *str;
 	
@@ -781,7 +781,7 @@ gnome_mime_flag (const char *mime_type, gchar *key, gchar *flag)
  * command will produce lots of output
  */
 gboolean 
-gnome_mime_copiousoutput (const char *mime_type, gchar *key)
+gnome_mime_copiousoutput (const char *mime_type, const gchar *key)
 {
 	return gnome_mime_flag (mime_type, key, "copiousoutput");
 }
@@ -795,7 +795,7 @@ gnome_mime_copiousoutput (const char *mime_type, gchar *key)
  * command will required a terminal.
  */
 gboolean
-gnome_mime_needsterminal (const char *mime_type, gchar *key)
+gnome_mime_needsterminal (const char *mime_type, const gchar *key)
 {
 	return gnome_mime_flag (mime_type, key, "needsterminal");
 }

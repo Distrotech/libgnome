@@ -348,7 +348,7 @@ gnome_score_init (const gchar * gamename)
  */
 gint
 gnome_score_log (gfloat score,
-		 gchar * level,
+		 const gchar * level,
 		 gboolean higher_to_lower_score_order)
 {
    struct command cmd;
@@ -394,8 +394,8 @@ gnome_score_log (gfloat score,
  * point to regions that were allocated with g_malloc() with the contents.
  */
 gint
-gnome_score_get_notable (gchar * gamename,
-			 gchar * level,
+gnome_score_get_notable (const gchar * gamename,
+			 const gchar * level,
 			 gchar *** names,
 			 gfloat ** scores,
 			 time_t ** scoretimes)

@@ -36,18 +36,18 @@ typedef struct {
     gchar *path;
 } GnomeHelpMenuEntry;
 
-gchar *gnome_help_file_find_file(gchar *app, gchar *path);
+gchar *gnome_help_file_find_file(const gchar *app, const gchar *path);
 
-gchar *gnome_help_file_path(gchar *app, gchar *path);
+gchar *gnome_help_file_path(const gchar *app, const gchar *path);
 
-void gnome_help_display(void *ignore, GnomeHelpMenuEntry *ref);
+void gnome_help_display(gpointer ignore, const GnomeHelpMenuEntry *ref);
 
-void gnome_help_pbox_display (void *ignore, gint page_num,
-			      GnomeHelpMenuEntry *ref);
+void gnome_help_pbox_display (gpointer ignore, gint page_num,
+			      const GnomeHelpMenuEntry *ref);
 
-void gnome_help_pbox_goto (void *ignore, int ignore2, GnomeHelpMenuEntry *ref);
+void gnome_help_pbox_goto (gpointer ignore, int ignore2, GnomeHelpMenuEntry *ref);
 
-void gnome_help_goto(void *ignore, gchar *file);
+void gnome_help_goto(gpointer ignore, gchar *file);
 
 END_GNOME_DECLS
 

@@ -151,8 +151,8 @@ read_names_and_comments(const char *file, int is_kde)
  */
 GnomeDesktopEntry *
 gnome_desktop_entry_load_flags_conditional (const char *file,
-					    int clean_from_memory_after_load,
-					    int unconditional)
+					    gboolean clean_from_memory_after_load,
+					    gboolean unconditional)
 {
 	GnomeDesktopEntry *newitem;
 	char *prefix;
@@ -284,7 +284,7 @@ gnome_desktop_entry_load_flags_conditional (const char *file,
  * process is discarded after loading the desktop entry.
  */
 GnomeDesktopEntry *
-gnome_desktop_entry_load_flags (const char *file, int clean_from_memory_after_load)
+gnome_desktop_entry_load_flags (const char *file, gboolean clean_from_memory_after_load)
 {
 	return gnome_desktop_entry_load_flags_conditional (file, clean_from_memory_after_load, FALSE);
 }

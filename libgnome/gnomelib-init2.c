@@ -124,7 +124,7 @@ gnome_program_get(void)
  * Returns: application ID string.
  */
 const char *
-gnome_program_get_name(GnomeProgram *app)
+gnome_program_get_name(const GnomeProgram *app)
 {
   g_return_val_if_fail (app, NULL);
   g_return_val_if_fail (app->state >= APP_PREINIT_DONE, NULL);
@@ -145,7 +145,7 @@ gnome_program_get_name(GnomeProgram *app)
  * Returns: application version string.
  */
 const char *
-gnome_program_get_version(GnomeProgram *app)
+gnome_program_get_version(const GnomeProgram *app)
 {
   g_return_val_if_fail (app, NULL);
   g_return_val_if_fail (app->state >= APP_PREINIT_DONE, NULL);
@@ -157,8 +157,8 @@ gnome_program_get_version(GnomeProgram *app)
 
 static void
 gnome_program_framework_attrs_set(GnomeProgram *app,
-			     const char *name,
-			     const GnomeAttributeValue *value)
+				  const char *name,
+				  const GnomeAttributeValue *value)
 {
   if (!strcmp(name, GNOME_PARAM_POPT_TABLE))
     {
@@ -189,8 +189,8 @@ gnome_program_framework_attrs_set(GnomeProgram *app,
 }
 
 /*@observer@*/ static const GnomeAttributeValue *
-gnome_program_framework_attrs_get(GnomeProgram *app,
-			     const char *name)
+gnome_program_framework_attrs_get(const GnomeProgram *app,
+				  const char *name)
 {
   if (!strcmp(name, GNOME_PARAM_POPT_CONTEXT))
     return &(app->arg_context_val);
@@ -429,8 +429,8 @@ gnome_program_attributes_setv(GnomeProgram *app, va_list args)
  * Returns: A pointer to a GnomeAttributeValue.
  */
 /*@observer@*/ const GnomeAttributeValue *
-gnome_program_attribute_get(GnomeProgram *app,
-		       const char *name)
+gnome_program_attribute_get(const GnomeProgram *app,
+			    const char *name)
 {
   GnomeAttribute *attr;
 
@@ -462,7 +462,7 @@ gnome_program_attribute_get(GnomeProgram *app,
  * attribute names, and pointers to variables where the attribute value is to be stored.
  */
 void
-gnome_program_attributes_get(GnomeProgram *app, ...)
+gnome_program_attributes_get(const GnomeProgram *app, ...)
 {
   va_list args;
 
@@ -480,7 +480,7 @@ gnome_program_attributes_get(GnomeProgram *app, ...)
  * attribute names, and pointers to variables where the attribute value is to be stored.
  */
 void
-gnome_program_attributes_getv(GnomeProgram *app, va_list args)
+gnome_program_attributes_getv(const GnomeProgram *app, va_list args)
 {
   const GnomeAttributeValue *val;
   char *attr_name;
@@ -745,7 +745,7 @@ gnome_program_module_register(GnomeProgram *app,
  * Returns: A value indicating whether the specified module has been registered/initialized in the current program
  */
 gboolean
-gnome_program_module_registered(/*@in@*/ GnomeProgram *app,
+gnome_program_module_registered(/*@in@*/ const GnomeProgram *app,
 				const GnomeModuleInfo *module_info)
 {
   int i;

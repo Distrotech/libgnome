@@ -28,6 +28,7 @@
 BEGIN_GNOME_DECLS
 
 /* One of these structures is created for each file in the history.  */
+typedef struct _GnomeHistoryEntry GnomeHistoryEntry;
 struct _GnomeHistoryEntry
 {
 	char *filename;		/* Name of the visited file. */
@@ -39,16 +40,14 @@ struct _GnomeHistoryEntry
 				   presented to the user.  */
 };
 
-typedef struct _GnomeHistoryEntry * GnomeHistoryEntry;
-
 /* This function registers a new history entry.  All arguments are
    copied internally.  */
 void
-gnome_history_recently_used (char *filename, char *filetype,
-			     char *creator, char *desc);
+gnome_history_recently_used (const char *filename, const char *filetype,
+			     const char *creator, const char *desc);
 
 /* Return a list of all the recently used files we know about.  Each
-   element of the GList is a GnomeHistoryEntry.  The list is freshly
+   element of the GList is a GnomeHistoryEntry *.  The list is freshly
    allocated, and should be freed with
    gnome_history_free_recently_used_list.  */
 GList *

@@ -1,3 +1,24 @@
+Fri Jul 14 01:41:05 2000  George Lebl <jirka@5z.com>
+
+	* gnome-dentry.[ch]: s/int/gboolean/
+
+	* gnome-help.[ch]: add const stuff
+
+	* gnome-history.[ch]: add const stuff and GnomeHistoryEnt is a
+	  typedef to the structure and NOT the pointer as this is
+	  inconsistent with the rest of gnome and plain ugly
+
+	* gnome-mime-info.[ch]: const stuff
+
+	* gnome-regex.h: use a standard looking typedef for the structure
+
+	* gnome-score.[ch]: const stuff
+
+	* gnome-url.[ch]: GnomeURLDisplayContext again a typedef to
+	  the structure NOT the pointer so that we are consistent again
+
+	* gnomelib-init.[ch], gnomelib-init2.[ch]: const stuff
+
 Wed Jul 12 02:25:14 2000  George Lebl <jirka@5z.com>
 
 	* gnome-config.c, gnome-ditem.c, gnome-i18n.[ch], gnome-mime-info.c,

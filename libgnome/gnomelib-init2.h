@@ -38,8 +38,8 @@ typedef struct _GnomeProgram GnomeProgram;
 
 /* Returns the "application" object, creating it if it doesn't exist. */
 /*@observer@*/ GnomeProgram *gnome_program_get(void);
-/*@observer@*/ const char *gnome_program_get_name(/*@in@*/ GnomeProgram *app);
-/*@observer@*/ const char *gnome_program_get_version(/*@in@*/ GnomeProgram *app);
+/*@observer@*/ const char *gnome_program_get_name(/*@in@*/ const GnomeProgram *app);
+/*@observer@*/ const char *gnome_program_get_version(/*@in@*/ const GnomeProgram *app);
 
 /***** application attributes ******/
 typedef enum {
@@ -79,13 +79,13 @@ typedef /*@abstract@*/ struct {
 */
 
 void gnome_program_attribute_set(GnomeProgram *app,
-			    const char *name,
-			    const GnomeAttributeValue *value);
-/*@observer@*/ const GnomeAttributeValue *gnome_program_attribute_get(/*@in@*/ GnomeProgram *app,
+				 const char *name,
+				 const GnomeAttributeValue *value);
+/*@observer@*/ const GnomeAttributeValue *gnome_program_attribute_get(/*@in@*/ const GnomeProgram *app,
 								      /*@in@*/ const char *name);
 /* Convenience functions for C */
-void gnome_program_attributes_get(GnomeProgram *app, ...);
-void gnome_program_attributes_getv(GnomeProgram *app, va_list args);
+void gnome_program_attributes_get(const GnomeProgram *app, ...);
+void gnome_program_attributes_getv(const GnomeProgram *app, va_list args);
 void gnome_program_attributes_set(GnomeProgram *app, ...);
 void gnome_program_attributes_setv(GnomeProgram *app, va_list args);
 
@@ -119,7 +119,7 @@ typedef void (*GnomeModuleHook)(/*@in@*/ GnomeProgram *app, /*@in@*/ const Gnome
    to the GNOME_PARAM_MODULE thing passed by the app. */
 void gnome_program_module_register(/*@in@*/ GnomeProgram *app,
 				   /*@in@*/ const GnomeModuleInfo *module_info);
-gboolean gnome_program_module_registered(/*@in@*/ GnomeProgram *app,
+gboolean gnome_program_module_registered(/*@in@*/ const GnomeProgram *app,
 					 const GnomeModuleInfo *module_info);
 void gnome_program_module_load(GnomeProgram *app, const char *mod_name); /* do the dlopen funky, yea yea yea */
 
