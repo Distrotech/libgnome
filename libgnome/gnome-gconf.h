@@ -89,7 +89,7 @@ void        gnome_gconf_gnome_pixmap_entry_set (GnomePixmapEntry *pixmap_entry,
    GConf
 */
 
-GConfClient *gnome_gconf_client_get (void);
+GConfClient *gnome_get_gconf_client (void);
 
 extern GnomeModuleInfo gnome_gconf_module_info;
 #define GNOME_GCONF_INIT GNOME_PARAM_MODULE,&gnome_gconf_module_info

@@ -426,7 +426,7 @@ gnome_gconf_gnome_pixmap_entry_set (GnomePixmapEntry *pixmap_entry,
 static GConfClient* global_client = NULL;
 
 GConfClient*
-gnome_gconf_client_get (void)
+gnome_get_gconf_client (void)
 {
         g_return_val_if_fail(global_client != NULL, NULL);
         
