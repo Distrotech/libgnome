@@ -107,6 +107,7 @@ gnome_desktop_entry_load (char *file)
 {
 	GnomeDesktopEntry *newitem;
 	char *prefix;
+	char *name, *type;
 	char *exec_file, *try_file, *dot;
 
 	g_assert (file != NULL);
@@ -116,19 +117,42 @@ gnome_desktop_entry_load (char *file)
 	gnome_config_push_prefix (prefix);
 	g_free (prefix);
 
-	exec_file = gnome_config_get_string ("Exec");
-	if (!exec_file){
+	name = get_translated_string ("Name");
+	if (!name) {
 		gnome_config_pop_prefix ();
 		return 0;
 	}
 
-	try_file = gnome_config_get_string ("TryExec");
-	if (try_file) {
-		if (!gnome_is_program_in_path (try_file)) {
-			g_free (try_file);
-			g_free (exec_file);
+	/* FIXME: we only test for presence of Exec/TryExec keys if
+	 * the type of the desktop entry is not a Directory.  Since
+	 * Exec/TryExec may not make sense for other types of desktop
+	 * entries, we will later need to make this code smarter.
+	 */
+
+	type      = gnome_config_get_string ("Type");
+	exec_file = gnome_config_get_string ("Exec");
+	try_file  = gnome_config_get_string ("TryExec");
+
+	if (!type || (strcmp (type, "Directory") != 0)) {
+		if (!exec_file) {
+			free_if_empty (name);
+			free_if_empty (type);
+			free_if_empty (try_file);
+
 			gnome_config_pop_prefix ();
 			return 0;
+		}
+
+		if (try_file) {
+			if (!gnome_is_program_in_path (try_file)) {
+				free_if_empty (name);
+				free_if_empty (type);
+				free_if_empty (exec_file);
+				free_if_empty (try_file);
+
+				gnome_config_pop_prefix ();
+				return 0;
+			}
 		}
 	}
 	
