@@ -1,3 +1,9 @@
+1999-08-28  Ettore Perazzoli  <ettore@comm2000.it>
+
+	* gnome-metadata.c: Temporarily #define `TUNLOCK()' and `TLOCK()'
+	to no-ops even if gthreads are available, to let gnome-libs
+	compile with GLib 1.2 again.
+
 1999-08-27  Tom Tromey  <tromey@cygnus.com>
 
 	* gnome-metadata.c (database_mu): New global.

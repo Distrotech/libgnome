@@ -133,7 +133,7 @@ static char *lock_directory;
 /* This mutex is used whenever we are locking the database.  This
    includes initialization.  We use a recursive mutex because we can
    do recursive locking ourselves.  */
-#ifdef G_THREADS_ENABLED
+#if 0 /* def G_THREADS_ENABLED */
 static GStaticRecMutex database_mu = G_STATIC_REC_MUTEX_INIT;
 
 #define TLOCK(Mutex)  \
