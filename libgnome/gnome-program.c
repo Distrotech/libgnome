@@ -32,6 +32,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <gmodule.h>
+#include "libgnomeP.h"
 #include "gnome-defs.h"
 #include "gnome-i18nP.h"
 #include "gnome-portability.h"
@@ -1329,7 +1330,7 @@ gnome_program_initv (const char *app_id, const char *app_version,
     GnomeProgram *program;
     int i;
 
-    g_type_init (G_TYPE_DEBUG_NONE);
+    libgnome_type_init ();
 
     if (!program_initialized) {
 	const char *ctmp;

@@ -30,6 +30,8 @@ libgnome_type_init(void) {
 
     initialized = TRUE;
 
+    g_type_init (G_TYPE_DEBUG_NONE);
+
     for (i = 0; i < GNOME_TYPE_NUM_BUILTINS; i++)
       {
 	GType type_id = G_TYPE_INVALID;

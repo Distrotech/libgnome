@@ -1,5 +1,9 @@
 2001-04-11  Martin Baulig  <baulig@suse.de>
 
+	* gnome-program.c (gnome_program_initv): Call libgnome_type_init ()
+	instead of g_type_init (), moved g_type_init () call into
+	libgnome_type_init ().
+
 	* libgnomeP.h (libgnome_type_init): Added function prototype.
 
 	* Makefile.am: Create libgnome.defs and the type stuff using
