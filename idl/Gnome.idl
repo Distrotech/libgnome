@@ -25,9 +25,14 @@ module GNOME {
 	SELECTION_MODE_EXTENDED
     };
 
-};
+    struct LocalizedString {
+	string locale;
+	string text;
+    };
 
-#include <Gnome_Desktop.idl>
+    typedef sequence<LocalizedString> LocalizedStringList;
+
+};
 
 #if !defined(__GNOME_COMPILATION) && defined(__ORBIT_IDL__)
 #pragma inhibit pop
