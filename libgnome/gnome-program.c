@@ -678,10 +678,9 @@ gnome_module_info_get_type (void)
     static GType module_info_type = 0;
 
     if (!module_info_type)
-	module_info_type = g_boxed_type_register_static
-	    ("GnomeModuleInfo", gnome_module_info_init,
-	     gnome_module_info_copy, gnome_module_info_free,
-	     FALSE);
+	module_info_type = g_boxed_type_register_static	("GnomeModuleInfo",
+		 gnome_module_info_copy, gnome_module_info_free);
+
 
     return module_info_type;
 }
