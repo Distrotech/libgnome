@@ -60,6 +60,7 @@ gnome_score_helper_LDADD = \
 	-lgdk -lglib $(X_LIBS) $(x_libs) $(INTLLIBS)
 
 dns_helper_SOURCES = dns-helper.c
+dns_helper_LDADD = $(NSL_LIBS)
 
 install-data-local:
 	-chown games.games $(bindir)/gnome-score-helper
