@@ -23,27 +23,34 @@
 #include <bonobo/bonobo-property-bag-client.h>
 #include <string.h>
 
-static gboolean
-desktop_property_get_boolean (const gchar *name)
-{
-	return FALSE;
-}
-
 static void
-desktop_property_set_boolean (const gchar *name, gboolean value)
+do_warning (void)
 {
+	static gboolean slept = FALSE;
+	g_warning ("*************************************");
+	g_warning ("gnome_preferences_* are being used in");
+	g_warning ("this program, these will disappear soon!");
+	g_warning ("Please fix your code!!!!!!!!!!!!!!!!!");
+	g_warning ("*************************************");
+	if ( ! slept) {
+		g_warning ("Sleeping 2 seconds to annoy lazy developers");
+		sleep (2);
+	}
+	slept = TRUE;
+	return FALSE;
 }
 
 #define DEFINE_DESKTOP_PROP_BOOLEAN(c_name, prop_name)  \
 gboolean                                                \
 gnome_preferences_get_ ## c_name (void)                 \
 {                                                       \
-    return desktop_property_get_boolean (prop_name);    \
+	do_warning ();					\
+	return FALSE;					\
 }                                                       \
 void                                                    \
 gnome_preferences_set_ ## c_name (gboolean value)       \
 {                                                       \
-    desktop_property_set_boolean (prop_name, value);    \
+	do_warning ();					\
 }
 
 /**
