@@ -37,6 +37,8 @@
 #include "libgnomeP.h"
 #include <errno.h>
 
+#include <libgnomevfs/gnome-vfs-init.h>
+
 const char libgnome_param_create_directories[]="B:libgnome/create_directories";
 const char libgnome_param_espeaker[]="S:libgnome/espeaker";
 const char libgnome_param_enable_sound[]="B:libgnome/enable_sound";
@@ -98,9 +100,22 @@ static struct poptOption gnomelib_options[] = {
 	{ NULL, '\0', 0, NULL, 0 }
 };
 
+static GnomeModuleInfo gnome_vfs_module_info = {
+    "gnome-vfs", GNOMEVFSVERSION, "GNOME Virtual Filesystem",
+    NULL,
+    (GnomeModuleHook) gnome_vfs_preinit, (GnomeModuleHook) gnome_vfs_postinit,
+    NULL,
+    (GnomeModuleHook) gnome_vfs_loadinit
+};
+
+static GnomeModuleRequirement libgnome_requirements[] = {
+  {"0.3.0", &gnome_vfs_module_info},
+  {NULL}
+};
+
 GnomeModuleInfo libgnome_module_info = {
   "libgnome", VERSION, "GNOME Library",
-  NULL,
+  libgnome_requirements,
   libgnome_pre_args_parse, libgnome_post_args_parse,
   gnomelib_options
 };
