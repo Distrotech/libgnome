@@ -1,14 +1,14 @@
 # Swedish messages for libgnome.
-# Copyright (C) 2001 Free Software Foundation, Inc.
-# Christian Rose <menthos@menthos.com>, 2001.
+# Copyright (C) 2001, 2002 Free Software Foundation, Inc.
+# Christian Rose <menthos@menthos.com>, 2001, 2002.
 #
 # $Id$
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2001-12-11 19:13+0100\n"
-"PO-Revision-Date: 2001-12-04 02:35+0100\n"
+"POT-Creation-Date: 2002-01-05 18:29+0100\n"
+"PO-Revision-Date: 2002-01-05 18:29+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -130,43 +130,163 @@ msgstr "Hjälpdokumentet %s/%s kunde inte hittas"
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "För många aliasnivåer för en lokal, kan innebära en slinga"
 
-#: libgnome/gnome-program.c:464
+#: libgnome/gnome-program.c:420
+msgid "Popt Table"
+msgstr "Popt-tabell"
+
+#: libgnome/gnome-program.c:421
+msgid "The table of options for popt"
+msgstr "Tabellen med flaggor för popt"
+
+#: libgnome/gnome-program.c:428
+msgid "Popt Flags"
+msgstr "Popt-flaggor"
+
+#: libgnome/gnome-program.c:429
+msgid "The flags to use for popt"
+msgstr "Flaggorna att använda för popt"
+
+#: libgnome/gnome-program.c:437
+msgid "Popt Context"
+msgstr "Popt-sammanhang"
+
+#: libgnome/gnome-program.c:438
+msgid "The popt context pointer that GnomeProgram is using"
+msgstr "Popt-sammanhangspekaren som GnomeProgram använder"
+
+#: libgnome/gnome-program.c:446
 msgid "Human readable name"
 msgstr "Användarvänligt namn"
 
-#: libgnome/gnome-program.c:465
+#: libgnome/gnome-program.c:447
 msgid "Human readable name of this application"
 msgstr "Användarvänligt namn på detta program"
 
-#: libgnome/gnome-program.c:474
+#: libgnome/gnome-program.c:456
 msgid "GNOME path"
 msgstr "GNOME-sökväg"
 
-#: libgnome/gnome-program.c:475
+#: libgnome/gnome-program.c:457
 msgid "Path in which to look for installed files"
 msgstr "Sökväg i vilken installerade filer ska letas efter"
 
-#: libgnome/gnome-program.c:490
+#: libgnome/gnome-program.c:466
+msgid "App ID"
+msgstr "Program-ID"
+
+#: libgnome/gnome-program.c:467
+msgid "ID string to use for this application"
+msgstr "ID-sträng att använda för detta program"
+
+#: libgnome/gnome-program.c:474
 msgid "App version"
 msgstr "Programversion"
 
-#: libgnome/gnome-program.c:491
+#: libgnome/gnome-program.c:475
 msgid "Version of this application"
 msgstr "Version av detta program"
 
-#: libgnome/gnome-program.c:1318
+#: libgnome/gnome-program.c:482
+msgid "GNOME Prefix"
+msgstr "GNOME-prefix"
+
+#: libgnome/gnome-program.c:483
+msgid "Prefix where GNOME was installed"
+msgstr "Prefix där GNOME installerades"
+
+#: libgnome/gnome-program.c:492
+msgid "GNOME Libdir"
+msgstr "GNOME-bibliotekskatalog"
+
+#: libgnome/gnome-program.c:493
+msgid "Library prefix where GNOME was installed"
+msgstr "Biblioteksprefix där GNOME installerades"
+
+#: libgnome/gnome-program.c:502
+msgid "GNOME Datadir"
+msgstr "GNOME-datakatalog"
+
+#: libgnome/gnome-program.c:503
+msgid "Data prefix where GNOME was installed"
+msgstr "Dataprefix där GNOME installerades"
+
+#: libgnome/gnome-program.c:512
+msgid "GNOME Sysconfdir"
+msgstr "GNOME-systemkonfigurationskatalog"
+
+#: libgnome/gnome-program.c:513
+msgid "Configuration prefix where GNOME was installed"
+msgstr "Konfigurationsprefix där GNOME installerades"
+
+#: libgnome/gnome-program.c:523
+msgid "GNOME App Prefix"
+msgstr "GNOME-programprefix"
+
+#: libgnome/gnome-program.c:524
+msgid "Prefix where this application was installed"
+msgstr "Prefix där detta program installerades"
+
+#: libgnome/gnome-program.c:532
+msgid "GNOME App Libdir"
+msgstr "GNOME-programbibliotekskatalog"
+
+#: libgnome/gnome-program.c:533
+msgid "Library prefix where this application was installed"
+msgstr "Biblioteksprefix där detta program installerades"
+
+#: libgnome/gnome-program.c:542
+msgid "GNOME App Datadir"
+msgstr "GNOME-programdatakatalog"
+
+#: libgnome/gnome-program.c:543
+msgid "Data prefix where this application was installed"
+msgstr "Dataprefix där detta program installerades"
+
+#: libgnome/gnome-program.c:552
+msgid "GNOME App Sysconfdir"
+msgstr "GNOME-programkonfigurationskatalog"
+
+#: libgnome/gnome-program.c:553
+msgid "Configuration prefix where this application was installed"
+msgstr "Konfigurationsprefix där detta program installerades"
+
+#: libgnome/gnome-program.c:562
+msgid "Create Directories"
+msgstr "Skapa kataloger"
+
+#: libgnome/gnome-program.c:563
+msgid "Create standard GNOME directories on startup"
+msgstr "Skapa GNOME-standardkataloger vid uppstart"
+
+#: libgnome/gnome-program.c:572
+msgid "Enable Sound"
+msgstr "Använd ljud"
+
+#: libgnome/gnome-program.c:573
+msgid "Enable sound on startup"
+msgstr "Använd ljud vid uppstart"
+
+#: libgnome/gnome-program.c:582
+msgid "Espeaker"
+msgstr "Espeaker"
+
+#: libgnome/gnome-program.c:583
+msgid "How to connect to esd"
+msgstr "Hur anslutning till esd ska ske"
+
+#: libgnome/gnome-program.c:1319
 msgid "Help options"
 msgstr "Hjälpflaggor"
 
-#: libgnome/gnome-program.c:1323
+#: libgnome/gnome-program.c:1324
 msgid "Application options"
 msgstr "Programflaggor"
 
-#: libgnome/gnome-program.c:1339
+#: libgnome/gnome-program.c:1340
 msgid "Dynamic modules to load"
 msgstr "Dynamiska moduler att läsa in"
 
-#: libgnome/gnome-program.c:1340
+#: libgnome/gnome-program.c:1341
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
