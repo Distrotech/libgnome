@@ -618,7 +618,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	uargv[uargs-2] = exec_str;
 	uargv[uargs-1] = NULL;
 
-	if (item->icon && !item->is_kde) {
+	if (item->icon && !item->is_kde && item->location) {
 		char *path = g_strdup_printf ("=%s=/Desktop Entry/X-GNOME-SetIcon=true",
 					      item->location);
 		if (gnome_config_get_bool (path)) {

@@ -1,3 +1,8 @@
+2000-06-29  Jacob Berkman  <jacob@helixcode.com>
+
+	* gnome-dentry.c (gnome_desktop_entry_launch_with_args): check to
+	see that ->location is non-NULL so we don't crash on solaris
+
 2000-06-15  Jody Goldberg <jgoldberg@home.com>
 
 	* gnome-score.c (print_ascore) : setlocale returns a static buffer.
