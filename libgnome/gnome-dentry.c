@@ -53,8 +53,9 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 	
 	g_assert (file != NULL);
 
-	g_strconcat3_a (prefix, "=", file, "=/Desktop Entry/");
+	prefix = g_strconcat ("=", file, "=/Desktop Entry/");
 	gnome_config_push_prefix (prefix);
+	g_free (prefix);
 
 	name = gnome_config_get_translated_string ("Name");
 	if (!name) {
@@ -117,8 +118,9 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 	gnome_config_pop_prefix ();
 	
 	if (clean_from_memory){
-		g_strconcat3_a (prefix,"=", file, "=");
+		prefix = g_strconcat ("=", file, "=");
 		gnome_config_drop_file (prefix);
+		g_free (prefix);
 	}
 	
 	return newitem;
@@ -184,9 +186,10 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	g_assert (dentry != NULL);
 	g_assert (dentry->location != NULL);
 
-	g_strconcat3_a (prefix, "=", dentry->location, "=/Desktop Entry/");
+	prefix = g_strconcat ("=", dentry->location, "=/Desktop Entry/");
 	gnome_config_clean_section (prefix);
 	gnome_config_push_prefix (prefix);
+	g_free (prefix);
 
 	if (dentry->name)
 		gnome_config_set_translated_string ("Name", dentry->name);
@@ -218,8 +221,9 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 
 	gnome_config_pop_prefix ();
 	gnome_config_sync ();
-	g_strconcat3_a (prefix,"=", dentry->location, "=");
-	gnome_config_drop_file(prefix);
+	prefix = g_strconcat ("=", dentry->location, "=");
+	gnome_config_drop_file (prefix);
+	g_free (prefix);
 }
 
 /**

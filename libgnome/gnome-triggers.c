@@ -228,7 +228,7 @@ void gnome_triggers_add_trigger(GnomeTrigger* nt, ...)
   
   /* Build list */
   
-  strings = g_new_a(gchar *, nstrings + 1);
+  strings = g_new(gchar *, nstrings + 1);
   
   va_start(l, nt);
   
@@ -241,6 +241,8 @@ void gnome_triggers_add_trigger(GnomeTrigger* nt, ...)
   /* And pass them to the real function */
   
   gnome_triggers_vadd_trigger(nt, strings);
+
+  g_free (strings);
 }
 
 static GnomeTrigger*
@@ -332,7 +334,7 @@ gnome_triggers_do(const char *msg, const char *level, ...)
   
   /* Build list */
   
-  strings = g_new_a(gchar *, nstrings + 1);
+  strings = g_new (gchar *, nstrings + 1);
   
   va_start(l, level);
   
@@ -345,6 +347,8 @@ gnome_triggers_do(const char *msg, const char *level, ...)
   /* And pass them to the real function */
   
   gnome_triggers_vdo(msg, level, (const char **)strings);
+
+  g_free (strings);
 }
 
 /* The "add one to the sample ID" is because sample ID's start at 0,
