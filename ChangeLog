@@ -1,3 +1,9 @@
+2003-05-01  Kjartan Maraas  <set EMAIL_ADDRESS environment variable>
+
+	* libgnome/gnome-i18n.c: (unalias_lang): Locate locale.alias
+	in LIBGNOME_DATADIR also. Patch from Julio Merino
+	<jmmv@hispabsd.org>. Fixes bug #106180.
+
 2003-05-01  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* schemas/desktop_gnome_interface.schemas.in: Fix typo.
