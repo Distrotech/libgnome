@@ -73,9 +73,10 @@ typedef struct {
   Display *dpy;
   GMainLoop *ml;
   enum { LOCK_WAIT, STARTING_PROCESS, SENT_COMMAND, PROCESSING, FINISHED } state;
-  gboolean got_response;
 
   guint timeout_tag;
+  gboolean got_response : 1;
+
 } AppContext;
 
 static AppContext global_ctx = {0};

@@ -96,12 +96,12 @@ typedef struct TSecHeader {
 
 typedef struct TProfile {
 	char *filename;
+	TSecHeader *section;
+	struct TProfile *link;
 	time_t last_checked;
 	time_t mtime;
 	int written_to;
 	int to_be_deleted;
-	TSecHeader *section;
-	struct TProfile *link;
 } TProfile;
 
 /*

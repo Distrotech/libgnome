@@ -23,8 +23,8 @@ static GHashTable *mime_extensions [2] = { NULL, NULL };
 static GList      *mime_regexs     [2] = { NULL, NULL };
 
 typedef struct {
-	regex_t regex;
 	char    *mime_type;
+	regex_t regex;
 } RegexMimePair;
 
 typedef struct {

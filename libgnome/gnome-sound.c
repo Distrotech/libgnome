@@ -46,10 +46,10 @@ typedef struct _WAVFormatChunk
     char chunkID[4];
     int chunkSize;
 
-    short wFormatTag;
-    unsigned short wChannels;
     unsigned int dwSamplesPerSec;
     unsigned int dwAvgBytesPerSec;
+    short wFormatTag;
+    unsigned short wChannels;
     unsigned short wBlockAlign;
     unsigned short wBitsPerSample;
   }

@@ -49,7 +49,6 @@ typedef enum {
 } GnomeAttributeType;
 
 typedef /*@abstract@*/ struct {
-  GnomeAttributeType type;
   union {
     char *string_value;
     int integer_value;
@@ -58,6 +57,7 @@ typedef /*@abstract@*/ struct {
     char **string_vector_value;
     gpointer pointer_value;
   } u;
+  GnomeAttributeType type : 8;
 } GnomeAttributeValue;
 
 typedef /*@abstract@*/ struct {
@@ -108,6 +108,7 @@ typedef void (*GnomeModuleHook)(/*@in@*/ GnomeProgram *app, /*@in@*/ const Gnome
 				register other modules as needed. The
 				module cannot assume its required
 				modules are initialized (they aren't). */
+  gpointer expansion1, expansion2;
 };
 
 /* This function should be called before gnomelib_preinit() - it's an alternative

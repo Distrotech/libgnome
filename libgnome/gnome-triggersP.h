@@ -7,8 +7,8 @@ typedef struct _GnomeTriggerList GnomeTriggerList;
 struct _GnomeTriggerList {
   char *nodename;
   GnomeTriggerList **subtrees;
-  gint numsubtrees;
   GnomeTrigger **actions;
+  gint numsubtrees;
   gint numactions;
 };
 

@@ -35,16 +35,16 @@ typedef struct _FileType FileType;
 struct _FileConverter {
 	FileType *fromtype;
 	FileType *totype;
-	gint cost;
 	gchar *cmdline;
+	gint cost;
 };
 
 struct _FileType {
 	gchar *name;
 	GList *arcs;
+	FileConverter *best_way_here;
 	gint cost;
 	gint done;
-	FileConverter *best_way_here;
 };
 
 static GList *gfc_get_path(const char *fromtype, const char *totype);

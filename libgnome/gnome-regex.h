@@ -26,10 +26,10 @@ BEGIN_GNOME_DECLS
 #include <regex.h>
 
 typedef struct {
-	int size;		/* Total number of cache slots.  */
-	int next;		/* Next available slot.  */
 	char **regexs;		/* Regular expression strings.  */
 	regex_t *patterns;	/* Compiled expressions.  */
+	int size;		/* Total number of cache slots.  */
+	int next;		/* Next available slot.  */
 	/* FIXME: probably should cache compilation flags along with
 	   regex and use those to determine caching.  For now we
 	   assume that the flags never change.  Another option would
