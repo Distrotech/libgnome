@@ -4,8 +4,9 @@
 BEGIN_GNOME_DECLS
 
 struct _GnomeHistoryEntry {
-  char *filename, *filetype, *creator, *desc;
+	char *filename, *filetype, *creator, *desc;
 };
+
 typedef struct _GnomeHistoryEntry * GnomeHistoryEntry;
 
 void
