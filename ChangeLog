@@ -1,3 +1,15 @@
+2002-10-10  Mark McLoughlin  <mark@skynet.ie>
+
+	* libgnome/gnome-help.[ch]:
+	(gnome_help_display_with_doc_id_and_env),
+	(gnome_help_display_desktop_with_env),
+	(gnome_help_display_uri_with_env): add _with_env()
+	variants of these functions so multiscreen applications
+	can control which screen to display the help on.
+
+	* libgnome/gnome-url.[ch]:
+	(gnome_url_show_with_env): ditto for urls.
+
 2002-10-01  Yanko Kaneti <yaneti@declera.com>
 
 	* schemas/*.schemas.in: reorder the "applyto" and "key" elements 

@@ -59,7 +59,12 @@ GQuark gnome_url_error_quark (void) G_GNUC_CONST;
 
 /* returns FALSE on error, TRUE if everything went fine */
 /* Errors returned are either the GNOME_URL_ERROR_ ones or G_SPAWN_ERROR_ ones */
-gboolean gnome_url_show(const char *url, GError **error);
+gboolean gnome_url_show          (const char  *url,
+				  GError     **error);
+
+gboolean gnome_url_show_with_env (const char  *url,
+				  char       **envp,
+				  GError     **error);
 
 G_END_DECLS
 #endif

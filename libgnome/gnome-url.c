@@ -48,31 +48,23 @@
 #define DEFAULT_HANDLER_PATH "/desktop/gnome/url-handlers/unknown/command"
 
 /**
- * gnome_url_show
+ * gnome_url_show_with_env:
  * @url: The url to display. Should begin with the protocol to use (e.g.
  * "http:", "ghelp:", etc)
+ * @envp: child's environment, or %NULL to inherit parent's.
  * @error: Used to store any errors that result from trying to display the @url.
  *
- * Displays the given URL in an appropriate viewer. The appropriate viewer is
- * user definable. It is determined by extracting the protocol from the @url,
- * then seeing if the /desktop/gnome/url-handlers/&lt;protocol&gt;/command key
- * exists in the configuration database. It it does, this entry is used as the
- * template for the command. 
- *
- * If no protocol specific handler exists, the
- * /desktop/gnome/url-handlers/unknown/command key is used to determine the
- * viewer.
- *
- * Once a viewer is determined, it is called with the @url as a parameter. If
- * any errors occur, they are returned in the @error parameter. These errors
- * will either be in the %GNOME_URL_ERROR, %GNOME_SHELL_ERROR, or
- * %G_SPAWN_ERROR domains.
+ * Description: Like gnome_url_show(), but the the contents of @envp
+ * will become the url viewer's environment rather than inheriting
+ * from the parents environment.
  *
  * Returns: %TRUE if everything went fine, %FALSE otherwise (in which case
  * @error will contain the actual error).
  */
 gboolean
-gnome_url_show (const gchar *url, GError **error)
+gnome_url_show_with_env (const char  *url,
+			 char       **envp,
+			 GError     **error)
 {
 	GConfClient *client;
 	gint i;
@@ -156,7 +148,7 @@ gnome_url_show (const gchar *url, GError **error)
 	/* This can return some errors */
 	ret = g_spawn_async (NULL /* working directory */,
 			     argv,
-			     NULL /* envp */,
+			     envp,
 			     G_SPAWN_SEARCH_PATH /* flags */,
 			     NULL /* child_setup */,
 			     NULL /* data */,
@@ -166,6 +158,37 @@ gnome_url_show (const gchar *url, GError **error)
 	g_strfreev (argv);
 
 	return ret;
+}
+
+/**
+ * gnome_url_show:
+ * @url: The url to display. Should begin with the protocol to use (e.g.
+ * "http:", "ghelp:", etc)
+ * @error: Used to store any errors that result from trying to display the @url.
+ *
+ * Displays the given URL in an appropriate viewer. The appropriate viewer is
+ * user definable. It is determined by extracting the protocol from the @url,
+ * then seeing if the /desktop/gnome/url-handlers/&lt;protocol&gt;/command key
+ * exists in the configuration database. It it does, this entry is used as the
+ * template for the command. 
+ *
+ * If no protocol specific handler exists, the
+ * /desktop/gnome/url-handlers/unknown/command key is used to determine the
+ * viewer.
+ *
+ * Once a viewer is determined, it is called with the @url as a parameter. If
+ * any errors occur, they are returned in the @error parameter. These errors
+ * will either be in the %GNOME_URL_ERROR, %GNOME_SHELL_ERROR, or
+ * %G_SPAWN_ERROR domains.
+ *
+ * Returns: %TRUE if everything went fine, %FALSE otherwise (in which case
+ * @error will contain the actual error).
+ */
+gboolean
+gnome_url_show (const char  *url,
+		GError     **error)
+{
+	return gnome_url_show_with_env (url, NULL, error);
 }
 
 /**

@@ -55,7 +55,22 @@ gboolean gnome_help_display_desktop     (GnomeProgram  *program,
 gboolean gnome_help_display_uri         (const char    *help_uri,
 					 GError       **error);
 
- 
+gboolean gnome_help_display_uri_with_env        (const char    *help_uri,
+						 char         **envp,
+						 GError       **error);
+gboolean gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
+						 const char    *doc_id,
+						 const char    *file_name,
+						 const char    *link_id,
+						 char         **envp,
+						 GError       **error);
+gboolean gnome_help_display_desktop_with_env    (GnomeProgram  *program,
+						 const char    *doc_id,
+						 const char    *file_name,
+						 const char    *link_id,
+						 char         **envp,
+						 GError       **error);
+
 G_END_DECLS
 
 #endif /* GNOME_HELP_H */

@@ -95,39 +95,31 @@ gnome_help_display (const char    *file_name,
 }
 
 /**
- * gnome_help_display_with_doc_id
+ * gnome_help_display_with_doc_id_and_env:
  * @program: The current application object, or %NULL for the default one.
  * @doc_id: The document identifier, or %NULL to default to the application ID
  * (app_id) of the specified @program.
  * @file_name: The name of the help document to display.
  * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
  * requested document.
+ * @envp: child's environment, or %NULL to inherit parent's.
  * @error: A #GError instance that will hold the specifics of any error which
  * occurs during processing, or %NULL
  *
- * Displays the help file specified by @file_name at location @link_id within
- * the @doc_id domain in the preferred help browser of the user.  Most of the
- * time, you want to call gnome_help_display() instead.
- *
- * This function will display the help through creating a "ghelp" URI, by
- * looking for @file_name in the applications installed help location (found by
- * #GNOME_FILE_DOMAIN_APP_HELP) and its app_id.  The resulting URI is roughly
- * in the form "ghelp:appid/file_name?link_id".  If a matching file cannot be
- * found, %FALSE is returned and @error is set.
- *
- * Please note that this only displays application help.  To display help files
- * from the global GNOME domain, you will want to use
- * gnome_help_display_desktop().
+ * Like gnome_display_with_doc_id(), but the the contents of @envp
+ * will become the url viewer's environment rather than inheriting
+ * from the parents environment.
  *
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
  * contain the actual error).
  **/
 gboolean
-gnome_help_display_with_doc_id (GnomeProgram  *program,
-				const char    *doc_id,
-				const char    *file_name,
-				const char    *link_id,
-				GError       **error)
+gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
+					const char    *doc_id,
+					const char    *file_name,
+					const char    *link_id,
+					char         **envp,
+					GError       **error)
 {
 	gchar *local_help_path;
 	gchar *global_help_path;
@@ -244,7 +236,7 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
 	else
 		uri = g_strconcat ("ghelp://", file, NULL);
 
-	retval = gnome_help_display_uri (uri, error);
+	retval = gnome_help_display_uri_with_env (uri, envp, error);
 
  out:
 
@@ -257,35 +249,70 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
 }
 
 /**
- * gnome_help_display_desktop
+ * gnome_help_display_with_doc_id
  * @program: The current application object, or %NULL for the default one.
- * @doc_id: The name of the help file relative to the system's help domain
- * (#GNOME_FILE_DOMAIN_HELP).
+ * @doc_id: The document identifier, or %NULL to default to the application ID
+ * (app_id) of the specified @program.
  * @file_name: The name of the help document to display.
  * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
  * requested document.
  * @error: A #GError instance that will hold the specifics of any error which
  * occurs during processing, or %NULL
  *
- * Displays the GNOME system help file specified by @file_name at location
- * @link_id in the preferred help browser of the user.  This is done by creating
- * a "ghelp" URI, by looking for @file_name in the system help domain
- * (#GNOME_FILE_DOMAIN_HELP) and it's app_id.  This domain is determined when
- * the library is compiled.  If a matching file cannot be found, %FALSE is
- * returned and @error is set.
+ * Displays the help file specified by @file_name at location @link_id within
+ * the @doc_id domain in the preferred help browser of the user.  Most of the
+ * time, you want to call gnome_help_display() instead.
  *
- * Please note that this only displays system help.  To display help files
- * for an application, you will want to use gnome_help_display().
+ * This function will display the help through creating a "ghelp" URI, by
+ * looking for @file_name in the applications installed help location (found by
+ * #GNOME_FILE_DOMAIN_APP_HELP) and its app_id.  The resulting URI is roughly
+ * in the form "ghelp:appid/file_name?link_id".  If a matching file cannot be
+ * found, %FALSE is returned and @error is set.
+ *
+ * Please note that this only displays application help.  To display help files
+ * from the global GNOME domain, you will want to use
+ * gnome_help_display_desktop().
+ *
+ * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
+ * contain the actual error).
+ **/
+gboolean
+gnome_help_display_with_doc_id (GnomeProgram  *program,
+				const char    *doc_id,
+				const char    *file_name,
+				const char    *link_id,
+				GError       **error)
+{
+	return gnome_help_display_with_doc_id_and_env (
+			program, doc_id, file_name, link_id, NULL, error);
+}
+
+/**
+ * gnome_help_display_desktop_with_env:
+ * @program: The current application object, or %NULL for the default one.
+ * @doc_id: The name of the help file relative to the system's help domain
+ * (#GNOME_FILE_DOMAIN_HELP).
+ * @file_name: The name of the help document to display.
+ * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
+ * requested document.
+ * @envp: child's environment, or %NULL to inherit parent's.
+ * @error: A #GError instance that will hold the specifics of any error which
+ * occurs during processing, or %NULL
+ *
+ * Like gnome_help_display_desktop(), but the the contents of @envp
+ * will become the url viewer's environment rather than inheriting
+ * from the parents environment.
  *
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
  * contain the actual error).
  */
 gboolean
-gnome_help_display_desktop (GnomeProgram  *program,
-			    const char    *doc_id,
-			    const char    *file_name,
-			    const char    *link_id,
-			    GError       **error)
+gnome_help_display_desktop_with_env (GnomeProgram  *program,
+				     const char    *doc_id,
+				     const char    *file_name,
+				     const char    *link_id,
+				     char         **envp,
+				     GError       **error)
 {
 	GSList *ret_locations, *li;
 	char *file;
@@ -344,13 +371,79 @@ gnome_help_display_desktop (GnomeProgram  *program,
 
 	g_free (file);
 
-	retval = gnome_help_display_uri (url, error);
+	retval = gnome_help_display_uri_with_env (url, envp, error);
 
 	return retval;
 }
 
 /**
- * gnome_help_display_uri
+ * gnome_help_display_desktop
+ * @program: The current application object, or %NULL for the default one.
+ * @doc_id: The name of the help file relative to the system's help domain
+ * (#GNOME_FILE_DOMAIN_HELP).
+ * @file_name: The name of the help document to display.
+ * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
+ * requested document.
+ * @error: A #GError instance that will hold the specifics of any error which
+ * occurs during processing, or %NULL
+ *
+ * Displays the GNOME system help file specified by @file_name at location
+ * @link_id in the preferred help browser of the user.  This is done by creating
+ * a "ghelp" URI, by looking for @file_name in the system help domain
+ * (#GNOME_FILE_DOMAIN_HELP) and it's app_id.  This domain is determined when
+ * the library is compiled.  If a matching file cannot be found, %FALSE is
+ * returned and @error is set.
+ *
+ * Please note that this only displays system help.  To display help files
+ * for an application, you will want to use gnome_help_display().
+ *
+ * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
+ * contain the actual error).
+ */
+gboolean
+gnome_help_display_desktop (GnomeProgram  *program,
+			    const char    *doc_id,
+			    const char    *file_name,
+			    const char    *link_id,
+			    GError       **error)
+{
+	return gnome_help_display_desktop_with_env (
+			program, doc_id, file_name, link_id, NULL, error);
+}
+
+/**
+ * gnome_help_display_uri_with_env:
+ * @help_uri: The URI to display.
+ * @envp: child's environment, or %NULL to inherit parent's.
+ * @error: A #GError instance that will hold the specifics of any error which
+ * occurs during processing, or %NULL
+ *
+ * Like gnome_help_display_uri(), but the the contents of @envp
+ * will become the help viewer's environment rather than inheriting
+ * from the parents environment.
+ *
+ * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
+ * contain the actual error).
+ */
+gboolean
+gnome_help_display_uri_with_env (const char  *help_uri,
+				 char       **envp,
+				 GError     **error)
+{
+	GError *real_error;
+	gboolean retval;
+
+	real_error = NULL;
+	retval = gnome_url_show_with_env (help_uri, envp, &real_error);
+
+	if (real_error != NULL)
+		g_propagate_error (error, real_error);
+
+	return retval;
+}
+
+/**
+ * gnome_help_display_uri:
  * @help_uri: The URI to display.
  * @error: A #GError instance that will hold the specifics of any error which
  * occurs during processing, or %NULL
@@ -364,21 +457,11 @@ gnome_help_display_desktop (GnomeProgram  *program,
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
  * contain the actual error).
  */
-
 gboolean
-gnome_help_display_uri (const char    *help_uri,
-			GError       **error)
+gnome_help_display_uri (const char  *help_uri,
+			GError     **error)
 {
-	GError *real_error;
-	gboolean retval;
-
-	real_error = NULL;
-	retval = gnome_url_show (help_uri, &real_error);
-
-	if (real_error != NULL)
-		g_propagate_error (error, real_error);
-
-	return retval;
+	return gnome_help_display_uri_with_env (help_uri, NULL, error);
 }
 
 /**
