@@ -10,7 +10,7 @@ INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) \
 	-DGNOMEDATADIR=\""$(datadir)"\" \
 	-DGNOMEBINDIR=\""$(bindir)"\" \
 	-DGNOMELOCALSTATEDIR=\""$(localstatedir)"\" \
-	-DGNOMELOCALEDIR=\""$(libdir)/locale"\" \
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(top_srcdir)/intl \
 	-I$(srcdir)/../programs
 
