@@ -163,6 +163,8 @@ gnome_url_show (const gchar *url, GError **error)
 		}
 
 		g_free (protocol);
+
+		g_object_unref (G_OBJECT (client));
 	} else {
 		/* no ':' ? this shouldn't happen. Use default handler */
 		template = gnome_url_default_handler ();
