@@ -228,4 +228,6 @@ gnome_program_initv (GType type,
 extern char *program_invocation_short_name;
 extern char *program_invocation_name;
 
-#endif
+G_END_DECLS
+
+#endif /* GNOME_PROGRAM_H */
