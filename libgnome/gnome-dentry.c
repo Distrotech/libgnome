@@ -45,7 +45,7 @@ gnome_is_program_in_path (const char *program)
 }
 	      
 GnomeDesktopEntry *
-gnome_desktop_entry_load_flags (const char *file, int clean_from_memory)
+gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_memory, int unconditional)
 {
 	GnomeDesktopEntry *newitem;
 	char *prefix;
@@ -81,7 +81,7 @@ gnome_desktop_entry_load_flags (const char *file, int clean_from_memory)
 	p = 0;
 
 	if (!type || (strcmp (type, "Directory") != 0)){
-		if(!exec_vector || (try_file && !(p = gnome_is_program_in_path(try_file)))){
+		if(!unconditional && ( !exec_vector || (try_file && !(p = gnome_is_program_in_path(try_file))))){
 			free_if_empty (p);
 			free_if_empty (name);
 			free_if_empty (type);
@@ -132,9 +132,21 @@ gnome_desktop_entry_load_flags (const char *file, int clean_from_memory)
 }
 
 GnomeDesktopEntry *
+gnome_desktop_entry_load_flags (const char *file, int clean_from_memory)
+{
+	return gnome_desktop_entry_load_flags_conditional (file, clean_from_memory, FALSE);
+}
+
+GnomeDesktopEntry *
 gnome_desktop_entry_load (const char *file)
 {
 	return gnome_desktop_entry_load_flags (file, 1);
+}
+
+GnomeDesktopEntry *
+gnome_desktop_entry_load_unconditional (const char *file)
+{
+	return gnome_desktop_entry_load_flags_conditional (file, 1, TRUE);
 }
 
 void
