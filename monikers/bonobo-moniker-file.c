@@ -25,8 +25,6 @@ bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
 	const char    *fname = bonobo_moniker_get_name (moniker);
 	Bonobo_Unknown retval;
 
-	g_warning ("Fname '%s'", fname);
-
 	if (!strcmp (requested_interface, "IDL:Bonobo/Stream:1.0")) {
 		BonoboStream *stream;
 		
