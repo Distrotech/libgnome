@@ -1,3 +1,8 @@
+Thu Aug 30 14:15:44 2001  George Lebl <jirka@5z.com>
+
+	* gnome-gconf.h:  Eeek, we were including gconf-client, we don't
+	  want to do that.
+
 Wed Aug 29 01:24:33 2001  George Lebl <jirka@5z.com>
 
 	* gnome-program.[ch]: ifdef out the help functions, that's a better
