@@ -33,9 +33,9 @@
 typedef struct _GnomeProgram GnomeProgram;
 
 /* Returns the "application" object, creating it if it doesn't exist. */
-GnomeProgram *gnome_program_get(void);
-const char *gnome_program_get_name(GnomeProgram *app);
-const char *gnome_program_get_version(GnomeProgram *app);
+/*@observer@*/ GnomeProgram *gnome_program_get(void);
+/*@observer@*/ const char *gnome_program_get_name(/*@in@*/ GnomeProgram *app);
+/*@observer@*/ const char *gnome_program_get_version(/*@in@*/ GnomeProgram *app);
 
 /***** application attributes ******/
 typedef enum {
@@ -48,7 +48,7 @@ typedef enum {
   GNOME_ATTRIBUTE_POINTER
 } GnomeAttributeType;
 
-typedef struct {
+typedef /*@abstract@*/ struct {
   GnomeAttributeType type;
   union {
     char *string_value;
@@ -60,7 +60,7 @@ typedef struct {
   } u;
 } GnomeAttributeValue;
 
-typedef struct {
+typedef /*@abstract@*/ struct {
   char *name;
 
   GnomeAttributeValue value;
@@ -77,8 +77,8 @@ typedef struct {
 void gnome_program_attribute_set(GnomeProgram *app,
 			    const char *name,
 			    const GnomeAttributeValue *value);
-const GnomeAttributeValue *gnome_program_attribute_get(GnomeProgram *app,
-						  const char *name);
+/*@observer@*/ const GnomeAttributeValue *gnome_program_attribute_get(/*@in@*/ GnomeProgram *app,
+								      /*@in@*/ const char *name);
 /* Convenience functions for C */
 void gnome_program_attributes_get(GnomeProgram *app, ...);
 void gnome_program_attributes_getv(GnomeProgram *app, va_list args);
@@ -93,21 +93,26 @@ typedef struct {
   GnomeModuleInfo *module_info;
 } GnomeModuleRequirement;
 
-typedef void (*GnomeModuleHook)(GnomeProgram *app, GnomeModuleInfo *mod_info);
+typedef void (*GnomeModuleHook)(/*@in@*/ GnomeProgram *app, /*@in@*/ const GnomeModuleInfo *mod_info);
 
-struct _GnomeModuleInfo {
+/*@abstract@*/ struct _GnomeModuleInfo {
   const char *name, *version, *description;
   GnomeModuleRequirement *requirements; /* last element has NULL version */
 
   GnomeModuleHook pre_args_parse, post_args_parse;
 
   struct poptOption *options;
+
+  GnomeModuleHook init_pass; /* This gets run before any other preinit
+				stuff to allow the module to register
+				other modules if it wants. The module cannot
+				depend on its required modules being initialized. */
 };
 
 /* This function should be called before gnomelib_preinit() - it's an alternative
    to the GNOME_PARAM_MODULE thing passed by the app. */
-void gnome_program_module_register(GnomeProgram *app,
-			      GnomeModuleInfo *module_info);
+void gnome_program_module_register(/*@in@*/ GnomeProgram *app,
+				   /*@in@*/ const GnomeModuleInfo *module_info);
 
 /*
   In order to process arguments, gnomelib_preinit needs to know their
@@ -139,26 +144,29 @@ void gnome_program_module_register(GnomeProgram *app,
  * processing, they can do it using a while looped sandwiched between
  * calls to these two functions.
  */
-poptContext gnome_program_preinit(GnomeProgram *app,
-			     const char *app_id, const char *app_version,
-			     int argc, char **argv, ...);
-poptContext gnome_program_preinitv(GnomeProgram *app,
-			      const char *app_id, const char *app_version,
-			      int argc, char **argv, va_list args);
-poptContext gnome_program_preinita(GnomeProgram *app,
-			      const char *app_id, const char *app_version,
-			      int argc, char **argv, GnomeAttribute *attrs);
-void gnome_program_parse_args(GnomeProgram *app);
-void gnome_program_postinit(GnomeProgram *app);
+/*@observer@*/
+poptContext gnome_program_preinit(/*@in@*/ GnomeProgram *app,
+				  /*@in@*/ const char *app_id, /*@in@*/ const char *app_version,
+				  int argc, /*@in@*/ char **argv, ...);
+/*@observer@*/
+poptContext gnome_program_preinitv(/*@in@*/ GnomeProgram *app,
+				   /*@in@*/ const char *app_id, /*@in@*/ const char *app_version,
+				   int argc, /*@in@*/ char **argv, va_list args);
+/*@observer@*/
+poptContext gnome_program_preinita(/*@in@*/ GnomeProgram *app,
+				   /*@in@*/ const char *app_id, /*@in@*/ const char *app_version,
+				   int argc, /*@in@*/ char **argv, GnomeAttribute *attrs);
+void gnome_program_parse_args(/*@in@*/ GnomeProgram *app);
+void gnome_program_postinit(/*@in@*/ GnomeProgram *app);
 
 /* These are convenience functions that calls gnomelib_preinit(...), have
    popt parse all args, and then call gnomelib_postinit() */
-void gnome_program_init(const char *app_id, const char *app_version,
-		   int argc, char **argv, ...);
-void gnome_program_initv(const char *app_id, const char *app_version,
-		    int argc, char **argv, va_list args);
-void gnome_program_inita(const char *app_id, const char *app_version,
-		    int argc, char **argv, GnomeAttribute *attrs);
+void gnome_program_init(/*@in@*/ const char *app_id, /*@in@*/ const char *app_version,
+			int argc, /*@in@*/ char **argv, ...);
+void gnome_program_initv(/*@in@*/ const char *app_id, /*@in@*/ const char *app_version,
+			 int argc, /*@in@*/ char **argv, va_list args);
+void gnome_program_inita(/*@in@*/ const char *app_id, /*@in@*/ const char *app_version,
+			 int argc, /*@in@*/ char **argv, GnomeAttribute *attrs);
 
 /* Some systems, like Red Hat 4.0, define these but don't declare
    them.  Hopefully it is safe to always declare them here.  */

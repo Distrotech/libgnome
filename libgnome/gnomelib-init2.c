@@ -25,26 +25,29 @@
 
 #include <ctype.h>
 #include <stdio.h>
-#include "gnomelib-init2.h"
+#include "libgnome/gnome-portability.h"
+#include "libgnome/gnomelib-init2.h"
 
 /* data encapsulated by GnomeProgram:
    state
    attributes (string -> GnomeAttribute lookups)
    modules (array of pointers)
 */
-struct _GnomeProgram {
+/*@abstract@*/ struct _GnomeProgram {
   enum {
     APP_UNINIT=0,
     APP_CREATE_DONE=1,
     APP_PREINIT_DONE=2,
     APP_POSTINIT_DONE=3
   } state;
-  GHashTable *attributes; /* always-valid */
+  /*@only@*/ GHashTable *attributes;
 
-  GPtrArray *modules; /* valid-while: APP_UNINIT < state < APP_POSTINIT_DONE */
+  /*@only@*/ GPtrArray *modules; /* valid-while: APP_UNINIT < state < APP_POSTINIT_DONE */
 
-  char *app_id, *app_version; /* valid-while: state > APP_CREATE_DONE */
-  char **argv;
+  /* valid-while: state > APP_CREATE_DONE */
+  /*@only@*/ char *app_id;
+  /*@only@*/ char *app_version;
+  /*@only@*/ char **argv;
   int argc;
 
   /* Holds a 'poptContext' */
@@ -56,7 +59,7 @@ struct _GnomeProgram {
   /* holds an 'int' */
   GnomeAttributeValue app_popt_flags_val; /* valid-while: state == APP_PREINIT_DONE */
 
-  GArray *top_options_table; /* valid-while: state == APP_PREINIT_DONE */
+  /*@only@*/ GArray *top_options_table; /* valid-while: state == APP_PREINIT_DONE */
 };
 
 /**
@@ -67,20 +70,32 @@ struct _GnomeProgram {
  */
 /* Other functions assume that this will always return an appobject
    with state > APP_UNINIT */
+
 GnomeProgram *
 gnome_program_get(void)
 {
-  static struct _GnomeProgram gnome_app = { APP_UNINIT };
+  /*@only@*/ static GnomeProgram *gnome_app = NULL;
 
-  if (gnome_app.state == APP_UNINIT)
+  if (!gnome_app)
     {
-      memset(&gnome_app, '\0', sizeof(gnome_app));
-      gnome_app.attributes = g_hash_table_new(g_str_hash, g_str_equal);
+      gnome_app = g_new(GnomeProgram, 1);
+      gnome_app->attributes = g_hash_table_new(g_str_hash, g_str_equal);
 
-      gnome_app.state = APP_CREATE_DONE;
+      gnome_app->arg_context_val.type = GNOME_ATTRIBUTE_NONE;
+      gnome_app->arg_options_val.type = GNOME_ATTRIBUTE_NONE;
+      gnome_app->arg_popt_flags_val.type = GNOME_ATTRIBUTE_NONE;
+
+      gnome_app->argv = NULL;
+      gnome_app->argc = 0;
+      gnome_app->modules = NULL;
+      gnome_app->top_options_table = NULL;
+
+      gnome_app->app_version = gnome_app->app_id = NULL;
+
+      gnome_app->state = APP_CREATE_DONE;
     }
 
-  return &gnome_app;
+  return gnome_app;
 }
 
 /**
@@ -155,7 +170,7 @@ gnome_program_framework_attrs_set(GnomeProgram *app,
     g_error("Unknown framework attribute '%s'", name);
 }
 
-static const GnomeAttributeValue *
+/*@observer@*/ static const GnomeAttributeValue *
 gnome_program_framework_attrs_get(GnomeProgram *app,
 			     const char *name)
 {
@@ -182,11 +197,10 @@ gnome_program_framework_attrs_get(GnomeProgram *app,
  */
 void
 gnome_program_attribute_set(GnomeProgram *app,
-		       const char *name,
-		       const GnomeAttributeValue *value)
+			    const char *name,
+			    const GnomeAttributeValue *value)
 {
   GnomeAttribute *new_value, *stored_value;
-  GnomeAttributeType should_be;
 
   g_return_if_fail(app);
   g_return_if_fail(name);
@@ -200,6 +214,8 @@ gnome_program_attribute_set(GnomeProgram *app,
     gnome_program_framework_attrs_set(app, name, value);
   else
     {
+      GnomeAttributeType should_be;
+
       switch(name[0])
 	{
 	case 'S':
@@ -224,6 +240,7 @@ gnome_program_attribute_set(GnomeProgram *app,
 	  should_be = GNOME_ATTRIBUTE_POINTER;
 	  break;
 	default:
+	  should_be = 0;
 	  g_error("Application attribute name \"%s\" is invalid", name);
 	  break;
 	}
@@ -265,7 +282,7 @@ gnome_program_attribute_set(GnomeProgram *app,
 	{
 	  int i;
 	  for(i = 0; value->u.string_vector_value[i]; i++) /* */;
-	  new_value->value.u.string_vector_value = g_new0(char *, i);
+	  new_value->value.u.string_vector_value = g_new(char *, i);
 	  for(i = 0; value->u.string_vector_value[i]; i++)
 	    new_value->value.u.string_vector_value[i] = g_strdup(value->u.string_vector_value[i]);
 	  new_value->value.u.string_vector_value[i] = NULL;
@@ -335,6 +352,7 @@ gnome_program_attributes_setv(GnomeProgram *app, va_list args)
 	attr.value.u.boolean_value = va_arg(args, gboolean);
 	break;
       default:
+	attr.value.type = GNOME_ATTRIBUTE_NONE;
 	g_error("Application attribute name \"%s\" is invalid", attr.name);
 	break;
       }	
@@ -355,7 +373,7 @@ gnome_program_attributes_setv(GnomeProgram *app, va_list args)
  *
  * Returns: A pointer to a GnomeAttributeValue.
  */
-const GnomeAttributeValue *
+/*@observer@*/ const GnomeAttributeValue *
 gnome_program_attribute_get(GnomeProgram *app,
 		       const char *name)
 {
@@ -503,8 +521,8 @@ static int rpmvercmp(const char * a, const char * b) {
     /* easy comparison to see if versions are identical */
     if (!strcmp(a, b)) return 0;
 
-    str1 = alloca(strlen(a) + 1);
-    str2 = alloca(strlen(b) + 1);
+    str1 = g_alloca(strlen(a) + 1);
+    str2 = g_alloca(strlen(b) + 1);
 
     strcpy(str1, a);
     strcpy(str2, b);
@@ -771,7 +789,7 @@ gnome_program_preinitv(GnomeProgram *app,
     char *attr_name;
     int i;
 
-    attrs = alloca((n_attrs + 1) * sizeof(attrs[0]));
+    attrs = g_alloca((n_attrs + 1) * sizeof(attrs[0]));
 
     G_VA_COPY(build_args, args);
 
@@ -942,8 +960,12 @@ gnome_program_preinita(GnomeProgram *app,
   }
 
   /* 0. Misc setup */
+  if(app->app_id)
+    g_free(app->app_id);
   app->app_id = g_strdup(app_id);
   g_set_prgname(app_id);
+  if(app->app_version)
+    g_free(app->app_version);
   app->app_version = g_strdup(app_version);
   app->argc = argc;
   app->argv = argv;
@@ -1065,7 +1087,7 @@ gnome_program_parse_args(GnomeProgram *app)
 	   poptBadOption(ctx, 0),
 	   poptStrerror(nextopt),
 	   app->argv[0]);
-    exit(1);
+    exit(EXIT_FAILURE);
   }
 }
 

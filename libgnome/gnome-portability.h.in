@@ -1,6 +1,10 @@
 #ifndef GNOME_PORTABILITY_H
 #define GNOME_PORTABILITY_H 1
 
+#ifdef __LCLINT__
+/* Placate the beast */
+extern /*@dependant@*/ void *g_alloca(size_t size);
+#else
 #if !defined(g_alloca)
 
 #  if @GNOME_HAVE_ALLOCA_H@ /* GNOME_HAVE_ALLOCA_H */
@@ -29,5 +33,6 @@ char *alloca ();
 #  define g_alloca0(x) memset(g_alloca(x), '\0', (x))
 
 #endif /* !defined(g_alloca) */
+#endif
 
 #endif /* GNOME_PORTABILITY_H */
