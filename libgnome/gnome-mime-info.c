@@ -392,7 +392,7 @@ gnome_mime_init ()
 	gnome_mime_dir.dirname = gnome_unconditional_datadir_file ("mime-info");
 	gnome_mime_dir.system_dir = TRUE;
 	
-	user_mime_dir.dirname  = g_concat_dir_and_file (gnome_util_user_home (), ".gnome/mime-info");
+	user_mime_dir.dirname  = gnome_util_home_file ("mime-info");
 	user_mime_dir.system_dir = FALSE;
 
 	/*
