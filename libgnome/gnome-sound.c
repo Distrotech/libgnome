@@ -321,8 +321,8 @@ static GnomeSoundSample *
 gnome_sound_sample_load_audiofile(const char *file)
 {
   AFfilehandle in_file;
-  GnomeSoundSample *s;
-  int in_format, in_width, in_channels;
+  GnomeSoundSample *s = NULL;
+  int in_format = -1, in_width = -1, in_channels;
   double in_rate;
   int bytes_per_frame;
   AFframecount frame_count, frames_read;
@@ -345,7 +345,16 @@ gnome_sound_sample_load_audiofile(const char *file)
     out_bits = ESD_BITS16;
   else {
       g_warning ("only sample widths of 8 and 16 supported");
-      return NULL;
+      goto error_case;
+  }
+
+  if (frame_count == -1 ||
+      in_channels == -1 ||
+      in_rate == -1 ||
+      in_format == -1 ||
+      in_width == -1) {
+      g_warning ("Default track not found");
+      goto error_case;
   }
 
   bytes_per_frame = in_width / 8;
@@ -356,7 +365,7 @@ gnome_sound_sample_load_audiofile(const char *file)
     out_channels = ESD_STEREO;
   else {
       g_warning ("only 1 or 2 channel samples supported");
-      return NULL;
+      goto error_case;
   }
 
   out_format = out_bits | out_channels | out_mode | out_func;
@@ -374,6 +383,7 @@ gnome_sound_sample_load_audiofile(const char *file)
   frames_read = afReadFrames(in_file, AF_DEFAULT_TRACK, s->data,
 			     frame_count * in_channels);
 
+ error_case:
   afCloseFile(in_file);
 
   return s;
