@@ -439,6 +439,9 @@ g_copy_vector (char **vec)
 {
 	char ** new_vec;
 	int size = 0;
+
+	if (vec == NULL)
+		return NULL;
 	
 	while (vec [size] != NULL){
 		++size;

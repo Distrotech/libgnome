@@ -1,3 +1,9 @@
+Tue Dec 26 10:45:50 2000  George Lebl <jirka@5z.com>
+
+	* gnome-util.c (g_copy_vector):  Allow argument to be NULL, better
+	  then SEGV.  Fixes SEGVs in the panel and anything using
+	  gnome-dentry.
+
 2000-12-26  Miguel de Icaza  <miguel@helixcode.com>
 
 	* gnome-moz-remote.c (main): Give preference to mozilla while
