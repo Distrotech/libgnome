@@ -19,7 +19,7 @@
 #include "gnome-util.h"
 
 static char *
-gnome_dirrelative_file (char *base, char *sub, char *filename, int unconditional)
+gnome_dirrelative_file (const char *base, const char *sub, const char *filename, int unconditional)
 {
         static char *gnomedir = NULL;
 	char *f, *t, *u, *v;
@@ -74,7 +74,7 @@ gnome_dirrelative_file (char *base, char *sub, char *filename, int unconditional
  * Returns a newly allocated pathname pointing to a file in the gnome libdir
  */
 char *
-gnome_libdir_file (char *filename)
+gnome_libdir_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMELIBDIR, "lib", filename, FALSE));
 }
@@ -83,19 +83,19 @@ gnome_libdir_file (char *filename)
  * Returns a newly allocated pathname pointing to a file in the gnome sharedir
  */
 char *
-gnome_datadir_file (char *filename)
+gnome_datadir_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMEDATADIR, "share", filename, FALSE));
 }
 
 char *
-gnome_pixmap_file (char *filename)
+gnome_pixmap_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMEDATADIR "/pixmaps", "share/pixmaps", filename, FALSE));
 }
 
 char *
-gnome_unconditional_pixmap_file (char *filename)
+gnome_unconditional_pixmap_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMEDATADIR "/pixmaps", "share/pixmaps", filename, TRUE));
 }
@@ -105,7 +105,7 @@ gnome_unconditional_pixmap_file (char *filename)
  * non-existent) file in the gnome libdir
  */
 char *
-gnome_unconditional_libdir_file (char *filename)
+gnome_unconditional_libdir_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMELIBDIR, "lib", filename, TRUE));
 }
@@ -115,7 +115,7 @@ gnome_unconditional_libdir_file (char *filename)
  * non-existent) file in the gnome libdir
  */
 char *
-gnome_unconditional_datadir_file (char *filename)
+gnome_unconditional_datadir_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMEDATADIR, "share", filename, TRUE));
 }
@@ -251,4 +251,123 @@ int g_filename_index (const char * path)
   return last_path_sep + 1; /* This is 0 if -1 was reached, i.e. no
 			       path separators were found. */
 
+  /* FIXME when I wrote this I didn't know about strrchr; perhaps
+     return (g_filename_pointer(path) - path); would work? */
 }
+
+const char * g_filename_pointer (const gchar * path)
+{
+  char * s;
+
+  g_return_val_if_fail(path != NULL, NULL);
+  
+  s = strrchr(path, PATH_SEP);
+
+  if ( s == NULL ) return path; /* There is no directory part. */
+  else {
+    ++s; /* skip path separator */
+    return s;
+  }
+}
+
+/* Code from gdk_imlib */
+const char * g_extension_pointer (const char * path)
+{
+  char * s; 
+
+  g_return_val_if_fail(path != NULL, NULL);
+  
+  s = strrchr(path, '.');
+
+  if ( s == NULL ) return ""; /* There is no extension. */
+  else {
+    ++s;      /* pass the . */
+    return s;
+  }
+}
+
+char ** g_copy_vector (char ** vec)
+{
+  char ** new_vec;
+  int size = 0;
+
+  while ( vec[size] != NULL ) {
+    ++size;
+  }
+
+  new_vec = g_malloc( sizeof(char *) * (size + 1) );
+
+  size = 0;
+  while ( vec[size] ) {
+    new_vec[size] = g_strdup(vec[size]);
+    ++size;
+  }
+  new_vec[size] = NULL;
+
+  return new_vec;
+}
+
+char  * g_flatten_vector (const char * separator, 
+			  char ** vec)
+{
+  int len, sep_len;
+  int i;
+  char * result;
+
+  len = 0;
+  i = 0;
+  sep_len = separator ? strlen(separator) : 0;
+  while ( vec[i] != NULL ) {
+    len += strlen(vec[i]);
+    len += sep_len;
+    ++i;
+  }
+
+  result = g_malloc ( len + 1 );
+  result[0] = '\0';  /* So the initial strcat works */
+  
+  len = i - 1; /* len is now the # of vector elements */
+
+  i = 0;
+  while ( vec[i] != NULL ) {
+    strcat(result, vec[i]);
+    /* don't put separator after the last vector element */
+    if (separator && (i != len) ) strcat(result, separator);
+    ++i;
+  }
+  return result;
+}
+
+/* should be in order of decreasing frequency, since
+   the first ones are checked first. */
+
+/* FIXME add more? Too many obscure ones will just slow things down.  */
+
+static const char * image_extensions[] = {
+  "png",
+  "xpm",
+  "jpeg",
+  "jpg",
+  "gif",
+  NULL
+};
+
+int   g_is_image_filename(const char * path)
+{
+  const char * s;
+  int i = 0;
+  
+  g_return_val_if_fail(path != NULL, FALSE);
+
+  s = g_extension_pointer(path);
+
+  while (image_extensions[i]) {
+    if ( strcasecmp(image_extensions[i], s) == 0 ) {
+      return TRUE;
+    }
+    ++i;
+  }
+  return FALSE;
+}
+
+

@@ -24,7 +24,7 @@
 #define free_if_empty(x) g_free (x)
 
 char *
-gnome_is_program_in_path (char *program)
+gnome_is_program_in_path (const char *program)
 {
 	static char **paths = NULL;
 	char **p;
@@ -45,7 +45,7 @@ gnome_is_program_in_path (char *program)
 }
 	      
 GnomeDesktopEntry *
-gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
+gnome_desktop_entry_load_flags (const char *file, int clean_from_memory)
 {
 	GnomeDesktopEntry *newitem;
 	char *prefix;
@@ -132,7 +132,7 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 }
 
 GnomeDesktopEntry *
-gnome_desktop_entry_load (char *file)
+gnome_desktop_entry_load (const char *file)
 {
 	return gnome_desktop_entry_load_flags (file, 1);
 }
@@ -288,4 +288,26 @@ gnome_desktop_entry_destroy (GnomeDesktopEntry *item)
       gnome_config_clean_file (prefix);
       g_free (prefix);
       gnome_desktop_entry_free (item);
+}
+
+GnomeDesktopEntry *gnome_desktop_entry_copy (GnomeDesktopEntry * source)
+{
+  GnomeDesktopEntry * newitem;
+
+  newitem = g_new (GnomeDesktopEntry, 1);
+
+  newitem->name          = g_strdup (source->name);
+  newitem->comment       = g_strdup (source->comment);
+  newitem->exec_length   = source->exec_length;
+  newitem->exec          = g_copy_vector (source->exec);
+  newitem->tryexec       = g_strdup (source->tryexec);
+  newitem->docpath       = g_strdup (source->docpath);
+  newitem->terminal      = source->terminal;
+  newitem->type          = g_strdup (source->type);
+  newitem->geometry      = g_strdup (source->geometry);
+  newitem->multiple_args = source->multiple_args;
+  newitem->location      = g_strdup (source->location);
+  newitem->icon	         = g_strdup (source->icon);
+	
+  return newitem;
 }

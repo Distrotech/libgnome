@@ -22,15 +22,17 @@ typedef struct {
 	unsigned int multiple_args:1;
 } GnomeDesktopEntry;
 
-GnomeDesktopEntry *gnome_desktop_entry_load (char *file);
-GnomeDesktopEntry *gnome_desktop_entry_load_flags (char *file, int clean_from_memory_after_load);
+GnomeDesktopEntry *gnome_desktop_entry_load (const char *file);
+GnomeDesktopEntry *gnome_desktop_entry_load_flags (const char *file, int clean_from_memory_after_load);
 void gnome_desktop_entry_save (GnomeDesktopEntry *dentry);
 void gnome_desktop_entry_free (GnomeDesktopEntry *item);
 void gnome_desktop_entry_destroy (GnomeDesktopEntry *item);
 void gnome_desktop_entry_launch (GnomeDesktopEntry *item);
 void gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[]);
 
-char *gnome_is_program_in_path (char *progname);
+GnomeDesktopEntry *gnome_desktop_entry_copy (GnomeDesktopEntry * source);
+
+char *gnome_is_program_in_path (const char *progname);
 
 END_GNOME_DECLS
 
