@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<gconfschemafile>
+  <schemalist>
+    <schema>
+      <applyto>/desktop/gnome/applications/editor/exec</applyto>
+      <key>/schemas/desktop/gnome/applications/editor/exec</key>
+      <owner>gnome</owner>
+      <type>string</type>
+      <default>gedit</default>
+      <locale name="C">
+        <short>Editor application</short>
+        <long>Command to run as the default GNOME editor</long>
+      </locale>
+    </schema>
+    <schema>
+      <applyto>/desktop/gnome/applications/editor/accepts_lineno</applyto>
+      <key>/schemas/desktop/gnome/applications/editor/accepts_lineno</key>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Editor accepts line numbers</short>
+        <long>Whether the default text editor accepts line numbers</long>
+      </locale>
+    </schema>
+    <schema>
+      <applyto>/desktop/gnome/applications/editor/needs_term</applyto>
+      <key>/schemas/desktop/gnome/applications/editor/needs_term</key>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Editor needs terminal</short>
+        <long>Whether the default text editor needs a terminal to run</long>
+      </locale>
+    </schema>
+  </schemalist>
+</gconfschemafile>
