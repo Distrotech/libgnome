@@ -105,6 +105,7 @@ gnome_program_locate_file               (GnomeProgram    *program,
 					 gboolean         only_if_exists,
 					 GSList         **ret_locations);
 
+#define GNOME_PARAM_NONE                NULL
 #define GNOME_PARAM_MODULE_INFO         "module-info"
 #define GNOME_PARAM_MODULES             "modules"
 #define GNOME_PARAM_POPT_TABLE          "popt-table"

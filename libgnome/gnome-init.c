@@ -92,7 +92,7 @@ gnome_bonobo_module_info_get (void)
 		N_("Bonobo Support"),
 		NULL, NULL,
 		NULL, bonobo_post_args_parse,
-		NULL, NULL, NULL
+		NULL, NULL, NULL, NULL
 	};
 
 	if (module_info.requirements == NULL) {
