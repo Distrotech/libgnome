@@ -126,7 +126,7 @@ gnome_storage_fs_get_type (void)
 			"IDL:GNOME/StorageFS:1.0",
 			sizeof (GnomeStorage),
 			sizeof (GnomeStorageClass),
-			(GtkClassInitFunc) NULL,
+			(GtkClassInitFunc) gnome_storage_fs_class_init,
 			(GtkObjectInitFunc) gnome_storage_init,
 			NULL, /* reserved 1 */
 			NULL, /* reserved 2 */
