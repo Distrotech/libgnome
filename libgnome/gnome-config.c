@@ -181,8 +181,9 @@ static char *
 decode_string_and_dup (char *s)
 {
 	char *p = g_malloc (strlen (s) + 1);
+	char *q = p;
 
-	while (*s){
+	do {
 		if (*s == '\\'){
 			switch (*(++s)){
 			case 'n':
@@ -200,8 +201,8 @@ decode_string_and_dup (char *s)
 			}
 		} else
 			*p++ = *s;
-		s++;
-	}
+	} while (*s++);
+	return q;
 }
 
 static char *
@@ -219,7 +220,7 @@ escape_string_and_dup (char *s)
 	return_value = p = (char *) g_malloc (len + 1);
 	if (!return_value)
 		return 0;
-	for (;*s;s++){
+	do {
 		switch (*s){
 		case '\n':
 			*p++ = '\\';
@@ -236,9 +237,7 @@ escape_string_and_dup (char *s)
 		default:
 			*p++ = *s;
 		}
-		s++;
-	}
-	*p = 0;
+	} while (*s++);
 	return return_value;
 }
 
