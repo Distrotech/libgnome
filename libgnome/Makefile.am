@@ -79,7 +79,7 @@ EXTRA_DIST = parse-path.cP
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP
 
-libgnome_la_LDFLAGS = -version-info 34:3:2 #-rpath $(libdir)
+libgnome_la_LDFLAGS = -version-info 35:0:3 #-rpath $(libdir)
 libgnome_la_LIBADD = $(GLIB_LIBS) -lm $(DL_LIB)
 
 bin_PROGRAMS = dns-helper gnome-dump-metadata gnome-moz-remote \
