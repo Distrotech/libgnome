@@ -44,7 +44,7 @@ gnome_gconf_gtk_entry_get (GtkEntry       *entry,
 			   GConfValueType  type)
 {
 	GConfValue *retval = NULL;
-	gchar *text;
+	const char *text;
 	gint i;
 	gfloat f;
 
