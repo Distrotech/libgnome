@@ -36,10 +36,6 @@ libgnome_2_la_SOURCES = \
 	gnome-exec.c		\
 	gnome-fileconvert.c	\
 	gnome-i18n.c		\
-	gnome-magic.c		\
-	gnome-metadata.c	\
-	gnome-mime.c		\
-	gnome-mime-info.c	\
 	gnome-regex.c		\
 	gnome-remote.c		\
 	gnome-score.c		\
@@ -57,10 +53,6 @@ libgnomeinclude_HEADERS = \
 	gnome-ditem.h		\
 	gnome-exec.h		\
 	gnome-i18n.h 		\
-	gnome-magic.h		\
-	gnome-metadata.h	\
-	gnome-mime.h		\
-	gnome-mime-info.h	\
 	gnome-regex.h		\
 	gnome-remote.h		\
 	gnome-score.h		\
@@ -88,17 +80,7 @@ libgnome_2_la_LDFLAGS = $(LIBGNOME_LIBS) -version-info $(LIB_VERSION)
 libgnome_2_la_LIBADD = $(GNOMESUPPORT_LIBS)
 
 bin_PROGRAMS = \
-	gnome-dump-metadata	\
-	gnome-moz-remote	\
-	gnome-gen-mimedb
-
-gnome_dump_metadata_SOURCES = \
-	gnome-dump.c
-gnome_dump_metadata_LDADD = \
-	libgnome-$(GNOME_INTERFACE_VERSION).la	\
-	$(LIBGNOME_LIBS)			\
-	$(INTLLIBS)
-gnome_dump_metadata_LDFLAGS = $(GLIB_LIBS)
+	gnome-moz-remote
 
 gnome_moz_remote_SOURCES = gnome-moz-remote2.c vroot.h
 gnome_moz_remote_LDADD = \
@@ -111,8 +93,3 @@ gnome_moz_remote_LDADD = \
 	$(X_EXTRA_LIBS)				\
 	$(INTLLIBS)
 
-gnome_gen_mimedb_SOURCES = gnome-gen-mimedb.c
-gnome_gen_mimedb_LDADD = \
-	libgnome-$(GNOME_INTERFACE_VERSION).la	\
-	$(LIBGNOME_LIBS)			\
-	$(INTLLIBS)
