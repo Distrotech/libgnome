@@ -121,11 +121,12 @@ GType
 gnome_module_info_get_type              (void);
 
 typedef struct _GnomeModuleInfo GnomeModuleInfo;
+typedef struct _GnomeModuleRequirement GnomeModuleRequirement;
 
-typedef struct {
+struct _GnomeModuleRequirement {
     const char *required_version;
     GnomeModuleInfo *module_info;
-} GnomeModuleRequirement;
+};
 
 typedef void (*GnomeModuleInitHook) (const GnomeModuleInfo *mod_info);
 typedef void (*GnomeModuleConstructor) (GType type, guint n_construct_props,
