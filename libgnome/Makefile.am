@@ -16,7 +16,7 @@ libgnomeincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/libgnome
 INCLUDES = \
 	-I..					\
 	-I$(srcdir)/..				\
-	$(SUPPORTINCS)				\
+	$(GNOMESUPPORT_CFLAGS)			\
 	$(GLIB_CFLAGS)				\
 	$(GNOME_VFS_CFLAGS)			\
 	-DGNOMELIBDIR=\""$(libdir)"\"		\
@@ -84,7 +84,7 @@ BUILT_SOURCES = gnome-portability.h
 gnome-config.o: parse-path.cP
 
 libgnome_2_la_LDFLAGS = $(LIBGNOME_LIBS) -version-info $(LIB_VERSION)
-libgnome_2_la_LIBADD = ../support/libgnomesupport.la
+libgnome_2_la_LIBADD = $(GNOMESUPPORT_LIBS)
 
 bin_PROGRAMS = \
 	gnome-dump-metadata	\

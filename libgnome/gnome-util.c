@@ -225,45 +225,6 @@ if(!retval) retval = lastval; } \
 }
 
 /**
- * g_file_test:
- * @filename:  filename to test
- * @test:      test to perform on the file
- *
- * Description: The test should be an ORed expression of:
- * G_FILE_TEST_ISFILE to check if the pathname is a file,
- * G_FILE_TEST_ISLINK to check if the pathname is a symlink and/or
- * G_FILE_TEST_ISDIR to check if the pathname is a directory.
- * Alternatively, it can just be G_FILE_TEXT_EXISTS to simply test
- * for existance of any type of file.
- *
- * Returns: %TRUE if filename passes the specified test, if the test
- * is an ORed expression, then if it passes at least one of those tests
- */
-gboolean
-g_file_test (const char *filename, int test)
-{
-  if( (test & G_FILE_TEST_EXISTS) == G_FILE_TEST_EXISTS )
-    {
-      return (access(filename, F_OK)==0);
-    }
-  else
-    {
-      struct stat s;
-      
-      if(stat (filename, &s) != 0)
-	return FALSE;
-      /* this should test if the file is at least one of those things 
-	 specified */
-      if((!(test & G_FILE_TEST_ISFILE) || !S_ISREG(s.st_mode)) &&
-	 (!(test & G_FILE_TEST_ISLINK) || !S_ISLNK(s.st_mode)) &&
-	 (!(test & G_FILE_TEST_ISDIR) || !S_ISDIR(s.st_mode)))
-	return FALSE;
-
-      return TRUE;
-    }
-}
-
-/**
  * g_file_exists
  * @filename: pathname to test for existance.
  *

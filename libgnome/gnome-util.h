@@ -66,14 +66,6 @@ extern const char gnome_file_domain_help[];
 #define gnome_unconditional_config_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), FALSE, NULL)
 #define gnome_unconditional_help_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), FALSE, NULL)
 
-enum {
-	G_FILE_TEST_ISFILE=1<<0,
-	G_FILE_TEST_ISLINK=1<<1,
-	G_FILE_TEST_ISDIR=1<<2,
-	G_FILE_TEST_EXISTS=(1<<0)|(1<<1)|(1<<2) /*any type of file*/
-};
-
-gboolean g_file_test   (const char *filename, int test);
 gboolean g_file_exists (const char *filename);
 
 /* locate a program in $PATH, or return NULL if not found */
