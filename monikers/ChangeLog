@@ -1,3 +1,8 @@
+2001-06-16  Maciej Stachowiak  <mjs@eazel.com>
+
+	* Makefile.am: Include $(MONIKER_LIBS) in link line for test-ditem
+	so we link against bonobo-config, not bonobo-conf.
+
 2001-06-16  Martin Baulig  <baulig@suse.de>
 
 	* bonobo-config-ditem-utils.c (bonobo_config_ditem_get_subtype):
