@@ -1,3 +1,10 @@
+/*
+ *
+ * Gnome utility routines.
+ * (C)  1997, 1998 the Free Software Foundation.
+ *
+ * Author: Miguel de Icaza, 
+ */
 #include <config.h>
 #include <errno.h>
 #include <stdarg.h>
@@ -14,7 +21,7 @@ static char *
 gnome_dirrelative_file (char *base, char *sub, char *filename, int unconditional)
 {
         static char *gnomedir = NULL;
-	char *f, *t, *u;
+	char *f, *t, *u, *v;
 	
 	/* First try the env GNOMEDIR relative path */
 	if (!gnomedir)
@@ -25,12 +32,25 @@ gnome_dirrelative_file (char *base, char *sub, char *filename, int unconditional
 		u = g_copy_strings (t, "/", filename, NULL);
 		g_free (t);
 		
-		if (g_file_exists (u) || unconditional)
+		if (g_file_exists (u))
+			return u;
+
+		t = g_concat_dir_and_file (gnome_util_user_home (), sub);
+		v = g_copy_strings (t, "/", filename, NULL);
+		g_free (t);
+
+		if (g_file_exists (v)){
+			g_free (u);
+			return v;
+		}
+
+		g_free (v);
+		if (unconditional)
 			return u;
 		
 		g_free (u);
 	}
-	
+
 	/* Then try the hardcoded path */
 	f = g_concat_dir_and_file (base, filename);
 	

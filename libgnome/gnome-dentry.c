@@ -108,7 +108,7 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	GnomeDesktopEntry *newitem;
 	char *prefix;
 	char *name, *type;
-	char *exec_file, *try_file, *dot;
+	char *exec_file, *try_file;
 	char *icon_base;
 	
 	g_assert (file != NULL);
@@ -231,7 +231,8 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 		gnome_config_set_string ("DocPath", dentry->docpath);
 
 	gnome_config_set_bool ("Terminal", dentry->terminal);
-
+	gnome_config_set_bool ("MultipleArgs", dentry->multiple_args);
+	
 	if (dentry->type)
 		gnome_config_set_string ("Type", dentry->type);
 
