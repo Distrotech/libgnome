@@ -29,13 +29,11 @@ if COMPILE_GNOME_COMPAT
 libgnome10compatincludedir = $(includedir)/libgnome/compat10
 
 libgnome10compat_a_SOURCES =\
-	gnome10-compat.c \
-	gnome-popt.c
+	gnome10-compat.c
 
 libgnome10compatinclude_HEADERS =\
 	libgnome10compat.h \
-	gnome10-compat.h \
-	gnome-popt.h
+	gnome10-compat.h
 endif
 
 libgnome_la_SOURCES = \
