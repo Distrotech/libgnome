@@ -80,7 +80,6 @@ gnome_url_show (const gchar *url, GError **error)
 	char **argv;
 	char **newargv;
 	gboolean ret;
-	gchar *tmp;
 	
 	g_return_val_if_fail (url != NULL, FALSE);
 
@@ -144,21 +143,11 @@ gnome_url_show (const gchar *url, GError **error)
 	newargv = g_new0 (char *, argc + 1);
 	for (i = 0; i < argc; i++) {
 		if (strcmp (argv[i], "%s") == 0)
-			newargv[i] = g_shell_quote (url);
+			newargv[i] = g_strdup (url);
 		else
 			newargv[i] = g_strdup (argv[i]);
 	}
 	newargv[i] = NULL;
-	
-	tmp = g_strjoinv (" ", newargv);
-	g_strfreev (newargv);
-	newargv = g_new0 (char *, 4);
-	newargv[0] = gnome_util_user_shell ();
-	newargv[1] = g_strdup ("-c");
-	newargv[2] = tmp;
-	newargv[3] = NULL;
-
-	g_strfreev (argv);
 	
 	/* This can return some errors */
 	ret = g_spawn_async (NULL /* working directory */,
