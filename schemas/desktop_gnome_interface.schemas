@@ -89,5 +89,38 @@
 	<long>Length of the cursor blink cycle, in milleseconds</long>
       </locale>
     </schema>
+    <schema>
+      <applyto>/desktop/gnome/interface/gtk_theme</applyto>
+      <key>/schemas/desktop/gnome/interface/gtk_theme</key>
+      <owner>gnome</owner>
+      <type>string</type>
+      <default>Default</default>
+      <locale name="C">
+	<short>Gtk+ theme</short>
+	<long>Basename of the default theme used by gtk+.</long>
+      </locale>
+    </schema>
+    <schema>
+      <applyto>/desktop/gnome/interface/font_name</applyto>
+      <key>/schemas/desktop/gnome/interface/font_name</key>
+      <owner>gnome</owner>
+      <type>string</type>
+      <default>Sans 10</default>
+      <locale name="C">
+	<short>Default font</short>
+	<long>Name of the default font used by gtk+.</long>
+      </locale>
+    </schema>
+    <schema>
+      <applyto>/desktop/gnome/interface/use_custom_font</applyto>
+      <key>/schemas/desktop/gnome/interface/use_custom_font</key>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+	<short>Use a custom font.<short>
+	<long>Whether to use a custom font in gtk+ applications.</long>
+      </locale>
+    </schema>
   </schemalist>
 </gconfschemafile>
