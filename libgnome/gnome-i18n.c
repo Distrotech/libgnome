@@ -30,6 +30,9 @@
 
 #include "gnome-i18nP.h"
 
+/* Doing it this way since this is declared in bonobo-activation-private.h */
+extern const GList * bonobo_activation_i18n_get_language_list (const gchar *category_name);
+
 /**
  * gnome_i18n_get_language_list:
  * @category_name: Name of category to look up, e.g. %"LC_MESSAGES".

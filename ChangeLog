@@ -1,3 +1,10 @@
+2004-08-25  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-i18n.c: Fix a warning caused by a missin
+	declaration of bonobo_activation_i18n_get_language_list().
+	* libgnome/gnome-program.c: (gnome_program_init_paramv):
+	s/NULL/0 in parameter list. Closes bug #150986.
+
 =================== 2.7.91 ====================
 	
 2004-08-16  Anders Carlsson  <andersca@gnome.org>
