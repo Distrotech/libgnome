@@ -108,7 +108,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
     case 0:                 /* START PROCESS 2: child of child */
       /* pre-exec setup */
-      fcntl(comm_pipes[1], F_SETFD, 1); /* Make the FD close if
+      fcntl(comm_pipes[1], F_SETFD, FD_CLOEXEC); /* Make the FD close if
 					   executing the program succeeds */
 
       child_pid = getpid();
