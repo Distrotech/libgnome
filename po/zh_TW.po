@@ -1,12 +1,12 @@
 # traditional Chinese translation of libgnome.
-# Copyright (C) 2001-2002 Free Software Foundation, Inc.
-# Abel Cheung <maddog@linux.org.hk>, 2001-2002.
+# Copyright (C) 2001-2003 Free Software Foundation, Inc.
+# Abel Cheung <maddog@linux.org.hk>, 2001-2003.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 1.117.1\n"
-"POT-Creation-Date: 2003-01-08 09:56+0100\n"
-"PO-Revision-Date: 2002-05-28 18:50+0800\n"
+"Project-Id-Version: libgnome 2.1.90\n"
+"POT-Creation-Date: 2003-01-14 09:54+0800\n"
+"PO-Revision-Date: 2003-01-14 10:21+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: traditional Chinese <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -51,7 +51,7 @@ msgstr "按下滑鼠按鈕"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Check box toggled"
-msgstr "切換 check box 選項的狀態"
+msgstr "切換了 check box 的狀態"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Menu item activation"
@@ -59,7 +59,7 @@ msgstr "啟用選單項目"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
-msgstr "有關用戶介面的事件"
+msgstr "有關用戶界面的事件"
 
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
@@ -82,14 +82,14 @@ msgstr "找不到 GNOME_FILE_DOMAIN_HELP 區域。"
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr "無法顯示說明，因為 %s 不是目錄。請檢查軟件是否正確安裝。"
+msgstr "無法顯示說明文件，因為 %s 不是目錄。請檢查軟體是否已正確安裝。"
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr "無法在 %s 或 %s 中找出說明文件。請檢查軟件是否正確安裝。"
+msgstr "無法在 %s 或 %s 中找出說明文件。請檢查軟體是否已正確安裝。"
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -117,14 +117,14 @@ msgstr "Bonobo activation 支援"
 #: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "無法建立個人的 GNOME 設定組態目錄‘%s’：%s\n"
+msgstr "無法建立個人的 GNOME 組態目錄‘%s’：%s\n"
 
 #: libgnome/gnome-init.c:328
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
-msgstr "無法將個人 GNOME 設定組態目錄‘%s’的權限設為 0700：%s\n"
+msgstr "無法將個人 GNOME 組態目錄‘%s’的權限設為 0700：%s\n"
 
 #: libgnome/gnome-init.c:335
 #, c-format
@@ -181,7 +181,7 @@ msgstr "GnomeProgram 使用的 popt context pointer"
 
 #: libgnome/gnome-program.c:452
 msgid "Human readable name"
-msgstr "易理解的名稱"
+msgstr "容易理解的名稱"
 
 #: libgnome/gnome-program.c:453
 msgid "Human readable name of this application"
@@ -193,15 +193,15 @@ msgstr "GNOME 路徑"
 
 #: libgnome/gnome-program.c:463
 msgid "Path in which to look for installed files"
-msgstr "尋找系統檔案時搜尋的路徑"
+msgstr "尋找系統檔案時會搜尋的路徑"
 
 #: libgnome/gnome-program.c:472
 msgid "App ID"
-msgstr "程式識別碼"
+msgstr "程式代碼"
 
 #: libgnome/gnome-program.c:473
 msgid "ID string to use for this application"
-msgstr "此應用程式使用的識別碼"
+msgstr "本程式使用的代碼"
 
 #: libgnome/gnome-program.c:480
 msgid "App version"
@@ -249,7 +249,7 @@ msgstr "GNOME 程式前置路徑"
 
 #: libgnome/gnome-program.c:530
 msgid "Prefix where this application was installed"
-msgstr "安裝此程式所用的前置路徑"
+msgstr "安裝本程式所用的前置路徑"
 
 #: libgnome/gnome-program.c:538
 msgid "GNOME App Libdir"
@@ -257,7 +257,7 @@ msgstr "GNOME 程式函式庫路徑"
 
 #: libgnome/gnome-program.c:539
 msgid "Library prefix where this application was installed"
-msgstr "安裝此程式所用的函式庫路徑"
+msgstr "安裝本程式所用的函式庫路徑"
 
 #: libgnome/gnome-program.c:548
 msgid "GNOME App Datadir"
@@ -265,7 +265,7 @@ msgstr "GNOME 程式資料路徑"
 
 #: libgnome/gnome-program.c:549
 msgid "Data prefix where this application was installed"
-msgstr "安裝此程式所用的資料路徑"
+msgstr "安裝本程式所用的資料路徑"
 
 #: libgnome/gnome-program.c:558
 msgid "GNOME App Sysconfdir"
@@ -273,7 +273,7 @@ msgstr "GNOME 程式設定檔路徑"
 
 #: libgnome/gnome-program.c:559
 msgid "Configuration prefix where this application was installed"
-msgstr "安裝此程式所用的設定檔路徑"
+msgstr "安裝本程式所用的設定檔路徑"
 
 #: libgnome/gnome-program.c:568
 msgid "Create Directories"
@@ -281,7 +281,7 @@ msgstr "建立目錄"
 
 #: libgnome/gnome-program.c:569
 msgid "Create standard GNOME directories on startup"
-msgstr "啟動 GNOME 時建立 GNOME 的標準目錄"
+msgstr "啟動 GNOME 時建立標準的 GNOME 目錄"
 
 #: libgnome/gnome-program.c:578
 msgid "Enable Sound"
@@ -305,7 +305,7 @@ msgstr "求助選項"
 
 #: libgnome/gnome-program.c:1357
 msgid "Application options"
-msgstr "應用程式選項"
+msgstr "程式選項"
 
 #: libgnome/gnome-program.c:1373
 msgid "Dynamic modules to load"
@@ -313,19 +313,19 @@ msgstr "準備載入的模組"
 
 #: libgnome/gnome-program.c:1374
 msgid "MODULE1,MODULE2,..."
-msgstr "模組 1，模組 2，..."
+msgstr "模組 1、模組 2、..."
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr "額外的 Moniker 工廠"
+msgstr "額外的命名器工廠"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
-msgstr "GConf moniker"
+msgstr "GConf 命名器"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr "設定 indirect moniker"
+msgstr "設定 indirect 命名器"
 
 #: monikers/bonobo-config-bag.c:230
 msgid "Unknown type"
@@ -351,7 +351,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr ""
+msgstr "由 0 加速至最高速度所需的毫秒數目"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
@@ -360,7 +360,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
-msgstr ""
+msgstr "最高速度時每秒可移動多少像素"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
@@ -368,7 +368,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
-msgstr ""
+msgstr "加速所需的毫秒數目"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "initial delay in milliseconds"
@@ -380,66 +380,65 @@ msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
-msgstr ""
+msgstr "像素(每秒)"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
-msgstr ""
+msgstr "瀏覽器需要終端機方可運作"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:2
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
-msgstr ""
+msgstr "瀏覽器可辨認 remote 協定"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:3
 msgid "Default browser"
-msgstr ""
+msgstr "預設瀏覽器"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:4
 msgid "Default browser for all URLs"
-msgstr ""
+msgstr "所有 URL 的預設瀏覽器"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr ""
+msgstr "預設的瀏覽器是否需要終端機方可運行"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
-msgstr ""
+msgstr "預設的瀏覽器可否辨認 netscape/mozilla remote 協定"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
-msgstr ""
+msgstr "預設說明文件瀏覽器"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
 msgid "Help viewer needs terminal"
-msgstr ""
+msgstr "說明文件瀏覽器需要終端機"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
-msgstr ""
+msgstr "預設的說明文件瀏覽器能否接受 URL"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
-msgstr ""
+msgstr "預設的說明文件瀏覽器是否需要終端機方可運行"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr ""
+msgstr "在‘exec’設定鍵所定義的終端機中，執行其它程式所需的參數。"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
-msgstr ""
+msgstr "執行指令的參數"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
-#, fuzzy
 msgid "Terminal application"
-msgstr "此應用程式的版本"
+msgstr "終端機程式"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr ""
+msgstr "當啟動的程式需要終端機時選用的終端機程式"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
@@ -447,31 +446,31 @@ msgstr ""
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
-msgstr ""
+msgstr "後備視窗管理程式"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr ""
+msgstr "指定當找不到用戶指定的視窗管理程式時執行的後備視窗管理程式"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
-msgstr ""
+msgstr "工作區名稱"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
 msgid "The number of workspaces"
-msgstr ""
+msgstr "工作區數目"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
 msgid "The number of workspaces the window manager should use"
-msgstr ""
+msgstr "視窗管理程式應開啟的工作區數目"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager"
-msgstr ""
+msgstr "用戶指定的視窗管理程式"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid "Window manager to try first"
-msgstr ""
+msgstr "最先嘗試執行的視窗管理程式"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -482,72 +481,76 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
+"決定 wallpaper_filename 中指定的圖像如何顯示。可使用的值"
+"為：“none”、“wallpaper”、“centered”、“scaled”、“stretched”。"
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
-msgstr ""
+msgstr "繪畫桌面背景圖案"
 
 #: schemas/desktop_gnome_background.schemas.in.h:4
 msgid "File to use for the background image"
-msgstr ""
+msgstr "用作背景圖案的檔案"
 
 #: schemas/desktop_gnome_background.schemas.in.h:5
 msgid "Have GNOME draw the desktop background"
-msgstr ""
+msgstr "透過 GNOME 繪畫桌面背景"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
+"繪畫背景顏色的方式。可使用的值為“horizontal-gradient”、“vertical-"
+"gradient”及“solid”"
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr ""
+msgstr "指定當顯示漸層時左邊或頂部的顏色，或是顯示單色時使用的顏色。"
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
-msgstr ""
+msgstr "繪畫背景圖案時選用的透明度"
 
 #: schemas/desktop_gnome_background.schemas.in.h:9
 msgid "Picture Filename"
-msgstr ""
+msgstr "圖案檔案名稱"
 
 #: schemas/desktop_gnome_background.schemas.in.h:10
 msgid "Picture Opacity"
-msgstr ""
+msgstr "圖案透明度"
 
 #: schemas/desktop_gnome_background.schemas.in.h:11
 msgid "Picture Options"
-msgstr ""
+msgstr "圖案選項"
 
 #: schemas/desktop_gnome_background.schemas.in.h:12
 msgid "Primary Color"
-msgstr ""
+msgstr "第一種顏色"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr ""
+msgstr "當繪畫漸層時選用的右邊或底部顏色，繪畫單色時不會使用本選項。"
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
-msgstr ""
+msgstr "第二種顏色"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:1
 msgid "File Icon Theme"
-msgstr ""
+msgstr "檔案圖示主題"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons"
-msgstr ""
+msgstr "顯示檔案圖示所使用的圖示主題"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr ""
+msgstr "gtk+ 預設使用的佈景主題的名稱。"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
-msgstr ""
+msgstr "可更改捷徑鍵"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
@@ -559,16 +562,15 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:5
 msgid "Default font"
-msgstr ""
+msgstr "預設字型"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:6
 msgid "Enable Accessibility"
-msgstr ""
+msgstr "啟用輔助功能"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:7
-#, fuzzy
 msgid "Enable Animations"
-msgstr "啟用音效"
+msgstr "啟用動畫"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
@@ -576,35 +578,35 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Status Style"
-msgstr ""
+msgstr "GTK 輸入法狀態樣式"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:10
 msgid "Gtk+ Theme"
-msgstr ""
+msgstr "Gtk+ 佈景主題"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:11
 msgid "Icon Theme"
-msgstr ""
+msgstr "圖示佈景主題"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon theme to use for the panel, nautilus etc."
-msgstr ""
+msgstr "在面板、nautilus 等等中使用的圖示主題"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Length of the cursor blink cycle, in milleseconds"
-msgstr ""
+msgstr "游標閃爍的周期，以毫秒計算"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Menubar Detachable"
-msgstr ""
+msgstr "選單列可卸離視窗"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:15
 msgid "Menus Have Icons"
-msgstr ""
+msgstr "選單可出現圖示"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menus Have Tearoff"
-msgstr ""
+msgstr "選單中顯示可移離選單列的線條"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -612,43 +614,43 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
+msgstr "gtk+ 所使用的「GTK+ 輸入法狀態樣式」名稱"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the default font used by gtk+."
-msgstr ""
+msgstr "gtk+ 選用的預設字型名稱。"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Status Bar on Right"
-msgstr ""
+msgstr "狀態列在右邊"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "This specifies the size of icons displayed in toolbars"
-msgstr ""
+msgstr "指定工具列中的圖示大小"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Toolbar Detachable"
-msgstr ""
+msgstr "工具列可卸離視窗"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Toolbar Icon Size"
-msgstr ""
+msgstr "工具列圖示大小"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Toolbar Style"
-msgstr ""
+msgstr "工具列樣式"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
-msgstr ""
+msgstr "工具列樣式。有效的值為 both、both_horiz、icon 及 text"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
-msgstr ""
+msgstr "使用自選字型"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Whether Applications should have accessibility support"
-msgstr ""
+msgstr "程式應否支援輔助功能"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid ""
@@ -658,49 +660,49 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "選單項目旁邊應否顯示圖示"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Whether menus should have a tearoff"
-msgstr ""
+msgstr "應否顯示可讓選單移離選單列的線條"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr ""
+msgstr "使用者能否在顯示選單時立刻為選單項目設定捷徑鍵"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
-msgstr ""
+msgstr "游標可否閃爍"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach menubars and move them around"
-msgstr ""
+msgstr "使用者可否拆開及移動選單列"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach toolbars and move them around"
-msgstr ""
+msgstr "使用者可否拆開及移動工具列"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
-msgstr ""
+msgstr "進度列是否在右邊顯示"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr ""
+msgstr "gtk+ 程式會否使用自選字型。"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
-msgstr ""
+msgstr "應播放的響聲音效檔名稱"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr ""
+msgstr "鍵盤響聲音效檔"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are on, off, and custom."
-msgstr ""
+msgstr "可使用的值為 on、off 及 custom。"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -714,7 +716,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
 msgid "Distance before a drag is started"
-msgstr ""
+msgstr "滑鼠移動作為拖曳計算所需的長度"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
 msgid ""
@@ -724,11 +726,11 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid "Double Click Time"
-msgstr ""
+msgstr "Double Click 時間"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Drag Threshold"
-msgstr ""
+msgstr "拖曳臨界距離"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
@@ -741,15 +743,15 @@ msgstr ""
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
-msgstr ""
+msgstr "當按下及放開 Control 鍵後，加強顯示目前鼠標的位置"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Length of a double click"
-msgstr ""
+msgstr "表示 double click 的時限"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid "Locate Pointer"
-msgstr ""
+msgstr "標示鼠標位置"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid "Motion Threshold"
@@ -757,85 +759,83 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Mouse button orientation"
-msgstr ""
+msgstr "左右手滑鼠模式"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Single Click"
-msgstr ""
+msgstr "只按一下滑鼠按鈕"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Single click to open icons"
-msgstr ""
+msgstr "只按一下滑鼠按鈕就可以開啟圖示"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr ""
+msgstr "在左手滑鼠模式中，左右按鈕的功能會互換"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:1
-#, fuzzy
 msgid "Enable ESD"
-msgstr "啟用音效"
+msgstr "啟用 ESD"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:2
-#, fuzzy
 msgid "Enable sound server startup."
-msgstr "啟用音效伺服程式"
+msgstr "啟動時開啟音效伺服程式。"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Sounds for events"
-msgstr ""
+msgstr "音效代表事件"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
-msgstr ""
+msgstr "當出現不同事件時播放代表該事件的音效。"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "Default URL show handler"
-msgstr ""
+msgstr "預設處理任何 URL 的程式"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "How to handle applications URLs"
-msgstr ""
+msgstr "如何處理應用程式 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid "How to handle ghelp URLs"
-msgstr ""
+msgstr "如何處理 ghelp URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle info URLs"
-msgstr ""
+msgstr "如何處理 info URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "How to handle man URLs"
-msgstr ""
+msgstr "如何處理 man URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:6
 msgid "How to handle preferences URLs"
-msgstr ""
+msgstr "如何處理有關偏好設定的 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:7
 msgid "How to handle server-settings URLs"
-msgstr ""
+msgstr "如何處理有關伺服程式設定的 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
 msgid "How to handle start-here URLs"
-msgstr ""
+msgstr "如何處理有關「起點」的 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid "How to handle system-settings URLs"
-msgstr ""
+msgstr "如何處理有關系統設定的 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
-msgstr ""
+msgstr "如何處理有關垃圾桶的 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:11
 msgid "How to handle unknown URLs"
-msgstr ""
+msgstr "如何處理不明的 URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:12
 msgid "Run program in terminal"
-msgstr ""
+msgstr "在終端機中執行程式"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:13
 msgid ""
@@ -894,79 +894,40 @@ msgstr ""
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:23
 msgid "True if the program to handle this URL should be run in a terminal"
-msgstr ""
+msgstr "如果處理本 URL 的程式需要終端機方可運作，則設為 True"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:24
 msgid "URL handler for applications pages"
-msgstr ""
+msgstr "處理應用程式 URL 的程式"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:25
 msgid "URL handler for ghelp pages"
-msgstr ""
+msgstr "處理 ghelp URL 的程式"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:26
 msgid "URL handler for info pages"
-msgstr ""
+msgstr "處理 info URL 的程式"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:27
 msgid "URL handler for man pages"
-msgstr ""
+msgstr "處理 manpage URL 的程式"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:28
 msgid "URL handler for preferences pages"
-msgstr ""
+msgstr "處理偏好設定 URL 的程式"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:29
 msgid "URL handler for server-settings pages"
-msgstr ""
+msgstr "處理伺服程式設定 URL 的程式"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:30
 msgid "URL handler for start-here pages"
-msgstr ""
+msgstr "處理「起點」 URL 的程式"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:31
 msgid "URL handler for system-settings pages"
-msgstr ""
+msgstr "處理系統設定 URL 的程式"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:32
 msgid "URL handler for trash pages"
-msgstr ""
-
-#~ msgid ""
-#~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
-#~ "gnome-libs was compiled incorrectly."
-#~ msgstr ""
-#~ "找不到 GNOME_FILE_DOMAIN_APP_HELP 區域。這表示 gnome-libs 安裝不正確。"
-
-#~ msgid "Help document %s for %s not found"
-#~ msgstr "找不到 %2$s 的說明文件 %1$s"
-
-#~ msgid "Cannot parse: %s"
-#~ msgstr "無法分析：%s"
-
-#~ msgid "Test option."
-#~ msgstr "測試選項。"
-
-#~ msgid "The Application Name"
-#~ msgstr "應用程式名稱"
-
-#~ msgid "Can not bonobo_init"
-#~ msgstr "bonobo_init 失敗"
-
-#~ msgid "Internal error"
-#~ msgstr "內部錯誤"
-
-#~ msgid "Error parsing '%s' (empty result)"
-#~ msgstr "分析 '%s' 發生錯誤（空白的結果）"
-
-#~ msgid "Mozilla not found as '%s'"
-#~ msgstr "Mozilla 不以 '%s' 的形式存在"
-
-#~ msgid "Cannot parse handler template: %s"
-#~ msgstr "無法分析處理程式：%s"
-
-#~ msgid "Cannot execute command '%s'!"
-#~ msgstr "無法執行指令 '%s'！"
-
-#~ msgid "Command '%s' did not return an ID!"
-#~ msgstr "指令 '%s' 不傳回任何 ID！"
+msgstr "處理垃圾桶 URL 的程式"
