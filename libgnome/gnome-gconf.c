@@ -309,3 +309,106 @@ gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
 	
 }
 
+GConfValue *
+gnome_gconf_gnome_entry_get (GnomeEntry     *gnome_entry,
+			     GConfValueType  type)
+{
+	GtkWidget *entry;
+
+	g_return_val_if_fail (gnome_entry != NULL, NULL);
+	g_return_val_if_fail (GNOME_IS_ENTRY (gnome_entry), NULL);
+	
+	entry = gnome_entry_gtk_entry (gnome_entry);
+	return gnome_gconf_gtk_entry_get (GTK_ENTRY (entry), type);
+}
+
+void
+gnome_gconf_gnome_entry_set (GnomeEntry *gnome_entry,
+			     GConfValue *value)
+{
+	GtkWidget *entry;
+
+	g_return_if_fail (gnome_entry != NULL);
+	g_return_if_fail (GNOME_IS_ENTRY (gnome_entry));
+
+	entry = gnome_entry_gtk_entry (gnome_entry);
+	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
+}
+
+GConfValue *
+gnome_gconf_gnome_file_entry_get (GnomeFileEntry *file_entry,
+				  GConfValueType  type)
+{
+	GtkWidget *entry;
+
+	g_return_val_if_fail (file_entry != NULL, NULL);
+	g_return_val_if_fail (GNOME_IS_FILE_ENTRY (file_entry), NULL);
+	
+	entry = gnome_file_entry_gtk_entry (file_entry);
+	return gnome_gconf_gtk_entry_get (GTK_ENTRY (entry), type);
+}
+
+void
+gnome_gconf_gnome_file_entry_set (GnomeFileEntry *file_entry,
+				  GConfValue     *value)
+{
+	GtkWidget *entry;
+
+	g_return_if_fail (file_entry != NULL);
+	g_return_if_fail (GNOME_IS_FILE_ENTRY (file_entry));
+
+	entry = gnome_file_entry_gtk_entry (file_entry);
+	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
+}
+
+GConfValue *
+gnome_gconf_gnome_icon_entry_get (GnomeIconEntry *icon_entry,
+				  GConfValueType  type)
+{
+	GtkWidget *entry;
+
+	g_return_val_if_fail (icon_entry != NULL, NULL);
+	g_return_val_if_fail (GNOME_IS_ICON_ENTRY (icon_entry), NULL);
+	
+	entry = gnome_icon_entry_gtk_entry (icon_entry);
+	return gnome_gconf_gtk_entry_get (GTK_ENTRY (entry), type);
+}
+
+void
+gnome_gconf_gnome_icon_entry_set (GnomeIconEntry *icon_entry,
+				  GConfValue     *value)
+{
+	GtkWidget *entry;
+
+	g_return_if_fail (icon_entry != NULL);
+	g_return_if_fail (GNOME_IS_ICON_ENTRY (icon_entry));
+
+	entry = gnome_icon_entry_gtk_entry (icon_entry);
+	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
+}
+
+GConfValue *
+gnome_gconf_gnome_pixmap_entry_get (GnomePixmapEntry *pixmap_entry,
+				    GConfValueType  type)
+{
+	GtkWidget *entry;
+
+	g_return_val_if_fail (pixmap_entry != NULL, NULL);
+	g_return_val_if_fail (GNOME_IS_PIXMAP_ENTRY (pixmap_entry), NULL);
+	
+	entry = gnome_pixmap_entry_gtk_entry (pixmap_entry);
+	return gnome_gconf_gtk_entry_get (GTK_ENTRY (entry), type);
+}
+
+void
+gnome_gconf_gnome_pixmap_entry_set (GnomePixmapEntry *pixmap_entry,
+				  GConfValue     *value)
+{
+	GtkWidget *entry;
+
+	g_return_if_fail (pixmap_entry != NULL);
+	g_return_if_fail (GNOME_IS_PIXMAP_ENTRY (pixmap_entry));
+
+	entry = gnome_pixmap_entry_gtk_entry (pixmap_entry);
+	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
+}
