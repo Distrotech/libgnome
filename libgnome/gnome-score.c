@@ -19,6 +19,7 @@ gnome_score_log(gfloat score,
   int exitstatus;
   char buf[64];
   char buf2[64];
+
   pid_t childpid = fork();
 
   if(childpid == 0)
@@ -28,7 +29,7 @@ gnome_score_log(gfloat score,
       g_snprintf(buf2, sizeof(buf2), "%d", higher_to_lower_score_order);
       execlp("gnome-score-helper", "gnome-score-helper",
 	     buf, level?level:"", buf2, NULL);
-      exit(99);
+      _exit(99);
     }
 
   waitpid(childpid, &exitstatus, 0);
