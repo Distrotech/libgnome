@@ -12,6 +12,8 @@
 #include <gobject/gvaluetypes.h>
 #include <gobject/gparamspecs.h>
 
+#include <bonobo/libbonobo.h>
+
 static int foo = 0;
 
 static struct poptOption options[] = {
@@ -126,6 +128,21 @@ test_properties (GnomeProgram *program)
     g_object_set (G_OBJECT (program), "test", TRUE, NULL);
 }
 
+static void
+test_bonobo (GnomeProgram *program)
+{
+    Bonobo_ConfigDatabase db;
+    CORBA_Environment ev;
+
+    CORBA_exception_init (&ev);
+
+    db = bonobo_get_object ("gconf:test-program", "IDL:Bonobo/ConfigDatabase:1.0", &ev);
+
+    g_message (G_STRLOC ": %p", db);
+
+    CORBA_exception_free (&ev);
+}
+
 int
 main (int argc, char **argv)
 {
@@ -172,6 +189,8 @@ main (int argc, char **argv)
     test_file_locate (program);
 
     test_properties (program);
+
+    test_bonobo (program);
 
     return 0;
 }
