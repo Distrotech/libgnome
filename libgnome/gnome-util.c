@@ -148,6 +148,14 @@ gnome_unconditional_sound_file (const char *filename)
 	return (gnome_dirrelative_file (GNOMEDATADIR "/sounds", "share/sounds", filename, TRUE));
 }
 
+/**
+ * gnome_pixmap_file:
+ * @filename: pixmap filename
+ *
+ * Returns a newly allocated filename from the GNOMEDIR tree or from the
+ * GNOME installation directory for the pixmap directory ($prefix/share/pixmaps),
+ * or NULL if the file does not exist.
+ */
 char *
 gnome_pixmap_file (const char *filename)
 {
@@ -285,7 +293,13 @@ g_copy_strings (const char *first, ...)
 	va_list ap;
 	int len;
 	char *data, *result;
-	
+	static int warned = 0;
+
+	if(!warned) {
+	  g_warning("\ng_copy_strings is about to disappear. Please recompile your apps. <<----");
+	  warned = 1;
+	}
+
 	if (!first)
 		return 0;
 	
@@ -353,7 +367,7 @@ g_concat_dir_and_file (const char *dir, const char *file)
  * preferred shell.
  */
 char *
-gnome_util_user_shell ()
+gnome_util_user_shell (void)
 {
 	struct passwd *pw;
 	int i;
@@ -388,11 +402,19 @@ gnome_util_user_shell ()
  * g_filename_index:
  * @path: Pathname
  *
+ * 
  */
+#undef g_filename_index
 int
 g_filename_index (const char * path)
 {
 	int last_path_sep;
+	static int warned = 0;
+
+	if(!warned) {
+	  g_warning("\ng_filename_index is about to disappear. Please recompile your apps. <<----");
+	  warned = 1;
+	}
 	
 	g_return_val_if_fail(path != NULL, 0);
 
@@ -419,10 +441,17 @@ g_filename_index (const char * path)
 }
 
 
+#undef g_filename_pointer
 const char *
 g_filename_pointer (const gchar * path)
 {
 	char * s;
+	static int warned = 0;
+
+	if(!warned) {
+	  g_warning("\ng_filename_pointer is about to disappear. Please recompile your apps. <<----");
+	  warned = 1;
+	}
 	
 	g_return_val_if_fail (path != NULL, NULL);
 	
@@ -436,24 +465,38 @@ g_filename_pointer (const gchar * path)
 	}
 }
 
-/* Code from gdk_imlib */
+/**
+ * g_extension_pointer:
+ * @path: a filename or file path
+ *
+ * Returns a pointer to the extension part of the filename, or a
+ * pointer to the end of the string if the filename does not
+ * have an extension.
+ *
+ */
 const char *
 g_extension_pointer (const char * path)
 {
-	char * s; 
+	char * s, * t;
 	
 	g_return_val_if_fail(path != NULL, NULL);
-	
-	s = strrchr(path, '.');
+
+	t = g_basename(path);
+	s = strrchr(t, '.');
 	
 	if (s == NULL)
-		return ""; /* There is no extension. */
+		return path + strlen(path); /* There is no extension. */
 	else {
 		++s;      /* pass the . */
 		return s;
 	}
 }
 
+/**
+ * g_copy_vector:
+ *
+ * Returns a copy of a NULL-terminated string array.
+ */
 char **
 g_copy_vector (char **vec)
 {
@@ -490,10 +533,14 @@ static const char * const image_extensions[] = {
   NULL
 };
 
-/*
+
+/**
+ * g_is_image_filename:
+ * @path: Filename or file path.
+ *
  * Extra lame way of figuring if a filename is an image file
  */
-int
+gboolean
 g_is_image_filename (const char * path)
 {
 	const char * s;

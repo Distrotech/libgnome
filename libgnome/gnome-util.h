@@ -50,9 +50,11 @@ char *g_concat_dir_and_file (const char *dir, const char *file);
 /* Find out where the filename starts; note that it may actually
    be a directory, it's just the last segment of the full path. 
    Return is an index into the char array. */
-int g_filename_index       (const char * path);
+/* int g_filename_index       (const char * path); */
+#define g_filename_index(path) (g_basename(path)-(path))
 /* Pointer to the start of the filename */ 
-const char * g_filename_pointer  (const char * path);
+/* const char * g_filename_pointer  (const char * path); */
+#define g_filename_pointer g_basename
 
 /* Return pointer to the character after the last .,
    or "" if no dot. */
@@ -85,7 +87,7 @@ char ** g_copy_vector    (char ** vec);
 char *gnome_util_user_shell (void);
 
 /* Return TRUE if the filename looks like an image file */
-int   g_is_image_filename(const char * path);
+gboolean g_is_image_filename(const char * path);
 
 END_GNOME_DECLS
 

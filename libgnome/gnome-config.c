@@ -1151,6 +1151,36 @@ gnome_config_drop_all (void)
 	Base = 0;
 }
 
+/**
+ * gnome_config_get_int:
+ * @path: A gnome configuration path to an item.
+ *
+ * Retrieves & returns the value of a configuration item as an integer.
+ */
+/**
+ * gnome_config_private_get_int:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ *
+ * Retrieves & returns the value of a configuration item as an integer.
+ * The item is retrieved from the user's private configuration storage area.
+ */
+/**
+ * gnome_config_get_int_with_default:
+ * @path: A gnome configuration path to an item.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as an integer.
+ */
+/**
+ * gnome_config_private_get_int_with_default:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as an integer.
+ * The item is retrieved from the user's private configuration storage area.
+ */
 gint
 _gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
 {
@@ -1171,6 +1201,37 @@ _gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
 	return v;
 }
 
+/**
+ * gnome_config_get_float:
+ * @path: A gnome configuration path to an item.
+ *
+ * Retrieves & returns the value of a configuration item as a floating-point
+ * number.
+ */
+/**
+ * gnome_config_private_get_float:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ *
+ * Retrieves & returns the value of a configuration item as a floating-point number.
+ * The item is retrieved from the user's private configuration storage area.
+ */
+/**
+ * gnome_config_get_float_with_default:
+ * @path: A gnome configuration path to an item.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as a floating-point number.
+ */
+/**
+ * gnome_config_private_get_float_with_default:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as a floating-point number.
+ * The item is retrieved from the user's private configuration storage area.
+ */
 gdouble
 _gnome_config_get_float_with_default (const char *path, gboolean *def, gint priv)
 {
@@ -1191,6 +1252,41 @@ _gnome_config_get_float_with_default (const char *path, gboolean *def, gint priv
 	return v;
 }
 
+/**
+ * gnome_config_get_translated_string:
+ * @path: A gnome configuration path to an item.
+ *
+ * Retrieves & returns the value of a configuration item as a string
+ * appropriate for the current language. The returned value should be
+ * g_free()'d when no longer needed.
+ */
+/**
+ * gnome_config_private_get_translated_string:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ *
+ * Retrieves & returns the value of a configuration item as a string appropriate for the current language. The returned value should be
+ * g_free()'d when no longer needed.
+ * The item is retrieved from the user's private configuration storage area.
+ */
+/**
+ * gnome_config_get_translated_string_with_default:
+ * @path: A gnome configuration path to an item.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as a string appropriate for the current language. The returned value should be
+ * g_free()'d when no longer needed.
+ */
+/**
+ * gnome_config_private_get_translated_string_with_default:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as a string appropriate for the current language. The returned value should be
+ * g_free()'d when no longer needed.
+ * The item is retrieved from the user's private configuration storage area.
+ */
 char *
 _gnome_config_get_translated_string_with_default (const char *path,
 						  gboolean *def,
@@ -1247,6 +1343,45 @@ _gnome_config_get_translated_string_with_default (const char *path,
 	return value;
 }
 
+/**
+ * gnome_config_get_string:
+ * @path: A gnome configuration path to an item.
+ *
+ * Retrieves & returns the value of a configuration item as a string.
+ * The returned value should be
+ * g_free()'d when no longer needed.
+ */
+/**
+ * gnome_config_private_get_string:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ *
+ * Retrieves & returns the value of a configuration item as a
+ * string. The returned value should be g_free()'d when no longer
+ * needed.  The item is retrieved from the user's private
+ * configuration storage area.
+ */
+/**
+ * gnome_config_get_string_with_default:
+ * @path: A gnome configuration path to an item.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as a string.
+ * The returned value should be g_free()'d when no longer needed.
+ *
+ */
+/**
+ * gnome_config_private_get_string_with_default:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as a string.
+ * The returned value should be g_free()'d when no longer needed.  The
+ * item is retrieved from the user's private configuration storage
+ * area.
+ *
+ */
 char *
 _gnome_config_get_string_with_default (const char *path, gboolean *def,
 				       gint priv)
@@ -1264,6 +1399,36 @@ _gnome_config_get_string_with_default (const char *path, gboolean *def,
 	return ret;
 }
 
+/**
+ * gnome_config_get_bool:
+ * @path: A gnome configuration path to an item.
+ *
+ * Retrieves & returns the value of a configuration item as a boolean.
+ */
+/**
+ * gnome_config_private_get_bool:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ *
+ * Retrieves & returns the value of a configuration item as a boolean.
+ * The item is retrieved from the user's private configuration storage area.
+ */
+/**
+ * gnome_config_get_bool_with_default:
+ * @path: A gnome configuration path to an item.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as a boolean.
+ */
+/**
+ * gnome_config_private_get_bool_with_default:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as a boolean.
+ * The item is retrieved from the user's private configuration storage area.
+ */
 gboolean
 _gnome_config_get_bool_with_default (const char *path, gboolean *def,
 				     gint priv)
@@ -1294,6 +1459,13 @@ _gnome_config_get_bool_with_default (const char *path, gboolean *def,
 	return v;
 }
 
+/**
+ * gnome_config_make_vector:
+ * @rr: The stringified vector to decode into 'argcp' and 'argvp'
+ * @argcp: Returns the number of elements in 'argvp'
+ * @argvp: Returns the array of strings found in 'rr'.
+ *
+ */
 void
 gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
 {
@@ -1345,6 +1517,45 @@ gnome_config_make_vector (const char *rr, int *argcp, char ***argvp)
 	} while (*p);
 }
 
+/**
+ * gnome_config_get_vector:
+ * @path: A gnome configuration path to an item.
+ *
+ * Retrieves & returns the value of a configuration item as a string array.
+ * The returned value should be
+ * g_free()'d when no longer needed.
+ */
+/**
+ * gnome_config_private_get_vector:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ *
+ * Retrieves & returns the value of a configuration item as a
+ * string. The returned value should be g_free()'d when no longer
+ * needed.  The item is retrieved from the user's private
+ * configuration storage area.
+ */
+/**
+ * gnome_config_get_vector_with_default:
+ * @path: A gnome configuration path to an item.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as a string array.
+ * The returned value should be g_free()'d when no longer needed.
+ *
+ */
+/**
+ * gnome_config_private_get_vector_with_default:
+ * @path: A gnome configuration path to an item in the user-private namespace.
+ * @def: A pointer to a flag that will be set if the default value for the item
+ * is returned.
+ *
+ * Retrieves & returns the value of a configuration item as a string array.
+ * The returned value should be g_free()'d when no longer needed.  The
+ * item is retrieved from the user's private configuration storage
+ * area.
+ *
+ */
 void
 _gnome_config_get_vector_with_default (const char *path, int *argcp,
 				       char ***argvp, gboolean *def, gint priv)
@@ -1515,6 +1726,15 @@ gnome_config_assemble_vector (int argc, const char *const argv [])
 	return value;
 }
 
+/**
+ * gnome_config_set_vector:
+ * @path: a gnome configuration path to a key
+ * @argc: the number of elements in @argv
+ * @argv: a string array holding the data to store.
+ *
+ * Stores vector @argv in the file/section/key defined by
+ * @path.
+ */
 void
 _gnome_config_set_vector (const char *path, int argc,
 			  const char *const argv[],
@@ -1552,7 +1772,7 @@ gnome_config_push_prefix (const char *path)
 /**
  * gnome_config_pop_prefix:
  *
- * Call this routine to stop using the configuration prefix
+ * Call this routine to remove the current configuration prefix from the stack.
  */
 void
 gnome_config_pop_prefix (void)
@@ -1565,12 +1785,22 @@ gnome_config_pop_prefix (void)
 	}
 }
 
+/**
+ * gnome_config_set_set_handler
+ *
+ * Internal routine
+ */
 void
 gnome_config_set_set_handler(void (*func)(void *),void *data)
 {
 	g_warning("gnome_config_set_set_handler is obscolete and has no replacement");
 }
 
+/**
+ * gnome_config_set_sync_handler
+ *
+ * Internal routine
+ */
 void
 gnome_config_set_sync_handler(void (*func)(void *),void *data)
 {

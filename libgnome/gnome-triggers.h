@@ -25,9 +25,8 @@ struct _GnomeTrigger {
 };
 typedef struct _GnomeTrigger GnomeTrigger;
 
-/* Must be called before doing any triggers stuff */
 void gnome_triggers_init(void);
-gint gnome_triggers_readfile(gchar *filename);
+gint gnome_triggers_readfile(const char *filename);
 
 /* The optional arguments in some of these functions are just
    a list of strings that help us know
@@ -45,8 +44,6 @@ void gnome_triggers_do(const char *msg, const char *level, ...);
 
 void gnome_triggers_vdo(const char *msg, const char *level,
 			const char *supinfo[]);
-
-void gnome_triggers_destroy(void);
 
 END_GNOME_DECLS
 

@@ -157,9 +157,25 @@ gnome_triggers_read_path(const char *config_path)
 
   return 0;
 }
-
+/**
+ * gnome_triggers_readfile:
+ * @infilename: A file listing triggers to install in the currently
+ * running program.
+ *
+ * The file should be of the format:
+ *
+ *    level section type params
+ *
+ * Where 'level' indicates the message severity at which this trigger
+ * should be activated, 'section' is a colon-separated list indicating
+ * which part of the "message classification tree" this trigger will
+ * be activated for, 'type' is either "command" (run the command
+ * specified in 'params') or 'play' (play the esd sound sample named
+ * 'params').
+ *
+ */
 gint
-gnome_triggers_readfile(gchar *infilename)
+gnome_triggers_readfile(const char *infilename)
 {
   GnomeTrigger* nt;
   char aline[512];
@@ -180,7 +196,7 @@ gnome_triggers_readfile(gchar *infilename)
     if(aline[0] == '\0' || aline[0] == '#')
       continue;
 
-    parts = g_strsplit(aline, " ", -1);
+    parts = g_strsplit(aline, " ", 4);
     if(!parts || !parts[0] || !parts[1] || !parts[2] || !parts[3]) {
       g_strfreev(parts);
       g_warning("Invalid triggers line \'%s\'\n", aline);
@@ -214,6 +230,14 @@ gnome_triggers_readfile(gchar *infilename)
 }
 #endif
 
+/**
+ * gnome_triggers_add_trigger:
+ * @nt: Information on the new trigger to be added.
+ * @...: the 'section' to add the trigger under (see gnome_triggers_readfile())
+ *
+ * Similar to gnome_triggers_readfile(), but gets the trigger information
+ * from the file 'nt' structure and the varargs, instead of from a file.
+ */
 void gnome_triggers_add_trigger(GnomeTrigger* nt, ...)
 {
   va_list l;
@@ -280,6 +304,14 @@ gnome_triggerlist_new(char *nodename)
   return retval;
 }
 
+/**
+ * gnome_triggers_vadd_trigger:
+ * @nt: Information on the new trigger to be added.
+ * @supinfo: the 'section' to add the trigger under (see gnome_triggers_readfile())
+ *
+ * Similar to gnome_triggers_readfile(), but gets the trigger information
+ * from the file 'nt' structure and 'supinfo', instead of from a file.
+ */
 void gnome_triggers_vadd_trigger(GnomeTrigger* nt,
 				 char *supinfo[])
 {
@@ -320,6 +352,14 @@ void gnome_triggers_vadd_trigger(GnomeTrigger* nt,
   } /* end if */
 }
 
+/**
+ * gnome_triggers_do:
+ * @msg: The human-readable message describing the event. (Can be NULL).
+ * @level: The level of severity of the event, or NULL.
+ * @...: The classification of the event.
+ *
+ * Notifies GNOME about an event happening, so GNOME can do cool things.
+ */
 void
 gnome_triggers_do(const char *msg, const char *level, ...)
 {
@@ -378,6 +418,14 @@ gnome_triggers_play_sound(const char *sndname)
   /* If there's no esound, this is just a no-op */
 }
 
+/**
+ * gnome_triggers_do:
+ * @msg: The human-readable message describing the event. (Can be NULL).
+ * @level: The level of severity of the event, or NULL.
+ * @supinfo: The classification of the event (NULL terminated array).
+ *
+ * Notifies GNOME about an event happening, so GNOME can do cool things.
+ */
 void
 gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 {
@@ -430,7 +478,7 @@ gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
     }
 }
 
-void
+static void
 gnome_triggers_destroy(void)
 {
   g_return_if_fail(gnome_triggerlist_topnode != NULL);
