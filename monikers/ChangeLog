@@ -1,3 +1,13 @@
+2001-06-16  Martin Baulig  <baulig@suse.de>
+
+	* bonobo-config-ditem-utils.c (bonobo_config_ditem_get_subtype):
+	New function.
+
+	* bonobo-config-ditem.c (real_get_type): New static function; this
+	uses bonobo_config_ditem_get_subtype() if we're accessing structure
+	fields.
+	(dir_lookup_entry, dir_lookup_subdir): Implemented `create'.
+
 2001-06-10  Cody Russell  <bratsche@gnome.org>
 
 	* desktop-item-boot.c, test-ditem.c: Add #include <stdlib.h> for exit().
