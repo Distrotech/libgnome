@@ -42,6 +42,7 @@ char *alloca ();
 # endif
 #endif
 
+#include <string.h>
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
@@ -56,12 +57,6 @@ char *alloca ();
 #include "gnome-util.h"
 #include "gnome-config.h"
 
-#ifdef HAVE_STRNDUP
-#include <string.h>
-#else
-/* Like strdup, but only copy N chars.  */
-extern char *strndup (const char *s, size_t n);
-#endif
 
 #if !defined getc_unlocked && !defined HAVE_GETC_UNLOCKED
 # define getc_unlocked(fp) getc (fp)
