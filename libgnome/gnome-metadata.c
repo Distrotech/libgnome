@@ -448,10 +448,10 @@ struct app_ent
 
 /* This hash table is used to map regular expressions onto key/value
    lists.  */
-static GHashTable *app_rx_hash = NULL;
+static GHashTable *app_rx_hash;
 
 /* This hash table is used to map type names onto key/value lists.  */
-static GHashTable *app_type_hash = NULL;
+static GHashTable *app_type_hash;
 
 /* Add a new key/value pair to a hash table.  */
 static void
@@ -660,7 +660,8 @@ maybe_scan_app_dir (void)
 
 	if (scandir (gnome_metadata_app_dir, &list,
 		     (gpointer)scan_app_file, alphasort) != -1)
-		free (list);
+		if  (list)
+			free (list);
 }
 
 /* This is set if we've already found a suitable regex match.  It lets
@@ -750,9 +751,6 @@ app_get_by_type (const char *type, const char *key, int *size, char **buffer)
 	GSList *list;
 
 	maybe_scan_app_dir ();
-
-	if(! app_type_hash)
-		return GNOME_METADATA_NOT_FOUND;
 
 	ent = (struct app_ent *) g_hash_table_lookup (app_type_hash, type);
 	if (! ent)
@@ -881,15 +879,8 @@ try_regexs (const char *file, const char *key, int *size, char **buffer)
 static char *
 run_file (const char *file)
 {
-#if 0
-  /* This is what the code will look like once the magic functions are
-     ready.  */
-	extern const char *gnome_mime_type_from_magic (const char *); /* FIXME */
-	const char *type = gnome_mime_type_from_magic (file);
-	return type ? strdup (type) : NULL;
-#else
+	/* FIXME: implement.  */
 	return NULL;
-#endif
 }
 
 /* Do all the work for _get and _get_fast.  */
@@ -898,7 +889,6 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 	    int is_fast)
 {
 	int type_size, r;
-	int is_type = 0;
 	char *type;
 
 	/* Phase 1: see if data exists in database.  */
@@ -917,16 +907,12 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 
 	if (! strcmp (name, "type")) {
 		/* We're trying to fetch the type, so there's no point
-		   trying the same requests again below.  */
-
-		type = gnome_mime_type_or_default ((char *) file, NULL);
-		if (! type) {
-			if (is_fast)
-				return GNOME_METADATA_NOT_FOUND;
-			type = run_file (file);
-			if (! type)
-				return GNOME_METADATA_NOT_FOUND;
-		}
+		   trying the same requests again.  */
+		if (is_fast)
+			return GNOME_METADATA_NOT_FOUND;
+		type = run_file (file);
+		if (! type)
+			return GNOME_METADATA_NOT_FOUND;
 		*size = strlen (type) + 1;
 		*buffer = type;
 		return 0;
@@ -943,15 +929,15 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 		goto got_type;
 	}
 
-	/* Try application-installed information.  */
-	if (! try_app_regexs (file, "type", &type_size, &type)) {
+	/* See if `mime.types' has the answer.  */
+	type = gnome_mime_type_or_default ((char *)file, NULL);
+	if (type) {
+		type = strdup (type);
 		goto got_type;
 	}
 
-	/* See if `mime.types' has the answer.  */
-	type = gnome_mime_type_or_default ((char *) file, NULL);
-	if (type) {
-		type = strdup (type);
+	/* Try application-installed information.  */
+	if (! try_app_regexs (file, "type", &type_size, &type)) {
 		goto got_type;
 	}
 
