@@ -25,26 +25,6 @@
 #include <sys/mman.h>
 #include "gnome-mime.h"
 
-typedef enum {
-  T_END /* end of array */, T_BYTE, T_SHORT, T_LONG, T_STR, T_DATE, 
-  T_BESHORT, T_BELONG, T_BEDATE,
-  T_LESHORT, T_LELONG, T_LEDATE
-} GnomeMagicType;
-
-typedef struct _GnomeMagicEntry {
-  guint32 mask;
-  GnomeMagicType type;
-  guint16 offset, level;
-
-  char test[48];
-  guchar test_len;
-  enum { CHECK_EQUAL, CHECK_LT, CHECK_GT, CHECK_AND, CHECK_XOR,
-	 CHECK_ANY } comptype;
-  guint32 compval;
-
-  char mimetype[48];
-} GnomeMagicEntry;
-
 #ifndef GEN_MIMEDB
 /****** misc lame parsing routines *******/
 static guchar

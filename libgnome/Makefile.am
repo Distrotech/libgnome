@@ -52,6 +52,7 @@ libgnomeinclude_HEADERS = \
 	gnome-help.h		\
 	gnome-history.h		\
 	gnome-i18n.h 		\
+	gnome-magic.h		\
 	gnome-metadata.h	\
 	gnome-mime.h		\
 	gnome-mime-info.h	\
