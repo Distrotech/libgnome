@@ -44,8 +44,9 @@ extern struct poptOption gconf_options[];
  * @subkey: key part below the gnome desktop settings directory
  *
  * Description:  Gets the full key name for a GNOME desktop specific
- * setting.  That is something that affects the whole desktop.  This
- * space should only be used by the gnome library and core applications.
+ * setting for a specific application. Those keys are used to store application-specific
+ * configuration, for example the history of a GnomeEntry. This
+ * config space should only be used by libraries.
  *
  * Returns:  A newly allocated string
  **/
@@ -55,7 +56,7 @@ gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
         gchar *dir;
         gchar *key;
 
-        dir = g_strconcat("/desktop/gnome",
+        dir = g_strconcat("/apps/gnome-settings/",
                           gnome_program_get_app_id (gnome_program_get()),
                           NULL);
 
