@@ -5,8 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.4.x\n"
-"POT-Creation-Date: 2003-07-04 10:50+0200\n"
-"PO-Revision-Date: 2003-05-05 21:44+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-07-06 16:36+0200\n"
+"PO-Revision-Date: 2003-07-06 16:36+0200\n"
 "Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -369,7 +370,7 @@ msgstr "Unbekannte Fehlerkennung: %d"
 #: libgnome/gnome-open.c:35
 #, c-format
 msgid "Error showing url: %s\n"
-msgstr ""
+msgstr "Fehler beim Anzeigen einer URL: %s\n"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -454,10 +455,14 @@ msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
 msgstr ""
+"Liste der beim Anmelden am GNOME-Desktop zu startende Anwendungen, die "
+"unterstützende Technologie bereitstellen"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr ""
+"Beim Anmelden zu startende Anwendungen, die unterstützende Technologie "
+"bereitstellen"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -569,8 +574,8 @@ msgid ""
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
 "Legt fest, wie das von »wallpaper_filename« festgelegte Bild dargestellt "
-"werden soll. Mögliche Werte sind »none« (Keins), »wallpaper« (Tapete), "
-"»centered« (zentriert), »scaled« (skaliert) und »streched« (gestreckt)."
+"werden soll. Zulässige Werte: »none« (Keins), »wallpaper« (Tapete), "
+"»centered« (zentriert), »scaled« (skaliert) sowie »streched« (gestreckt)."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -589,9 +594,9 @@ msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"Wie die Hintergrundfarbe schattiert werden soll. Mögliche Werte sind "
+"Wie die Hintergrundfarbe schattiert werden soll. Zulässige Werte: "
 "»horizontal-gradient« (Horizontaler Verlauf), »vertical-"
-"gradient« (Vertikaler Verlauf) und »solid« (Einfarbig)"
+"gradient« (Vertikaler Verlauf) sowie »solid« (Einfarbig)"
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -639,7 +644,7 @@ msgstr "Zum Anzeigen von Dateisymbole verwendetes Thema"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr "Basisname des von GTK+ verwendeten Vorgabe-Themas"
+msgstr "Basisname des von GTK+ verwendeten Vorgabethemas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
@@ -655,7 +660,7 @@ msgstr "Cursor-Blinkfrequenz"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:5
 msgid "Default font"
-msgstr "Vorgabe-Schrift"
+msgstr "Vorgabeschrift"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:6
 msgid "Enable Accessibility"
@@ -712,7 +717,7 @@ msgstr "Name des von GTK+ verwendeten Statusstils der Eingabemethode."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the default font used by gtk+."
-msgstr "Name der von GTK+ verwendeten Vorgabe-Schrift."
+msgstr "Name der von GTK+ verwendeten Vorgabeschrift."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Status Bar on Right"
@@ -735,13 +740,12 @@ msgid "Toolbar Style"
 msgstr "Werkzeugleisten-Stil"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-#, fuzzy
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
 msgstr ""
-"Der Stil der Werkzeugleiste. Mögliche Werte sind »both«, »both_horiz«, "
-"»icon« und »text«"
+"Der Stil der Werkzeugleiste. Zulässige Werte: »both«, »both_horiz«, »icon« "
+"sowie »text«"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
@@ -780,7 +784,6 @@ msgid "Whether the user can detach toolbars and move them around"
 msgstr "Soll der Benutzer Werkzeugleisten abnehmen und verschieben können?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
-#, fuzzy
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -808,11 +811,10 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Benutzerdefinierter Dateiname für Tastaturglocke"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-#, fuzzy
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr ""
-"Mögliche Werte sind »on« (aktivieren), »off« (deaktivieren) und "
-"»custom« (benutzerdefiniert)"
+"Zulässige Werte: »on« (aktivieren), »off« (deaktivieren) sowie "
+"»custom« (benutzerdefiniert)."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -824,28 +826,28 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
-msgstr "Cursor-Schrift"
+msgstr "Zeigerschrift"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
 msgid "Cursor size"
-msgstr "Cursor-Größe"
+msgstr "Zeigergröße"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
 msgid "Cursor theme"
-msgstr "Cursor-Thema"
+msgstr "Zeigerthema"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later. This value is only propagated to the X server at the "
 "start of each session, so changing it mid-session won't have an effect until "
 "the next time you log in."
 msgstr ""
-"Name des Cursor-Themas. Wird nur durch XServer wie XFree86 4.3 unterstützt. "
-"Dieser Wert wird dem X-Server lediglich am Anfang jeder Sitzung mitgeteilt, "
-"daher werden Änderungen an diesem Schlüssel erst ausgewertet, wenn Sie sich "
-"das nächste Mal anmelden."
+"Name des Zeigerthemas. Dieses wird ausschließlich von X-Servern verwendet, "
+"die Xcursor unterstützen, wie z.B. XFree86 4.3 und neuer.Dieser Wert wird "
+"dem X-Server lediglich zu Beginn jeder Sitzung mitgeteilt, daher werden "
+"Änderungen an diesem Schlüssel erst ausgewertet, wenn Sie sich das nächste "
+"Mal anmelden."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -868,16 +870,15 @@ msgid "Drag Threshold"
 msgstr "Ziehen Schwellwert"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-#, fuzzy
 msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"Schriftname des Cursors. Falls dieser Schlüssel nicht gesetzt wird, wird die "
-"Vorgabe-Schrift verwendet. Dieser Wert wird dem X-Server lediglich am Anfang "
-"jeder Sitzung mitgeteilt, daher werden Änderungen an diesem Schlüssel erst "
-"ausgewertet, wenn Sie sich das nächste Mal anmelden."
+"Schriftname des Zeigers. Falls dieser Schlüssel nicht gesetzt wurde, wird "
+"die Vorgabeschrift verwendet. Dieser Wert wird dem X-Server lediglich am "
+"Anfang jeder Sitzung mitgeteilt, daher werden Änderungen an diesem Schlüssel "
+"erst ausgewertet, wenn Sie sich das nächste Mal anmelden."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -917,9 +918,9 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
-"Größe des Cursors vorgegen durch cursor_theme. Dieser Wert wird dem X-Server "
-"lediglich am Anfang jeder Sitzung mitgeteilt, daher werden Änderungen an "
-"diesem Schlüssel erst ausgewertet, wenn Sie sich das nächste Mal anmelden."
+"Größe des von »cursor_theme« angegebenen Zeigers. Dieser Wert wird dem X-"
+"Server lediglich am Anfang jeder Sitzung mitgeteilt, daher werden Änderungen "
+"an diesem Schlüssel erst ausgewertet, wenn Sie sich das nächste Mal anmelden."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -945,60 +946,59 @@ msgstr "Sollen bei Benutzer-Ereignissen Klänge abgespielt werden?"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
-msgstr ""
+msgstr "Alle externen Miniatur-Vorschaubilderzeuger deaktivieren"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
+"Sollen alle externen Programme zum Erzeugen von Miniatur-Vorschaubildern "
+"deaktiviert werden, unabhängig davon, ob sie anderweitig aktiviert wurden?"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
-msgstr ""
+msgstr "Verschieben von Pausen zulassen"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:2
 msgid "Break time"
-msgstr ""
+msgstr "Pausenzeit"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:3
 msgid "Number of minutes of typing time before break mode starts."
-msgstr ""
+msgstr "Anzahl der Eingabeminuten bevor der Pausenmodus beginnt."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:4
 msgid "Number of minutes that the typing break should last."
-msgstr ""
+msgstr "Anzahl der Minuten, die die Eingabepause dauern soll."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:5
 msgid "Type time"
-msgstr ""
+msgstr "Tippdauer"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
-msgstr ""
+msgstr "Soll die Tastatur gesperrt werden?"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr ""
+msgstr "Soll die Tastatur gesperrt werden?"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr ""
+msgstr "Soll der Benutzer die Eingabepause verschieben können?"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-#, fuzzy
 msgid "How to handle ghelp URLs"
-msgstr "Wie trash-URLs gehandhabt werden"
+msgstr "Wie ghelp-URLs gehandhabt werden"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-#, fuzzy
 msgid "How to handle info URLs"
-msgstr "Wie trash-URLs gehandhabt werden"
+msgstr "Wie info-URLs gehandhabt werden"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-#, fuzzy
 msgid "How to handle man URLs"
-msgstr "Wie trash-URLs gehandhabt werden"
+msgstr "Wie man-URLs gehandhabt werden"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
@@ -1009,21 +1009,19 @@ msgid "Run program in terminal"
 msgstr "Programm im Terminal ausführen"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-#, fuzzy
 msgid ""
 "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr "Soll das unter trash/command angegebene Programm Müll-URLs handhaben?"
+msgstr ""
+"Soll das unter programs/ghelp angegebene Programm ghelp-URLs handhaben?"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-#, fuzzy
 msgid ""
 "Set to true to have a program specified in programs/info handle info URLs"
-msgstr "Soll das unter trash/command angegebene Programm Müll-URLs handhaben?"
+msgstr "Soll das unter programs/info angegebene Programm info-URLs handhaben?"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-#, fuzzy
 msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr "Soll das unter trash/command angegebene Programm Müll-URLs handhaben?"
+msgstr "Soll das unter programs/man angegebene Programm man-URLs handhaben?"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
@@ -1036,19 +1034,16 @@ msgstr ""
 "Soll das Programm, das diese URL handhabt, im Terminal ausgeführt werden?"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:11
-#, fuzzy
 msgid "URL handler for ghelp pages"
-msgstr "URL-Handler für Müll-Seiten"
+msgstr "URL-Handler für ghelp-Seiten"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:12
-#, fuzzy
 msgid "URL handler for info pages"
-msgstr "URL-Handler für Müll-Seiten"
+msgstr "URL-Handler für info-Seiten"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-#, fuzzy
 msgid "URL handler for man pages"
-msgstr "URL-Handler für Müll-Seiten"
+msgstr "URL-Handler für man-Seiten"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
