@@ -1,12 +1,12 @@
 # traditional Chinese translation of libgnome.
-# Copyright (C) 2001-2003 Free Software Foundation, Inc.
+# Copyright (C) 2001, 02, 03 Free Software Foundation, Inc.
 # Abel Cheung <maddog@linux.org.hk>, 2001-2003.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.2.0\n"
-"POT-Creation-Date: 2003-01-23 12:10+0100\n"
-"PO-Revision-Date: 2003-01-22 21:21+0800\n"
+"POT-Creation-Date: 2003-04-29 20:13+0800\n"
+"PO-Revision-Date: 2003-04-29 18:28+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgstr "找不到說明文件 %s/%s"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "某語系的別稱太多，這有可能表示出現循環"
+msgstr "嘗試決定某地區設定的真正名稱時不斷出現別稱，這有可能表示出現循環"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -177,7 +177,7 @@ msgstr "Popt Context"
 
 #: libgnome/gnome-program.c:444
 msgid "The popt context pointer that GnomeProgram is using"
-msgstr "GnomeProgram 使用的 popt context pointer"
+msgstr "GnomeProgram 使用的 popt context 指標"
 
 #: libgnome/gnome-program.c:452
 msgid "Human readable name"
@@ -193,15 +193,15 @@ msgstr "GNOME 路徑"
 
 #: libgnome/gnome-program.c:463
 msgid "Path in which to look for installed files"
-msgstr "尋找系統檔案時會搜尋的路徑"
+msgstr "搜尋系統檔案時會搜尋的路徑"
 
 #: libgnome/gnome-program.c:472
 msgid "App ID"
-msgstr "程式代碼"
+msgstr "程式識別碼"
 
 #: libgnome/gnome-program.c:473
 msgid "ID string to use for this application"
-msgstr "本程式使用的代碼"
+msgstr "本程式使用的識別碼"
 
 #: libgnome/gnome-program.c:480
 msgid "App version"
@@ -352,7 +352,7 @@ msgstr "除非按下某鍵持續超過 @delay 毫秒，否則作廢。"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "由 0 加速至最高速度所需的毫秒數目"
+msgstr "從靜止加速至最高速度所需的毫秒數目"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
@@ -575,7 +575,7 @@ msgstr "啟用動畫"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
-msgstr "GTK 輸入法預編輯區域樣式"
+msgstr "GTK 輸入法 Preedit 區域樣式"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Status Style"
@@ -738,7 +738,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
-msgstr "滑鼠移動作為拖曳計算所需的長度"
+msgstr "滑鼠移動指定的距離才會作為拖曳計算"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
@@ -748,11 +748,11 @@ msgstr "鼠標加速前所需的移動距離 (像素)。-1 表示使用系統預
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
-msgstr "Double Click 時間"
+msgstr "滑鼠雙擊時間"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
-msgstr "拖曳臨界距離"
+msgstr "拖曳距離界限"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
@@ -772,7 +772,7 @@ msgstr "當按下及放開 Control 鍵後，加強顯示目前鼠標的位置"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
-msgstr "表示 double click 的時限"
+msgstr "分辨滑鼠雙擊及分別按兩下的時限"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -780,7 +780,7 @@ msgstr "標示鼠標位置"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
-msgstr "臨界移動距離"
+msgstr "移動距離界限"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
@@ -788,11 +788,11 @@ msgstr "左右手滑鼠模式"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
-msgstr "只按一下滑鼠按鈕"
+msgstr "點擊滑鼠按鈕"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
-msgstr "只按一下滑鼠按鈕就可以開啟圖示"
+msgstr "只點擊一下滑鼠按鈕就可以開啟圖示"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid ""
