@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2002-12-23 06:09+0100\n"
+"POT-Creation-Date: 2003-01-08 09:56+0100\n"
 "PO-Revision-Date: 2002-12-24 17:50+0200\n"
 "Last-Translator: Artis Trops <hornet@navigators.lv>\n"
 "Language-Team: Latvian <ll10nt@os.lv>\n"
@@ -77,17 +77,23 @@ msgstr "Nav iespējams atrast GNOME_FILE_DOMAIN_APP_HEL domēnu"
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Neatrodu GNOME_FILE_DOMAIN_HELP domēnu."
 
-#: libgnome/gnome-help.c:185
-#: libgnome/gnome-help.c:200
+#: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
 #, c-format
-msgid "Unable to show help as %s is not a directory.  Please check your installation."
-msgstr "Nevaru parādīt palīdzību, jo %s nav direktorija. Lūdzu pārbaudi savu intalēciju."
+msgid ""
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
+msgstr ""
+"Nevaru parādīt palīdzību, jo %s nav direktorija. Lūdzu pārbaudi savu "
+"intalēciju."
 
-#: libgnome/gnome-help.c:209
-#: libgnome/gnome-help.c:225
+#: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, c-format
-msgid "Unable to find the help files in either %s or %s.  Please check your installation"
-msgstr "Nevarēju atrast palīdzības failus ne iekš %s ne %s.  Lūdzu pārbaudi savu instalāciju"
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
+msgstr ""
+"Nevarēju atrast palīdzības failus ne iekš %s ne %s.  Lūdzu pārbaudi savu "
+"instalāciju"
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -112,33 +118,24 @@ msgstr "Bonobo Atbalsts"
 msgid "Bonobo activation Support"
 msgstr "Bonobo aktivēšanas atbalsts"
 
-#: libgnome/gnome-init.c:305
-#: libgnome/gnome-init.c:319
+#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
-msgid ""
-"Could not create per-user gnome configuration directory `%s': %s\n"
-""
-msgstr ""
-"Nevar izveidot lietotāja gnome konfiguraacijas direktoriju `%s': %s\n"
-""
+msgid "Could not create per-user gnome configuration directory `%s': %s\n"
+msgstr "Nevar izveidot lietotāja gnome konfiguraacijas direktoriju `%s': %s\n"
 
 #: libgnome/gnome-init.c:328
 #, c-format
 msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
-""
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
 msgstr ""
-"Nevarēja uzstādīt 0700 režīmu privātajām lietotāju gnome konfigurācijas direktorijai `%s': %s\n"
-""
+"Nevarēja uzstādīt 0700 režīmu privātajām lietotāju gnome konfigurācijas "
+"direktorijai `%s': %s\n"
 
 #: libgnome/gnome-init.c:335
 #, c-format
-msgid ""
-"Could not create gnome accelerators directory `%s': %s\n"
-""
-msgstr ""
-"Nevarēja izveidot gnome akseleratoru direktoriju `%s': %s\n"
-""
+msgid "Could not create gnome accelerators directory `%s': %s\n"
+msgstr "Nevarēja izveidot gnome akseleratoru direktoriju `%s': %s\n"
 
 #: libgnome/gnome-init.c:391
 msgid "Disable sound server usage"
@@ -354,16 +351,22 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Deaktivizēt, kad divi taustiņi tiek nospiesti vienlaicīgi."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "Nepieņemt taustiņa nospiešanu, ka vien nav turēta nospiesta @delay milisekundes"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr ""
+"Nepieņemt taustiņa nospiešanu, ka vien nav turēta nospiesta @delay "
+"milisekundes"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Cik daudz milisekundes prasīs, lai no 0 sasniegtu maksimālo ātrumu"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "Cik daudz milisekundes gaidīt pirms peles pārvietošanas taustiņi sāk darboties"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
+msgstr ""
+"Cik daudz milisekundes gaidīt pirms peles pārvietošanas taustiņi sāk "
+"darboties"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -371,7 +374,9 @@ msgstr "Cik daudz pikseļus sekundē pārvietoties maksimālajā ātrumā"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "Ignorēt vairākkārtēju _tā paša_ taustiņa nospiešanu @delay milisekunžu robežās"
+msgstr ""
+"Ignorēt vairākkārtēju _tā paša_ taustiņa nospiešanu @delay milisekunžu "
+"robežās"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -428,11 +433,15 @@ msgstr "Vai noklusētais palīdzības pārlūks akceptē URLus"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
-msgstr "Vai noklusētajam palīdzības pārlūkam nepieciešams terminālis, lai darbotos"
+msgstr ""
+"Vai noklusētajam palīdzības pārlūkam nepieciešams terminālis, lai darbotos"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Lietotie argumenti, izpildot programmas terminālī, definētā ar 'exec' atslēgu."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"Lietotie argumenti, izpildot programmas terminālī, definētā ar 'exec' "
+"atslēgu."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -444,7 +453,9 @@ msgstr "Termināļa aplikācija"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr "Termināļa programma, kuru lietot, kad sāknēju palikācijas, kam tāda nepieciešama"
+msgstr ""
+"Termināļa programma, kuru lietot, kad sāknēju palikācijas, kam tāda "
+"nepieciešama"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
@@ -456,7 +467,9 @@ msgstr "Atkāpšanās logu pārvaldnieks"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr "Atkāpšanās logu pārvaldnieks, ja lietotāja logu pārvaldnieks nevar tikt atrasts"
+msgstr ""
+"Atkāpšanās logu pārvaldnieks, ja lietotāja logu pārvaldnieks nevar tikt "
+"atrasts"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -483,8 +496,13 @@ msgid "Color Shading Type"
 msgstr "Krāsas Ēnošanas Tips"
 
 #: schemas/desktop_gnome_background.schemas.in.h:2
-msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr "Nosaka to, kā attēls, kas iestatīts ar wallpaper_filename, tiek attēlots. Iespējamās vērtības ir \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+msgid ""
+"Determines how the image set by wallpaper_filename is rendered. Possible "
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+msgstr ""
+"Nosaka to, kā attēls, kas iestatīts ar wallpaper_filename, tiek attēlots. "
+"Iespējamās vērtības ir \"none\", \"wallpaper\", \"centered\", \"scaled\", "
+"\"stretched\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -499,8 +517,12 @@ msgid "Have GNOME draw the desktop background"
 msgstr "Kā GNOME zēmē darbvirsmas fonu"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
-msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
-msgstr "Kā ēnot darbvirsmas krāsu. Iespējamās vērtības ir \"horizontal-gradient\", \"vertical-gradient\", un \"solid\""
+msgid ""
+"How to shade the background color. Possible values are \"horizontal-gradient"
+"\", \"vertical-gradient\", and \"solid\""
+msgstr ""
+"Kā ēnot darbvirsmas krāsu. Iespējamās vērtības ir \"horizontal-gradient\", "
+"\"vertical-gradient\", un \"solid\""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -528,7 +550,8 @@ msgstr "Primārā Krāsa"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "Labā vai Apakšas krāsa, kad zīmē pārejas, netiek lietota viendabīgai krāsai."
+msgstr ""
+"Labā vai Apakšas krāsa, kad zīmē pārejas, netiek lietota viendabīgai krāsai."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -651,8 +674,12 @@ msgid "Whether Applications should have accessibility support"
 msgstr "Vai Aplikācijās nepieciešams pieejamības atbalsts"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
-msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
-msgstr "Vai būtu jāattēlo animācijas. Piezīme: Šī ir globāla atslēga, tā izmaina logu pārvaldnieka, paneļa u.c. uzvedību"
+msgid ""
+"Whether animations should be displayed. Note: This is a global key, it "
+"changes the behaviour of the window manager, the panel etc."
+msgstr ""
+"Vai būtu jāattēlo animācijas. Piezīme: Šī ir globāla atslēga, tā izmaina "
+"logu pārvaldnieka, paneļa u.c. uzvedību"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
@@ -663,8 +690,12 @@ msgid "Whether menus should have a tearoff"
 msgstr "Vai izvēlnēm būtu jābūt pārceļamām"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid "Whether the User can dynamically type a new accelerator when a menu is popped up"
-msgstr "Vai Lietotājs var dinamiski ierakstīt jaunu paātrinātāju, kad izvēlne ir uznirusi"
+msgid ""
+"Whether the User can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"Vai Lietotājs var dinamiski ierakstīt jaunu paātrinātāju, kad izvēlne ir "
+"uznirusi"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
@@ -699,8 +730,11 @@ msgid "possible values are on, off, and custom."
 msgstr "iespējamās vērtības ir on, off, un custom."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
-msgid "Acceleration multiplier for mouse motion. A value of -1 is the system default."
-msgstr "Paātrinātāja reizinātājs peles kustībai. Vērtība -1 ir sistēmas noklusējums."
+msgid ""
+"Acceleration multiplier for mouse motion. A value of -1 is the system "
+"default."
+msgstr ""
+"Paātrinātāja reizinātājs peles kustībai. Vērtība -1 ir sistēmas noklusējums."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -711,8 +745,12 @@ msgid "Distance before a drag is started"
 msgstr "Distance pirms sāk vilkšanu"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
-msgid "Distance in pixels the pointer must move before accelerated mouse motion is activated. A value of -1 is the system default."
-msgstr "Distance pikseļos, kas kursoram ir jānoiet, pirms paātrinātā peles kustība tiek aktivizēta. Vērtība -1 ir sistēmas noklusējums."
+msgid ""
+"Distance in pixels the pointer must move before accelerated mouse motion is "
+"activated. A value of -1 is the system default."
+msgstr ""
+"Distance pikseļos, kas kursoram ir jānoiet, pirms paātrinātā peles kustība "
+"tiek aktivizēta. Vērtība -1 ir sistēmas noklusējums."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid "Double Click Time"
@@ -723,12 +761,22 @@ msgid "Drag Threshold"
 msgstr "Vilkšanas Slieksnis"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
-msgid "Font name of the cursor. If unset set, the default font is used. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in."
-msgstr "Kursora fonta nosaukums. Ja nieiestatīts, tiek lietots noklusētais fonts. Šī vērtība tiek piespēlēta X serverim tikai sāknējot katru sesiju, tāpēc, mainot to sesijas vidū, nedos panākumus līdz nākamai reizei, kad jūs pieteiksieties."
+msgid ""
+"Font name of the cursor. If unset set, the default font is used. This value "
+"is only propagated to the X server start of each session, so changing it mid-"
+"session won't have an effect until the next time you log in."
+msgstr ""
+"Kursora fonta nosaukums. Ja nieiestatīts, tiek lietots noklusētais fonts. Šī "
+"vērtība tiek piespēlēta X serverim tikai sāknējot katru sesiju, tāpēc, "
+"mainot to sesijas vidū, nedos panākumus līdz nākamai reizei, kad jūs "
+"pieteiksieties."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
-msgid "Highlights the current location of the pointer when the Control key is pressed and released"
-msgstr "Izgaismo kursora lokāciju, kad Kontroles taustiņš tiek piespiests un atlaists"
+msgid ""
+"Highlights the current location of the pointer when the Control key is "
+"pressed and released"
+msgstr ""
+"Izgaismo kursora lokāciju, kad Kontroles taustiņš tiek piespiests un atlaists"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Length of a double click"
@@ -823,48 +871,84 @@ msgid "Run program in terminal"
 msgstr "Palais programmu terminālī"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-msgid "Set to true to have a program specified in applications/command handle applications URLs"
-msgstr "Iestatiet uz true, lai liktu programmai, norādītai iekš applications/command, apieties ar aplikāciju URLiem"
+msgid ""
+"Set to true to have a program specified in applications/command handle "
+"applications URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš applications/"
+"command, apieties ar aplikāciju URLiem"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
-msgid "Set to true to have a program specified in preferences/command handle preferences URLs"
-msgstr "Iestatiet uz true, lai liktu programmai, norādītai iekš preferences/command, apieties ar preferenču URLiem"
+msgid ""
+"Set to true to have a program specified in preferences/command handle "
+"preferences URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš preferences/command, "
+"apieties ar preferenču URLiem"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr "Iestatiet uz true, lai liktu programmai, norādītai iekš programms/ghelp, apieties ar ghelp URLiem"
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš programms/ghelp, "
+"apieties ar ghelp URLiem"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid "Set to true to have a program specified in programs/info handle info URLs"
-msgstr "Iestatiet uz true, lai liktu programmai, norādītai iekš programms/info, apieties ar info URLiem"
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš programms/info, "
+"apieties ar info URLiem"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:17
 msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr "Iestatiet uz true, lai liktu programmai, norādītai iekš programms/man, apieties ar man URLiem"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš programms/man, "
+"apieties ar man URLiem"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:18
-msgid "Set to true to have a program specified in programs/unknown handle unknown URLs"
-msgstr "Iestatiet uz true, lai liktu programmai, norādītai iekš programms/unknown, apieties ar nezināmiem URLiem"
+msgid ""
+"Set to true to have a program specified in programs/unknown handle unknown "
+"URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš programms/unknown, "
+"apieties ar nezināmiem URLiem"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:19
-msgid "Set to true to have a program specified in server-settings/command handle server-settings URLs"
-msgstr "Iestatiet uz true, lai liktu programmai, norādītai iekš server-settings/command, apieties ar servera-uzstādījumu URLiem"
+msgid ""
+"Set to true to have a program specified in server-settings/command handle "
+"server-settings URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš server-settings/"
+"command, apieties ar servera-uzstādījumu URLiem"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:20
-msgid "Set to true to have a program specified in start-here/command handle start-here URLs"
-msgstr "Iestatiet uz true, lai liktu programmai, norādītai iekš start-here/command, apieties ar sākt-šeit URLiem"
+msgid ""
+"Set to true to have a program specified in start-here/command handle start-"
+"here URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš start-here/command, "
+"apieties ar sākt-šeit URLiem"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:21
-msgid "Set to true to have a program specified in system-settings/command handle system-settings URLs"
-msgstr "Iestatiet uz true, lai liktu programmai, norādītai iekš system-settings/command, apieties ar sistēmas-uzstadījumu URLiem"
+msgid ""
+"Set to true to have a program specified in system-settings/command handle "
+"system-settings URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš system-settings/"
+"command, apieties ar sistēmas-uzstadījumu URLiem"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:22
-msgid "Set to true to have a program specified in trash/command handle trash URLs"
-msgstr "Iestatiet uz true, lai liktu programmai, norādītai iekš trash/command, apieties ar atkritumkastes URLiem"
+msgid ""
+"Set to true to have a program specified in trash/command handle trash URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš trash/command, "
+"apieties ar atkritumkastes URLiem"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:23
 msgid "True if the program to handle this URL should be run in a terminal"
-msgstr "True, ja programmai, lai apietos ar URL, nepieciešams palaisties terminālī"
+msgstr ""
+"True, ja programmai, lai apietos ar URL, nepieciešams palaisties terminālī"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:24
 msgid "URL handler for applications pages"
@@ -901,4 +985,3 @@ msgstr "URL noteicējs sistēmas-uzstādījumu lapām"
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:32
 msgid "URL handler for trash pages"
 msgstr "URL noteicējs atkritumkastes lapām"
-
