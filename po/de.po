@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.0\n"
-"POT-Creation-Date: 2002-05-20 11:53+0200\n"
+"POT-Creation-Date: 2002-05-27 16:29+0200\n"
 "PO-Revision-Date: 2002-05-01 23:25+0200\n"
 "Last-Translator: Benjamin Greiner <benjamin.greiner@gmx.net>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -77,38 +77,39 @@ msgstr "GNOME-Bibliothek"
 msgid "GNOME GConf Support"
 msgstr "GNOME-GConf-Unterstützung"
 
-#: libgnome/gnome-help.c:148
+#: libgnome/gnome-help.c:166
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "GNOME_FILE_DOMAIN_APP_HELP kann nicht gefunden werden"
 
-#: libgnome/gnome-help.c:162
-msgid ""
-"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
-"libs was compiled incorrectly."
-msgstr ""
-"GNOME_FILE_DOMAIN_HELP kann nicht gefunden werden. Dies bedeutet, dass "
-"libgnome falsch kompiliert wurde."
+#: libgnome/gnome-help.c:179
+#, fuzzy
+msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
+msgstr "GNOME_FILE_DOMAIN_APP_HELP kann nicht gefunden werden"
 
-#: libgnome/gnome-help.c:173
-#, c-format
+#: libgnome/gnome-help.c:192 libgnome/gnome-help.c:207
+#, fuzzy, c-format
 msgid ""
-"Unable to show help as file %s is not a directory.  This implies an "
-"incorrect installation."
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
 msgstr ""
 "Hilfe kann nicht gezeigt werden, da %s kein Verzeichnis ist. Dies deutet auf "
 "eine defekte Installation von GNOME hin."
 
-#: libgnome/gnome-help.c:197
-#, c-format
-msgid "Help document %s for %s not found"
-msgstr "Hilfedokument %s für %s wurde nicht gefunden"
+#: libgnome/gnome-help.c:216 libgnome/gnome-help.c:232
+#, fuzzy, c-format
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
+msgstr ""
+"Hilfe kann nicht gezeigt werden, da %s kein Verzeichnis ist. Dies deutet auf "
+"eine defekte Installation von GNOME hin."
 
-#: libgnome/gnome-help.c:268
+#: libgnome/gnome-help.c:309
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "Dokumentenkennung %s konnte nicht im Hilfepfad gefunden werden"
 
-#: libgnome/gnome-help.c:289
+#: libgnome/gnome-help.c:330
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "Hilfedokument %s/%s wurde nicht gefunden"
@@ -350,3 +351,13 @@ msgstr "Beim Aktivieren eines Menüeintrags"
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
 msgstr "Ereignisse bei der Benutzung der Oberfläche"
+
+#~ msgid ""
+#~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
+#~ "gnome-libs was compiled incorrectly."
+#~ msgstr ""
+#~ "GNOME_FILE_DOMAIN_HELP kann nicht gefunden werden. Dies bedeutet, dass "
+#~ "libgnome falsch kompiliert wurde."
+
+#~ msgid "Help document %s for %s not found"
+#~ msgstr "Hilfedokument %s für %s wurde nicht gefunden"

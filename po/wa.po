@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome2 1.104.0\n"
-"POT-Creation-Date: 2002-05-20 11:53+0200\n"
+"POT-Creation-Date: 2002-05-27 16:29+0200\n"
 "PO-Revision-Date: 2002-05-04 14:41MET\n"
 "Last-Translator: Pablo Saratxaga <pablo@mandrakesoft.com>\n"
 "Language-Team: Walon <linux-wa@chanae.alphanet.ch>\n"
@@ -80,38 +80,39 @@ msgstr "Livreye di GNOME"
 msgid "GNOME GConf Support"
 msgstr "Sopoirt di Gnome GConf"
 
-#: libgnome/gnome-help.c:148
+#: libgnome/gnome-help.c:166
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Dji n' a savou trover li dominne GNOME_FILE_DOMAIN_APP_HELP"
 
-#: libgnome/gnome-help.c:162
-msgid ""
-"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
-"libs was compiled incorrectly."
-msgstr ""
-"Dji n' a savou trover li dominne GNOME_FILE_DOMAIN_HELP.  Çoula vout dire ki "
-"gnome-libs n' a nén stî copilé comufåt."
+#: libgnome/gnome-help.c:179
+#, fuzzy
+msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
+msgstr "Dji n' a savou trover li dominne GNOME_FILE_DOMAIN_APP_HELP"
 
-#: libgnome/gnome-help.c:173
-#, c-format
+#: libgnome/gnome-help.c:192 libgnome/gnome-help.c:207
+#, fuzzy, c-format
 msgid ""
-"Unable to show help as file %s is not a directory.  This implies an "
-"incorrect installation."
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
 msgstr ""
 "Dji n' sai mostrer l' aidance, ca l' fitchî %s n' est nén on ridant.  Çoula "
 "vout dire ki l' astalaedje n' a nén stî fwait comufåt."
 
-#: libgnome/gnome-help.c:197
-#, c-format
-msgid "Help document %s for %s not found"
-msgstr "Li documint d' aidance %s po %s n' a nén stî trové."
+#: libgnome/gnome-help.c:216 libgnome/gnome-help.c:232
+#, fuzzy, c-format
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
+msgstr ""
+"Dji n' sai mostrer l' aidance, ca l' fitchî %s n' est nén on ridant.  Çoula "
+"vout dire ki l' astalaedje n' a nén stî fwait comufåt."
 
-#: libgnome/gnome-help.c:268
+#: libgnome/gnome-help.c:309
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "Dji n' sai trover li doc_id %s el tchimin di l' aidance"
 
-#: libgnome/gnome-help.c:289
+#: libgnome/gnome-help.c:330
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "Li documint d' aidance %s/%s n' a nén stî trové."
@@ -350,3 +351,13 @@ msgstr ""
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
 msgstr "Evenmints di l' eterface avou l' uzeu"
+
+#~ msgid ""
+#~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
+#~ "gnome-libs was compiled incorrectly."
+#~ msgstr ""
+#~ "Dji n' a savou trover li dominne GNOME_FILE_DOMAIN_HELP.  Çoula vout dire "
+#~ "ki gnome-libs n' a nén stî copilé comufåt."
+
+#~ msgid "Help document %s for %s not found"
+#~ msgstr "Li documint d' aidance %s po %s n' a nén stî trové."
