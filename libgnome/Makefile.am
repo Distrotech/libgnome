@@ -4,6 +4,7 @@
 # Targets
 #
 lib_LTLIBRARIES = libgnome.la
+lib_LIBRARIES = libgnome10compat.a
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
@@ -21,6 +22,10 @@ INCLUDES = -I.. -I$(srcdir)/.. $(SUPPORTINCS) \
 	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\" \
 	-DVERSION=\""$(VERSION)"\" \
 	-DG_LOG_DOMAIN=\"Gnome\"
+
+libgnome10compat_a_SOURCES =\
+	gnomelib-init.c		\
+	gnome10-compat.c
 
 libgnome_la_SOURCES = \
 	gnome-config.c		\
@@ -42,7 +47,6 @@ libgnome_la_SOURCES = \
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-paper.c		\
-	gnomelib-init.c		\
 	gnomelib-init2.c
 
 libgnomeinclude_HEADERS = \
@@ -67,7 +71,6 @@ libgnomeinclude_HEADERS = \
 	gnome-util.h   		\
 	gnome-paper.h		\
 	libgnome.h		\
-	gnomelib-init.h		\
 	gnomelib-init2.h	\
 	gnome-portability.h
 
