@@ -1,3 +1,6 @@
+#ifndef __GNOME_HELP_H__
+#define __GNOME_HELP_H__ 1
+
 #include <glib.h>
 #include "gnome-defs.h"
 
@@ -24,3 +27,5 @@ void gnome_help_display(void *ignore, GnomeHelpMenuEntry *ref);
 void gnome_help_goto(void *ignore, gchar *file);
 
 END_GNOME_DECLS
+
+#endif /* __GNOME_HELP_H__ */
