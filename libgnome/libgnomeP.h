@@ -21,7 +21,6 @@
 #define LIBGNOMEP_H
 
 #include "libgnome/gnome-defs.h"
-#include "libgnome/gnome-unused.h"
 #include "libgnome/gnome-config.h"
 #include "libgnome/gnome-dentry.h"
 #include "libgnome/gnome-dl.h"

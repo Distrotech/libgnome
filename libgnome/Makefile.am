@@ -48,7 +48,6 @@ libgnome_la_SOURCES = \
 
 libgnomeinclude_HEADERS = \
         gnome-config.h 		\
-	gnome-unused.h		\
 	gnome-defs.h   		\
 	gnome-fileconvert.h	\
 	gnome-hook.h   		\
