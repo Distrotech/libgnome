@@ -44,6 +44,7 @@ fs_read (GnomeStream *stream, long count,
 	int v;
 	
 	*buffer = GNOME_Stream_iobuf__alloc ();
+	CORBA_sequence_set_release (*buffer, TRUE);
 	data = CORBA_sequence_CORBA_octet_allocbuf (count);
 
 	do {
