@@ -44,7 +44,12 @@ libmoniker_gnome_std_la_SOURCES = \
 	bonobo-storage-fs.h		\
 	bonobo-storage-fs.c		\
 	bonobo-moniker-extender-file.c	\
-	bonobo-moniker-file.c
+	bonobo-moniker-file.c		\
+	bonobo-stream-vfs.h		\
+	bonobo-stream-vfs.c		\
+	bonobo-storage-vfs.h		\
+	bonobo-storage-vfs.c		\
+	bonobo-moniker-vfs.c
 
 libmoniker_gnome_std_la_LIBADD = \
 	../libgnome/libgnome-2.la \

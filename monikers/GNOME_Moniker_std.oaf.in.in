@@ -33,4 +33,16 @@
 	</oaf_attribute>
 </oaf_server>
 
+<oaf_server iid="OAFIID:GNOME_Moniker_VFS" type="factory"
+	location="OAFIID:GNOME_Moniker_std_Factory">
+	<oaf_attribute name="repo_ids" type="stringv">
+		<item value="IDL:Bonobo/Moniker:1.0"/>
+		<item value="IDL:Bonobo/Unknown:1.0"/>
+	</oaf_attribute>
+	<oaf_attribute name="name" type="string" _value="generic Gnome VFS moniker"/>
+	<oaf_attribute name="bonobo:moniker" type="stringv">
+		<item value="vfs:"/>
+	</oaf_attribute>
+</oaf_server>
+
 </oaf_info>

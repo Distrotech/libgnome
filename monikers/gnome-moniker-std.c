@@ -16,6 +16,11 @@ bonobo_std_moniker_factory (BonoboGenericFactory *this,
 		return BONOBO_OBJECT (bonobo_moniker_simple_new (
 			"file:", bonobo_moniker_file_resolve));
 
+	else if (!strcmp (object_id, "OAFIID:GNOME_Moniker_VFS"))
+
+		return BONOBO_OBJECT (bonobo_moniker_simple_new (
+			"vfs:", bonobo_moniker_vfs_resolve));
+
 	else if (!strcmp (object_id, "OAFIID:GNOME_MonikerExtender_file"))
 		
 		return BONOBO_OBJECT (bonobo_moniker_extender_new (

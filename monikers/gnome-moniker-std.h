@@ -9,6 +9,11 @@ Bonobo_Unknown bonobo_moniker_file_resolve    (BonoboMoniker               *moni
 					       const CORBA_char            *requested_interface,
 					       CORBA_Environment           *ev);
 
+Bonobo_Unknown bonobo_moniker_vfs_resolve     (BonoboMoniker               *moniker,
+					       const Bonobo_ResolveOptions *options,
+					       const CORBA_char            *requested_interface,
+					       CORBA_Environment           *ev);
+
 Bonobo_Unknown bonobo_file_extender_resolve   (BonoboMonikerExtender *extender,
 					       const Bonobo_Moniker   m,
 					       const Bonobo_ResolveOptions *options,

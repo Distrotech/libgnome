@@ -1,5 +1,15 @@
 2001-07-10  Michael Meeks  <michael@ximian.com>
 
+	* bonobo-moniker-vfs.c: add.
+
+	* bonobo-stream-vfs.c: port to GObject / BonoboObject.
+
+	* bonobo-storage-vfs.c: ditto.
+
+	* GNOME_Moniker_std.oaf.in.in: register the vfs moniker.
+
+2001-07-10  Michael Meeks  <michael@ximian.com>
+
 	* bonobo-storage-fs.c (fs_open_storage),
 	(fs_open_stream): CORBA_Object_duplicate the return
 	values.
