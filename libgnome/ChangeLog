@@ -3,6 +3,13 @@
 	* gnome-selector.c (GNOME_TYPE_TRISTATE): New enum type.
 	(PROP_WANT_BROWSE_BUTTON): Use the new tristate enum.
 	(PROP_WANT_CLEAR_BUTTON, PROP_WANT_DEFAULT_BUTTON): Likewise.
+	(PROP_WANT_ENTRY_WIDGET): New tristate property.
+	(PROP_WANT_SELECTOR_WIDGET): New tristate property.
+	(PROP_WANT_BROWSE_DIALOG): New tristate property.
+	(PROP_WANT_DEFAULT_BEHAVIOUR): Removed.
+	(PROP_USE_DEFAULT_ENTRY_WIDGET): Removed.
+	(PROP_USE_DEFAULT_SELECTOR_WIDGET): Removed.
+	(PROP_USE_DEFAULT_BROWSE_DIALOG): Removed.
 
 Mon May 21 00:43:48 2001  George Lebl <jirka@5z.com>
 
