@@ -55,7 +55,7 @@ locate_help_file (const char *path, const char *doc_name)
 			continue;
 
 		for (i = 0; exts[i] != NULL; i++) {
-			char * full = g_strconcat (path, lang, "/",
+			char * full = g_strconcat (path, "/", lang, "/",
 						   doc_name, exts[i], NULL);
 			if (g_file_test (full, G_FILE_TEST_EXISTS)) {
 				return full;
