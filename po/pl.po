@@ -1,7 +1,7 @@
 # Copyright (C) 2001-2003 Free Software Foundation, Inc.
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Aktualną wersję tego pliku możesz odnaleźć w repozytorium cvs.gnome.pl
-# (:pserver:anonymous@cvs.gnome.pl:/home/cvs, puste hasło)
+# (:pserver:anonymous@cvs.gnome.pl:/gnomepl, puste hasło)
 # Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
 # pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas na adres:
 # translators@gnome.pl
@@ -9,14 +9,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2004-02-03 10:27+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-06 10:22+0100\n"
 "PO-Revision-Date: 2003-07-12 21:32+0100\n"
 "Last-Translator: Gnome PL Team <translators@gnome.pl>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -796,6 +796,57 @@ msgstr "Określa, czy pasek stanu powinien być wyświetlany z prawej strony"
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Określa, czy aplikacje gtk+ powinny używać czcionek użytkownika."
 
+#: schemas/desktop_gnome_lockdown.schemas.in.h:1
+msgid "Disable command line"
+msgstr "Wyłączenie wiersza poleceń"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable print setup"
+msgstr "Wyłączenie ustawień drukarki"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:3
+msgid "Disable printing"
+msgstr "Wyłączenie drukowania"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:4
+msgid "Disable saving files to disk"
+msgstr "Wyłączenie zapisu plików na dysk"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:5
+msgid ""
+"Prevent the user form accessing the terminal or specifying a command line to "
+"be executed. For example, this would disable access to the panel's \"Run "
+"Application\" dialog."
+msgstr ""
+"Blokuje użytkownikowi dostęp do terminala lub podania polecenia do "
+"uruchomienia.Na przykład, zablokuje dostęp do okna panelu \"Uruchom program"
+"\"."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all application's \"Print Setup\" dialogs."
+msgstr ""
+"Blokuje użytkownikowi możliwość modyfikacji ustawień drukowania. Na "
+"przykład, zablokuje dostęp we wszystkich programach do okna \"Ustawienia "
+"drukowania\"."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:7
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all application's \"Print\" dialogs."
+msgstr ""
+"Blokuje użytkownikowi możliwość drukowania. Na przykład, zablokuje dostęp we "
+"wszystkich programach do okna \"Wydrukuj\"."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:8
+msgid ""
+"Prevent the user from saving files to disk. For example, this would disable "
+"access to all application's \"Save as\" dialogs."
+msgstr ""
+"Blokuje użytkownikowi możliwość zapisu plików na dysk. Na przykład, "
+"zablokuje dostęp we wszystkich programach do okna \"Zapisz jako\"."
+
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
 msgstr "Nazwa pliku z dźwiękiem odtwarzanego dzwonka"
@@ -1010,8 +1061,6 @@ msgstr "Określa, czy ekran przerwy pisania może być odroczony."
 #~ "Określa, czy program wyszczególniony w kluczu command ma obsługiwać "
 #~ "adresy URL typu https"
 
-# tu i w kilku następnych ktoś się chyba z nazwą 
-# klucza machnął, bo powinien być nazwa/command 
 #~ msgid ""
 #~ "Set to true to have a program specified in programs/ghelp handle ghelp "
 #~ "URLs"
