@@ -60,6 +60,8 @@ struct _GnomeProgramPrivate {
     gchar *prop_app_datadir;
     gboolean prop_create_directories;
 
+    gchar **gnome_path;
+
     /* valid-while: APP_UNINIT < state < APP_POSTINIT_DONE */
     GPtrArray *modules;
 
@@ -89,6 +91,7 @@ enum {
     PROP_APP_ID,
     PROP_APP_VERSION,
     PROP_HUMAN_READABLE_NAME,
+    PROP_GNOME_PATH,
     PROP_APP_PREFIX,
     PROP_APP_LIBDIR,
     PROP_APP_DATADIR,
@@ -152,6 +155,15 @@ gnome_program_set_property (GObject *object, guint param_id,
     case PROP_HUMAN_READABLE_NAME:
 	program->_priv->prop_human_readable_name = g_value_dup_string (value);
 	break;
+    case PROP_GNOME_PATH:
+	if (program->_priv->gnome_path) {
+	    g_strfreev (program->_priv->gnome_path);
+	    program->_priv->gnome_path = NULL;
+	}
+	if (g_value_get_string (value))
+	    program->_priv->gnome_path = g_strsplit
+		(g_value_get_string (value), ":", -1);
+	break;
     case PROP_APP_PREFIX:
 	program->_priv->prop_app_prefix = g_value_dup_string (value);
 	break;
@@ -193,6 +205,12 @@ gnome_program_get_property (GObject *object, guint param_id, GValue *value,
 	break;
     case PROP_HUMAN_READABLE_NAME:
 	g_value_set_string (value, program->_priv->prop_human_readable_name);
+	break;
+    case PROP_GNOME_PATH:
+	if (program->_priv->gnome_path)
+	    g_value_set_string (value, g_strjoinv (":", program->_priv->gnome_path));
+	else
+	    g_value_set_string (value, NULL);
 	break;
     case PROP_APP_PREFIX:
 	g_value_set_string (value, program->_priv->prop_app_prefix);
@@ -251,6 +269,14 @@ gnome_program_class_init (GnomeProgramClass *class)
 	 PROP_HUMAN_READABLE_NAME,
 	 g_param_spec_string (GNOME_PARAM_HUMAN_READABLE_NAME, NULL, NULL,
 			      NULL,
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
+			       G_PARAM_CONSTRUCT_ONLY)));
+
+    g_object_class_install_property
+	(object_class,
+	 PROP_GNOME_PATH,
+	 g_param_spec_string (GNOME_PARAM_GNOME_PATH, NULL, NULL,
+			      g_getenv ("GNOME2_PATH"),
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
 
@@ -449,6 +475,130 @@ gnome_program_get_human_readable_name (GnomeProgram *program)
     g_return_val_if_fail (program->_priv->state >= APP_PREINIT_DONE, NULL);
 
     return program->_priv->prop_human_readable_name;
+}
+
+/**
+ * gnome_program_locate_file:
+ * @domain: A domain (see GnomeFileDomain in gnome-program.h).
+ * @filename: A file name or path inside the 'domain' to find.
+ * @only_if_exists: Only return a full pathname if the specified file
+ *                  actually exists
+ * @ret_locations: If this is not NULL, a list of all the possible locations
+ *                 of the file will be returned.
+ *
+ * This function finds the full path to a file located in the specified
+ * "domain". A domain is a name for a collection of related files.
+ * For example, common domains are "libdir", "pixmap", and "config".
+ *
+ * The ret_locations list and its contents should be freed by the caller.
+ *
+ * Returns: The full path to the file (if it exists or only_if_exists is
+ *          FALSE) or NULL.
+ */
+gchar *
+gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
+			   const gchar *file_name, gboolean only_if_exists,
+			   GSList **ret_locations)
+{
+    gchar *prefix_rel = NULL, *attr_name = NULL, *attr_rel = NULL;
+    gchar fnbuf [PATH_MAX], *retval = NULL, *lastval = NULL, **ptr;
+    gboolean append_app_id = FALSE;
+    GValue value = { 0, };
+
+    g_return_val_if_fail (program != NULL, NULL);
+    g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
+    g_return_val_if_fail (program->_priv->state >= APP_PREINIT_DONE, NULL);
+    g_return_val_if_fail (file_name != NULL, NULL);
+
+#define ADD_FILENAME(x) { \
+lastval = (x); \
+if(lastval) { if(ret_locations) *ret_locations = g_slist_append(*ret_locations, lastval); \
+if(!retval) retval = lastval; } \
+}
+
+    switch (domain) {
+    case GNOME_FILE_DOMAIN_LIBDIR:
+	prefix_rel = "/lib";
+	attr_name = GNOME_PARAM_APP_LIBDIR;
+	attr_rel = "";
+	break;
+    case GNOME_FILE_DOMAIN_DATADIR:
+	prefix_rel = "/share";
+	attr_name = GNOME_PARAM_APP_DATADIR;
+	attr_rel = "";
+	break;
+    case GNOME_FILE_DOMAIN_SOUND:
+	prefix_rel = "/share/sounds";
+	attr_name = GNOME_PARAM_APP_DATADIR;
+	attr_rel = "/sounds";
+	break;
+    case GNOME_FILE_DOMAIN_PIXMAP:
+	prefix_rel = "/share/pixmaps";
+	attr_name = GNOME_PARAM_APP_DATADIR;
+	attr_rel = "/pixmaps";
+	break;
+    case GNOME_FILE_DOMAIN_CONFIG:
+	prefix_rel = "/etc";
+	attr_name = GNOME_PARAM_APP_SYSCONFDIR;
+	attr_rel = "";
+	break;
+    case GNOME_FILE_DOMAIN_HELP:
+	prefix_rel = "/share/gnome/help";
+	attr_name = GNOME_PARAM_APP_DATADIR;
+	attr_rel = "/gnome/help";
+	break;
+    case GNOME_FILE_DOMAIN_APP_HELP:
+	prefix_rel = "/share/gnome/help";
+	attr_name = GNOME_PARAM_APP_DATADIR;
+	attr_rel = "/gnome/help";
+	append_app_id = TRUE;
+	break;
+    default:
+	g_warning (G_STRLOC ": unknown file domain %d", domain);
+	return NULL;
+    }
+
+    if (attr_name) {
+	const gchar *dir;
+
+	g_value_init (&value, G_TYPE_STRING);
+	g_object_get_property (G_OBJECT (program), attr_name, &value);
+	dir = g_value_get_string (&value);
+
+	if (dir) {
+	    if (append_app_id)
+		g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s/%s",
+			    dir, attr_rel, program->_priv->app_id, file_name);
+	    else
+		g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s",
+			    dir, attr_rel, file_name);
+
+	    if (!only_if_exists || g_file_test (fnbuf, G_FILE_TEST_EXISTS))
+		ADD_FILENAME (g_strdup (fnbuf));
+	}
+
+	g_value_unset (&value);
+    }
+    if (retval && !ret_locations)
+	goto out;
+
+    /* Now check the GNOME_PATH. */
+    for (ptr = program->_priv->gnome_path; ptr && *ptr; ptr++) {
+	if (append_app_id)
+	    g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s/%s",
+			*ptr, prefix_rel, program->_priv->app_id, file_name);
+	else
+	    g_snprintf (fnbuf, sizeof (fnbuf), "%s%s/%s",
+			*ptr, prefix_rel, file_name);
+
+	if (!only_if_exists || g_file_test (fnbuf, G_FILE_TEST_EXISTS))
+	    ADD_FILENAME (g_strdup (fnbuf));
+    }
+    if (retval && !ret_locations)
+	goto out;
+
+ out:
+    return retval;
 }
 
 /******** modules *******/

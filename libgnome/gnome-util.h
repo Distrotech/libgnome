@@ -36,37 +36,21 @@ BEGIN_GNOME_DECLS
 #define PATH_SEP '/'
 #define PATH_SEP_STR "/"
 
-/* Prepend the correct prefix to a filename you expect to find in the
-   GNOME libdir, datadir, or pixmap directory. Return NULL if the file
-   does not exist. "unconditional" versions always return a full path,
-   even if the file doesn't exist. */
+#define gnome_libdir_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_LIBDIR, (filename), TRUE, NULL)
+#define gnome_datadir_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_DATADIR, (filename), TRUE, NULL)
+#define gnome_sound_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_SOUND, (filename), TRUE, NULL)
+#define gnome_pixmap_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_PIXMAP, (filename), TRUE, NULL)
+#define gnome_config_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_CONFIG, (filename), TRUE, NULL)
+#define gnome_help_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_HELP, (filename), TRUE, NULL)
+#define gnome_app_help_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_HELP, (filename), TRUE, NULL)
+#define gnome_unconditional_libdir_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_LIBDIR, (filename), FALSE, NULL)
+#define gnome_unconditional_datadir_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_DATADIR, (filename), FALSE, NULL)
+#define gnome_unconditional_sound_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_SOUND, (filename), FALSE, NULL)
+#define gnome_unconditional_pixmap_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_PIXMAP, (filename), FALSE, NULL)
+#define gnome_unconditional_config_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_CONFIG, (filename), FALSE, NULL)
+#define gnome_unconditional_help_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_CONFIG, (filename), FALSE, NULL)
 
-/* Returns the full path to a file in the specified "domain", possibly returning NULL if 'only_if_exists' is TRUE and
-   the file is not found. Also see LIBGNOME_PARAM_FILE_LOCATOR and GnomeFileLocatorFunc in gnomelib-init.h */
-char *gnome_file_locate (const char *domain, const char *filename, gboolean only_if_exists, GSList **ret_locations);
-
-extern const char gnome_file_domain_libdir[];
-extern const char gnome_file_domain_datadir[];
-extern const char gnome_file_domain_sound[];
-extern const char gnome_file_domain_pixmap[];
-extern const char gnome_file_domain_config[];
-extern const char gnome_file_domain_help[];
-
-#define gnome_libdir_file(filename) gnome_file_locate(gnome_file_domain_libdir, (filename), TRUE, NULL)
-#define gnome_datadir_file(filename) gnome_file_locate(gnome_file_domain_datadir, (filename), TRUE, NULL)
-#define gnome_sound_file(filename) gnome_file_locate(gnome_file_domain_sound, (filename), TRUE, NULL)
-#define gnome_pixmap_file(filename) gnome_file_locate(gnome_file_domain_pixmap, (filename), TRUE, NULL)
-#define gnome_config_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), TRUE, NULL)
-#define gnome_help_file(filename) gnome_file_locate(gnome_file_domain_help, (filename), TRUE, NULL)
-#define gnome_app_help_file(filename) gnome_file_locate(gnome_file_domain_help, (filename), TRUE, NULL)
-#define gnome_unconditional_libdir_file(filename) gnome_file_locate(gnome_file_domain_libdir, (filename), FALSE, NULL)
-#define gnome_unconditional_datadir_file(filename) gnome_file_locate(gnome_file_domain_datadir, (filename), FALSE, NULL)
-#define gnome_unconditional_sound_file(filename) gnome_file_locate(gnome_file_domain_sound, (filename), FALSE, NULL)
-#define gnome_unconditional_pixmap_file(filename) gnome_file_locate(gnome_file_domain_pixmap, (filename), FALSE, NULL)
-#define gnome_unconditional_config_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), FALSE, NULL)
-#define gnome_unconditional_help_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), FALSE, NULL)
-
-gboolean g_file_exists (const char *filename);
+#define g_file_exists(filename) g_file_test(filename, G_FILE_TEST_EXISTS)
 
 /* locate a program in $PATH, or return NULL if not found */
 char *gnome_is_program_in_path (const gchar *program);

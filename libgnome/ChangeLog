@@ -1,5 +1,19 @@
 2001-03-20  Martin Baulig  <baulig@suse.de>
 
+	* gnome-program.h (GnomeFileDomain): New enum.
+	(GNOME_PARAM_GNOME_PATH): New property.
+	(gnome_program_locate_file): New function; this is a slightly
+	modified version of gnome_file_locate().
+
+	* gnome-util.h (gnome_*_file): Use gnome_program_locate_file().
+	(gnome_file_domain_*): Removed.
+	(g_file_exists): #define this to use g_file_test().
+
+	* gnome-util.c (gnome_file_locate): Removed.
+	(g_file_exists): Removed.
+
+2001-03-20  Martin Baulig  <baulig@suse.de>
+
 	* gnomelib-init.[ch] (gnome_program_get_human_readable_name):
 	Moved to gnome-program.[ch].
 

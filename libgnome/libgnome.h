@@ -40,7 +40,7 @@
 #include "libgnome/gnome-triggers.h"
 #include "libgnome/gnome-util.h"
 #include "libgnome/gnome-url.h"
-#include "libgnome/gnomelib-init2.h"
+#include "libgnome/gnome-program.h"
 #include "libgnome/gnomelib-init.h"
 
 #ifdef COMPAT_1_0

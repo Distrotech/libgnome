@@ -49,6 +49,19 @@ typedef struct _GnomeProgram          GnomeProgram;
 typedef struct _GnomeProgramPrivate   GnomeProgramPrivate;
 typedef struct _GnomeProgramClass     GnomeProgramClass;
 
+typedef enum _GnomeFileDomain         GnomeFileDomain;
+
+enum _GnomeFileDomain {
+    GNOME_FILE_DOMAIN_UNKNOWN = 0,
+    GNOME_FILE_DOMAIN_LIBDIR,
+    GNOME_FILE_DOMAIN_DATADIR,
+    GNOME_FILE_DOMAIN_SOUND,
+    GNOME_FILE_DOMAIN_PIXMAP,
+    GNOME_FILE_DOMAIN_CONFIG,
+    GNOME_FILE_DOMAIN_HELP,
+    GNOME_FILE_DOMAIN_APP_HELP
+};
+
 struct _GnomeProgram
 {
     GObject object;
@@ -76,6 +89,13 @@ gnome_program_get_name                  (GnomeProgram *program);
 const char *
 gnome_program_get_version               (GnomeProgram *program);
 
+gchar *
+gnome_program_locate_file               (GnomeProgram    *program,
+					 GnomeFileDomain  domain,
+					 const gchar     *file_name,
+					 gboolean         only_if_exists,
+					 GSList         **ret_locations);
+
 #define GNOME_PARAM_MODULE_INFO         "module_info"
 #define GNOME_PARAM_MODULES             "modules"
 #define GNOME_PARAM_POPT_TABLE          "popt_table"
@@ -90,6 +110,7 @@ gnome_program_get_version               (GnomeProgram *program);
 #define GNOME_PARAM_APP_DATADIR         "app_datadir"
 #define GNOME_PARAM_APP_LIBDIR          "app_libdir"
 #define GNOME_PARAM_HUMAN_READABLE_NAME "human_readable_name"
+#define GNOME_PARAM_GNOME_PATH          "gnome_path"
 
 /***** application modules (aka libraries :) ******/
 #define GNOME_TYPE_MODULE_INFO          (gnome_module_info_get_type ())

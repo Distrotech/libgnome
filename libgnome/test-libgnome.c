@@ -18,6 +18,18 @@ static struct poptOption options[] = {
     {NULL}
 };
 
+static void
+test_file_locate (GnomeProgram *program) 
+{
+    GSList *locations = NULL, *c;
+
+    gnome_program_locate_file (program, GNOME_FILE_DOMAIN_CONFIG,
+			       "test.config", FALSE, &locations);
+
+    for (c = locations; c; c = c->next)
+	g_message (G_STRLOC ": `%s'", (gchar *) c->data);
+}
+
 int
 main (int argc, char **argv)
 {
@@ -25,6 +37,7 @@ main (int argc, char **argv)
     GnomeProgram *program;
     gchar *app_prefix, *app_id, *app_version;
     const gchar *human_readable_name;
+    gchar *gnome_path;
 
     program = gnome_program_init ("test-libgnome", VERSION, argc, argv,
 				  GNOME_PARAM_POPT_TABLE, options,
@@ -47,10 +60,19 @@ main (int argc, char **argv)
     app_version = g_value_dup_string (&value);
     g_value_unset (&value);
 
+    g_value_init (&value, G_TYPE_STRING);
+    g_object_get_property (G_OBJECT (program), "gnome_path", &value);
+    gnome_path = g_value_dup_string (&value);
+    g_value_unset (&value);
+
     human_readable_name = gnome_program_get_human_readable_name (program);
 
     g_message (G_STRLOC ": %d - `%s' - `%s' - `%s' - `%s'", foo, app_prefix,
 	       app_id, app_version, human_readable_name);
+
+    g_message (G_STRLOC ": GNOME_PATH == `%s'", gnome_path);
+
+    test_file_locate (program);
 
     return 0;
 }
