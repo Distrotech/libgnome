@@ -856,7 +856,7 @@ main (int argc, char **argv)
   if (sync_p)
     XSynchronize (dpy, True);
 
-  if (url_string) {
+  if (url_string && !remote_commands) {
     char *argv[3];
     char *buf, *escaped_url;
 
@@ -875,8 +875,24 @@ main (int argc, char **argv)
     argv[2] = NULL;
     return (gnome_execute_async(NULL, 2, argv) >= 0);
   } else
-    if (remote_commands)
-        return (mozilla_remote_commands (dpy, (Window) remote_window,
-					 remote_commands, isLocal));
+    if (remote_commands) {
+        int ret=mozilla_remote_commands (dpy, (Window) remote_window,
+					 remote_commands, isLocal);
+	if(ret==1) {
+	    /* mozilla_remote_commands couldnt find a running netscape */
+	    if(url_string) {
+		/* fall back to exec()ing netscape with a url */
+		char *argv[3];
+		char *escaped_url;
+
+		escaped_url = escape_url (url_string);
+
+		argv[0] = gnome_config_get_string("/gnome-moz-remote/Mozilla/filename=netscape");
+		argv[1] = escaped_url;
+		argv[2] = NULL;
+		return (gnome_execute_async(NULL, 2, argv) >= 0);
+	    }
+	}
+    }
   return 0;
 }
