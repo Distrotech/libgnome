@@ -1,3 +1,8 @@
+2001-04-17  Martin Baulig  <baulig@suse.de>
+
+	* gnome-ditem.c (gnome_desktop_item_drop_uri_list): Don't call
+	gnome_uri_extract_filename(), just use the URI as-is.
+
 2001-04-15  Martin Baulig  <baulig@suse.de>
 
 	* libgnome-init.c (libgnome_loadinit): Don't initialize threads here;
