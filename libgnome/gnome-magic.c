@@ -392,7 +392,8 @@ gnome_magic_db_load(void)
   g_free(filename);
   if(fd < 0) return NULL;
 
-  fstat(fd, &sbuf);
+  if(fstat(fd, &sbuf))
+    return NULL;
 
   retval = (GnomeMagicEntry*) mmap(NULL, sbuf.st_size, PROT_READ, MAP_SHARED, fd, 0);
 
@@ -420,7 +421,8 @@ gnome_mime_type_from_magic(const gchar *filename)
   struct stat sbuf;
 
   /* we really don't want to start reading from devices :) */
-  stat(filename, &sbuf);
+  if(stat(filename, &sbuf))
+    return NULL;
   if(!S_ISREG(sbuf.st_mode)) {
     if(S_ISDIR(sbuf.st_mode))
       return "special/directory";
