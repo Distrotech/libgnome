@@ -36,7 +36,7 @@
 #include <stdarg.h>
 #include <errno.h>
 
-#include <gobject/gobject.h>
+#include <glib-object.h>
 
 
 G_BEGIN_DECLS

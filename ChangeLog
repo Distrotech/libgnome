@@ -1,3 +1,12 @@
+2001-11-18  Miles Lane  <miles@megapathdsl.net>
+
+	* libgnome/gnome-program.h: 
+	libgnome/Makefile.am : replace include of 
+        gobject/gobject.h and gobject/genums.h with glib-object.h, 
+	due to a change in gobject/gobject.h and gobject/genums.h
+        that forces an #error for all direct includes.  
+        This checkin was approved by Havoc.
+
 2001-11-09  Abel Cheung  <maddog@linux.org.hk>
 
 	* configure.in: Added da to ALL_LINGUAS. (sorry for ignorance)

@@ -102,7 +102,7 @@ $(srcdir)/stamp-libgnome.defs: @REBUILD@ Makefile.am libgnome.defs libgnome-boxe
 $(srcdir)/libgnometypebuiltins.c: @REBUILD@ Makefile.am $(libgnome_headers)
 	cd $(srcdir) \
 	&& glib-mkenums \
-			--fhead "#include <gobject/genums.h>\n" \
+			--fhead "#include <glib-object.h>\n" \
 			--fhead "#include \"libgnometypebuiltins.h\"\n\n" \
 			--fprod "\n/* enumerations from \"@filename@\" */" \
 			--vhead "static const G@Type@Value _@enum_name@_values[] = {" \
