@@ -38,6 +38,7 @@
 #define GHELP_HANDLER "gnome-help-browser \"%s\""
 
 static GSList *free_atexit = NULL;
+GnomeURLHistoryCallback gnome_url_history_callback = NULL;
 
 struct _GnomeURLDisplayContext {
   char *command;
@@ -80,10 +81,11 @@ gnome_url_default_handler (void)
 }
 
 /**
- * gnome_url_show
+ * gnome_url_show_full
  * @display_context: An existing GnomeURLDisplayContext to use for displaying this URL in. May be NULL.
  * @url: URL to show
  * @url_type: The type of the URL (e.g. "help")
+ * @flags: Flags changing the way the URL is displayed or handled.
  *
  * Description:
  * Loads the given URL in an appropriate viewer.  The viewer is deduced from
@@ -121,6 +123,12 @@ gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url, con
     url = url_type = ""; /* Stick in a dummy URL to make code happy */
 
   g_return_val_if_fail (url != NULL, display_context);
+
+  if (gnome_url_history_callback && !(flags & GNOME_URL_DISPLAY_NO_HISTORY))
+    {
+      if(!gnome_url_history_callback(display_context, url, url_type, flags))
+	return display_context;
+    }
 
   if(!rdc)
     {

@@ -40,8 +40,17 @@ typedef enum {
   GNOME_URL_DISPLAY_CLOSE_ATEXIT = 1<<0,
   GNOME_URL_DISPLAY_CLOSE = 1<<1,
   GNOME_URL_DISPLAY_NO_RETURN_CONTEXT = 1<<2,
-  GNOME_URL_DISPLAY_NEWWIN = 1<<3
+  GNOME_URL_DISPLAY_NEWWIN = 1<<3,
+  GNOME_URL_DISPLAY_NO_HISTORY = 1<<4 /* Don't call the history callback for this URL */
 } GnomeURLDisplayFlags;
+
+typedef gboolean (*GnomeURLHistoryCallback)(GnomeURLDisplayContext display_context,
+					    const char *url,
+					    const char *url_type,
+					    GnomeURLDisplayFlags flags);
+
+/* One callback for everyone, sorry folks. */
+extern GnomeURLHistoryCallback gnome_url_history_callback;
 
 GnomeURLDisplayContext gnome_url_show_full(GnomeURLDisplayContext display_context,
 					   const char *url,
