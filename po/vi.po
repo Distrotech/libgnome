@@ -6,8 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome VERSION\n"
-"POT-Creation-Date: 2003-08-25 20:17+0200\n"
-"PO-Revision-Date: 2003-01-10 17:11+0700\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-09-28 12:30+0200\n"
+"PO-Revision-Date: 2003-10-02 10:13+0700\n"
 "Last-Translator: pclouds <pclouds@gmx.net>\n"
 "Language-Team: GnomeVI <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -15,56 +16,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
-#, fuzzy
 msgid "Error message"
 msgstr "Thông báo lỗi"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
-#, fuzzy
 msgid "Informational message"
-msgstr "Thông báo"
+msgstr "Thông báo thông tin"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
-#, fuzzy
 msgid "Log in"
 msgstr "Đăng nhập"
 
 #: gnome-data/gnome-2.soundlist.in.h:4
-#, fuzzy
 msgid "Log out"
 msgstr "Đăng xuất"
 
 #: gnome-data/gnome-2.soundlist.in.h:5
-#, fuzzy
 msgid "Miscellaneous message"
 msgstr "Thông báo linh tinh"
 
 #: gnome-data/gnome-2.soundlist.in.h:6
-#, fuzzy
 msgid "Question dialog"
 msgstr "Hộp thoại hỏi"
 
 #: gnome-data/gnome-2.soundlist.in.h:7
-#, fuzzy
 msgid "System events"
-msgstr "Sự kiện hệ thống GNOME"
+msgstr "Sự kiện hệ thống"
 
 #: gnome-data/gnome-2.soundlist.in.h:8
-#, fuzzy
 msgid "Warning message"
 msgstr "Thông điệp cảnh báo"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
-msgstr ""
+msgstr "Chọn mục menu"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Click on command button"
-msgstr ""
+msgstr "Nhấn vào nút lệnh"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Select check box"
-msgstr ""
+msgstr "Chọn ô kiểm"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -163,11 +156,11 @@ msgstr "Host:port mà server âm thanh định dùng đã bị sử dụng"
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: libgnome/gnome-init.c:410
+#: libgnome/gnome-init.c:412
 msgid "GNOME Virtual Filesystem"
 msgstr "Hệ thống tập tin ảo GNOME"
 
-#: libgnome/gnome-init.c:431
+#: libgnome/gnome-init.c:433
 msgid "GNOME Library"
 msgstr "GNOME Library"
 
@@ -662,7 +655,6 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Theme biểu tượng dùng cho Panel, Nautilus ..."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-#, fuzzy
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Độ dài chu kỳ nháy con trỏ, theo mili giây"
 
@@ -720,11 +712,10 @@ msgid "Toolbar Style"
 msgstr "Kiểu thanh công cụ"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:27
-#, fuzzy
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
-msgstr "Kiểu thanh công cụ. Giá trị hợp lệ là both, both_horiz, icon, và text"
+msgstr "Kiểu thanh công cụ. Giá trị hợp lệ là \"both\", \"both_horiz\", \"icon\", và \"text\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
@@ -763,7 +754,6 @@ msgid "Whether the user can detach toolbars and move them around"
 msgstr "Người dùng có thể thao thanh công cụ và di chuyển đi chỗ khác không"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:36
-#, fuzzy
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -786,9 +776,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Tên tập tin bíp tự chọn"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-#, fuzzy
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "giá trị hợp lệ là on, off, và custom"
+msgstr "giá trị hợp lệ là \"on\", \"off\", và \"custom\""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -801,26 +790,20 @@ msgid "Cursor font"
 msgstr "Font con trỏ"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
-#, fuzzy
 msgid "Cursor size"
-msgstr "Nháy con trỏ"
+msgstr "Kích thước con trỏ"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
-#, fuzzy
 msgid "Cursor theme"
-msgstr "Font con trỏ"
+msgstr "Theme con trỏ"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later. This value is only propagated to the X server at the "
 "start of each session, so changing it mid-session won't have an effect until "
 "the next time you log in."
-msgstr ""
-"Tên font của con trỏ. Nếu bỏ chọn, font mặc định sẽ được dùng. Giá trị này "
-"chỉ tác động khi khởi động X server mỗi session, vì thế thay đổi giá trị này "
-"khi đang chạy sẽ không tác động gì cho đến khi bạn đăng nhập lại."
+msgstr "Tên theme con trỏ. Chỉ được dùng bởi X Server hỗ trợ Xcursor, như XFree86 4.3 và các phiên bản mới hơn. Giá trị này được lan truyền tới X server mỗi lúc bắt đầu phiên làm việc, nên việc thay đổi giữa phiên làm việc sẽ không có ảnh hưởng cho đến lần đăng nhập kế."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -843,7 +826,6 @@ msgid "Drag Threshold"
 msgstr "Ngưỡng kéo"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-#, fuzzy
 msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
 "only propagated to the X server start of each session, so changing it mid-"
@@ -884,15 +866,11 @@ msgid "Single click to open icons"
 msgstr "Nhấp đơn để mở biểu tượng"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-#, fuzzy
 msgid ""
 "Size of the cursor referenced by cursor_theme. This value is only propagated "
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
-msgstr ""
-"Tên font của con trỏ. Nếu bỏ chọn, font mặc định sẽ được dùng. Giá trị này "
-"chỉ tác động khi khởi động X server mỗi session, vì thế thay đổi giá trị này "
-"khi đang chạy sẽ không tác động gì cho đến khi bạn đăng nhập lại."
+msgstr "Kích thước con trỏ được tham chiếu bởi cursor_theme. Giá trị này được dùng lúc bắt đầu phiên làm việc mới, nên thay đổi giữa phiên làm việc sẽ không có ảnh hưởng cho đến lần đăng nhập kế"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -961,12 +939,10 @@ msgid "How to handle ghelp URLs"
 msgstr "Xử lý URL của ghelp như thế nào"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-#, fuzzy
 msgid "How to handle http URLs"
-msgstr "Xử lý URL của ghelp như thế nào"
+msgstr "Xử lý URL địa chỉ http như thế nào"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-#, fuzzy
 msgid "How to handle https URLs"
 msgstr "Xử lý URL của ghelp như thế nào"
 
@@ -987,14 +963,12 @@ msgid "Run program in terminal"
 msgstr "Chạy chương trình trong terminal"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-#, fuzzy
 msgid "Set to true to have a program specified in command handle http URLs"
-msgstr "Đặt true để chương trình xác định trong trash/command xử lý URL Rác"
+msgstr "Đặt true để chương trình xác định trong bộ xử lý lệnh http"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-#, fuzzy
 msgid "Set to true to have a program specified in command handle https URLs"
-msgstr "Đặt true để chương trình xác định trong trash/command xử lý URL Rác"
+msgstr "Đặt true để chương trình xác định trong bộ xử lý lệnh https"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid ""
@@ -1024,14 +998,12 @@ msgid "URL handler for ghelp pages"
 msgstr "Bộ xử lý URL cho trang ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-#, fuzzy
 msgid "URL handler for http uris"
-msgstr "Bộ xử lý URL cho trang ghelp"
+msgstr "Bộ xử lý URL cho địa chỉ http"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:17
-#, fuzzy
 msgid "URL handler for https uris"
-msgstr "Bộ xử lý URL cho trang ghelp"
+msgstr "Bộ xử lý URL cho trang địa chỉ https"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid "URL handler for info pages"
