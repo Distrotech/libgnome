@@ -54,7 +54,6 @@ libgnome_src = \
 	gnome-program.c		\
 	gnome-ditem.c		\
 	gnome-exec.c		\
-	gnome-fileconvert.c	\
 	gnome-regex.c		\
 	gnome-url.c		\
 	gnome-util.c		\
@@ -75,7 +74,6 @@ libinclude_HEADERS = \
 libgnome_headers = \
 	gnome-program.h		\
 	gnome-i18n.h		\
-	gnome-fileconvert.h	\
 	gnome-ditem.h		\
 	gnome-exec.h		\
 	gnome-regex.h		\
