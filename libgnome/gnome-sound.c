@@ -25,11 +25,10 @@
 
 #include "config.h"
 
-#include "libgnome.h"
-#include "gnome-sound.h"
+#include <libgnome/gnome-sound.h>
+#include <libgnome/gnome-i18n.h>
 
 #include <gmodule.h>
-#include <glib/gerror.h>
 
 #include <stdio.h>
 #include <stdlib.h>

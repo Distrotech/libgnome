@@ -26,7 +26,8 @@
 #ifndef __GNOME_SOUND_H__
 #define __GNOME_SOUND_H__ 1
 
-#include <glib.h>
+#include <glib/gmacros.h>
+#include <glib/gerror.h>
 
 G_BEGIN_DECLS
 

@@ -24,7 +24,9 @@
  */
 
 #include "config.h"
-#include "gnome-sound.h"
+
+#include <glib.h>
+#include <libgnome/gnome-sound.h>
 
 #include <csl/csl.h>
 #include <csl/cslsample.h>

@@ -27,9 +27,9 @@
 
 /* By Elliot Lee */
 
-#include "gnome-triggers.h"
-#include "gnome-util.h"
-#include "gnome-sound.h"
+#include <libgnome/gnome-triggers.h>
+#include <libgnome/gnome-util.h>
+#include <libgnome/gnome-sound.h>
 
 #include <unistd.h>
 #include <stdio.h>

@@ -37,7 +37,7 @@
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-init.h>
 #include <libgnome/gnome-i18n.h>
-#include "gnome-url.h"
+#include <libgnome/gnome-url.h>
 #include <popt.h>
 
 #define DEFAULT_HANDLER "gnome-moz-remote \"%s\""

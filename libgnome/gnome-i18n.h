@@ -31,7 +31,7 @@
 #ifndef __LIBGNOME_I18N_H__
 #define __LIBGNOME_I18N_H__ 1
 
-#include <glib.h>
+#include <glib/gmacros.h>
 
 
 G_BEGIN_DECLS

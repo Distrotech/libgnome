@@ -24,7 +24,7 @@
 #ifndef GNOME_URL_H
 #define GNOME_URL_H
 
-#include <glib.h>
+#include <glib/gmacros.h>
 
 G_BEGIN_DECLS
 

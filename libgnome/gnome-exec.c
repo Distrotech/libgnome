@@ -25,10 +25,9 @@
 #  include <config.h>
 #endif
 
-#include "gnome-exec.h"
-#include "gnome-util.h"
+#include <libgnome/gnome-exec.h>
+#include <libgnome/gnome-util.h>
 #include <libgnome/gnome-i18n.h>
-#include <glib.h>
 
 #include <unistd.h>
 #include <fcntl.h>
