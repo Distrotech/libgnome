@@ -1,12 +1,13 @@
 # libgnome-2.0's Portuguese Translation
-# Copyright (C) 2001 Free Software Foundation, Inc.
+# Copyright (C) 2001 libgnome
+# Distributed under the same licence as the libgnome package
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 2.2\n"
-"POT-Creation-Date: 2003-03-26 19:08+0100\n"
-"PO-Revision-Date: 2003-02-02 23:45+0000\n"
+"Project-Id-Version: 2.4\n"
+"POT-Creation-Date: 2003-05-06 00:25+0100\n"
+"PO-Revision-Date: 2003-05-06 00:30+0100\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -107,7 +108,7 @@ msgstr "Incapaz de encontrar id_doc %s no caminho de ajuda"
 msgid "Help document %s/%s not found"
 msgstr "Documento de ajuda %s/%s não encontrado"
 
-#: libgnome/gnome-i18n.c:85
+#: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "Demasiados níveis de alias para um local, poderá indicar um ciclo"
 
@@ -324,6 +325,43 @@ msgstr "Módulos dinâmicos a carregar"
 #: libgnome/gnome-program.c:1374
 msgid "MODULE1,MODULE2,..."
 msgstr "MÓDULO1,MÓDULO2,..."
+
+#: libgnome/gnome-url.c:81
+msgid "Unknown internal error while displaying this location."
+msgstr "Erro interno desconhecido ao apresentar esta localização."
+
+#: libgnome/gnome-url.c:88
+msgid "The specified location is invalid."
+msgstr "A localização especificada é inválida."
+
+#: libgnome/gnome-url.c:95
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr ""
+"Ocorreu um erro ao parsear o comando de acção por omissão associado com "
+"esta localização."
+
+#: libgnome/gnome-url.c:103
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
+msgstr ""
+"Ocorreu um erro ao executar o comando de acção por omissão associado com "
+"esta localização."
+
+#: libgnome/gnome-url.c:111
+msgid "There is no default action associated with this location."
+msgstr "Não existe qualquer acção por omissão associada a esta localização."
+
+#: libgnome/gnome-url.c:118
+msgid "The default action does not support this protocol."
+msgstr "A acção por omissão não suporta este protocolo."
+
+#: libgnome/gnome-url.c:125
+#, c-format
+msgid "Unknown error code: %d"
+msgstr "Código de erro desconhecido: %d"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -619,8 +657,8 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Tema de ícone a utilizar para o painel, nautilus, etc."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-msgid "Length of the cursor blink cycle, in milleseconds"
-msgstr "Duração do ciclo de pisca do cursor, em milisegundos"
+msgid "Length of the cursor blink cycle, in milliseconds"
+msgstr "Duração do ciclo de piscar do cursor, em milisegundos"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Menubar Detachable"
@@ -862,168 +900,143 @@ msgid "Whether to play sounds on user events."
 msgstr "Se tocar ou não sons para eventos de utilizador."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-msgid "Default URL show handler"
-msgstr "Gestor de apresentação URL por omissão"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-msgid "How to handle applications URLs"
-msgstr "Como gerir URLs de aplicações"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-msgid "How to handle ghelp URLs"
-msgstr "Como gerir URLs ghelp"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
-msgid "How to handle info URLs"
-msgstr "Como gerir URLs de informação"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
-msgid "How to handle man URLs"
-msgstr "Como gerir URLs de manual"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid "How to handle preferences URLs"
-msgstr "Como gerir URLs de preferncias"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid "How to handle server-settings URLs"
-msgstr "Como gerir URLs de definições de servidor"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-msgid "How to handle start-here URLs"
-msgstr "Como gerir URLs começar-aqui"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid "How to handle system-settings URLs"
-msgstr "Como gerir URLs de definições de sistema"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
 msgstr "Como gerir URLs de lixo"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
-msgid "How to handle unknown URLs"
-msgstr "Como gerir URLs desconhecidos"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "Run program in terminal"
 msgstr "Executar aplicação na consola"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-msgid ""
-"Set to true to have a program specified in applications/command handle "
-"applications URLs"
-msgstr ""
-"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-"comandos de gestão de URLs de aplicações"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
-msgid ""
-"Set to true to have a program specified in preferences/command handle "
-"preferences URLs"
-msgstr ""
-"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-"comandos de gestão de URLs de preferências"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr ""
-"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-"comandos de gestão de URLs ghelp"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
-msgstr ""
-"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-"comandos de gestão de URLs de informação"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
-msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr ""
-"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-"comandos de gestão de URLs de manual"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
-msgid ""
-"Set to true to have a program specified in programs/unknown handle unknown "
-"URLs"
-msgstr ""
-"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-"comandos de gestão de URLs desconhecidos"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
-msgid ""
-"Set to true to have a program specified in server-settings/command handle "
-"server-settings URLs"
-msgstr ""
-"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-"comandos de gestão de URLs de definições de servidor"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
-msgid ""
-"Set to true to have a program specified in start-here/command handle start-"
-"here URLs"
-msgstr ""
-"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-"comandos de gestão de URLs de começar-aqui"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:21
-msgid ""
-"Set to true to have a program specified in system-settings/command handle "
-"system-settings URLs"
-msgstr ""
-"Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
-"comandos de gestão de URLs de definições de sistema"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:22
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
 "comandos de gestão de URLs de lixo"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:23
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Verdadeiro se a aplicação a gerir este URL deverá ser executada numa consola"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:24
-msgid "URL handler for applications pages"
-msgstr "Gestor de URLs para páginas de aplicações"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:25
-msgid "URL handler for ghelp pages"
-msgstr "Gestor de URLs para páginas ghelp"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:26
-msgid "URL handler for info pages"
-msgstr "Gestor de URLs para páginas info"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:27
-msgid "URL handler for man pages"
-msgstr "Gestor de URLs para páginas man"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:28
-msgid "URL handler for preferences pages"
-msgstr "Gestor de URLs para páginas preferências"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:29
-msgid "URL handler for server-settings pages"
-msgstr "Gestor de URLs para páginas definições servidor"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:30
-msgid "URL handler for start-here pages"
-msgstr "Gestor de URLs para páginas começar aqui"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:31
-msgid "URL handler for system-settings pages"
-msgstr "Gestor de URLs para páginas definições sistema"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:32
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "URL handler for trash pages"
 msgstr "Gestor de URLs para páginas de lixo"
+
+#~ msgid "Default URL show handler"
+#~ msgstr "Gestor de apresentação URL por omissão"
+
+#~ msgid "How to handle applications URLs"
+#~ msgstr "Como gerir URLs de aplicações"
+
+#~ msgid "How to handle ghelp URLs"
+#~ msgstr "Como gerir URLs ghelp"
+
+#~ msgid "How to handle info URLs"
+#~ msgstr "Como gerir URLs de informação"
+
+#~ msgid "How to handle man URLs"
+#~ msgstr "Como gerir URLs de manual"
+
+#~ msgid "How to handle preferences URLs"
+#~ msgstr "Como gerir URLs de preferncias"
+
+#~ msgid "How to handle server-settings URLs"
+#~ msgstr "Como gerir URLs de definições de servidor"
+
+#~ msgid "How to handle start-here URLs"
+#~ msgstr "Como gerir URLs começar-aqui"
+
+#~ msgid "How to handle system-settings URLs"
+#~ msgstr "Como gerir URLs de definições de sistema"
+
+#~ msgid "How to handle unknown URLs"
+#~ msgstr "Como gerir URLs desconhecidos"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in applications/command handle "
+#~ "applications URLs"
+#~ msgstr ""
+#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+#~ "comandos de gestão de URLs de aplicações"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in preferences/command handle "
+#~ "preferences URLs"
+#~ msgstr ""
+#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+#~ "comandos de gestão de URLs de preferências"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
+#~ "URLs"
+#~ msgstr ""
+#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+#~ "comandos de gestão de URLs ghelp"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/info handle info URLs"
+#~ msgstr ""
+#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+#~ "comandos de gestão de URLs de informação"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/man handle man URLs"
+#~ msgstr ""
+#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+#~ "comandos de gestão de URLs de manual"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/unknown handle "
+#~ "unknown URLs"
+#~ msgstr ""
+#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+#~ "comandos de gestão de URLs desconhecidos"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in server-settings/command handle "
+#~ "server-settings URLs"
+#~ msgstr ""
+#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+#~ "comandos de gestão de URLs de definições de servidor"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in start-here/command handle "
+#~ "start-here URLs"
+#~ msgstr ""
+#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+#~ "comandos de gestão de URLs de começar-aqui"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in system-settings/command handle "
+#~ "system-settings URLs"
+#~ msgstr ""
+#~ "Definir como verdadeiro para ter uma aplicação na lista de aplicações/"
+#~ "comandos de gestão de URLs de definições de sistema"
+
+#~ msgid "URL handler for applications pages"
+#~ msgstr "Gestor de URLs para páginas de aplicações"
+
+#~ msgid "URL handler for ghelp pages"
+#~ msgstr "Gestor de URLs para páginas ghelp"
+
+#~ msgid "URL handler for info pages"
+#~ msgstr "Gestor de URLs para páginas info"
+
+#~ msgid "URL handler for man pages"
+#~ msgstr "Gestor de URLs para páginas man"
+
+#~ msgid "URL handler for preferences pages"
+#~ msgstr "Gestor de URLs para páginas preferências"
+
+#~ msgid "URL handler for server-settings pages"
+#~ msgstr "Gestor de URLs para páginas definições servidor"
+
+#~ msgid "URL handler for start-here pages"
+#~ msgstr "Gestor de URLs para páginas começar aqui"
+
+#~ msgid "URL handler for system-settings pages"
+#~ msgstr "Gestor de URLs para páginas definições sistema"
 
 #~ msgid ""
 #~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
