@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
 "POT-Creation-Date: 2003-01-25 10:11+0100\n"
-"PO-Revision-Date: 2003-01-25 10:40+0100\n"
+"PO-Revision-Date: 2003-01-25 21:59+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -353,28 +353,28 @@ msgstr "Deaktiver hvis to taster trykkes ned samtidig."
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr ""
+msgstr "Ikke godta en tast som nedtrykket før den holdes minst @delay millisekunder"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr ""
+msgstr "Antall millisekunder det tar å gå fra 0 til maksimal hastighet"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr ""
+msgstr "Antall millisekunder ventetid før taster for musbevegelse begynner å virke"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
-msgstr ""
+msgstr "Antall piksler per sekund i bevegelse ved maksimal hastighet"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr ""
+msgstr "Ignorer flere tastetrykk med samme tast innen @delay millisekunder"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
-msgstr ""
+msgstr "Lengde på aksellerasjon i millisekunder"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "initial delay in milliseconds"
@@ -407,11 +407,11 @@ msgstr "Forvalgt nettleser for alle URLer"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr ""
+msgstr "Om forvalgt leser trenger en terminal for å kjøre"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
-msgstr ""
+msgstr "Om forvalgt leser forstår netscape remote-protokollen"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
@@ -423,16 +423,16 @@ msgstr "Hjelpleser krever terminal"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
-msgstr ""
+msgstr "Om forvalgt hjelpleser godtar URL'er"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
-msgstr ""
+msgstr "Om forvalgt hjelpleser trenger en terminal for å kjøre"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr ""
+msgstr "Argument som brukes til å kjøre programmer definert av «exec»-nøkkelen i terminalen."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -444,19 +444,19 @@ msgstr "Terminal-applikasjon"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr ""
+msgstr "Terminalprogram som skal brukes ved oppstart av programmer som krever det"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr ""
+msgstr "En liste med navn for de første arbeidsområdene i vindushåndtereren."
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
-msgstr ""
+msgstr "Reserve-vindushåndterer"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr ""
+msgstr "Reserve-vindushåndterer hvis brukerens vindushåndterer ikke kan finnes"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -468,7 +468,7 @@ msgstr "Antall arbeidsområder"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
 msgid "The number of workspaces the window manager should use"
-msgstr ""
+msgstr "Antall arbeidsområder vindushåntereren skal bruke"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager"
@@ -476,7 +476,7 @@ msgstr "Brukers vindushåndterer"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid "Window manager to try first"
-msgstr ""
+msgstr "Vindushåndterer som skal prøves først"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -486,7 +486,7 @@ msgstr "Type skyggelegging av farger"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr ""
+msgstr "Bestemmer hvordan bildet satt av wallpaper_filename skal rendres. Mulige verdier er «none», «wallpaper», «centered», «scaled» og «stretched»."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -504,15 +504,15 @@ msgstr "La GNOME tegne skrivebordsbakgrunnen"
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
-msgstr ""
+msgstr "Hvordan bakgrunnsfargen skal skyggelegges. Mulige verdier er «horizontal-gradient», «vertical-gradient» og «solid»"
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr ""
+msgstr "Venstre eller øverste farge ved tegning av gradienter, eller den helfylte fargen."
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
-msgstr ""
+msgstr "Ugjennomsiktighet for tegning av bakgrunnsbildet"
 
 #: schemas/desktop_gnome_background.schemas.in.h:9
 msgid "Picture Filename"
@@ -520,7 +520,7 @@ msgstr "Filnavn for bilde"
 
 #: schemas/desktop_gnome_background.schemas.in.h:10
 msgid "Picture Opacity"
-msgstr ""
+msgstr "Ugjennomsiktighet for bildet"
 
 #: schemas/desktop_gnome_background.schemas.in.h:11
 msgid "Picture Options"
@@ -532,7 +532,7 @@ msgstr "Primærfarge"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr ""
+msgstr "Høyre eller nedre farge ved tegning av gradienter. Ikke brukt for helfylt farge."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -544,11 +544,11 @@ msgstr "Ikontema for fil"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons"
-msgstr ""
+msgstr "Tema som brukes for å vise filikoner"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr ""
+msgstr "Basisnavn på forvalgt tema som brukes av gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
@@ -576,11 +576,11 @@ msgstr "Aktiver animasjoner"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
-msgstr ""
+msgstr "GTK IM forhåndsredigeringsstil"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Status Style"
-msgstr ""
+msgstr "GTK IM statusstil"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:10
 msgid "Gtk+ Theme"
@@ -596,7 +596,7 @@ msgstr "Ikontema som skal brukes for panelet, nautilus etc."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Length of the cursor blink cycle, in milleseconds"
-msgstr ""
+msgstr "Lengde på blinksyklus for markør, i millisekunder"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Menubar Detachable"
@@ -612,11 +612,11 @@ msgstr "Menyer har avrivingskant"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
+msgstr "Navn på forhåndsredigeringsstil for inndatametode som brukes av gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
+msgstr "Navn på statusstil for inndatametode som brukes av gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the default font used by gtk+."
@@ -628,7 +628,7 @@ msgstr "Statuslinje til høyre"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "This specifies the size of icons displayed in toolbars"
-msgstr ""
+msgstr "Dette spesifiserer størrelse på ikoner som vises i verktøylinjer"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Toolbar Detachable"
@@ -644,7 +644,7 @@ msgstr "Stil for verktøylinjen"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
-msgstr ""
+msgstr "Verktøylinjestil. Gyldige verdier er «both», «both_horiz», «icon» og «text»"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
@@ -652,65 +652,65 @@ msgstr "Bruk egendefinert skrift."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Whether Applications should have accessibility support"
-msgstr ""
+msgstr "Om applikasjoner skal ha støtte for tilgjengelighet"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
-msgstr ""
+msgstr "Om animasjoner skal vises. Merk: Dette er en global nøkkel. Den endrer oppførsel for vindushåndtereren, panelet etc."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "Om menyer skal vise et ikon ved siden av en menyoppføring"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Whether menus should have a tearoff"
-msgstr ""
+msgstr "Om menyer skal kunne rives løs"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr ""
+msgstr "Om bruker kan oppgi en aksellerator dynamisk når en ny meny vises"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
-msgstr ""
+msgstr "Om markøren skal blinke"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach menubars and move them around"
-msgstr ""
+msgstr "Om bruke kan ta løs menylinjer og flytte dem rundt"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach toolbars and move them around"
-msgstr ""
+msgstr "Om bruker kan ta løs verktøylinjer og flytte dem rundt"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
-msgstr ""
+msgstr "Om statuslinje skal vises til høyre"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr ""
+msgstr "Om en skal bruke en egendefinert skrift i gtk+-applikasjoner."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
-msgstr ""
+msgstr "Filnavn for lyd for tastaturpip som skal spilles"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr ""
+msgstr "Filnavn for egendefinert tastaturpip"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are on, off, and custom."
-msgstr ""
+msgstr "mulige verdier er «on», «off» og «custom»"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr ""
+msgstr "Multipliserer for aksellerasjon av musbevegelse. En verdi på -1 er forvalgt for systemet."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -730,7 +730,7 @@ msgid ""
 "XFree86 4.3 and later. This value is only propagated to the X server start "
 "of each session, so changing it mid-session won't have an effect until the "
 "next time you log in."
-msgstr ""
+msgstr "Navn på markørtema. Brukes kun av X-tjenere som støtter Xcursor, slik som XFree86 4.3 og senere. Denne verdien videresendes kun til X-tjeneren ved oppstart av en sesjon, så den har ingen effekt før ved neste innlogging hvis den endres i en sesjon."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -740,7 +740,7 @@ msgstr "Avstand før en dra-operasjon startes"
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
-msgstr ""
+msgstr "Avstand i piksler som pekeren må bevege seg før aksellerert musbevegelse aktiveres. -1 er systemets forvalgte verdi."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -755,13 +755,13 @@ msgid ""
 "Font name of the cursor. If unset set, the default font is used. This value "
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
-msgstr ""
+msgstr "Skriftnavn for markøren. Hvis denne ikke er satt brukes forvalgt skrift. Denne verdien videresendes kun til X-tjeneren ved oppstart av en sesjon, så den har ingen effekt før ved neste innlogging hvis den endres i en sesjon."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
-msgstr ""
+msgstr "Uthever pekerens nåværende plassering når Ctrl-tasten trykkes ned og slippes"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
@@ -792,7 +792,7 @@ msgid ""
 "Size of the cursor referenced by cursor_theme. This value is only propagated "
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
-msgstr ""
+msgstr "Størrelse på markøren referert av «cursor_theme». Denne verdien videresendes kun til X-tjeneren ved oppstart av en sesjon, så den har ingen effekt før ved neste innlogging hvis den endres i en sesjon."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -812,7 +812,7 @@ msgstr "Lyder for hendelser"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
-msgstr ""
+msgstr "Om lyder skal spilles av ved brukerhendelser."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "Default URL show handler"
@@ -919,7 +919,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:23
 msgid "True if the program to handle this URL should be run in a terminal"
-msgstr ""
+msgstr "Sann hvis programmet som skal håndtere denne URL'en må kjøres i en terminal"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:24
 msgid "URL handler for applications pages"
