@@ -37,7 +37,7 @@ dnl Check for audiofile library
 dnl
 AM_PATH_AUDIOFILE(0.1.5,AC_DEFINE(HAVE_LIBAUDIOFILE))
 
-ALL_LINGUAS="az es fr it nn no sk sv ta tr wa zh_TW"
+ALL_LINGUAS="az es fr it nn no ru sk sv ta tr wa zh_TW"
 AM_GNOME2_GETTEXT
 gnomelocaledir='${prefix}/${DATADIRNAME}/locale'
 AC_SUBST(gnomelocaledir)
