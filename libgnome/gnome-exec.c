@@ -56,7 +56,7 @@ gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
 			      int envc, char * const envv[])
 {
   int comm_pipes[2];
-  int child_errno, itmp;
+  int child_errno, itmp, i, open_max;
   char **cpargv;
   pid_t child_pid, immediate_child_pid; /* XXX this routine assumes
 					   pid_t is signed */
@@ -103,6 +103,11 @@ gnome_execute_async_with_env (const char *dir, int argc, char * const argv[],
       memcpy(cpargv, argv, argc * sizeof(char *));
       cpargv[argc] = NULL;
 
+      /* Close all file descriptors but stdin stdout and stderr */
+      open_max = sysconf (_SC_OPEN_MAX);
+      for (i = 3; i < open_max; i++){
+	close (i);
+      }
       /* doit */
       execvp(cpargv[0], cpargv);
 
