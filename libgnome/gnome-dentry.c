@@ -506,7 +506,8 @@ gnome_desktop_entry_copy (GnomeDesktopEntry * source)
 	newitem->geometry      = g_strdup (source->geometry);
 	newitem->multiple_args = source->multiple_args;
 	newitem->location      = g_strdup (source->location);
-	newitem->icon	         = g_strdup (source->icon);
+	newitem->icon          = g_strdup (source->icon);
+	newitem->is_kde	       = source->is_kde;
 	
 	return newitem;
 }
