@@ -144,9 +144,29 @@ gnome_unconditional_datadir_file (const char *filename)
 	return (gnome_dirrelative_file (GNOMEDATADIR, "share", filename, TRUE));
 }
 
+/* DOC: g_file_test (const char *filename, int test)
+ * Returns true if filename passes the specified test (an or expression of
+ * tests) */
+int
+g_file_test (const char *filename, int test)
+{
+	struct stat s;
+	if(stat (filename, &s) != 0)
+		return FALSE;
+	if(!(test & G_FILE_TEST_ISFILE) && S_ISREG(s.st_mode))
+		return FALSE;
+	if(!(test & G_FILE_TEST_ISLINK) && S_ISLNK(s.st_mode))
+		return FALSE;
+	if(!(test & G_FILE_TEST_ISDIR) && S_ISDIR(s.st_mode))
+		return FALSE;
+	return TRUE;
+}
+
 /* DOC: g_file_exists (const char *filename)
  * Returns true if filename exists
+ * left in for binary compatibility for a while FIXME: remove
  */
+#undef g_file_exists
 int
 g_file_exists (const char *filename)
 {

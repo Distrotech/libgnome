@@ -24,8 +24,17 @@ char *gnome_unconditional_sound_file (const char *filename);
 char *gnome_unconditional_pixmap_file (const char *filename); 
 char *gnome_unconditional_config_file (const char *filename);
 
+enum {
+	G_FILE_TEST_EXISTS=(1<<0)|(1<<1)|(1<<2), /*any type of file*/
+	G_FILE_TEST_ISFILE=1<<0,
+	G_FILE_TEST_ISLINK=1<<1,
+	G_FILE_TEST_ISDIR=1<<2
+};
+/*simple testing routine for files*/
+int g_file_test(const char *filename, int test);
+/*for compatibility reasons etc*/
 /* TRUE if the file exists */
-int g_file_exists (const char *filename); 
+#define g_file_exists(x) (g_file_test(x,G_FILE_TEST_EXISTS))
 
 /* Concatenates any number of strings; last arg should be NULL */
 char *g_copy_strings (const char *first, ...); 
