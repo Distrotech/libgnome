@@ -500,11 +500,7 @@ browse_dialog_ok (GtkWidget *widget, gpointer data)
     fs = GTK_FILE_SELECTION (selector->_priv->browse_dialog);
     filename = gtk_file_selection_get_filename (fs);
 
-    /* This is "directory safe". */
-    if (!gnome_selector_set_filename (selector, filename)) {
-	gdk_beep ();
-	return;
-    }
+    gnome_selector_set_filename (selector, NULL, filename, NULL, NULL);
 
     if (GTK_WIDGET (fs)->window)
 	gdk_window_lower (GTK_WIDGET (fs)->window);
@@ -532,29 +528,33 @@ check_uri_async_cb (GnomeVFSAsyncHandle *handle, GList *results, gpointer callba
 
     for (list = results; list; list = list->next) {
 	GnomeVFSGetFileInfoResult *file = list->data;
+	GnomeSelectorAsyncHandle *async_handle = async_data->async_handle;
 
 	/* better assert this than risking a crash. */
 	g_assert (file != NULL);
 
+	_gnome_selector_async_handle_remove (async_handle, async_data);
+
 	if (file->result != GNOME_VFS_OK) {
-	    _gnome_selector_async_handle_completed (async_data->async_handle, FALSE);
+	    _gnome_selector_async_handle_completed (async_handle, FALSE);
 	    return;
 	}
 
 	if ((file->file_info->type == GNOME_VFS_FILE_TYPE_DIRECTORY) &&
 	    (async_data->type != GNOME_SELECTOR_ASYNC_TYPE_CHECK_DIRECTORY)) {
-	    _gnome_selector_async_handle_completed (async_data->async_handle, FALSE);
+	    _gnome_selector_async_handle_completed (async_handle, FALSE);
 	    return;
 	}
 
 	if (fselector->_priv->filter &&
 	    !gnome_vfs_directory_filter_apply (fselector->_priv->filter,
 					       file->file_info)) {
-	    _gnome_selector_async_handle_completed (async_data->async_handle, FALSE);
+	    _gnome_selector_async_handle_completed (async_handle, FALSE);
 	    return;
 	}
 
-	_gnome_selector_async_handle_completed (async_data->async_handle, TRUE);
+	_gnome_selector_async_handle_completed (async_handle, TRUE);
+	return;
     }
 }
 
