@@ -55,9 +55,9 @@ typedef struct {
 } HelpURI;
 
 
-#define DOCBOOK_TO_HTML_COMMAND "gnome2-db2html"
-#define MAN_TO_HTML_COMMAND "gnome2-man2html"
-#define INFO_TO_HTML_COMMAND "gnome2-info2html"
+#define DOCBOOK_TO_HTML_COMMAND SERVERDIR"/gnome2-db2html"
+#define MAN_TO_HTML_COMMAND SERVERDIR"/gnome2-man2html"
+#define INFO_TO_HTML_COMMAND SERVERDIR"/gnome2-info2html"
 
 static gboolean file_in_info_path (const char *file);
 

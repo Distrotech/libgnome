@@ -5,7 +5,7 @@ INCLUDES = \
 	-DPREFIXDIR=\""$(prefix)"\" 			\
 	$(HELP_DOCBOOK_MODULE_CFLAGS)			
 
-bin_PROGRAMS = gnome2-db2html
+libexec_PROGRAMS = gnome2-db2html
 
 gnome2_db2html_SOURCES = \
 	gnome-db2html3.c

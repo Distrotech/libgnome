@@ -1,6 +1,7 @@
 INCLUDES =						\
 	-I$(top_srcdir)					\
-	$(HELP_VFS_MODULE_CFLAGS)				
+	$(HELP_VFS_MODULE_CFLAGS)		\
+    -DSERVERDIR=\"$(libexecdir)\"
 
 modules_LTLIBRARIES=libvfs-help.la
 
