@@ -24,7 +24,7 @@ AC_CHECK_FUNCS(bind_textdomain_codeset)
 
 GETTEXT_PACKAGE=libgnome-2.0
 AC_SUBST(GETTEXT_PACKAGE)
-AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE")
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [The gettext package])
 
 dnl libtool versioning from libgnome
 
@@ -99,8 +99,8 @@ dnl
 AUDIOFILE_MODULE="audiofile >= $AUDIOFILE_REQUIRED_VERSION"
 ESOUND_MODULE="esound >= $ESOUND_REQUIRED_VERSION"
 PKG_CHECK_MODULES(SOUND_TEST, $ESOUND_MODULE $AUDIOFILE_MODULE, [
-	AC_DEFINE(HAVE_LIBAUDIOFILE)
-	AC_DEFINE(HAVE_ESD)
+	AC_DEFINE(HAVE_LIBAUDIOFILE, 1, [Compile with audiofile support])
+	AC_DEFINE(HAVE_ESD, 1, [Compile with esd support])
 ],[
 	AUDIOFILE_MODULE=""
 	ESOUND_MODULE=""
@@ -209,23 +209,23 @@ dnl ====================================
 dnl = Bzip2, for the help converters
 dnl ====================================
 BZ_LIBS=
-AC_CHECK_LIB(bz2, bzread, [AC_DEFINE(HAVE_LIBBZ2)
+AC_CHECK_LIB(bz2, bzread, [AC_DEFINE(HAVE_LIBBZ2, 1, [Compile with libbz2 suppot])
 			  BZ_LIBS="-lbz2"])
 dnl <= Check for bzip2 > 1.0.0
-    AC_CHECK_LIB(bz2, BZ2_bzread, [AC_DEFINE(HAVE_LIBBZ2)
+    AC_CHECK_LIB(bz2, BZ2_bzread, [AC_DEFINE(HAVE_LIBBZ2, 1, [Compile with libbz2 support])
 		      	  BZ_LIBS="-lbz2"
     dnl <= define the wrapper-functions to get the Bzip2 stuff working .. =>	
-	   AC_DEFINE(bzread,BZ2_bzread)
-	   AC_DEFINE(bzopen,BZ2_bzopen)
-	   AC_DEFINE(bzdopen,BZ2_bzdopen)
-	   AC_DEFINE(bzwrite,BZ2_bzwrite)
-	   AC_DEFINE(bzerror,BZ2_bzerror)
-	   AC_DEFINE(bzclose,BZ2_bzclose)
-	   AC_DEFINE(bzflush,BZ2_bzflush)
-	   AC_DEFINE(bzCompress,BZ2_bzCompress)
-	   AC_DEFINE(bzCompressInit,BZ2_bzCompressInit)
-	   AC_DEFINE(bzDecompress,BZ2_bzDecompress)
-	   AC_DEFINE(bzDecompressInit,BZ2_bzDecompressInit)	
+	   AC_DEFINE(bzread,BZ2_bzread, [Needed to get Bzip2 working])
+	   AC_DEFINE(bzopen,BZ2_bzopen, [Needed to get Bzip2 working])
+	   AC_DEFINE(bzdopen,BZ2_bzdopen, [Needed to get Bzip2 working])
+	   AC_DEFINE(bzwrite,BZ2_bzwrite, [Needed to get Bzip2 working])
+	   AC_DEFINE(bzerror,BZ2_bzerror, [Needed to get Bzip2 working])
+	   AC_DEFINE(bzclose,BZ2_bzclose, [Needed to get Bzip2 working])
+	   AC_DEFINE(bzflush,BZ2_bzflush, [Needed to get Bzip2 working])
+	   AC_DEFINE(bzCompress,BZ2_bzCompress, [Needed to get Bzip2 working])
+	   AC_DEFINE(bzCompressInit,BZ2_bzCompressInit, [Needed to get Bzip2 working])
+	   AC_DEFINE(bzDecompress,BZ2_bzDecompress, [Needed to get Bzip2 working])
+	   AC_DEFINE(bzDecompressInit,BZ2_bzDecompressInit, [Needed to get Bzip2 working])	
 	   ])
     dnl =>
 AC_SUBST(BZ_LIBS)
