@@ -22,9 +22,12 @@
 #include <libgnome/gnome-defs.h>
 #include <stdlib.h>
 #include <liboaf/liboaf.h>
-#include <libgnome/gnome-i18nP.h>
+#include <libgnome/libgnome.h>
 #include "oafgnome.h"
 #include "gnome-gconf.h"
+#include "gnome-messagebox.h"
+#include "gnome-stock-ids.h"
+#include <gtk/gtkmain.h>
 
 GConfValue *
 gnome_gconf_gtk_entry_get (GtkEntry       *entry,
@@ -422,6 +425,11 @@ gnome_gconf_gnome_pixmap_entry_set (GnomePixmapEntry *pixmap_entry,
 /*
  * Our global GConfClient, and module stuff
  */
+static void gnome_default_gconf_client_error_handler (GConfClient                  *client,
+                                                      GConfClientParentWindowFunc   parent_func,
+                                                      gpointer                      parent_user_data,
+                                                      GConfError                   *error);
+
 
 static GConfClient* global_client = NULL;
 
@@ -438,6 +446,7 @@ gnome_gconf_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
 {
         gconf_preinit(app, (GnomeModuleInfo*)mod_info);
 
+        gconf_client_set_global_default_error_handler(gnome_default_gconf_client_error_handler);
 }
 
 static void
@@ -473,4 +482,115 @@ GnomeModuleInfo gnome_gconf_module_info = {
         gnome_gconf_pre_args_parse, gnome_gconf_post_args_parse,
         gconf_options
 };
+
+
+typedef struct {
+        GConfClientParentWindowFunc   parent_func;
+        gpointer                      parent_user_data;
+        GConfClient                  *client;
+} ErrorIdleData;
+
+static guint error_handler_idle = 0;
+static GSList *pending_errors = NULL;
+static ErrorIdleData eid = { NULL, NULL, NULL };
+
+static gint
+error_idle_func(gpointer data)
+{
+        GtkWidget *dialog;
+        GSList *iter;
+        gboolean have_overridden = FALSE;
+        gchar* mesg = NULL;
+        const gchar* fmt = NULL;
+        GtkWidget *parent = NULL;
+        
+        error_handler_idle = 0;
+
+        g_return_val_if_fail(eid.client != NULL, FALSE);
+        g_return_val_if_fail(pending_errors != NULL, FALSE);
+        
+        iter = pending_errors;
+        while (iter != NULL) {
+                GConfError *error = iter->data;
+
+                if (error->num == GCONF_ERROR_OVERRIDDEN) {
+                        have_overridden = TRUE;
+                }
+                
+                iter = g_slist_next(iter);
+        }
+        
+        if (have_overridden) {
+                fmt = _("You attempted to change an aspect of your configuration that your system administrator or operating system vendor does not allow you to change. Some of the settings you have selected may not take effect, or may not be restored next time you use this application (%s).");
+                
+        } else {
+                fmt = _("An error occurred while loading or saving configuration information for %s. Some of your configuration settings may not work properly.");
+        }
+
+        mesg = g_strdup_printf(fmt, gnome_program_get_human_readable_name(gnome_program_get()));
+        
+        dialog = gnome_message_box_new(mesg,
+                                       GNOME_MESSAGE_BOX_ERROR,
+                                       GNOME_STOCK_BUTTON_OK,
+                                       NULL);
+
+        g_free(mesg);
+        
+        if (eid.parent_func)
+                parent = (*eid.parent_func) (eid.client, eid.parent_user_data);
+
+        if (parent)
+                gnome_dialog_set_parent(GNOME_DIALOG(dialog), GTK_WINDOW(parent));
+
+        gtk_widget_show_all(dialog);
+
+
+        /* FIXME put this in a "Technical Details" optional part of the dialog
+           that can be opened up if users are interested */
+        iter = pending_errors;
+        while (iter != NULL) {
+                GConfError *error = iter->data;
+
+                fprintf(stderr, _("GConf error details: %s\n"), error->str);
+
+                gconf_error_destroy(error);
+                
+                iter = g_slist_next(iter);
+        }
+
+        g_slist_free(pending_errors);
+
+        pending_errors = NULL;
+        
+        gtk_object_unref(GTK_OBJECT(eid.client));
+        eid.parent_func = NULL;
+        eid.parent_user_data = NULL;
+        eid.client = NULL;
+
+        return FALSE;
+}
+
+static void
+gnome_default_gconf_client_error_handler (GConfClient                  *client,
+                                          GConfClientParentWindowFunc   parent_func,
+                                          gpointer                      parent_user_data,
+                                          GConfError                   *error)
+{
+        gtk_object_ref(GTK_OBJECT(client));
+        
+        if (eid.client) {
+                gtk_object_unref(GTK_OBJECT(eid.client));
+        }
+        
+        eid.parent_func = parent_func;
+        eid.parent_user_data = parent_user_data;
+        eid.client = client;
+        
+        pending_errors = g_slist_append(pending_errors, gconf_error_copy(error));
+
+        if (error_handler_idle == 0) {
+                error_handler_idle = gtk_idle_add(error_idle_func, NULL);
+        }
+}
+
 
