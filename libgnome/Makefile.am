@@ -55,7 +55,7 @@ bin_PROGRAMS = gnome-score-helper
 gnome_score_helper_SOURCES = gnome-score-helper.c
 gnome_score_helper_LDADD = \
 	$(top_builddir)/libgnome/libgnome.la \
-	-lglib
+	-lgdk -lglib $(X_LIBS) $(x_libs)
 
 install-data-local:
 	-chgrp games $(bindir)/gnome-score-helper
