@@ -4,7 +4,7 @@
 #include <time.h>
 
 BEGIN_GNOME_DECLS
-gint /* Returns the position in the top-ten starting from 1, or 0 if it isn't
+gboolean /* Returns the position in the top-ten starting from 1, or 0 if it isn't
 	in the table */
 gnome_score_log(gfloat score, 
 		gchar *level,
