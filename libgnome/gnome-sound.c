@@ -19,6 +19,7 @@
 
 #include "config.h"
 
+#include "libgnome.h"
 #include "gnome-sound.h"
 
 #include <stdio.h>
@@ -433,7 +434,8 @@ gnome_sound_play (const char * filename)
 void gnome_sound_init(const char *hostname)
 {
 #ifdef HAVE_ESD
-  if(gnome_sound_connection < 0)
+  if(gnome_sound_connection < 0
+     && gnome_config_get_bool("/sound/system/settings/start_esd=true"))
     gnome_sound_connection = esd_open_sound((char *)hostname);
 #endif
 }

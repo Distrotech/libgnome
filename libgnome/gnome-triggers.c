@@ -3,6 +3,7 @@
 /* By Elliot Lee */
 
 #include "gnome-triggers.h"
+#include "gnome-triggersP.h"
 #include "gnome-config.h"
 #include "gnome-util.h"
 #include "gnome-sound.h"
@@ -21,52 +22,34 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <dirent.h>
+#include <alloca.h>
 
 /* TYPE DECLARATIONS */
-
-typedef struct _TriggerList * TriggerList;
-
-struct _TriggerList {
-  char *nodename;
-  TriggerList *subtrees;
-  gint numsubtrees;
-  GnomeTrigger **actions;
-  gint numactions;
-};
 
 typedef void (*GnomeTriggerTypeFunction)(GnomeTrigger *t, char *msg, char *level, char *supinfo[]);
 
 /* PROTOTYPES */
-static GnomeTrigger*
-gnome_trigger_dup(GnomeTrigger *dupme);
-static TriggerList
-gnome_triggerlist_new(char *nodename);
-static void
-gnome_triggerlist_free(TriggerList t);
-static void
-gnome_trigger_free(GnomeTrigger* t);
-static void
-gnome_trigger_do(GnomeTrigger* t, const char *msg, const char *level,
-		 const char *supinfo[]);
-static void
-gnome_trigger_do_function(GnomeTrigger* t,
-			  const char *msg, const char *level,
-			  const char *supinfo[]);
-static void
-gnome_trigger_do_command(GnomeTrigger* t,
-			 const char *msg, const char *level,
-			 const char *supinfo[]);
-static void
-gnome_trigger_do_mediaplay(GnomeTrigger* t,
-			   const char *msg,
-			   const char *level,
-			   const char *supinfo[]);
-static gint
-gnome_triggers_read_path(const char *config_path);
+static GnomeTrigger* gnome_trigger_dup(GnomeTrigger *dupme);
+static GnomeTriggerList* gnome_triggerlist_new(char *nodename);
+static void gnome_triggerlist_free(GnomeTriggerList* t);
+static void gnome_trigger_free(GnomeTrigger* t);
+static void gnome_trigger_do(GnomeTrigger* t, const char *msg, const char *level,
+			     const char *supinfo[]);
+static void gnome_trigger_do_function(GnomeTrigger* t,
+				      const char *msg, const char *level,
+				      const char *supinfo[]);
+static void gnome_trigger_do_command(GnomeTrigger* t,
+				     const char *msg, const char *level,
+				     const char *supinfo[]);
+static void gnome_trigger_do_mediaplay(GnomeTrigger* t,
+				       const char *msg,
+				       const char *level,
+				       const char *supinfo[]);
+static gint gnome_triggers_read_path(const char *config_path);
 
 /* FILEWIDE VARIABLES */
 
-static TriggerList topnode = NULL;
+GnomeTriggerList* gnome_triggerlist_topnode = NULL;
 static int trigger_msg_sample_ids[] = {
   -1, /* info */
   -1, /* warning */
@@ -108,8 +91,9 @@ gnome_triggers_init(void)
   }
 #endif
 
-  if(gnome_config_get_bool("/sound/system/settings/start_esd=1")
-     && gnome_config_get_bool("/sound/system/settings/event_sounds=1")) {
+  if(gnome_config_get_bool("/sound/system/settings/start_esd=true")
+     && gnome_config_get_bool("/sound/system/settings/event_sounds=true")) {
+
 #ifdef HAVE_ESD
 #define DO_SAMPLE_LOAD(n, name) \
   trigger_msg_sample_ids[n] = esd_sample_getid(gnome_sound_connection, name); \
@@ -313,11 +297,11 @@ gnome_trigger_dup(GnomeTrigger* dupme)
   return retval;
 }
 
-static TriggerList
+static GnomeTriggerList*
 gnome_triggerlist_new(char *nodename)
 {
-  TriggerList retval;
-  retval = g_malloc0(sizeof(struct _TriggerList));
+  GnomeTriggerList* retval;
+  retval = g_malloc0(sizeof(GnomeTriggerList));
   retval->nodename = g_strdup(nodename);
   return retval;
 }
@@ -326,17 +310,17 @@ void gnome_triggers_vadd_trigger(GnomeTrigger* nt,
 				 char *supinfo[])
 {
   g_return_if_fail(nt != NULL);
-  if(!topnode)
-    topnode = gnome_triggerlist_new(NULL);
+  if(!gnome_triggerlist_topnode)
+    gnome_triggerlist_topnode = gnome_triggerlist_new(NULL);
 
   if(supinfo == NULL || supinfo[0] == NULL) {
-    topnode->actions = g_realloc(topnode->actions, ++topnode->numactions);
-    topnode->actions[topnode->numactions - 1] = gnome_trigger_dup(nt);
+    gnome_triggerlist_topnode->actions = g_realloc(gnome_triggerlist_topnode->actions, ++gnome_triggerlist_topnode->numactions);
+    gnome_triggerlist_topnode->actions[gnome_triggerlist_topnode->numactions - 1] = gnome_trigger_dup(nt);
   } else {
     int i, j;
-    TriggerList curnode;
+    GnomeTriggerList* curnode;
 
-    for(i = 0, curnode = topnode;
+    for(i = 0, curnode = gnome_triggerlist_topnode;
 	supinfo[i]; i++) {
       for(j = 0;
 	  j < curnode->numsubtrees
@@ -348,7 +332,7 @@ void gnome_triggers_vadd_trigger(GnomeTrigger* nt,
       } else {
 	curnode->subtrees = g_realloc(curnode->subtrees,
 				      ++curnode->numsubtrees
-				      * sizeof(TriggerList));
+				      * sizeof(GnomeTriggerList*));
 	curnode->subtrees[curnode->numsubtrees - 1] =
 	  gnome_triggerlist_new(supinfo[i]);
 	curnode = curnode->subtrees[curnode->numsubtrees - 1];
@@ -395,7 +379,7 @@ gnome_triggers_do(const char *msg, const char *level, ...)
 void
 gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 {
-  TriggerList curnode = topnode;
+  GnomeTriggerList* curnode = gnome_triggerlist_topnode;
   int i, j;
 
 #ifdef HAVE_ESD
@@ -452,9 +436,9 @@ gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 void
 gnome_triggers_destroy(void)
 {
-  g_return_if_fail(topnode != NULL);
-  gnome_triggerlist_free(topnode);
-  topnode = NULL;
+  g_return_if_fail(gnome_triggerlist_topnode != NULL);
+  gnome_triggerlist_free(gnome_triggerlist_topnode);
+  gnome_triggerlist_topnode = NULL;
 }
 
 static void
@@ -474,7 +458,7 @@ gnome_trigger_free(GnomeTrigger* t)
 }
 
 static void
-gnome_triggerlist_free(TriggerList t)
+gnome_triggerlist_free(GnomeTriggerList* t)
 {
   int i;
 
@@ -555,7 +539,13 @@ gnome_trigger_do_mediaplay(GnomeTrigger* t,
 			   const char *supinfo[])
 {
 #ifdef HAVE_ESD
-  gnome_sound_play(t->u.media.file);
+  if(gnome_sound_connection == -1)
+    return;
+
+  if(t->u.media.cache_id >= 0)
+    esd_sample_play(gnome_sound_connection, t->u.media.cache_id);
+  else if(t->u.media.cache_id == -1)
+    gnome_sound_play(t->u.media.file);
 #else
   g_warning("Request to play media file %s - esound support not available\n",
 	    t->u.media.file);

@@ -68,7 +68,8 @@ libgnomeinclude_HEADERS = \
 
 noinst_HEADERS = \
 	gnome-i18nP.h		\
-	libgnomeP.h
+	libgnomeP.h \
+	gnome-triggersP.h
 
 EXTRA_DIST = lib_date.README
 
