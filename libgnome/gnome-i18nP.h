@@ -32,7 +32,6 @@
 #ifndef __GNOME_I18NP_H__
 #define __GNOME_I18NP_H__ 1
 
-#include <libgnomebase/gnome-defs.h>
 #include <libgnomebase/gnome-i18n.h>
 
 G_BEGIN_DECLS

@@ -31,7 +31,6 @@
 #include <unistd.h>
 #include <errno.h>
 
-#include <libgnomebase/gnome-defs.h>
 #include <libgnome/gnome-config.h>
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>

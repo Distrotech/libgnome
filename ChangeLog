@@ -1,3 +1,11 @@
+2001-04-18  Michael Meeks  <michael@ximian.com>
+
+	* *.[ch]:
+	
+	s/\#include[ \t]*<libgnomebase\/gnome-defs.h>//;
+	s/BEGIN_GNOME_DECLS/G_BEGIN_DECLS/g;
+	s/END_GNOME_DECLS/G_END_DECLS/g;
+	
 2001-04-17  Martin Baulig  <baulig@suse.de>
 
 	* configure.in: Unconditionally depend on libbonobo; removed the

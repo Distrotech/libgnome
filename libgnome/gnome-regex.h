@@ -24,7 +24,6 @@
 #ifndef GNOME_REGEX_H
 #define GNOME_REGEX_H
 
-#include <libgnomebase/gnome-defs.h>
 
 G_BEGIN_DECLS
 

@@ -26,7 +26,6 @@
 #ifndef LIBGNOMEINIT_H
 #define LIBGNOMEINIT_H
 
-#include <libgnomebase/gnome-defs.h>
 #include <libgnomebase/gnome-program.h>
 
 #include <gconf/gconf-client.h>

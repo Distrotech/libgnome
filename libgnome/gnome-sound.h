@@ -27,7 +27,6 @@
 #define __GNOME_SOUND_H__ 1
 
 #include <glib.h>
-#include <libgnomebase/gnome-defs.h>
 
 G_BEGIN_DECLS
 

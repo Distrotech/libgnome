@@ -29,7 +29,6 @@
 
 #include <stdlib.h>
 #include <glib.h>
-#include <libgnomebase/gnome-defs.h>
 #include <libgnomebase/gnome-program.h>
 
 G_BEGIN_DECLS
