@@ -6,19 +6,107 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 1.112\n"
-"POT-Creation-Date: 2002-05-27 16:29+0200\n"
-"PO-Revision-Date: 2002-04-26 12:57+0900\n"
+"POT-Creation-Date: 2002-05-30 14:14+0900\n"
+"PO-Revision-Date: 2002-05-30 14:15+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <gnome-kr-translation@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: gnome-data/gnome-2.soundlist.in.h:1
+msgid "Error Messages"
+msgstr "오류 메세지"
+
+#: gnome-data/gnome-2.soundlist.in.h:2
+msgid "GNOME system events"
+msgstr "그놈 시스템 이벤트"
+
+#: gnome-data/gnome-2.soundlist.in.h:3
+msgid "Informational Messages"
+msgstr "정보 메세지"
+
+#: gnome-data/gnome-2.soundlist.in.h:4
+msgid "Login"
+msgstr "로그인"
+
+#: gnome-data/gnome-2.soundlist.in.h:5
+msgid "Logout"
+msgstr "로그아웃"
+
+#: gnome-data/gnome-2.soundlist.in.h:6
+msgid "Miscellaneous Messages"
+msgstr "기타 메세지"
+
+#: gnome-data/gnome-2.soundlist.in.h:7
+msgid "Question Dialogs"
+msgstr "물음 대화 상자"
+
+#: gnome-data/gnome-2.soundlist.in.h:8
+msgid "Warning Messages"
+msgstr "경고 메세지"
+
+#: gnome-data/gtk-events-2.soundlist.in.h:1
+msgid "Action button click"
+msgstr "액션 단추 클릭"
+
+#: gnome-data/gtk-events-2.soundlist.in.h:2
+msgid "Check box toggled"
+msgstr "체크 상자 토글"
+
+#: gnome-data/gtk-events-2.soundlist.in.h:3
+msgid "Menu item activation"
+msgstr "메뉴 항목 활성화"
+
+#: gnome-data/gtk-events-2.soundlist.in.h:4
+msgid "User interface events"
+msgstr "사용자 인터페이스 이벤트"
+
 #: libgnome/gnome-exec.c:438
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "터미널을 찾을 수 없습니다, xterm을 사용합니다, 하지만 동작하지 않을 수 있습니"
 "다"
+
+#: libgnome/gnome-gconf.c:174
+msgid "GNOME GConf Support"
+msgstr "그놈 GConf 지원"
+
+#: libgnome/gnome-help.c:167
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr "GNOME_FILE_DOMAIN_APP_HELP 도메인을 찾을 수 없습니다"
+
+#: libgnome/gnome-help.c:180
+msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
+msgstr "GNOME_FILE_DOMAIN_HELP 도메인을 찾을 수 없습니다"
+
+#: libgnome/gnome-help.c:193 libgnome/gnome-help.c:208
+#, c-format
+msgid ""
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
+msgstr "%s이(가) 디렉토리가 아니므로 도움말을 보여줄 수 없습니다.  설치가 제대로 되었는지 확인하십시오."
+
+#: libgnome/gnome-help.c:217 libgnome/gnome-help.c:233
+#, c-format
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
+msgstr "%s 혹은 %s 안에서 도움말 파일을 찾을 수 없습니다.  설치가 제대로 되었는지 확인하십시오."
+
+#: libgnome/gnome-help.c:312
+#, c-format
+msgid "Unable to find doc_id %s in the help path"
+msgstr "도움말 경로에서 doc_id %s를 찾을 수 없습니다"
+
+#: libgnome/gnome-help.c:333
+#, c-format
+msgid "Help document %s/%s not found"
+msgstr "도움말 문서 %s/%s을(를) 찾을 수 없습니다"
+
+#: libgnome/gnome-i18n.c:85
+msgid "Too many alias levels for a locale, may indicate a loop"
+msgstr "로케일에 대한 별명의 단계가 너무 많습니다. 무한 루프일 수 있습니다"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -29,12 +117,12 @@ msgstr "Bonobo 지원"
 msgid "Bonobo activation Support"
 msgstr "Bonobo 활성화 지원"
 
-#: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
+#: libgnome/gnome-init.c:281 libgnome/gnome-init.c:295
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "사용자 그놈 설정 디렉토리 `%s'를 만들 수 없습니다: %s\n"
 
-#: libgnome/gnome-init.c:298
+#: libgnome/gnome-init.c:304
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -43,79 +131,34 @@ msgstr ""
 "사용자 그놈 개인 설정 디렉토리 `%s'의 허가권을 0700으로 설정할 수 없습니다: %"
 "s\n"
 
-#: libgnome/gnome-init.c:305
+#: libgnome/gnome-init.c:311
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "그놈 단축글쇠 설정 디렉토리 `%s'를 만들 수 없습니다: %s\n"
 
-#: libgnome/gnome-init.c:361
+#: libgnome/gnome-init.c:367
 msgid "Disable sound server usage"
 msgstr "사운드 서버 사용을 하지 않습니다"
 
-#: libgnome/gnome-init.c:364
+#: libgnome/gnome-init.c:370
 msgid "Enable sound server usage"
 msgstr "사운드 서버를 사용합니다"
 
-#: libgnome/gnome-init.c:367
+#: libgnome/gnome-init.c:373
 msgid "Host:port on which the sound server to use is running"
 msgstr "사용할 사운드 서버가 호스트:포트 에서 실행되고 있습니다"
 
-#: libgnome/gnome-init.c:369
+#: libgnome/gnome-init.c:375
 msgid "HOSTNAME:PORT"
 msgstr "호스트이름:포트"
 
-#: libgnome/gnome-init.c:387
+#: libgnome/gnome-init.c:393
 msgid "GNOME Virtual Filesystem"
 msgstr "그놈 가상 파일시스템"
 
-#: libgnome/gnome-init.c:408
+#: libgnome/gnome-init.c:414
 msgid "GNOME Library"
 msgstr "그놈 라이브러리"
-
-#: libgnome/gnome-gconf.c:174
-msgid "GNOME GConf Support"
-msgstr "그놈 GConf 지원"
-
-#: libgnome/gnome-help.c:166
-msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr "GNOME_FILE_DOMAIN_APP_HELP 도메인을 찾을 수 없습니다"
-
-#: libgnome/gnome-help.c:179
-#, fuzzy
-msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "GNOME_FILE_DOMAIN_APP_HELP 도메인을 찾을 수 없습니다"
-
-#: libgnome/gnome-help.c:192 libgnome/gnome-help.c:207
-#, fuzzy, c-format
-msgid ""
-"Unable to show help as %s is not a directory.  Please check your "
-"installation."
-msgstr ""
-"%s 파일이 디렉토리가 아니므로 도움말을 보여줄 수 없습니다.  설치가 잘못되었"
-"을 것입니다."
-
-#: libgnome/gnome-help.c:216 libgnome/gnome-help.c:232
-#, fuzzy, c-format
-msgid ""
-"Unable to find the help files in either %s or %s.  Please check your "
-"installation"
-msgstr ""
-"%s 파일이 디렉토리가 아니므로 도움말을 보여줄 수 없습니다.  설치가 잘못되었"
-"을 것입니다."
-
-#: libgnome/gnome-help.c:309
-#, c-format
-msgid "Unable to find doc_id %s in the help path"
-msgstr "도움말 경로에서 doc_id %s를 찾을 수 없습니다"
-
-#: libgnome/gnome-help.c:330
-#, c-format
-msgid "Help document %s/%s not found"
-msgstr "도움말 문서 %s/%s을(를) 찾을 수 없습니다"
-
-#: libgnome/gnome-i18n.c:85
-msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "로케일에 대한 별명의 단계가 너무 많습니다. 무한 루프일 수 있습니다"
 
 #: libgnome/gnome-program.c:426
 msgid "Popt Table"
@@ -261,19 +304,19 @@ msgstr "espeaker"
 msgid "How to connect to esd"
 msgstr "esd로 연결할 방법"
 
-#: libgnome/gnome-program.c:1335
+#: libgnome/gnome-program.c:1352
 msgid "Help options"
 msgstr "도움말 옵션"
 
-#: libgnome/gnome-program.c:1340
+#: libgnome/gnome-program.c:1357
 msgid "Application options"
 msgstr "응용프로그램 옵션"
 
-#: libgnome/gnome-program.c:1356
+#: libgnome/gnome-program.c:1373
 msgid "Dynamic modules to load"
 msgstr "읽어들일 동적 모듈"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1374
 msgid "MODULE1,MODULE2,..."
 msgstr "모듈1,모듈2,..."
 
@@ -289,69 +332,11 @@ msgstr "GConf 모니커"
 msgid "config indirect moniker"
 msgstr "설정 간접 모니커"
 
-#: monikers/bonobo-moniker-conf-indirect.c:44
-#, c-format
-msgid "Key %s not found in configuration"
-msgstr "설정에서 키 %s를 찾을 수 없습니다"
-
 #: monikers/bonobo-config-bag.c:230
 msgid "Unknown type"
 msgstr "알 수 없는 유형"
 
-#: gnome-data/gnome-2.soundlist.in.h:1
-msgid "Error Messages"
-msgstr "오류 메세지"
-
-#: gnome-data/gnome-2.soundlist.in.h:2
-msgid "GNOME system events"
-msgstr "그놈 시스템 이벤트"
-
-#: gnome-data/gnome-2.soundlist.in.h:3
-msgid "Informational Messages"
-msgstr "정보 메세지"
-
-#: gnome-data/gnome-2.soundlist.in.h:4
-msgid "Login"
-msgstr "로그인"
-
-#: gnome-data/gnome-2.soundlist.in.h:5
-msgid "Logout"
-msgstr "로그아웃"
-
-#: gnome-data/gnome-2.soundlist.in.h:6
-msgid "Miscellaneous Messages"
-msgstr "기타 메세지"
-
-#: gnome-data/gnome-2.soundlist.in.h:7
-msgid "Question Dialogs"
-msgstr "물음 대화 상자"
-
-#: gnome-data/gnome-2.soundlist.in.h:8
-msgid "Warning Messages"
-msgstr "경고 메세지"
-
-#: gnome-data/gtk-events-2.soundlist.in.h:1
-msgid "Action button click"
-msgstr "액션 단추 클릭"
-
-#: gnome-data/gtk-events-2.soundlist.in.h:2
-msgid "Check box toggled"
-msgstr "체크 상자 토글"
-
-#: gnome-data/gtk-events-2.soundlist.in.h:3
-msgid "Menu item activation"
-msgstr "메뉴 항목 활성화"
-
-#: gnome-data/gtk-events-2.soundlist.in.h:4
-msgid "User interface events"
-msgstr "사용자 인터페이스 이벤트"
-
-#~ msgid ""
-#~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
-#~ "gnome-libs was compiled incorrectly."
-#~ msgstr ""
-#~ "GNOME_FILE_DOMAIN_HELP 도메인을 찾을 수 없습니다. gnome-libs 가 올바르게 "
-#~ "컴파일 되지 않은것 같습니다."
-
-#~ msgid "Help document %s for %s not found"
-#~ msgstr "%2$s에 대한 도움말 %s을(를) 찾을 수 없습니다"
+#: monikers/bonobo-moniker-conf-indirect.c:44
+#, c-format
+msgid "Key %s not found in configuration"
+msgstr "설정에서 키 %s를 찾을 수 없습니다"
