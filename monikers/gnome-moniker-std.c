@@ -18,8 +18,6 @@
 
 #include "bonobo-moniker-std.h"
 
-static BonoboGenericFactory *std_factory = NULL;
-
 static BonoboObject *
 bonobo_std_moniker_factory (BonoboGenericFactory *this,
 			    const char           *object_id,
