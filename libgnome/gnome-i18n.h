@@ -32,36 +32,12 @@
 #define __GNOME_I18N_H__ 1
 
 #include <glib.h>
+#ifdef GNOME_EXPLICIT_TRANSLATION_DOMAIN
+#  define BONOBO_EXPLICIT_TRANSLATION_DOMAIN GNOME_EXPLICIT_TRANSLATION_DOMAIN
+#endif
+#include <bonobo/bonobo-i18n.h>
 
 G_BEGIN_DECLS
-
-#if !defined(__GNOME_I18NP_H__)
-
-#ifdef ENABLE_NLS
-#    include <libintl.h>
-#    ifdef GNOME_EXPLICIT_TRANSLATION_DOMAIN
-#        undef _
-#        define _(String) dgettext (GNOME_EXPLICIT_TRANSLATION_DOMAIN, String)
-#    else 
-#        define _(String) gettext (String)
-#    endif
-#    ifdef gettext_noop
-#        define N_(String) gettext_noop (String)
-#    else
-#        define N_(String) (String)
-#    endif
-#else
-/* Stubs that do something close enough.  */
-#    define textdomain(String) (String)
-#    define gettext(String) (String)
-#    define dgettext(Domain,Message) (Message)
-#    define dcgettext(Domain,Message,Type) (Message)
-#    define bindtextdomain(Domain,Directory) (Domain)
-#    define _(String) (String)
-#    define N_(String) (String)
-#endif
-
-#endif
 
 /* 'gnome_i18n_get_language_list' returns a list of language strings.
  *
