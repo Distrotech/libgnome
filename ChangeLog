@@ -1,3 +1,17 @@
+2004-07-04  Gustavo J. A. M. Carneiro  <gustavo@users.sourceforge.net>
+
+	* libgnome/gnome-program.h: Add prototype for
+	gnome_program_init_paramv.
+
+	* libgnome/gnome-program.c (gnome_program_init_common): Rename
+	from gnome_program_initv; Add parameters 'nparams', 'params';
+	Allow instantiation of the GnomeProgram using either
+	g_object_new_valist or g_object_newv, depending on the supplied
+	arguments.
+	(gnome_program_initv): Delegates to gnome_program_init_common().
+	(gnome_program_init_paramv): New function, GParameter variant of
+	gnome_program_init. Delegates to gnome_program_init_common().
+
 2004-06-08  Pawan Chitrakar  <pawan@nplinux.org>
 
 	* configure.in: Added "ne" Nepali in ALL_LINGUAS

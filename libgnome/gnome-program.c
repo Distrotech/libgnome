@@ -1688,31 +1688,14 @@ gnome_program_init (const char *app_id, const char *app_version,
     return program;
 }
 
-/**
- * gnome_program_initv:
- * @type: The type of application to be initialized (usually
- * #GNOME_TYPE_PROGRAM).
- * @app_id: Application ID string.
- * @app_version: Application version string.
- * @module_info: The modules to init with the application.
- * @argc: The number of command line arguments contained in @argv.
- * @argv: A string array of command line arguments.
- * @first_property_name: The first item in a %NULL-terminated list of attribute
- * name/value.
- * @args: The remaining elements in the %NULL terminated list (of which
- * @first_property_name is the first element).
- *
- * Provides a non-varargs form of gnome_program_init(). Users will rarely need
- * to call this function directly.
- *
- * Returns: A #GnomeProgram instance representing the current application.
- */
-GnomeProgram*
-gnome_program_initv (GType type,
-		     const char *app_id, const char *app_version,
-		     const GnomeModuleInfo *module_info,
-		     int argc, char **argv,
-		     const char *first_property_name, va_list args)
+
+static GnomeProgram*
+gnome_program_init_common (GType type,
+			   const char *app_id, const char *app_version,
+			   const GnomeModuleInfo *module_info,
+			   int argc, char **argv,
+			   const char *first_property_name, va_list args,
+			   gint nparams, GParameter *params)
 {
     GnomeProgram *program;
     GnomeProgramClass *klass;
@@ -1864,8 +1847,11 @@ gnome_program_initv (GType type,
 	}
     }
 
-    program = (GnomeProgram *)g_object_new_valist (type,
-						   first_property_name, args);
+    if (nparams == -1)
+        program = (GnomeProgram *) g_object_new_valist (type,
+                                                        first_property_name, args);
+    else
+        program = (GnomeProgram *) g_object_newv (type, nparams, params);
 
     if (!program_initialized) {
 	global_program = program;
@@ -1885,4 +1871,63 @@ gnome_program_initv (GType type,
 #endif
 
     return program;
+}
+
+/**
+ * gnome_program_initv:
+ * @type: The type of application to be initialized (usually
+ * #GNOME_TYPE_PROGRAM).
+ * @app_id: Application ID string.
+ * @app_version: Application version string.
+ * @module_info: The modules to init with the application.
+ * @argc: The number of command line arguments contained in @argv.
+ * @argv: A string array of command line arguments.
+ * @first_property_name: The first item in a %NULL-terminated list of attribute
+ * name/value.
+ * @args: The remaining elements in the %NULL terminated list (of which
+ * @first_property_name is the first element).
+ *
+ * Provides a non-varargs form of gnome_program_init(). Users will rarely need
+ * to call this function directly.
+ *
+ * Returns: A #GnomeProgram instance representing the current application.
+ */
+GnomeProgram*
+gnome_program_initv (GType type,
+		     const char *app_id, const char *app_version,
+		     const GnomeModuleInfo *module_info,
+		     int argc, char **argv,
+		     const char *first_property_name, va_list args)
+{
+    return gnome_program_init_common (type, app_id, app_version, module_info,
+				      argc, argv, first_property_name, args,
+				      -1, NULL);
+}
+
+/**
+ * gnome_program_init_paramv:
+ * @type: The type of application to be initialized (usually
+ * #GNOME_TYPE_PROGRAM).
+ * @app_id: Application ID string.
+ * @app_version: Application version string.
+ * @module_info: The modules to init with the application.
+ * @argc: The number of command line arguments contained in @argv.
+ * @argv: A string array of command line arguments.
+ * @nparams: Number of parameters.
+ * @args: GParameter array.
+ *
+ * Provides a GParameter form of gnome_program_init(). Useful only for
+ * language bindings, mostly.
+ *
+ * Returns: A #GnomeProgram instance representing the current application.
+ */
+GnomeProgram*
+gnome_program_init_paramv (GType type,
+                           const char *app_id, const char *app_version,
+                           const GnomeModuleInfo *module_info,
+                           int argc, char **argv,
+                           guint nparams, GParameter *params)
+{
+    return gnome_program_init_common (type, app_id, app_version, module_info,
+				      argc, argv, NULL, NULL, nparams, params);
 }

@@ -225,6 +225,12 @@ gnome_program_initv (GType type,
 		     const GnomeModuleInfo *module_info,
 		     int argc, char **argv,
 		     const char *first_property_name, va_list args);
+GnomeProgram*
+gnome_program_init_paramv (GType type,
+                           const char *app_id, const char *app_version,
+                           const GnomeModuleInfo *module_info,
+                           int argc, char **argv,
+                           guint nparams, GParameter *params);
 
 G_END_DECLS
 
