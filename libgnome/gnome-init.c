@@ -518,7 +518,6 @@ GnomeModuleInfo gnome_vfs_module_info = {
 
 static GnomeModuleRequirement libgnome_requirements [] = {
 	{ VERSION, &libbonobo_module_info },
-	{ VERSION, &libbonobo_module_info },
 	{ "0.3.0", &gnome_vfs_module_info },
 	{ NULL }
 };
