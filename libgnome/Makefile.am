@@ -77,6 +77,9 @@ EXTRA_DIST = lib_date.README
 
 sysconf_DATA = paper.config
 
+soundlistdir = $(sysconfdir)/sound/events
+soundlist_DATA = gnome.soundlist
+
 libgnome_la_LDFLAGS = -version-info 30:0:30 -rpath $(libdir)
 libgnome_la_LIBADD = $(GLIB_LIBS) -lm $(DL_LIB)
 

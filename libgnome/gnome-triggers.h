@@ -23,7 +23,7 @@ struct _GnomeTrigger {
 	} u;
         gchar *level;
 };
-typedef struct _GnomeTrigger * GnomeTrigger;
+typedef struct _GnomeTrigger GnomeTrigger;
 
 /* Must be called before doing any triggers stuff */
 void gnome_triggers_init(void);
@@ -37,8 +37,8 @@ gint gnome_triggers_readfile(gchar *filename);
 		     "warning", "system", "device", "disk", "/dev/hda1");
 */
 
-void gnome_triggers_add_trigger(GnomeTrigger nt, ...);
-void gnome_triggers_vadd_trigger(GnomeTrigger nt,
+void gnome_triggers_add_trigger(GnomeTrigger *nt, ...);
+void gnome_triggers_vadd_trigger(GnomeTrigger *nt,
 				 char *supinfo[]);
 
 void gnome_triggers_do(const char *msg, const char *level, ...);

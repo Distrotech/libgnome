@@ -112,6 +112,18 @@ gnome_unconditional_pixmap_file (const char *filename)
 	return (gnome_dirrelative_file (GNOMEDATADIR "/pixmaps", "share/pixmaps", filename, TRUE));
 }
 
+char *
+gnome_config_file (const char *filename)
+{
+	return (gnome_dirrelative_file (GNOMESYSCONFDIR, "etc", filename, FALSE));
+}
+
+char *
+gnome_unconditional_config_file (const char *filename)
+{
+	return (gnome_dirrelative_file (GNOMESYSCONFDIR, "etc", filename, TRUE));
+}
+
 /* DOC: gnome_unconditional_libdir_file (char *filename)
  * Returns a newly allocated pathname pointing to a (possibly
  * non-existent) file in the gnome libdir

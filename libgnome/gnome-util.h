@@ -17,10 +17,12 @@ char *gnome_libdir_file (const char *filename);
 char *gnome_datadir_file (const char *filename);
 char *gnome_sound_file (const char *filename); 
 char *gnome_pixmap_file (const char *filename); 
+char *gnome_config_file (const char *filename);
 char *gnome_unconditional_libdir_file (const char *filename); 
 char *gnome_unconditional_datadir_file (const char *filename); 
 char *gnome_unconditional_sound_file (const char *filename); 
 char *gnome_unconditional_pixmap_file (const char *filename); 
+char *gnome_unconditional_config_file (const char *filename);
 
 /* TRUE if the file exists */
 int g_file_exists (const char *filename); 
