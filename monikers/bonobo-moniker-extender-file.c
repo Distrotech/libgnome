@@ -2,9 +2,9 @@
  * gnome-moniker-extender-file.c: 
  *
  * Author:
- *	Dietmar Maurer (dietmar@helixcode.com)
+ *	Dietmar Maurer (dietmar@maurer-it.com)
  *
- * Copyright 1999 Helix Code, Inc.
+ * Copyright 2000, Helix Code, Inc.
  */
 #include <config.h>
 #include <stdlib.h>
@@ -18,6 +18,7 @@
 #include <bonobo/bonobo-object.h>
 #include <bonobo/bonobo-generic-factory.h>
 #include <bonobo/bonobo-main.h>
+#include <bonobo/bonobo-stream.h>
 #include <bonobo/bonobo-moniker.h>
 #include <bonobo/bonobo-moniker-util.h>
 #include <bonobo/bonobo-moniker-extender.h>
@@ -30,17 +31,24 @@ static BonoboGenericFactory *extender_factory = NULL;
 static Bonobo_Unknown
 file_extender_resolve (BonoboMonikerExtender *extender,
 		       const Bonobo_Moniker   m,
+		       const Bonobo_ResolveOptions *options,
 		       const CORBA_char      *display_name,
 		       const CORBA_char      *requested_interface,
 		       CORBA_Environment     *ev)
 {
-	/* FIXME: we need to get some nice infastructure here first. */
-#if 0
-	const char    *mime_type;
-	char          *oaf_requirements;
-	Bonobo_Unknown object;
-	Bonobo_Persist persist;
+	const char      *mime_type;
+	char            *oaf_requirements;
+	Bonobo_Unknown   object;
+	Bonobo_Persist   persist;
 	OAF_ActivationID ret_id;
+	const char      *fname;
+
+	if (strchr (display_name, ':'))
+		fname = strchr (display_name, ':');
+	else
+		fname = display_name;
+
+	g_warning ("Filename : '%s'", fname);
 
 	mime_type = gnome_mime_type (fname);
 
@@ -105,18 +113,14 @@ file_extender_resolve (BonoboMonikerExtender *extender,
 			(const Bonobo_Persist_ContentType)mime_type, ev);
 
 		bonobo_object_release_unref (persist, ev);
+		bonobo_object_unref (BONOBO_OBJECT (stream));
 
 		return bonobo_moniker_util_qi_return (
 			object, requested_interface, ev);
 	}
 
-	/* FIXME: so perhaps here we need to start doing in-file storages etc. */
-	CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
-			     ex_Bonobo_Moniker_InterfaceNotFound, NULL);
-
  unref_object_exception:
 	bonobo_object_release_unref (object, ev);
-#endif
 
 	return CORBA_OBJECT_NIL;
 }
@@ -132,12 +136,14 @@ extender_destroy_cb (BonoboMonikerExtender *extender, gpointer dummy)
 	if (running_objects > 0)
 		return;
 
-	impl_ptr = gtk_object_get_data (GTK_OBJECT (extender_factory), 
-					"OAF_IMPL_PTR");
+	if (extender_factory) {
+		impl_ptr = gtk_object_get_data (GTK_OBJECT (extender_factory), 
+						"OAF_IMPL_PTR");
 
-	oaf_plugin_unuse (impl_ptr);
-
-	bonobo_object_unref (BONOBO_OBJECT (extender_factory));
+		oaf_plugin_unuse (impl_ptr);
+		
+		bonobo_object_unref (BONOBO_OBJECT (extender_factory));
+	}
 	
 	extender_factory = NULL;
 }
@@ -204,3 +210,4 @@ const OAFPlugin OAF_Plugin_info = {
         file_extender_plugin_list,
         "bonobo file moniker extender"
 };
+

@@ -5,6 +5,8 @@
  *
  * Author:
  *	Michael Meeks (michael@helixcode.com)
+ *
+ * Copyright 2000, Helix Code, Inc.
  */
 #include <config.h>
 #include <bonobo/bonobo-storage.h>
@@ -15,17 +17,16 @@
 #include <libgnome/gnome-mime.h>
 #include <liboaf/liboaf.h>
 
-#include "bonobo-moniker-file.h"
+#include "bonobo-moniker-std.h"
 
-static BonoboMonikerClass *bonobo_moniker_file_parent_class;
-
-static Bonobo_Unknown
-file_resolve (BonoboMoniker               *moniker,
-	      const Bonobo_ResolveOptions *options,
-	      const CORBA_char            *requested_interface,
-	      CORBA_Environment           *ev)
+Bonobo_Unknown
+bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
+			     const Bonobo_ResolveOptions *options,
+			     const CORBA_char            *requested_interface,
+			     CORBA_Environment           *ev)
 {
-	const char *fname = bonobo_moniker_get_name (moniker);
+	const char    *fname = bonobo_moniker_get_name (moniker);
+	Bonobo_Unknown retval;
 
 	g_warning ("Fname '%s'", fname);
 
@@ -62,52 +63,14 @@ file_resolve (BonoboMoniker               *moniker,
 			bonobo_object_corba_objref (BONOBO_OBJECT (storage)), ev);
 	}
 
-	return CORBA_OBJECT_NIL;
-}
+	retval = bonobo_moniker_use_extender ("OAFIID:Bonobo_MonikerExtender_file",
+					      moniker, options, requested_interface, ev);
 
-static void
-bonobo_moniker_file_class_init (BonoboMonikerFileClass *klass)
-{
-	BonoboMonikerClass *mclass = (BonoboMonikerClass *) klass;
-	
-	bonobo_moniker_file_parent_class = gtk_type_class (
-		bonobo_moniker_get_type ());
+	if (BONOBO_EX (ev) || retval != CORBA_OBJECT_NIL)
+		return CORBA_OBJECT_NIL;
 
-	mclass->resolve = file_resolve;
-}
+	retval = bonobo_moniker_use_extender ("OAFIID:Bonobo_MonikerExtender_stream",
+					      moniker, options, requested_interface, ev);
 
-/**
- * bonobo_moniker_file_get_type:
- *
- * Returns the GtkType for the BonoboMonikerFile class.
- */
-GtkType
-bonobo_moniker_file_get_type (void)
-{
-	static GtkType type = 0;
-
-	if (!type) {
-		GtkTypeInfo info = {
-			"BonoboMonikerFile",
-			sizeof (BonoboMonikerFile),
-			sizeof (BonoboMonikerFileClass),
-			(GtkClassInitFunc) bonobo_moniker_file_class_init,
-			(GtkObjectInitFunc) NULL,
-			NULL, /* reserved 1 */
-			NULL, /* reserved 2 */
-			(GtkClassInitFunc) NULL
-		};
-
-		type = gtk_type_unique (bonobo_moniker_get_type (), &info);
-	}
-
-	return type;
-}
-
-BonoboMoniker *
-bonobo_moniker_file_new (void)
-{
-	return bonobo_moniker_construct (
-		gtk_type_new (bonobo_moniker_file_get_type ()),
-		CORBA_OBJECT_NIL, "file:");
+	return retval;
 }
