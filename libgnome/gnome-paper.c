@@ -164,7 +164,7 @@ gnome_paper_with_name (const gchar *papername)
  * Returns: paper specification
  **/
 const GnomePaper*
-gnome_paper_with_size (const double pswidth, const double psheight)
+gnome_paper_with_size (double pswidth, double psheight)
 {
   GList *l = paper_list;
   GnomePaper	*pp;
