@@ -28,10 +28,13 @@
 
 #include <libgnome/gnome-program.h>
 
+G_BEGIN_DECLS
+
 /* Get keys relative to the gnome-libs internal per-app directory and the
    application author per-app directory */
 gchar      *gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey);
 gchar      *gnome_gconf_get_app_settings_relative        (GnomeProgram *program,
 							  const gchar *subkey);
+G_END_DECLS
 
 #endif /* GNOME_GCONF_H */
