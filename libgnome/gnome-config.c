@@ -141,7 +141,7 @@ parse_path (const char *path, gint priv)
 	if (*p->path == '='){
 		/* If it is an absolute path name */
 		p->path++;
-		p->file    = strtok (p->path, "=");
+		p->file    = g_strdup (strtok (p->path, "="));
 		p->section = strtok (NULL, "/=");
 		p->key     = strtok (NULL, "=");
 		p->def     = strtok (NULL, "=");
@@ -149,7 +149,7 @@ parse_path (const char *path, gint priv)
 		char *end;
 		sep = "/=";
 
-		p->file    = p->path;
+		p->file    = g_strdup (p->path);
 		p->def     = NULL;
 		p->section = NULL;
 		p->key     = NULL;
@@ -178,16 +178,15 @@ parse_path (const char *path, gint priv)
 				break;
 			}
 		}
+		q = p->file;
+		
 		if (*p->file == '/')
 			p->file++;
 
-		q = p->file;
 		if (priv){
-			p->file = g_concat_dir_and_file (gnome_user_private_dir,
-							 q);
+			p->file = g_concat_dir_and_file (gnome_user_private_dir, q);
 		} else {
-			p->file = g_concat_dir_and_file (gnome_user_dir,
-							 q);
+			p->file = g_concat_dir_and_file (gnome_user_dir, q);
 		}
 		g_free (q);
 	}
