@@ -1,7 +1,7 @@
 #ifndef __GNOME_POPT_H__
 #define __GNOME_POPT_H__ 1
 
-#include <popt.h>
+#include <popt-gnome.h>
 #include "gnome-defs.h"
 
 BEGIN_GNOME_DECLS
