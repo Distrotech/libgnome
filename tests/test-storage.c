@@ -35,7 +35,8 @@ main (int argc, char *argv [])
 		g_error (_("Can not bonobo_init"));
 
 	unlink (file);
-	storage = bonobo_storage_open("efs", file, BONOBO_SS_RDWR|BONOBO_SS_CREATE, 0664);
+	storage = bonobo_storage_open("efs", file, Bonobo_Storage_WRITE|
+				      Bonobo_Storage_CREATE, 0664);
 
 	if (storage == NULL)
 		g_error ("Could not create storage file %s", file);

@@ -308,13 +308,13 @@ bonobo_stream_create (int fd)
 /**
  * bonobo_stream_fs_open:
  * @path: The path to the file to be opened.
- * @mode: The mode with which the file should be opened.
+ * @flags: The flags with which the file should be opened.
  *
  * Creates a new BonoboStream object for the filename specified by
  * @path.  
  */
 BonoboStream *
-bonobo_stream_fs_open (const CORBA_char *path, Bonobo_Storage_OpenMode mode)
+bonobo_stream_fs_open (const gchar *path, gint flags)
 {
 	struct stat s;
 	int v, fd;
@@ -331,13 +331,13 @@ bonobo_stream_fs_open (const CORBA_char *path, Bonobo_Storage_OpenMode mode)
 		return NULL;
 	}
 	
-	if (mode == Bonobo_Storage_READ) {
+	if (flags == Bonobo_Storage_READ) {
 		fd = open (full, O_RDONLY);
 		if (fd == -1) {
 			g_free (full);
 			return NULL;
 		}
-	} else if (mode == Bonobo_Storage_WRITE) {
+	} else if (flags == Bonobo_Storage_WRITE) {
 		fd = open (full, O_RDWR);
 		if (fd == -1) {
 			g_free (full);

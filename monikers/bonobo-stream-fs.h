@@ -37,7 +37,7 @@ typedef struct {
 } BonoboStreamFSClass;
 
 GtkType         bonobo_stream_fs_get_type     (void);
-BonoboStream    *bonobo_stream_fs_open         (const CORBA_char *path, Bonobo_Storage_OpenMode mode);
+BonoboStream    *bonobo_stream_fs_open         (const gchar *path, gint flags);
 BonoboStream    *bonobo_stream_fs_create       (const CORBA_char *path);
 BonoboStream    *bonobo_stream_fs_construct    (BonoboStreamFS *stream,
 					      Bonobo_Stream corba_stream);

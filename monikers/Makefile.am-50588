@@ -1,8 +1,10 @@
+PLUGIN_DIR=$(libdir)/bonobo/plugin
 
 INCLUDES =                                              \
         -DGNOMELOCALEDIR=\""$(datadir)/locale"\"        \
 	-I$(srcdir) -I$(top_srcdir) 			\
 	-I$(top_builddir)				\
+	-DPLUGIN_DIR=\""$(PLUGIN_DIR)"\"		\
 	-I$(top_srcdir)/libefs/src			\
         -I$(includedir)                                 \
 	$(VFS_CFLAGS)					\
@@ -10,6 +12,8 @@ INCLUDES =                                              \
 
 common_ldflags = -avoid-version
 
+bonobo_plugindir =  $(PLUGIN_DIR)
+bonobo_plugin_LTLIBRARIES = libstorage_efs.la libstorage_fs.la 
 
 #
 # EFS storage module
@@ -30,7 +34,9 @@ libstorage_efs_la_LDFLAGS = 			\
 #
 libstorage_fs_la_SOURCES =	\
 	bonobo-storage-fs.c	\
-	bonobo-storage-fs.h
+	bonobo-storage-fs.h	\
+	bonobo-stream-fs.c	\
+	bonobo-stream-fs.h
 
 libstorage_fs_la_LDFLAGS = 	\
 	$(common_ldflags)
@@ -39,7 +45,7 @@ libstorage_fs_la_LDFLAGS = 	\
 # VFS storage module - disabled for now.
 #
 if HAVE_VFS
-libstoragedir = $(libdir)
+libstoragedir = $(PLUGIN_DIR)
 libstorage_LTLIBRARIES =	\
 	libstorage_vfs.la
 
@@ -53,6 +59,3 @@ libstorage_vfs_la_LIBADD = 	\
 	$(VFS_LIBS)
 endif
 
-lib_LTLIBRARIES = 		\
-	libstorage_fs.la	\
-	libstorage_efs.la

@@ -57,7 +57,8 @@ file_resolve (BonoboMoniker               *moniker,
 	if (!strcmp (requested_interface, "IDL:Bonobo/Stream:1.0")) {
 		BonoboStream *stream;
 		
-		stream = bonobo_stream_fs_open (fname, Bonobo_Storage_READ);
+		stream = bonobo_stream_open ("fs", fname,
+					     Bonobo_Storage_READ, 0664);
 
 		if (!stream) {
 			g_warning ("Failed to open stream '%s'", fname);
@@ -121,8 +122,9 @@ file_resolve (BonoboMoniker               *moniker,
 		if (persist != CORBA_OBJECT_NIL) {
 			BonoboStream *stream;
 
-			stream = bonobo_stream_fs_open (
-				fname, Bonobo_Storage_READ);
+			stream = bonobo_stream_open ("fs", fname, 
+						     Bonobo_Storage_READ, 
+						     0664);
 
 			if (!stream) {
 				g_warning ("Failed to open stream '%s'", fname);

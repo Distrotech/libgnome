@@ -15,6 +15,7 @@
 #include <libgnome/gnome-util.h>
 #include <storage-modules/bonobo-storage-fs.h>
 #include <bonobo/bonobo-stream-fs.h>
+#include <bonobo/bonobo-storage-plugin.h>
 
 static BonoboStorageClass *bonobo_storage_fs_parent_class;
 
@@ -194,23 +195,23 @@ bonobo_storage_fs_open (const char *path, gint flags, gint mode)
 	
 	g_return_val_if_fail (path != NULL, NULL);
 
-	if (flags & BONOBO_SS_CREATE){
-		if (mkdir (path, mode) == -1){
+	if (flags & Bonobo_Storage_CREATE) {
+		if (mkdir (path, mode) == -1) {
 			return NULL;
 		}
 	}
 
 	v = stat (path, &s);
 
-	if (flags & BONOBO_SS_READ){
+	if (flags & Bonobo_Storage_READ) {
 		if (v == -1)
 			return NULL;
 		
 		if (!S_ISDIR (s.st_mode))
 			return NULL;
 
-	} else if (flags & (BONOBO_SS_RDWR|BONOBO_SS_WRITE)){
-		if (v == -1){
+	} else if (flags & Bonobo_Storage_WRITE) {
+		if (v == -1) {
 			if (mkdir (path, 0777) == -1)
 				return NULL;
 		} else {
@@ -222,12 +223,18 @@ bonobo_storage_fs_open (const char *path, gint flags, gint mode)
 	return do_bonobo_storage_fs_create (path);
 }
 
-/*
- * Shared library entry point
- */
-BonoboStorage *
-bonobo_storage_driver_open (const char *path, gint flags, gint mode)
+gint 
+init_storage_plugin (StoragePlugin *plugin)
 {
-	return bonobo_storage_fs_open (path, flags, mode);
+	g_return_val_if_fail (plugin != NULL, -1);
+
+	plugin->name = "fs";
+	plugin->description = "Native Filesystem Driver";
+	plugin->version = VERSION;
+	
+	plugin->storage_open = bonobo_storage_fs_open; 
+	plugin->stream_open = bonobo_stream_fs_open; 
+
+	return 0;
 }
 
