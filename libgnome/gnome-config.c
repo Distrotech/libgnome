@@ -657,7 +657,7 @@ _gnome_config_clean_file (const char *path, gint priv)
 	if (!path)
 		return;
 
-	fake_path = g_strconcat (path, "/section/key", NULL);
+	fake_path = g_concat_dir_and_file (path, "section/key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 
@@ -712,7 +712,7 @@ _gnome_config_drop_file (const char *path, gint priv)
 	if (!path)
 		return;
 
-	fake_path = g_strconcat (path, "/section/key", NULL);
+	fake_path = g_concat_dir_and_file (path, "section/key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 
@@ -843,7 +843,7 @@ _gnome_config_init_iterator_sections (const char *path, gint priv)
 	iterator_type *iter;
 
 
-	fake_path = g_strconcat (path, "/section/key", NULL);
+	fake_path = g_concat_dir_and_file (path, "section/key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
