@@ -29,7 +29,10 @@ bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
 		BonoboStream *stream;
 		
 		stream = bonobo_stream_open ("fs", fname,
-					     Bonobo_Storage_READ, 0664);
+					     Bonobo_Storage_READ, 0664, ev);
+
+		if (BONOBO_EX (ev))
+			return CORBA_OBJECT_NIL;
 
 		if (!stream) {
 			g_warning ("Failed to open stream '%s'", fname);
