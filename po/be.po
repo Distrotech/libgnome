@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.be\n"
-"POT-Creation-Date: 2003-02-20 20:20+0100\n"
+"POT-Creation-Date: 2003-05-18 19:36+0200\n"
 "PO-Revision-Date: 2003-02-21 21:07GMT+2\n"
 "Last-Translator: Vital Khilko <dojlid@mova.org>\n"
 "Language-Team: belarusian <i18n@mova.org>\n"
@@ -108,7 +108,7 @@ msgstr "Немагчыма адшукаць doc_id %s па шляху да да�
 msgid "Help document %s/%s not found"
 msgstr "Дакумэнт дапамогі %s/%s ня адшуканы"
 
-#: libgnome/gnome-i18n.c:85
+#: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "Зашмат мянушак для лакалі, можна зацыкліцца"
 
@@ -138,27 +138,27 @@ msgstr "Рэжым 0700 ня ўсталяваны на прыватны ката
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Ня створаны каталёг аксэлератараў `%s': %s\n"
 
-#: libgnome/gnome-init.c:391
+#: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
 msgstr "Выключыць выкарыстаньне гукавага паслужніка"
 
-#: libgnome/gnome-init.c:394
+#: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
 msgstr "Уключыць выкарыстаньне гукавага паслужніка"
 
-#: libgnome/gnome-init.c:397
+#: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
 msgstr "Вузел: порт які выкарыстоўвае паслужнік гука"
 
-#: libgnome/gnome-init.c:399
+#: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: libgnome/gnome-init.c:417
+#: libgnome/gnome-init.c:410
 msgid "GNOME Virtual Filesystem"
 msgstr "Віртуальная файлавая сыстэма GNOME"
 
-#: libgnome/gnome-init.c:438
+#: libgnome/gnome-init.c:431
 msgid "GNOME Library"
 msgstr "Бібліятэка GNOME"
 
@@ -352,7 +352,8 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Выключаць калі дзьве кнопкі былі націснутыя адначасова."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr "Ня ўспрыймаць націск карацейшы за @delay мілісэкундаў"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
@@ -360,7 +361,8 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Колькі мілісэкундаў пройдзе ад 0 да максымальнае хуткасьці"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Колькі мілісэкундаў чакаць перад пачаткам дзеяньня клявішаў перамяшчэньня "
 "мышы"
@@ -433,8 +435,11 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "Калі дапомны праглядальнік даведкі патрабуе для выкананьня тэрмінал"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Аргумэнт, які выкарыстоўваецца пад час загрузкі праграмаў у тэрмінале па ключу \"exec\""
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"Аргумэнт, які выкарыстоўваецца пад час загрузкі праграмаў у тэрмінале па "
+"ключу \"exec\""
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -446,7 +451,8 @@ msgstr "Вэрсыя тэрмінала"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr "Праграма тэрмінала для выкарыстаньня дастасаваньнем, калі тое яго патрабуе"
+msgstr ""
+"Праграма тэрмінала для выкарыстаньня дастасаваньнем, калі тое яго патрабуе"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
@@ -458,7 +464,8 @@ msgstr "Аварыйны мэнаджар вокнаў"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr "Аварыйны мэнаджар вокнаў, які будзе выкарыстоўвацца калі дапомны адсутнічае "
+msgstr ""
+"Аварыйны мэнаджар вокнаў, які будзе выкарыстоўвацца калі дапомны адсутнічае "
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -654,7 +661,8 @@ msgstr "Стыль панэлі інструмэнта"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
-msgstr "Стыл панэлі стану. Правільныя значэньні: both, both_horiz, icon, і text."
+msgstr ""
+"Стыл панэлі стану. Правільныя значэньні: both, both_horiz, icon, і text."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
@@ -684,7 +692,8 @@ msgstr "Ці мае мэню падзяляльнікі"
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr "Ці можа карыстальнік дынамічна набіраць новы паскаральнік калі усплыла мэню"
+msgstr ""
+"Ці можа карыстальнік дынамічна набіраць новы паскаральнік калі усплыла мэню"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
@@ -906,13 +915,15 @@ msgstr ""
 "preferences/command спасылак (URL) на перавагі"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
 "Усталяваць ІСЬЦІНА, каб мець праграму, якая вызначана ў апрацоўшчыке тыпа "
 "programs/ghelp спасылак старонак ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid "Set to true to have a program specified in programs/info handle info URLs"
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
 "Усталяваць ІСЬЦІНА, каб мець праграму, якая вызначана ў апрацоўшчыке тыпа "
 "programs/info спасылак старонак info"
@@ -956,7 +967,8 @@ msgstr ""
 "system-settings/command спасылак (URL) усталяваньняў сыстэмы"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:22
-msgid "Set to true to have a program specified in trash/command handle trash URLs"
+msgid ""
+"Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Усталяваць ІСЬЦІНА, каб мець праграму, якая вызначана ў апрацоўшчыке тыпа "
 "trash/command спасылак (URL) сьметніцы"
@@ -1000,4 +1012,3 @@ msgstr "URL апрацоўшчык для старонак наладкі сыс
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:32
 msgid "URL handler for trash pages"
 msgstr "URL апрацоўшчык для старонак сьметніцы"
-

@@ -1,3 +1,38 @@
+=============
+Version 2.2.1 (18.05.2003)
+=============
+
+Library:
+	* Init gettext earlier to catch some bugs (Hidetoshi Tajima)
+	  Bug #99224
+	* Fix search path for locale.alias. (Julio Merino) Bug #106180.
+	* Fix url substitution with custom web browser command
+	  (Pasupathi Duraisamy) Bug #108909
+	* Plug a leak in the help routines. (Kjartan)
+
+Help converters:
+	* Fix manual pages that have non-numeric filetypes such as
+	  open.3pm. Patch from Roderich Schupp. Bug #101440.
+	* Fix crashes when feeding directories to the help converters.
+	  Patch from John Fleck. Bug #104056.
+	* Generate help-methods.conf based on libexecdir value.
+	  Patch from Frédéric Crozat. Bug #91169.
+	
+Build:
+	* Honor --disable-schemas-install. (Julio Merino)
+	* Require newer intltool (Kjartan)
+
+Translations:
+
+	az (Metin Amiroff), be (Dmitry Mastrukov), bn (Taneem Ahmed), 
+	cs (Miloslav Trmac), de (Christian Neumair), el (Kostas Papadimas), 
+	es (Carlos Perello Martin), id (Mohammad DAMT), ja (Takeshi AIHANA), 
+	ml (Guntupalli Karunkar), mn (Badral Saulig), ms (Hasbullah Bin Pit), 
+	ko (Changwoo Ryu), nl (Vincent Van Adrighem), no (Kjartan Maraas), 
+	pl (Zbigniew Chyla), pt (Duarte Loreto), ru (Dmitry Mastrukov), 
+	sr and sr@latn (Danilo), sv (Christian Rose), tr (Fatih Demir), 
+	uk (Yuriy Syrota), zh_TW (Abel Cheung) 
+
 August 11, 2001:
 ===============
 
