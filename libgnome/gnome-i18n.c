@@ -326,50 +326,52 @@ gnome_i18n_get_language_list (const gchar *category_name)
   return list;
 }
 
-static GList *numeric_locale_stack = NULL;
+static int numeric_c_locale_depth = 0;
+static char *numeric_locale = NULL;
 
 /**
  * gnome_i18n_push_c_numeric_locale:
  *
- * Description:  Pushes the current LC_NUMERIC locale onto a stack, then 
- * sets LC_NUMERIC to "C".  This way you can safely read write flaoting
- * point numbers all in the same format.  You should make sure that
- * code between #gnome_i18n_push_c_numeric_locale and
- * #gnome_i18n_pop_c_numeric_locale doesn't do any setlocale calls or locale
- * may end up in a strange setting.  Also make sure to always pop the
- * c numeric locale after you've pushed it.
+ * Description:  Saves the current LC_NUMERIC locale and sets it to "C"
+ * This way you can safely read write flaoting point numbers all in the
+ * same format.  You should make sure that code between
+ * #gnome_i18n_push_c_numeric_locale and #gnome_i18n_pop_c_numeric_locale
+ * doesn't do any setlocale calls or locale may end up in a strange setting.
+ * Also make sure to always pop the c numeric locale after you've pushed it.
+ * The calls can be nested.
  **/
 void
 gnome_i18n_push_c_numeric_locale (void)
 {
-	char *current;
-
-	current = g_strdup (setlocale (LC_NUMERIC, NULL));
-	numeric_locale_stack = g_list_prepend (numeric_locale_stack,
-					       current);
-	setlocale (LC_NUMERIC, "C");
+	if (numeric_c_locale_depth == 0) {
+		g_free (numeric_locale);
+		numeric_locale = g_strdup (setlocale (LC_NUMERIC, NULL));
+		setlocale (LC_NUMERIC, "C");
+	}
+	numeric_c_locale_depth ++;
 }
 
 /**
  * gnome_i18n_pop_c_numeric_locale:
  *
- * Description:  Pops the last LC_NUMERIC locale from the stack (where
- * it was put with #gnome_i18n_push_c_numeric_locale).  Then resets the
- * current locale to that one.
+ * Description:  Restores the LC_NUMERIC locale to what it was 
+ * before the matching #gnome_i18n_pop_c_numeric_locale.  If these calls
+ * were nested, then this is a no-op until we get to the most outermost
+ * layer.  Code in between these should not do any setlocale calls
+ * to change the LC_NUMERIC locale or things may come out very strange.
  **/
 void
 gnome_i18n_pop_c_numeric_locale (void)
 {
-	char *old;
-
-	if (numeric_locale_stack == NULL)
+	if (numeric_c_locale_depth == 0) {
 		return;
+	}
 
-	old = numeric_locale_stack->data;
+	numeric_c_locale_depth --;
 
-	setlocale (LC_NUMERIC, old);
-
-	numeric_locale_stack = g_list_remove (numeric_locale_stack, old);
-
-	g_free (old);
+	if (numeric_c_locale_depth == 0) {
+		setlocale (LC_NUMERIC, numeric_locale);
+		g_free (numeric_locale);
+		numeric_locale = NULL;
+	}
 }

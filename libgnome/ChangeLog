@@ -1,3 +1,15 @@
+Sat Sep 01 23:01:30 2001  George Lebl <jirka@5z.com>
+
+	* Makefile.am, gnome-score.[ch]: bring back the non-gui portion of
+	  gnome-scores.
+
+	* gnome-i18n.c: the push/pop numeric C locale was sort of stupid.  It
+	  was saving the C locale.  So assume that if we're nested we're in the
+	  C locale.  This is just as safe netable wise and wastes less
+	  resources
+
+	* gnome-config.c: alloca voodoo is now done in glib
+
 Sat Sep 01 17:26:44 2001  George Lebl <jirka@5z.com>
 
 	* gnome-init.c: don't run the gnome_triggers_init, it's an empty

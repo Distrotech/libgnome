@@ -62,6 +62,7 @@ libgnome_src = \
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-preferences.c	\
+	gnome-score.c		\
 	gnome-marshal-main.c	\
 	gnome-init.c
 
@@ -87,6 +88,7 @@ libgnome_headers = \
 	gnome-util.h   		\
 	gnome-preferences.h	\
 	gnome-marshal.h		\
+	gnome-score.h		\
 	gnome-init.h
 
 libgnomeinclude_HEADERS = \
