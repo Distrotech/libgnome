@@ -137,11 +137,11 @@ gnome_url_show_with_env (const char  *url,
 	for (i = 0; i < argc; i++) {
 		char *arg;
 
-		if (strcmp (argv[i], "%s") != 0)
+		if (strstr (argv[i], "%s") == NULL)
 			continue;
 
 		arg = argv[i];
-		argv[i] = g_strdup (url);
+		argv[i] = g_strdup_printf (arg, url);
 		g_free (arg);
 	}
 	
