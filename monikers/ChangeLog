@@ -1,3 +1,12 @@
+2001-06-28  Michael Meeks  <michael@ximian.com>
+
+	* bonobo-config-ditem-utils.c (DECODE_BASIC): fix type usage in
+	macro.
+	(bonobo_config_ditem_decode_any): port to ORBit2's DynamicAny.
+
+	* bonobo-config-ditem.c (dump_key): fix leak, dump escaped value.
+	(dump_subkeys): fix leak.
+
 Thu Jun 28 00:26:18 2001  George Lebl <jirka@5z.com>
 
 	* bonobo-config-ditem.[ch]: Specialized this beast for reading v0.9.2
