@@ -65,25 +65,6 @@ WAVFormatChunk;
 ( ( x & 0xff000000 ) >> 24 ) )
 #endif
 
-/*
- * This does delayed initialization of Esound
- */
-static gboolean
-use_sound (void)
-{
-  if (gnome_sound_connection == -1){
-    if (esound_hostname){
-      gnome_sound_connection = esd_open_sound (esound_hostname);
-      if (gnome_sound_connection == -1){
-	g_free (esound_hostname);
-	esound_hostname = NULL;
-	return FALSE;
-      }
-    }
-  }
-  return TRUE;
-}
-
 /**
  * gnome_sound_sample_load_wav:
  * @file: filename to try loading a WAV file from.
@@ -300,6 +281,27 @@ gnome_sound_sample_load_wav(const char *file)
 #endif
 
   return NULL;
+}
+#endif
+
+#ifdef HAVE_ESD
+/*
+ * This does delayed initialization of Esound
+ */
+static gboolean
+use_sound (void)
+{
+  if (gnome_sound_connection == -1){
+    if (esound_hostname){
+      gnome_sound_connection = esd_open_sound (esound_hostname);
+      if (gnome_sound_connection == -1){
+	g_free (esound_hostname);
+	esound_hostname = NULL;
+	return FALSE;
+      }
+    }
+  }
+  return TRUE;
 }
 #endif
 
