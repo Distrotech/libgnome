@@ -1,3 +1,11 @@
+2002-12-12  Chema Celorio  <chema@celorio.com>
+
+	* acconfig.h: Trying to fix the autoheader warning didn't worked because
+	we are pulling one AC_DEFINE from gnome-common. I added acconfig.h back
+	so that autogen works again (when running autoheader) but the autoheader warning
+	is back. We need to fix gnome-common but fixing libgnome again (removing acconfig.h)
+	would require people to have the fixed version of gnome-common.
+
 2002-12-11  Christian Neumair  <chris@gnome-de.org>
 
 	* schemas/desktop_gnome_interface.schemas.in: Forgot to specify
