@@ -392,7 +392,7 @@ gnome_mime_init ()
 	gnome_mime_dir.dirname = gnome_unconditional_datadir_file ("mime-info");
 	gnome_mime_dir.system_dir = TRUE;
 	
-	user_mime_dir.dirname  = g_concat_dir_and_file (g_get_home_dir (), ".gnome/mime-info");
+	user_mime_dir.dirname  = g_concat_dir_and_file (gnome_util_user_home (), ".gnome/mime-info");
 	user_mime_dir.system_dir = FALSE;
 
 	/*
@@ -567,6 +567,87 @@ const char *
 gnome_mime_program (const char *mime_type)
 {
 	return gnome_mime_get_value (mime_type, "open");
+}
+
+/**
+ * gnome_mime_program_list:
+ * @mime_type: the mime_type 
+ *
+ * Returns a GList that contains private strings with the program(s)
+ * associated with the @mime_type.  
+ */
+GList *
+gnome_mime_program_list (GList *mime_list)
+{
+	char *mime_type;
+	GList *prog_list = NULL, *mime_local;
+	
+	mime_local = g_list_last (mime_list);
+	while (mime_local) {
+		mime_type = (char*) mime_local->data;
+		prog_list = g_list_prepend
+			(prog_list, (gpointer) gnome_mime_get_value ((const char*) mime_type, "open"));
+		mime_local = g_list_previous (mime_local);
+	}
+	return (prog_list);
+}
+
+/**
+ * gnome_mime_program_name:
+ * @prog_name: the program associated with a given mime-type
+ *
+ * Returns the program name for the program string returned by gnome_mime_program.
+ * This memory must be freed when done.
+ */
+gchar *
+gnome_mime_program_name (const char *prog_name)
+{
+    guint i = 0;
+	
+	while (prog_name[i] != (char) NULL && prog_name[i] != (char) 32) i++;
+	return g_strndup (prog_name, i);
+}
+
+/**
+ * gnome_mime_program_name_list:
+ * @program_list: the list of programs associated with a given mime-type
+ *
+ * Returns a GList that contains private strings with the program name(s)
+ * associated with the @program_list.  
+ */
+GList *
+gnome_mime_program_name_list (GList *prog_list)
+{
+	char *prog;
+	GList *name_list = NULL, *prog_local;
+	
+	prog_local = g_list_last (prog_list);
+	while (prog_local) {
+		prog = (char*) prog_local->data;
+		name_list = g_list_prepend
+			(name_list, (gpointer) gnome_mime_program_name ((const char*) prog));
+		prog_local = g_list_previous (prog_local);
+	}
+	return (name_list);
+}
+
+/**
+ * gnome_mime_program_name_list_free:
+ * @name_list: the list of program names
+ *
+ * Frees all memory associated with the @name-list.  
+ */
+void
+gnome_mime_program_name_list_free (GList *name_list)
+{
+	GList *name_local;
+	
+	name_local = g_list_first (name_list);
+	while (name_local) {
+		g_free (name_local->data);
+		name_local = g_list_next (name_local);
+	}
+	g_list_free (name_local);
 }
 
 /**

@@ -69,31 +69,10 @@ get_priority (char *def, int *priority)
 	return def;
 }
 
-/* Adds an extension->mime_type mapping */
-static void
-add_ext (int priority, char *ext, char *mime_type)
+gint
+list_find_type (gconstpointer value, gconstpointer type)
 {
-	gboolean exists;
-	char *e, *m;
-
-	exists = g_hash_table_lookup_extended (mime_extensions[priority], ext,
-					       (gpointer *) &e, (gpointer *) &m);
-
-	if (exists && strcmp (mime_type, m) != 0) {
-		/* This replaces the old mapping with the new one.  FIXME: we
-		 * should maybe resort for magic content matching in this case.
-		 */
-		g_hash_table_remove (mime_extensions[priority], ext);
-		g_free (e);
-		g_free (m);
-
-		exists = FALSE;
-	}
-
-	if (!exists)
-		g_hash_table_insert (mime_extensions[priority],
-				     g_strdup (ext),
-				     g_strdup (mime_type));
+	return (g_strcasecmp( (const gchar*) value, (const gchar*) type ));
 }
 
 static void
@@ -101,6 +80,7 @@ add_to_key (char *mime_type, char *def)
 {
 	int priority = 1;
 	char *s, *p, *ext;
+	GList *list = NULL;
 
 	if (strncmp (def, "ext", 3) == 0){
 		char *tokp;
@@ -110,7 +90,11 @@ add_to_key (char *mime_type, char *def)
 		s = p = g_strdup (def);
 
 		while ((ext = strtok_r (s, " \t\n\r,", &tokp)) != NULL){
-			add_ext (priority, ext, mime_type);
+			list = (GList*) g_hash_table_lookup (mime_extensions [priority], ext);
+		    if (!g_list_find_custom (list, (gpointer) mime_type, list_find_type)) {
+				list = g_list_prepend (list, g_strdup (mime_type));
+				g_hash_table_insert (mime_extensions [priority], g_strdup (ext), list);
+			}
 			s = NULL;
 		}
 		g_free (p);
@@ -258,7 +242,7 @@ static gboolean
 mime_hash_func (gpointer key, gpointer value, gpointer user_data)
 {
 	g_free (key);
-	g_free (value);
+	g_list_free (value);
 
 	return TRUE;
 }
@@ -309,42 +293,16 @@ maybe_reload (void)
 	last_checked = time (NULL);
 }
 
-static gint
-g_lowerstr_equal (gconstpointer v, gconstpointer v2)
-{
-  return strcasecmp ((const gchar*) v, (const gchar*)v2) == 0;
-}
-
-/* a char* hash function from ASU */
-static guint
-g_lowerstr_hash (gconstpointer v)
-{
-  const char *s = (char*)v;
-  const char *p;
-  guint h=0, g;
-
-  for(p = s; *p != '\0'; p += 1) {
-    h = ( h << 4 ) + tolower(*p);
-    if ( ( g = h & 0xf0000000 ) ) {
-      h = h ^ (g >> 24);
-      h = h ^ g;
-    }
-  }
-
-  return h /* % M */;
-}
-
-
 static void
 mime_init (void)
 {
-	mime_extensions [0] = g_hash_table_new (g_lowerstr_hash, g_lowerstr_equal);
-	mime_extensions [1] = g_hash_table_new (g_lowerstr_hash, g_lowerstr_equal);
+	mime_extensions [0] = g_hash_table_new (g_str_hash, g_str_equal);
+	mime_extensions [1] = g_hash_table_new (g_str_hash, g_str_equal);
 
 	gnome_mime_dir.dirname = gnome_unconditional_datadir_file ("mime-info");
 	gnome_mime_dir.system_dir = TRUE;
 
-	user_mime_dir.dirname  = g_concat_dir_and_file (g_get_home_dir (), ".gnome/mime-info");
+	user_mime_dir.dirname  = gnome_util_home_file ("mime-info");
 	user_mime_dir.system_dir = FALSE;
 	mime_load (&gnome_mime_dir);
 	mime_load (&user_mime_dir);
@@ -361,7 +319,7 @@ mime_init (void)
  * This routine tries to determine the mime-type of the filename
  * only by looking at the filename from the GNOME database of mime-types.
  *
- * Returns the mime-type of the @filename.  If no value could not be
+ * Returns the mime-type of the @filename.  If no value could be
  * determined, it will return @defaultv.
  */
 const char *
@@ -386,12 +344,14 @@ gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 
 	for (priority = 1; priority >= 0; priority--){
 		GList *l;
-		char *res;
-
+		GList *list = NULL ;
+		
 		if (ext){
-			res = g_hash_table_lookup (mime_extensions [priority], ext);
-			if (res) {
-				result = res;
+			
+			list = g_hash_table_lookup (mime_extensions [priority], ext);
+			if (list) {
+				list = g_list_first( list );
+				result = (gchar *) list->data;
 				goto done;
 			}
 		}
@@ -412,8 +372,70 @@ gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 }
 
 /**
+ * gnome_mime_type_list_or_default:
+ * @filename: A filename (the file does not necessarily exist).
+ * @defaultv: A default value to be returned if no match is found
+ *
+ * This routine tries to determine the mime-type(s) of the filename
+ * only by looking at the filename from the GNOME database of mime-types.
+ *
+ * Returns a GList that contains private strings with the mime-type(s)
+ * associated with the @filename.  If no value could be determined,
+ * it will return @defaultv.
+ */
+ 
+GList*
+gnome_mime_type_list_or_default (const gchar *filename, const gchar *defaultv)
+{
+	const gchar *ext;
+	int priority;
+	GList *result = NULL;
+
+	G_LOCK (mime_mutex);
+
+	if (!filename)
+		goto done;
+	ext = strrchr (filename, '.');
+	if (ext)
+		++ext;
+
+	if (!module_inited)
+		mime_init ();
+
+	maybe_reload ();
+
+	for (priority = 1; priority >= 0; priority--){
+		GList *l;
+		GList *list = NULL, *resext = NULL, *resreg = NULL;
+		
+		if (ext){
+			
+			list = (GList*) g_hash_table_lookup (mime_extensions [priority], ext);
+			if (list) {
+				resext = g_list_reverse (g_list_copy (g_list_first(list)));
+			}
+		}
+		
+		for (l = mime_regexs [priority]; l; l = l->next){
+			RegexMimePair *mp = l->data;
+
+			if (regexec (&mp->regex, filename, 0, 0, 0) == 0) {
+				resreg = g_list_prepend (resreg, mp->mime_type);
+			}
+		}
+		result = g_list_concat (result, resext);
+		result = g_list_concat (result, resreg);
+		resext = resreg = NULL;
+	}
+
+ done:
+	G_UNLOCK (mime_mutex);
+	return result;
+}
+
+/**
  * gnome_mime_type:
- * @filename: A filename (the file does not necesarily exist).
+ * @filename: A filename (the file does not necessarily exist).
  *
  * Determined the mime type for @filename.
  *
@@ -426,6 +448,21 @@ gnome_mime_type (const gchar * filename)
 }
 
 /**
+ * gnome_mime_type_list:
+ * @filename: A filename (the file does not necessarily exist).
+ *
+ * Determined the mime type(s) for @filename.
+ *
+ * Returns a GList that contains private strings with the mime-type(s)
+ * associated with the @filename.
+ */
+GList *
+gnome_mime_type_list (const gchar * filename)
+{
+	return gnome_mime_type_list_or_default (filename, "text/plain");
+}
+
+/**
  * gnome_mime_type_or_default_of_file:
  * @existing_filename: A filename that points to an existing filename.
  * @defaultv: A default value to be returned if no match is found
@@ -434,7 +471,7 @@ gnome_mime_type (const gchar * filename)
  * by trying to guess the content of the file.  If this fails, it will
  * return the mime-type based only on the filename.
  *
- * Returns the mime-type of the @existing_filename.  If no value could not be
+ * Returns the mime-type of the @existing_filename.  If no value could be
  * determined, it will return @defaultv.
  */
 const char *
@@ -451,11 +488,40 @@ gnome_mime_type_or_default_of_file (const char *existing_filename,
 }
 
 /**
+ * gnome_mime_type_list_or_default_of_file:
+ * @existing_filename: A filename that points to an existing filename.
+ * @defaultv: A default value to be returned if no match is found
+ *
+ * This routine tries to determine the mime-type(s) of the filename
+ * by trying to guess the contents of the file.  If this fails, it will
+ * return the mime-type based only on the filename.
+ *
+ * Returns a GList that contains private strings with the mime-type(s)
+ * associated with the @existing_filename.  If no value could be determined,
+ * it will return @defaultv.
+ */
+GList *
+gnome_mime_type_list_or_default_of_file (const char *existing_filename,
+				    const gchar *defaultv)
+{
+	char *mime_type;
+	GList *mime_list = NULL;
+
+	mime_type = (char *)gnome_mime_type_from_magic (existing_filename);
+	if (mime_type) {
+		mime_list = g_list_prepend (mime_list, mime_type);
+		return mime_list;
+	}
+
+	return gnome_mime_type_list_or_default (existing_filename, defaultv);
+}
+
+/**
  * gnome_mime_type_of_file:
  * @existing_filename: A filename pointing to an existing file.
  *
  * Determined the mime type for @existing_filename.  It will try
- * to figure this out by looking at the contents of the file, if this
+ * to figure this out by looking at the contents of the file; if this
  * fails it will use the filename to figure out a name.
  *
  * Returns the mime-type for this filename.
@@ -464,6 +530,23 @@ const char *
 gnome_mime_type_of_file (const char *existing_filename)
 {
 	return gnome_mime_type_or_default_of_file (existing_filename, "text/plain");
+}
+
+/**
+ * gnome_mime_type_list_of_file:
+ * @existing_filename: A filename pointing to an existing file.
+ *
+ * Determined the mime type(s) for @existing_filename.  It will try
+ * to figure this out by looking at the contents of the file; if this
+ * fails it will use the filename to figure out a name.
+ *
+ * Returns a GList that contains private strings with the mime-type(s)
+ * associated with the @existing_filename.
+ */
+GList *
+gnome_mime_type_list_of_file (const char *existing_filename)
+{
+	return gnome_mime_type_list_or_default_of_file (existing_filename, "text/plain");
 }
 
 
