@@ -381,7 +381,7 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 	g_message (G_STRLOC ": |%s|", terminal);
 	if (terminal) {
 		gchar *exec_flag;
-		exec_flag = gconf_client_get_string (client, "/desktop/gnome/applications/terminal/exec_flag", NULL);
+		exec_flag = gconf_client_get_string (client, "/desktop/gnome/applications/terminal/exec_arg", NULL);
 
 		if (exec_flag == NULL) {
 			term_argc = 1;
