@@ -34,10 +34,25 @@
 extern int errno;
 #endif
 
-static int
-gnome_execute_async_with_env_internal (const char *dir, int argc, 
+/**
+ * gnome_execute_async_with_env_fds:
+ * @dir: Directory in which child should be execd, or NULL for current
+ *       directory
+ * @argc: Number of arguments
+ * @argv: Argument vector to exec child
+ * @envc: Number of environment slots
+ * @envv: Environment vector
+ * @close_fds: If TRUE will close all fds but 0,1, and 2
+ * 
+ * Like gnome_execute_async_with_env() but has a flag to decide whether or not  * to close fd's
+ * 
+ * Return value: the process id, or %-1 on error.
+ **/
+int
+gnome_execute_async_with_env_fds (const char *dir, int argc, 
 				       char * const argv[], int envc, 
-				       char * const envv[], gboolean close_fds)
+				       char * const envv[], 
+				       gboolean close_fds)
 {
   int comm_pipes[2];
   int child_errno, itmp, i, open_max;
@@ -135,8 +150,8 @@ gnome_execute_async_with_env_internal (const char *dir, int argc,
  * On error, returns %-1; in this case, errno should hold a useful
  * value.  Searches the path to find the child.  Environment settings
  * in @envv are added to the existing environment -- they do not
- * completely replace it.  This function will also close all fds but 0, 1, 
- * and 2
+ * completely replace it.  This function closes all fds besides 0, 1,
+ * and 2 for the child
  * 
  * Return value: the process id, or %-1 on error.
  **/
@@ -144,30 +159,9 @@ int
 gnome_execute_async_with_env (const char *dir, int argc, char * const argv[], 
 			      int envc, char * const envv[])
 {
-  return gnome_execute_async_with_env_internal(dir,argc,argv,envc,envv,TRUE);
+  return gnome_execute_async_with_env_fds(dir,argc,argv,envc,envv,TRUE);
 }
 
-/**
- * gnome_execute_async_with_env_with_fds:
- * @dir: Directory in which child should be execd, or NULL for current
- *       directory
- * @argc: Number of arguments
- * @argv: Argument vector to exec child
- * @envc: Number of environment slots
- * @envv: Environment vector
- * 
- * Like gnome_execute_async_with_env() but doesn't close any fd's
- * 
- * Return value: the process id, or %-1 on error.
- **/
-int
-gnome_execute_async_with_env_with_fds (const char *dir, int argc, 
-				       char * const argv[], int envc, 
-				       char * const envv[])
-{
-  return gnome_execute_async_with_env_internal(dir, argc, argv, envc, envv,
-					       FALSE);
-}
 
 /**
  * gnome_execute_async:
@@ -188,26 +182,39 @@ gnome_execute_async (const char *dir, int argc, char * const argv[])
 }
 
 /**
- * gnome_execute_async_with_fds:
+ * gnome_execute_async_fds:
  * @dir: Directory in which child should be execd, or NULL for current
  *       directory
  * @argc: Number of arguments
  * @argv: Argument vector to exec child
- * 
- * Like gnome_execute_async_with_env_with_fds(), but doesn't add anything to
+ * @close_fds: 
+ * Like gnome_execute_async_with_env_fds(), but doesn't add anything to
  * child's environment.
  * 
  * Return value: process id of child, or %-1 on error.
  **/
 int
-gnome_execute_async_with_fds (const char *dir, int argc, char * const argv[])
+gnome_execute_async_fds (const char *dir, int argc, 
+				 char * const argv[], gboolean close_fds)
 {
-  return gnome_execute_async_with_env_with_fds (dir, argc, argv, 0, NULL);
+  return gnome_execute_async_with_env_fds (dir, argc, argv, 0, NULL, 
+					   close_fds);
 }
 
-
-static int
-gnome_execute_shell_internal (const char *dir, const char *commandline,
+/**
+ * gnome_execute_shell_fds:
+ * @dir: Directory in which child should be execd, or NULL for current
+ *       directory
+ * @commandline: Shell command to execute
+ * @close_fds: Like close_fds in gnome_execute_async_with_env_fds()
+ * Like gnome_execute_async_with_env_fds(), but uses the user's shell to
+ * run the desired program.  Note that the pid of the shell is
+ * returned, not the pid of the user's program.
+ * 
+ * Return value: process id of shell, or %-1 on error.
+ **/
+int
+gnome_execute_shell_fds (const char *dir, const char *commandline,
 			      gboolean close_fds)
 {
   char * argv[4];
@@ -221,7 +228,7 @@ gnome_execute_shell_internal (const char *dir, const char *commandline,
   argv[2] = (char *) commandline;
   argv[3] = NULL;
 
-  r = gnome_execute_async_with_env_internal (dir, 4, argv, 0, NULL, close_fds);
+  r = gnome_execute_async_with_env_fds (dir, 4, argv, 0, NULL, close_fds);
   free (argv[0]);
   return r;
 }
@@ -241,24 +248,12 @@ gnome_execute_shell_internal (const char *dir, const char *commandline,
 int
 gnome_execute_shell (const char *dir, const char *commandline)
 {
-  return gnome_execute_shell_internal(dir, commandline, TRUE);
+  return gnome_execute_shell_fds(dir, commandline, TRUE);
 }
 
-/**
- * gnome_execute_shell_with_fds:
- * @dir: Directory in which child should be execd, or NULL for current
- *       directory
- * @commandline: Shell command to execute
- * 
- * Like gnome_execute_async_with_env_with_fds(), but uses the user's shell to
- * run the desired program.  Note that the pid of the shell is
- * returned, not the pid of the user's program.
- * 
- * Return value: process id of shell, or %-1 on error.
- **/
-int
-gnome_execute_shell_with_fds (const char *dir, const char *commandline)
-{
-  return gnome_execute_shell_internal(dir, commandline, FALSE);
-}
+
+
+
+
+
 
