@@ -386,7 +386,6 @@ void
 gnome_desktop_entry_free (GnomeDesktopEntry *item)
 {
 	if (item) {
-		GList *i18n_list,*li;
 		free_if_empty (item->name);
 		free_if_empty (item->comment);
 		g_strfreev (item->exec);
