@@ -1,3 +1,15 @@
+2001-12-04  Richard Hestilow  <hestilow@ximian.com>
+
+	* gnome-exec.c (gnome_prepend_terminal_to_vector): Don't
+	double-free terminal.
+	
+	* gnome-url.c (gnome_url_show): Wrap execution in "/bin/sh -c ...".
+	Also, return ret, not hard-coded TRUE.
+
+	* libgnome.schemas: Revamp to better fit
+	default-applications-properties. Also, remove UI settings, will
+	be moved to libgnomeui.schemas.
+	
 2001-12-03  Malcolm Tredinnick <malcolm@commsecure.com.au>
 	* gnome-init.[ch], gnome-util.h, parse-path.cP: replace
 	  references to .gnome and .gnome_private with GNOME_DOT_GNOME

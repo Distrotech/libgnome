@@ -134,6 +134,7 @@ gnome_url_show (const gchar *url, GError **error)
 	const char **argv;
 	char **newargv;
 	gboolean ret;
+	gchar *tmp;
 	
 	g_return_val_if_fail (url != NULL, FALSE);
 
@@ -183,7 +184,7 @@ gnome_url_show (const gchar *url, GError **error)
 		g_free (template);
 		return FALSE;
 	}
-	
+
 	newargv = g_new0 (char *, argc + 1);
 	for (i = 0; i < argc; i++) {
 		if (strcmp (argv[i], "%s") == 0)
@@ -192,6 +193,14 @@ gnome_url_show (const gchar *url, GError **error)
 			newargv[i] = g_strdup (argv[i]);
 	}
 	newargv[i] = NULL;
+	
+	tmp = g_strjoinv (" ", newargv);
+	g_strfreev (newargv);
+	newargv = g_new0 (char *, 4);
+	newargv[0] = gnome_util_user_shell ();
+	newargv[1] = g_strdup ("-c");
+	newargv[2] = tmp;
+	newargv[3] = NULL;
 
 	/* the way the poptParseArgvString works is that the entire thing
 	 * is allocated as one buffer, so just free will suffice, also
@@ -207,11 +216,11 @@ gnome_url_show (const gchar *url, GError **error)
 			     NULL /* data */,
 			     NULL /* child_pid */,
 			     error);
-	
+
 	g_strfreev (newargv);
 	g_free (template);
 
-	return TRUE;
+	return ret;
 }
 
 /**

@@ -437,7 +437,6 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 	/* we use g_free here as we sucked all the inner strings
 	 * out from it into real_argv */
 	g_free (term_argv);
-	g_free (terminal);
 }
 
 /**
