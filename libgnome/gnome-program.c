@@ -89,14 +89,6 @@ struct _GnomeProgramPrivate {
     /* valid-while: state == APP_PREINIT_DONE */
     poptContext arg_context;
 
-    /* FIXME: unused! */
-    /* valid-while: state == APP_PREINIT_DONE */
-    struct poptOptions *app_options;
-
-    /* FIXME: unused! */
-    /* valid-while: state == APP_PREINIT_DONE */
-    int app_popt_flags;
-
     /* valid-while: state == APP_PREINIT_DONE */
     GArray *top_options_table;
 };
