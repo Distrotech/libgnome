@@ -44,6 +44,7 @@ char *alloca ();
 #include <unistd.h>	/* unlink() */
 #include <stdlib.h>	/* atoi() */
 #include <locale.h>	/* setlocale() */
+#include <ctype.h>	/* tolower() */
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <glib.h>
