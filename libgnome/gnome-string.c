@@ -9,7 +9,7 @@ gchar **
 gnome_string_split (gchar *string, gchar *delim, gint max_tokens)
 {
 	gchar **retval = NULL;
-	GList *items = NULL, *anode;
+	GList *items = NULL, *anode = NULL;
 	gint numitems = 0, dlen, i;
 	gchar *src, *cur, *nxt;
 
