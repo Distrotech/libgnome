@@ -117,7 +117,7 @@ void gnome_config_get_vector_with_default_     (const char *path, gint *argcp,
 #define gnome_config_private_get_int_with_default(path,def) \
 	(gnome_config_get_int_with_default_((path),(def),TRUE))
 #define gnome_config_private_get_float_with_default(path,def) \
-	(gnome_config_get_int_with_default_((path),(def),TRUE))
+	(gnome_config_get_float_with_default_((path),(def),TRUE))
 #define gnome_config_private_get_bool_with_default(path,def) \
 	(gnome_config_get_bool_with_default_((path),(def),TRUE))
 #define gnome_config_private_get_vector_with_default(path, argcp, argvp, def) \
