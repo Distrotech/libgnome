@@ -84,6 +84,7 @@ gnome_execute_async (const char *dir, int argc, char * const argv[])
 
       execvp (argv[0], argv);
       report_errno (p[1]);
+      _exit(1);
     }
 
   close (p[1]);
@@ -95,9 +96,9 @@ gnome_execute_async (const char *dir, int argc, char * const argv[])
       /* The read succeeded, which means the child failed.  STATUS is
 	 the errno value.  */
       errno = status;
+      waitpid (pid, &status, 0);
       return -1;
     }
-
   /* Wait for the child, since we know it will exit shortly.  */
   if (waitpid (pid, &status, 0) == -1)
     return -1;
