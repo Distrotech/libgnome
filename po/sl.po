@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-01-18 12:37+0100\n"
+"POT-Creation-Date: 2003-01-21 10:34+0100\n"
 "PO-Revision-Date: 2001-07-29 12:32+0200\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -355,6 +355,7 @@ msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
 "Ne sprejmi tipke kot pritisnjene, dokler ni pritisnjena @delay milisekund"
+
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Koliko milisekund naj vzame za prehod iz 0 na najvišjo hitrost"
@@ -363,7 +364,8 @@ msgstr "Koliko milisekund naj vzame za prehod iz 0 na najvišjo hitrost"
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
-"Koliko milisekund naj se počaka preden začnejo delovati tipke premikanja miške"
+"Koliko milisekund naj se počaka preden začnejo delovati tipke premikanja "
+"miške"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -434,7 +436,8 @@ msgstr "Ali privzet pregledovalnik pomoči za zagon potrebuje terminal"
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
-"Argument, ki naj se uporabi za izvedbo programov v terminalu, definiran kot ključ 'exec'."
+"Argument, ki naj se uporabi za izvedbo programov v terminalu, definiran kot "
+"ključ 'exec'."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -490,7 +493,8 @@ msgid ""
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
 "Določa kako naj se slika nastavljena kot wallpaper_filename izriše. Možne "
-"vrednosti so \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+"vrednosti so \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
+"\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -509,8 +513,8 @@ msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"Kako naj se senči barva ozadja. Možne vrednosti so \"horizontal-gradient"
-"\", \"vertical-gradient\", and \"solid\""
+"Kako naj se senči barva ozadja. Možne vrednosti so \"horizontal-gradient\", "
+"\"vertical-gradient\", and \"solid\""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -538,7 +542,9 @@ msgstr "Prvotna barva"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "Desna ali spobnja barva za risanje prelivov, ni uporalbjena pri barvi polnjenja."
+msgstr ""
+"Desna ali spobnja barva za risanje prelivov, ni uporalbjena pri barvi "
+"polnjenja."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -650,7 +656,9 @@ msgstr "Slog orodjarn"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
-msgstr "Slog orodjarn. Možne vrednosti so \"both\", \"both_horiz\", \"icon\" in \"text\""
+msgstr ""
+"Slog orodjarn. Možne vrednosti so \"both\", \"both_horiz\", \"icon\" in "
+"\"text\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
@@ -665,8 +673,8 @@ msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
-"Ali naj bodo prikazane animacije. Opomba: To je globalen ključ, "
-"saj spremeni obnašanja upravljalnika oken, pulta, itd."
+"Ali naj bodo prikazane animacije. Opomba: To je globalen ključ, saj spremeni "
+"obnašanja upravljalnika oken, pulta, itd."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
@@ -719,18 +727,39 @@ msgstr "možne vrednosti so \"on\", \"off\" in \"custom\""
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr ""
-"Pospeševalnik za premikanje miške. Privzeta vrednost je -1."
+msgstr "Pospeševalnik za premikanje miške. Privzeta vrednost je -1."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
 msgstr "Pisava kazalca"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
+#, fuzzy
+msgid "Cursor size"
+msgstr "Utripanje kazalca"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#, fuzzy
+msgid "Cursor theme"
+msgstr "Pisava kazalca"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later. This value is only propagated to the X server start "
+"of each session, so changing it mid-session won't have an effect until the "
+"next time you log in."
+msgstr ""
+"Ime pisave kazalca. Če ni nastavljeno je uporabljena privzeta pisava. Ta "
+"vrednost se le posreduje strežniku X za vsako sejo, zato njeno spreminjanje "
+"sredi seje ne bo imelo vpliva dokler se ne prijavite znova."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
 msgstr "Razdalja preden se začne vlečenje"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
@@ -738,55 +767,68 @@ msgstr ""
 "Razdalja v pikslih, kolikor se mora premakniti kazalec preden je vključeno "
 "premikanje miške. Privzeta vrednost je -1."
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
 msgstr "Čas dvojnega klika"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
 msgstr "Prag vlečenja"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
 "Font name of the cursor. If unset set, the default font is used. This value "
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"Ime pisave kazalca. Če ni nastavljeno je uporabljena privzeta pisava. Ta vrednost "
-"se le posreduje strežniku X za vsako sejo, zato njeno spreminjanje sredi seje ne bo imelo vpliva dokler se ne prijavite znova."
+"Ime pisave kazalca. Če ni nastavljeno je uporabljena privzeta pisava. Ta "
+"vrednost se le posreduje strežniku X za vsako sejo, zato njeno spreminjanje "
+"sredi seje ne bo imelo vpliva dokler se ne prijavite znova."
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr ""
-"Osvetli trenutno mesto kazalca, kadar je pritisnjena in spuščena tipka Control"
+"Osvetli trenutno mesto kazalca, kadar je pritisnjena in spuščena tipka "
+"Control"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
 msgstr "Dolžina dvojnega klika"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
 msgstr "Najdi kazalec"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
 msgstr "Prag premikanja"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
 msgstr "Usmerjenost gumbov miške"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
 msgstr "Enojni klik"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
 msgstr "Enojni klik za odpiranje ikon"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
+#, fuzzy
+msgid ""
+"Size of the cursor referenced by cursor_theme. This value is only propagated "
+"to the X server start of each session, so changing it mid-session won't have "
+"an effect until the next time you log in."
+msgstr ""
+"Ime pisave kazalca. Če ni nastavljeno je uporabljena privzeta pisava. Ta "
+"vrednost se le posreduje strežniku X za vsako sejo, zato njeno spreminjanje "
+"sredi seje ne bo imelo vpliva dokler se ne prijavite znova."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "Zamenjaj levi in desni gumb miške za levičarsko miško"
 
@@ -859,69 +901,80 @@ msgid ""
 "Set to true to have a program specified in applications/command handle "
 "applications URLs"
 msgstr ""
-"Nastavite na true, če želite, da program naveden v applications/command obravnava URLje programov"
+"Nastavite na true, če želite, da program naveden v applications/command "
+"obravnava URLje programov"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid ""
 "Set to true to have a program specified in preferences/command handle "
 "preferences URLs"
 msgstr ""
-"Nastavite na true, če želite, da program naveden v preferences/command obravnava URLje preferences"
+"Nastavite na true, če želite, da program naveden v preferences/command "
+"obravnava URLje preferences"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid ""
 "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
-"Nastavite na true, če želite, da program naveden v programs/ghelp obravnava URLje ghelp"
+"Nastavite na true, če želite, da program naveden v programs/ghelp obravnava "
+"URLje ghelp"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
 msgid ""
 "Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
-"Nastavite na true, če želite, da program naveden v programs/info obravnava URLje info"
+"Nastavite na true, če želite, da program naveden v programs/info obravnava "
+"URLje info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:17
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr ""
-"Nastavite na true, če želite, da program naveden v programs/man obravnava URLje man"
+"Nastavite na true, če želite, da program naveden v programs/man obravnava "
+"URLje man"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:18
 msgid ""
 "Set to true to have a program specified in programs/unknown handle unknown "
 "URLs"
 msgstr ""
-"Nastavite na true, če želite, da program naveden v programs/unknown obravnava neznane URLje"
+"Nastavite na true, če želite, da program naveden v programs/unknown "
+"obravnava neznane URLje"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:19
 msgid ""
 "Set to true to have a program specified in server-settings/command handle "
 "server-settings URLs"
 msgstr ""
-"Nastavite na true, če želite, da program naveden v server-settings/command obravnava URLje server-settings"
+"Nastavite na true, če želite, da program naveden v server-settings/command "
+"obravnava URLje server-settings"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid ""
 "Set to true to have a program specified in start-here/command handle start-"
 "here URLs"
 msgstr ""
-"Nastavite na true, če želite, da program naveden v start-here/command obravnava URLje start-here"
+"Nastavite na true, če želite, da program naveden v start-here/command "
+"obravnava URLje start-here"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:21
 msgid ""
 "Set to true to have a program specified in system-settings/command handle "
 "system-settings URLs"
 msgstr ""
-"Nastavite na true, če želite, da program naveden v system-settings/command obravnava URLje system-settings"
+"Nastavite na true, če želite, da program naveden v system-settings/command "
+"obravnava URLje system-settings"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:22
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
-"Nastavite na true, če želite, da program naveden v trash/command obravnava URLje trash"
+"Nastavite na true, če želite, da program naveden v trash/command obravnava "
+"URLje trash"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:23
 msgid "True if the program to handle this URL should be run in a terminal"
-msgstr "True (resnično), če naj bo program za obravnavo URLja pognan v terminalu"
+msgstr ""
+"True (resnično), če naj bo program za obravnavo URLja pognan v terminalu"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:24
 msgid "URL handler for applications pages"

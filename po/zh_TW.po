@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.1.90\n"
-"POT-Creation-Date: 2003-01-14 09:54+0800\n"
+"POT-Creation-Date: 2003-01-21 10:34+0100\n"
 "PO-Revision-Date: 2003-01-18 16:33+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -327,7 +327,7 @@ msgstr "GConf 命名器"
 msgid "config indirect moniker"
 msgstr "設定 indirect 命名器"
 
-#: monikers/bonobo-config-bag.c:230
+#: monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
 msgstr "類型不詳"
 
@@ -718,24 +718,46 @@ msgid "Cursor font"
 msgstr "鼠標字型檔"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
+#, fuzzy
+msgid "Cursor size"
+msgstr "游標可閃爍"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#, fuzzy
+msgid "Cursor theme"
+msgstr "鼠標字型檔"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later. This value is only propagated to the X server start "
+"of each session, so changing it mid-session won't have an effect until the "
+"next time you log in."
+msgstr ""
+"鼠標使用的字型檔名稱。如果沒有設定，會使用預設的鼠標字型檔。本設定值只會在作"
+"業階段開始時傳送至 X 伺服程式，因此使用 X Window 時更改設定是不會生效的，必須"
+"登出再登入後才會生效。"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
 msgstr "滑鼠移動作為拖曳計算所需的長度"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr "鼠標加速前所需的移動距離 (像素)。-1 表示使用系統預設值。"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
 msgstr "Double Click 時間"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
 msgstr "拖曳臨界距離"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
 "Font name of the cursor. If unset set, the default font is used. This value "
 "is only propagated to the X server start of each session, so changing it mid-"
@@ -745,37 +767,48 @@ msgstr ""
 "業階段開始時傳送至 X 伺服程式，因此使用 X Window 時更改設定是不會生效的，必須"
 "登出再登入後才會生效。"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr "當按下及放開 Control 鍵後，加強顯示目前鼠標的位置"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
 msgstr "表示 double click 的時限"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
 msgstr "標示鼠標位置"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
 msgstr "臨界移動距離"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
 msgstr "左右手滑鼠模式"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
 msgstr "只按一下滑鼠按鈕"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
 msgstr "只按一下滑鼠按鈕就可以開啟圖示"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
+#, fuzzy
+msgid ""
+"Size of the cursor referenced by cursor_theme. This value is only propagated "
+"to the X server start of each session, so changing it mid-session won't have "
+"an effect until the next time you log in."
+msgstr ""
+"鼠標使用的字型檔名稱。如果沒有設定，會使用預設的鼠標字型檔。本設定值只會在作"
+"業階段開始時傳送至 X 伺服程式，因此使用 X Window 時更改設定是不會生效的，必須"
+"登出再登入後才會生效。"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "在左手滑鼠模式中，左右按鈕的功能會互換"
 

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.1.5\n"
-"POT-Creation-Date: 2003-01-08 09:56+0100\n"
+"POT-Creation-Date: 2003-01-21 10:34+0100\n"
 "PO-Revision-Date: 2002-12-19 17:11+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -339,7 +339,7 @@ msgstr "moniker GConf"
 msgid "config indirect moniker"
 msgstr "config indirect moniker"
 
-#: monikers/bonobo-config-bag.c:230
+#: monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
 msgstr "Type inconnu"
 
@@ -759,10 +759,33 @@ msgid "Cursor font"
 msgstr "Police du curseur"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
+#, fuzzy
+msgid "Cursor size"
+msgstr "Curseur clignotant"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#, fuzzy
+msgid "Cursor theme"
+msgstr "Police du curseur"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later. This value is only propagated to the X server start "
+"of each session, so changing it mid-session won't have an effect until the "
+"next time you log in."
+msgstr ""
+"Nom de la police du curseur. Si non défini, la police par défaut sera "
+"utilisé. Cette valeur n'est propagé qu'au serveur X au démarrage de chaque "
+"session, aussi, changer cette valeur en cours de session n'au ra aucun effet "
+"tant que vous vous ne serez pas reconnecter."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
 msgstr "Distance avant qu'un glisser soit initié"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
@@ -771,15 +794,15 @@ msgstr ""
 "de mouvement soit activé. Une valeur de -1 est la valeur par défaut du "
 "système."
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
 msgstr "Durée du double-clic"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
 msgstr "Seuil du glisser"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
 "Font name of the cursor. If unset set, the default font is used. This value "
 "is only propagated to the X server start of each session, so changing it mid-"
@@ -790,7 +813,7 @@ msgstr ""
 "session, aussi, changer cette valeur en cours de session n'au ra aucun effet "
 "tant que vous vous ne serez pas reconnecter."
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
@@ -798,31 +821,43 @@ msgstr ""
 "Mets en évidence l'emplacement courant du pointeur lorsque la touche Ctrl "
 "est  pressée et relachée"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
 msgstr "Longueur du double-clic"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
 msgstr "Localiser le pointeur"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
 msgstr "Seuil du mouvement"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
 msgstr "Orientation du bouton de la souris"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
 msgstr "Simple clic"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
 msgstr "Simple clic pour ouvrir les icônes"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
+#, fuzzy
+msgid ""
+"Size of the cursor referenced by cursor_theme. This value is only propagated "
+"to the X server start of each session, so changing it mid-session won't have "
+"an effect until the next time you log in."
+msgstr ""
+"Nom de la police du curseur. Si non défini, la police par défaut sera "
+"utilisé. Cette valeur n'est propagé qu'au serveur X au démarrage de chaque "
+"session, aussi, changer cette valeur en cours de session n'au ra aucun effet "
+"tant que vous vous ne serez pas reconnecter."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "Inverse les boutons droite et gauche de la souris pour les gauchers"
 

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.0.1cvs\n"
-"POT-Creation-Date: 2003-01-08 09:56+0100\n"
+"POT-Creation-Date: 2003-01-21 10:34+0100\n"
 "PO-Revision-Date: 2002-06-13 00:16+0900\n"
 "Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
 "Language-Team: Japanese <translation@gnome.gr.jp>\n"
@@ -335,7 +335,7 @@ msgstr "GConf モニカ"
 msgid "config indirect moniker"
 msgstr "間接設定モニカ"
 
-#: monikers/bonobo-config-bag.c:230
+#: monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
 msgstr "不明なタイプ"
 
@@ -725,61 +725,85 @@ msgid "Cursor font"
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
-msgid "Distance before a drag is started"
+msgid "Cursor size"
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#, fuzzy
+msgid "Cursor theme"
+msgstr "ゲームを一時停止する"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later. This value is only propagated to the X server start "
+"of each session, so changing it mid-session won't have an effect until the "
+"next time you log in."
+msgstr ""
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
+msgid "Distance before a drag is started"
+msgstr ""
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
 "Font name of the cursor. If unset set, the default font is used. This value "
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
 msgstr ""
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
+msgid ""
+"Size of the cursor referenced by cursor_theme. This value is only propagated "
+"to the X server start of each session, so changing it mid-session won't have "
+"an effect until the next time you log in."
+msgstr ""
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr ""
 
@@ -1232,9 +1256,6 @@ msgstr ""
 
 #~ msgid "_Pause game"
 #~ msgstr "ゲーム停止(_P)"
-
-#~ msgid "Pause the game"
-#~ msgstr "ゲームを一時停止する"
 
 #~ msgid "_Restart game"
 #~ msgstr "ゲーム再開(_R)"

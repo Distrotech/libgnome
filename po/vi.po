@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome VERSION\n"
-"POT-Creation-Date: 2003-01-08 06:04+0100\n"
+"POT-Creation-Date: 2003-01-21 10:34+0100\n"
 "PO-Revision-Date: 2003-01-10 17:11+0700\n"
 "Last-Translator: pclouds <pclouds@gmx.net>\n"
 "Language-Team: GnomeVI <gnomevi-list@lists.sourceforge.net>\n"
@@ -335,7 +335,7 @@ msgstr "Moniker GConf"
 msgid "config indirect moniker"
 msgstr "moniker cấu hình gián tiếp"
 
-#: monikers/bonobo-config-bag.c:230
+#: monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
 msgstr "Kiểu lạ"
 
@@ -364,7 +364,8 @@ msgstr "Mất bao nhiêu mili giây để đi từ 0 đến tốc độ tối đ
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "Mất bao nhiêu giâu để chờ trước khi phím di chuyển chuột bắt đầu hoạt động"
+msgstr ""
+"Mất bao nhiêu giâu để chờ trước khi phím di chuyển chuột bắt đầu hoạt động"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -434,7 +435,9 @@ msgstr "Trình xem trợ giúp mặc định có cần terminal để chạy kh�
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Đối số được dùng để chạy chương trình trong terminal định nghĩa bởi khóa 'exec'."
+msgstr ""
+"Đối số được dùng để chạy chương trình trong terminal định nghĩa bởi khóa "
+"'exec'."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -458,7 +461,9 @@ msgstr "Trình quản lý cửa sổ dự phòng"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr "Trình quản lý cửa sổ dự phòng trong trường hợp không tìm thấy trình quản lý cửa sổ của người dùng"
+msgstr ""
+"Trình quản lý cửa sổ dự phòng trong trường hợp không tìm thấy trình quản lý "
+"cửa sổ của người dùng"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -488,7 +493,9 @@ msgstr "Loại bóng màu"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr "Xác định ảnh đặt bởi wallpaper_filename được hiển thị như thế nào. Giá trị hợp lệ là \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+msgstr ""
+"Xác định ảnh đặt bởi wallpaper_filename được hiển thị như thế nào. Giá trị "
+"hợp lệ là \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -506,7 +513,9 @@ msgstr "Để GNOME vẽ nền desktop"
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
-msgstr "Bóng màu nền như thế nào. Giá trị hợp lệ là \"horizontal-gradient\", \"vertical-gradient\", và \"solid\"."
+msgstr ""
+"Bóng màu nền như thế nào. Giá trị hợp lệ là \"horizontal-gradient\", "
+"\"vertical-gradient\", và \"solid\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -660,7 +669,9 @@ msgstr "Ứng dụng có nên hỗ trợ accessibility không"
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
-msgstr "Có nên hiển thị hoạt cảnh hay không. Chú ý: Đây là khóa toàn cục, nó tác động lên hành vi của trình quản lý cửa sổ, panel ..."
+msgstr ""
+"Có nên hiển thị hoạt cảnh hay không. Chú ý: Đây là khóa toàn cục, nó tác "
+"động lên hành vi của trình quản lý cửa sổ, panel ..."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
@@ -719,61 +730,99 @@ msgid "Cursor font"
 msgstr "Font con trỏ"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
+#, fuzzy
+msgid "Cursor size"
+msgstr "Nháy con trỏ"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#, fuzzy
+msgid "Cursor theme"
+msgstr "Font con trỏ"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later. This value is only propagated to the X server start "
+"of each session, so changing it mid-session won't have an effect until the "
+"next time you log in."
+msgstr ""
+"Tên font của con trỏ. Nếu bỏ chọn, font mặc định sẽ được dùng. Giá trị này "
+"chỉ tác động khi khởi động X server mỗi session, vì thế thay đổi giá trị này "
+"khi đang chạy sẽ không tác động gì cho đến khi bạn đăng nhập lại."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
 msgstr "Khoảng cách trước khi bắt đầu kéo"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
-msgstr "Khoảng cách, tính theo pixel, mà con trỏ phải di chuyển trước khi kích hoạt chuyển động của con chuột. Giá trị -1 là mặc định hệ thống."
+msgstr ""
+"Khoảng cách, tính theo pixel, mà con trỏ phải di chuyển trước khi kích hoạt "
+"chuyển động của con chuột. Giá trị -1 là mặc định hệ thống."
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
 msgstr "Thời gian nhấp đúp"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
 msgstr "Ngưỡng kéo"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
 "Font name of the cursor. If unset set, the default font is used. This value "
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
-msgstr "Tên font của con trỏ. Nếu bỏ chọn, font mặc định sẽ được dùng. Giá trị này chỉ tác động khi khởi động X server mỗi session, vì thế thay đổi giá trị này khi đang chạy sẽ không tác động gì cho đến khi bạn đăng nhập lại."
+msgstr ""
+"Tên font của con trỏ. Nếu bỏ chọn, font mặc định sẽ được dùng. Giá trị này "
+"chỉ tác động khi khởi động X server mỗi session, vì thế thay đổi giá trị này "
+"khi đang chạy sẽ không tác động gì cho đến khi bạn đăng nhập lại."
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr "Tô sáng vị trí hiện thời của con trỏ khi nhấn và nhả phím Control"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
 msgstr "Độ dài nhấp đúp"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
 msgstr "Định vị con trỏ"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
 msgstr "Ngưỡng di chuyển"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
 msgstr "Hướng nút chuột"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
 msgstr "Nhấp đơn"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
 msgstr "Nhấp đơn để mở biểu tượng"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
+#, fuzzy
+msgid ""
+"Size of the cursor referenced by cursor_theme. This value is only propagated "
+"to the X server start of each session, so changing it mid-session won't have "
+"an effect until the next time you log in."
+msgstr ""
+"Tên font của con trỏ. Nếu bỏ chọn, font mặc định sẽ được dùng. Giá trị này "
+"chỉ tác động khi khởi động X server mỗi session, vì thế thay đổi giá trị này "
+"khi đang chạy sẽ không tác động gì cho đến khi bạn đăng nhập lại."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "Hoán đổi nút trái, phải của chuột cho người dùng thuận tay trái"
 
@@ -845,13 +894,16 @@ msgstr "Chạy chương trình trong terminal"
 msgid ""
 "Set to true to have a program specified in applications/command handle "
 "applications URLs"
-msgstr "Đặt true để ứng dụng xác định trong application/command xử lý URL ứng dụng"
+msgstr ""
+"Đặt true để ứng dụng xác định trong application/command xử lý URL ứng dụng"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid ""
 "Set to true to have a program specified in preferences/command handle "
 "preferences URLs"
-msgstr "Đặt true để chương trình xác định trong preferences/command xử lý URL thông số"
+msgstr ""
+"Đặt true để chương trình xác định trong preferences/command xử lý URL thông "
+"số"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid ""
@@ -871,25 +923,32 @@ msgstr "Đặt true để chương trình xác định trong programs/man xử l
 msgid ""
 "Set to true to have a program specified in programs/unknown handle unknown "
 "URLs"
-msgstr "Đặt true để chương trình xác định trong programs/unknown xử lý URL Không biết"
+msgstr ""
+"Đặt true để chương trình xác định trong programs/unknown xử lý URL Không biết"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:19
 msgid ""
 "Set to true to have a program specified in server-settings/command handle "
 "server-settings URLs"
-msgstr "Đặt true để chương trình xác định trong server-settings/command xử lý URL Thiết lập Server"
+msgstr ""
+"Đặt true để chương trình xác định trong server-settings/command xử lý URL "
+"Thiết lập Server"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:20
 msgid ""
 "Set to true to have a program specified in start-here/command handle start-"
 "here URLs"
-msgstr "Đặt true để chương trình xác định trong start-here/command xử lý URL start-here"
+msgstr ""
+"Đặt true để chương trình xác định trong start-here/command xử lý URL start-"
+"here"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:21
 msgid ""
 "Set to true to have a program specified in system-settings/command handle "
 "system-settings URLs"
-msgstr "Đặt true để chương trình xác định trong system-settings/command xử lý URL Thiết lập Hệ thống"
+msgstr ""
+"Đặt true để chương trình xác định trong system-settings/command xử lý URL "
+"Thiết lập Hệ thống"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:22
 msgid ""
