@@ -1,3 +1,11 @@
+2004-08-15  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-config.c: (free_sections),
+	(escape_string_and_dup), (load), (access_config),
+	(gnome_config_init_iterator_), (gnome_config_iterator_next):
+	* libgnome/gnome-util.c: (gnome_util_user_shell): Fix 0 vs NULL
+	usage. Closes bug #149828.
+
 2004-08-13  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Added nb to ALL_LINGUAS.

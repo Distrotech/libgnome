@@ -72,7 +72,7 @@ gnome_util_user_shell (void)
 		"/bin/zsh", "/usr/bin/zsh",
 		"/bin/tcsh", "/usr/bin/tcsh",
 		"/bin/ksh", "/usr/bin/ksh",
-		"/bin/csh", "/bin/sh", 0
+		"/bin/csh", "/bin/sh", NULL
 	};
 
 	if (geteuid () == getuid () &&

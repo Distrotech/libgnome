@@ -98,12 +98,12 @@ typedef struct TProfile {
 
 static GSList *prefix_list = NULL;
 
-static TProfile *Current = 0;
+static TProfile *Current = NULL;
 
 /*
  * This one keeps track of all of the opened files
  */
-static TProfile *Base = 0;
+static TProfile *Base = NULL;
 
 static char *
 config_concat_dir_and_key (const char *dir, const char *key)
@@ -151,8 +151,8 @@ free_sections (TSecHeader *p)
 	free_sections (p->link);
 	free_keys (p->keys);
 	g_free (p->section_name);
-	p->link = 0;
-	p->keys = 0;
+	p->link = NULL;
+	p->keys = NULL;
 	g_free (p);
 }
 
@@ -282,7 +282,7 @@ escape_string_and_dup (char *s)
 	}
 	return_value = p = (char *) g_malloc (len + 1);
 	if (!return_value)
-		return 0;
+		return NULL;
 	do {
 		switch (*s){
 		case '\n':
@@ -309,7 +309,7 @@ load (const char *file)
 {
 	FILE *f;
 	int state;
-	TSecHeader *SecHeader = 0;
+	TSecHeader *SecHeader = NULL;
 	char CharBuffer [STRSIZE];
 	char *next = "";		/* Not needed */
 	int c;
@@ -362,7 +362,7 @@ load (const char *file)
 				temp = SecHeader;
 				SecHeader = (TSecHeader *) g_malloc (sizeof (TSecHeader));
 				SecHeader->link = temp;
-				SecHeader->keys = 0;
+				SecHeader->keys = NULL;
 				state = OnSecHeader;
 				next = CharBuffer;
 				break;
@@ -486,7 +486,7 @@ access_config (access_type mode, const char *section_name,
 		if (mode == SET){
 			new_key (section, key_name, def);
 			Current->written_to = TRUE;
-			return 0;
+			return NULL;
 		}
 	}
     
@@ -494,7 +494,7 @@ access_config (access_type mode, const char *section_name,
 	if ((mode == SET) && def){
 		section = (TSecHeader *) g_malloc (sizeof (TSecHeader));
 		section->section_name = g_strdup (section_name);
-		section->keys = 0;
+		section->keys = NULL;
 		new_key (section, key_name, def);
 		section->link = Current->section;
 		Current->section = section;
@@ -1029,7 +1029,7 @@ gnome_config_init_iterator_ (const char *path, gboolean priv)
 		return iter;
 	}
 	release_path (pp);
-	return 0;
+	return NULL;
 }
 
 
@@ -1138,7 +1138,7 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
 			return iter;
 		} else {
 			g_free (iter);
-			return 0;
+			return NULL;
 		}
 	} else {
 		TSecHeader *section;
@@ -1152,7 +1152,7 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
 			return iter;
 		} else {
 			g_free (iter);
-			return 0;
+			return NULL; 
 		}
 	}
 }
