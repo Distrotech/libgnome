@@ -12,6 +12,4 @@ struct _GnomeTriggerList {
   gint numactions;
 };
 
-extern GnomeTriggerList* gnome_triggerlist_topnode;
-
 #endif
