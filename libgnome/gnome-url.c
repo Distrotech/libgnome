@@ -22,9 +22,7 @@
   @NOTATION@
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#include <config.h>
 #include <string.h>
 #include <glib.h>
 #include <limits.h>
@@ -35,11 +33,14 @@
 #include "gnome-i18nP.h"
 
 #include <gconf/gconf-client.h>
-#include <libgnome/gnome-exec.h>
-#include <libgnome/gnome-util.h>
-#include <libgnome/gnome-init.h>
-#include <libgnome/gnome-i18n.h>
-#include <libgnome/gnome-url.h>
+
+#include "gnome-exec.h"
+#include "gnome-util.h"
+#include "gnome-init.h"
+#include "gnome-i18n.h"
+#include "gnome-url.h"
+#include "gnome-gconf.h"
+
 #include <popt.h>
 
 #define DEFAULT_HANDLER "mozilla \"%s\""
@@ -55,6 +56,9 @@ gnome_url_default_handler (void)
 	if (!default_handler) {
 		gchar *str, *app;
 		GConfClient *client;
+
+		/* init our gconf stuff if necessary */
+		gnome_gconf_lazy_init ();
 
 		client = gconf_client_get_default ();
 		
@@ -120,6 +124,9 @@ gnome_url_show (const gchar *url, GError **error)
 		strncpy (protocol, url, pos - url);
 		protocol[pos - url] = '\0';
 		g_strdown (protocol);
+
+		/* init our gconf stuff if necessary */
+		gnome_gconf_lazy_init ();
 
 		path = g_strconcat ("/desktop/gnome/url-handlers/", protocol, "-show", NULL);
 		client = gconf_client_get_default ();

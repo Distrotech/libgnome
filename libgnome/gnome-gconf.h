@@ -35,14 +35,15 @@ gchar      *gnome_gconf_get_app_settings_relative        (GnomeProgram *program,
 							  const gchar *subkey);
 
 /* GNOME GConf module; basically what this does is
-   create a global GConfClient for a GNOME application; it's used
-   by libgnome*, and applications can either use it or create
-   their own. However note that signals will be emitted for
-   libgnomeui settings and errors! Also the module inits
-   GConf
-*/
+   create a global GConfClient for a GNOME application.  libgnomeui
+   uses the default gconf client.
+ */
 
-extern GnomeModuleInfo gnome_gconf_module_info;
+/* These two methods are very very private to libgnome* only,
+ * do not use them (however they ARE exported since libgnomeui
+ * needs to use them) */
+void			gnome_gconf_lazy_init		(void);
+const GnomeModuleInfo *	gnome_gconf_module_info_get	(void);
 
 #endif
 

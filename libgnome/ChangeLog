@@ -1,3 +1,28 @@
+Sun Sep 02 23:30:56 2001  George Lebl <jirka@5z.com>
+
+	* gnome-exec.c, gnome-url.c: clean up headers a bit, and do lazy gconf init
+
+	* gnome-gconf.[ch]:  Don't do all the init on init, but only when
+	  something calls gnome_gconf_lazy_init
+
+	* gnome-init.c: remove the bonobo stuff, init vfs after arguments are
+	  parsed for bonobo-activation argument parsing to work right
+
+	* gnome-program.[ch], gnome-gconf.[ch], gnome-init.[ch],
+	  test-libgnome.c:  Make all the module info stuff into getters
+	  rather then data pointers.  This makes the lib have no exported
+	  data symbols which is apparently more kosher and makes some
+	  optimizations in loading possible.
+
+	* gnome-program.c: when comparing modules, just compare pointers.  We
+	  require pointers to stay the same anyway.  So we save a whole bunch
+	  of string compares this way.  And we already did this somewhat
+	  anyway
+
+	* gnome-sound.[ch]: Remove gnome_sound_connection and add
+	  gnome_sound_connection_get (), which works a lot better for
+	  on demand esound starting.
+
 Sun Sep 02 14:15:46 2001  George Lebl <jirka@5z.com>
 
 	* gnome-help.[ch], gnome-url.[ch]: fix compilation with popt, remove

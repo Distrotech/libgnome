@@ -31,13 +31,12 @@
 
 G_BEGIN_DECLS
 
-extern GnomeModuleInfo gnome_bonobo_activation_module_info;
-extern GnomeModuleInfo gnome_vfs_module_info;
-extern GnomeModuleInfo libgnome_module_info;
+#define LIBGNOME_MODULE libgnome_module_info_get()
+const GnomeModuleInfo *libgnome_module_info_get (void) G_GNUC_CONST;
 
-extern char *gnome_user_dir;
-extern char *gnome_user_private_dir;
-extern char *gnome_user_accels_dir;
+const char *gnome_user_dir_get (void) G_GNUC_CONST;
+const char *gnome_user_private_dir_get (void) G_GNUC_CONST;
+const char *gnome_user_accels_dir_get (void) G_GNUC_CONST;
 
 G_END_DECLS
 

@@ -136,7 +136,7 @@ typedef struct _GnomeModuleRequirement GnomeModuleRequirement;
 
 struct _GnomeModuleRequirement {
     const char *required_version;
-    GnomeModuleInfo *module_info;
+    const GnomeModuleInfo *module_info;
 };
 
 typedef void (*GnomeModuleInitHook) (const GnomeModuleInfo *mod_info);

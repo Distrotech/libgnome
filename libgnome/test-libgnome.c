@@ -96,14 +96,9 @@ test_constructor (GnomeProgramClass *klass,
     g_message (G_STRLOC ": %p - %d", klass, test_id);
 }
 
-static GnomeModuleRequirement test_requirements[] = {
-    {VERSION, &libgnome_module_info},
-    {NULL}
-};
-
-GnomeModuleInfo test_moduleinfo = {
+static GnomeModuleInfo test_moduleinfo = {
     "test", VERSION, "Test Application",
-    test_requirements, NULL,
+    NULL, NULL,
     test_pre_args_parse, test_post_args_parse,
     NULL,
     test_init_pass, test_constructor,
@@ -148,6 +143,12 @@ main (int argc, char **argv)
     gchar *app_prefix, *app_id, *app_version;
     const gchar *human_readable_name;
     gchar *gnome_path;
+    static GnomeModuleRequirement test_requirements[2] = { {NULL} };
+
+    test_requirements[0].required_version = VERSION;
+    test_requirements[0].module_info = libgnome_module_info_get ();
+
+    test_moduleinfo.requirements = test_requirements;
 
     program = gnome_program_init ("test-libgnome", VERSION,
 				  &test_moduleinfo, argc, argv,

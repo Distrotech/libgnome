@@ -348,7 +348,7 @@ add_to_module_list (GPtrArray *module_list, const gchar *module_name)
     modnames = g_strsplit (module_name, ",", -1);
     for (i = 0; modnames && modnames[i]; i++) {
 	for (j = 0; j < module_list->len; j++)
-	    if (!strcmp (modnames[i], g_ptr_array_index (module_list, j)))
+	    if (strcmp (modnames[i], g_ptr_array_index (module_list, j)) == 0)
 		return;
 
 	g_ptr_array_add (module_list, g_strdup (modnames[i]));
@@ -357,12 +357,12 @@ add_to_module_list (GPtrArray *module_list, const gchar *module_name)
 }
 
 static int
-find_module_in_array (GnomeModuleInfo *ptr, GnomeModuleInfo **array)
+find_module_in_array (const GnomeModuleInfo *ptr, GnomeModuleInfo **array)
 {
     int i;
 
     for (i = 0; array[i] && array[i] != ptr; i++) {
-	if (!strcmp(array[i]->name, ptr->name))
+	if (array[i] == ptr)
 	    break;
     }
 
@@ -1105,8 +1105,7 @@ gnome_program_module_registered (const GnomeModuleInfo *module_info)
 	if (curmod == NULL)
 		break;
 	
-	if(curmod == module_info
-	   || strcmp (curmod->name, module_info->name) == 0)
+	if (curmod == module_info)
 	    return TRUE;
     }
 
@@ -1161,7 +1160,7 @@ gnome_program_module_register (const GnomeModuleInfo *module_info)
        Initialization order gets sorted out later on. */
     if (module_info->requirements) {
 	for(i = 0; module_info->requirements[i].required_version; i++) {
-	    GnomeModuleInfo *dep_mod;
+	    const GnomeModuleInfo *dep_mod;
 
 	    dep_mod = module_info->requirements[i].module_info;
 	    if (gnome_program_version_check (module_info->requirements[i].required_version,
@@ -1394,10 +1393,9 @@ gnome_program_postinit (GnomeProgram *program)
     }
 
     /* Free up stuff we don't need to keep around for the lifetime of the app */
-#if 0
-    g_ptr_array_free (program_modules, TRUE);
-    program_modules = NULL;
-#endif
+
+    /* Note! we cannot kill the program_modules array as that
+     * may be needed later */
 
     g_array_free (program->_priv->top_options_table, TRUE);
     program->_priv->top_options_table = NULL;
@@ -1409,14 +1407,17 @@ gnome_program_postinit (GnomeProgram *program)
 
 /**
  * gnome_program_init:
- * @program_id: Application ID string
+ * @app_id: Application ID string
  * @app_version: Application version string
+ * @module_info: The module to init with this program
  * @argc: The number of commmand line arguments contained in 'argv'
  * @argv: A string array of command line arguments
  * @...: a NULL-terminated list of attribute name/value pairs
  *
  * Description:
- * Performs application initialization.
+ * Performs application initialization.  It will load the specified
+ * @module_info, which is normally LIBGNOME_MODULE or LIBGNOMEUI_MODULE
+ * and it pulls in all the dependencies
  */
 GnomeProgram *
 gnome_program_init (const char *app_id, const char *app_version,
@@ -1463,7 +1464,7 @@ gnome_program_initv (GType type,
 	g_ptr_array_add (program_modules, NULL);
 
 	/* Always register libgnome. */
-	gnome_program_module_register (&libgnome_module_info);
+	gnome_program_module_register (libgnome_module_info_get ());
 
 	/* Register the requested modules. */
 	gnome_program_module_register (module_info);

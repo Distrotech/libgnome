@@ -102,55 +102,62 @@ gnome_gconf_get_app_settings_relative (GnomeProgram *program, const gchar *subke
         return key;
 }
 
-/*
- * Our global GConfClient, and module stuff
- */
-
-static GConfClient* global_client = NULL;
-
-static void
-gnome_gconf_pre_args_parse(GnomeProgram *app, GnomeModuleInfo *mod_info)
+/**
+ * gnome_gconf_lazy_init:
+ *
+ * Description:  Internal libgnome/ui routine.  You never have
+ * to do this from your code.  But all places in libgnome/ui
+ * that need gconf should call this before calling any gconf
+ * calls.
+ **/
+void
+gnome_gconf_lazy_init (void)
 {
-        gconf_preinit(app, (GnomeModuleInfo*)mod_info);
-}
-
-static void
-gnome_gconf_post_args_parse(GnomeProgram *app, GnomeModuleInfo *mod_info)
-{
+	char *argv [] = { "dummy", NULL };
         gchar *settings_dir;
-        
-        gconf_postinit(app, (GnomeModuleInfo*)mod_info);
+	GConfClient* client = NULL;
+	static gboolean initialized = FALSE;
 
-        global_client = gconf_client_get_default();
+	if (initialized)
+		return;
 
-        gconf_client_add_dir(global_client,
+	initialized = TRUE;
+
+	gconf_init (1, argv, NULL);
+
+        client = gconf_client_get_default ();
+
+        gconf_client_add_dir (client,
                              "/desktop/gnome",
                              GCONF_CLIENT_PRELOAD_NONE, NULL);
 
-        settings_dir = gnome_gconf_get_gnome_libs_settings_relative("");
+        settings_dir = gnome_gconf_get_gnome_libs_settings_relative ("");
 
-        gconf_client_add_dir(global_client,
-                             settings_dir,
-                             /* Possibly we should turn preload on for this */
-                             GCONF_CLIENT_PRELOAD_NONE,
-                             NULL);
-        g_free(settings_dir);
+        gconf_client_add_dir (client,
+			      settings_dir,
+			      /* Possibly we should turn preload on for this */
+			      GCONF_CLIENT_PRELOAD_NONE,
+			      NULL);
+        g_free (settings_dir);
 }
 
-static GnomeModuleRequirement gnome_gconf_requirements[] = {
-        /* VERSION is also our version note - it's all libgnomeui */
-	{ VERSION, &gnome_bonobo_activation_module_info },
-        { NULL, NULL }
-};
+const GnomeModuleInfo *
+gnome_gconf_module_info_get (void)
+{
+	static GnomeModuleInfo module_info = {
+		"gnome-gconf", VERSION,
+		NULL /* description */,
+		NULL /* requirements */,
+		NULL /* instance init */,
+		NULL /* pre_args_parse */,
+		NULL /* post_args_parse */,
+		gconf_options,
+		NULL /* init_pass */,
+		NULL /* class_init */,
+		NULL, NULL /* expansions */
+	};
 
-GnomeModuleInfo gnome_gconf_module_info = {
-        "gnome-gconf", VERSION, N_("GNOME GConf Support"),
-        gnome_gconf_requirements,
-	NULL /* instance init */,
-        gnome_gconf_pre_args_parse,
-	gnome_gconf_post_args_parse,
-        gconf_options,
-	NULL /* init_pass */,
-	NULL /* class_init */,
-	NULL, NULL /* expansions */
-};
+	module_info.description = _("GNOME GConf Support");
+
+	return &module_info;
+}
