@@ -638,13 +638,11 @@ gnome_program_module_register(GnomeProgram *app,
     app->modules = g_ptr_array_new();
 
   /* Check that it's not already registered. */
-  for(i = 0; i < app->modules->len; i++)
-    {
-      if(g_ptr_array_index(app->modules, i) == module_info)
-	return;
-    }
 
   g_ptr_array_add(app->modules, module_info);
+
+  if(gnome_program_module_registered(app, module_info))
+    return;
 
   /* We register requirements *after* the module itself to avoid loops.
      Initialization order gets sorted out later on. */
@@ -676,6 +674,33 @@ gnome_program_module_register(GnomeProgram *app,
 	}
     }
 
+}
+
+/**
+ * gnome_program_module_registered:
+ * @app: Application object
+ * @module_info: A pointer to a GnomeModuleInfo structure describing the module
+ *               to be queried
+ *
+ * Description: This method checks to see whether a specific module has been initialized in the specified program.
+ *
+ * Returns: A value indicating whether the specified module has been registered/initialized in the current program
+ */
+gboolean
+gnome_program_module_registered(/*@in@*/ GnomeProgram *app,
+				const GnomeModuleInfo *module_info);
+{
+  g_return_if_fail(app);
+  g_return_if_fail(module_info);
+  g_return_if_fail(app->state >= APP_CREATE_DONE);
+
+  for(i = 0; i < app->modules->len; i++)
+    {
+      if(g_ptr_array_index(app->modules, i) == module_info)
+	return TRUE;
+    }
+
+  return FALSE;
 }
 
 /**

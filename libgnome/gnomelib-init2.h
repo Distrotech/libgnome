@@ -113,6 +113,8 @@ typedef void (*GnomeModuleHook)(/*@in@*/ GnomeProgram *app, /*@in@*/ const Gnome
    to the GNOME_PARAM_MODULE thing passed by the app. */
 void gnome_program_module_register(/*@in@*/ GnomeProgram *app,
 				   /*@in@*/ const GnomeModuleInfo *module_info);
+gboolean gnome_program_module_registered(/*@in@*/ GnomeProgram *app,
+					 const GnomeModuleInfo *module_info);
 
 /*
   In order to process arguments, gnomelib_preinit needs to know their
