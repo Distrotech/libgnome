@@ -1,3 +1,16 @@
+1999-03-18  James Henstridge  <james@daa.com.au>
+
+	* Makefile.am (gnome_moz_remote_LDADD): removed -lXmu and -lXt.  I
+	don't know why it was linking with Xt before.
+
+	* gnome-moz-remote.c: made a number of changes so that when local URLs
+	(ie. file: ones) are given on the command line only local copies of
+	mozilla are used to display them.  Also fixed up the client window
+	search a bit.  It now uses the GNOME WM hints if available, otherwise
+	using recursive XQueryTree calls.  This also removes the dependency
+	on libXmu (which isn't available on HP-UX unless you compile X
+	yourself).
+
 Tue Mar 16 22:39:04 1999  Tim Janik  <timj@gtk.org>
 
 	* libgnome.h: 
