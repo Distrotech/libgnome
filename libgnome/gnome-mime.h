@@ -11,6 +11,7 @@ typedef struct {
         gchar* composetyped;
         gint copiousoutput;
         gint needsterminal;
+
         /* where are the specs for the mailcap format? */
 } GnomeMailCap;
 
