@@ -421,6 +421,47 @@ gnome_gconf_gnome_pixmap_entry_set (GnomePixmapEntry *pixmap_entry,
 	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
 }
 
+gchar*
+gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
+{
+        gchar *dir;
+        gchar *key;
+
+        dir = g_strconcat("/apps/gnome-settings/",
+                          gnome_program_get_name(gnome_program_get()),
+                          NULL);
+
+        if (subkey && *subkey) {
+                key = gconf_concat_key_and_dir(dir, subkey);
+                g_free(dir);
+        } else {
+                /* subkey == "" */
+                key = dir;
+        }
+
+        return key;
+}
+
+gchar*
+gnome_gconf_get_app_settings_relative (const gchar *subkey)
+{
+        gchar *dir;
+        gchar *key;
+
+        dir = g_strconcat("/apps/",
+                          gnome_program_get_name(gnome_program_get()),
+                          NULL);
+
+        if (subkey && *subkey) {
+                key = gconf_concat_key_and_dir(dir, subkey);
+                g_free(dir);
+        } else {
+                /* subkey == "" */
+                key = dir;
+        }
+
+        return key;
+}
 
 /*
  * Our global GConfClient, and module stuff
@@ -452,6 +493,8 @@ gnome_gconf_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
 static void
 gnome_gconf_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
 {
+        gchar *settings_dir;
+        
         gconf_postinit(app, (GnomeModuleInfo*)mod_info);
 
         global_client = gconf_client_new();
@@ -465,6 +508,15 @@ gnome_gconf_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
         gconf_client_add_dir(global_client,
                              "/desktop/gnome",
                              GCONF_CLIENT_PRELOAD_NONE, NULL);
+
+        settings_dir = gnome_gconf_get_gnome_libs_settings_relative("");
+
+        gconf_client_add_dir(global_client,
+                             settings_dir,
+                             /* Possibly we should turn preload on for this */
+                             GCONF_CLIENT_PRELOAD_NONE,
+                             NULL);
+        g_free(settings_dir);
 }
 
 extern GnomeModuleInfo gtk_module_info;

@@ -80,6 +80,10 @@ GConfValue *gnome_gconf_gnome_pixmap_entry_get (GnomePixmapEntry *pixmap_entry,
 void        gnome_gconf_gnome_pixmap_entry_set (GnomePixmapEntry *pixmap_entry,
 						GConfValue       *value);
 
+/* Get keys relative to the gnome-libs internal per-app directory and the
+   application author per-app directory */
+gchar      *gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey);
+gchar      *gnome_gconf_get_app_settings_relative        (const gchar *subkey);
 
 /* GNOME GConf module; basically what this does is
    create a global GConfClient for a GNOME application; it's used
