@@ -1,5 +1,15 @@
 2001-06-02  Martin Baulig  <baulig@suse.de>
 
+	* gnome-selector.c: Started to implement a new directory filter based on the
+	"filter-patterns" property in the property bag.
+
+	* gnome-selector.c (PROP_PBAG_AUTO_ADD_TO_LIST, PROP_PBAG_ACTIVATE_ENTRY_ACTION,
+	PROP_PBAG_ADD_URI_MODE, PROP_PBAG_FILTER_PATTERNS): New properties.
+	(PROP_PBAG_AUTO_ADD_TO_LIST): Removed.
+	(impl_GNOME_Selector_getURIList): Implemented.
+
+2001-06-02  Martin Baulig  <baulig@suse.de>
+
 	* libgnome-init.c (gnome_mime_type): Add this here until bonobo-moniker-extender-file.c
 	is fixed. You will be killed if you use this function !
 
