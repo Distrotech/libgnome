@@ -303,7 +303,9 @@ libbonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 	if (priv->config_database != CORBA_OBJECT_NIL) {
 	    CORBA_exception_init (&ev);
 	    Bonobo_ConfigDatabase_addDatabase (priv->config_database, priv->desktop_config_database,
-					       "/Gnome/", &ev);
+					       "/Gnome/",
+					       Bonobo_ConfigDatabase_DEFAULT,
+					       &ev);
 	    CORBA_exception_free (&ev);
 	}
 
