@@ -262,9 +262,9 @@ static void
 libgnome_userdir_setup (gboolean create_dirs)
 {
 	if(!gnome_user_dir) {
-		gnome_user_dir = g_build_filename (g_get_home_dir(), DOT_GNOME, NULL);
+		gnome_user_dir = g_build_filename (g_get_home_dir(), GNOME_DOT_GNOME, NULL);
 		gnome_user_private_dir = g_build_filename (g_get_home_dir(),
-							   DOT_GNOME_PRIVATE, NULL);
+							   GNOME_DOT_GNOME_PRIVATE, NULL);
 		gnome_user_accels_dir = g_build_filename (gnome_user_dir,
 							  "accels", NULL);
 	}

@@ -1,10 +1,10 @@
 2001-12-03  Malcolm Tredinnick <malcolm@commsecure.com.au>
 	* gnome-init.[ch], gnome-util.h, parse-path.cP: replace
-	  references to .gnome and .gnome_private with DOT_GNOME and
-	  DOT_GNOME_PRIVATE respectivly. Define these macros in
-	  gnome-init.h (to be .gnome2 and .gnome2_private for now) and
-	  include this in gnome-util.h, which was the only place that
-	  didn't have it.
+	  references to .gnome and .gnome_private with GNOME_DOT_GNOME
+	  and GNOME_DOT_GNOME_PRIVATE respectivly. Define these macros
+	  in gnome-init.h (to be .gnome2 and .gnome2_private for now)
+	  and include this in gnome-util.h, which was the only place
+	  that didn't have it.
 
 	* gnome-program.h: A documentation fix I had lying around in my
 	  tree for some reason.
