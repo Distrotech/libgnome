@@ -27,7 +27,6 @@
 
 #include "gnome-exec.h"
 #include "gnome-util.h"
-#include "gnome-config.h"
 #include "gnome-i18nP.h"
 #include <glib.h>
 
@@ -39,6 +38,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <signal.h>
+
+#include <libgnome/libgnome-init.h>
+#include <bonobo/bonobo-property-bag-client.h>
+#include <bonobo/bonobo-exception.h>
+
+#include <popt.h>
 
 #include <errno.h>
 #ifndef errno
@@ -343,7 +348,11 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
         int real_argc;
         int i, j;
 	char **term_argv = NULL;
+	const char **temp_argv = NULL;
 	int term_argc = 0;
+
+	Bonobo_ConfigDatabase db;
+	gchar *terminal = NULL;
 
 	char **the_argv;
 
@@ -363,8 +372,14 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 		*argc = i;
 	}
 
-	gnome_config_get_vector ("/Gnome/Applications/Terminal",
-				 &term_argc, &term_argv);
+	db = gnome_get_config_database ();
+	terminal = bonobo_pbclient_get_string (db, "/Gnome/Applications/Terminal", NULL);
+	g_message (G_STRLOC ": |%s|", terminal);
+	if (terminal) {
+	    poptParseArgvString (terminal, &term_argc, &temp_argv);
+	    term_argv = g_strdupv ((gchar **) temp_argv);
+	}
+
 	if (term_argv == NULL) {
 		char *check;
 
@@ -416,6 +431,7 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 	/* we use g_free here as we sucked all the inner strings
 	 * out from it into real_argv */
 	g_free (term_argv);
+	g_free (terminal);
 }
 
 /**
