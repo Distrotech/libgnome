@@ -37,51 +37,13 @@
 #include "libgnomeP.h"
 #include <errno.h>
 
+#include <gobject/gobject.h>
+#include <gobject/gvaluetypes.h>
+
 #include <libgnomevfs/gnome-vfs-init.h>
-
-const char libgnome_param_create_directories[]="B:libgnome/create_directories";
-const char libgnome_param_espeaker[]="S:libgnome/espeaker";
-const char libgnome_param_enable_sound[]="B:libgnome/enable_sound";
-const char libgnome_param_file_locator[]="P:libgnome/file_locator";
-const char libgnome_param_app_prefix[]="S:libgnome/app_prefix";
-const char libgnome_param_app_sysconfdir[]="S:libgnome/app_sysconfdir";
-const char libgnome_param_app_datadir[]="S:libgnome/app_datadir";
-const char libgnome_param_app_libdir[]="S:libgnome/app_libdir";
-const char libgnome_param_human_readable_name[] = "S:libgnome/human_readable_name";
-
-/**
- * gnome_program_get_human_readable_name
- * @app: The application object
- *
- * Description:
- * This function returns a pointer to a static string that the
- * application has provided as a human readable name. The app
- * should provide the name with the GNOME_PARAM_HUMAN_READABLE_NAME
- * init argument. Returns NULL if no name was set.
- *
- * Returns: application human-readable name string.
- */
-
-const char*
-gnome_program_get_human_readable_name(const GnomeProgram *app)
-{
-  const GnomeAttributeValue* val;
-  
-  g_return_val_if_fail (app, NULL);
-
-  val = gnome_program_attribute_get(app, LIBGNOME_PARAM_HUMAN_READABLE_NAME);
-
-  if (val) {
-    g_assert(val->type == GNOME_ATTRIBUTE_STRING);
-    return val->u.string_value;
-  } else {
-    return NULL;
-  }
-}
 
 char *gnome_user_dir = NULL, *gnome_user_private_dir = NULL, *gnome_user_accels_dir = NULL;
 
-static void libgnome_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info);
 static void libgnome_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info);
 static void libgnome_loadinit(GnomeProgram *app, const GnomeModuleInfo *mod_info);
 static void libgnome_option_cb(poptContext ctx, enum poptCallbackReason reason,
@@ -117,120 +79,116 @@ static GnomeModuleRequirement libgnome_requirements[] = {
 GnomeModuleInfo libgnome_module_info = {
   "libgnome", VERSION, "GNOME Library",
   libgnome_requirements,
-  libgnome_pre_args_parse, libgnome_post_args_parse,
+  NULL, libgnome_post_args_parse,
   gnomelib_options,
   libgnome_loadinit
 };
 
 static void
-libgnome_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
+libgnome_post_args_parse (GnomeProgram *program,
+			  const GnomeModuleInfo *mod_info)
 {
-  /* Provide default settings */
-  gnome_program_attributes_set(app,
-			       LIBGNOME_PARAM_CREATE_DIRECTORIES, TRUE,
-			       NULL);
+    GValue value = { 0, };
+    gboolean create_dirs_val;
+
+    g_value_init (&value, G_TYPE_BOOLEAN);
+    g_object_get_property (G_OBJECT (program), "create-directories", &value);
+    create_dirs_val = g_value_get_boolean (&value);
+    g_value_unset (&value);
+
+    gnome_triggers_init ();
+
+    libgnome_userdir_setup (create_dirs_val);
+
+    setlocale (LC_ALL, "");
+    /* XXX todo - handle multiple installation dirs */
+    bindtextdomain (PACKAGE, GNOMELOCALEDIR);
+    gnome_i18n_init ();
 }
 
 static void
-libgnome_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
-{
-  gboolean create_dirs_val = TRUE;
-
-  gnome_program_attributes_get(app,
-			  LIBGNOME_PARAM_CREATE_DIRECTORIES, &create_dirs_val,
-			  NULL);
-			  
-  gnome_triggers_init ();
-
-  libgnome_userdir_setup(create_dirs_val);
-
-  setlocale (LC_ALL, "");
-  bindtextdomain (PACKAGE, GNOMELOCALEDIR); /* XXX todo - handle multiple installation dirs */
-  gnome_i18n_init ();
-}
-
-static void
-libgnome_loadinit(GnomeProgram *app, const GnomeModuleInfo *mod_info)
+libgnome_loadinit (GnomeProgram *program,
+		   const GnomeModuleInfo *mod_info)
 {
     /* Initialize threads. */
     g_thread_init (NULL);
 }
 
 static void
-libgnome_option_cb(poptContext ctx, enum poptCallbackReason reason,
-		   const struct poptOption *opt, const char *arg,
-		   void *data)
+libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
+		    const struct poptOption *opt, const char *arg,
+		    void *data)
 {
-  GnomeProgram *app;
+    GnomeProgram *program;
 
-  app = gnome_program_get();
+    program = gnome_program_get ();
 	
-  switch(reason)
-    {
+    switch(reason) {
     case POPT_CALLBACK_REASON_OPTION:
-      switch(opt->val) {
-      case ARG_VERSION:
-	g_print ("Gnome %s %s\n", gnome_program_get_name(app), gnome_program_get_version(app));
-	exit(0);
-	break;
-      }
+	switch(opt->val) {
+	case ARG_VERSION:
+	    g_print ("Gnome %s %s\n",
+		     gnome_program_get_name (program),
+		     gnome_program_get_version (program));
+	    exit(0);
+	    break;
+	}
     default:
-      /* do nothing */
-      break;
+	/* do nothing */
+	break;
     }
 }
 
 static void
-libgnome_userdir_setup(gboolean create_dirs)
+libgnome_userdir_setup (gboolean create_dirs)
 {
-  if(!gnome_user_dir)
-    {
-      gnome_user_dir = g_concat_dir_and_file (g_get_home_dir(), ".gnome");
-      gnome_user_private_dir = g_concat_dir_and_file (g_get_home_dir(),
-						      ".gnome_private");
-      gnome_user_accels_dir = g_concat_dir_and_file (gnome_user_dir, "accels");
+    if(!gnome_user_dir) {
+	gnome_user_dir = g_concat_dir_and_file (g_get_home_dir(), ".gnome");
+	gnome_user_private_dir = g_concat_dir_and_file (g_get_home_dir(),
+							".gnome_private");
+	gnome_user_accels_dir = g_concat_dir_and_file (gnome_user_dir, "accels");
     }
 
-  if(!create_dirs)
-    return;
+    if (!create_dirs)
+	return;
 	
-  if (mkdir(gnome_user_dir, 0700) < 0) { /* private permissions, but we
-                                            don't check that we got them */
-    if (errno != EEXIST) {
-      fprintf(stderr, _("Could not create per-user gnome configuration directory `%s': %s\n"),
-              gnome_user_dir, strerror(errno));
-      exit(1);
+    if (mkdir (gnome_user_dir, 0700) < 0) { /* private permissions, but we
+					       don't check that we got them */
+	if (errno != EEXIST) {
+	    fprintf(stderr, _("Could not create per-user gnome configuration directory `%s': %s\n"),
+		    gnome_user_dir, strerror(errno));
+	    exit(1);
+	}
     }
-  }
-
-  if(mkdir(gnome_user_private_dir, 0700) < 0) { /* This is private
-                                                  per-user info mode
-                                                  700 will be
-                                                  enforced!  maybe
-                                                  even other security
-                                                  meassures will be
-                                                  taken */
-    if (errno != EEXIST) {
-      fprintf(stderr, _("Could not create per-user gnome configuration directory `%s': %s\n"),
-              gnome_user_private_dir, strerror(errno));
-      exit(1);
-    }
+    
+  if (mkdir (gnome_user_private_dir, 0700) < 0) { /* This is private
+						     per-user info mode
+						     700 will be
+						     enforced!  maybe
+						     even other security
+						     meassures will be
+						     taken */
+      if (errno != EEXIST) {
+	  fprintf (stderr, _("Could not create per-user gnome configuration directory `%s': %s\n"),
+		   gnome_user_private_dir, strerror(errno));
+	  exit(1);
+      }
   }
 
 
   /* change mode to 0700 on the private directory */
   if (chmod (gnome_user_private_dir, 0700) < 0) {
-    fprintf(stderr, _("Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"),
-            gnome_user_private_dir, strerror(errno));
-    exit(1);
+      fprintf(stderr, _("Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"),
+	      gnome_user_private_dir, strerror(errno));
+      exit(1);
   }
   
-  if (mkdir(gnome_user_accels_dir, 0700) < 0) {
-    if (errno != EEXIST) {
-      fprintf(stderr, _("Could not create gnome accelerators directory `%s': %s\n"),
-              gnome_user_accels_dir, strerror(errno));
-      exit(1);
-    }
+  if (mkdir (gnome_user_accels_dir, 0700) < 0) {
+      if (errno != EEXIST) {
+	  fprintf(stderr, _("Could not create gnome accelerators directory `%s': %s\n"),
+		  gnome_user_accels_dir, strerror(errno));
+	  exit(1);
+      }
   }
 }
 

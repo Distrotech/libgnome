@@ -1,11 +1,20 @@
 2001-03-20  Martin Baulig  <baulig@suse.de>
 
+	* gnomelib-init.[ch] (gnome_program_get_human_readable_name):
+	Moved to gnome-program.[ch].
+
+	* gnomelib-init.h (LIBGNOME_PARAM_*, libgnome_param_*):
+	Removed #defines and external declarations. There are corresponding
+	`GNOME_PARAM_*' #defines in gnome-program.h which are the names
+	of GnomeProgram's properties.
+
 	* test-libgnome.c: Simple test program.
 
 	* gnomelib-init2.[ch]: Removed, this is now gnome-program.[ch].
 
 	* gnome-program.[ch]: New files. This implements a `GnomeProgram'
-	GObject; most of the code is copied from gnomelib-init2.c.
+	GObject; most of the code is copied from gnomelib-init2.c, but
+	removed all the GnomeAttribute stuff and use GParam's.
 
 2001-02-28  Mikael Hallendal  <micke@codefactory.se>
 
