@@ -276,7 +276,10 @@ g_file_exists (const char *filename)
  *
  * returns a new allocated char * with the concatenation of its arguments,
  * the list of strings is terminated by a NULL pointer.
+ *
+ * NOTE: This function is deprecated.  Use GLib's g_strconcat() instead.
  */
+#undef g_copy_strings
 char *
 g_copy_strings (const char *first, ...)
 {
@@ -305,6 +308,7 @@ g_copy_strings (const char *first, ...)
 	
 	return result;
 }
+#define g_copy_strings g_strconcat
 
 /**
  * g_unix_error_string:

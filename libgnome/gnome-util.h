@@ -34,8 +34,8 @@ enum {
 int g_file_test   (const char *filename, int test);
 int g_file_exists (const char *filename);
 
-/* Concatenates any number of strings; last arg should be NULL */
-char *g_copy_strings (const char *first, ...); 
+/* g_copy_strings superceded by GLib's g_strconcat */
+#define g_copy_strings g_strconcat
 
 /* like strerror() */
 const char *g_unix_error_string (int error_num);
@@ -76,7 +76,7 @@ char ** g_copy_vector    (char ** vec);
 /* very similar to above, but adds $HOME/.gnome/ to beginning
  * This is meant to be the most useful version.
  */
-#define gnome_util_home_file(afile) (g_copy_strings(gnome_util_user_home(), "/.gnome/", (afile), NULL))
+#define gnome_util_home_file(afile) (g_strconcat(gnome_util_user_home(), "/.gnome/", (afile), NULL))
 
 /* Find the name of the user's shell.  */
 char *gnome_util_user_shell (void);
