@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 23:38+0200\n"
+"POT-Creation-Date: 2004-05-31 13:29+0200\n"
 "PO-Revision-Date: 2004-03-18 03:35+0100\n"
 "Last-Translator: Bojan Suzic <bojans@teol.net>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
@@ -125,12 +125,12 @@ msgstr "Bonobo podrška"
 msgid "Bonobo activation Support"
 msgstr "Podrška za Bonobo aktivaciju"
 
-#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
+#: libgnome/gnome-init.c:324 libgnome/gnome-init.c:338
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Ne može da napravi direktorijum „%s“ za Gnom postavke korisnika: %s\n"
 
-#: libgnome/gnome-init.c:328
+#: libgnome/gnome-init.c:347
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -139,32 +139,32 @@ msgstr ""
 "Ne može da postavi ovlašćenja 0700 na direktorijum „%s“ za Gnom postavke "
 "korisnika: %s\n"
 
-#: libgnome/gnome-init.c:335
+#: libgnome/gnome-init.c:354
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Ne može da napravi direktorijum sa Gnom prečicama „%s“: %s\n"
 
-#: libgnome/gnome-init.c:384
+#: libgnome/gnome-init.c:403
 msgid "Disable sound server usage"
 msgstr "Onemogući upotrebu zvuka"
 
-#: libgnome/gnome-init.c:387
+#: libgnome/gnome-init.c:406
 msgid "Enable sound server usage"
 msgstr "Omogući upotrebu zvuka"
 
-#: libgnome/gnome-init.c:390
+#: libgnome/gnome-init.c:409
 msgid "Host:port on which the sound server to use is running"
 msgstr "Server:port gde željeni server za zvuk osluškuje"
 
-#: libgnome/gnome-init.c:392
+#: libgnome/gnome-init.c:411
 msgid "HOSTNAME:PORT"
 msgstr "SERVER:PORT"
 
-#: libgnome/gnome-init.c:412
+#: libgnome/gnome-init.c:431
 msgid "GNOME Virtual Filesystem"
 msgstr "Gnomov virtuelni sistem datoteka"
 
-#: libgnome/gnome-init.c:433
+#: libgnome/gnome-init.c:452
 msgid "GNOME Library"
 msgstr "Gnomova biblioteka"
 
@@ -321,19 +321,19 @@ msgstr "E-zvučnik"
 msgid "How to connect to esd"
 msgstr "Kako da uspostavi vezu sa esd-om"
 
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1355
 msgid "Help options"
 msgstr "Pomoćne opcije"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1360
 msgid "Application options"
 msgstr "Postavke programa"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1376
 msgid "Dynamic modules to load"
 msgstr "Učitaj dinamičke module"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1377
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
@@ -835,25 +835,28 @@ msgstr ""
 "Na primer, ovo će onemogućiti pristup prozorčetu „Pokreni program“ sa panela."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
+#, fuzzy
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
-"disable access to all application's \"Print Setup\" dialogs."
+"disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
 "Spreči korisnika da menja podešavanja štampe.  Na primer, ovo će onemogućiti "
 "pristup prozorčetu „Podešavanje štampe“ svakog programa."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
+#, fuzzy
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
-"all application's \"Print\" dialogs."
+"all applications' \"Print\" dialogs."
 msgstr ""
 "Spreči korisnika da štampa.  Na primer, ovo će onemogućiti pristup "
 "prozorčetu „Štampaj“ svakog programa."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
+#, fuzzy
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
-"access to all application's \"Save as\" dialogs."
+"access to all applications' \"Save as\" dialogs."
 msgstr ""
 "Spreči korisnika da čuva datoteke na disku.  Na primer, ovo će onemogućiti "
 "pristup prozorčetu „Sačuvaj kao“ svakog programa."

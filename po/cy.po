@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 23:38+0200\n"
+"POT-Creation-Date: 2004-05-31 13:29+0200\n"
 "PO-Revision-Date: 2004-03-19 12:12+0000\n"
 "Last-Translator: Telsa Gwynne <hobbit@aloss.ukuu.org.uk>\n"
 "Language-Team: Welsh <gnome-cy@pengwyn.linux.org.uk>\n"
@@ -120,12 +120,12 @@ msgstr "Cynhaliaeth Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Cynhaliaeth gweithrediad Bonobo"
 
-#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
+#: libgnome/gnome-init.c:324 libgnome/gnome-init.c:338
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Methwyd creu cyfeiriadur cyfluniad defnyddiwr GNOME `%s': %s\n"
 
-#: libgnome/gnome-init.c:328
+#: libgnome/gnome-init.c:347
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -134,32 +134,32 @@ msgstr ""
 "Methwyd gosod modd 0700 ar gyfeiriadur cyfluniad defnyddiwr preifat gnome `%"
 "s': %s\n"
 
-#: libgnome/gnome-init.c:335
+#: libgnome/gnome-init.c:354
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Methu creu cyfeiriadur cyflymwyr gnome `%s': %s\n"
 
-#: libgnome/gnome-init.c:384
+#: libgnome/gnome-init.c:403
 msgid "Disable sound server usage"
 msgstr "Analluogi defnydd y gweinydd sain"
 
-#: libgnome/gnome-init.c:387
+#: libgnome/gnome-init.c:406
 msgid "Enable sound server usage"
 msgstr "Galluogi defnydd y gweinydd sain"
 
-#: libgnome/gnome-init.c:390
+#: libgnome/gnome-init.c:409
 msgid "Host:port on which the sound server to use is running"
 msgstr "Gwesteiwr:porth mae'r gweinydd sain dylid defnyddio yn gweithredu"
 
-#: libgnome/gnome-init.c:392
+#: libgnome/gnome-init.c:411
 msgid "HOSTNAME:PORT"
 msgstr "GWESTEIWR:PORTH"
 
-#: libgnome/gnome-init.c:412
+#: libgnome/gnome-init.c:431
 msgid "GNOME Virtual Filesystem"
 msgstr "System Ffeiliau Rhithiol GNOME"
 
-#: libgnome/gnome-init.c:433
+#: libgnome/gnome-init.c:452
 msgid "GNOME Library"
 msgstr "LLyfrgell GNOME"
 
@@ -307,19 +307,19 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Sut i gysylltu i esd"
 
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1355
 msgid "Help options"
 msgstr "Opsiynnau cymorth"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1360
 msgid "Application options"
 msgstr "Opsiynnau rhaglen"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1376
 msgid "Dynamic modules to load"
 msgstr "Modiwlau deinamig i'w llwytho"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1377
 msgid "MODULE1,MODULE2,..."
 msgstr "MODIWL1,MODIWL2,..."
 
@@ -830,26 +830,29 @@ msgstr ""
 "deialog \"Rhedeg Rhaglen\" y panel."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
+#, fuzzy
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
-"disable access to all application's \"Print Setup\" dialogs."
+"disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
 "Rhwystro'r defnyddiwr rhag newid gosodiadau argraffydd. Er enghraifft, basai "
 "hyn yn rhwystro'r defnyddiwr rhag defnyddio deialogau \"Gosodiadau Argraffu"
 "\" pob rhaglen."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
+#, fuzzy
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
-"all application's \"Print\" dialogs."
+"all applications' \"Print\" dialogs."
 msgstr ""
 "Rhwystro'r defnyddiwr rhag argraffu. Er enghraifft, basai hyn yn rhwystro'r "
 "defnyddiwr rhag defnyddio deialogau \"Argraffu\" pob rhaglen."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
+#, fuzzy
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
-"access to all application's \"Save as\" dialogs."
+"access to all applications' \"Save as\" dialogs."
 msgstr ""
 "Rhwystro'r defnyddiwr rhag arbed ffeiliau at ddisg. Er enghraifft, basai hyn "
 "yn rhwystro'r defnyddiwr rhag defnyddio deialogau \"Cadw fel\" pob rhaglen."

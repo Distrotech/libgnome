@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 23:38+0200\n"
+"POT-Creation-Date: 2004-05-31 13:29+0200\n"
 "PO-Revision-Date: 2004-04-16 11:33+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -131,14 +131,14 @@ msgstr "Bonobo-rako euskarria"
 msgid "Bonobo activation Support"
 msgstr "Bonobo aktibatzeko euskarria"
 
-#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
+#: libgnome/gnome-init.c:324 libgnome/gnome-init.c:338
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Ezin izan da erabiltzaileko gnome-ren `%s' konfigurazio-direktorio bat "
 "aurkitu: %s \n"
 
-#: libgnome/gnome-init.c:328
+#: libgnome/gnome-init.c:347
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -147,32 +147,32 @@ msgstr ""
 "Ezin izan da 0700 modua ezarri erabiltzaileko gnome-ren `%s'konfigurazio-"
 "direktorio pribatuan: %s\n"
 
-#: libgnome/gnome-init.c:335
+#: libgnome/gnome-init.c:354
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Ezin izan da gnome-ren bizkortzaileen `%s' direktorioa sortu: %s\n"
 
-#: libgnome/gnome-init.c:384
+#: libgnome/gnome-init.c:403
 msgid "Disable sound server usage"
 msgstr "Desgaitu soinu-zerbitzariaren erabilera"
 
-#: libgnome/gnome-init.c:387
+#: libgnome/gnome-init.c:406
 msgid "Enable sound server usage"
 msgstr "Gaitu soinu-zerbitzariaren erabilera"
 
-#: libgnome/gnome-init.c:390
+#: libgnome/gnome-init.c:409
 msgid "Host:port on which the sound server to use is running"
 msgstr "Erabili beharreko soinu-zerbitzaria dagoen ostalaria:ataka"
 
-#: libgnome/gnome-init.c:392
+#: libgnome/gnome-init.c:411
 msgid "HOSTNAME:PORT"
 msgstr "OSTALARIA:ATAKA"
 
-#: libgnome/gnome-init.c:412
+#: libgnome/gnome-init.c:431
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOMEren fitxategi-sistema birtuala"
 
-#: libgnome/gnome-init.c:433
+#: libgnome/gnome-init.c:452
 msgid "GNOME Library"
 msgstr "GNOMEren liburutegia"
 
@@ -328,19 +328,19 @@ msgid "How to connect to esd"
 msgstr "Nola konektatu esd-era"
 
 #
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1355
 msgid "Help options"
 msgstr "Laguntza-aukerak"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1360
 msgid "Application options"
 msgstr "Aplikazio-aukerak"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1376
 msgid "Dynamic modules to load"
 msgstr "Kargatzeko modulu dinamikoak"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1377
 msgid "MODULE1,MODULE2,..."
 msgstr "1MODULUA,2MODULUA,..."
 
@@ -871,26 +871,29 @@ msgstr ""
 "aplikazioa\" elkarrizketa-koadroa desgaitzen du."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
+#, fuzzy
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
-"disable access to all application's \"Print Setup\" dialogs."
+"disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
 "Erabiltzaileak inprimagailuaren ezarpenak aldatzea sahiesten du. Adibidez, "
 "honek aplikazio guztietako \"Inprimagailuaren ezarpenak\" elkarrizketa-"
 "koadroak irekitzea desgaitzen du."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
+#, fuzzy
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
-"all application's \"Print\" dialogs."
+"all applications' \"Print\" dialogs."
 msgstr ""
 "Erabiltzaileak inprimatzea sahiesten du. Adibidez, honek aplikazio "
 "guztietako \"Inprimatu\" elkarrizketa-koadroa irekitzea desgaitzen du."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
+#, fuzzy
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
-"access to all application's \"Save as\" dialogs."
+"access to all applications' \"Save as\" dialogs."
 msgstr ""
 "Erabiltzaileak fitxategiak diskoan gordetzea sahiesten du. Adibidez, honek "
 "aplikazio guztietako \"Gorde honela\" elkarrizketa-koadroak irekitzea "

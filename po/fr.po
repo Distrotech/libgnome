@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.5.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 23:38+0200\n"
+"POT-Creation-Date: 2004-05-31 13:29+0200\n"
 "PO-Revision-Date: 2004-02-13 11:29+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -126,14 +126,14 @@ msgstr "Support Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Support d'activation de Bonobo"
 
-#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
+#: libgnome/gnome-init.c:324 libgnome/gnome-init.c:338
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Impossible de créer un répertoire de configuration gnome par utilisateur « %"
 "s » : %s\n"
 
-#: libgnome/gnome-init.c:328
+#: libgnome/gnome-init.c:347
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -142,33 +142,33 @@ msgstr ""
 "Impossible de définir le mode à 0700 sur le répertoire de configuration "
 "gnome privé par utilisateur « %s » : %s\n"
 
-#: libgnome/gnome-init.c:335
+#: libgnome/gnome-init.c:354
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr ""
 "Impossible de créer le répertoire de raccourcis clavier gnome « %s » : %s\n"
 
-#: libgnome/gnome-init.c:384
+#: libgnome/gnome-init.c:403
 msgid "Disable sound server usage"
 msgstr "Désactive l'utilisation du serveur de sons"
 
-#: libgnome/gnome-init.c:387
+#: libgnome/gnome-init.c:406
 msgid "Enable sound server usage"
 msgstr "Active l'utilisation du serveur de sons"
 
-#: libgnome/gnome-init.c:390
+#: libgnome/gnome-init.c:409
 msgid "Host:port on which the sound server to use is running"
 msgstr "Hôte:Port où le serveur de sons à utiliser se situe"
 
-#: libgnome/gnome-init.c:392
+#: libgnome/gnome-init.c:411
 msgid "HOSTNAME:PORT"
 msgstr "HÔTE:PORT"
 
-#: libgnome/gnome-init.c:412
+#: libgnome/gnome-init.c:431
 msgid "GNOME Virtual Filesystem"
 msgstr "Système de fichiers virtuel GNOME"
 
-#: libgnome/gnome-init.c:433
+#: libgnome/gnome-init.c:452
 msgid "GNOME Library"
 msgstr "Bibliothèque GNOME"
 
@@ -316,19 +316,19 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Comment se connecter à esd"
 
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1355
 msgid "Help options"
 msgstr "Options de l'aide"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1360
 msgid "Application options"
 msgstr "Options de l'application"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1376
 msgid "Dynamic modules to load"
 msgstr "Modules dynamiques à charger"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1377
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
@@ -851,26 +851,29 @@ msgstr ""
 "dialogue « Lancer une application... » du tableau de bord."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
+#, fuzzy
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
-"disable access to all application's \"Print Setup\" dialogs."
+"disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
 "Interdit à l'utilisateur de modifier les réglages de l'impression. Par "
 "exemple, cela désactivera l'accès aux boîtes de dialogue « Configuration de "
 "l'impression » de toutes les applications."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
+#, fuzzy
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
-"all application's \"Print\" dialogs."
+"all applications' \"Print\" dialogs."
 msgstr ""
 "Interdit à l'utilisateur d'imprimer. Par exemple, cela désactivera l'accès "
 "aux boîtes de dialogue « Imprimer » de toutes les applications."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
+#, fuzzy
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
-"access to all application's \"Save as\" dialogs."
+"access to all applications' \"Save as\" dialogs."
 msgstr ""
 "Interdit à l'utilisateur d'enregistrer des fichiers sur le disque. Par "
 "exemple cela désactivera l'accès aux boîtes de dialogue « Enregistrer sous » "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-11 13:57+0200\n"
+"POT-Creation-Date: 2004-05-31 13:29+0200\n"
 "PO-Revision-Date: 2004-05-11 19:35+0200\n"
 "Last-Translator: Laszlo Dvornik <dvornikl@mailbox.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
@@ -120,44 +120,44 @@ msgstr "Bonobo-támogatás"
 msgid "Bonobo activation Support"
 msgstr "Bonobo-aktiválás támogatása"
 
-#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
+#: libgnome/gnome-init.c:324 libgnome/gnome-init.c:338
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 
-#: libgnome/gnome-init.c:328
+#: libgnome/gnome-init.c:347
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
 
-#: libgnome/gnome-init.c:335
+#: libgnome/gnome-init.c:354
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr ""
 
-#: libgnome/gnome-init.c:384
+#: libgnome/gnome-init.c:403
 msgid "Disable sound server usage"
 msgstr "Hangkiszolgáló használatának letiltása"
 
-#: libgnome/gnome-init.c:387
+#: libgnome/gnome-init.c:406
 msgid "Enable sound server usage"
 msgstr "Hangkiszolgáló használatának engedélyezése"
 
-#: libgnome/gnome-init.c:390
+#: libgnome/gnome-init.c:409
 msgid "Host:port on which the sound server to use is running"
 msgstr "Kiszolgáló:port, amelyen a használandó hangkiszolgáló fut"
 
-#: libgnome/gnome-init.c:392
+#: libgnome/gnome-init.c:411
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: libgnome/gnome-init.c:412
+#: libgnome/gnome-init.c:431
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Virtuális Fájlrendszer"
 
-#: libgnome/gnome-init.c:433
+#: libgnome/gnome-init.c:452
 msgid "GNOME Library"
 msgstr "GNOME Programkönyvtár"
 
@@ -305,19 +305,19 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Hogyan kapcsolódik az esd-hez"
 
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1355
 msgid "Help options"
 msgstr "Súgó beállításai"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1360
 msgid "Application options"
 msgstr "Alkalmazás beállításai"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1376
 msgid "Dynamic modules to load"
 msgstr "Betöltendő dinamikus modulok"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1377
 msgid "MODULE1,MODULE2,..."
 msgstr "1. MODUL,2. MODUL,..."
 
@@ -393,7 +393,8 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
@@ -401,7 +402,8 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
@@ -480,7 +482,8 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr ""
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
@@ -554,8 +557,8 @@ msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"Hogyan legyen árnyalva a háttérszín. Lehetséges értékek: \"horizontal-gradient"
-"\", \"vertical-gradient\", és \"solid\""
+"Hogyan legyen árnyalva a háttérszín. Lehetséges értékek: \"horizontal-"
+"gradient\", \"vertical-gradient\", és \"solid\""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -676,7 +679,8 @@ msgid "Monospace font"
 msgstr "Monospace betűkészlet"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "A terminálokhoz hasonló helyeken használandó monospace (fix szélességű) "
 "betűkészlet neve."
@@ -718,8 +722,8 @@ msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
 msgstr ""
-"Eszköztár stílusa. Lehetséges értékek: \"both\", \"both_horiz\", \"icon\", és "
-"\"text\""
+"Eszköztár stílusa. Lehetséges értékek: \"both\", \"both_horiz\", \"icon\", "
+"és \"text\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Use Custom Font"
@@ -797,19 +801,19 @@ msgstr ""
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
-"disable access to all application's \"Print Setup\" dialogs."
+"disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
-"all application's \"Print\" dialogs."
+"all applications' \"Print\" dialogs."
 msgstr ""
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
-"access to all application's \"Save as\" dialogs."
+"access to all applications' \"Save as\" dialogs."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
@@ -852,8 +856,8 @@ msgstr ""
 "A kurzortéma neve. Csak az Xcursor-t támogató X-kiszolgálók használják, mint "
 "például az XFree86 4.3 és későbbi változatai. Ez az érték csak az egyes "
 "munkafolyamatok indításakor kerül átadásra az X-kiszolgálónak, így "
-"megváltoztatása egy munkafolyamat közepén semmilyen hatással sincs a következő "
-"bejelentkezésig."
+"megváltoztatása egy munkafolyamat közepén semmilyen hatással sincs a "
+"következő bejelentkezésig."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"

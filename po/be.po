@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 23:38+0200\n"
+"POT-Creation-Date: 2004-05-31 13:29+0200\n"
 "PO-Revision-Date: 2004-03-08 15:17+0200\n"
 "Last-Translator: Ales Nyakhaychyk <nab@mail.by>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -123,12 +123,12 @@ msgstr "Падтрымка Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Падтрымка задзейнічаньня Bonobo"
 
-#: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
+#: libgnome/gnome-init.c:324 libgnome/gnome-init.c:338
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Немагчыма стварыць тэчку наладак gnome для карыстальніка \"%s\": %s\n"
 
-#: libgnome/gnome-init.c:328
+#: libgnome/gnome-init.c:347
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -137,32 +137,32 @@ msgstr ""
 "Немагчыма ўсталяваць рэжым 0700 на адасобленую тэчку карыстальніка для "
 "наладак gnome \"%s\": %s\n"
 
-#: libgnome/gnome-init.c:335
+#: libgnome/gnome-init.c:354
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Немагчыма стварыць тэчку паскаральнікаў gnome \"%s\": %s\n"
 
-#: libgnome/gnome-init.c:384
+#: libgnome/gnome-init.c:403
 msgid "Disable sound server usage"
 msgstr "Выключыць выкарыстаньне паслужніка гуку"
 
-#: libgnome/gnome-init.c:387
+#: libgnome/gnome-init.c:406
 msgid "Enable sound server usage"
 msgstr "Уключыць выкарыстаньне паслужніка гуку"
 
-#: libgnome/gnome-init.c:390
+#: libgnome/gnome-init.c:409
 msgid "Host:port on which the sound server to use is running"
 msgstr "Вузел:порт на якім выконваецца паслужнік гуку"
 
-#: libgnome/gnome-init.c:392
+#: libgnome/gnome-init.c:411
 msgid "HOSTNAME:PORT"
 msgstr "ВУЗЕЛ:ПОРТ"
 
-#: libgnome/gnome-init.c:412
+#: libgnome/gnome-init.c:431
 msgid "GNOME Virtual Filesystem"
 msgstr "Віртуальная файлавая сыстэма GNOME"
 
-#: libgnome/gnome-init.c:433
+#: libgnome/gnome-init.c:452
 msgid "GNOME Library"
 msgstr "Бібліятэка GNOME"
 
@@ -310,19 +310,19 @@ msgstr "Дынамік esd"
 msgid "How to connect to esd"
 msgstr "Як далучыцца да esd"
 
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1355
 msgid "Help options"
 msgstr "Опцыі дапамогі"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1360
 msgid "Application options"
 msgstr "Опцыі дастасаваньня"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1376
 msgid "Dynamic modules to load"
 msgstr "Модулі для дынамічнае загрузкі"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1377
 msgid "MODULE1,MODULE2,..."
 msgstr "МОДУЛЬ1, МОДУЛЬ2,..."
 
@@ -821,25 +821,28 @@ msgstr ""
 "Напрыклад, гэта забароніць дыялёг панэлі \"Выканаць дастасаваньне\"."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
+#, fuzzy
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
-"disable access to all application's \"Print Setup\" dialogs."
+"disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
 "Адмяжоўвае карыстальніка ад наладак друку. Напрыклад, гэта забароніць доступ "
 "да дыялёга \"Наладкі друку\" усіх дастасаваньняў."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
+#, fuzzy
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
-"all application's \"Print\" dialogs."
+"all applications' \"Print\" dialogs."
 msgstr ""
 "Адмяжоўвае карыстальніка ад друку. Напрыклад, гэта забароніць доступ да "
 "дыялёга \"Друк\" усіх дастасаваньняў."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
+#, fuzzy
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
-"access to all application's \"Save as\" dialogs."
+"access to all applications' \"Save as\" dialogs."
 msgstr ""
 "Адмяжоўвае карыстальніка ад захаваньня на дыск. Напрыклад, гэта забароніць "
 "доступ да дыялёга \"Захаваць як\" усіх дастасаваньняў."
