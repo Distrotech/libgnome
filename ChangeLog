@@ -1,4 +1,10 @@
 2003-07-10  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* NEWS: Update.
+	* libgnome/gnome-score.c: (gnome_score_child): Plug leak.
+	Fixes bug #116794.
+
+2003-07-10  Kjartan Maraas  <kmaraas@gnome.org>
 	(Patch by Jeff Steadfast at Ximian com)
 	* libgnome/gnome-program.c (gnome_program_postinit): Don't free
 	the poptOptions table. The user is allowed to get the poptContext

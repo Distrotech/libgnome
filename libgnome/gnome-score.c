@@ -241,24 +241,26 @@ gnome_score_child (void)
    if (strlen (realname) == 0)
      realname = g_strdup (g_get_user_name ());
 
-   while (read (STDIN_FILENO, &cmd, sizeof cmd) == sizeof(cmd))
-     {
+   while (read (STDIN_FILENO, &cmd, sizeof cmd) == sizeof(cmd)) {
 	level = g_new (char, cmd.level);
-	if (read (STDIN_FILENO, level, cmd.level) != cmd.level)
+	if (read (STDIN_FILENO, level, cmd.level) != cmd.level) {
+	  g_free (realname);
 	  return EXIT_FAILURE;
+	}
 	if (!*level) {
 	   g_free(level);
 	   level = NULL;
 	}
 	retval = log_score (defgamename, level, realname, cmd.score,
 			    cmd.ordering);
-	if (write(STDOUT_FILENO, &retval, sizeof retval) != sizeof retval)
+	if (write(STDOUT_FILENO, &retval, sizeof retval) != sizeof retval) {
+	  g_free (realname);
 	  return EXIT_FAILURE;
+	}
 	if (level)
 	  g_free(level);
-     }
-   if (realname)
-     g_free (realname);
+   }
+   g_free (realname);
    return EXIT_SUCCESS;
 }
 
