@@ -1,5 +1,11 @@
 2000-12-09  Martin Baulig  <baulig@suse.de>
 
+	* gnomelibs-init.c (libgnome_loadinit): New static function; add
+	this as `loadinit' function to libgnome's GnomeModuleInfo and
+	call g_thread_init() here.
+
+2000-12-09  Martin Baulig  <baulig@suse.de>
+
 	* gnome-i18n.c: Comment out g_i18n_get_language_list() and
 	g_i18n_guess_category_value() until someone with a clue has
 	had a look at it.

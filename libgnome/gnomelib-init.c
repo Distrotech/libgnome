@@ -83,6 +83,7 @@ char *gnome_user_dir = NULL, *gnome_user_private_dir = NULL, *gnome_user_accels_
 
 static void libgnome_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info);
 static void libgnome_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info);
+static void libgnome_loadinit(GnomeProgram *app, const GnomeModuleInfo *mod_info);
 static void libgnome_option_cb(poptContext ctx, enum poptCallbackReason reason,
 			       const struct poptOption *opt, const char *arg,
 			       void *data);
@@ -117,7 +118,8 @@ GnomeModuleInfo libgnome_module_info = {
   "libgnome", VERSION, "GNOME Library",
   libgnome_requirements,
   libgnome_pre_args_parse, libgnome_post_args_parse,
-  gnomelib_options
+  gnomelib_options,
+  libgnome_loadinit
 };
 
 static void
@@ -145,6 +147,13 @@ libgnome_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
   setlocale (LC_ALL, "");
   bindtextdomain (PACKAGE, GNOMELOCALEDIR); /* XXX todo - handle multiple installation dirs */
   gnome_i18n_init ();
+}
+
+static void
+libgnome_loadinit(GnomeProgram *app, const GnomeModuleInfo *mod_info)
+{
+    /* Initialize threads. */
+    g_thread_init (NULL);
 }
 
 static void
