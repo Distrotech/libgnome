@@ -610,7 +610,7 @@ browse_dialog_ok (GtkWidget *widget, gpointer data)
     fs = GTK_FILE_SELECTION (selector->_priv->browse_dialog);
     filename = gtk_file_selection_get_filename (fs);
 
-    gnome_selector_set_filename (selector, NULL, filename, NULL, NULL);
+    gnome_selector_set_uri (selector, NULL, filename, NULL, NULL);
 
     if (GTK_WIDGET (fs)->window)
 	gdk_window_lower (GTK_WIDGET (fs)->window);
