@@ -13,7 +13,6 @@ INCLUDES = -I.. -I$(srcdir)/.. -I$(includedir) @SUPPORTINCS@ \
 	-DGNOMELOCALSTATEDIR=\""$(localstatedir)"\" \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(top_srcdir)/intl \
-	-I$(srcdir)/../programs \
 	-I$(top_srcdir)/support
 
 lib_LTLIBRARIES = libgnome.la
