@@ -373,13 +373,6 @@ libgnome_post_args_parse (GnomeProgram *program,
 
 	libgnome_userdir_setup (create_dirs_val);
 
-	setlocale (LC_ALL, "");
-	/* XXX todo - handle multiple installation dirs */
-	bindtextdomain (GETTEXT_PACKAGE, LIBGNOME_LOCALEDIR);
-#ifdef HAVE_BIND_TEXTDOMAIN_CODESET
-	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-#endif
-
 }
 
 static struct poptOption gnomelib_options [] = {
@@ -444,6 +437,11 @@ libgnome_module_info_get (void)
 
 	if (module_info.requirements == NULL) {
 		static GnomeModuleRequirement req[4];
+
+		bindtextdomain (GETTEXT_PACKAGE, LIBGNOME_LOCALEDIR);
+#ifdef HAVE_BIND_TEXTDOMAIN_CODESET
+		bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+#endif
 
 		req[0].required_version = "0.9.1";
 		req[0].module_info = gnome_bonobo_activation_module_info_get ();

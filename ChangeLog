@@ -1,3 +1,9 @@
+2003-05-12  Hidetoshi Tajima <hidetoshi.tajima@sun.com>
+
+	* libgnome/gnome-init.c (libgnome_module_info_get): 
+	call bindtextdomain and bind_textdomain_codeset() earlier
+	than the current, fixing bug #99224.
+	
 2003-05-05  Christian Rose  <menthos@menthos.com>
 
 	* configure.in: Added sr and sr@Latn to ALL_LINGUAS.
