@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
-/*
- * gnome-stream-fs.c: Sample file-system based Stream implementation
+/**
+ * bonobo-stream-fs.c: Sample file-system based Stream implementation
  *
  * This is just a sample file-system based Stream implementation.
  * it is only used for debugging purposes

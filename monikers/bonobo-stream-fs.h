@@ -1,4 +1,13 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
+/**
+ * bonobo-stream-fs.c: Sample file-system based Stream implementation
+ *
+ * This is just a sample file-system based Stream implementation.
+ * it is only used for debugging purposes
+ *
+ * Author:
+ *   Miguel de Icaza (miguel@gnu.org)
+ */
 #ifndef _BONOBO_STREAM_FS_H_
 #define _BONOBO_STREAM_FS_H_
 
