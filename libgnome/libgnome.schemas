@@ -112,6 +112,26 @@
       </locale>
     </schema>
     <schema>
+      <applyto>/desktop/gnome/applications/window_manager/default</applyto>
+      <key>/schemas/desktop/gnome/applications/window_manager/default</key>
+      <owner>gnome</owner>
+      <type>string</type>
+      <locale name="C">
+        <short>Fallback window manager</short>
+        <long>Fallback window manager if user window manager can't be found</long>
+      </locale>
+    </schema>
+    <schema>
+      <applyto>/desktop/gnome/applications/window_manager/current</applyto>
+      <key>/schemas/desktop/gnome/applications/window_manager/current</key>
+      <owner>gnome</owner>
+      <type>string</type>
+      <locale name="C">
+        <short>User window manager</short>
+        <long>Window manager to try first</long>
+      </locale>
+    </schema>
+    <schema>
       <applyto>/desktop/gnome/url-handlers/default-show</applyto>
       <key>/schemas/desktop/gnome/url-handlers/default-show</key>
       <owner>gnome</owner>
