@@ -25,6 +25,7 @@
 #include <string.h>
 #include <stdlib.h>	/* For g_free() and atoi() */
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <glib.h>
 #include "libgnome.h"
 
@@ -59,6 +60,7 @@ typedef struct TSecHeader {
 
 typedef struct TProfile {
 	char *filename;
+	time_t mtime;
 	TSecHeader *section;
 	struct TProfile *link;
 } TProfile;
@@ -164,9 +166,13 @@ static int
 is_loaded (const char *filename, TSecHeader **section)
 {
 	TProfile *p = Base;
+	struct stat st;
 	
 	while (p){
 		if (!strcasecmp (filename, p->filename)){
+			stat (filename, &st);
+			if (p->mtime != st.st_mtime)
+				return 0;
 			Current = p;
 			*section = p->section;
 			return 1;
@@ -367,10 +373,14 @@ access_config (access_type mode, const char *section_name,
 	if (def_used)
 		*def_used = 0;
 	if (!is_loaded (filename, &section)){
+		struct stat st;
+		stat (filename, &st);
+
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
 		New->filename = strdup (filename);
 		New->section = load (filename);
+		New->mtime = st.st_mtime;
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -540,10 +550,14 @@ gnome_config_init_iterator (const char *path)
 	g_free (fake_path);
 	
 	if (!is_loaded (pp->file, &section)){
+		struct stat st;
+		stat (pp->file, &st);
+
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
 		New->filename = strdup (pp->file);
 		New->section = load (pp->file);
+		New->mtime = st.st_mtime;
 		Base = New;
 		section = New->section;
 		Current = New;

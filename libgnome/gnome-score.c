@@ -49,10 +49,12 @@ gnome_score_get_notable(gchar *gamename,
 			gfloat **scores,
 			time_t **scoretimes)
 {
-  gchar *realname, buf[512], *buf2;
-  gchar *infile_name;
-  FILE *infile;
+  GList *l_scores, *anode;
+  struct ascore_t *curscore;
+  gchar *realname;
+  gchar *game_score_section;
   gint retval;
+  gint i;
 
   g_return_val_if_fail(names != NULL, 0);
   g_return_val_if_fail(scores != NULL, 0);
@@ -64,40 +66,44 @@ gnome_score_get_notable(gchar *gamename,
   if(!realname)
     return -1;
 
-  infile_name = gnome_get_score_file_name(realname, level);
-
-  infile = fopen(infile_name, "r");
-  g_free(infile_name);
+  game_score_section = g_copy_strings ("=" SCORE_PATH "/",
+	realname, ".scores=", "/",
+	level ? level : "Top Ten",
+	"/", NULL);
+  l_scores = read_scores (game_score_section);
   g_free(realname);
+  g_free(game_score_section);
 
-  if(infile)
-    {
-      *names = g_malloc((NSCORES + 1) * sizeof(gchar*));
-      *scores = g_malloc((NSCORES + 1) * sizeof(gfloat));
-      *scoretimes = g_malloc((NSCORES + 1) * sizeof(time_t));
-      
-      for(retval = 0;
-	  fgets(buf, sizeof(buf), infile) && retval < NSCORES; 
-	  retval++)
-	{ 
-	  buf[strlen(buf)-1]=0;
-	  buf2 = strtok(buf, " ");
-	  (*scores)[retval] = atof(buf2);
-	  buf2 = strtok(NULL, " ");
-	  (*scoretimes)[retval] = atoi(buf2);
-	  buf2 = strtok(NULL, "\n");
-	  (*names)[retval] = g_strdup(buf2);
-	}
-      (*names)[retval] = NULL;
-      (*scores)[retval] = 0.0;
-      fclose(infile);
-    }
-  else
-    {
-      *names = NULL;
-      *scores = NULL;
-      retval = 0;
-    }
+  retval = g_list_length (l_scores);
+
+  if(retval)
+  {
+  	*names = g_malloc((retval+1) * sizeof(gchar*));
+  	*scores = g_malloc((retval+1) * sizeof(gfloat));
+  	*scoretimes = g_malloc((retval+1) * sizeof(time_t));
+
+	for(i = 0, anode = l_scores;
+            i < retval && anode;
+            i++, anode = anode->next)
+        {
+                curscore = anode->data;
+		(*names)[i]      = curscore->username;
+		(*scores)[i]     = curscore->score;
+		(*scoretimes)[i] = curscore->scoretime;
+        }
+        g_list_free (l_scores);
+
+	(*names)[retval] = NULL;
+	(*scores)[retval] = 0.0;
+	(*scoretimes)[retval] = 0;
+  }
+  else 
+  {
+  	*names = NULL;
+  	*scores = NULL;
+  	*scoretimes = NULL;
+  	retval = 0;
+  }
 
   return retval;
 }

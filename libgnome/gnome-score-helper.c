@@ -28,6 +28,7 @@
 #endif
 
 #include "libgnome/gnome-util.h"
+#include "libgnome/gnome-config.h"
 
 #ifndef GNOMEBINDIR
 #define GNOMEBINDIR "/usr/local/bin"
@@ -42,18 +43,6 @@
 #ifndef NSCORES
 #define NSCORES 10
 #endif
-
-static gchar *
-gnome_get_score_file_name(gchar *progname, gchar *level)
-{
-	if(level)
-		return g_copy_strings(SCORE_PATH "/",
-				      progname, ".", level, ".scores", NULL);
-	else
-		return g_copy_strings (SCORE_PATH "/",
-				       progname, ".scores", NULL);
-}
-
 
 static gchar *
 gnome_get_program_name(gint pid)
@@ -113,60 +102,108 @@ gnome_get_program_name(gint pid)
 #endif
 }
 
-#ifndef GNOME_SCORE_C
 struct ascore_t {
 	gchar *username;
 	time_t scoretime;
 	gfloat score;
 };
 
-void
-print_ascore(struct ascore_t *ascore, FILE *outfile)
+GList *
+read_scores(gchar *game_score_section)
 {
-	fprintf(outfile, "%f %ld %s\n", ascore->score, (long int)ascore->scoretime,
-		ascore->username);
+	GList *scores = NULL;
+	struct ascore_t *anitem;
+	gchar *key;
+	gchar str_i[5];
+	gchar *str_score;
+	gint nscores;
+	gint i;
+
+	key = g_copy_strings (game_score_section,
+				"Scores=0",
+				NULL);
+	nscores = gnome_config_get_int (key);
+	g_free (key);
+
+	for ( i = 0; i < nscores; i++ ) 
+	{
+		g_snprintf (str_i, 5, "%d", i);
+		anitem = g_malloc(sizeof(struct ascore_t));
+
+		key = g_copy_strings (game_score_section,
+					"User.", str_i, "=", NULL);
+		anitem->username = gnome_config_get_string (key);
+		g_free (key);
+		
+		key = g_copy_strings (game_score_section,
+					"Score.", str_i, "=0.0", NULL);
+		str_score = gnome_config_get_string (key);
+		anitem->score = atof(str_score);
+		g_free (str_score);
+		g_free (key);
+		
+		key = g_copy_strings (game_score_section,
+					"ScoreTime.", str_i, "=0", NULL);
+		(long int) anitem->scoretime = gnome_config_get_int (key);
+		g_free (key);
+		
+		scores = g_list_append(scores, (gpointer)anitem);
+	}
+	gnome_config_sync();
+	return (scores);
+}
+
+#ifndef GNOME_SCORE_C
+void
+write_ascore(struct ascore_t *ascore, 
+	     gchar *game_score_section)
+{
+	static int pos = 0;
+	gchar str_pos[5];
+	gchar buf[20];
+	gchar *key;
+
+	g_snprintf (str_pos, 5, "%d", pos);
+
+	key = g_copy_strings (game_score_section,
+				"User.", str_pos, NULL);
+	gnome_config_set_string (key, ascore->username);
+	g_free (key);
+		
+	key = g_copy_strings (game_score_section,
+				"Score.", str_pos, NULL);
+	g_snprintf (buf, 20, "%f", ascore->score);
+	gnome_config_set_string (key, buf);
+	g_free (key);
+		
+	key = g_copy_strings (game_score_section,
+				"ScoreTime.", str_pos, NULL);
+	gnome_config_set_int (key, (long int) ascore->scoretime);
+	g_free (key);
+		
+	pos++;
 }
 
 gint
-log_score(gchar *progname, gchar *level, gchar *username, gfloat score, int ordering)
+log_score(gchar *progname, 
+          gchar *level, 
+          gchar *username, 
+          gfloat score, 
+          int ordering)
 {
-	FILE *infile;
-	FILE *outfile;
-	gchar buf [512], *buf2;
-	GList *scores = NULL, *anode;
-	gchar *name, *game_score_file;
-	gfloat ascore;
-	time_t atime;
+	GList *scores, *anode;
+	gchar *name, *game_score_section;
+	gchar *key;
 	struct ascore_t *anitem, *curscore;
-	int i;
-	gint retval = 1;
+	gint retval;
 	gint pos;
 
-	game_score_file = gnome_get_score_file_name(progname, level);
+	game_score_section = g_copy_strings ("=" SCORE_PATH "/", 
+				       progname, ".scores=", "/",
+				       level ? level : "Top Ten",
+				       "/", NULL);
+	scores = read_scores (game_score_section);
 
-	infile = fopen (game_score_file, "r");
-	if(infile)
-	{
-		while(fgets(buf, sizeof(buf), infile))
-		{
-			i = strlen(buf) - 1; /* Chomp */
-			while(isspace(buf[i])) buf[i--] = '\0';
- 
-			buf2 = strtok(buf, " ");
-			ascore = atof(buf2);
-			buf2 = strtok(NULL, " ");
-			(long int)atime = atoi(buf2);
-			buf2 = strtok(NULL, "\n");
-			name = strdup(buf2);
-
-			anitem = g_malloc(sizeof(struct ascore_t));
-			anitem->score = ascore;
-			anitem->username = name;
-			anitem->scoretime = atime;
-			scores = g_list_append(scores, (gpointer)anitem);
-		}
-		fclose(infile);
-	}
 	anitem = g_malloc(sizeof(struct ascore_t));
 	anitem->score = score;
 	anitem->username = username;
@@ -180,15 +217,19 @@ log_score(gchar *progname, gchar *level, gchar *username, gfloat score, int orde
 		if(ordering)
 		{
 			if(curscore->score < anitem->score)
+			{
 				break;
+			}
 		}
 		else
 		{
 			if(curscore->score > anitem->score)
+			{
 				break;
+			}
 		}
 	}
-	
+
 	if(pos < NSCORES)
 	{
 		scores = g_list_insert(scores, anitem, pos);
@@ -198,23 +239,13 @@ log_score(gchar *progname, gchar *level, gchar *username, gfloat score, int orde
 	else
 		retval = 0;
 	
-	/* XXX TODO: set permissions etc. on this file... Need suid root though :( */
-	umask(022);
-	outfile = fopen(game_score_file, "w");
-
-	{ 
-		struct group *gent = getgrnam("games");
-		if(gent)
-			chown(buf, -1, gent->gr_gid);
-	}
-
-	g_free (game_score_file);
-	
-	if(outfile){
-		g_list_foreach(scores, (GFunc)print_ascore, outfile);
-		fclose(outfile);
-	} else
-		perror("gnome-score-helper");
+	gnome_config_sync(); 
+	key = g_copy_strings (game_score_section,
+				"Scores", NULL);
+	gnome_config_set_int (key, g_list_length (scores) );
+	g_free (key);
+	g_list_foreach(scores, (GFunc)write_ascore, game_score_section);
+	gnome_config_sync();
 	
 	/* There's a memory leak here, of course - we don't free anything - but
 	 * this program dies quickly so it doesn't matter
@@ -267,4 +298,4 @@ main(int argc, char *argv[])
 
 	return log_score(progname, level, username, realfloat, ordering);
 }
-#endif
+#endif /* !GNOME_SCORE_C */
