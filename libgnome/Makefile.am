@@ -34,7 +34,6 @@ libgnome_2_la_SOURCES = \
 	gnome-ditem.c		\
 	gnome-exec.c		\
 	gnome-fileconvert.c	\
-	gnome-history.c		\
 	gnome-i18n.c		\
 	gnome-magic.c		\
 	gnome-metadata.c	\
@@ -56,7 +55,6 @@ libgnomeinclude_HEADERS = \
 	gnome-fileconvert.h	\
 	gnome-ditem.h		\
 	gnome-exec.h		\
-	gnome-history.h		\
 	gnome-i18n.h 		\
 	gnome-magic.h		\
 	gnome-metadata.h	\
