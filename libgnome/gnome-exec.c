@@ -126,10 +126,20 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
       cpargv[argc] = NULL;
 
       if(close_fds) {
+	int stdinfd;
 	/* Close all file descriptors but stdin stdout and stderr */
 	open_max = sysconf (_SC_OPEN_MAX);
 	for (i = 3; i < open_max; i++){
-	  fcntl(i, F_SETFD, 1);
+	  fcntl(i, F_SETFD, FD_CLOEXEC);
+	}
+	close(0);
+	/* Open stdin as being nothingness, so that if someone tries to
+	   read from this they don't hang up the whole GNOME session */
+	stdinfd = open("/dev/null", O_RDONLY);
+	g_assert(stdinfd >= 0);
+	if(stdinfd != 0) {
+		dup2(stdinfd, 0);
+		close(stdinfd);
 	}
       }
       signal (SIGPIPE, SIG_DFL);
