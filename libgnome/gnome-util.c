@@ -34,7 +34,7 @@ gnome_dirrelative_file (const char *base, const char *sub, const char *filename,
 	
 	/* First try the env GNOMEDIR relative path */
 	if(!gnomedir)
-	  gnomedir = getenv ("GNOMEDIR");
+		gnomedir = getenv ("GNOMEDIR");
 	
 	if (gnomedir) {
 		dir = g_concat_dir_and_file (gnomedir, sub);

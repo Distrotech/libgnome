@@ -168,6 +168,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 	      }
 	  }
 	}
+      setsid ();
       signal (SIGPIPE, SIG_DFL);
       /* doit */
       execvp(cpargv[0], cpargv);
