@@ -539,7 +539,7 @@ gnome_is_program_in_path (const gchar *program)
 
 	p = paths;
 	while (*p){
-		f = g_strconcat (*p,"/",program);
+		f = g_strconcat (*p,"/",program, NULL);
 		if (g_file_exists (f))
 			return f;
 		g_free (f);
