@@ -17,4 +17,9 @@ libvfs_help_la_LIBADD = $(HELP_VFS_MODULE_LIBS)
 modulesconfdir=$(sysconfdir)/gnome-vfs-2.0/modules
 modulesconf_DATA = help-methods.conf
 
+help-methods.conf: $(srcdir)/help-methods.conf.in
+	sed -e "s|\@LIBEXECDIR\@|$(libexecdir)|" $< > $@
+
+	
+
 EXTRA_DIST=help-methods.conf
