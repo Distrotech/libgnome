@@ -29,5 +29,4 @@ BEGIN_GNOME_DECLS
 
 END_GNOME_DECLS
 
-#endif __GNOME_UTIL_H__
-
+#endif /* __GNOME_UTIL_H__ */
