@@ -74,7 +74,7 @@ libgnomeinclude_HEADERS = \
 # The GConf schema data installation voodoo
 #
 schemadir   = $(sysconfdir)/gconf/schemas
-schema_DATA = libgnome.schema
+schema_DATA = libgnome.schemas
 
 install-data-local:
 	GCONF_CONFIG_SOURCE=$(GCONF_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
