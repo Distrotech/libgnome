@@ -27,7 +27,6 @@ libgnome_la_SOURCES = \
 	gnome-fileconvert.c	\
 	gnome-help.c		\
 	gnome-history.c		\
-	gnome-hook.c 		\
 	gnome-i18n.c		\
 	gnome-metadata.c	\
 	gnome-mime.c		\
@@ -47,7 +46,6 @@ libgnomeinclude_HEADERS = \
         gnome-config.h 		\
 	gnome-defs.h   		\
 	gnome-fileconvert.h	\
-	gnome-hook.h   		\
 	gnome-dentry.h 		\
 	gnome-exec.h		\
 	gnome-help.h		\
