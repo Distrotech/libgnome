@@ -656,10 +656,9 @@ static gint
 check_path(char *path, mode_t newmode)
 {
 	gchar *dirpath;
-	gchar *p;
+	gchar *p, *cur;
 	GString *newpath;
 	struct stat s;
-	char *tokp;
 
 	g_return_val_if_fail (path != NULL, FALSE);
 
@@ -695,9 +694,15 @@ check_path(char *path, mode_t newmode)
 	while(*p == '/')
 		p++;
 
-	p = strtok_r(p, "/", &tokp);
+	cur = p;
 	newpath = g_string_new("");
-	do {
+	while ((p = cur)) {
+	       	cur = strchr (cur, '/');
+		if (cur) {
+			*cur = '\0';
+			cur++;
+		}
+		
 		newpath = g_string_append_c(newpath,'/');
 		newpath = g_string_append(newpath,p);
 		if(stat(newpath->str,&s)==0) {
@@ -715,8 +720,7 @@ check_path(char *path, mode_t newmode)
 				return FALSE;
 			}
 		}
-
-	} while ((p = strtok_r(NULL, "/", &tokp)) != NULL);
+	}
 
 	g_string_free(newpath,TRUE);
 
