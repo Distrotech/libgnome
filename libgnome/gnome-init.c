@@ -302,7 +302,7 @@ libgnome_userdir_setup (gboolean create_dirs)
 	if (mkdir (gnome_user_dir, 0700) < 0) { /* private permissions, but we
 						   don't check that we got them */
 		if (errno != EEXIST) {
-			fprintf(stderr, _("Could not create per-user gnome configuration directory `%s': %s\n"),
+			g_printerr (_("Could not create per-user gnome configuration directory `%s': %s\n"),
 				gnome_user_dir, strerror(errno));
 			exit(1);
 		}
@@ -316,7 +316,7 @@ libgnome_userdir_setup (gboolean create_dirs)
 							   meassures will be
 							   taken */
 		if (errno != EEXIST) {
-			fprintf (stderr, _("Could not create per-user gnome configuration directory `%s': %s\n"),
+			g_printerr (_("Could not create per-user gnome configuration directory `%s': %s\n"),
 				 gnome_user_private_dir, strerror(errno));
 			exit(1);
 		}
@@ -325,14 +325,14 @@ libgnome_userdir_setup (gboolean create_dirs)
 
 	/* change mode to 0700 on the private directory */
 	if (chmod (gnome_user_private_dir, 0700) < 0) {
-		fprintf(stderr, _("Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"),
+		g_printerr (_("Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"),
 			gnome_user_private_dir, strerror(errno));
 		exit(1);
 	}
   
 	if (mkdir (gnome_user_accels_dir, 0700) < 0) {
 		if (errno != EEXIST) {
-			fprintf(stderr, _("Could not create gnome accelerators directory `%s': %s\n"),
+			g_printerr (_("Could not create gnome accelerators directory `%s': %s\n"),
 				gnome_user_accels_dir, strerror(errno));
 			exit(1);
 		}
@@ -441,10 +441,8 @@ libgnome_module_info_get (void)
 		static GnomeModuleRequirement req[4];
 
 		bindtextdomain (GETTEXT_PACKAGE, LIBGNOME_LOCALEDIR);
-#if 0
 #ifdef HAVE_BIND_TEXTDOMAIN_CODESET
 		bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-#endif
 #endif
 		req[0].required_version = "0.9.1";
 		req[0].module_info = gnome_bonobo_activation_module_info_get ();
