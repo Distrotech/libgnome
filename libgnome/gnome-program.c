@@ -327,7 +327,7 @@ add_to_module_list (GPtrArray *module_list, const gchar *module_name)
     modnames = g_strsplit (module_name, ",", -1);
     for (i = 0; modnames && modnames[i]; i++) {
 	for (j = 0; j < module_list->len; j++)
-	    if (strcmp (modnames[i], g_ptr_array_index (module_list, j)) == 0)
+	    if (strcmp (modnames[i], (char *) g_ptr_array_index (module_list, j)) == 0)
 		return;
 
 	g_ptr_array_add (module_list, g_strdup (modnames[i]));

@@ -1,3 +1,8 @@
+2001-09-19  Ariel Rios  <ariel@gnu.org>
+
+	* gnome-program.c (add_to_module_list): Cast the return
+	value of g_ptr_array_index since PPC was complaining about this. 
+
 Tue Sep 18 20:40:04 2001  George Lebl <jirka@5z.com>
 
 	* gnome-util.[ch], gnome-config.h, gnome-init.c:
