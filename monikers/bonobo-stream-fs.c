@@ -200,7 +200,6 @@ static GNOME_Stream
 create_gnome_stream_fs (GnomeObject *object)
 {
 	POA_GNOME_Stream *servant;
-	CORBA_Object o;
 
 	servant = (POA_GNOME_Stream *) g_new0 (GnomeObjectServant, 1);
 	servant->vepv = &gnome_stream_vepv;

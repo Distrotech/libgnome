@@ -158,7 +158,6 @@ static GNOME_Storage
 create_gnome_storage_fs (GnomeObject *object)
 {
 	POA_GNOME_Storage *servant;
-	CORBA_Object o;
 
 	servant = (POA_GNOME_Storage *) g_new0 (GnomeObjectServant, 1);
 	servant->vepv = &gnome_storage_vepv;
