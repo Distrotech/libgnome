@@ -1,17 +1,18 @@
 # Hungarian translation of libgnome.
-# Copyright (C) 2002, 2003, 2004 Free Software Foundation, Inc.
+# Copyright (C) 2002, 2003, 2004, 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgnome package.
 # Andras Timar <timar@gnome.hu>, 2002, 2003.
 # Gabor Sari <saga@gnome.hu>, 2003.
 # Laszlo Dvornik <dvornik@gnome.hu>, 2004.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-30 16:12+0200\n"
-"PO-Revision-Date: 2004-09-12 13:18+0200\n"
-"Last-Translator: Laszlo Dvornik <dvornik@gnome.hu>\n"
+"POT-Creation-Date: 2005-01-07 12:27+0100\n"
+"PO-Revision-Date: 2005-01-07 17:13+0100\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,7 +72,7 @@ msgstr ""
 "Nem található terminál, az xterm lesz használva, még ha az esetleg nem is "
 "működik"
 
-#: libgnome/gnome-gconf.c:174
+#: libgnome/gnome-gconf.c:177
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf-támogatás"
 
@@ -203,7 +204,7 @@ msgstr "GNOME útvonal"
 
 #: libgnome/gnome-program.c:464
 msgid "Path in which to look for installed files"
-msgstr ""
+msgstr "Útvonal a telepített fájlok kereséséhez"
 
 #: libgnome/gnome-program.c:473
 msgid "App ID"
@@ -223,67 +224,67 @@ msgstr "Az alkalmazás verziója"
 
 #: libgnome/gnome-program.c:489
 msgid "GNOME Prefix"
-msgstr ""
+msgstr "GNOME előtag"
 
 #: libgnome/gnome-program.c:490
 msgid "Prefix where GNOME was installed"
-msgstr ""
+msgstr "A GNOME telepítés előtagja"
 
 #: libgnome/gnome-program.c:499
 msgid "GNOME Libdir"
-msgstr ""
+msgstr "GNOME programkönyvtárak könyvtára"
 
 #: libgnome/gnome-program.c:500
 msgid "Library prefix where GNOME was installed"
-msgstr ""
+msgstr "A GNOME telepítés programkönyvtár-előtagja"
 
 #: libgnome/gnome-program.c:509
 msgid "GNOME Datadir"
-msgstr ""
+msgstr "GNOME adatkönyvtár"
 
 #: libgnome/gnome-program.c:510
 msgid "Data prefix where GNOME was installed"
-msgstr ""
+msgstr "A GNOME telepítés adat-előtagja"
 
 #: libgnome/gnome-program.c:519
 msgid "GNOME Sysconfdir"
-msgstr ""
+msgstr "GNOME rendszerbeállítások könyvtára"
 
 #: libgnome/gnome-program.c:520
 msgid "Configuration prefix where GNOME was installed"
-msgstr ""
+msgstr "A GNOME telepítés beállításainak előtagja"
 
 #: libgnome/gnome-program.c:530
 msgid "GNOME App Prefix"
-msgstr ""
+msgstr "GNOME alkalmazás-előtag"
 
 #: libgnome/gnome-program.c:531
 msgid "Prefix where this application was installed"
-msgstr ""
+msgstr "Előtag, ahová ez az alkalmazás telepítve lett"
 
 #: libgnome/gnome-program.c:539
 msgid "GNOME App Libdir"
-msgstr ""
+msgstr "GNOME alkalmazás programkönyvtára"
 
 #: libgnome/gnome-program.c:540
 msgid "Library prefix where this application was installed"
-msgstr ""
+msgstr "Programkönyvtár-előtag, ahová ez az alkalmazás telepítve lett"
 
 #: libgnome/gnome-program.c:549
 msgid "GNOME App Datadir"
-msgstr ""
+msgstr "GNOME alkalmazás adatkönyvtára"
 
 #: libgnome/gnome-program.c:550
 msgid "Data prefix where this application was installed"
-msgstr ""
+msgstr "Adat-előtag, ahová ez az alkalmazás telepítve lett"
 
 #: libgnome/gnome-program.c:559
 msgid "GNOME App Sysconfdir"
-msgstr ""
+msgstr "GNOME alkalmazás beállítás-könyvtára"
 
 #: libgnome/gnome-program.c:560
 msgid "Configuration prefix where this application was installed"
-msgstr ""
+msgstr "Beállítás-előtag, ahová ez az alkalmazás telepítve lett"
 
 #: libgnome/gnome-program.c:569
 msgid "Create Directories"
@@ -377,7 +378,7 @@ msgstr "GConf moniker"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr ""
+msgstr "indirekt beállítási moniker"
 
 #: monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
@@ -390,37 +391,42 @@ msgstr "A(z) %s kulcs nem található a beállításban"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
-msgstr ""
+msgstr "Hangjelzés egy módosító megnyomásakor"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
-msgstr ""
+msgstr "Kikapcsolás két gomb egyidejű lenyomásakor."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
+"Ne fogadja el a billentyű lenyomását, hacsak nincs @delay ezredmásodpercig "
+"lenyomva"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr ""
+msgstr "Hány ezredmásodpercig tart a 0-ról maximális sebességre gyorsulás"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
+"Hány másodpercet várjon mielőtt az egérmozgató billentyűk működni kezdenek"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
-msgstr ""
+msgstr "Hány képpontot mozduljon másodpercenként maximális sebességnél"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
 msgstr ""
+"Ugyanazon billentyű többszöri lenyomásának figyelmen kívül hagyása @delay "
+"ezredmásodpercen belül"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
-msgstr ""
+msgstr "meddig gyorsítson, ezredmásodpercben"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "initial delay in milliseconds"
@@ -438,20 +444,20 @@ msgstr "képpont másodpercenként"
 msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
-msgstr ""
+msgstr "Bejelentkezéskor elindítandó kisegítő alkalmazások listája"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
-msgstr ""
+msgstr "Bejelentkezéskor elindítandó kisegítő alkalmazások"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
-msgstr ""
+msgstr "A böngészőnek szüksége van-e terminálra?"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:2
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
-msgstr ""
+msgstr "A böngésző távirányítható-e?"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:3
 msgid "Default browser"
@@ -463,36 +469,41 @@ msgstr "Alapértelmezett böngésző minden URL-hez"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr ""
+msgstr "Az alapértelmezett böngészőnek szüksége van-e terminálra a futáshoz?"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
 msgstr ""
+"Az alapértelmezett böngésző távirányítható-e \"netscape remote\" "
+"segítségével?"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
-msgstr "Alapértelmezett súgónéző"
+msgstr "Alapértelmezett súgómegjelenítő"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
 msgid "Help viewer needs terminal"
-msgstr ""
+msgstr "A súgómegjelenítőnek szüksége van-e terminálra?"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
-msgstr ""
+msgstr "Az alapértelmezett súgómegjelenítő elfogad-e URL-eket?"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
 msgstr ""
+"Az alapértelmezett súgómegjelenítőnek szüksége van-e terminálra a futáshoz?"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
+"Az \"exec\" kulcsban megadott terminálban a programok végrehajtására "
+"használt paraméter."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
-msgstr ""
+msgstr "Végrehajtási argumentumok"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
 msgid "Terminal application"
@@ -500,19 +511,19 @@ msgstr "Terminál alkalmazás"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr ""
+msgstr "Terminált igénylő alkalmazások indításakor használandó terminál"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr ""
+msgstr "Az első ablakkezelő munkaterületeinek neveit tartalmazó lista."
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
-msgstr ""
+msgstr "Tartalék ablakkezelő"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr ""
+msgstr "Tartalék ablakkezelő, ha a felhasználói ablakkezelő nem használható"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -524,15 +535,15 @@ msgstr "A munkaterületek száma"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
 msgid "The number of workspaces the window manager should use"
-msgstr ""
+msgstr "Az ablakkezelő által használandó munkaterületek száma"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager"
-msgstr ""
+msgstr "Felhasználói ablakkezelő"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid "Window manager to try first"
-msgstr ""
+msgstr "Elsőként elindítani próbált ablakkezelő"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -543,6 +554,10 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
+"Meghatározza a wallpaper_filename kulcsban beállított képernyővédő "
+"megjelenését.Lehetséges értékek: \"none\" (nincs) \"wallpaper\" (mozaik), "
+"\"centered\" (középre igazított),\"scaled\" (kifeszített), \"stretched"
+"\" (nyújtott)."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -554,7 +569,7 @@ msgstr "A háttérképként használandó fájl"
 
 #: schemas/desktop_gnome_background.schemas.in.h:5
 msgid "Have GNOME draw the desktop background"
-msgstr ""
+msgstr "A GNOME megrajzolja-e az asztal hátterét"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
 msgid ""
@@ -562,15 +577,18 @@ msgid ""
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
 "Hogyan legyen árnyalva a háttérszín. Lehetséges értékek: \"horizontal-"
-"gradient\", \"vertical-gradient\", és \"solid\""
+"gradient\" (vízszintes színátmenet), \"vertical-gradient\" (függőleges "
+"színátmenet), és \"solid\" (egyszínű)."
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr ""
+"Színátmenet rajzolásánál a bal vagy a felső szín, vagy az egyszínű háttér "
+"színe."
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
-msgstr ""
+msgstr "A háttérkép rajzolásához használandó átlátszatlanság"
 
 #: schemas/desktop_gnome_background.schemas.in.h:9
 msgid "Picture Filename"
@@ -591,6 +609,8 @@ msgstr "Elsődleges szín"
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr ""
+"Színátmenet rajzolásánál a jobb vagy az alsó szín, egyszínű háttér esetén "
+"nem használt."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -606,11 +626,11 @@ msgstr "A fájlikonok megjelenítéséhez használandó téma"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr ""
+msgstr "A gtk+ által használt alapértelmezett téma neve."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
-msgstr ""
+msgstr "Megváltoztathatja a gyorsbillentyűket"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
@@ -618,7 +638,7 @@ msgstr "Villogó kurzor"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:4
 msgid "Cursor Blink Time"
-msgstr ""
+msgstr "Kurzor villogásának ideje"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:5
 msgid "Default font"
@@ -634,11 +654,11 @@ msgstr "Animációk bekapcsolása"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
-msgstr ""
+msgstr "GTK beviteli mód előszerkesztési stílus"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Status Style"
-msgstr ""
+msgstr "GTK beviteli mód állapot stílus"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:10
 msgid "Gtk+ Theme"
@@ -650,7 +670,7 @@ msgstr "Ikontéma"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon theme to use for the panel, nautilus etc."
-msgstr ""
+msgstr "A panel, nautilus, stb által használandó ikontéma."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Length of the cursor blink cycle, in milliseconds"
@@ -662,21 +682,23 @@ msgstr "Menüsor leválasztható"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:15
 msgid "Menus Have Icons"
-msgstr ""
+msgstr "A menükben vannak ikonok"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menus Have Tearoff"
-msgstr ""
+msgstr "A menükben van leválasztó"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Module for GtkFileChooser"
-msgstr ""
+msgstr "Modul a GtkFileChooser-hez"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
+"A GtkFileChooser elemhez fájlrendszermodellként használandó modul. "
+"Lehetséges értékek: \"gnome-vfs\" és \"gtk+\"."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Monospace font"
@@ -691,11 +713,11 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
+msgstr "A gtk+ által használt GTK+ beviteli mód előszerkesztési stílus neve."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
+msgstr "A gtk+ által használt GTK+ beviteli mód állapotstílus neve."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Name of the default font used by gtk+."
@@ -726,8 +748,8 @@ msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
 msgstr ""
-"Eszköztár stílusa. Lehetséges értékek: \"both\", \"both_horiz\", \"icon\", "
-"és \"text\""
+"Eszköztár stílusa. Lehetséges értékek: \"both\" (mindkettő), \"both_horiz"
+"\" (mindkettő vízszintesen), \"icon\" (ikon), és \"text\" (szöveg)."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Use Custom Font"
@@ -735,7 +757,7 @@ msgstr "Egyéni betűkészlet használata"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether Applications should have accessibility support"
-msgstr ""
+msgstr "Az alkalmazások támogassák-e a kisegítő lehetőségeket?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid ""
@@ -751,7 +773,7 @@ msgstr "A menükben megjelenjenek-e ikonok a menüelemek mellett"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether menus should have a tearoff"
-msgstr "A menük leválaszthatóak-e"
+msgstr "A menükben legyen-e leválasztó?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the cursor should blink"
@@ -770,10 +792,11 @@ msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
+"A felhasználó beüthet-e egy új gyorsbillentyűt egy menü felbukkanásakor?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether to display a status bar meter on the right"
-msgstr ""
+msgstr "Megjelenítsen-e egy állapotsort a jobb oldalon?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether to use a custom font in gtk+ applications."
@@ -801,24 +824,35 @@ msgid ""
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
 msgstr ""
+"A felhasználó megakadályozása a terminálhoz való hozzáférésben vagy egy "
+"végrehajtandó parancssor megadásában. Például, ez letiltja a hozzáférést a "
+"panel \"Alkalmazás futtatása\" párbeszédablakához."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
+"A felhasználó megakadályozása a nyomtatás beállításainak módosításában. "
+"Például, ez letiltja a hozzáférést az alkalmazások \"Nyomtatás beállításai\" "
+"párbeszédablakaihoz."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
 msgstr ""
+"A felhasználó megakadályozása a nyomtatásban. Például, ez letiltja a "
+"hozzáférést az alkalmazások \"Nyomtatás\" párbeszédablakaihoz."
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
+"A felhasználó megakadályozása fájlok lemezre mentésében. Például, ez "
+"letiltja a hozzáférést az alkalmazások \"Mentés másként\" "
+"párbeszédablakaihoz."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -826,17 +860,19 @@ msgstr "A lejátszandó hangjelzés fájlneve"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr ""
+msgstr "Billentyűzetcsengő egyéni fájlneve"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "lehetséges értékek: \"on\", \"off\", és \"custom\"."
+msgstr "lehetséges értékek: \"on\" (be), \"off\" (ki), és \"custom\" (egyéni)."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
+"Gyorsítási szorzó az egér mozgatásához. A -1 érték a rendszer "
+"alapértelmezése."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -872,6 +908,8 @@ msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
+"Az a távolság képpontokban, amit az egérnek meg kell tennie, mielőtt a "
+"gyorsított egérmozgatás aktivizálódik. A -1 érték a rendszer alapértelmezése."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -906,11 +944,11 @@ msgstr "A dupla kattintás hossza"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
-msgstr ""
+msgstr "Mutató kiemelése"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
-msgstr ""
+msgstr "Mozgási küszöbérték"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
@@ -930,6 +968,10 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
+"A cursor_theme kulcs által hivatkozott kurzor mérete. Ez az érték csak az "
+"egyes munkamenetek indításakor kerül átadásra az X-kiszolgálónak, így "
+"megváltoztatása egy munkamenet közepén semmilyen hatással sincs a következő "
+"bejelentkezésig."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -953,33 +995,35 @@ msgstr "Legyen-e hanglejátszás felhasználói eseményekkor."
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
-msgstr ""
+msgstr "Minden külső előnézet-program kikapcsolása"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
+"Állítsa igazra az összes külső előnézet-program kikapcsolásához, függetlenül "
+"attól, hogy ezek egyenként ki vagy be vannak-e kapcsolva."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
-msgstr ""
+msgstr "Szünetek felfüggeszthetők"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:2
 msgid "Break time"
-msgstr ""
+msgstr "Szünet ideje"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:3
 msgid "Number of minutes of typing time before break mode starts."
-msgstr ""
+msgstr "Gépelési idő szünet előtt."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:4
 msgid "Number of minutes that the typing break should last."
-msgstr ""
+msgstr "Ennyi percig tartson a gépelési szünet."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:5
 msgid "Type time"
-msgstr ""
+msgstr "Gépelési idő"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
@@ -987,8 +1031,8 @@ msgstr "Engedélyezve legyen-e a billentyűzetzárolás vagy sem"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr "Engedélyezve legyen-e a billentyűzetzárolás vagy sem."
+msgstr "Engedélyezve legyen-e a billentyűzetzárolás vagy sem?"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr ""
+msgstr "A gépelési szünet felfüggeszthető legyen-e?"
