@@ -11,7 +11,7 @@ lib_LTLIBRARIES = libgnome-2.la
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-libgnomeincludedir = $(includedir)/gnome-2.0/libgnome
+libgnomeincludedir = $(includedir)/libgnome-2.0/libgnome
 
 INCLUDES = \
 	-I..							\
