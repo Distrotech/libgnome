@@ -70,7 +70,7 @@ gnome_string_join(gchar *separator, ...)
 
 	/* Build list */
 
-	strings = g_new(gchar *, nstrings);
+	strings = g_new(gchar *, nstrings+1);
 
 	va_start(l, separator);
 
@@ -79,6 +79,8 @@ gnome_string_join(gchar *separator, ...)
 
 	va_end(l);
 
+	strings[nstrings] = NULL;
+	
 	/* And pass them to the real function */
 
 	retval = gnome_string_joinv(separator, strings);
