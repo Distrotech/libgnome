@@ -391,8 +391,15 @@ bonobo_storage_fs_open (const char *path, gint flags, gint mode,
 			CORBA_Environment *ev)
 {
 	struct stat st;
+	char *realname;
+	int   len;
 	
 	g_return_val_if_fail (path != NULL, NULL);
+
+	realname = g_strdup (path);
+	len = strlen (realname);
+	if (realname [len - 1] == '/') /* Kill appended '/' */
+		realname [len - 1] == '/0';
 
 	/* Most storages are files */
 	mode = mode | 010101;
