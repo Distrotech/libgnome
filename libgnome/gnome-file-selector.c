@@ -71,6 +71,8 @@ struct _GnomeFileSelectorSubAsyncData {
 struct _GnomeFileSelectorPrivate {
     GnomeVFSDirectoryFilter *filter;
     GnomeVFSFileInfoOptions file_info_options;
+
+    GtkWidget *browse_dialog;
 };
 
 
@@ -321,7 +323,6 @@ add_uri_handler (GnomeSelector *selector, const gchar *uri, gint position,
     g_return_if_fail (position >= -1);
     g_return_if_fail (uri != NULL);
     g_return_if_fail (async_handle != NULL);
-    g_assert (GNOME_IS_SELECTOR (async_handle->selector));
 
     g_message (G_STRLOC ": `%s'", uri);
 
@@ -490,7 +491,6 @@ add_directory_handler (GnomeSelector *selector, const gchar *uri, gint position,
     g_return_if_fail (position >= -1);
     g_return_if_fail (uri != NULL);
     g_return_if_fail (async_handle != NULL);
-    g_assert (GNOME_IS_SELECTOR (async_handle->selector));
 
     fselector = GNOME_FILE_SELECTOR (selector);
 
@@ -587,11 +587,13 @@ gnome_file_selector_init (GnomeFileSelector *fselector)
 static void
 browse_dialog_cancel (GtkWidget *widget, gpointer data)
 {
-    GnomeSelector *selector;
+    GnomeFileSelector *fselector;
     GtkFileSelection *fs;
 
-    selector = GNOME_SELECTOR (data);
-    fs = GTK_FILE_SELECTION (selector->_priv->browse_dialog);
+    g_assert (GNOME_IS_FILE_SELECTOR (data));
+
+    fselector = GNOME_FILE_SELECTOR (data);
+    fs = GTK_FILE_SELECTION (fselector->_priv->browse_dialog);
 
     if (GTK_WIDGET (fs)->window)
 	gdk_window_lower (GTK_WIDGET (fs)->window);
@@ -601,16 +603,19 @@ browse_dialog_cancel (GtkWidget *widget, gpointer data)
 static void
 browse_dialog_ok (GtkWidget *widget, gpointer data)
 {
-    GnomeSelector *selector;
+    GnomeFileSelector *fselector;
     GtkFileSelection *fs;
     gchar *filename;
 
-    selector = GNOME_SELECTOR (data);
+    g_assert (GNOME_IS_FILE_SELECTOR (data));
 
-    fs = GTK_FILE_SELECTION (selector->_priv->browse_dialog);
+    fselector = GNOME_FILE_SELECTOR (data);
+
+    fs = GTK_FILE_SELECTION (fselector->_priv->browse_dialog);
     filename = gtk_file_selection_get_filename (fs);
 
-    gnome_selector_set_uri (selector, NULL, filename, NULL, NULL);
+    gnome_selector_set_uri (GNOME_SELECTOR (fselector), NULL, filename,
+			    NULL, NULL);
 
     if (GTK_WIDGET (fs)->window)
 	gdk_window_lower (GTK_WIDGET (fs)->window);
@@ -681,7 +686,6 @@ check_uri_handler (GnomeSelector *selector, const gchar *uri,
     g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
     g_return_if_fail (uri != NULL);
     g_return_if_fail (async_handle != NULL);
-    g_assert (GNOME_IS_SELECTOR (async_handle->selector));
 
     fselector = GNOME_FILE_SELECTOR (selector);
 
@@ -716,7 +720,6 @@ check_filename_handler (GnomeSelector *selector, const gchar *filename,
     g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
     g_return_if_fail (filename != NULL);
     g_return_if_fail (async_handle != NULL);
-    g_assert (GNOME_IS_SELECTOR (async_handle->selector));
 
     check_uri_handler (selector, filename, GNOME_SELECTOR_ASYNC_TYPE_CHECK_FILENAME, async_handle);
 }
@@ -729,7 +732,6 @@ check_directory_handler (GnomeSelector *selector, const gchar *directory,
     g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
     g_return_if_fail (directory != NULL);
     g_return_if_fail (async_handle != NULL);
-    g_assert (GNOME_IS_SELECTOR (async_handle->selector));
 
     check_uri_handler (selector, directory, GNOME_SELECTOR_ASYNC_TYPE_CHECK_DIRECTORY, async_handle);
 }
@@ -782,6 +784,7 @@ gnome_file_selector_construct (GnomeFileSelector *fselector,
 			    fselector);
 
 	browse_dialog = GTK_WIDGET (filesel);
+	fselector->_priv->browse_dialog = browse_dialog;
 
 	newflags &= ~GNOME_SELECTOR_DEFAULT_BROWSE_DIALOG;
     }
