@@ -17,6 +17,8 @@ dnl blocks, this macro needs to be right at the beggining.
 dnl
 AM_PROG_XML_I18N_TOOLS
 
+AC_DEFINE(GNOME_PLUGIN_SERIAL, 1, [Serial number, incremented each time we do a binary incompatible change])
+
 GNOME_COMMON_INIT
 GNOME_PLATFORM_GNOME_2(yes, force)
 
@@ -61,15 +63,30 @@ fi
 AC_SUBST(REBUILD)
 
 dnl
+dnl CSL
+dnl
+AC_MSG_CHECKING([for CSL (http://www.arts-project.org/)])
+if $PKG_CONFIG --exists "csl" ; then
+   CSL="csl >= 0.1.2"
+   have_csl=yes
+   AC_DEFINE(HAVE_CSL, 1, "Define if you have CSL (common sound layer) - http://www.arts-project.org/")
+else
+   CSL=
+   have_csl=no
+fi
+AC_MSG_RESULT($have_csl)
+AM_CONDITIONAL(HAVE_CSL, test x$have_csl = xyes)
+
+dnl
 dnl Start of pkg-config checks
 dnl
-PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.1 gnome-vfs-2.0 libxml-2.0 libbonobo-2.0 >= 1.98.0)
+PKG_CHECK_MODULES(LIBGNOME, glib-2.0 >= 1.3.1 gmodule-2.0 >= 1.3.1 gnome-vfs-2.0 libxml-2.0 libbonobo-2.0 >= 1.100.0)
 AC_SUBST(LIBGNOME_CFLAGS)
 AC_SUBST(LIBGNOME_LIBS)
 
-PKG_CHECK_MODULES(MONIKER, glib-2.0 >= 1.3.1 gnome-vfs-2.0 libxml-2.0 libbonobo-2.0 libbonobo-config)
-AC_SUBST(MONIKER_CFLAGS)
-AC_SUBST(MONIKER_LIBS)
+PKG_CHECK_MODULES(LIBGNOME_CSL, glib-2.0 >= 1.3.1 $CSL)
+AC_SUBST(LIBGNOME_CSL_CFLAGS)
+AC_SUBST(LIBGNOME_CSL_LIBS)
 
 GNOME_VFS_VERSION=`$PKG_CONFIG --modversion gnome-vfs-2.0`
 AC_SUBST(GNOME_VFS_VERSION)
