@@ -1,3 +1,10 @@
+2005-02-04  Hans Petter Jansson  <hpj@novell.com>
+
+	* configure.in: Detect _NSGetEnviron() and crt_externs.h on Darwin.
+
+	* libgnome/gnome-util.c: Call _NSGetEnviron() to get the environment
+	on Darwin. Prevents build breakage.
+
 2005-02-01  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-program.c: (gnome_program_init_paramv):
