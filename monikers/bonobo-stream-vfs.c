@@ -160,6 +160,9 @@ fs_copy_to  (BonoboStream      *stream,
 		return;
 
 	do {
+		if (bytes == -1) 
+			more = READ_CHUNK_SIZE;
+
 		res = gnome_vfs_read (sfs->handle, data,
 				      MIN (READ_CHUNK_SIZE, more), &rsize);
 
@@ -175,7 +178,7 @@ fs_copy_to  (BonoboStream      *stream,
 				break;
 		} else
 			rsize = 0;
-	} while (more > 0 && rsize > 0);
+	} while ((more > 0 || bytes == -1) && rsize > 0);
 
 	gnome_vfs_close (fd_out);
 }

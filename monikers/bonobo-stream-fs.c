@@ -222,7 +222,7 @@ fs_copy_to  (BonoboStream      *stream,
 
 		do {
 			v = read (stream_fs->fd, data, 
-				  MIN(sizeof (data), more));
+				  MIN (sizeof (data), more));
 		} while ((v == -1) && (errno == EINTR));
 
 		if (v == -1) 
@@ -243,7 +243,7 @@ fs_copy_to  (BonoboStream      *stream,
 
 		*written_bytes += w;
 			
-	} while (more > 0 && v > 0);
+	} while ((more > 0 || bytes == -1) && v > 0);
 
 	close (fd_out);
 
