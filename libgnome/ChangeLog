@@ -1,3 +1,10 @@
+1999-02-03  James Henstridge  <james@daa.com.au>
+
+	* gnome-config.h (gnome_config_private_set_*): most of these macros
+	were broken.  They specified val as an argument, then didn't use it
+	in the expansion.  I changed it to look like the gnome_config_set_*
+	macros.
+
 1999-02-01  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnome-metadata.c (lock): If the metatada directory is still

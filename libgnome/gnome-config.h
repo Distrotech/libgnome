@@ -160,16 +160,16 @@ void _gnome_config_set_vector     (const char *path,
 	(_gnome_config_set_vector((path),(argc),(argv),FALSE))
 
 /* private functions */
-#define gnome_config_private_set_string(path,val) \
-	(_gnome_config_set_string((path),(value),TRUE))
-#define gnome_config_private_set_translated_string(path,val) \
-	(_gnome_config_set_translated_string((path),(value),TRUE))
-#define gnome_config_private_set_int(path,value) \
-	(_gnome_config_set_int((path),(value),TRUE))
-#define gnome_config_private_set_float(path,value) \
-	(_gnome_config_set_float((path),(value),TRUE))
-#define gnome_config_private_set_bool(path,value) \
-	(_gnome_config_set_bool((path),(value),TRUE))
+#define gnome_config_private_set_string(path,new_value) \
+	(_gnome_config_set_string((path),(new_value),TRUE))
+#define gnome_config_private_set_translated_string(path,new_value) \
+	(_gnome_config_set_translated_string((path),(new_value),TRUE))
+#define gnome_config_private_set_int(path,new_value) \
+	(_gnome_config_set_int((path),(new_value),TRUE))
+#define gnome_config_private_set_float(path,new_value) \
+	(_gnome_config_set_float((path),(new_value),TRUE))
+#define gnome_config_private_set_bool(path,new_value) \
+	(_gnome_config_set_bool((path),(new_value),TRUE))
 #define gnome_config_private_set_vector(path,argc,argv) \
 	(_gnome_config_set_vector((path),(argc),(argv),TRUE))
 
