@@ -851,6 +851,11 @@ void *
 gnome_config_iterator_next (void *s, char **key, char **value)
 {
 	iterator_type *iter = s;
+
+	if(!s) return NULL; /* g_return_if_fail is not appropriate
+			       since this is not really a failure, but
+			       passing in an "empty" iterator
+			       (we return NULL at times) */
 	
 	if (iter->type == 0){
 		TKeys *keys;
