@@ -1,7 +1,7 @@
 /*
  * Support for manipulating .desktop files
  *
- * (C) 1997 the Free Software Foundation
+ * (C) 1997, 1999 the Free Software Foundation
  *
  * Authors: Miguel de Icaza
  *          Federico Mena

@@ -1,7 +1,7 @@
 /*
  *
  * Gnome utility routines.
- * (C)  1997, 1998 the Free Software Foundation.
+ * (C)  1997, 1998, 1999 the Free Software Foundation.
  *
  * Author: Miguel de Icaza, 
  */
