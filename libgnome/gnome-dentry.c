@@ -333,7 +333,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	/* FIXME: do something if there's an error.  */
 	gnome_execute_async (NULL, 4, uargv);
 
-	g_free (uargv[0]);
+	free (uargv[0]);
 	g_free (exec_str);
 }
 

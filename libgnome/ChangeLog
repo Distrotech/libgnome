@@ -1,3 +1,9 @@
+1999-03-26  Nuno Ferreira  <nmrf@rnl.ist.utl.pt>
+
+	* gnome-dentry.c (gnome_desktop_entry_launch_with_args): free
+	uargv[0] using free(), it's allocated in gnome_util_user_shell()
+	using strdup().
+
 1999-02-23  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnome-fileconvert.c (gnome_file_convert): Make const correct.
