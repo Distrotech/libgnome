@@ -173,7 +173,7 @@ load_mime_type_info_from (char *filename)
 		if (c == '\r')
 			continue;
 
-		if (c == '#'){
+		if (c == '#' && column == 0){
 			in_comment = TRUE;
 			continue;
 		}
