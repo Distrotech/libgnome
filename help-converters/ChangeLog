@@ -1,3 +1,15 @@
+2002-01-09  Alex Larsson  <alexl@redhat.com>
+
+	* gnome-vfs-module/help-method.c:
+	Use g_shell_quote(). Remove shell_quote function.
+
+	* gnome-vfs-module/help-methods.conf:
+	Use gnome2-info2html and gnome2-man2html instead of the
+	old converters.
+
+	* man/gnome-man2html.c:
+	Use a white background in the generated pages.
+
 2001-12-10  Mikael Hallendal  <micke@codefactory.se>
 
 	* README (CATALOG): added info about --create
