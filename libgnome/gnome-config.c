@@ -432,6 +432,7 @@ access_config (access_type mode, const char *section_name,
 			if (mode == SET){
 				g_free (key->value);
 				key->value = g_strdup (def);
+				Current->written_to = TRUE;
 			}
 			return key->value;
 		}
