@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-01-24 23:34+0100\n"
-"PO-Revision-Date: 2003-01-24 23:35+0100\n"
+"POT-Creation-Date: 2003-03-06 18:37+0100\n"
+"PO-Revision-Date: 2003-03-09 16:16+0100\n"
 "Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -354,21 +354,25 @@ msgstr "Sygnał dźwiękowy po przyciśnięciu modyfikatora"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Disable if two keys are pressed at the same time."
-msgstr ""
+msgstr "Wyłączenie po jednoczesnym przyciśnięciu dwóch klawiszy"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
+"Akceptuje przyciśnięcia klawiszy, tylko, jeśli trwają co najmniej przez "
+"podany okres czasu (w milisekundach)."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr ""
+msgstr "Czas przyspieszania od 0 do maksymalnej prędkości (w milisekundach)"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
+"Okres oczekiwania przed rozpoczęciem działania klawiszy przemieszczających "
+"wskaźnik myszy."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "How many pixels per second to move at the maximum speed"
@@ -377,10 +381,12 @@ msgstr "Określa maksymalną szybkość ruchu w pikselach na sekundę"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
 msgstr ""
+"Ignoruje kolejne przyciśnięcia tego samego klawisza, jeśli będą one miały "
+"miejsce w podanym okresie czasu (w milisekundach)."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "how long to accelerate in milliseconds"
-msgstr ""
+msgstr "Czas przyspieszania (w milisekundach)."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "initial delay in milliseconds"
@@ -401,7 +407,7 @@ msgstr "Przeglądarka wymaga terminala"
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
-msgstr ""
+msgstr "Przeglądarka obsługuje protokół zdalnego sterowania"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Default browser"
@@ -501,10 +507,14 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
+"Określa sposób wyświetlania obrazu opisanego przez wartość "
+"wallpaper_filename. Dopuszczalnymi wartościami są: \"none\" (brak), "
+"\"wallpaper\" (tapeta), \"centered\" (wyśrodkowany), \"scaled\" "
+"(przeskalowany), \"stretched\" (rozciągnięty)."
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Draw Desktop Background"
-msgstr ""
+msgstr "Rysowanie tła pulpitu"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "File to use for the background image"
@@ -512,7 +522,7 @@ msgstr "Plik wykorzystywany jako obraz tła"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Have GNOME draw the desktop background"
-msgstr ""
+msgstr "Powoduje rysowanie tła pulpitu przez GNOME"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid ""
@@ -528,7 +538,7 @@ msgstr "Lewy lub górny kolor podczas rysowania gradientów lub kolor jednolity.
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Opacity with which to draw the background picture"
-msgstr ""
+msgstr "Nieprzepuszczalność obrazu w tle."
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Picture Filename"
@@ -568,9 +578,11 @@ msgstr "Motyw wykorzystywany do wyświetlania ikon plików"
 msgid "Basename of the default theme used by gtk+."
 msgstr "Podstawowa nazwa domyślnego motywu wykorzystywanego przez gtk+."
 
+# kiedyś mówiono na klawisz skrótu accelerator
+# myślę, że to o to tu chodzi
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Can Change Accels"
-msgstr ""
+msgstr "Dopuszczanie zmian skrótów klawiszowych"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Cursor Blink"
@@ -586,19 +598,21 @@ msgstr "Domyślna czcionka"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Enable Accessibility"
-msgstr ""
+msgstr "Używanie mechanizmu dostępności"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Enable Animations"
 msgstr "Użycie animacji"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
+#, fuzzy
 msgid "GTK IM Preedit Style"
-msgstr ""
+msgstr "Metoda wejściowa styl preedycji GTK"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
+#, fuzzy
 msgid "GTK IM Status Style"
-msgstr ""
+msgstr "Metoda wejściowa styl stanu GTK"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Gtk+ Theme"
@@ -626,15 +640,19 @@ msgstr "Menu zawierają ikony"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Menus Have Tearoff"
-msgstr ""
+msgstr "Menu może być odłączane"
 
+# przecież to bełkot jakiś
 #: schemas/desktop_gnome_interface.schemas.in.h:1
+#, fuzzy
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
+msgstr "Nazwa metody wejściowej styl preedycji GTK+ używanej przez gtk+."
 
+# i to też
 #: schemas/desktop_gnome_interface.schemas.in.h:1
+#, fuzzy
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
+msgstr "Nazwa metody wejściowej styl stanu GTK+ używanej przez gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Name of the default font used by gtk+."
@@ -642,15 +660,15 @@ msgstr "Nazwa domyślnej czcionki, używanej przez GTK+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Status Bar on Right"
-msgstr ""
+msgstr "Pasek stanu po prawej stronie"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "This specifies the size of icons displayed in toolbars"
-msgstr ""
+msgstr "Rozmiar ikon wyświetlanych na pasku narzędziowym"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Toolbar Detachable"
-msgstr ""
+msgstr "Odłączalny pasek narzędziowy"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Toolbar Icon Size"
@@ -663,34 +681,39 @@ msgstr "Styl paska narzędziowego"
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
 msgstr ""
+"Styl paska narzędziowego. Poprawne wartości to: both, both_horiz, icon, text"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Use Custom Font"
-msgstr ""
+msgstr "Użycie innej czcionki"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Whether Applications should have accessibility support"
-msgstr ""
+msgstr "Określa, czy aplikacje powinny obsługiwać mechanizm dostępności"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
+"Określa, czy powinny być używane animacje. Uwaga: jest to klucz globalny, "
+"zmieniający zachowanie się menedżera okien, panelu itp."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "Określa, czy przy elementach menu powinny być wyświetlane ikony."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Whether menus should have a tearoff"
-msgstr ""
+msgstr "Określa, czy menu powinny być odłączalne"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
+"Określa, czy użytkownik może przy otwartym menu dynamicznie ustawić nowy "
+"skrót klawiszowy"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Whether the cursor should blink"
@@ -698,19 +721,22 @@ msgstr "Określa, czy kursor powinien migotać."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Whether the user can detach menubars and move them around"
-msgstr ""
+msgstr "Określa, czy użytkownik może odłączać i przemieszczać menu"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
+"Określa, czy użytkownik może odłączać i przemieszczać paski narzędziowe"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
+#, fuzzy
 msgid "Whether to display a status bar meter on the right"
 msgstr ""
+"Określa, czy pomiar paska stanu powinien być wyświetlany z prawej strony"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr ""
+msgstr "Określa, czy aplikacje gtk+ powinny używać czcionek użytkownika."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -718,7 +744,7 @@ msgstr "Nazwa pliku z dźwiękiem odtwarzanego dzwonka"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "Keyboard Bell Custom Filename"
-msgstr ""
+msgstr "Nazwa pliku z dźwiękiem dzwonka klawiatury"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "possible values are on, off, and custom."
@@ -729,6 +755,8 @@ msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
+"Współczynnik przyspieszenia ruchu myszy. Wartość -1 oznacza ustawienie "
+"domyślne."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid "Cursor font"
@@ -749,16 +777,22 @@ msgid ""
 "of each session, so changing it mid-session won't have an effect until the "
 "next time you log in."
 msgstr ""
+"Nazwa motywu kursora. Używana tylko przez serwery X, obsługujące "
+"rozszerzenie Xcursor (np. XFree86 4.3 i późniejsze). Wartość ta jest "
+"przekazywana do serwera X tylko podczas uruchamiania sesji, więc jej zmiana "
+"w trakcie sesji będzie widoczna dopiero po ponownym zalogowaniu."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid "Distance before a drag is started"
-msgstr ""
+msgstr "Odległość rozpoczynająca przeciąganie"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
+"Odległość w pikselach, o jaką wskaźnik myszy musi zostać przesunięty, by "
+"został aktywowany ruch przyspieszony. Wartość -1 oznacza ustawienie domyślne."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid "Double Click Time"
@@ -774,20 +808,26 @@ msgid ""
 "is only propagated to the X server start of each session, so changing it "
 "mid-session won't have an effect until the next time you log in."
 msgstr ""
+"Nazwa czcionki kursora. W przypadku pominięcia nazwy zostanie użyta czcionka "
+"domyślna. Wartość ta jest przekazywana do serwera X tylko podczas "
+"uruchamiania sesji, więc jej zmiana w trakcie sesji będzie widoczna dopiero "
+"po ponownym zalogowaniu."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr ""
+"Powoduje wyświetlanie aktualnego położenia wskaźnika myszy po naciśnięciu i "
+"zwolnieniu klawisza Control"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid "Length of a double click"
-msgstr ""
+msgstr "Czas oczekiwania przy dwukrotnym kliknięciu"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid "Locate Pointer"
-msgstr ""
+msgstr "Lokalizowanie wskaźnika"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid "Motion Threshold"
@@ -795,7 +835,7 @@ msgstr "Próg ruchu"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid "Mouse button orientation"
-msgstr ""
+msgstr "Ułożenie przycisków myszy"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid "Single Click"
@@ -803,7 +843,7 @@ msgstr "Pojedyncze kliknięcie"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid "Single click to open icons"
-msgstr ""
+msgstr "Uaktywnianie ikon pojedynczyn kliknięciem"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -811,10 +851,13 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
+"Rozmiar kursora opisanego przez wartość klucza \"cursor_theme\". Wartość ta "
+"jest przekazywana do serwera X tylko podczas uruchamiania sesji, więc jej "
+"zmiana w trakcie sesji będzie widoczna dopiero po ponownym zalogowaniu."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr ""
+msgstr "Zamienia funkcje lewego i prawego przycisku myszy (dla leworęcznych)"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Enable ESD"
@@ -831,50 +874,52 @@ msgstr "Dźwięki dla zdarzeń"
 #: schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Whether to play sounds on user events."
 msgstr ""
+"Określa, czy przy zdarzeniach użytkownika powinny być odtwarzane dźwięki."
 
+# nie jestem tego pewien, ale chyba oddaje to intencje oryginalnego tekstu
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "Default URL show handler"
-msgstr ""
+msgstr "Domyślny sposób obsługi adresów URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle applications URLs"
-msgstr "Sposób obsługi URL-i aplikacji"
+msgstr "Sposób obsługi adresów URL aplikacji"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle ghelp URLs"
-msgstr "Sposób obsługi URL-i stron ghelp (pomocy)"
+msgstr "Sposób obsługi adresów URL stron ghelp (pomocy)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle info URLs"
-msgstr "Sposób obsługi URL-i stron info"
+msgstr "Sposób obsługi adresów URL stron info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle man URLs"
-msgstr "Sposób obsługi URL-i stron podręcznikowych"
+msgstr "Sposób obsługi adresów URL stron podręcznikowych"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle preferences URLs"
-msgstr "Sposób obsługi URL-i preferencji"
+msgstr "Sposób obsługi adresów URL preferencji"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle server-settings URLs"
-msgstr "Sposób obsługi URL-i server-settings (ustawień serwera)"
+msgstr "Sposób obsługi adresów URL server-settings (ustawień serwera)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle start-here URLs"
-msgstr "Sposób obsługi URL-i start-here (rozpocznij tutaj)"
+msgstr "Sposób obsługi adresów URL start-here (rozpocznij tutaj)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle system-settings URLs"
-msgstr "Sposób obsługi URL-i system-settings (ustawień systemu)"
+msgstr "Sposób obsługi adresów URL system-settings (ustawień systemu)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle trash URLs"
-msgstr "Sposób obsługi URL-i śmietnika"
+msgstr "Sposób obsługi adresów URL śmietnika"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle unknown URLs"
-msgstr "Sposób obsługi nieznanych URL-i"
+msgstr "Sposób obsługi nieznanych adresów URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "Run program in terminal"
@@ -938,39 +983,42 @@ msgstr ""
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
+"Określa, czy program obsługujący ten URL powinien być uruchamiany w terminalu"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "URL handler for applications pages"
-msgstr "Program obsługujący URL-e stron aplikacji"
+msgstr "Program obsługujący adresy URL stron aplikacji"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "URL handler for ghelp pages"
-msgstr "Program obsługujący URL-e stron ghelp (pomocy)"
+msgstr "Program obsługujący adresy URL stron ghelp (pomocy)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "URL handler for info pages"
-msgstr "Program obsługujący URL-e stron info"
+msgstr "Program obsługujący adresy URL stron info"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "URL handler for man pages"
-msgstr "Program obsługujący URL-e stron man (podręcznikowych)"
+msgstr "Program obsługujący adresy URL stron man (podręcznikowych)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "URL handler for preferences pages"
-msgstr "Program obsługujący URL-e stron preferencji"
+msgstr "Program obsługujący adresy URL stron preferencji"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "URL handler for server-settings pages"
-msgstr "Program obsługujący URL-e stron server-settings (ustawienia serwera)"
+msgstr ""
+"Program obsługujący adresy URL stron server-settings (ustawienia serwera)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "URL handler for start-here pages"
-msgstr "Program obsługujący URL-e stron start-here (zacznij tutaj)"
+msgstr "Program obsługujący adresy URL stron start-here (zacznij tutaj)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "URL handler for system-settings pages"
-msgstr "Program obsługujący URL-e stron system-settings (ustawienia systemu)"
+msgstr ""
+"Program obsługujący adresy URL stron system-settings (ustawienia systemu)"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "URL handler for trash pages"
-msgstr "Program obsługujący URL-e stron śmietnika"
+msgstr "Program obsługujący adresy URL stron śmietnika"
