@@ -55,7 +55,7 @@ locate_help_file (const char *path, const char *doc_name)
 			continue;
 
 		for (i = 0; exts[i] != NULL; i++) {
-			char * full = g_strconcat (path, "/", lang, "/",
+			char * full = g_strconcat (path, lang, "/",
 						   doc_name, exts[i], NULL);
 			if (g_file_test (full, G_FILE_TEST_EXISTS)) {
 				return full;
@@ -149,7 +149,7 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
 			     _("Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"));
 		return FALSE;
 	}
-
+	
 	global_help_path = gnome_program_locate_file (program,
 						      GNOME_FILE_DOMAIN_HELP,
 						      "",
@@ -330,7 +330,9 @@ gnome_help_display_uri (const char    *help_uri,
 
 	real_error = NULL;
 	retval = gnome_url_show (help_uri, &real_error);
-	g_propagate_error (error, real_error);
+
+	if (real_error != NULL)
+		g_propagate_error (error, real_error);
 
 	return retval;
 }

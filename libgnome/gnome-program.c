@@ -915,21 +915,21 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 	search_path = FALSE;
 	break;
     case GNOME_FILE_DOMAIN_APP_HELP:
-	len = strlen ("/share//help") + 
+	len = strlen ("/share/gnome/help/") + 
 		strlen (program->_priv->app_id) + 1;
 	prefix_rel = g_alloca (len);
 	if (prefix_rel == NULL /* bad things */)
 		return NULL;
-	g_snprintf (prefix_rel, len, "/share/%s/help", program->_priv->app_id);
+	g_snprintf (prefix_rel, len, "/share/gnome/help/%s", program->_priv->app_id);
 
 	attr_name = GNOME_PARAM_APP_DATADIR;
 
-	len = strlen ("//help") + 
+	len = strlen ("/gnome/help/") + 
 		strlen (program->_priv->app_id) + 1;
 	attr_rel = g_alloca (len);
 	if (attr_rel == NULL /* bad things */)
 		return NULL;
-	g_snprintf (attr_rel, len, "/%s/help", program->_priv->app_id);
+	g_snprintf (attr_rel, len, "/gnome/help/%s", program->_priv->app_id);
 
 	search_path = FALSE;
 	break;

@@ -1,3 +1,12 @@
+2002-03-05  Paolo Maggi  <maggi@athena.polito.it>
+
+	* libgnome/gnome-program.c (gnome_program_locate_file):
+	search files in {prefix}/share/gnome/help/{app_id}/
+	when using GNOME_FILE_DOMAIN_APP_HELP domain
+
+	* libgnome/gnome-help.c (locate_help_file): removed extra
+	"/" between path and lang
+
 2002-03-05  Eric Baudais  <baudais@okstate.edu>
 
 	* help-converters/docbook/gnome-customization/gnome-custom.xsl:
