@@ -137,23 +137,30 @@ g_file_exists (char *filename)
 char *
 g_copy_strings (const char *first, ...)
 {
-  va_list ap;
-  GString *tmpstr;
-  char *data; /* used to get the args, and to hold the return value
-		 after args have been processed */
-
-  tmpstr = g_string_new(first);
-
-  va_start (ap, first);
-  while ((data = va_arg (ap, char *)) != NULL)
-    g_string_append(tmpstr, data);
-  va_end (ap);
-
-  data = tmpstr->str;
-
-  g_string_free(tmpstr, FALSE);
-
-  return data;
+	va_list ap;
+	int len;
+	char *data, *result;
+	
+	if (!first)
+		return 0;
+	
+	len = strlen (first);
+	va_start (ap, first);
+	
+	while ((data = va_arg (ap, char *))!=0)
+		len += strlen (data);
+	
+	len++;
+	
+	result = g_malloc (len);
+	va_end (ap);
+	va_start (ap, first);
+	strcpy (result, first);
+	while ((data = va_arg (ap, char *)) != 0)
+		strcat (result, data);
+	va_end (ap);
+	
+	return result;
 }
 
 /* DOC: g_unix_error_string (int error_num)
