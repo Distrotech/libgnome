@@ -1,5 +1,5 @@
 ===============
-Version 2.2.2.1
+Version 2.2.3
 ===============
 
 Library:
@@ -7,6 +7,9 @@ Library:
 	Fixes bug #91925. (Giovanni Pardini)
 	* Use glib versions of string functions in help converters.
 	Fixes bug #81355. (Morten Welinder)
+	* Fix leak in score handling. Fixes bug #116794 (Kjartan)
+	* Fix reading of free'd memory in poptContext handling in 
+	gnome-program. (Jeff)
 
 Translations:
 
