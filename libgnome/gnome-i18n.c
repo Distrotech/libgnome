@@ -347,20 +347,6 @@ gnome_i18n_init (void)
 	  putenv (g_strconcat ("LC_ALL=", val, NULL));
 #endif
 #endif
-	} else {
-	  /* Set LC_CTYPE to en_US to be able to show 8-bit characters
-	     since the C locale only allows 7-bit characters */
-	  if (!getenv ("LC_CTYPE"))
-	    {
-#ifdef HAVE_SETENV      
-	      setenv ("LC_CTYPE", "en_US", 1);
-#else
-#ifdef HAVE_PUTENV
-	      /* It is not safe to free the value passed to putenv.  */
-	      putenv ("LC_CTYPE=en_US");
-#endif
-#endif  
-	    }
 	}
     }
 }
