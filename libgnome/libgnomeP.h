@@ -27,7 +27,6 @@
 #define LIBGNOMEP_H
 
 #include <glib.h>
-#include <libgnomebase/libgnomebase.h>
 #include <libgnome/libgnome.h>
 
 #include "gnome-i18nP.h"

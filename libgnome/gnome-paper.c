@@ -77,7 +77,7 @@ paper_init (void)
   gnome_config_push_prefix (NULL);
   
   config_iterator =
-    gnome_config_init_iterator("="GNOMESYSCONFDIR"/paper.config=/Paper/");
+    gnome_config_init_iterator("="LIBGNOME_SYSCONFDIR"/paper.config=/Paper/");
   gnome_config_pop_prefix ();
   
   if (!config_iterator)

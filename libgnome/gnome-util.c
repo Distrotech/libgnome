@@ -50,8 +50,7 @@
 #include <pwd.h>
 #include <limits.h>
 #include "libgnomeP.h"
-#include <libgnomebase/gnome-program.h>
-#include <libgnomebase/gnome-portability.h>
+#include <libgnome/gnome-program.h>
 #include <libgnome/gnome-util.h>
 
 /**

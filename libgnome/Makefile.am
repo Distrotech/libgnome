@@ -24,18 +24,19 @@ INCLUDES = \
 	$(LIBXML_CFLAGS)			\
 	$(GNOME_VFS_CFLAGS)			\
 	$(LIBBONOBO_CFLAGS)			\
-	-DGNOMEPREFIX=\""$(prefix)"\"		\
-	-DGNOMELIBDIR=\""$(libdir)"\"		\
-	-DGNOMEDATADIR=\""$(datadir)"\"		\
-	-DGNOMEBINDIR=\""$(bindir)"\"		\
-	-DGNOMELOCALSTATEDIR=\""$(localstatedir)"\" \
-	-DGNOMELOCALEDIR=\""$(gnomelocaledir)"\" \
-	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\"	\
-	-DVERSION=\""$(VERSION)"\"		\
+	-DLIBGNOME_PREFIX=\""$(prefix)"\"		\
+	-DLIBGNOME_LIBDIR=\""$(libdir)"\"		\
+	-DLIBGNOME_DATADIR=\""$(datadir)"\"		\
+	-DLIBGNOME_BINDIR=\""$(bindir)"\"		\
+	-DLIBGNOME_LOCALSTATEDIR=\""$(localstatedir)"\" \
+	-DLIBGNOME_LOCALEDIR=\""$(gnomelocaledir)"\"	\
+	-DLIBGNOME_SYSCONFDIR=\""$(sysconfdir)"\"	\
+	-DVERSION=\""$(VERSION)"\"			\
 	-DGNOMEVFSVERSION=\""$(GNOME_VFS_VERSION)"\" \
 	-DG_LOG_DOMAIN=\"Gnome\"
 
 libgnome_2_la_SOURCES = \
+	gnome-program.c		\
 	gnome-config.c		\
 	gnome-ditem.c		\
 	gnome-exec.c		\
@@ -52,6 +53,7 @@ libgnome_2_la_SOURCES = \
 	libgnometypes.c
 
 libgnome_headers = \
+	gnome-program.h		\
         gnome-config.h 		\
 	gnome-fileconvert.h	\
 	gnome-ditem.h		\

@@ -370,7 +370,7 @@ libgnome_post_args_parse (GnomeProgram *program,
 
     setlocale (LC_ALL, "");
     /* XXX todo - handle multiple installation dirs */
-    bindtextdomain (PACKAGE, GNOMELOCALEDIR);
+    bindtextdomain (PACKAGE, LIBGNOME_LOCALEDIR);
     gnome_i18n_init ();
 }
 

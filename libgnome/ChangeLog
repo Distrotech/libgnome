@@ -1,3 +1,13 @@
+2001-04-21  Martin Baulig  <baulig@suse.de>
+
+	* Makefile.am (INCLUDES): Use `LIBGNOME_*DIR' instead of `GNOME*DIR'.
+
+	* gnome-program.[ch]: Put this back.
+
+	* gnome-i18n.h: Put this back.
+
+	* *.[ch]: Don't #include <libgnomebase/gnome-portability.h>.
+
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
 	* libgnome-init.c (gnome_oaf_module_info): Put this back.

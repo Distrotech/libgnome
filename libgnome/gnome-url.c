@@ -34,7 +34,6 @@
 #include <libgnome/gnome-config.h>
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>
-#include <libgnomebase/gnome-portability.h>
 #include "gnome-url.h"
 #include "gnome-i18nP.h"
 #include <popt.h>
