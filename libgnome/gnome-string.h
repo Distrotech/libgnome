@@ -2,6 +2,8 @@
 #include <glib.h>
 #include <stdarg.h>
 
+BEGIN_GNOME_DECLS
+
 gchar **gnome_string_split (gchar *string,
 			    gchar *delim,
 			    gint max_tokens);
@@ -13,3 +15,5 @@ gchar * gnome_string_chomp (gchar *astring,
 /* Frees each element of the NULL-terminated array, then the
    array memory itself */
 void    gnome_string_array_free (gchar **strarray);
+
+END_GNOME_DECLS

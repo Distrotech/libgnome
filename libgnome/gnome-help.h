@@ -1,4 +1,7 @@
 #include <glib.h>
+#include "gnome-defs.h"
+
+BEGIN_GNOME_DECLS
 
 typedef struct {
     gchar *name;
@@ -19,3 +22,5 @@ void gnome_help_display(void *ignore, GnomeHelpMenuEntry *ref);
 
 /* gnome_help_goto() - Cause a help viewer to display file. */
 void gnome_help_goto(void *ignore, gchar *file);
+
+END_GNOME_DECLS
