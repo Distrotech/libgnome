@@ -1,20 +1,23 @@
+# translation of libgnome.HEAD.es.po to Spanish
 # Translation into spanish of libgnome.
 # Copyright © 2001-2002 Free Software Foundation, Inc.
 # Héctor García Álvarez <hector@scouts-es.org>, 2001-2002.
 # Pablo Gonzalo del Campo <pablodc@bigfoot.com>, 2002.
 # Q&A, Germán Poo-Caamaño <gpoo@ubiobio.cl>, 2003.
+# Francisco Javier F. Serrador <serrador@arrakis.es>, 2003
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome2 1.100.0\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
-"PO-Revision-Date: 2003-01-21 09:44GMT\n"
-"Last-Translator: Pablo Gonzalo del Campo <pablodc@bigfoot.com>\n"
+"Project-Id-Version: libgnome.HEAD.es\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-06-11 12:47+0200\n"
+"PO-Revision-Date: 2003-06-11 17:49+0000\n"
+"Last-Translator: Francisco Javier F. Serrador <serrador@arrakis.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.9.5\n"
+"X-Generator: KBabel 1.0.1\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error Messages"
@@ -50,11 +53,11 @@ msgstr "Mensajes de advertencia"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Action button click"
-msgstr "Acción de clic del ratón"
+msgstr "Acción de pulsación del ratón"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Check box toggled"
-msgstr "Caja de chequeo marcada"
+msgstr "Casilla marcada"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Menu item activation"
@@ -88,7 +91,7 @@ msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
-"No se puede mostrar la ayuda ya que  %s no es un directorio. Compruebe su "
+"No se puede mostrar la ayuda ya que %s no es un directorio. Compruebe su "
 "instalación."
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
@@ -97,7 +100,7 @@ msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"No se puede encontrar los archivos de ayuda en %s ni en %s. Compruebe su "
+"No se pueden encontrar los archivos de ayuda en %s ni en %s. Compruebe su "
 "instalación."
 
 #: libgnome/gnome-help.c:339
@@ -112,8 +115,7 @@ msgstr "Documento de ayuda %s/%s no encontrado"
 
 #: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
-"Demasiados niveles de alias para una localización, puede indicar un bucle"
+msgstr "Demasiados niveles de alias para una localización, puede indicar un bucle"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -127,16 +129,15 @@ msgstr "Soporte para activación de bonobo"
 #: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr ""
-"No se ha podido crear un directorio de configuración por usuario  «%s»: %s\n"
+msgstr "No se ha podido crear un directorio de configuración por usuario  «%s»: %s\n"
 
 #: libgnome/gnome-init.c:328
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"No se ha podido establecer el modo 0700 en el directorio privado por usuario "
+"No se ha podido establecer el modo 0700 en el directorio privado de configuración por usuario %s "
 "del directorio de configuración «%s»\n"
 
 #: libgnome/gnome-init.c:335
@@ -330,40 +331,40 @@ msgstr "MODULO1,MODULO2,..."
 
 #: libgnome/gnome-url.c:81
 msgid "Unknown internal error while displaying this location."
-msgstr ""
+msgstr "Error interno desconocido al mostrar esta ubicación."
 
 #: libgnome/gnome-url.c:88
 msgid "The specified location is invalid."
-msgstr ""
+msgstr "La ubicación especificada es inválida."
 
 #: libgnome/gnome-url.c:95
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
-msgstr ""
+msgstr "Hubo un error al analizar el comando de acción predeterminado con esta ubicación."
 
 #: libgnome/gnome-url.c:103
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
-msgstr ""
+msgstr "Hubo un error al lanzar el comando de acción predeterminado con esta ubicación."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
-msgstr ""
+msgstr "No hay acción predeterminada asociada con esta ubicación."
 
 #: libgnome/gnome-url.c:118
 msgid "The default action does not support this protocol."
-msgstr ""
+msgstr "La acción predeterminada no soporta este protocolo."
 
 #: libgnome/gnome-url.c:125
 #, c-format
 msgid "Unknown error code: %d"
-msgstr ""
+msgstr "Código de error desconocido: %d"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr "Origen de moniker extra"
+msgstr "Fábrica de moniker adicional"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
@@ -384,41 +385,37 @@ msgstr "La clave %s no se encontró en la configuración"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
-msgstr "Emirie sonido cuando un modificador es presionado"
+msgstr "Emitir un sonido cuando se presiona un modificador"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
-msgstr "Deshabilitar si dos teclas son presionadas al mismo tiempo."
+msgstr "Deshabilitar si se presionan dos teclas al mismo tiempo."
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr ""
-"No aceptar una tecla si no es presionada por al menos @delay milisegundos"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr "No aceptar una tecla como pulsada a no ser que se mantenga presionada durante @delay milisegundos"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "Cuantos milisegundos lleva ir desde 0 hasta la velocidad máxima"
+msgstr "Tiempo en milisegundos que lleva ir desde 0 hasta la velocidad máxima"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
-"Cuantos milisegundos esperar antes que las teclas del movimientos del ratón "
-"empieces a funcionar"
+"Tiempo en milisegundos a esperar antes que las teclas de movimiento del ratón "
+"empiecen a funcionar"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
-msgstr "Cuantos píxeles por segundo mover a la velocidad máxima"
+msgstr "Cantidad de píxeles por segundo para mover a la velocidad máxima"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr ""
-"Ignorar múltiples presiones de la _misma_ tecla dentro de @delay milisegundos"
+msgstr "Ignorar múltiples pulsaciones de la _misma_ tecla durante @delay milisegundos"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
-msgstr "Cuanto acelerar en milisegundos"
+msgstr "Tiempo de aceleración en milisegundos"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "initial delay in milliseconds"
@@ -451,16 +448,15 @@ msgstr "Navegador predeterminado para todas las URLs"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr ""
-"Indica si el navegador predeterminado necesita una terminal para ejecutarse"
+msgstr "Indica si el navegador predeterminado necesita una terminal para ejecutarse"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
-msgstr "Define si el navegador predeterminado implementa «netscape remote»"
+msgstr "Indica si el navegador predeterminado implementa «netscape remote»"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
-msgstr "Visor predeterminado de ayuda"
+msgstr "Visor de ayuda predeterminado"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
 msgid "Help viewer needs terminal"
@@ -468,19 +464,18 @@ msgstr "El visor de ayuda necesita una terminal"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
-msgstr "Define si el visor predeterminado de ayuda acepta URLs"
+msgstr "Indica si el visor predeterminado de ayuda acepta URLs"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
 msgstr ""
-"Define si el visor predeterminado de ayuda necesita una terminal para "
+"Indica si el visor predeterminado de ayuda necesita una terminal para "
 "ejecutarse"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
-"Argumento utilizado para ejecutar programas en la terminal definido por la "
+"Argumento utilizado para ejecutar programas en la terminal definida por la "
 "clave «exec»."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
@@ -493,13 +488,11 @@ msgstr "Aplicación de terminal"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr ""
-"Programa de terminal a usar cuando se inician aplicaciones que necesitan una"
+msgstr "Programa de terminal a usar cuando se inician aplicaciones que necesitan una"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr ""
-"Una lista de nombres de la primera área de trabajo del gestor de ventanas."
+msgstr "Una lista de nombres del primer área de trabajo del gestor de ventanas."
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
@@ -507,9 +500,7 @@ msgstr "Gestor de ventanas auxiliar"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr ""
-"Gestor de ventanas auxiliar si el manejador de ventanas del usuario no puede "
-"ser encontrado"
+msgstr "Gestor de ventanas auxiliar si el gestor de ventanas del usuario no puede encontrarse"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -517,7 +508,7 @@ msgstr "Nombres de las áreas de trabajo"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
 msgid "The number of workspaces"
-msgstr "La cantidad de áreas de trabajo"
+msgstr "El número de áreas de trabajo"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
 msgid "The number of workspaces the window manager should use"
@@ -525,7 +516,7 @@ msgstr "El número de áreas de trabajo que el gestor de ventanas debe usar"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager"
-msgstr "Manejador de ventanas del usuario"
+msgstr "Gestor de ventanas del usuario"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid "Window manager to try first"
@@ -540,12 +531,12 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
-"Determina como es renderizada la imagen definida por «wallpaper_filename». "
+"Determina como se renderiza la imagen definida por «wallpaper_filename». "
 "Los valores posibles son «none»,«wallpaper»,«centered»,«scaled»,«stretched»."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
-msgstr "Arrastrar fondo del escritorio"
+msgstr "Dibujar fondo del escritorio"
 
 #: schemas/desktop_gnome_background.schemas.in.h:4
 msgid "File to use for the background image"
@@ -653,7 +644,7 @@ msgstr "Tema de iconos"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon theme to use for the panel, nautilus etc."
-msgstr "Tema de iconos a usar por el panel, nautilus etc."
+msgstr "Tema de iconos a usar para el panel, nautilus etc."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
 #, fuzzy
@@ -670,17 +661,15 @@ msgstr "Los menús tienen iconos"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menus Have Tearoff"
-msgstr "Los menús tienen separadores"
+msgstr "Los menús son desprendibles"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
-"Nombre del método de entrada del estilo de preedit de GTK usado por GTK+."
+msgstr "Nombre del método de entrada del estilo de preedit de GTK usado por GTK+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
-"Nombre del método de entrada del estilo de estado de GTK+ usado por gtk+."
+msgstr "Nombre del método de entrada del estilo de estado de GTK+ usado por gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the default font used by gtk+."
@@ -692,8 +681,7 @@ msgstr "Barra de estado a la derecha"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "This specifies the size of icons displayed in toolbars"
-msgstr ""
-"Esto especifica el tamaño de los iconos mostrados en la barra de herramientas"
+msgstr "Esto especifica el tamaño de los iconos mostrados en la barra de herramientas"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Toolbar Detachable"
@@ -912,26 +900,66 @@ msgid "Whether to play sounds on user events."
 msgstr "Define si reproducir sonidos en los eventos del usuario."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Cómo manejar las URLS de ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Cómo manejar la URLs de info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Cómo manejar las URLs de man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Como manejar las URLs de la papelera"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Ejecutar programa en un terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-msgid ""
-"Set to true to have a program specified in trash/command handle trash URLs"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Establecer como «true» para que el programa especificado en «programs/ghelp» "
+"maneje las URLs de ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid "Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Establecer como «true» para que el programa especificado en «programs/info» "
+"maneje las URLs info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Establecer como «true» para que el programa especificado en «programs/man» "
+"maneje las URLs de man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
+msgid "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Establecer como «true» para que el programa especificado en «trash/command» "
 "maneje las URLs de la papelera"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
-msgstr ""
-"True si el programa que maneje esta URL debe ser ejecutado en una terminal"
+msgstr "True si el programa que maneje esta URL debe ser ejecutado en una terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "Manejador de URL para las páginas de ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "Manejador de URL para las páginas info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "Manejador de URL para las páginas man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Manejador de URL para las páginas de la papelera"
 
@@ -940,15 +968,6 @@ msgstr "Manejador de URL para las páginas de la papelera"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Cómo manejar las URLS de las aplicaciones"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Cómo manejar las URLS de ghelp"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Cómo manejar la URLs de info"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Cómo manejar las URLs de man"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Cómo manejar las URLs de preferencias"
@@ -978,25 +997,6 @@ msgstr "Manejador de URL para las páginas de la papelera"
 #~ msgstr ""
 #~ "Establecer como «true» para que el programa especificado en «preferences/"
 #~ "command» manejelas URLs de preferencias"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Establecer como «true» para que el programa especificado en «programs/"
-#~ "ghelp» maneje las URLs de ghelp"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Establecer como «true» para que el programa especificado en «programs/"
-#~ "info» maneje las URLs info"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Establecer como «true» para que el programa especificado en «programs/"
-#~ "man» maneje las URLs de man"
 
 #~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
@@ -1029,15 +1029,6 @@ msgstr "Manejador de URL para las páginas de la papelera"
 #~ msgid "URL handler for applications pages"
 #~ msgstr "Manejador de URL para las páginas de aplicaciones"
 
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Manejador de URL para las páginas de ghelp"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Manejador de URL para las páginas info"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Manejador de URL para las páginas man"
-
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "Manejador de URL para las páginas de preferencias"
 
@@ -1049,3 +1040,4 @@ msgstr "Manejador de URL para las páginas de la papelera"
 
 #~ msgid "URL handler for system-settings pages"
 #~ msgstr "Manejador de URL para las páginas de «system-settings»"
+
