@@ -45,7 +45,7 @@
 char *gnome_user_dir = NULL, *gnome_user_private_dir = NULL, *gnome_user_accels_dir = NULL;
 
 static void libgnome_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info);
-static void libgnome_loadinit(GnomeProgram *app, const GnomeModuleInfo *mod_info);
+static void libgnome_loadinit(const GnomeModuleInfo *mod_info);
 static void libgnome_option_cb(poptContext ctx, enum poptCallbackReason reason,
 			       const struct poptOption *opt, const char *arg,
 			       void *data);
@@ -68,7 +68,8 @@ static GnomeModuleInfo gnome_vfs_module_info = {
     NULL,
     (GnomeModuleHook) gnome_vfs_preinit, (GnomeModuleHook) gnome_vfs_postinit,
     NULL,
-    (GnomeModuleHook) gnome_vfs_loadinit
+    (GnomeModuleInitHook) gnome_vfs_loadinit,
+    NULL
 };
 
 static GnomeModuleRequirement libgnome_requirements[] = {
@@ -107,8 +108,7 @@ libgnome_post_args_parse (GnomeProgram *program,
 }
 
 static void
-libgnome_loadinit (GnomeProgram *program,
-		   const GnomeModuleInfo *mod_info)
+libgnome_loadinit (const GnomeModuleInfo *mod_info)
 {
     /* Initialize threads. */
     g_thread_init (NULL);

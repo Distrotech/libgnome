@@ -96,21 +96,21 @@ gnome_program_locate_file               (GnomeProgram    *program,
 					 gboolean         only_if_exists,
 					 GSList         **ret_locations);
 
-#define GNOME_PARAM_MODULE_INFO         "module_info"
+#define GNOME_PARAM_MODULE_INFO         "module-info"
 #define GNOME_PARAM_MODULES             "modules"
-#define GNOME_PARAM_POPT_TABLE          "popt_table"
-#define GNOME_PARAM_CREATE_DIRECTORIES  "create_directories"
+#define GNOME_PARAM_POPT_TABLE          "popt-table"
+#define GNOME_PARAM_CREATE_DIRECTORIES  "create-directories"
 #define GNOME_PARAM_ESPEAKER            "espeaker"
-#define GNOME_PARAM_ENABLE_SOUND        "enable_sound"
-#define GNOME_PARAM_FILE_LOCATOR        "file_locator"
-#define GNOME_PARAM_APP_ID              "app_id"
-#define GNOME_PARAM_APP_VERSION         "app_version"
-#define GNOME_PARAM_APP_PREFIX          "app_prefix"
-#define GNOME_PARAM_APP_SYSCONFDIR      "app_sysconfdir"
-#define GNOME_PARAM_APP_DATADIR         "app_datadir"
-#define GNOME_PARAM_APP_LIBDIR          "app_libdir"
-#define GNOME_PARAM_HUMAN_READABLE_NAME "human_readable_name"
-#define GNOME_PARAM_GNOME_PATH          "gnome_path"
+#define GNOME_PARAM_ENABLE_SOUND        "enable-sound"
+#define GNOME_PARAM_FILE_LOCATOR        "file-locator"
+#define GNOME_PARAM_APP_ID              "app-id"
+#define GNOME_PARAM_APP_VERSION         "app-version"
+#define GNOME_PARAM_APP_PREFIX          "app-prefix"
+#define GNOME_PARAM_APP_SYSCONFDIR      "app-sysconfdir"
+#define GNOME_PARAM_APP_DATADIR         "app-datadir"
+#define GNOME_PARAM_APP_LIBDIR          "app-libdir"
+#define GNOME_PARAM_HUMAN_READABLE_NAME "human-readable-name"
+#define GNOME_PARAM_GNOME_PATH          "gnome-path"
 
 /***** application modules (aka libraries :) ******/
 #define GNOME_TYPE_MODULE_INFO          (gnome_module_info_get_type ())
@@ -125,6 +125,10 @@ typedef struct {
     GnomeModuleInfo *module_info;
 } GnomeModuleRequirement;
 
+typedef void (*GnomeModuleInitHook) (const GnomeModuleInfo *mod_info);
+typedef void (*GnomeModuleConstructor) (GType type, guint n_construct_props,
+					GObjectConstructParam *construct_props,
+					const GnomeModuleInfo *mod_info);
 typedef void (*GnomeModuleHook) (GnomeProgram *program,
 				 const GnomeModuleInfo *mod_info);
 
@@ -136,11 +140,14 @@ struct _GnomeModuleInfo {
 
     struct poptOption *options;
 
-    GnomeModuleHook init_pass; /* This gets run before the preinit
-				  function to allow the module to
-				  register other modules as needed. The
-				  module cannot assume its required
-				  modules are initialized (they aren't). */
+    GnomeModuleInitHook init_pass; /* This gets run before the preinit
+				      function to allow the module to
+				      register other modules as needed. The
+				      module cannot assume its required
+				      modules are initialized (they aren't). */
+
+    GnomeModuleConstructor constructor;
+
     gpointer expansion1, expansion2;
 };
 
@@ -148,18 +155,16 @@ struct _GnomeModuleInfo {
  * alternative to the "module" property passed by the app.
  */
 void
-gnome_program_module_register (GnomeProgram *program,
-			       const GnomeModuleInfo *module_info);
+gnome_program_module_register (const GnomeModuleInfo *module_info);
 
 gboolean
-gnome_program_module_registered (GnomeProgram *program,
-				 const GnomeModuleInfo *module_info);
+gnome_program_module_registered (const GnomeModuleInfo *module_info);
 
 void
-gnome_program_module_load (GnomeProgram *program, const char *mod_name);
+gnome_program_module_load (const char *mod_name);
 
 guint
-gnome_program_install_property (GnomeProgram *program,
+gnome_program_install_property (GnomeProgramClass *pclass,
 				GObjectGetPropertyFunc get_fn,
 				GObjectSetPropertyFunc set_fn,
 				GParamSpec *pspec);

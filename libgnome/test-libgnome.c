@@ -20,25 +20,6 @@ static struct poptOption options[] = {
 };
 
 static void
-set_property (GObject *object, guint param_id,
-	      const GValue *value, GParamSpec *pspec)
-{
-    GnomeProgram *program;
-
-    g_return_if_fail (object != NULL);
-    g_return_if_fail (GNOME_IS_PROGRAM (object));
-
-    program = GNOME_PROGRAM (object);
-
-    switch (param_id) {
-    default:
-	g_message (G_STRLOC);
-	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
-	break;
-    }
-}
-
-static void
 get_property (GObject *object, guint param_id, GValue *value,
 	      GParamSpec *pspec)
 {
@@ -58,6 +39,71 @@ get_property (GObject *object, guint param_id, GValue *value,
 }
 
 static void
+set_property (GObject *object, guint param_id,
+	      const GValue *value, GParamSpec *pspec)
+{
+    GnomeProgram *program;
+
+    g_return_if_fail (object != NULL);
+    g_return_if_fail (GNOME_IS_PROGRAM (object));
+
+    program = GNOME_PROGRAM (object);
+
+    switch (param_id) {
+    default:
+	g_message (G_STRLOC);
+	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
+	break;
+    }
+}
+
+static void
+test_pre_args_parse (GnomeProgram *program, const GnomeModuleInfo *mod_info)
+{
+    g_message (G_STRLOC ": %p", program);
+}
+
+static void
+test_post_args_parse (GnomeProgram *program, const GnomeModuleInfo *mod_info)
+{
+    g_message (G_STRLOC ": %p", program);
+}
+
+static void
+test_init_pass (const GnomeModuleInfo *mod_info)
+{
+    g_message (G_STRLOC);
+}
+
+static void
+test_constructor (GType type, guint n_construct_properties,
+		  GObjectConstructParam *construct_properties,
+		  const GnomeModuleInfo *mod_info)
+{
+    GnomeProgramClass *pclass;
+    guint test_id;
+
+    pclass = GNOME_PROGRAM_CLASS (g_type_class_peek (type));
+
+    test_id = gnome_program_install_property
+	(pclass, get_property, set_property,
+	 g_param_spec_boolean ("test", NULL, NULL,
+			       FALSE,
+			       (G_PARAM_READABLE | G_PARAM_WRITABLE)));
+
+    g_message (G_STRLOC ": %p - %d", pclass, test_id);
+}
+
+GnomeModuleInfo test_moduleinfo = {
+    "test", VERSION, "Test Application",
+    NULL,
+    test_pre_args_parse, test_post_args_parse,
+    NULL,
+    test_init_pass, test_constructor,
+    NULL, NULL
+};
+
+static void
 test_file_locate (GnomeProgram *program) 
 {
     GSList *locations = NULL, *c;
@@ -70,18 +116,8 @@ test_file_locate (GnomeProgram *program)
 }
 
 static void
-test_properties (GnomeProgram *program)
+test_properties (GnomeProgram *program) 
 {
-    guint test_id;
-
-    test_id = gnome_program_install_property
-	(program, get_property, set_property,
-	 g_param_spec_boolean ("test", NULL, NULL,
-			       FALSE,
-			       (G_PARAM_READABLE | G_PARAM_WRITABLE)));
-
-    g_message (G_STRLOC ": %d", test_id);
-
     g_object_set (G_OBJECT (program), "test", TRUE, NULL);
 }
 
@@ -98,7 +134,8 @@ main (int argc, char **argv)
 				  GNOME_PARAM_POPT_TABLE, options,
 				  GNOME_PARAM_HUMAN_READABLE_NAME,
 				  _("The Application Name"),
-				  LIBGNOME_INIT, NULL);
+				  GNOME_PARAM_MODULE_INFO,
+				  &test_moduleinfo, NULL);
 
     g_value_init (&value, G_TYPE_STRING);
     g_object_get_property (G_OBJECT (program), "app_prefix", &value);
