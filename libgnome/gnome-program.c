@@ -97,13 +97,18 @@ enum {
     PROP_APP_DATADIR,
     PROP_APP_SYSCONFDIR,
     PROP_CREATE_DIRECTORIES,
-    PROP_POPT_TABLE
+    PROP_POPT_TABLE,
+    PROP_LAST
 };
 
 static void gnome_program_class_init    (GnomeProgramClass *klass);
 static void gnome_program_instance_init (GnomeProgram      *program);
 static void gnome_program_finalize      (GObject           *object);
 
+static GQuark quark_get_prop = 0;
+static GQuark quark_set_prop = 0;
+
+static guint last_property_id = PROP_LAST;
 static gpointer parent_class = NULL;
 
 GType
@@ -179,9 +184,17 @@ gnome_program_set_property (GObject *object, guint param_id,
     case PROP_CREATE_DIRECTORIES:
 	program->_priv->prop_create_directories = g_value_get_boolean (value);
 	break;
-    default:
-	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
-	break;
+    default: {
+	    GObjectSetPropertyFunc set_func;
+
+	    set_func = g_param_spec_get_qdata (pspec, quark_set_prop);
+	    if (set_func)
+		set_func (object, param_id, value, pspec);
+	    else
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
+
+	    break;
+	}
     }
 }
 
@@ -227,9 +240,17 @@ gnome_program_get_property (GObject *object, guint param_id, GValue *value,
     case PROP_CREATE_DIRECTORIES:
 	g_value_set_boolean (value, program->_priv->prop_create_directories);
 	break;
-    default:
-	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
-	break;
+    default: {
+	    GObjectSetPropertyFunc get_func;
+
+	    get_func = g_param_spec_get_qdata (pspec, quark_set_prop);
+	    if (get_func)
+		get_func (object, param_id, value, pspec);
+	    else
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
+
+	    break;
+	}
     }
 }
 
@@ -240,6 +261,9 @@ gnome_program_class_init (GnomeProgramClass *class)
 
     object_class = (GObjectClass*) class;
     parent_class = g_type_class_peek_parent (class);
+
+    quark_set_prop = g_quark_from_static_string ("gnome-program-set-property");
+    quark_get_prop = g_quark_from_static_string ("gnome-program-g-property");
 
     object_class->set_property = gnome_program_set_property;
     object_class->get_property = gnome_program_get_property;
@@ -475,6 +499,25 @@ gnome_program_get_human_readable_name (GnomeProgram *program)
     g_return_val_if_fail (program->_priv->state >= APP_PREINIT_DONE, NULL);
 
     return program->_priv->prop_human_readable_name;
+}
+
+guint
+gnome_program_install_property (GnomeProgram *program,
+				GObjectGetPropertyFunc get_fn,
+				GObjectSetPropertyFunc set_fn,
+				GParamSpec *pspec)
+{
+    g_return_val_if_fail (program != NULL, -1);
+    g_return_val_if_fail (GNOME_IS_PROGRAM (program), -1);
+    g_return_val_if_fail (pspec != NULL, -1);
+
+    g_param_spec_set_qdata (pspec, quark_get_prop, get_fn);
+    g_param_spec_set_qdata (pspec, quark_set_prop, set_fn);
+
+    g_object_class_install_property (G_OBJECT_GET_CLASS (program),
+				     last_property_id, pspec);
+
+    return last_property_id++;
 }
 
 /**

@@ -10,6 +10,7 @@
 #include "libgnome.h"
 
 #include <gobject/gvaluetypes.h>
+#include <gobject/gparamspecs.h>
 
 static int foo = 0;
 
@@ -17,6 +18,44 @@ static struct poptOption options[] = {
     {"foo", '\0', POPT_ARG_INT, &foo, 0, N_("Test option."), NULL},
     {NULL}
 };
+
+static void
+set_property (GObject *object, guint param_id,
+	      const GValue *value, GParamSpec *pspec)
+{
+    GnomeProgram *program;
+
+    g_return_if_fail (object != NULL);
+    g_return_if_fail (GNOME_IS_PROGRAM (object));
+
+    program = GNOME_PROGRAM (object);
+
+    switch (param_id) {
+    default:
+	g_message (G_STRLOC);
+	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
+	break;
+    }
+}
+
+static void
+get_property (GObject *object, guint param_id, GValue *value,
+	      GParamSpec *pspec)
+{
+    GnomeProgram *program;
+
+    g_return_if_fail (object != NULL);
+    g_return_if_fail (GNOME_IS_PROGRAM (object));
+
+    program = GNOME_PROGRAM (object);
+
+    switch (param_id) {
+    default:
+	g_message (G_STRLOC);
+	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
+	break;
+    }
+}
 
 static void
 test_file_locate (GnomeProgram *program) 
@@ -28,6 +67,22 @@ test_file_locate (GnomeProgram *program)
 
     for (c = locations; c; c = c->next)
 	g_message (G_STRLOC ": `%s'", (gchar *) c->data);
+}
+
+static void
+test_properties (GnomeProgram *program)
+{
+    guint test_id;
+
+    test_id = gnome_program_install_property
+	(program, get_property, set_property,
+	 g_param_spec_boolean ("test", NULL, NULL,
+			       FALSE,
+			       (G_PARAM_READABLE | G_PARAM_WRITABLE)));
+
+    g_message (G_STRLOC ": %d", test_id);
+
+    g_object_set (G_OBJECT (program), "test", TRUE, NULL);
 }
 
 int
@@ -73,6 +128,8 @@ main (int argc, char **argv)
     g_message (G_STRLOC ": GNOME_PATH == `%s'", gnome_path);
 
     test_file_locate (program);
+
+    test_properties (program);
 
     return 0;
 }

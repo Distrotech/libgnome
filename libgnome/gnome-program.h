@@ -158,6 +158,12 @@ gnome_program_module_registered (GnomeProgram *program,
 void
 gnome_program_module_load (GnomeProgram *program, const char *mod_name);
 
+guint
+gnome_program_install_property (GnomeProgram *program,
+				GObjectGetPropertyFunc get_fn,
+				GObjectSetPropertyFunc set_fn,
+				GParamSpec *pspec);
+
 /*
  * If the application writer wishes to use getopt()-style arg
  * processing, they can do it using a while looped sandwiched between
