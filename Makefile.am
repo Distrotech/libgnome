@@ -1,4 +1,4 @@
-SUBDIRS = tools idl libgnome po intl doc
+SUBDIRS = tools idl libgnome monikers po intl doc
 
 EXTRA_SUBDIRS = monikers
 
