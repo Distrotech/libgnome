@@ -22,14 +22,14 @@
 
 #include "libgnomeP.h"
 
-struct _Paper
+struct _GnomePaper
 {
   char* name;
   double pswidth, psheight;
   double lmargin, tmargin, rmargin, bmargin;
 };
 
-struct _Unit
+struct _GnomeUnit
 {
   char* name;
   char* unit;
@@ -37,7 +37,7 @@ struct _Unit
 };
 
 
-static const Unit units[] =
+static const GnomeUnit units[] =
 {
   /* XXX does anyone *really* measure paper size in feet?  meters? */
 
@@ -66,8 +66,8 @@ paper_init (void)
 {
   void	*config_iterator;
   gchar *name, *size;
-  Paper	*paper;
-  const Unit *unit;
+  GnomePaper	*paper;
+  const GnomeUnit *unit;
   char *str;
 
   config_iterator =
@@ -79,7 +79,7 @@ paper_init (void)
   while ((config_iterator =
 	  gnome_config_iterator_next(config_iterator, &name, &size)))
     {
-      paper = g_new (Paper, 1);
+      paper = g_new (GnomePaper, 1);
 
       paper->name = name;
       g_strdelimit (size, "{},", ' ');
@@ -103,13 +103,13 @@ paper_init (void)
 }
 
 static int 
-paper_name_compare (const Paper* a, const gchar *b)
+paper_name_compare (const GnomePaper* a, const gchar *b)
 {
   return (g_strcasecmp(a->name, b));
 }
 
 static int 
-unit_name_compare (const Unit* a, const gchar *b)
+unit_name_compare (const GnomeUnit* a, const gchar *b)
 {
   return (g_strcasecmp(a->name, b));
 }
@@ -139,7 +139,7 @@ gnome_paper_name_list (void)
  * 
  * Returns: paper specification with given name, or NULL
  **/
-const Paper*
+const GnomePaper*
 gnome_paper_with_name (const gchar *papername)
 {
   GList	*l;
@@ -163,11 +163,11 @@ gnome_paper_with_name (const gchar *papername)
  * 
  * Returns: paper specification
  **/
-const Paper*
+const GnomePaper*
 gnome_paper_with_size (const double pswidth, const double psheight)
 {
   GList *l = paper_list;
-  Paper	*pp;
+  GnomePaper	*pp;
 
   if (!paper_list)
     paper_init();
@@ -203,7 +203,7 @@ gnome_paper_name_default(void)
  * Returns: human readable name for paper type
  **/
 const gchar*
-gnome_paper_name (const Paper *paper)
+gnome_paper_name (const GnomePaper *paper)
 {
   g_return_val_if_fail(paper, NULL);
   
@@ -219,7 +219,7 @@ gnome_paper_name (const Paper *paper)
  * Returns: width of paper (in points)
  **/
 gdouble
-gnome_paper_pswidth (const Paper *paper)
+gnome_paper_pswidth (const GnomePaper *paper)
 {
   g_return_val_if_fail(paper, 0.0);
   
@@ -235,7 +235,7 @@ gnome_paper_pswidth (const Paper *paper)
  * Returns: height of paper (in points)
  **/
 gdouble
-gnome_paper_psheight (const Paper *paper)
+gnome_paper_psheight (const GnomePaper *paper)
 {
   g_return_val_if_fail(paper, 0.0);
   
@@ -251,7 +251,7 @@ gnome_paper_psheight (const Paper *paper)
  * Returns: paper specification
  **/
 gdouble
-gnome_paper_lmargin	(const Paper *paper)
+gnome_paper_lmargin	(const GnomePaper *paper)
 {
   g_return_val_if_fail(paper, 0.0);
   
@@ -267,7 +267,7 @@ gnome_paper_lmargin	(const Paper *paper)
  * Returns: size of top margin (in points)
  **/
 gdouble
-gnome_paper_tmargin	(const Paper *paper)
+gnome_paper_tmargin	(const GnomePaper *paper)
 {
   g_return_val_if_fail(paper, 0.0);
   
@@ -283,7 +283,7 @@ gnome_paper_tmargin	(const Paper *paper)
  * Returns: size of right margin (in points)
  **/
 gdouble
-gnome_paper_rmargin	(const Paper *paper)
+gnome_paper_rmargin	(const GnomePaper *paper)
 {
   g_return_val_if_fail(paper, 0.0);
   
@@ -299,7 +299,7 @@ gnome_paper_rmargin	(const Paper *paper)
  * Returns: size of bottom margin (in points)
  **/
 gdouble
-gnome_paper_bmargin (const Paper *paper)
+gnome_paper_bmargin (const GnomePaper *paper)
 {
   g_return_val_if_fail(paper, 0.0);
   
@@ -331,7 +331,7 @@ gnome_unit_name_list (void)
  * 
  * Returns: Unit with given name or NULL
  **/
-const Unit * 
+const GnomeUnit * 
 gnome_unit_with_name (const gchar *unitname)
 {
   GList	*l;
@@ -357,7 +357,7 @@ gnome_unit_with_name (const gchar *unitname)
  * Returns: value in given units
  **/
 double 
-gnome_paper_convert (double psvalue, const Unit *unit)
+gnome_paper_convert (double psvalue, const GnomeUnit *unit)
 {
   g_return_val_if_fail (unit, psvalue);
   g_return_val_if_fail (unit->factor, psvalue);
@@ -378,7 +378,7 @@ gnome_paper_convert (double psvalue, const Unit *unit)
  * Returns: value in points
  **/
 double 
-gnome_paper_convert_to_points (double othervalue, const Unit *unit)
+gnome_paper_convert_to_points (double othervalue, const GnomeUnit *unit)
 {
   g_return_val_if_fail (unit, othervalue);
 

@@ -31,28 +31,34 @@ extern "C" {
   
 BEGIN_GNOME_DECLS
 
-typedef struct _Paper Paper;
-typedef struct _Unit Unit;
+typedef struct _GnomePaper GnomePaper;
+typedef struct _GnomeUnit  GnomeUnit;
+	
+/* These definitions are deprecated, they will be gone in the next
+ * version of GNOME, 
+ */
+typedef GnomePaper Paper;
+typedef GnomeUnit Unit;
 
-GList*		gnome_paper_name_list	(void);
-const Paper	*gnome_paper_with_name	(const gchar *papername);
-const Paper	*gnome_paper_with_size	(double pswidth, double psheight);
+GList*		 gnome_paper_name_list	(void);
+const GnomePaper *gnome_paper_with_name	(const gchar *papername);
+const GnomePaper *gnome_paper_with_size	(double pswidth, double psheight);
 
-const gchar	*gnome_paper_name	(const Paper *paper);
-gdouble		gnome_paper_pswidth	(const Paper *paper);
-gdouble		gnome_paper_psheight	(const Paper *paper);
-gdouble		gnome_paper_lmargin	(const Paper *paper);
-gdouble		gnome_paper_tmargin	(const Paper *paper);
-gdouble		gnome_paper_rmargin	(const Paper *paper);
-gdouble		gnome_paper_bmargin	(const Paper *paper);
+const gchar	 *gnome_paper_name	(const GnomePaper *paper);
+gdouble		 gnome_paper_pswidth	(const GnomePaper *paper);
+gdouble		 gnome_paper_psheight	(const GnomePaper *paper);
+gdouble		 gnome_paper_lmargin	(const GnomePaper *paper);
+gdouble		 gnome_paper_tmargin	(const GnomePaper *paper);
+gdouble		 gnome_paper_rmargin	(const GnomePaper *paper);
+gdouble		 gnome_paper_bmargin	(const GnomePaper *paper);
 
-const gchar	*gnome_paper_name_default	(void);
+const gchar	 *gnome_paper_name_default	(void);
 
-GList*		gnome_unit_name_list	(void);
-const Unit	*gnome_unit_with_name	(const gchar *unitname);
+GList*		 gnome_unit_name_list	(void);
+const GnomeUnit	 *gnome_unit_with_name	(const gchar *unitname);
 
-gdouble		gnome_paper_convert	(double psvalue, const Unit *unit);
-double          gnome_paper_convert_to_points (double othervalue, const Unit *unit);
+gdouble		 gnome_paper_convert	(double psvalue, const GnomeUnit *unit);
+double           gnome_paper_convert_to_points (double othervalue, const GnomeUnit *unit);
 
 END_GNOME_DECLS
 
