@@ -66,6 +66,7 @@ enum {
 	FirstBrace,
 	OnSecHeader,
 	IgnoreToEOL,
+	IgnoreToEOLFirst,
 	KeyDef,
 	KeyDefOnKey,
 	KeyValue
@@ -97,8 +98,8 @@ typedef struct TProfile {
 	char *filename;
 	time_t last_checked;
 	time_t mtime;
-	int written_to;
-	int to_be_deleted;
+	gboolean written_to;
+	gboolean to_be_deleted;
 	TSecHeader *section;
 	struct TProfile *link;
 } TProfile;
@@ -335,8 +336,12 @@ load (const char *file)
 			break;
 
 		case IgnoreToEOL:
+		case IgnoreToEOLFirst:
 			if (c == '\n'){
-				state = KeyDef;
+				if (state == IgnoreToEOLFirst)
+					state = FirstBrace;
+				else
+					state = KeyDef;
 				next = CharBuffer;
 			}
 			break;
@@ -345,7 +350,10 @@ load (const char *file)
 		case KeyDef:
 		case KeyDefOnKey:
 			if (c == '#') {
-				state = IgnoreToEOL;
+				if (state == FirstBrace)
+					state = IgnoreToEOLFirst;
+				else
+					state = IgnoreToEOL;
 				break;
 			}
 
@@ -369,6 +377,7 @@ load (const char *file)
 	    
 			if (c == '\n' || overflow) { /* Abort Definition */
 				next = CharBuffer;
+				state = KeyDef;
                                 break;
                         }
 	    

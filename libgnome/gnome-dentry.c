@@ -701,7 +701,7 @@ gnome_desktop_entry_get_i18n_list(GnomeDesktopEntry *item)
 }
 
 /**
- * gnome_desktop_entry_get_i18n_list:
+ * gnome_desktop_entry_set_i18n_list:
  * @item: a GnomeDesktopEntry.
  * @list: a list of GnomeDesktopEntryI18N's
  *
