@@ -37,6 +37,7 @@ libgnome_la_SOURCES = \
 	gnome-regex.c		\
 	gnome-remote.c		\
 	gnome-score.c		\
+	gnome-sound.c		\
 	gnome-string.c		\
 	gnome-triggers.c	\
 	gnome-util.c		\
@@ -61,6 +62,7 @@ libgnomeinclude_HEADERS = \
 	gnome-remote.h		\
 	gnome-parse.h		\
 	gnome-score.h		\
+	gnome-sound.h		\
 	gnome-string.h		\
 	gnome-triggers.h 	\
 	gnome-util.h   		\

@@ -58,11 +58,12 @@ gnomelib_init (char *app_id)
 	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome");
 	create_user_gnome_directories ();
 
-	gnome_triggers_init();
-
 	gnome_app_id = app_id;
 
 	gnome_i18n_init ();
+
+	gnome_sound_init();
+	gnome_triggers_init();
 
 	setlocale (LC_ALL, "");
 	bindtextdomain (PACKAGE, GNOMELOCALEDIR);
