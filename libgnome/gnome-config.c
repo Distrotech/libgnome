@@ -490,6 +490,82 @@ access_config (access_type mode, const char *section_name,
 	return def;
 }
 
+/* an extended version of access_config for looking up values in ~/.gnome.
+ * For writes it falls through to the standard behaviour.
+ * For lookups, it first checks for the value in
+ * $(datadir)/gnome/config-override, and if it isn't there in ~/.gnome,
+ * then checks $(datadir)/gnome/config, and as a last fallback uses def.
+ * This gives system administrators high level control over the default
+ * configuration values for GNOME
+ *
+ * Note that it doesn't really make sense to have system wide defaults for
+ * ~/.gnome_private data (IMHO), so I haven't addressed it in this
+ * interface. It probably isn't suitable for absolute config file names */
+static const char *
+access_config_extended (access_type mode, const char *section_name,
+			const char *key_name, const char *def,
+			const char *rel_file, gboolean *def_used)
+{
+	char *tmp, *filename;
+	const char *ret_val;
+	gboolean internal_def;
+
+	switch (mode) {
+	case SET:
+		/* fall through to normal behaviour */
+		filename = gnome_util_home_file (rel_file);
+		ret_val = access_config (mode, section_name, key_name, def,
+					 filename, def_used);
+		g_free(filename);
+		return ret_val;
+	case LOOKUP:
+		/* check the system wide override config tree first */
+		tmp = g_concat_dir_and_file ("gnome/config-override",rel_file);
+		filename = gnome_config_file (tmp);
+		g_free (tmp);
+		if (filename) {
+			/* the required config file exists */
+			ret_val = access_config (mode, section_name, key_name,
+						 NULL,filename, &internal_def);
+			g_free (filename);
+			if (!internal_def) {
+				if (def_used) *def_used = FALSE;
+				return ret_val;
+			}
+			g_assert (ret_val == NULL);
+		}
+		/* fall through to the user config section */
+		filename = gnome_util_home_file (rel_file);
+		ret_val = access_config (mode, section_name, key_name, NULL,
+					 filename, &internal_def);
+		g_free (filename);
+		if (!internal_def) {
+			if (def_used) *def_used = FALSE;
+			return ret_val;
+		}
+		g_assert (ret_val == NULL);
+		/* fall through to the system wide config default tree */
+		tmp = g_concat_dir_and_file ("gnome/config", rel_file);
+		filename = gnome_config_file (tmp);
+		if (filename) {
+			/* the file exists */
+			ret_val = access_config (mode, section_name, key_name,
+						 def, filename, def_used);
+			g_free (filename);
+			return ret_val;
+		} else {
+			/* it doesn't -- use the default value */
+			if (def_used) *def_used = TRUE;
+			return def;
+		}
+	}
+	g_assert_not_reached ();
+
+	/* keep the compiler happy */
+	if (def_used) *def_used = TRUE;
+	return def;
+}
+
 static void 
 dump_keys (FILE *profile, TKeys *p)
 {
@@ -1221,8 +1297,13 @@ _gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
 	int  v;
 	
 	pp = parse_path (path, priv);
-	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
-			   def);
+	/*is there a better way to check if an absolute path has been given?*/
+	if (!priv && pp->opath[0] != '=')
+		r = access_config_extended (LOOKUP, pp->section, pp->key,
+					    pp->def, pp->path, def);
+	else
+		r = access_config (LOOKUP, pp->section, pp->key, pp->def,
+				   pp->file, def);
 
 	/* It isn't an error if the key is not found.  */
 	if (r == NULL) {
@@ -1274,8 +1355,12 @@ _gnome_config_get_float_with_default (const char *path, gboolean *def, gint priv
 	gdouble v;
 	
 	pp = parse_path (path, priv);
-	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
-			   def);
+	if (!priv && pp->opath[0] != '=')
+		r = access_config_extended (LOOKUP, pp->section, pp->key,
+					    pp->def, pp->path, def);
+	else
+		r = access_config (LOOKUP, pp->section, pp->key, pp->def,
+				   pp->file, def);
 
 	/* It isn't an error if the key is not found.  */
 	if (r == NULL) {
@@ -1427,8 +1512,12 @@ _gnome_config_get_string_with_default (const char *path, gboolean *def,
 	char *ret = NULL;
 	
 	pp = parse_path (path, priv);
-	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
-			   def);
+	if (!priv && pp->opath[0] != '=')
+		r = access_config_extended (LOOKUP, pp->section, pp->key,
+					    pp->def, pp->path, def);
+	else
+		r = access_config (LOOKUP, pp->section, pp->key, pp->def,
+				   pp->file, def);
 	if (r)
 		ret = g_strdup (r);
 	release_path (pp);
@@ -1474,8 +1563,12 @@ _gnome_config_get_bool_with_default (const char *path, gboolean *def,
 	int  v;
 	
 	pp = parse_path (path, priv);
-	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
-			   def);
+	if (!priv && pp->opath[0] != '=')
+		r = access_config_extended (LOOKUP, pp->section, pp->key,
+					    pp->def, pp->path, def);
+	else
+		r = access_config (LOOKUP, pp->section, pp->key, pp->def,
+				   pp->file, def);
 
 	/* It isn't an error if the key is not found.  */
 	if (r == NULL){
@@ -1617,7 +1710,12 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 	const char *rr;
 	
 	pp = parse_path (path, priv);
-	rr = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file, def);
+	if (!priv && pp->opath[0] != '=')
+		rr = access_config_extended (LOOKUP, pp->section, pp->key,
+					     pp->def, pp->path, def);
+	else
+		rr = access_config (LOOKUP, pp->section, pp->key, pp->def,
+				    pp->file, def);
 
 	if (rr == NULL) {
 		*argvp = NULL;

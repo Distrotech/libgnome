@@ -1,3 +1,14 @@
+1999-03-31  James Henstridge  <james@daa.com.au>
+
+	* gnome-config.c (access_config_extended): new function that checks
+	the config entries in more places than just ~/.gnome.  To be exact,
+	it first checks under $(sysconfdir)/gnome/config-override, then
+	~/.gnome, then $(sysconfdir)/gnome/config and as a final fallback,
+	the application specified default.
+	(_gnome_config_get_*_with_default): use access_config_extended to
+	read values provided that it isn't a private config entry, and it
+	wasn't an absolute filename (eg. =/something=/seciton/key).
+
 1999-03-30  Owen Taylor  <otaylor@redhat.com>
 
 	* gnome-config.c (is_loaded): Fix logic when a
