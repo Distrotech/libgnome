@@ -69,7 +69,7 @@ get_priority (char *def, int *priority)
 	return def;
 }
 
-gint
+static gint
 list_find_type (gconstpointer value, gconstpointer type)
 {
 	return (g_strcasecmp( (const gchar*) value, (const gchar*) type ));

@@ -147,10 +147,10 @@ gnome_url_show_full(GnomeURLDisplayContext display_context, const char *url, con
 	{
 	  char protocol[64];
 
-	  g_snprintf(protocol, sizeof(protocol), "%.*s", pos - url - 3, url);
+	  g_snprintf(protocol, sizeof(protocol), "%.*s", (int)(pos - url - 3), url);
 	  g_strdown (protocol);
 
-	  g_snprintf (path, sizeof(path), "/Gnome/URL Handlers/%.*s-show", pos - url - 3, url);
+	  g_snprintf (path, sizeof(path), "/Gnome/URL Handlers/%.*s-show", (int)(pos - url - 3), url);
 
 	  template = gnome_config_get_string_with_default (path, &def);
 

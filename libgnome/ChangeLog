@@ -1,3 +1,10 @@
+Thu Jan 14 23:56:08 2000  George Lebl <jirka@5z.com>
+
+	* gnome-mime.c: make a local function static and fix a sizeof
+	is integer assumption when printing with g_message.
+
+	* gnome-url.c: fixed two sizeof(pointer) == sizeof(int) assumtions
+
 2000-01-13  Havoc Pennington  <hp@redhat.com>
 
 	* gnomelib-init2.c (gnome_program_module_register): Dump
