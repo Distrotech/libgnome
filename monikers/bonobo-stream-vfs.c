@@ -333,7 +333,7 @@ bonobo_stream_create (GnomeVFSHandle *handle)
 		BONOBO_OBJECT (stream_vfs));
 
 	if (corba_stream == CORBA_OBJECT_NIL){
-		gtk_object_destroy (GTK_OBJECT (stream_vfs));
+		bonobo_object_unref (BONOBO_OBJECT (stream_vfs));
 		return NULL;
 	}
 

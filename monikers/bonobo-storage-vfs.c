@@ -67,7 +67,7 @@ do_bonobo_storage_vfs_create (const char *path)
 	corba_storage = bonobo_storage_corba_object_create (
 		BONOBO_OBJECT (storage_vfs));
 	if (corba_storage == CORBA_OBJECT_NIL) {
-		gtk_object_destroy (GTK_OBJECT (storage_vfs));
+		bonobo_object_unref (BONOBO_OBJECT (storage_vfs));
 		return NULL;
 	}
 

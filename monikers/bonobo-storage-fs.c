@@ -170,7 +170,7 @@ do_bonobo_storage_fs_create (const char *path)
 	corba_storage = bonobo_storage_corba_object_create (
 		BONOBO_OBJECT (storage_fs));
 	if (corba_storage == CORBA_OBJECT_NIL){
-		gtk_object_destroy (GTK_OBJECT (storage_fs));
+		bonobo_object_unref (BONOBO_OBJECT (storage_fs));
 		return NULL;
 	}
 

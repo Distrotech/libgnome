@@ -296,8 +296,8 @@ bonobo_stream_create (int fd)
 	corba_stream = bonobo_stream_corba_object_create (
 		BONOBO_OBJECT (stream_fs));
 
-	if (corba_stream == CORBA_OBJECT_NIL){
-		gtk_object_destroy (GTK_OBJECT (stream_fs));
+	if (corba_stream == CORBA_OBJECT_NIL) {
+		bonobo_object_unref (BONOBO_OBJECT (stream_fs));
 		return NULL;
 	}
 
