@@ -1,5 +1,8 @@
 2001-04-11  Martin Baulig  <baulig@suse.de>
 
+	* gnome-program.c (gnome_program_locate_file): Return NULL if
+	`ret_locations' is given.
+
 	* gnome-program.c (gnome_program_initv): Call libgnome_type_init ()
 	instead of g_type_init (), moved g_type_init () call into
 	libgnome_type_init ().

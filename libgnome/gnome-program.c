@@ -782,7 +782,7 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 #define ADD_FILENAME(x) { \
 lastval = (x); \
 if(lastval) { if(ret_locations) *ret_locations = g_slist_append(*ret_locations, lastval); \
-if(!retval) retval = lastval; } \
+if(!retval && !ret_locations) retval = lastval; } \
 }
 
     switch (domain) {
