@@ -1,4 +1,4 @@
-SUBDIRS = libgnome schemas help-converters po doc
+SUBDIRS = libgnome schemas gnome-data help-converters po doc
 
 EXTRA_DIST = \
 	message-of-doom		\
