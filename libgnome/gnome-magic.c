@@ -394,7 +394,8 @@ gnome_mime_type_from_magic(const gchar *filename)
   struct stat sbuf;
 
   /* we really don't want to start reading from devices :) */
-  stat(filename, &sbuf);
+  if(stat(filename, &sbuf))
+    return NULL;
   if(!S_ISREG(sbuf.st_mode)) {
     if(S_ISDIR(sbuf.st_mode))
       return "special/directory";
