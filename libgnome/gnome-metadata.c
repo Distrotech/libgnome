@@ -355,6 +355,9 @@ metadata_get_list (const char *space, const char *object, DBT *value)
 	int key_size = sl + ol + LISTLEN, r;
 	DBT key;
 
+	if (!database && init ())
+		return GNOME_METADATA_IO_ERROR;
+	
 	dbkey = alloca (key_size);
 	strcpy (dbkey, space);
 	strcat (dbkey, LIST);
