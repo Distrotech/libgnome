@@ -66,12 +66,20 @@ fs_read (GnomeStream *stream, CORBA_long count,
 
 static CORBA_long
 fs_seek (GnomeStream *stream,
-	 CORBA_long offset, CORBA_long whence,
+	 CORBA_long offset, GNOME_Stream_SeekType whence,
 	 CORBA_Environment *ev)
 {
 	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
+	int fw;
 
-	return lseek (sfs->fd, offset, whence);
+	if (whence == GNOME_Stream_SEEK_CUR)
+		fw = SEEK_CUR;
+	else if (whence == GNOME_Stream_SEEK_END)
+		fw = SEEK_END;
+	else
+		fw = SEEK_SET;
+
+	return lseek (sfs->fd, offset, fw);
 }
 
 static void
