@@ -1,12 +1,13 @@
-# German translation for libgnome.
+# German libgnome translation.
 # Benjamin Greiner <benjamin.greiner@gmx.net>, 2002.
+# Christian Neumair <chris@gnome-de.org>, 2002, 2003.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.2\n"
-"POT-Creation-Date: 2003-03-26 19:08+0100\n"
-"PO-Revision-Date: 2003-01-04 15:24+0100\n"
-"Last-Translator: Christian Meyer <chrisime@gnome.org>\n"
+"Project-Id-Version: libgnome 2.4.x\n"
+"POT-Creation-Date: 2003-05-05 21:46+0200\n"
+"PO-Revision-Date: 2003-05-05 21:44+0100\n"
+"Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +19,7 @@ msgstr "Fehlermeldungen"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
 msgid "GNOME system events"
-msgstr "Sound-Ereignisse für GNOME"
+msgstr "GNOME-Systemereignisse"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
 msgid "Informational Messages"
@@ -26,45 +27,45 @@ msgstr "Informationen"
 
 #: gnome-data/gnome-2.soundlist.in.h:4
 msgid "Login"
-msgstr "Anmeldung zur Sitzung"
+msgstr "Anmelden"
 
 #: gnome-data/gnome-2.soundlist.in.h:5
 msgid "Logout"
-msgstr "Abmeldung von der Sitzung"
+msgstr "Abmelden"
 
 #: gnome-data/gnome-2.soundlist.in.h:6
 msgid "Miscellaneous Messages"
-msgstr "Sonstige Meldungen"
+msgstr "Verschiedene Meldungen"
 
 #: gnome-data/gnome-2.soundlist.in.h:7
 msgid "Question Dialogs"
-msgstr "Fragendialoge"
+msgstr "Fragedialoge"
 
 #: gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning Messages"
-msgstr "Warnungsmeldungen"
+msgstr "Warnmeldungen"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Action button click"
-msgstr "Beim Klicken auf einen Knopf"
+msgstr "Anklicken eines Aktionsknopfes"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Check box toggled"
-msgstr "Beim Ändern einer Checkbox"
+msgstr "Anklicken eines Kontrollkästchens"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Menu item activation"
-msgstr "Beim Aktivieren eines Menüeintrags"
+msgstr "Aktivieren eines Menüeintrags"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
-msgstr "Ereignisse bei der Benutzung der Oberfläche"
+msgstr "Benutzeroberflächenereignisse"
 
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
-"Terminalemulator konnte nicht gefunden werden; xterm wird trotz möglicher "
-"Fehlfunktion verwendet."
+"Es konnte kein Terminal gefunden werden, daher wird xterm verwendet, obwohl "
+"es möglicherweise nicht ordnungsgemäß funktioniert"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
@@ -72,11 +73,11 @@ msgstr "GNOME-GConf-Unterstützung"
 
 #: libgnome/gnome-help.c:159
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr "GNOME_FILE_DOMAIN_APP_HELP kann nicht gefunden werden"
+msgstr "Die GNOME_FILE_DOMAIN_APP_HELP-Domäne konnte nicht gefunden werden"
 
 #: libgnome/gnome-help.c:172
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "GNOME_FILE_DOMAIN_HELP kann nicht gefunden werden."
+msgstr "Die GNOME_FILE_DOMAIN_HELP-Domäne konnte nicht gefunden werden."
 
 #: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
 #, c-format
@@ -84,7 +85,7 @@ msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
-"Hilfe kann nicht gezeigt werden, da %s kein Verzeichnis ist. Bitte "
+"Die Hilfe konnte nicht gezeigt werden, da %s kein Verzeichnis ist. Bitte "
 "überprüfen Sie Ihre Installation."
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
@@ -93,22 +94,24 @@ msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"Weder in %s noch in %s konnten die Hilfedateien gefunden werden. Bitte "
+"Die Hilfedateien konnten Weder in %s noch in %s gefunden werden. Bitte "
 "überprüfen Sie Ihre Installation."
 
 #: libgnome/gnome-help.c:339
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr "Dokumentenkennung %s konnte nicht im Hilfepfad gefunden werden"
+msgstr "Dokumentenkennung %s konnte im Hilfepfad nicht gefunden werden"
 
 #: libgnome/gnome-help.c:360
 #, c-format
 msgid "Help document %s/%s not found"
-msgstr "Hilfedokument %s/%s wurde nicht gefunden"
+msgstr "Hilfedokument %s/%s nicht gefunden"
 
-#: libgnome/gnome-i18n.c:85
+#: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "Zu viele Alias-Ebenen für eine Locale, existiert eine Schleife?"
+msgstr ""
+"Zu viele Alias-Ebenen für eine Locale. Dies deutet auf einen möglichen "
+"Ringschluss hin"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -117,7 +120,7 @@ msgstr "Bonobo-Unterstützung"
 
 #: libgnome/gnome-init.c:142
 msgid "Bonobo activation Support"
-msgstr "Unterstützung von Bonobo Activation"
+msgstr "Bonobo-Activation-Unterstützung"
 
 #: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
@@ -132,7 +135,7 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Für das private benutzerspezifische GNOME-Konfigurationsverzeichnis »%s« "
+"Für das private, benutzerspezifische GNOME-Konfigurationsverzeichnis »%s« "
 "konnte der Modus 0700 nicht gesetzt werden: %s\n"
 
 #: libgnome/gnome-init.c:335
@@ -143,19 +146,19 @@ msgstr ""
 
 #: libgnome/gnome-init.c:391
 msgid "Disable sound server usage"
-msgstr "Benutzung des Soundservers deaktivieren"
+msgstr "Den Sound-Server nicht verwenden"
 
 #: libgnome/gnome-init.c:394
 msgid "Enable sound server usage"
-msgstr "Benutzung des Soundservers aktivieren"
+msgstr "Den Sound-Server verwenden"
 
 #: libgnome/gnome-init.c:397
 msgid "Host:port on which the sound server to use is running"
-msgstr "Host:Port, auf dem der zu benutzende Soundserver läuft"
+msgstr "Rechner:Port, auf dem der zu verwendende Sound-Server läuft"
 
 #: libgnome/gnome-init.c:399
 msgid "HOSTNAME:PORT"
-msgstr "HOSTNAME:PORT"
+msgstr "RECHNERNAME:PORT"
 
 #: libgnome/gnome-init.c:417
 msgid "GNOME Virtual Filesystem"
@@ -171,7 +174,7 @@ msgstr "Popt-Tabelle"
 
 #: libgnome/gnome-program.c:427
 msgid "The table of options for popt"
-msgstr "Die Tabelle der Einstellungen für popt"
+msgstr "Die Tabelle der popt-Einstellungen"
 
 #: libgnome/gnome-program.c:434
 msgid "Popt Flags"
@@ -195,7 +198,7 @@ msgstr "Menschenlesbarer Name"
 
 #: libgnome/gnome-program.c:453
 msgid "Human readable name of this application"
-msgstr "Menschenlesbarer Name dieser Anwendung"
+msgstr "Der menschenlesbarer Name dieser Anwendung"
 
 #: libgnome/gnome-program.c:462
 msgid "GNOME path"
@@ -203,7 +206,7 @@ msgstr "GNOME-Pfad"
 
 #: libgnome/gnome-program.c:463
 msgid "Path in which to look for installed files"
-msgstr "Pfad für die Suche nach installierten Dateien"
+msgstr "Der für die Suche nach installierten Dateien zu verwendende Pfad"
 
 #: libgnome/gnome-program.c:472
 msgid "App ID"
@@ -211,7 +214,7 @@ msgstr "Anwendungskennung"
 
 #: libgnome/gnome-program.c:473
 msgid "ID string to use for this application"
-msgstr "Für diese Anwendung zu verwendende Kennungszeichenfolge"
+msgstr "Die zur Erkennung dieser Anwendung zu verwendende Zeichenkette"
 
 #: libgnome/gnome-program.c:480
 msgid "App version"
@@ -219,7 +222,7 @@ msgstr "Anwendungsversion"
 
 #: libgnome/gnome-program.c:481
 msgid "Version of this application"
-msgstr "Version dieser Anwendung"
+msgstr "Die Version dieser Anwendung"
 
 #: libgnome/gnome-program.c:488
 msgid "GNOME Prefix"
@@ -227,7 +230,7 @@ msgstr "GNOME-Präfix"
 
 #: libgnome/gnome-program.c:489
 msgid "Prefix where GNOME was installed"
-msgstr "Präfix, mit dem GNOME installiert wurde"
+msgstr "Das Präfix, mit dem GNOME installiert wurde"
 
 #: libgnome/gnome-program.c:498
 msgid "GNOME Libdir"
@@ -235,7 +238,7 @@ msgstr "GNOME-Bibliotheksverzeichnis"
 
 #: libgnome/gnome-program.c:499
 msgid "Library prefix where GNOME was installed"
-msgstr "Bibliothekspräfix, mit dem GNOME installiert wurde"
+msgstr "Das Bibliothekspräfix, mit dem GNOME installiert wurde"
 
 #: libgnome/gnome-program.c:508
 msgid "GNOME Datadir"
@@ -243,7 +246,7 @@ msgstr "GNOME-Datenverzeichnis"
 
 #: libgnome/gnome-program.c:509
 msgid "Data prefix where GNOME was installed"
-msgstr "Datenpräfix, mit dem GNOME installiert wurde"
+msgstr "Das Datenpräfix, mit dem GNOME installiert wurde"
 
 #: libgnome/gnome-program.c:518
 msgid "GNOME Sysconfdir"
@@ -251,7 +254,7 @@ msgstr "GNOME-Konfigurationsverzeichnis"
 
 #: libgnome/gnome-program.c:519
 msgid "Configuration prefix where GNOME was installed"
-msgstr "Konfigurationspräfix, mit dem GNOME installiert wurde"
+msgstr "Das Konfigurationspräfix, mit dem GNOME installiert wurde"
 
 #: libgnome/gnome-program.c:529
 msgid "GNOME App Prefix"
@@ -259,7 +262,7 @@ msgstr "Anwendungsverzeichnis"
 
 #: libgnome/gnome-program.c:530
 msgid "Prefix where this application was installed"
-msgstr "Präfix, mit dem diese Anwendung installiert wurde"
+msgstr "Das Präfix, mit dem diese Anwendung installiert wurde"
 
 #: libgnome/gnome-program.c:538
 msgid "GNOME App Libdir"
@@ -267,7 +270,7 @@ msgstr "GNOME-Bibliotheksverzeichnis"
 
 #: libgnome/gnome-program.c:539
 msgid "Library prefix where this application was installed"
-msgstr "Bibliothekspräfix, mit dem diese Anwendung installiert wurde"
+msgstr "Das Bibliothekspräfix, mit dem diese Anwendung installiert wurde"
 
 #: libgnome/gnome-program.c:548
 msgid "GNOME App Datadir"
@@ -275,19 +278,16 @@ msgstr "GNOME-Anwendungsdatenverzeichnis"
 
 #: libgnome/gnome-program.c:549
 msgid "Data prefix where this application was installed"
-msgstr ""
-"Anwendungsspezifischer Datenpräfix, mit dem diese Anwendung installiert wurde"
+msgstr "Das Datenpräfix, mit dem diese Anwendung installiert wurde"
 
 # eklig
 #: libgnome/gnome-program.c:558
 msgid "GNOME App Sysconfdir"
-msgstr "GNOME-Anwendungskonfigurationsverzeichnis"
+msgstr "GNOME-Systemkonfigurationsverzeichnis der Anwendung"
 
 #: libgnome/gnome-program.c:559
 msgid "Configuration prefix where this application was installed"
-msgstr ""
-"Anwendungsspezifischer Konfigurationspräfix, mit dem diese Anwendung "
-"installiert wurde"
+msgstr "Das Konfigurationspräfix, mit dem diese Anwendung installiert wurde"
 
 #: libgnome/gnome-program.c:568
 msgid "Create Directories"
@@ -295,15 +295,15 @@ msgstr "Verzeichnisse anlegen"
 
 #: libgnome/gnome-program.c:569
 msgid "Create standard GNOME directories on startup"
-msgstr "GNOME-Standardverzeichnisse beim Start anlegen"
+msgstr "Standard-GNOME-Verzeichnisse beim Start anlegen"
 
 #: libgnome/gnome-program.c:578
 msgid "Enable Sound"
-msgstr "Ton aktivieren"
+msgstr "Audio-Ausgabe aktivieren"
 
 #: libgnome/gnome-program.c:579
 msgid "Enable sound on startup"
-msgstr "Ton beim Start aktivieren"
+msgstr "Beim Start die Audio-Ausgabe aktivieren"
 
 #: libgnome/gnome-program.c:588
 msgid "Espeaker"
@@ -311,7 +311,7 @@ msgstr "Espeaker"
 
 #: libgnome/gnome-program.c:589
 msgid "How to connect to esd"
-msgstr "Methode zur Verbindung mit esd"
+msgstr "Methode zur Herstellung der Verbindung mit esd"
 
 #: libgnome/gnome-program.c:1352
 msgid "Help options"
@@ -329,6 +329,43 @@ msgstr "Zu ladende dynamische Module"
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
+#: libgnome/gnome-url.c:81
+msgid "Unknown internal error while displaying this location."
+msgstr "Unbekannter interner Fehler beim Anzeigen dieses Speicherorts."
+
+#: libgnome/gnome-url.c:88
+msgid "The specified location is invalid."
+msgstr "Der angegebene Speicherort ist ungültig."
+
+#: libgnome/gnome-url.c:95
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr ""
+"Fehler beim Verarbeiten des mit diesem Speicherort verknüpften Befehls der "
+"Vorgabeaktion."
+
+#: libgnome/gnome-url.c:103
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
+msgstr ""
+"Fehler beim Ausführen des mit diesem Speicherorts verknüpften Befehls der "
+"Vorgabeaktion."
+
+#: libgnome/gnome-url.c:111
+msgid "There is no default action associated with this location."
+msgstr "Mit diesem Speicherort ist keine Vorgabeaktion verknüpft."
+
+#: libgnome/gnome-url.c:118
+msgid "The default action does not support this protocol."
+msgstr "Die Vorgabeaktion unterstützt dieses Protokoll nicht"
+
+#: libgnome/gnome-url.c:125
+#, c-format
+msgid "Unknown error code: %d"
+msgstr "Unbekannte Fehlerkennung: %d"
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Zusätzliche Moniker-Fabrik"
@@ -337,7 +374,6 @@ msgstr "Zusätzliche Moniker-Fabrik"
 msgid "GConf moniker"
 msgstr "GConf-Moniker"
 
-# LATER
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
 msgstr "Indirekten Moniker konfigurieren"
@@ -349,7 +385,7 @@ msgstr "Unbekannter Typ"
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr "Schlüssel »%s« wurde in der Konfiguration nicht gefunden"
+msgstr "Schlüssel »%s« nicht in der Konfiguration gefunden"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
@@ -410,7 +446,7 @@ msgstr "Pixel pro Sekunde"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
-msgstr "Browser benötigt ein Terminal"
+msgstr "Browser benötigt Terminal"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:2
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
@@ -435,20 +471,21 @@ msgstr "Lässt sich der Vorgabe-Browser mittels »netscape remote« fernbedienen
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
-msgstr "Vorgabe-Hilfe-Betrachter"
+msgstr "Voreingesteller Hilfe-Betrachter"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
 msgid "Help viewer needs terminal"
-msgstr "Hilfe-Betrachter benötigt ein Terminal"
+msgstr "Hilfe-Betrachter benötigt Terminal"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
-msgstr "Soll der Vorgabe-Hilfe-Betrachter URLs verarbeiten?"
+msgstr "Soll der voreingestellte Hilfe-Betrachter URLs verarbeiten?"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
 msgstr ""
-"Benötigt der Vorgabe-Hilfe-Betrachter ein Terminal, um ausgeführt zu werden?"
+"Benötigt der voreingestellte Hilfe-Betrachter ein Terminal, um ausgeführt zu "
+"werden?"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -468,7 +505,8 @@ msgstr "Terminal-Anwendung"
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
 msgstr ""
-"Beim Starten, die ein Terminal benötigen zu verwendende Terminal-Anwendung"
+"Beim Starten von Anwendungen, die ein Terminal benötigen, zu verwendende "
+"Terminal-Anwendung"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
@@ -634,7 +672,7 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Für das Panel, Nautilus, usw. zu verwendendes Icon-Thema."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-msgid "Length of the cursor blink cycle, in milleseconds"
+msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Die Cursor-Blinkfrequenz in Millisekunden"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
@@ -884,160 +922,23 @@ msgid "Whether to play sounds on user events."
 msgstr "Sollen bei Benutzer-Ereignissen Klänge abgespielt werden?"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-msgid "Default URL show handler"
-msgstr "Voreingestellter URL-Anzeige-Handler"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-msgid "How to handle applications URLs"
-msgstr "Wie applications-URLs gehandhabt werden"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-msgid "How to handle ghelp URLs"
-msgstr "Wie ghelp-URLs gehandhabt werden"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
-msgid "How to handle info URLs"
-msgstr "Wie info-URLs gehandhabt werden"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
-msgid "How to handle man URLs"
-msgstr "Wie man-URLs gehandhabt werden"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid "How to handle preferences URLs"
-msgstr "Wie preferences-URLs gehandhabt werden"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid "How to handle server-settings URLs"
-msgstr "Wie server-settings-URLs gehandhabt werden"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-msgid "How to handle start-here URLs"
-msgstr "Wie start-here-URLs gehandhabt werden"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid "How to handle system-settings URLs"
-msgstr "Wie system-settings-URLs gehandhabt werden"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
 msgstr "Wie trash-URLs gehandhabt werden"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
-msgid "How to handle unknown URLs"
-msgstr "Wie unbekannte URLs gehandhabt werden"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "Run program in terminal"
 msgstr "Programm im Terminal ausführen"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-msgid ""
-"Set to true to have a program specified in applications/command handle "
-"applications URLs"
-msgstr ""
-"Soll das unter applications/command angegebene Programm Anwendungs-URLs "
-"handhaben?"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
-msgid ""
-"Set to true to have a program specified in preferences/command handle "
-"preferences URLs"
-msgstr ""
-"Soll das unter preferences/command angegebene Programm Desktop-Einstellungen-"
-"URLs handhaben?"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr ""
-"Soll das unter programs/ghelp angegebene Programm GNOME-Hilfe-URLs handhaben?"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
-msgstr "Soll das unter programs/info angegebene Programm Info-URLs handhaben?"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
-msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr ""
-"Soll das unter programs/man angegebene Programm Handbuch-URLs handhaben?"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
-msgid ""
-"Set to true to have a program specified in programs/unknown handle unknown "
-"URLs"
-msgstr ""
-"Soll das unter programs/unknown angegebene Programm unbekannte URLs "
-"handhaben?"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
-msgid ""
-"Set to true to have a program specified in server-settings/command handle "
-"server-settings URLs"
-msgstr ""
-"Soll das unter server-settings/command angegebene Programm Server-"
-"Einstellungen-URLs handhaben?"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
-msgid ""
-"Set to true to have a program specified in start-here/command handle start-"
-"here URLs"
-msgstr ""
-"Soll das unter start-here/command angegebene Programm Hier-Starten-URLs "
-"handhaben?"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:21
-msgid ""
-"Set to true to have a program specified in system-settings/command handle "
-"system-settings URLs"
-msgstr ""
-"Soll das unter system-settings/command angegebene Programm "
-"Systemeinstellungen-URLs handhaben?"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:22
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr "Soll das unter trash/command angegebene Programm Müll-URLs handhaben?"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:23
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
-"Soll das Programm, das diese URL handhabt, in einem Terminal ausgeführt "
-"werden?"
+"Soll das Programm, das diese URL handhabt, im Terminal ausgeführt werden?"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:24
-msgid "URL handler for applications pages"
-msgstr "URL-Handler für Anwendungen-Seiten"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:25
-msgid "URL handler for ghelp pages"
-msgstr "URL-Handler für ghelp-Seiten"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:26
-msgid "URL handler for info pages"
-msgstr "URL-Handler für Info-Seiten"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:27
-msgid "URL handler for man pages"
-msgstr "URL-Handler für Handbuch-Seiten"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:28
-msgid "URL handler for preferences pages"
-msgstr "URL-Handler für Einstellungen-Seiten"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:29
-msgid "URL handler for server-settings pages"
-msgstr "URL-Handler für Server-Einstellungen-Seiten"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:30
-msgid "URL handler for start-here pages"
-msgstr "URL-Handler für Hier-Starten-Seiten"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:31
-msgid "URL handler for system-settings pages"
-msgstr "URL-Handler für Systemeinstellungen-Seiten"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:32
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "URL handler for trash pages"
 msgstr "URL-Handler für Müll-Seiten"
