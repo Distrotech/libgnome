@@ -1,5 +1,12 @@
 2002-04-09  Anders Carlsson  <andersca@gnu.org>
 
+	* help-converters/man/Makefile.am:
+	* help-converters/man/gnome-man2html.c: (main):
+	Use g_snprintf instead of snprintf which apparently needs
+	-ldb to work on OSF/1 4.0 (#78166, Gareth Pearce).
+	
+2002-04-09  Anders Carlsson  <andersca@gnu.org>
+
 	* message-of-doom:
 	* Makefile.am:
 	Remove message-of-doom file, I think we're stable enough now.
