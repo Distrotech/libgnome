@@ -126,8 +126,6 @@ gnome_program_locate_file               (GnomeProgram    *program,
 					 GSList         **ret_locations);
 
 #define GNOME_PARAM_NONE                NULL
-#define GNOME_PARAM_MODULE_INFO         "module-info"
-#define GNOME_PARAM_MODULES             "modules"
 #define GNOME_PARAM_POPT_TABLE          "popt-table"
 #define GNOME_PARAM_POPT_FLAGS          "popt-flags"
 #define GNOME_PARAM_POPT_CONTEXT        "popt-context"
@@ -265,9 +263,6 @@ gnome_program_initv (GType type,
 		     const GnomeModuleInfo *module_info,
 		     int argc, char **argv,
 		     const char *first_property_name, va_list args);
-
-const gchar * gnome_program_get_invocation_name       () G_GNUC_CONST;
-const gchar * gnome_program_get_short_invocation_name () G_GNUC_CONST;
 
 G_END_DECLS
 

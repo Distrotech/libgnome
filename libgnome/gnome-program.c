@@ -57,8 +57,6 @@ struct _GnomeProgramPrivate {
     } state;
 
     /* Construction properties */
-    GnomeModuleInfo *prop_module_info;
-    gchar *prop_module_list;
     int prop_popt_flags;
     struct poptOptions *prop_popt_table;
     gchar *prop_human_readable_name;
@@ -91,8 +89,6 @@ struct _GnomeProgramPrivate {
 
 enum {
     PROP_0,
-    PROP_MODULE_INFO,
-    PROP_MODULES,
     PROP_APP_ID,
     PROP_APP_VERSION,
     PROP_HUMAN_READABLE_NAME,
@@ -144,13 +140,6 @@ gnome_program_set_property (GObject *object, guint param_id,
     program = GNOME_PROGRAM (object);
 
     switch (param_id) {
-    case PROP_MODULE_INFO:
-	program->_priv->prop_module_info = g_value_dup_boxed ((GValue *) value);
-	break;
-    case PROP_MODULES:
-	g_free (program->_priv->prop_module_list);
-	program->_priv->prop_module_list = g_value_dup_string (value);
-	break;
     case PROP_POPT_TABLE:
 	program->_priv->prop_popt_table = g_value_peek_pointer (value);
 	break;
@@ -426,35 +415,28 @@ gnome_program_class_init (GnomeProgramClass *class)
 
     g_object_class_install_property
 	(object_class,
-	 PROP_MODULE_INFO,
-	 g_param_spec_boxed (GNOME_PARAM_MODULE_INFO, NULL, NULL,
-			     GNOME_TYPE_MODULE_INFO,
-			     (G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY)));
-
-    g_object_class_install_property
-	(object_class,
-	 PROP_MODULES,
-	 g_param_spec_string (GNOME_PARAM_MODULES, NULL, NULL,
-			      NULL,
-			      (G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY)));
-
-    g_object_class_install_property
-	(object_class,
 	 PROP_POPT_TABLE,
-	 g_param_spec_pointer (GNOME_PARAM_POPT_TABLE, NULL, NULL,
+	 g_param_spec_pointer (GNOME_PARAM_POPT_TABLE,
+			       _("Popt Table"), 
+			       _("The table of options for popt"),
 			       (G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY)));
 
     g_object_class_install_property
 	(object_class,
 	 PROP_POPT_FLAGS,
-	 g_param_spec_int (GNOME_PARAM_POPT_FLAGS, NULL, NULL,
+	 g_param_spec_int (GNOME_PARAM_POPT_FLAGS,
+			   _("Popt Flags"), 
+			   _("The flags to use for popt"),
 			   G_MININT, G_MAXINT, 0,
 			   (G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY)));
 
     g_object_class_install_property
 	(object_class,
 	 PROP_POPT_CONTEXT,
-	 g_param_spec_pointer (GNOME_PARAM_POPT_CONTEXT, NULL, NULL,
+	 g_param_spec_pointer (GNOME_PARAM_POPT_CONTEXT,
+			      _("Popt Context"), 
+			      _("The popt context pointer that GnomeProgram "
+				"is using"),
 			       (G_PARAM_READABLE)));
 
     g_object_class_install_property
@@ -480,7 +462,9 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_APP_ID,
-	 g_param_spec_string (GNOME_PARAM_APP_ID, NULL, NULL,
+	 g_param_spec_string (GNOME_PARAM_APP_ID,
+			      _("App ID"), 
+			      _("ID string to use for this application"),
 			      NULL, G_PARAM_READABLE));
 
     g_object_class_install_property
@@ -494,7 +478,9 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_GNOME_PREFIX,
-	 g_param_spec_string (GNOME_PARAM_GNOME_PREFIX, NULL, NULL,
+	 g_param_spec_string (GNOME_PARAM_GNOME_PREFIX,
+			      _("GNOME Prefix"), 
+			      _("Prefix where GNOME was installed"),
 			      LIBGNOME_PREFIX,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
@@ -502,7 +488,9 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_GNOME_LIBDIR,
-	 g_param_spec_string (GNOME_PARAM_GNOME_LIBDIR, NULL, NULL,
+	 g_param_spec_string (GNOME_PARAM_GNOME_LIBDIR,
+			      _("GNOME Libdir"), 
+			      _("Library prefix where GNOME was installed"),
 			      LIBGNOME_LIBDIR,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
@@ -510,7 +498,9 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_GNOME_DATADIR,
-	 g_param_spec_string (GNOME_PARAM_GNOME_DATADIR, NULL, NULL,
+	 g_param_spec_string (GNOME_PARAM_GNOME_DATADIR,
+			      _("GNOME Datadir"), 
+			      _("Data prefix where GNOME was installed"),
 			      LIBGNOME_DATADIR,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
@@ -518,7 +508,10 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_GNOME_SYSCONFDIR,
-	 g_param_spec_string (GNOME_PARAM_GNOME_SYSCONFDIR, NULL, NULL,
+	 g_param_spec_string (GNOME_PARAM_GNOME_SYSCONFDIR,
+			      _("GNOME Sysconfdir"), 
+			      _("Configuration prefix where GNOME "
+				"was installed"),
 			      LIBGNOME_SYSCONFDIR,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
@@ -526,39 +519,48 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_APP_PREFIX,
-	 g_param_spec_string (GNOME_PARAM_APP_PREFIX, NULL, NULL,
+	 g_param_spec_string (GNOME_PARAM_APP_PREFIX,
+			      _("GNOME App Prefix"), 
+			      _("Prefix where this application was installed"),
 			      NULL,
-			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-			       G_PARAM_CONSTRUCT_ONLY)));
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE)));
 
     g_object_class_install_property
 	(object_class,
 	 PROP_APP_LIBDIR,
-	 g_param_spec_string (GNOME_PARAM_APP_LIBDIR, NULL, NULL,
+	 g_param_spec_string (GNOME_PARAM_APP_LIBDIR,
+			      _("GNOME App Libdir"), 
+			      _("Library prefix where this application "
+				"was installed"),
 			      NULL,
-			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-			       G_PARAM_CONSTRUCT_ONLY)));
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE)));
 
     g_object_class_install_property
 	(object_class,
 	 PROP_APP_DATADIR,
-	 g_param_spec_string (GNOME_PARAM_APP_DATADIR, NULL, NULL,
+	 g_param_spec_string (GNOME_PARAM_APP_DATADIR,
+			      _("GNOME App Datadir"), 
+			      _("Data prefix where this application "
+				"was installed"),
 			      NULL,
-			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-			       G_PARAM_CONSTRUCT_ONLY)));
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE)));
 
     g_object_class_install_property
 	(object_class,
 	 PROP_APP_SYSCONFDIR,
-	 g_param_spec_string (GNOME_PARAM_APP_SYSCONFDIR, NULL, NULL,
+	 g_param_spec_string (GNOME_PARAM_APP_SYSCONFDIR,
+			      _("GNOME App Sysconfdir"), 
+			      _("Configuration prefix where this application "
+				"was installed"),
 			      NULL,
-			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-			       G_PARAM_CONSTRUCT_ONLY)));
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE)));
 
     g_object_class_install_property
 	(object_class,
 	 PROP_CREATE_DIRECTORIES,
-	 g_param_spec_boolean (GNOME_PARAM_CREATE_DIRECTORIES, NULL, NULL,
+	 g_param_spec_boolean (GNOME_PARAM_CREATE_DIRECTORIES,
+			      _("Create Directories"), 
+			      _("Create standard GNOME directories on startup"),
 			       TRUE,
 			       (G_PARAM_READABLE | G_PARAM_WRITABLE |
 				G_PARAM_CONSTRUCT_ONLY)));
@@ -566,7 +568,9 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_ENABLE_SOUND,
-	 g_param_spec_boolean (GNOME_PARAM_ENABLE_SOUND, NULL, NULL,
+	 g_param_spec_boolean (GNOME_PARAM_ENABLE_SOUND,
+			      _("Enable Sound"), 
+			      _("Enable sound on startup"),
 			       TRUE,
 			       (G_PARAM_READABLE | G_PARAM_WRITABLE |
 				G_PARAM_CONSTRUCT_ONLY)));
@@ -574,7 +578,9 @@ gnome_program_class_init (GnomeProgramClass *class)
     g_object_class_install_property
 	(object_class,
 	 PROP_ESPEAKER,
-	 g_param_spec_string (GNOME_PARAM_ESPEAKER, NULL, NULL,
+	 g_param_spec_string (GNOME_PARAM_ESPEAKER,
+			      _("Espeaker"), 
+			      _("How to connect to esd"),
 			      NULL,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 			       G_PARAM_CONSTRUCT_ONLY)));
@@ -614,12 +620,6 @@ static void
 gnome_program_finalize (GObject* object)
 {
 	GnomeProgram *self = GNOME_PROGRAM (object);
-
-	g_boxed_free (GNOME_TYPE_MODULE_INFO, self->_priv->prop_module_info);
-	self->_priv->prop_module_info = NULL;
-
-	g_free (self->_priv->prop_module_list);
-	self->_priv->prop_module_list = NULL;
 
 	/* no free */
 	self->_priv->prop_popt_table = NULL;
