@@ -79,4 +79,4 @@ void		gnome_i18n_pop_c_numeric_locale		(void);
 
 G_END_DECLS
 
-#endif /* __GNOME_UTIL_H__ */
+#endif /* __GNOME_I18N_H__ */
