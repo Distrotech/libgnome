@@ -7,6 +7,9 @@
 LIB_VERSION=0:0:0
 LIB_VERSION_NUM=0.0.0
 
+GNOME_MAKEENUMS = $(top_srcdir)/tools/gnome-makeenums.pl
+GNOME_MAKETYPES = $(top_builddir)/tools/gnome-maketypes.awk
+
 lib_LTLIBRARIES = libgnome-2.la
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
@@ -48,9 +51,10 @@ libgnome_2_la_SOURCES = \
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-paper.c		\
-	gnomelib-init.c
+	gnomelib-init.c		\
+	libgnometypes.c
 
-libgnomeinclude_HEADERS = \
+libgnome_headers = \
 	gnome-program.h		\
         gnome-config.h 		\
 	gnome-defs.h   		\
@@ -69,13 +73,57 @@ libgnomeinclude_HEADERS = \
 	gnomelib-init.h		\
 	gnome-portability.h
 
+libgnomeinclude_HEADERS = \
+	libgnometypebuiltins.h	\
+	$(libgnome_headers)
+
 noinst_HEADERS = \
 	gnome-i18nP.h				\
 	gnome-triggersP.h			\
 	libgnomeP.h
 
-EXTRA_DIST = parse-path.cP gnome-portability.h.in libgnome-2.0.pc.in
-BUILT_SOURCES = gnome-portability.h
+# generate libgnome.defs file from libgnome-boxed.defs and *.h
+libgnome.defs: $(GNOME_MAKEENUMS) libgnome-boxed.defs $(libgnome_headers)
+	cd $(srcdir) \
+	&& $(GNOME_MAKEENUMS) defs $(libgnome_headers) > gd.tmp \
+	&& cat libgnome-boxed.defs >> gd.tmp \
+	&& mv gd.tmp libgnome.defs
+
+# generate type identifier header (GTK_TYPE_WIDGET_FLAGS)
+libgnometypebuiltins.h: libgnome.defs $(GNOME_MAKETYPES)
+	cd $(srcdir) \
+	&& LC_COLLATE=C $(GNOME_MAKETYPES) libgnome.defs macros > gtb.tmp \
+	&& mv gtb.tmp libgnometypebuiltins.h
+
+# generate type identifier variables (GTK_TYPE_WIDGET_FLAGS)
+libgnometypebuiltins_vars.c: libgnome.defs $(GNOME_MAKETYPES)
+	cd $(srcdir) \
+	&& LC_COLLATE=C $(GNOME_MAKETYPES) libgnome.defs variables > gtbv.tmp \
+	&& mv gtbv.tmp libgnometypebuiltins_vars.c
+
+# generate type entries for type-id registration
+libgnometypebuiltins_ids.c: libgnome.defs $(GNOME_MAKETYPES)
+	cd $(srcdir) \
+	&& LC_COLLATE=C $(GNOME_MAKETYPES) libgnome.defs entries > gtbi.tmp \
+	&& mv gtbi.tmp libgnometypebuiltins_ids.c
+
+# generate enum value arrays
+libgnometypebuiltins_evals.c: $(GNOME_MAKEENUMS) libgnome.defs
+	cd $(srcdir) \
+	&& $(GNOME_MAKEENUMS) arrays $(libgnome_headers) > gtbe.tmp \
+	&& mv gtbe.tmp libgnometypebuiltins_evals.c
+
+EXTRA_DIST = \
+	parse-path.cP			\
+	gnome-portability.h.in		\
+	libgnome-2.0.pc.in
+
+BUILT_SOURCES = \
+	gnome-portability.h		\
+	libgnometypebuiltins.h		\
+	libgnometypebuiltins_evals.c	\
+	libgnometypebuiltins_ids.c	\
+	libgnometypebuiltins_vars.c
 
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP

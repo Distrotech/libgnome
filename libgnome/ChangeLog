@@ -1,5 +1,14 @@
 2001-04-11  Martin Baulig  <baulig@suse.de>
 
+	* Makefile.am: Create libgnome.defs and the type stuff using
+	gnome-maketypes.awk and gnome-makeenums.pl.
+
+	* libgnome-boxed.defs: New file.
+
+	* libgnometypes.c: New file.
+
+2001-04-11  Martin Baulig  <baulig@suse.de>
+
 	* libgnome.h: Use #include <libgnome/*.h> instead of "libgnome/*.h"
 	and #include <libgnome/gnome-ditem.h>.
 
