@@ -130,8 +130,19 @@ gnome_i18n_init (void)
 	 that the user can override the config db using the
 	 environment.  */
       val = gnome_config_get_string (LANGKEY);
-      if (val != NULL)
-	setenv ("LC_ALL", val, 1);
+      if (val != NULL) 
+        {
+#ifdef HAVE_SETENV      
+	      setenv ("LC_ALL", val, 1);
+#else
+#ifdef HAVE_PUTENV
+      gchar tmp[80];
+      
+      g_snprintf(tmp, 80, "LC_ALL=%s", val);
+      putenv( tmp );
+#endif
+#endif
+      }
     }
 }
 
