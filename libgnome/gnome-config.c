@@ -23,7 +23,7 @@
 /* #include <config.h> */
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>	/* For g_free() and atoi() */
+#include <stdlib.h>	/* For atoi() */
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <glib.h>
@@ -122,19 +122,20 @@ parse_path (const char *path)
 
 	if (*p->path == '='){
 		/* If it is an absolute path name */
+	        char *tmp;
 		p->path++;
-		p->file    = strtok (p->path, "=");
-		p->section = strtok (NULL, "/=");
-		p->key     = strtok (NULL, "=");
-		p->def     = strtok (NULL, "=");
+		p->file    = (tmp = strtok (p->path, "=")) ? tmp : "";
+		p->section = (tmp = strtok (NULL, "/=")) ? tmp : "";
+		p->key     = (tmp = strtok (NULL, "=")) ? tmp : "";
+		p->def     = (tmp = strtok (NULL, "=")) ? tmp : "";
 	} else {
 		char *end;
 		sep = "/=";
 
 		p->file    = p->path;
-		p->def     = NULL;
-		p->section = NULL;
-		p->key     = NULL;
+		p->def     = "";
+		p->section = "";
+		p->key     = "";
 		if ((end = strchr (p->path, '='))) {
 			*end = 0;
 			p->def = end + 1;
