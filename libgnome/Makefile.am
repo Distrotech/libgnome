@@ -19,6 +19,9 @@ INCLUDES = \
 	$(WARN_CFLAGS)				\
 	$(GNOMESUPPORT_CFLAGS)			\
 	$(GLIB_CFLAGS)				\
+	$(OAF_CFLAGS)				\
+	$(GCONF_CFLAGS)				\
+	$(LIBXML_CFLAGS)			\
 	$(GNOME_VFS_CFLAGS)			\
 	-DGNOMEPREFIX=\""$(prefix)"\"		\
 	-DGNOMELIBDIR=\""$(libdir)"\"		\
@@ -77,22 +80,14 @@ BUILT_SOURCES = gnome-portability.h
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP
 
-libgnome_2_la_LDFLAGS = $(LIBGNOME_LIBS) -version-info $(LIB_VERSION)
-libgnome_2_la_LIBADD = $(GNOMESUPPORT_LIBS)
-
-bin_PROGRAMS = \
-	gnome-moz-remote
-
-gnome_moz_remote_SOURCES = gnome-moz-remote2.c vroot.h
-gnome_moz_remote_LDADD = \
-	libgnome-$(GNOME_INTERFACE_VERSION).la	\
-	$(LIBGNOME_LIBS)			\
-	$(X_LIBS)				\
-	$(X_PRE_LIBS)				\
-	-lXext					\
-	-lX11					\
-	$(X_EXTRA_LIBS)				\
-	$(INTLLIBS)
+libgnome_2_la_LDFLAGS = -version-info $(LIB_VERSION)
+libgnome_2_la_LIBADD =		\
+	$(GNOMESUPPORT_LIBS)	\
+	$(OAF_LIBS)		\
+	$(GCONF_LIBS)		\
+	$(LIBXML_LIBS)		\
+	$(GNOME_VFS_LIBS)	\
+	$(GLIB_LIBS)
 
 noinst_PROGRAMS = \
 	test-libgnome
@@ -100,7 +95,6 @@ noinst_PROGRAMS = \
 test_libgnome_SOURCES = test-libgnome.c
 test_libgnome_LDADD = \
 	libgnome-2.la
-
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libgnome-2.0.pc
