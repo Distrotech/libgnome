@@ -60,8 +60,6 @@ libgnome_src = \
 	gnome-program.c		\
 	gnome-selector.c	\
 	gnome-selector-factory.c\
-	gnome-config.c		\
-        gnome-config.h 		\
 	gnome-ditem.c		\
 	gnome-exec.c		\
 	gnome-fileconvert.c	\
@@ -176,7 +174,6 @@ $(srcdir)/gnome-marshal.h $(srcdir)/gnome-marshal.c: stamp-gnome-marshal.h
 	&& rm -f xgen-gmc xgen-gmc~
 
 EXTRA_DIST = \
-	parse-path.cP			\
 	libgnome-2.0.pc.in
 
 BUILT_SOURCES = \
@@ -185,9 +182,6 @@ BUILT_SOURCES = \
 	gnome-marshal.h			\
 	gnome-marshal.c			\
 	$(CORBA_SOURCE)
-
-#just to be sure, add an explicit dependency
-gnome-config.o: parse-path.cP
 
 libgnome_2_la_LDFLAGS = -version-info $(LIB_VERSION)
 libgnome_2_la_LIBADD =		\
