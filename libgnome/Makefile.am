@@ -145,6 +145,7 @@ noinst_PROGRAMS = \
 
 test_libgnome_SOURCES = test-libgnome.c
 test_libgnome_LDADD = \
+	$(LIBGNOME_LIBS) \
 	libgnome-2.la
 
 pkgconfigdir = $(libdir)/pkgconfig
