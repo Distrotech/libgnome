@@ -236,7 +236,7 @@ bonobo_stream_fs_get_type (void)
 
 	if (!type){
 		GtkTypeInfo info = {
-			"IDL:GNOME/StreamFS:1.0",
+			"BonoboStreamFS",
 			sizeof (BonoboStreamFS),
 			sizeof (BonoboStreamFSClass),
 			(GtkClassInitFunc) bonobo_stream_fs_class_init,
