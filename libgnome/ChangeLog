@@ -1,3 +1,10 @@
+Wed Jul 12 02:18:29 2000  George Lebl <jirka@5z.com>
+
+	* gnome-mime-info.c: copy the language list we get out of gnome-i18n
+	  before we reverse it as that is an internal list and modifying it
+	  would is bad juju.  I bet this solves some of the i18n bugs I've
+	  seen.
+
 2000-06-29  Jacob Berkman  <jacob@helixcode.com>
 
 	* gnome-dentry.c (gnome_desktop_entry_launch_with_args): check to

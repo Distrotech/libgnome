@@ -448,7 +448,7 @@ gnome_mime_init ()
 
 	current_lang = gnome_i18n_get_language_list ("LC_MESSAGES");
 	if(current_lang)
-		current_lang = g_list_reverse(current_lang);
+		current_lang = g_list_reverse(g_list_copy(current_lang));
 
 	/*
 	 * Setup the descriptors for the information loading
