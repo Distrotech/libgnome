@@ -424,12 +424,12 @@ GConfValue *
 gnome_gconf_gnome_icon_entry_get (GnomeIconEntry *icon_entry,
 				  GConfValueType  type)
 {
-	GtkWidget *entry;
+	GtkWidget *entry = NULL;
 
 	g_return_val_if_fail (icon_entry != NULL, NULL);
 	g_return_val_if_fail (GNOME_IS_ICON_ENTRY (icon_entry), NULL);
 	
-	entry = gnome_icon_entry_gtk_entry (icon_entry);
+	/* entry = gnome_icon_entry_gtk_entry (icon_entry); */
 	return gnome_gconf_gtk_entry_get (GTK_ENTRY (entry), type);
 }
 
@@ -442,7 +442,7 @@ gnome_gconf_gnome_icon_entry_set (GnomeIconEntry *icon_entry,
 	g_return_if_fail (value->type == GCONF_VALUE_STRING);
 	g_return_if_fail (value != NULL);
 
-	gnome_icon_entry_set_icon (icon_entry, gconf_value_string (value));
+	/* gnome_icon_entry_set_icon (icon_entry, gconf_value_string (value)); */
 }
 
 GConfValue *
