@@ -1,13 +1,13 @@
-# Dutch translation of libgnome.                                                
-# Copyright (C) 2002 Free Software Foundation, Inc.                             
+# Dutch translation of libgnome.
+# Copyright (C) 2002 Free Software Foundation, Inc.
 # Tino Meinen <a.t.meinen@chello.nl>, 2002.
 # Reinout van Schouwen <reinout@cs.vu.nl>, 2002.
 # Commentaar:
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome cvs\n"
-"POT-Creation-Date: 2003-01-10 20:11+0100\n"
+"POT-Creation-Date: 2003-01-22 12:12+0100\n"
 "PO-Revision-Date: 2003-01-13 12:52+0100\n"
 "Last-Translator: Vincent van Adrighem <V.vanAdrighem@dirck.mine.nu>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -338,7 +338,7 @@ msgstr "GConf-bijnaam"
 msgid "config indirect moniker"
 msgstr "indirecte bijnaam configureren"
 
-#: monikers/bonobo-config-bag.c:230
+#: monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
 msgstr "Onbekend type"
 
@@ -754,10 +754,30 @@ msgid "Cursor font"
 msgstr "Cursorlettertype"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
+msgid "Cursor size"
+msgstr "Cursorgrootte"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+msgid "Cursor theme"
+msgstr "Cursorthema"
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later. This value is only propagated to the X server start "
+"of each session, so changing it mid-session won't have an effect until the "
+"next time you log in."
+msgstr ""
+"Naam van het cursorthema. Slechts voor X-servers die Xcursor ondersteunen, "
+"zoals XFree86 4.3 en latere versies. Deze waarde wordt alleen doorgegeven "
+"aan de X-server aan het begin van iedere sessie, dus een wijziging ervan "
+"tijdens een sessie heeft geen invloed totdat u zich opnieuw aanmeldt."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
 msgstr "Afstand voordat het wordt gezien als sleepactie"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
@@ -765,15 +785,15 @@ msgstr ""
 "Afstand die de muisaanwijzer moet afleggen voordat de versnelling wordt "
 "ingeschakeld. Een waarde van -1 is de systeemstandaard."
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
 msgstr "Dubbelkliktijd"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
 msgstr "Sleepdrempel"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
 "Font name of the cursor. If unset set, the default font is used. This value "
 "is only propagated to the X server start of each session, so changing it mid-"
@@ -783,7 +803,7 @@ msgstr ""
 "dan zal het standaardlettertype gebruikt worden. Om veranderingen te "
 "activeren zult u zich opnieuw moeten aanmelden."
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
@@ -791,31 +811,42 @@ msgstr ""
 "Geeft aan waar de muisaanwijzer zich bevindt wanneer de CTRL-toets wordt "
 "ingedrukt en losgelaten"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
 msgstr "Lengte van een dubbelklik"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
 msgstr "Muisaanwijzer localiseren"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
 msgstr "Beweegdrempel"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
 msgstr "Muisoriëntatie"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
 msgstr "Enkele klik"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
 msgstr "Enkele klik om pictogrammen te openen"
 
-#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
+msgid ""
+"Size of the cursor referenced by cursor_theme. This value is only propagated "
+"to the X server start of each session, so changing it mid-session won't have "
+"an effect until the next time you log in."
+msgstr ""
+"Grootte van de door cursor_theme gerefereerde cursor. Deze waarde wordt "
+"alleen doorgegeven aan de X-server aan het begin van iedere sessie, dus een "
+"wijziging ervan tijdens een sessie heeft geen invloed totdat u zich opnieuw "
+"aanmeldt."
+
+#: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "Links en rechts omdraaien voor linkshandige muizen"
 
