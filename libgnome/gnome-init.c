@@ -8,9 +8,16 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/stat.h>
+
+/* debugging hack */
+#if defined(__GLIBC__) && defined(linux)
+#include <syslog.h>
+#include <malloc.h>
+#endif
 #include <glib.h>
 #include "libgnomeP.h"
 #include <errno.h>
+#include <signal.h>
 
 char *gnome_user_home_dir = 0;
 char *gnome_user_dir = 0;
@@ -52,12 +59,27 @@ create_user_gnome_directories (void)
 static gboolean disable_sound = FALSE, enable_sound = FALSE;
 static char *esound_host = NULL;
 
+#ifdef DEBUG
+static void
+dump_memusage(int signo)
+{
+#if defined(__GLIBC__) && defined(linux)
+  struct mallinfo mi;
+  mi = mallinfo();
+
+  syslog(LOG_DEBUG, "uordblks = %d ordblks = %d hblkhd = %d",
+	 mi.uordblks, mi.ordblks, mi.hblkhd);
+#endif
+}
+#endif
+
 static void
 gnomelib_option_cb(poptContext ctx, enum poptCallbackReason reason,
 		   const struct poptOption *opt, const char *arg,
 		   void *data)
 {
   gboolean real_enable_sound;
+
   switch(reason) {
     case POPT_CALLBACK_REASON_POST:
       real_enable_sound = disable_sound?FALSE:enable_sound?TRUE:gnome_config_get_bool("/sound/system/settings/start_esd=true");
@@ -70,7 +92,18 @@ gnomelib_option_cb(poptContext ctx, enum poptCallbackReason reason,
       }
 
       gnome_triggers_init();
+
+#if defined(DEBUG) && defined(__GLIBC__) && defined(linux)
+      {
+	struct sigaction sa;
+	openlog(program_invocation_name, LOG_PID|LOG_PERROR, LOG_USER);
+	memset(&sa, 0, sizeof(sa));
+	sa.sa_handler = dump_memusage;
+	sigaction(SIGXFSZ, &sa, NULL);
+      }
+#endif
       break;
+  default:
   }
 }
 
