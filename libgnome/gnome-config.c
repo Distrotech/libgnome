@@ -1287,3 +1287,29 @@ main ()
 	
 }
 #endif
+
+#ifdef TEST_INTERNALS
+
+void
+_test_suite_gnome_config_parse_path (const char *path, gint priv)
+{
+	ParsedPath *p = parse_path (path, priv); 
+
+#if 0
+	printf ("%s|%s|%d - %s|%s|%s|%s|%s|%s|\n", (char*) prefix, path, priv,
+		p->file, p->section, p->key, p->def, p->path, p->opath);
+#else
+	printf ("parse_path (%d):\n\n", priv);
+	printf ("   Prefix:\t%s\n", (char*) prefix);
+	printf ("   Path:\t%s\n\n", path);
+	printf ("   File:\t%s\n", p->file);
+	printf ("   Section:\t%s\n", p->section);
+	printf ("   Key:\t\t%s\n", p->key);
+	printf ("   Def:\t\t%s\n", p->def);
+	printf ("   Path:\t%s\n", p->path);
+	printf ("   OPath:\t%s\n\n", p->opath);
+#endif
+	fflush (stdout);
+}
+
+#endif
