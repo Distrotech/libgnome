@@ -1253,7 +1253,7 @@ gnome_program_initv (GType type,
     GnomeProgram *program;
     int i;
 
-    g_type_init (G_TYPE_DEBUG_NONE);
+    g_type_init ();
 
     if (!program_initialized) {
 	GnomeProgramClass *klass;
