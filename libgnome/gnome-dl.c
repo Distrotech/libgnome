@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #ifdef HAVE_ERRNO_H
-#include <errno.h>
+# include <errno.h>
 #endif
 #include "glib.h"
 #include "gnome-defs.h"
@@ -16,36 +16,33 @@
 #include "gnome-dl.h"
 
 /* this stuff should be autoconf'ed */
-#if defined( __FreeBSD__ )
+#ifdef __FreeBSD__
 /* what about -current and ELF? */
-#define NEED_UNDERSCORE
-#define LIB_SUFFIX ".so"
-#elif defined ( linux ) || defined( sgi )
-#define LIB_SUFFIX ".so"
-#elif defined ( hpux )
-#define LIB_SUFFIX ".sl"
+# define NEED_UNDERSCORE
 #endif
 
-#if defined( HAVE_DLFCN_H )
-#include <dlfcn.h>
-#elif defined( HAVE_DL_H )
-#include <dl.h>
+#ifdef hpux
+# define LIB_SUFFIX ".sl"
+#else
+# define LIB_SUFFIX ".so"
 #endif
 
-#if defined( HAVE_DLFCN_H )
-#  ifdef RTLD_LAZY
-#    define LAZY_BIND_MODE RTLD_LAZY
-#  else
-#    define LAZY_BIND_MODE 1
-#  endif
-#  ifdef RTLD_NOW
-#    define NOW_BIND_MODE RTLD_NOW
-#  else
-#    error what is RTLD_NOW supposed to be?
-#  endif
-#elif defined( HAVE_DL_H )
-#  define LAZY_BIND_MODE (BIND_DEFERRED | BIND_NONFATAL)
-#  define NOW_BIND_MODE BIND_IMMEDIATE 
+#if defined HAVE_DLFCN_H
+# include <dlfcn.h>
+# ifdef RTLD_LAZY
+#  define LAZY_BIND_MODE RTLD_LAZY
+# else
+#  define LAZY_BIND_MODE 1
+# endif
+# ifdef RTLD_NOW
+#  define NOW_BIND_MODE RTLD_NOW
+# else
+#  error what is RTLD_NOW supposed to be?
+# endif
+#elif defined HAVE_DL_H
+# include <dl.h>
+# define LAZY_BIND_MODE (BIND_DEFERRED | BIND_NONFATAL)
+# define NOW_BIND_MODE BIND_IMMEDIATE 
 #endif
 
 struct GnomeLibHandle {
@@ -312,7 +309,7 @@ gnome_dl_findsym_and_lib(char *symbol_name,
   char *lookup;
   GList *cur;
 
-#if defined( NEED_UNDERSCORE )
+#ifdef NEED_UNDERSCORE
   lookup = g_copy_strings("_", symbol_name, NULL);
 #else
   lookup = g_strdup(symbol_name);
