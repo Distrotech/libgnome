@@ -472,25 +472,26 @@ gnome_desktop_entry_sub_kde_arg (GnomeDesktopEntry *item, gchar *arg)
 }
 
 static char *
-join_with_quotes(char *argv[])
+join_with_quotes(char *argv[], int argc)
 {
 	int i;
 	char *ret;
 	GString *gs = g_string_new("");
-	for(i=0;argv[i];i++) {
+	for(i=0;i<argc;i++) {
 		char *p = strchr(argv[i],'\'');
 		if(!p) {
 			g_string_sprintfa(gs,"%s'%s'",i==0?"":" ",argv[i]);
 		} else {
-			char *s = g_strdup(argv[i]);
+			char *str, *s;
 			g_string_sprintfa(gs,"%s'",i==0?"":" ");
+			s = str = g_strdup(argv[i]);
 			while((p = strchr(s,'\''))) {
 				*p='\0';
 				g_string_sprintfa(gs,"%s'\\''",s);
 				s = p+1;
 			}
 			g_string_sprintfa(gs,"%s'",s);
-			g_free(s);
+			g_free(str);
 		}
 	}
 	ret = gs->str;
@@ -537,7 +538,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		}
 		
 		/* ... terminal arguments */
-		argc = the_argc + term_argc + item->exec_length;
+		argc = (the_argc>0?1:0) + term_argc + item->exec_length;
 		argv = (char **) g_malloc ((argc + 1) * sizeof (char *));
 
 		/* Assemble together... */
@@ -560,12 +561,14 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		}
 		
 		/* ... supplied arguments */
-		for (i = 0; i < the_argc; i++)
-			argv[term_argc + item->exec_length + i] = the_argv [i];
-		
+		if(the_argc>0)
+			argv[term_argc + item->exec_length] =
+				join_with_quotes((char **)the_argv,
+						 the_argc);
+
 		argv[argc] = NULL;
 		
-		exec_str = join_with_quotes ((char **)argv);
+		exec_str = g_strjoinv (" ", (char **)argv);
 		
 		/* clean up */
 		if (term_argc && term_argv != xterm_argv)

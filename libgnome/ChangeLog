@@ -1,3 +1,15 @@
+Sun Dec 05 01:32:35 1999  George Lebl <jirka@5z.com>
+
+	* gnome-dentry.c: fix the quoting, now we don't quote the exec vector
+	  from the dentry as this is the expected behaviour, but we do quote
+	  the arguments passed to gnome_desktop_entry_launch_with_args so
+	  that we work with filenames with spaces.  This will completely
+	  fix #4010.
+
+Fri Dec 03 21:23:56 1999  George Lebl <jirka@5z.com>
+
+	* gnome-dentry.c: fix a segfault in join_with_quotes, fixes #4010
+
 1999-11-24  James Henstridge  <james@daa.com.au>
 
 	* gnome-paper.h: added prototypes for new functions.
