@@ -26,6 +26,7 @@
 #include <config.h>
 #include <string.h>
 #include <stdio.h>
+#include <locale.h>
 
 #include "gnome-i18nP.h"
 
