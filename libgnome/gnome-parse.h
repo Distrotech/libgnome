@@ -6,7 +6,7 @@
 
 BEGIN_GNOME_DECLS
 
-#include <libgnomesupport/argp.h>
+#include <argp.h>
 
 /* Call this to register some command-line arguments with the central
    parser.  Typically this will be called by a library's
