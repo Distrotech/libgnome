@@ -47,7 +47,7 @@ static GHashTable *specific_types;
 static GHashTable *generic_types;
 
 static GnomeMimeContext *
-gnome_mime_type_context_new (GString *str)
+context_new (GString *str)
 {
 	GnomeMimeContext *context;
 	GHashTable *table;
@@ -55,14 +55,14 @@ gnome_mime_type_context_new (GString *str)
 
 	mime_type = g_strdup (str->str);
 	
-	if ((p = strstr (str->str, "/*")) == NULL){
+	if ((p = strstr (mime_type, "/*")) == NULL){
 		table = specific_types;
 	} else {
 		*(p+1) = 0;
 		table = generic_types;
 	}
 	
-	context = g_hash_table_lookup (table, str->str);
+	context = g_hash_table_lookup (table, mime_type);
 
 	if (context)
 		return context;
@@ -85,8 +85,9 @@ release_key_and_value (gpointer key, gpointer value, gpointer user_data)
 }
 
 static void
-gnome_mime_type_context_destroy (GnomeMimeContext *context)
+context_destroy (GnomeMimeContext *context)
 {
+	printf ("destroying: %s\n", context->mime_type);
 	/*
 	 * Remove the context from our hash tables, we dont know
 	 * where it is: so just remove it from both (it can
@@ -117,7 +118,7 @@ remove_this_key (gpointer key, gpointer value, gpointer user_data)
 }
 
 static void
-gnome_mime_type_context_add (GnomeMimeContext *context, char *key, char *value)
+context_add_key (GnomeMimeContext *context, char *key, char *value)
 {
 	char *v;
 
@@ -143,7 +144,7 @@ static void
 load_mime_type_info_from (char *filename)
 {
 	FILE *mime_file;
-	gboolean in_comment;
+	gboolean in_comment, context_used;
 	GString *line;
 	int column, c;
 	ParserState state;
@@ -155,11 +156,12 @@ load_mime_type_info_from (char *filename)
 		return;
 
 	in_comment = FALSE;
+	context_used = FALSE;
 	column = 0;
 	context = NULL;
+	key = NULL;
 	line = g_string_sized_new (120);
 	state = STATE_NONE;
-	key = NULL;
 	
 	while ((c = getc (mime_file)) != EOF){
 		column++;
@@ -175,13 +177,15 @@ load_mime_type_info_from (char *filename)
 			in_comment = FALSE;
 			column = 0;
 			if (state == STATE_ON_MIME_TYPE){
-				context = gnome_mime_type_context_new (line);
+				context = context_new (line);
+				context_used = FALSE;
 				g_string_assign (line, "");
 				state = STATE_LOOKING_FOR_KEY;
 				continue;
 			}
 			if (state == STATE_ON_VALUE){
-				gnome_mime_type_context_add (context, key, line->str);
+				context_used = TRUE;
+				context_add_key (context, key, line->str);
 				g_string_assign (line, "");
 				g_free (key);
 				key = NULL;
@@ -268,9 +272,10 @@ load_mime_type_info_from (char *filename)
 
 	if (context){
 		if (key && line->str [0])
-			gnome_mime_type_context_add (context, key, line->str);
+			context_add_key (context, key, line->str);
 		else
-			gnome_mime_type_context_destroy (context);
+			if (!context_used)
+				context_destroy (context);
 	}
 
 	g_string_free (line, TRUE);
@@ -334,28 +339,6 @@ gnome_mime_type_init ()
 }
 
 /**
- * gnome_mime_type_get_info:
- * @mime_type: a string describing the mime-type
- *
- * This returns a GnomeMimeContext which contains all of the
- * keys associated with the given mime-type.
- *
- * Returns a GnomeMimeContext. 
- */
-GnomeMimeContext *
-gnome_mime_type_get_info (char *mime_type)
-{
-	g_return_val_if_fail (mime_type != NULL, NULL);
-
-	if (!gnome_mime_type_inited){
-		gnome_mime_type_init ();
-		gnome_mime_type_inited = TRUE;
-	}
-	return NULL;
-	
-}
-
-/**
  * gnome_mime_context_get_value:
  * @mime_type: a mime type.
  * @key: A key to lookup for the given mime-type
@@ -364,9 +347,9 @@ gnome_mime_type_get_info (char *mime_type)
  * the given GnomeMimeContext
  */
 char *
-gnome_mime_context_get_value (char *mime_type, char *key)
+gnome_mime_type_get_value (char *mime_type, char *key)
 {
-	char *value, *generic_key, *p;
+	char *value, *generic_type, *p;
 	GnomeMimeContext *context;
 	
 	g_return_val_if_fail (mime_type != NULL, NULL);
@@ -377,7 +360,7 @@ gnome_mime_context_get_value (char *mime_type, char *key)
 		gnome_mime_type_inited = TRUE;
 	}
 
-	context = g_hash_table_lookup (specific_types, key);
+	context = g_hash_table_lookup (specific_types, mime_type);
 	if (context){
 		value = g_hash_table_lookup (context->keys, key);
 
@@ -385,13 +368,13 @@ gnome_mime_context_get_value (char *mime_type, char *key)
 			return value;
 	}
 
-	generic_key = g_strdup (key);
-	p = strchr (generic_key, '/');
+	generic_type = g_strdup (mime_type);
+	p = strchr (generic_type, '/');
 	if (p)
 		*(p+1) = 0;
 	
-	context = g_hash_table_lookup (generic_types, generic_key);
-	g_free (generic_key);
+	context = g_hash_table_lookup (generic_types, generic_type);
+	g_free (generic_type);
 	
 	if (context){
 		value = g_hash_table_lookup (context->keys, key);
@@ -422,7 +405,7 @@ gnome_mime_type_get_keys (char *mime_type)
 {
 	char *p, *generic_type;
 	GnomeMimeContext *context;
-	GList *list = NULL;
+	GList *list = NULL, *l;
 	
 	g_return_val_if_fail (mime_type != NULL, NULL);
 
@@ -449,9 +432,20 @@ gnome_mime_type_get_keys (char *mime_type)
 			context->keys, assemble_list, &list);
 	}
 
-	/*
-	 * FIXME: The result shoudl be unique.
-	 */
+	for (l = list; l;){
+		if (l->next){
+			void *this = l->data;
+			GList *m;
+
+			for (m = l->next; m; m = m->next){
+				if (strcmp (this, m->data) != 0)
+					continue;
+				list = g_list_remove (list, m->data);
+				break;
+			}
+		}
+		l = l->next;
+	}
 	return list;
 }
 
@@ -465,7 +459,10 @@ main ()
 	keys = gnome_mime_type_get_keys ("image/gif");
 	printf ("Dumping keys for image/gif\n");
 	for (; keys; keys = keys->next){
-		printf ("Key=%s\n", (char *) keys->data);
+		char *value;
+		
+		value = gnome_mime_type_get_value ("image/gif", keys->data);
+		printf ("Key=%s, value=%s\n", (char *) keys->data, value);
 	}
 	
 	return 0;
