@@ -1,5 +1,12 @@
 2001-04-17  Martin Baulig  <baulig@suse.de>
 
+	* libgnome-init.c (gnome_oaf_module_info): Removed; this is in libbonobo.
+	(libgnome_module_requires): Require libbonobo.
+
+	* libgnome-2.0.pc.in: Depend on libbonobo-2.
+
+2001-04-17  Martin Baulig  <baulig@suse.de>
+
 	* gnome-ditem.c (gnome_desktop_item_drop_uri_list): Don't call
 	gnome_uri_extract_filename(), just use the URI as-is.
 

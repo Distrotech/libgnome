@@ -40,6 +40,7 @@
 extern struct poptOption gconf_options[];
 
 #include <libgnome/libgnome-init.h>
+#include <bonobo/libbonobo-init.h>
 
 #include "libgnomeP.h"
 #include <errno.h>
@@ -51,35 +52,6 @@ extern struct poptOption gconf_options[];
 #include <liboaf/liboaf.h>
 
 #include <libgnomevfs/gnome-vfs-init.h>
-
-/*****************************************************************************
- * oaf
- *****************************************************************************/
-
-static void
-gnome_oaf_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
-{
-    oaf_preinit (program, mod_info);
-}
-
-static void
-gnome_oaf_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
-{
-    int dumb_argc = 1;
-    char *dumb_argv[] = {NULL};
-
-    oaf_postinit (program, mod_info);
-
-    dumb_argv[0] = program_invocation_name;
-    (void) oaf_orb_init (&dumb_argc, dumb_argv);
-}
-
-GnomeModuleInfo gnome_oaf_module_info = {
-    "gnome-oaf", VERSION, N_("GNOME OAF Support"),
-    NULL,
-    gnome_oaf_pre_args_parse, gnome_oaf_post_args_parse,
-    oaf_popt_options
-};
 
 /*****************************************************************************
  * gconf
@@ -308,6 +280,7 @@ GnomeModuleInfo gnome_vfs_module_info = {
 };
 
 static GnomeModuleRequirement libgnome_requirements[] = {
+    {VERSION, &libbonobo_module_info},
     {VERSION, &gnome_gconf_module_info},
     {"0.3.0", &gnome_vfs_module_info},
     {NULL}
