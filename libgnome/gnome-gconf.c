@@ -433,7 +433,7 @@ gnome_get_gconf_client (void)
 }
 
 static void
-gnome_gconf_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
+gnome_gconf_pre_args_parse(GnomeProgram *app, GnomeModuleInfo *mod_info)
 {
         gconf_preinit(app, (GnomeModuleInfo*)mod_info);
 
@@ -441,7 +441,7 @@ gnome_gconf_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
 }
 
 static void
-gnome_gconf_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
+gnome_gconf_post_args_parse(GnomeProgram *app, GnomeModuleInfo *mod_info)
 {
         gchar *settings_dir;
         
