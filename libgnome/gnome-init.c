@@ -130,6 +130,17 @@ gnomelib_register_options(void)
 	gnomelib_register_popt_table(gnomelib_options, N_("GNOME Options"));
 }
 
+/**
+ * gnomelib_init:
+ * @app_id: The application id name.
+ * @app_version: The application version.
+ *
+ * This initializes the libgnome library.
+ *
+ * This routine is provided for non-GUI applications that do not
+ * link against libgnomeui.  Note that libgnomeui will call gnomelib_init
+ * internally at initialization time.
+ */
 void
 gnomelib_init (const char *app_id,
 	       const char *app_version)
