@@ -64,13 +64,26 @@ print_ascore (struct ascore_t *ascore, FILE * outfile)
 static void
 free_ascore(struct ascore_t *data)
 {
-   g_free(data->username);
+   free(data->username);
    g_free(data);
 }
 
+/**** log_score
+      Inputs: 'progname' - the program to log a score for
+              'level' - the freeform level identifier
+	      'username' - the username that this score is logged under
+	      'score' - the game score
+	      'ordering' - whether lower scores are better.
+      Outputs: 'retval' - Whether the score got onto the highscore list
+
+      Description: Loads all the existing scores into the 'scores'
+                   list.  Goes through and finds out whether there's a
+                   place for the new score on the high-score list, and
+                   if so, inserts it. Writes out the new high-score list.
+ */
 static gint
 log_score (const gchar * progname, const gchar * level, gchar * username,
-	   gfloat score, int ordering)
+	   gfloat score, gboolean ordering)
 {
    FILE *infile;
    FILE *outfile;
@@ -89,20 +102,19 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
    infile = fopen (game_score_file, "r");
    if (infile)
      {
-	while (fgets (buf, sizeof (buf), infile))
-	  {
+       while(fgets(buf, sizeof(buf), infile))
+	 {
 	     i = strlen (buf) - 1;	/* Chomp */
 	     while (isspace (buf[i]))
 	       buf[i--] = '\0';
-	     
-	     buf2 = strtok (buf, " ");
-	     ascore = atof (buf2);
-	     buf2 = strtok (NULL, " ");
-	     (long int) atime = atoi (buf2);
-	     buf2 = strtok (NULL, "\n");
-	     name = strdup (buf2);
-	     
-	     anitem = g_malloc (sizeof (struct ascore_t));
+
+	     if(sscanf(buf, "%f %ld %as", &ascore, &atime, &name) != 3)
+	       break;
+
+	     g_message("Got score %f time %ld name %s",
+		       ascore, atime, name);
+
+	     anitem = g_new(struct ascore_t, 1);
 	     anitem->score = ascore;
 	     anitem->username = name;
 	     anitem->scoretime = atime;
@@ -110,11 +122,12 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 	  }
 	fclose (infile);
      }
-   anitem = g_malloc (sizeof (struct ascore_t));
-   anitem->score = score;
-   anitem->username = g_strdup(username);
-   anitem->scoretime = time (NULL);
    
+   anitem = g_new(struct ascore_t, 1);
+   anitem->score = score;
+   anitem->username = strdup(username);
+   anitem->scoretime = time (NULL);
+
    for (pos = 0, anode = scores;
 	pos < NSCORES && anode;
 	pos++, anode = anode->next)
@@ -181,8 +194,8 @@ gnome_score_child (void)
    setfsgid (gid);
 #endif
    pwd = getpwuid (getuid ());
-   strtok(pwd->pw_gecos, ",");
-   while (read (STDIN_FILENO, &cmd, sizeof cmd) == sizeof cmd)
+
+   while (read (STDIN_FILENO, &cmd, sizeof cmd) == sizeof(cmd))
      {
 	level = g_new (char, cmd.level);
 	if (read (STDIN_FILENO, level, cmd.level) != cmd.level)
@@ -191,7 +204,7 @@ gnome_score_child (void)
 	   g_free(level);
 	   level = NULL;
 	}
-	retval = log_score (defgamename, level, pwd->pw_gecos, cmd.score,
+	retval = log_score (defgamename, level, pwd->pw_name, cmd.score,
 			    cmd.ordering);
 	if (write(STDOUT_FILENO, &retval, sizeof retval) != sizeof retval)
 	  return EXIT_FAILURE;
@@ -299,9 +312,9 @@ gnome_score_log (gfloat score,
    cmd.level = strlen (level) + 1;
    cmd.ordering = higher_to_lower_score_order;
    
-   if (write (outfd, &cmd, sizeof cmd) != sizeof cmd ||
+   if (write (outfd, &cmd, sizeof cmd) != sizeof(cmd) ||
        write (outfd, level, cmd.level) != cmd.level ||
-       read (infd, &retval, sizeof retval) != sizeof retval)
+       read (infd, &retval, sizeof retval) != sizeof(retval))
      {
 	close (outfd);
 	close (infd);
