@@ -5,10 +5,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2\n"
-"POT-Creation-Date: 2001-12-11 19:13+0100\n"
-"PO-Revision-Date: 2001-07-07 12:57+02:00\n"
+"POT-Creation-Date: 2001-12-14 16:27+0100\n"
+"PO-Revision-Date: 2001-12-14 16:35+01:00\n"
 "Last-Translator: Christopher R. Gabriel <cgabriel@cgabriel.org>\n"
-"Language-Team: Italian <it@li.org>\n"
+"Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,9 +19,9 @@ msgstr ""
 "Impossibile trovare un terminale. Tento con xterm, anche può non funzionare"
 
 #: libgnome/gnome-url.c:182
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot parse: %s"
-msgstr "Impossibile aprire una pipe: %s"
+msgstr "Impossibile leggere: %s"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -29,9 +29,8 @@ msgid "Bonobo Support"
 msgstr "Supporto Bonobo"
 
 #: libgnome/gnome-init.c:142
-#, fuzzy
 msgid "Bonobo activation Support"
-msgstr "Supporto Bonobo"
+msgstr "Supporto Attivazione Bonobo"
 
 #: libgnome/gnome-init.c:278 libgnome/gnome-init.c:292
 #, c-format
@@ -57,27 +56,27 @@ msgstr ""
 
 #: libgnome/gnome-init.c:360
 msgid "Disable sound server usage"
-msgstr ""
+msgstr "Disabilita l'uso del server per i suoni"
 
 #: libgnome/gnome-init.c:363
 msgid "Enable sound server usage"
-msgstr ""
+msgstr "Abilita l'uso del server per i suoni"
 
 #: libgnome/gnome-init.c:366
 msgid "Host:port on which the sound server to use is running"
-msgstr ""
+msgstr "Host:port dove si trova il server dei suoni da utilizzare"
 
 #: libgnome/gnome-init.c:368
 msgid "HOSTNAME:PORT"
-msgstr ""
+msgstr "HOSTNAME:PORT"
 
 #: libgnome/gnome-init.c:386
 msgid "GNOME Virtual Filesystem"
-msgstr ""
+msgstr "FileSystem Virtual di GNOME"
 
 #: libgnome/gnome-init.c:407
 msgid "GNOME Library"
-msgstr ""
+msgstr "Libreria GNOME"
 
 #: libgnome/test-libgnome.c:21
 msgid "Test option."
@@ -88,137 +87,82 @@ msgid "The Application Name"
 msgstr "Il nome dell'applicazione"
 
 #: libgnome/gnome-gconf.c:172
-#, fuzzy
 msgid "GNOME GConf Support"
-msgstr "Supporto OAF GNOME"
+msgstr "Supporto GConf GNOME"
 
 #: libgnome/gnome-help.c:149
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr ""
+msgstr "Impossibile trovare il dominio GNOME_FILE_DOMAIN_APP_HELP"
 
 #: libgnome/gnome-help.c:163
 msgid ""
 "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
 "libs was compiled incorrectly."
-msgstr ""
+msgstr "Impossibile trovare il dominio GNOME_FILE_DOMAIN_HELP. Questo significa che gnome-libs non è stato compilato correttamente."
 
 #: libgnome/gnome-help.c:176
 #, c-format
 msgid ""
 "Unable to show help as file %s is not a directory.  This implies an "
 "incorrect installation."
-msgstr ""
+msgstr "Impossibile mostrare l'aiuto poichè %s non è una directory. Questo implica una non corretta installazione."
 
 #: libgnome/gnome-help.c:193
 #, c-format
 msgid "Help document %s for %s not found"
-msgstr ""
+msgstr "Documento di aiuto %s per %s non è stato trovato"
 
 #: libgnome/gnome-help.c:270
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr ""
+msgstr "Impossibile trovare il doc_id %s nel percorso dei documenti di aiuto"
 
 #: libgnome/gnome-help.c:291
 #, c-format
 msgid "Help document %s/%s not found"
-msgstr ""
+msgstr "Documento di aiuto %s/%s non trovato"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
+msgstr "Troppi livelli di alias per un locale, può indicare un loop"
 
 #: libgnome/gnome-program.c:464
 msgid "Human readable name"
-msgstr ""
+msgstr "Nome leggibile"
 
 #: libgnome/gnome-program.c:465
 msgid "Human readable name of this application"
-msgstr ""
+msgstr "Il nome leggibile per questa applicazione"
 
 #: libgnome/gnome-program.c:474
 msgid "GNOME path"
-msgstr ""
+msgstr "Percorso GNOME"
 
 #: libgnome/gnome-program.c:475
 msgid "Path in which to look for installed files"
-msgstr ""
+msgstr "Percorso in cui cercare i file installati"
 
 #: libgnome/gnome-program.c:490
 msgid "App version"
-msgstr ""
+msgstr "Versione applicazione"
 
 #: libgnome/gnome-program.c:491
 msgid "Version of this application"
-msgstr ""
+msgstr "Versione di questa applicazione"
 
 #: libgnome/gnome-program.c:1318
-#, fuzzy
 msgid "Help options"
-msgstr "Opzione di prova."
+msgstr "Opzione di aiuto."
 
 #: libgnome/gnome-program.c:1323
-#, fuzzy
 msgid "Application options"
-msgstr "Il nome dell'applicazione"
+msgstr "Opzioni dell'applicazione"
 
 #: libgnome/gnome-program.c:1339
 msgid "Dynamic modules to load"
-msgstr ""
+msgstr "Moduli dinamici da caricare"
 
 #: libgnome/gnome-program.c:1340
 msgid "MODULE1,MODULE2,..."
-msgstr ""
+msgstr "MODULO1,MODULO2,..."
 
-#~ msgid "Error parsing '%s' (empty result)"
-#~ msgstr "Errore interpretazione di '%s' (nessun risultato)"
-
-#~ msgid "Mozilla not found as '%s'"
-#~ msgstr "Mozilla non trovato come '%s'"
-
-#~ msgid "Cannot parse handler template: %s"
-#~ msgstr "Impossibile interpretare lo schema dei gestori: %s"
-
-#~ msgid "Cannot execute command '%s'!"
-#~ msgstr "Impossibile eseguire il comando '%s'!"
-
-#~ msgid "Command '%s' did not return an ID!"
-#~ msgstr "Il comando '%s' non ha restituito un identificativo!"
-
-#~ msgid "Attempting to launch a non-application"
-#~ msgstr "Tentativo di avviare una non-applicazione"
-
-#~ msgid "Trying to execute an item with no 'Exec'"
-#~ msgstr "Tento di eseguire l'oggetto senza 'Exec'"
-
-#~ msgid "No exec field for this drop"
-#~ msgstr "Nessun campo exec per questo tentativo"
-
-#~ msgid "Nothing to replace with a file in the exec string"
-#~ msgstr "Niente da sostituire come file nella stringa di esecuzione"
-
-#~ msgid "There was no argument to replace with dropped files"
-#~ msgstr "Non c'erano argomenti da sostituire nei file lasciati"
-
-#~ msgid "Specify X display to use."
-#~ msgstr "Specificare il display X da utilizzare."
-
-#~ msgid "Put the X connection in synchronous mode."
-#~ msgstr "Attiva la connessione X in modalità sincrona."
-
-#~ msgid "Specify the X window ID of Netscape."
-#~ msgstr "Specificare l'identificativo della finestra X di Netscape."
-
-#~ msgid "Don't raise the Netscape window."
-#~ msgstr "Non alzare la finestra di Netscape."
-
-#~ msgid "Show the given URL in a new window."
-#~ msgstr "Mostra l'URL fornito in una nuova finestra."
-
-#~ msgid "Close the specified window."
-#~ msgstr "Chiudi la finestra specificata."
-
-#~ msgid "Print the X window ID of the utilized window."
-#~ msgstr ""
-#~ "Stampa l'identificativo della finestra X della finestra attualmente in "
-#~ "uso."
