@@ -41,11 +41,15 @@ BEGIN_GNOME_DECLS
    default was return, 0 otherwise.  If DEF is NULL then it will not
    be set.  */
 
-char *gnome_config_get_string_with_default    (const char *path, int *def);
-int  gnome_config_get_int_with_default        (const char *path, int *def);
-int  gnome_config_get_bool_with_default       (const char *path, int *def);
-void gnome_config_get_vector_with_default     (const char *path, int *argcp,
-					       char ***argvp, int *def);
+char *gnome_config_get_string_with_default    (const char *path,
+					       gboolean *def);
+gint  gnome_config_get_int_with_default        (const char *path,
+					       gboolean *def);
+gboolean gnome_config_get_bool_with_default   (const char *path,
+					       gboolean *def);
+void gnome_config_get_vector_with_default     (const char *path, gint *argcp,
+					       char ***argvp,
+					       gboolean *def);
 
 /* Convenience wrappers for the case when you don't care if you see
    the default.  */
@@ -63,13 +67,13 @@ void gnome_config_get_vector_with_default     (const char *path, int *argcp,
 /* Set a config variable.  */
 void gnome_config_set_string     (const char *path, const char *value);
 void gnome_config_set_int        (const char *path, int value);
-void gnome_config_set_bool       (const char *path, int value);
+void gnome_config_set_bool       (const char *path, gboolean value);
 void gnome_config_set_vector     (const char *path,
 				  int argc,
 				  const char * const argv[]);
 
 /* Returns true if /path/section is defined */
-int  gnome_config_has_section    (const char *path);
+gboolean  gnome_config_has_section    (const char *path);
 
 /* Returns a pointer for iterating on /file/section contents */
 void *gnome_config_init_iterator (const char *path);

@@ -19,6 +19,9 @@ char *g_concat_dir_and_file (const char *dir, const char *file);
 char *gnome_util_user_home(void);
 char *gnome_util_prepend_user_home(char *file);
 char *gnome_util_home_file(char *file);
+char *gnome_util_user_config(void);
+char *gnome_util_prepend_user_config(char *file);
+char *gnome_util_user_config_file(char *file);
 
 END_GNOME_DECLS
 

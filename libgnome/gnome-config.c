@@ -371,7 +371,7 @@ new_key (TSecHeader *section, const char *key_name, const char *value)
 static const char *
 access_config (access_type mode, const char *section_name,
 	       const char *key_name, const char *def, const char *filename,
-	       int *def_used)
+	       gboolean *def_used)
 {
     
 	TProfile   *New;
@@ -379,7 +379,7 @@ access_config (access_type mode, const char *section_name,
 	TKeys      *key;
 
 	if (def_used)
-		*def_used = 0;
+		*def_used = FALSE;
 	if (!is_loaded (filename, &section)){
 		struct stat st;
 		if (stat (filename, &st) == -1) st.st_mtime = 0;
@@ -428,7 +428,7 @@ access_config (access_type mode, const char *section_name,
 		Current->section = section;
 	} 
 	if (def_used)
-		*def_used = 1;
+		*def_used = TRUE;
 	return def;
 }
 
@@ -709,7 +709,7 @@ gnome_config_clean_key (const char *path)
 	release_path (pp);
 }
 
-int 
+gboolean 
 gnome_config_has_section (const char *path)
 	/* char *section_name, char *profile */
 {
@@ -742,8 +742,8 @@ gnome_config_drop_all (void)
 	free_profile (Base);
 }
 
-int
-gnome_config_get_int_with_default (const char *path, int *def)
+gint
+gnome_config_get_int_with_default (const char *path, gboolean *def)
 {
 	ParsedPath *pp;
 	const char *r;
@@ -761,7 +761,7 @@ gnome_config_get_int_with_default (const char *path, int *def)
 }
 
 char *
-gnome_config_get_string_with_default (const char *path, int *def)
+gnome_config_get_string_with_default (const char *path, gboolean *def)
 {
 	ParsedPath *pp;
 	const char *r;
@@ -776,8 +776,8 @@ gnome_config_get_string_with_default (const char *path, int *def)
 	return ret;
 }
 
-int
-gnome_config_get_bool_with_default (const char *path, int *def)
+gboolean
+gnome_config_get_bool_with_default (const char *path, gboolean *def)
 {
 	ParsedPath *pp;
 	const char *r;
@@ -803,7 +803,7 @@ gnome_config_get_bool_with_default (const char *path, int *def)
 
 void
 gnome_config_get_vector_with_default (const char *path, int *argcp,
-				      char ***argvp, int *def)
+				      char ***argvp, gboolean *def)
 {
 	ParsedPath *pp;
 	const char *r, *p, *last;
@@ -880,7 +880,7 @@ gnome_config_set_int (const char *path, int new_value)
 }
 
 void
-gnome_config_set_bool (const char *path, int new_value)
+gnome_config_set_bool (const char *path, gboolean new_value)
 {
 	ParsedPath *pp;
 	const char *r;

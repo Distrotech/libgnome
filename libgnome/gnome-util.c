@@ -212,6 +212,23 @@ gnome_util_user_home(void)
 	return(home_dir);
 }
 
+char *gnome_util_prepend_user_config(char *file);
+char *gnome_util_user_config_file(char *file);
+
+char *
+gnome_util_user_config(void)
+{
+	static char *home_dir;
+	static int init = 1;
+	
+	if (init) {
+		home_dir = getenv("HOME");
+		init = 0;
+	}
+	
+	return(home_dir);
+}
+
 /* pass in a string, and it will add the users home dir ie,
  * pass in .gnome/bookmarks.html and it will return
  * /home/imain/.gnome/bookmarks.html
