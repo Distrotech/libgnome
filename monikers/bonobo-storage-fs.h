@@ -22,13 +22,9 @@ typedef struct {
 } BonoboStorageFSClass;
 
 GtkType        bonobo_storage_fs_get_type  (void);
-BonoboStorage *bonobo_storage_fs_construct (BonoboStorageFS *storage,
-					    Bonobo_Storage corba_storage,
-					    const char *path, 
-					    const char *open_mode);
-BonoboStorage *bonobo_storage_fs_open      (const char *path,
-					    gint flags, 
-					    gint mode,
+BonoboStorage *bonobo_storage_fs_open      (const char        *path,
+					    gint               flags, 
+					    gint               mode,
 					    CORBA_Environment *ev);
 
 END_GNOME_DECLS
