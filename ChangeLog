@@ -1,3 +1,10 @@
+2004-05-15  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-program.c: (gnome_program_instance_init):
+	Commit a fix for broken sound events. Investigation and fix
+	by Colin Walters <walters at redhat com>. Should fix
+	bug #142502.
+
 2004-05-13  James Henstridge  <james@daa.com.au>
 
 	* Makefile.am (ACLOCAL_AMFLAGS): set so that aclocal gets called
@@ -114,7 +121,7 @@
 
 2004-03-22  Guntupalli Karunakar  <karunakar@freedomink.org>
 
-        * configure.in: Added "pa" (Punjabi) to ALL_LINGUAS.
+	* configure.in: Added "pa" (Punjabi) to ALL_LINGUAS.
 
 ==================== 2.6.0 ====================
 

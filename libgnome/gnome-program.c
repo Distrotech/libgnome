@@ -602,6 +602,8 @@ gnome_program_instance_init (GnomeProgram *program)
 
     program->_priv->state = APP_CREATE_DONE;
 
+    program->_priv->prop_enable_sound = TRUE;
+    
     for (i = 0; i < program_modules->len; i++) {
 	GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
