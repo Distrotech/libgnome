@@ -33,6 +33,18 @@
 
 G_BEGIN_DECLS
 
+#define gnome_libdir_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_LIBDIR,  f, TRUE, NULL))
+#define gnome_datadir_file(f) (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_DATADIR, f, TRUE, NULL))
+#define gnome_sound_file(f)   (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_SOUND,   f, TRUE, NULL))
+#define gnome_pixmap_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_PIXMAP,  f, TRUE, NULL))
+#define gnome_config_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_CONFIG,  f, TRUE, NULL))
+
+#define gnome_unconditional_libdir_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_LIBDIR,  f, FALSE, NULL))
+#define gnome_unconditional_datadir_file(f) (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_DATADIR, f, FALSE, NULL))
+#define gnome_unconditional_sound_file(f)   (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_SOUND,   f, FALSE, NULL))
+#define gnome_unconditional_pixmap_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_PIXMAP,  f, FALSE, NULL))
+#define gnome_unconditional_config_file(f)  (gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_CONFIG,  f, FALSE, NULL))
+
 /* locate a program in $PATH, or return NULL if not found */
 char *gnome_is_program_in_path (const gchar *program);
 

@@ -1,5 +1,10 @@
 2001-08-09  Martin Baulig  <baulig@suse.de>
 
+	* gnome-util.h (gnome_*_file, gnome_unconditional_*_file): Put
+	them back, but #define it as a gnome_program_locate_file() call.
+
+2001-08-09  Martin Baulig  <baulig@suse.de>
+
 	After a discussion with Michael and a release meeting, we
 	decided to remove the sound again. It was really a bad idea.
 
