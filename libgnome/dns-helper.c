@@ -1,8 +1,9 @@
 /* ObLICENSE:
-   You are free to do anything with this
-   program as long as you keep the format of data sent
+   You are free to do anything you want with this program.
+
+   It is requested that you keep the format of data sent
    between client and server the same, and
-   as long as you install this program as dns-helper
+   that you install this program as dns-helper
    (and under no other name).
 
    Just an attempt to make life easy for people.

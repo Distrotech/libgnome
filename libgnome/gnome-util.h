@@ -50,8 +50,7 @@ const char * g_extension_pointer (const char * path);
 /* vec has to be NULL-terminated */
 char ** g_copy_vector    (char ** vec);
 /* separator can be NULL */
-char  * g_flatten_vector (const char * separator, 
-			  char ** vec);
+#define g_flatten_vector g_strjoinv
 
 /* returns the home directory of the user
  * This one is NOT to be free'd as it points into the 

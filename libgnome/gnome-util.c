@@ -331,37 +331,6 @@ char ** g_copy_vector (char ** vec)
   return new_vec;
 }
 
-char  * g_flatten_vector (const char * separator, 
-			  char ** vec)
-{
-  int len, sep_len;
-  int i;
-  char * result;
-
-  len = 0;
-  i = 0;
-  sep_len = separator ? strlen(separator) : 0;
-  while ( vec[i] != NULL ) {
-    len += strlen(vec[i]);
-    len += sep_len;
-    ++i;
-  }
-
-  result = g_malloc ( len + 1 );
-  result[0] = '\0';  /* So the initial strcat works */
-  
-  len = i - 1; /* len is now the # of vector elements */
-
-  i = 0;
-  while ( vec[i] != NULL ) {
-    strcat(result, vec[i]);
-    /* don't put separator after the last vector element */
-    if (separator && (i != len) ) strcat(result, separator);
-    ++i;
-  }
-  return result;
-}
-
 /* should be in order of decreasing frequency, since
    the first ones are checked first. */
 
