@@ -1,5 +1,16 @@
 2001-08-09  Martin Baulig  <baulig@suse.de>
 
+	After a discussion with Michael and a release meeting, we
+	decided to remove the sound again. It was really a bad idea.
+
+	* gnome-sound.[ch]: Removed.
+	* gnome-sound-csl.c: Removed.
+	* gnome-sound-driver.[ch]: Removed.
+	* gnome-triggers.[ch]: Removed.
+	* test-sound.c: Removed.
+
+2001-08-09  Martin Baulig  <baulig@suse.de>
+
 	* gnome-sound-driver.[ch]: New files.
 	* gnome-sound.c, gnome-sound-csl.c: This is an API rewrite
 	which I did in my local tree, but it's not finished yet and

@@ -31,8 +31,6 @@
 
 #include <libgnome/gnome-exec.h>
 
-#include <libgnome/gnome-triggers.h>
-#include <libgnome/gnome-sound.h>
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-url.h>
 
