@@ -58,7 +58,7 @@ gnome_help_file_find_file (gchar *app, gchar *path)
 	GString *buf;
 	
 	gchar *res= NULL;
-	gchar *p;
+	gchar *p, c = 0;
 	
 	language_list= gnome_i18n_get_language_list ("LC_ALL");
 	
@@ -72,14 +72,20 @@ gnome_help_file_find_file (gchar *app, gchar *path)
 		g_string_sprintf (buf, "gnome/help/%s/%s/%s", app, lang, path);
 		res= (gchar *)gnome_unconditional_datadir_file (buf->str);
 		p = strrchr(res, '#');
-		if (p)
+		if (p) {
+			c = *p;
 			*p = '\0';
+		}
 		g_string_free (buf, TRUE);
 		
 		if (!g_file_exists (res))
 		{
 			g_free (res);
 			res= NULL;
+		}
+		if (c) {
+			*p = c;
+			c = 0;
 		}
 		
 		language_list= language_list->next;
