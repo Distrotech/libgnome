@@ -116,6 +116,7 @@ void gnome_program_module_register(/*@in@*/ GnomeProgram *app,
 				   /*@in@*/ const GnomeModuleInfo *module_info);
 gboolean gnome_program_module_registered(/*@in@*/ GnomeProgram *app,
 					 const GnomeModuleInfo *module_info);
+void gnome_program_module_load(GnomeProgram *app, const char *mod_name); /* do the dlopen funky, yea yea yea */
 
 /*
   In order to process arguments, gnomelib_preinit needs to know their

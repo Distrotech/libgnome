@@ -25,6 +25,10 @@
 
 #include <ctype.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <gmodule.h>
+#include "libgnome/gnome-defs.h"
+#include "libgnome/gnome-i18nP.h"
 #include "libgnome/gnome-portability.h"
 #include "libgnome/gnomelib-init2.h"
 
@@ -734,6 +738,7 @@ gnome_program_module_registered(/*@in@*/ GnomeProgram *app,
 				const GnomeModuleInfo *module_info)
 {
   int i;
+  GnomeModuleInfo *curmod;
 
   g_return_val_if_fail(app, FALSE);
   g_return_val_if_fail(module_info, FALSE);
@@ -741,7 +746,9 @@ gnome_program_module_registered(/*@in@*/ GnomeProgram *app,
 
   for(i = 0; i < app->modules->len; i++)
     {
-      if(g_ptr_array_index(app->modules, i) == module_info)
+      curmod = g_ptr_array_index(app->modules, i);
+      if(curmod == module_info
+	 || !strcmp(curmod->name, module_info->name))
 	return TRUE;
     }
 
@@ -908,12 +915,15 @@ gnome_program_preinitv(GnomeProgram *app,
 }
 
 static int
-find_pointer_in_array(gpointer ptr, gpointer *array)
+find_module_in_array(GnomeModuleInfo *ptr, GnomeModuleInfo **array)
 {
   int i;
 
   for(i = 0; array[i] && array[i] != ptr; i++)
-    /* do nothing */;
+    {
+      if(!strcmp(array[i]->name, ptr->name))
+	break;
+    }
 
   if(array[i])
     return i;
@@ -923,19 +933,21 @@ find_pointer_in_array(gpointer ptr, gpointer *array)
 
 static void /* recursive */
 gnome_program_module_addtolist(GnomeProgram *app,
-			  GnomeModuleInfo **new_list,
-			  int *times_visited,
-			  int *num_items_used,
-			  int new_item_idx)
+			       GnomeModuleInfo **new_list,
+			       int *times_visited,
+			       int *num_items_used,
+			       int new_item_idx)
 {
   GnomeModuleInfo *new_item;
   int i;
+
+  g_assert(new_item >= 0);
 
   new_item = g_ptr_array_index(app->modules, new_item_idx);
   if(!new_item)
     return;
 
-  if(find_pointer_in_array(new_item, (gpointer *)new_list) >= 0)
+  if(find_module_in_array(new_item, new_list) >= 0)
     return; /* already cared for */
 
   /* Does this item have any dependencies? */
@@ -954,9 +966,9 @@ gnome_program_module_addtolist(GnomeProgram *app,
       for(i = 0; new_item->requirements[i].required_version; i++)
 	{
 	  int n;
-	  n = find_pointer_in_array(new_item->requirements[i].module_info,
-				    app->modules->pdata);
-	  g_assert(n >= 0);
+
+	  n = find_module_in_array(new_item->requirements[i].module_info,
+				   (GnomeModuleInfo **)app->modules->pdata);
 	  gnome_program_module_addtolist
 	    (app, new_list, times_visited, num_items_used, n);
 	}
@@ -996,6 +1008,42 @@ gnome_program_modules_order(GnomeProgram *app)
 }
 
 /**
+ * gnome_program_module_load:
+ * @app: Application object
+ * @mod_name: module name
+ *
+ * Loads a shared library that contains a 'GnomeModuleInfo dynamic_module_info' structure.
+ */
+void
+gnome_program_module_load(GnomeProgram *app, const char *mod_name)
+{
+  GModule *mh;
+  GnomeModuleInfo *gmi;
+  char tbuf[1024];
+
+  g_snprintf(tbuf, sizeof(tbuf), "lib%s.so.0", mod_name);
+
+  mh = g_module_open(mod_name, G_MODULE_BIND_LAZY);
+  if(!mh)
+    {
+      g_snprintf(tbuf, sizeof(tbuf), "lib%s.so", mod_name);
+
+      mh = g_module_open(mod_name, G_MODULE_BIND_LAZY);
+    }
+
+  if(!mh)
+    return;
+
+  if(g_module_symbol(mh, "dynamic_module_info", (gpointer *)&gmi))
+    {
+      gnome_program_module_register(app, gmi);
+      g_module_make_resident(mh);
+    }
+  else
+    g_module_close(mh);
+}
+
+/**
  * gnome_program_preinita:
  * @app: Application object
  * @app_id: application ID string
@@ -1021,7 +1069,7 @@ gnome_program_preinita(GnomeProgram *app,
   GnomeModuleInfo *a_module;
   poptContext argctx;
   int popt_flags = 0;
-  int i, n;
+  int i;
 
   g_return_val_if_fail(app, NULL);
   if(app->state != APP_CREATE_DONE)
@@ -1064,17 +1112,48 @@ gnome_program_preinita(GnomeProgram *app,
 	gnome_program_framework_attrs_set(app, attrs[i].name, &attrs[i].value);
     }
 
+  /* We have to handle --load-modules=foo,bar,baz specially */
+  for (i = 0; i < argc; i++)
+    {
+      if(!strncmp(argv[i], "--load-modules=", strlen("--load-modules=")))
+	{
+	  char **modnames;
+	  int j;
+
+	  modnames = g_strsplit(argv[i] + strlen("--load-modules="), ",", -1);
+	  for(j = 0; modnames && modnames[j]; j++)
+	    {
+	      gnome_program_module_load(app, modnames[j]);
+	    }
+	  g_strfreev(modnames);
+	}
+    }
+
+  {
+    char *ctmp;
+    if((ctmp = getenv("GNOME_MODULES")))
+      {
+	char **modnames;
+	int j;
+
+	modnames = g_strsplit(ctmp, ",", -1);
+	for(j = 0; modnames && modnames[j]; j++)
+	  {
+	    gnome_program_module_load(app, modnames[j]);
+	  }
+
+	g_strfreev(modnames);
+      }
+  }
+
   /* 1.(b) call the init_pass functions, including those of modules
      that get registered from init_pass functions. */
-  for(i = 0, n = app->modules->len; i < app->modules->len; n = app->modules->len)
+  for(i = 0; i < app->modules->len; i++)
     {
-      for (; i < n; i++)
-	{
-	  a_module = g_ptr_array_index(app->modules, i);
-	  
-	  if (a_module && a_module->init_pass)
-	    a_module->init_pass(app, a_module);
-	}
+      a_module = g_ptr_array_index(app->modules, i);
+
+      if (a_module && a_module->init_pass)
+	a_module->init_pass(app, a_module);
     }
 
   g_ptr_array_add(app->modules, NULL); /* Make sure the array
@@ -1122,6 +1201,7 @@ gnome_program_preinita(GnomeProgram *app,
 	    g_array_append_val (app->top_options_table, includer);
 	  }
       }
+
     if ((app->app_options_val.type == GNOME_ATTRIBUTE_POINTER)
 	&& app->app_options_val.u.pointer_value)
       {
@@ -1130,6 +1210,12 @@ gnome_program_preinita(GnomeProgram *app,
 
 	g_array_append_val (app->top_options_table, includer);
       }
+
+    includer.longName = "load-modules";
+    includer.argInfo = POPT_ARG_STRING;
+    includer.descrip = N_("Dynamic modules to load");
+    includer.argDescrip = N_("MODULE1,MODULE2,...");
+    g_array_append_val (app->top_options_table, includer);
   }
 
   /*  6. Create a poptContext */
