@@ -2,52 +2,14 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version='1.0'>
 
-<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/html/chunk-common.xsl"/>
-<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/html/docbook.xsl"/>
+<xsl:import href="http://docbook.sourceforge.net/release/xsl/1.45/html/docbook.xsl"/>
+<xsl:include href="gnome-custom.xsl"/>
 
 <xsl:param name="gdb_docname" />
 
 <xsl:param name="gdb_pathname" />
 
 <xsl:output encoding="ISO-8859-1" />
-
-<!-- don't render the legalnotice on the titlepage -->
-<xsl:template match="legalnotice " mode="titlepage.mode">
-</xsl:template>
-
-
-<!-- customize the copyright notice to be a link to the legalnotice -->
-<xsl:template match="copyright" mode="titlepage.mode">
-  <xsl:variable name="years" select="year"/>
-  <xsl:variable name="holders" select="holder"/>
-
-  <p class="{name(.)}">
-  <a>
-    <xsl:attribute name="href">
-    <xsl:value-of select="$gdb_docname"/>
-    <xsl:text>?legalnotice</xsl:text>
-    </xsl:attribute>
-    <xsl:call-template name="gentext.element.name"/>
-    <xsl:call-template name="gentext.space"/>
-    <xsl:call-template name="dingbat">
-      <xsl:with-param name="dingbat">copyright</xsl:with-param>
-    </xsl:call-template>
-    <xsl:call-template name="gentext.space"/>
-    <xsl:apply-templates select="$years" mode="titlepage.mode"/>
-    <xsl:call-template name="gentext.space"/>
-    <xsl:call-template name="gentext.by"/>
-    <xsl:call-template name="gentext.space"/>
-    <xsl:apply-templates select="$holders" mode="titlepage.mode"/>
-  </a>
-  </p>
-</xsl:template>
-
-<xsl:template match="releaseinfo" mode="titlepage.mode">
-  <span class="{name(.)}">
-    <xsl:apply-templates mode="titlepage.mode"/>
-    <br/>
-  </span>
-</xsl:template>
 
 <!--
 <xsl:template match="graphic">
