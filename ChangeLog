@@ -1,5 +1,11 @@
 2004-05-02  Anders Carlsson  <andersca@gnome.org>
 
+	* libgnome/gnome-init.c: (safe_mkdir), (libgnome_userdir_setup):
+	Add a new mkdir function that's safe against trailing slashes and use it.
+	(#106117, Julio Merino)
+	
+2004-05-02  Anders Carlsson  <andersca@gnome.org>
+
 	* libgnome/gnome-help.c (locate_help_file): First try locating
 	the file without appending an extension (#136242, Toshio Kuratomi)
 

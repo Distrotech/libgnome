@@ -261,6 +261,25 @@ libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
 	}
 }
 
+static int
+safe_mkdir (const char *pathname, mode_t mode)
+{
+	char *safe_pathname;
+	int len, ret;
+	
+	safe_pathname = g_strdup (pathname);
+	len = strlen (safe_pathname);
+	
+	if (len > 1 && safe_pathname[len - 1] == '/')
+		safe_pathname[len - 1] = '\0';
+
+	ret = mkdir (safe_pathname, mode);
+
+	g_free (safe_pathname);
+
+	return ret;
+}
+
 static void
 libgnome_userdir_setup (gboolean create_dirs)
 {
@@ -299,8 +318,8 @@ libgnome_userdir_setup (gboolean create_dirs)
 	if (!create_dirs)
 		return;
 	
-	if (mkdir (gnome_user_dir, 0700) < 0) { /* private permissions, but we
-						   don't check that we got them */
+	if (safe_mkdir (gnome_user_dir, 0700) < 0) { /* private permissions, but we
+							don't check that we got them */
 		if (errno != EEXIST) {
 			g_printerr (_("Could not create per-user gnome configuration directory `%s': %s\n"),
 				gnome_user_dir, strerror(errno));
@@ -308,13 +327,13 @@ libgnome_userdir_setup (gboolean create_dirs)
 		}
 	}
     
-	if (mkdir (gnome_user_private_dir, 0700) < 0) { /* This is private
-							   per-user info mode
-							   700 will be
-							   enforced!  maybe
-							   even other security
-							   meassures will be
-							   taken */
+	if (safe_mkdir (gnome_user_private_dir, 0700) < 0) { /* This is private
+								per-user info mode
+								700 will be
+								enforced!  maybe
+								even other security
+								meassures will be
+								taken */
 		if (errno != EEXIST) {
 			g_printerr (_("Could not create per-user gnome configuration directory `%s': %s\n"),
 				 gnome_user_private_dir, strerror(errno));
@@ -330,7 +349,7 @@ libgnome_userdir_setup (gboolean create_dirs)
 		exit(1);
 	}
   
-	if (mkdir (gnome_user_accels_dir, 0700) < 0) {
+	if (safe_mkdir (gnome_user_accels_dir, 0700) < 0) {
 		if (errno != EEXIST) {
 			g_printerr (_("Could not create gnome accelerators directory `%s': %s\n"),
 				gnome_user_accels_dir, strerror(errno));
