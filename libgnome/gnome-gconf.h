@@ -35,7 +35,7 @@
 #include <gtk/gtkradiobutton.h>
 #include "gnome-color-picker.h"
 
-#include <libgnomebase/gnome-program.h>
+#include <libgnome/gnome-program.h>
 #include <libgnome/libgnome-init.h>
 
 /* GTK Widgets */
