@@ -28,8 +28,4 @@
 
 #include <libgnome/libgnome.h>
 
-#include <gobject/genums.h>
-#include <gobject/gboxed.h>
-#include <gobject/gvaluetypes.h>
-
 #include "gnome-marshal.c"

@@ -47,10 +47,6 @@
 
 #include <errno.h>
 
-#include <gobject/gobject.h>
-#include <gobject/gparamspecs.h>
-#include <gobject/gvaluetypes.h>
-
 #include <bonobo-activation/bonobo-activation.h>
 #include <bonobo-activation/bonobo-activation-version.h>
 #include <libbonobo.h>

@@ -13,9 +13,6 @@
 
 #include <libgnome/gnome-url.h>
 
-#include <gobject/gvaluetypes.h>
-#include <gobject/gparamspecs.h>
-
 #include <libbonobo.h>
 
 static int foo = 0;

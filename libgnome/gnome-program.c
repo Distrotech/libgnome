@@ -47,11 +47,6 @@
 #include "gnome-i18n.h"
 #include "gnome-url.h"
 
-#include <gobject/gboxed.h>
-#include <gobject/gvaluearray.h>
-#include <gobject/gvaluetypes.h>
-#include <gobject/gparamspecs.h>
-
 struct _GnomeProgramPrivate {
     enum {
 	APP_UNINIT=0,
