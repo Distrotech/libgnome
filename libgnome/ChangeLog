@@ -1,5 +1,7 @@
 1999-11-09  Elliot Lee  <sopwith@redhat.com>
 
+	* Makefile.am: Link libgnome to $(LIBGNOME_LIBS), not $(GLIB_LIBS).
+
 	* gnome-i18n.c: Add a comment about implementation behaviour.
 	* gnome-moz-remote2.c: Finish implementation of new gnome-moz-remote
 	* gnome-url.[ch]: Support new API with GnomeURLDisplayContext's, change gnome_url_show to just use this.

@@ -96,7 +96,7 @@ BUILT_SOURCES=gnome-portability.h
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP
 
-libgnome_la_LDFLAGS = $(GLIB_LIBS) -lm $(DL_LIB) -version-info 36:0:0 #-rpath $(libdir)
+libgnome_la_LDFLAGS = $(LIBGNOME_LIBS) -version-info 36:0:0 #-rpath $(libdir)
 libgnome_la_LIBADD = ../support/libgnomesupport.la
 
 bin_PROGRAMS = dns-helper gnome-dump-metadata gnome-moz-remote \
