@@ -1,20 +1,19 @@
-# libgnome korean translation
+# libgnome
 #
 # Young-Ho, Cha <ganadist@chollian.net>, 2002.
-# Changwoo Ryu <cwryu@debian.org>, 2002-2003.
+# Changwoo Ryu <cwryu@debian.org>, 2002-2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.3.3\n"
+"Project-Id-Version: libgnome 2.5.3\n"
 "POT-Creation-Date: 2003-11-24 11:15+0100\n"
-"PO-Revision-Date: 2003-09-15 01:59+0900\n"
+"PO-Revision-Date: 2004-01-30 04:29+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
-"Language-Team: Korean <gnome-kr-translation@lists.sourceforge.net>\n"
+"Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
-"Report-Msgid-Bugs-To: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -54,7 +53,7 @@ msgstr "메뉴 항목 선택"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Click on command button"
-msgstr "명령 버튼 클릭"
+msgstr "명령 단추 클릭"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Select check box"
@@ -80,7 +79,7 @@ msgstr "GNOME_FILE_DOMAIN_APP_HELP 도메인을 찾을 수 없습니다"
 
 #: libgnome/gnome-help.c:172
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "GNOME_FILE_DOMAIN_HELP 도메인을 찾을 수 없습니다"
+msgstr "GNOME_FILE_DOMAIN_HELP 도메인을 찾을 수 없습니다."
 
 #: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
 #, c-format
@@ -348,7 +347,7 @@ msgstr "이 위치에 연결된 기본 액션을 실행하는 데 애러가 발�
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
-msgstr "해당 위치에 대한 기본 액션이 없습니다"
+msgstr "해당 위치에 대한 기본 액션이 없습니다."
 
 #: libgnome/gnome-url.c:118
 msgid "The default action does not support this protocol."
@@ -485,7 +484,7 @@ msgstr "기본 도움말 뷰어가 터미널에서 실행되어야 하는 지의
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "'exec' 키로 정의된 터미널에서 실행되는 프로그램에 대한 인자"
+msgstr "'exec' 키로 정의된 터미널에서 실행되는 프로그램에 대한 인자."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -501,7 +500,7 @@ msgstr "터미널을 필요로 하는 프로그램을 실행하기 위해 사용
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr "첫번째 창 관리자 작업공간의 이름 목록"
+msgstr "첫번째 창 관리자 작업공간의 이름 목록."
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
@@ -539,10 +538,7 @@ msgstr "색상 변화 형식"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr ""
-"wallpaper_filename에 의해 설정된 그림을 어떻게 표현할 것인 지를 결정하세요. "
-"가능한 값들은 \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
-"\"입니다."
+msgstr "wallpaper_filename에 의해 설정된 그림을 어떻게 표현할 것인 지를 결정하십시오. 가능한 값들은 \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"입니다."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -560,13 +556,11 @@ msgstr "그놈 데스크탑에서 데스크탑 바탕을 그립니다"
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
-msgstr ""
-"바탕 색상을 어떻게 변화시킬 것인 지 결정하세요. 가능한 값들은 \"horizontal-"
-"gradient\", \"vertical-gradient\"와 \"solid\"입니다."
+msgstr "바탕 색상을 어떻게 변화시킬 것인 지 결정하십시오. 가능한 값들은 \"horizontal-gradient\", \"vertical-gradient\"와 \"solid\"입니다."
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr "경사지게 혹은 고체색으로 그릴 때의 왼쪽 혹은 윗쪽 색"
+msgstr "경사지게 혹은 단색으로 그릴 때의 왼쪽 혹은 윗쪽 색."
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
@@ -590,7 +584,7 @@ msgstr "일차 색상"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "경사지게 그릴 때의 오른쪽 혹은 아랫쪽 색, 고체색에서는 사용되지 않음."
+msgstr "경사지게 그릴 때의 오른쪽 혹은 아랫쪽 색, 단색에서는 사용하지 않음."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -765,7 +759,7 @@ msgstr "오른쪽에 상태 표시줄 미터를 보여줄 지의 여부"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "gtk+ 응용프로그램에서 사용자 글꼴을 사용할 지의 여부"
+msgstr "gtk+ 응용프로그램에서 사용자 글꼴을 사용할 지의 여부."
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -887,7 +881,7 @@ msgstr "ESD 사용"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:2
 msgid "Enable sound server startup."
-msgstr "사운드 서버 시작을 사용합니다"
+msgstr "사운드 서버 시작을 사용합니다."
 
 #: schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Sounds for events"
