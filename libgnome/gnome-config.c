@@ -1170,4 +1170,41 @@ gnome_config_get_vector_with_default     (const char *path, gint *argcp, char **
         _gnome_config_get_vector_with_default (path, argcp, argvp, def, FALSE);
 }
 
+#undef gnome_config_set_string
+#undef gnome_config_set_translated_string
+#undef gnome_config_set_int
+#undef gnome_config_set_bool
+#undef gnome_config_set_vector
+
+void
+gnome_config_set_string (const char *path, const char *value)
+{
+	_gnome_config_set_string (path, value, FALSE);
+}
+
+void
+gnome_config_set_translated_string(const char *path, const char *val)
+{
+	
+	_gnome_config_set_translated_string (path, val, FALSE);
+}
+
+void
+gnome_config_set_int(const char *path, int value)
+{
+	_gnome_config_set_int (path, value, FALSE);
+}
+
+void
+gnome_config_set_bool(const char *path, gboolean value)
+{
+	_gnome_config_set_bool (path, value, FALSE);
+}
+
+void
+gnome_config_set_vector(const char *path, int argc, const char * const argv[])
+{
+	_gnome_config_set_vector (path, argc, argv, FALSE);
+}
+
 #endif
