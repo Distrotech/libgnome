@@ -2,7 +2,9 @@
  * gnome-moniker-extender-file.c: 
  *
  * Author:
- *	Dietmar Maurer (dietmar@maurer-it.com)
+ *	Dietmar Maurer (dietmar@helixcode.com)
+ *
+ * Copyright 1999 Helix Code, Inc.
  */
 #include <config.h>
 #include <stdlib.h>
@@ -123,13 +125,21 @@ file_extender_resolve (BonoboMonikerExtender *extender,
 static void
 extender_destroy_cb (BonoboMonikerExtender *extender, gpointer dummy)
 {
+	gpointer impl_ptr;
+
 	running_objects--;
 
 	if (running_objects > 0)
 		return;
 
+	impl_ptr = gtk_object_get_data (GTK_OBJECT (extender_factory), 
+					"OAF_IMPL_PTR");
+
+	oaf_plugin_unuse (impl_ptr);
+
 	bonobo_object_unref (BONOBO_OBJECT (extender_factory));
-	gtk_main_quit ();
+	
+	extender_factory = NULL;
 }
 
 static BonoboObject *
@@ -153,33 +163,44 @@ file_extender_factory (BonoboGenericFactory *this,
 	return object;
 }
 
-int
-main (int argc, char *argv [])
+static CORBA_Object
+make_file_extender_factory (PortableServer_POA poa,
+			    const char *iid,
+			    gpointer impl_ptr,
+			    CORBA_Environment *ev)
 {
-	CORBA_Environment ev;
-	CORBA_ORB orb = CORBA_OBJECT_NIL;
-	char *dummy;
-
-	dummy = malloc (8); if (dummy) free (dummy);
-
-	CORBA_exception_init (&ev);
-
-        gnome_init_with_popt_table ("file-moniker-extender", "0.0", argc, argv,
-				    oaf_popt_options, 0, NULL); 
-	orb = oaf_init (argc, argv);
-
-	if (bonobo_init (orb, CORBA_OBJECT_NIL, CORBA_OBJECT_NIL) == FALSE)
-		g_error (_("I could not initialize Bonobo"));
+        CORBA_Object object_ref;
 
 	extender_factory = bonobo_generic_factory_new (
 		"OAFIID:Bonobo_MonikerExtender_fileFactory",
 		file_extender_factory, NULL);	
 
-	bonobo_main ();
+	gtk_object_set_data (GTK_OBJECT (extender_factory), "OAF_IMPL_PTR", 
+			     impl_ptr);
 
-	printf ("EXIT file extender\n");
+        object_ref = bonobo_object_corba_objref (BONOBO_OBJECT(extender_factory));
+        if (object_ref == CORBA_OBJECT_NIL 
+            || ev->_major != CORBA_NO_EXCEPTION) {
+                printf ("Server cannot get objref\n");
+                return CORBA_OBJECT_NIL;
+        }
 
-	CORBA_exception_free (&ev);
+        oaf_plugin_use (poa, impl_ptr);
 
-	return 0;
+        return object_ref;
 }
+
+static const OAFPluginObject file_extender_plugin_list[] = {
+        {
+                "OAFIID:Bonobo_MonikerExtender_fileFactory",
+                make_file_extender_factory
+        },
+        {
+                NULL
+  	}
+};
+
+const OAFPlugin OAF_Plugin_info = {
+        file_extender_plugin_list,
+        "bonobo file moniker extender"
+};
