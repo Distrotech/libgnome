@@ -1,3 +1,4 @@
+#include <config.h>
 #include "libgnome.h"
 #include "gnome-i18n.h"
 
@@ -133,13 +134,11 @@ gnome_i18n_init (void)
       if (val != NULL) 
         {
 #ifdef HAVE_SETENV      
-	      setenv ("LC_ALL", val, 1);
+	  setenv ("LC_ALL", val, 1);
 #else
 #ifdef HAVE_PUTENV
-      gchar tmp[80];
-      
-      g_snprintf(tmp, 80, "LC_ALL=%s", val);
-      putenv( tmp );
+	  /* It is not safe to free the value passed to putenv.  */
+	  putenv (g_copy_strings ("LC_ALL=", val, NULL));
 #endif
 #endif
       }
