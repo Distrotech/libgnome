@@ -1,5 +1,8 @@
 1999-02-10  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
+	* gnome-metadata.c (app_get_by_type): Do not try to lookup the
+	metadata if no information sources were found or loaded.
+
 	* gnome-mime.c (mime_fill_from_file): Remove trailing ':'
 
 	* gnome-paper.c: Use new names GnomePaper and GnomeUnit.  Keep the

@@ -817,6 +817,9 @@ app_get_by_type (const char *type, const char *key, int *size, char **buffer)
 
 	maybe_scan_app_dir ();
 
+	if (!app_type_hash)
+		return GNOME_METADATA_NOT_FOUND;
+	
 	ent = (struct app_ent *) g_hash_table_lookup (app_type_hash, type);
 	if (! ent)
 		return GNOME_METADATA_NOT_FOUND;
