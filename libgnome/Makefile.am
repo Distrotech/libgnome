@@ -7,7 +7,7 @@
 LIB_VERSION=0:0:0
 LIB_VERSION_NUM=0.0.0
 
-ORBIT_IDL = orbit-idl
+ORBIT_IDL = @ORBIT_IDL@
 
 lib_LTLIBRARIES = libgnome-2.la
 
