@@ -34,6 +34,25 @@ libstorage_fs_la_SOURCES =	\
 libstorage_fs_la_LDFLAGS = 	\
 	$(common_ldflags)
 
+#
+# VFS storage module
+#
+if HAVE_VFS
+libstoragedir = $(libdir)
+libstorage_LTLIBRARIES =	\
+	libstorage_vfs.la
+
+libstorage_vfs_la_SOURCES =	\
+	gnome-storage-vfs.c	\
+	gnome-storage-vfs.h
+
+libstorage_vfs_la_CFLAGS =	\
+	$(VFS_CFLAGS)
+
+libstorage_vfs_la_LIBS = 	\
+	$(VFS_LIBS)
+endif
+
 lib_LTLIBRARIES = 		\
 	libstorage_fs.la	\
 	libstorage_efs.la
