@@ -13,7 +13,9 @@ lib_LTLIBRARIES = libgnome-2.la
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-libgnomeincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/libgnome
+libincludedir = $(includedir)/gnome/2
+
+libgnomeincludedir = $(includedir)/gnome/2/libgnome
 
 INCLUDES = \
 	-I..					\
@@ -73,6 +75,9 @@ libgnome_2_la_SOURCES = \
 	$(libgnome_src)		\
 	$(CORBA_SOURCE)
 
+lib_headers = \
+	libgnome.h
+
 libgnome_headers = \
 	gnome-program.h		\
 	gnome-i18n.h		\
@@ -85,8 +90,7 @@ libgnome_headers = \
 	gnome-util.h   		\
 	gnome-preferences.h	\
 	gnome-marshal.h		\
-	libgnome-init.h		\
-	libgnome.h
+	libgnome-init.h
 
 libgnomeinclude_HEADERS = \
 	Gnome.h			\

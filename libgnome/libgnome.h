@@ -44,8 +44,4 @@
 
 #include <libgnome/libgnome-init.h>
 
-#ifdef COMPAT_1_0
-#include <compat/1.0/libgnome/libgnome-compat-1.0.h>
-#endif
-
 #endif /* LIBGNOME_H */

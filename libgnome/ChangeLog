@@ -1,5 +1,12 @@
 2001-06-13  Martin Baulig  <baulig@suse.de>
 
+	* Makefile.am: Install libgnome.h in `$(includedir)/gnome/2' to make it
+	consistent with Bonobo.
+
+	* libgnome.h: You now use #include <libgnome.h> to get this.
+
+2001-06-13  Martin Baulig  <baulig@suse.de>
+
 	* gnome-selector.[ch]: Moved to libgnome-extra/libgnome/.
 	* gnome-selector-factory.[ch]: Likewise.
 	* gnome-async-context.[ch]: Likewise.
