@@ -14,7 +14,7 @@
 #include <bonobo/bonobo-storage.h>
 #include <bonobo/bonobo-moniker-util.h>
 
-#include "bonobo-moniker-std.h"
+#include "gnome-moniker-std.h"
 
 Bonobo_Unknown
 bonobo_moniker_file_resolve (BonoboMoniker               *moniker,

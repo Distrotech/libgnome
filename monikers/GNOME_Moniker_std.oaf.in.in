@@ -1,88 +1,16 @@
 <oaf_info>
 
-<oaf_server iid="OAFIID:Bonobo_Moniker_std_Factory"
+<oaf_server iid="OAFIID:GNOME_Moniker_std_Factory"
 	type="shlib" location="@MONIKER_LIBDIR@/libmoniker_std.so">
 	<oaf_attribute name="repo_ids" type="stringv">
-		<item value="IDL:GNOME/GenericFactory:1.0"/>
+		<item value="IDL:Bonobo/GenericFactory:1.0"/>
 	</oaf_attribute>
 
 	<oaf_attribute name="name" type="string" _value="Standard Moniker factory"/>
 </oaf_server>
 
-<oaf_server iid="OAFIID:Bonobo_Moniker_File" type="factory"
-	location="OAFIID:Bonobo_Moniker_std_Factory">
-	<oaf_attribute name="repo_ids" type="stringv">
-		<item value="IDL:Bonobo/Moniker:1.0"/>
-		<item value="IDL:Bonobo/Unknown:1.0"/>
-	</oaf_attribute>
-	<oaf_attribute name="name" type="string" _value="generic file moniker"/>
-	<oaf_attribute name="bonobo:moniker" type="stringv">
-		<item value="file:"/>
-	</oaf_attribute>
-</oaf_server>
-
-<oaf_server iid="OAFIID:Bonobo_Moniker_Item" type="factory"
-	location="OAFIID:Bonobo_Moniker_std_Factory">
-	<oaf_attribute name="repo_ids" type="stringv">
-		<item value="IDL:Bonobo/Moniker:1.0"/>
-		<item value="IDL:Bonobo/Unknown:1.0"/>
-	</oaf_attribute>
-	<oaf_attribute name="name" type="string" _value="generic item moniker"/>
-	<oaf_attribute name="bonobo:moniker" type="stringv">
-		<item value="!"/>
-	</oaf_attribute>
-</oaf_server>
-
-<oaf_server iid="OAFIID:Bonobo_Moniker_Cache" type="factory"
-	location="OAFIID:Bonobo_Moniker_std_Factory">
-	<oaf_attribute name="repo_ids" type="stringv">
-		<item value="IDL:Bonobo/Moniker:1.0"/>
-		<item value="IDL:Bonobo/Unknown:1.0"/>
-	</oaf_attribute>
-	<oaf_attribute name="name" type="string" _value="HTTP Moniker"/>
-	<oaf_attribute name="bonobo:moniker" type="stringv">
-		<item value="cache:"/>
-	</oaf_attribute>
-</oaf_server>
-
-<oaf_server iid="OAFIID:Bonobo_Moniker_Oaf" type="factory"
-	location="OAFIID:Bonobo_Moniker_std_Factory">
-	<oaf_attribute name="repo_ids" type="stringv">
-		<item value="IDL:Bonobo/Moniker:1.0"/>
-		<item value="IDL:Bonobo/Unknown:1.0"/>
-	</oaf_attribute>
-	<oaf_attribute name="name" type="string" _value="generic Oaf activation moniker"/>
-	<oaf_attribute name="bonobo:moniker" type="stringv">
-		<item value="oafiid:"/>
-	</oaf_attribute>
-</oaf_server>
-
-<oaf_server iid="OAFIID:Bonobo_Moniker_Query" type="factory"
-	location="OAFIID:Bonobo_Moniker_std_Factory">
-	<oaf_attribute name="repo_ids" type="stringv">
-		<item value="IDL:Bonobo/Moniker:1.0"/>
-		<item value="IDL:Bonobo/Unknown:1.0"/>
-	</oaf_attribute>
-	<oaf_attribute name="name" type="string" _value="generic Oaf query moniker"/>
-	<oaf_attribute name="bonobo:moniker" type="stringv">
-		<item value="query:"/>
-	</oaf_attribute>
-</oaf_server>
-
-<oaf_server iid="OAFIID:Bonobo_Moniker_New" type="factory"
-	location="OAFIID:Bonobo_Moniker_std_Factory">
-	<oaf_attribute name="repo_ids" type="stringv">
-		<item value="IDL:Bonobo/Moniker:1.0"/>
-		<item value="IDL:Bonobo/Unknown:1.0"/>
-	</oaf_attribute>
-	<oaf_attribute name="name" type="string" _value="generic factory 'new' moniker"/>
-	<oaf_attribute name="bonobo:moniker" type="stringv">
-		<item value="new:"/>
-	</oaf_attribute>
-</oaf_server>
-
-<oaf_server iid="OAFIID:Bonobo_MonikerExtender_file" type="factory"
-	location="OAFIID:Bonobo_Moniker_std_Factory">
+<oaf_server iid="OAFIID:GNOME_MonikerExtender_file" type="factory"
+	location="OAFIID:GNOME_Moniker_std_Factory">
 	<oaf_attribute name="repo_ids" type="stringv">
 		<item value="IDL:Bonobo/MonikerExtender:1.0"/>
 		<item value="IDL:Bonobo/Unknown:1.0"/>
@@ -93,19 +21,16 @@
 	<oaf_attribute name="name" type="string" _value="file MonikerExtender"/>
 </oaf_server>
 
-<oaf_server iid="OAFIID:Bonobo_MonikerExtender_stream" type="factory"
-	location="OAFIID:Bonobo_Moniker_std_Factory">
+<oaf_server iid="OAFIID:GNOME_Moniker_File" type="factory"
+	location="OAFIID:GNOME_Moniker_std_Factory">
 	<oaf_attribute name="repo_ids" type="stringv">
-		<item value="IDL:Bonobo/MonikerExtender:1.0"/>
+		<item value="IDL:Bonobo/Moniker:1.0"/>
 		<item value="IDL:Bonobo/Unknown:1.0"/>
 	</oaf_attribute>
-	<oaf_attribute name="bonobo:moniker_extender" type="stringv">
+	<oaf_attribute name="name" type="string" _value="generic file moniker"/>
+	<oaf_attribute name="bonobo:moniker" type="stringv">
 		<item value="file:"/>
-		<item value="http:"/>
-		<item value="gunzip:"/>
-		<item value="untar:"/>
 	</oaf_attribute>
-	<oaf_attribute name="name" type="string" _value="stream MonikerExtender"/>
 </oaf_server>
 
 </oaf_info>

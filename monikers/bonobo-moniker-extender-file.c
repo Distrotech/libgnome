@@ -16,7 +16,7 @@
 /* #include <libgnome/gnome-mime.h> */
 #include <liboaf/liboaf.h>
 
-#include "bonobo-moniker-std.h"
+#include "gnome-moniker-std.h"
 
 Bonobo_Unknown
 bonobo_file_extender_resolve (BonoboMonikerExtender *extender,
