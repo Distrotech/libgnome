@@ -63,14 +63,17 @@ bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
 			bonobo_object_corba_objref (BONOBO_OBJECT (storage)), ev);
 	}
 
-	retval = bonobo_moniker_use_extender ("OAFIID:Bonobo_MonikerExtender_file",
-					      moniker, options, requested_interface, ev);
+	retval = bonobo_moniker_use_extender (
+		"OAFIID:Bonobo_MonikerExtender_file",
+		moniker, options, requested_interface, ev);
 
-	if (BONOBO_EX (ev) || retval != CORBA_OBJECT_NIL)
+	if (BONOBO_EX (ev))
 		return CORBA_OBJECT_NIL;
-
-	retval = bonobo_moniker_use_extender ("OAFIID:Bonobo_MonikerExtender_stream",
-					      moniker, options, requested_interface, ev);
+	
+	if (retval == CORBA_OBJECT_NIL)
+		retval = bonobo_moniker_use_extender (
+			"OAFIID:Bonobo_MonikerExtender_stream",
+			moniker, options, requested_interface, ev);
 
 	return retval;
 }
