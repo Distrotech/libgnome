@@ -1,12 +1,13 @@
 # libgnome sk.po
-# Copyright (C) 2001, 2002, 2003 Free Software Foundation, Inc.
-# Marcel Telka <marcel@telka.sk>, 2001, 2002, 2003.
+# Copyright (C) 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+# Marcel Telka <marcel@telka.sk>, 2001, 2002, 2003, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2004-02-03 10:27+0100\n"
-"PO-Revision-Date: 2003-08-26 07:13+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-22 16:00+0100\n"
+"PO-Revision-Date: 2004-02-22 16:09+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -778,6 +779,55 @@ msgstr "Či zobraziť merač stavového riadku vpravo"
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Či použiť používateľské písmo v gtk+ aplikáciách."
 
+#: schemas/desktop_gnome_lockdown.schemas.in.h:1
+msgid "Disable command line"
+msgstr "Deaktivovať príkazový riadok"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable print setup"
+msgstr "Deaktivovať nastavenie tlače"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:3
+msgid "Disable printing"
+msgstr "Deaktivovať tlač"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:4
+msgid "Disable saving files to disk"
+msgstr "Deaktivovať ukladanie súborov na disk"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:5
+msgid ""
+"Prevent the user from accessing the terminal or specifying a command line to "
+"be executed. For example, this would disable access to the panel's \"Run "
+"Application\" dialog."
+msgstr ""
+"Nepovoliť používateľovi prístup k terminálu alebo zadať príkazový riadok na spustenie. "
+"Napríklad, toto by deaktivovalo prístup k dialógovému oknu panela \"Spustiť aplikáciu\"."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all application's \"Print Setup\" dialogs."
+msgstr ""
+"Nepovoliť používateľovi upravovať nastavenia tlače. Napríklad, toto by "
+"deaktivovalo prístup k dialógovým oknám \"Nastavenie tlače\" všetkých aplikácií."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:7
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all application's \"Print\" dialogs."
+msgstr ""
+"Nepovoliť používateľovi tlačiť. Napríklad, toto by znemožnilo prístup k dialógovým "
+"oknám \"Tlačiť\" všetkých aplikácií."
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:8
+msgid ""
+"Prevent the user from saving files to disk. For example, this would disable "
+"access to all application's \"Save as\" dialogs."
+msgstr ""
+"Nepovoliť používateľovi ukladať súbory na disk. Napríklad, toto by znemožnilo "
+"prístup k dialógovým oknám \"Uložiť ako\" všetkých aplikácií."
+
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
 msgstr "Názov súboru zvukového návestia, ktorý má byť prehratý"
@@ -956,81 +1006,3 @@ msgstr "Či je alebo nie je povolené uzamykanie klávesnice."
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Či môže byť alebo nemôže byť odložená obrazovka prerušeného písania."
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Ako obsluhovať URL gpomocníka"
-
-#~ msgid "How to handle http URLs"
-#~ msgstr "Ako obsluhovať URL http"
-
-#~ msgid "How to handle https URLs"
-#~ msgstr "Ako obsluhovať URL https"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Ako obsluhovať URL stránok info"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Ako obsluhovať URL manuálových stránok"
-
-#~ msgid "How to handle trash URLs"
-#~ msgstr "Ako obsluhovať URL koša"
-
-#~ msgid "Run program in terminal"
-#~ msgstr "Spustiť program v termináli"
-
-#~ msgid "Set to true to have a program specified in command handle http URLs"
-#~ msgstr ""
-#~ "Nastaviť na true, aby sa použil program zadaný v príkaze na obsluhu URL "
-#~ "http"
-
-#~ msgid "Set to true to have a program specified in command handle https URLs"
-#~ msgstr ""
-#~ "Nastaviť na true, aby sa použil program zadaný v príkaze na obsluhu https "
-#~ "URL"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Nastaviť na true, aby sa použil program zadaný v programy/gpomocník na "
-#~ "obsluhu URL gpomocníka"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Nastaviť na true, aby sa použil program zadaný v programy/info na obsluhu "
-#~ "URL stránok info"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Nastaviť na true, aby sa použil program zadaný v programy/man na obsluhu "
-#~ "URL manuálových stránok"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in trash/command handle trash URLs"
-#~ msgstr ""
-#~ "Nastaviť na true, aby sa použil program zadaný v kôš/príkaz na obsluhu "
-#~ "URL koša"
-
-#~ msgid "True if the program to handle this URL should be run in a terminal"
-#~ msgstr ""
-#~ "Nastavené, ak program na obsluhu tohoto URL má byť spustený v termináli"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "URL ovládač pre stránky gpomocníka"
-
-#~ msgid "URL handler for http uris"
-#~ msgstr "URL ovládač pre http uri"
-
-#~ msgid "URL handler for https uris"
-#~ msgstr "URL ovládač pre https uri"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "URL ovládač pre stránky info"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "URL ovládač pre manuálové stránky"
-
-#~ msgid "URL handler for trash pages"
-#~ msgstr "URL ovládač pre stránky koša"
