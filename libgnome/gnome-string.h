@@ -8,6 +8,5 @@ gchar **gnome_string_split (gchar *string,
 gchar * gnome_string_join  (gchar *separator, ...);
 gchar * gnome_string_joinv (gchar *separator,
 			    gchar **strings);
-inline
 gchar * gnome_string_chomp (gchar *astring,
 			    gboolean in_place);
