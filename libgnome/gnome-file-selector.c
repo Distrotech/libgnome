@@ -228,8 +228,6 @@ add_file_handler (GnomeSelector *selector, const gchar *uri, gint position,
     async_data->uri = gnome_vfs_uri_new (uri);
     async_data->position = position;
 
-    gnome_selector_async_handle_ref (async_data->async_handle);
-
     gnome_vfs_uri_ref (async_data->uri);
     gtk_object_ref (GTK_OBJECT (async_data->fselector));
 
@@ -278,11 +276,7 @@ add_directory_async_done_cb (GnomeFileSelectorAsyncData *async_data)
 
     g_free (path);
 
-    /* We need to set this to NULL here since the following unref may do
-     * a finalize which results in free_the_async_data_cb() being called.
-     */
-    async_data->async_handle = NULL;
-    gnome_selector_async_handle_unref (async_handle);
+    _gnome_selector_async_handle_remove (async_handle, async_data);
 }
 
 static void
@@ -403,7 +397,6 @@ add_directory_handler (GnomeSelector *selector, const gchar *uri, gint position,
     async_data->async_handle = async_handle;
 
     gnome_vfs_uri_ref (async_data->uri);
-    gnome_selector_async_handle_ref (async_data->async_handle);
     gtk_object_ref (GTK_OBJECT (fselector));
 
     _gnome_selector_async_handle_add (async_handle, async_data,
@@ -471,7 +464,7 @@ activate_entry_handler (GnomeSelector *selector)
 			       (selector));
 
     text = gnome_selector_get_entry_text (selector);
-    /* gnome_selector_add_file (selector, text, 0, FALSE); */
+    gnome_selector_add_file (selector, NULL, text, 0, FALSE, NULL, NULL);
     g_free (text);
 }
 
@@ -587,8 +580,6 @@ check_uri_handler (GnomeSelector *selector, const gchar *uri,
     async_data->type = GNOME_SELECTOR_ASYNC_TYPE_CHECK_FILENAME;
     async_data->fselector = fselector;
     async_data->uri = gnome_vfs_uri_new (uri);
-
-    gnome_selector_async_handle_ref (async_data->async_handle);
 
     gnome_vfs_uri_ref (async_data->uri);
     gtk_object_ref (GTK_OBJECT (async_data->fselector));
