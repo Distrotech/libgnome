@@ -26,12 +26,18 @@
 #include <libgnome/gnome-defs.h>
 #include <stdlib.h>
 #include <liboaf/liboaf.h>
+
+#define GCONF_ENABLE_INTERNALS 1
+#include <gconf/gconf.h>
+extern struct poptOption gconf_options[];
+
 #include <libgnome/libgnome.h>
 #include "oafgnome.h"
 #include "gnome-gconf.h"
 #include "gnome-messagebox.h"
 #include "gnome-stock-ids.h"
 #include <gtk/gtkmain.h>
+
 
 GConfValue *
 gnome_gconf_gtk_entry_get (GtkEntry       *entry,
@@ -85,14 +91,14 @@ gnome_gconf_gtk_entry_set (GtkEntry       *entry,
 
 	switch (value->type) {
 	case GCONF_VALUE_STRING:
-		gtk_entry_set_text (entry, gconf_value_string (value));
+		gtk_entry_set_text (entry, gconf_value_get_string (value));
 		break;
 	case GCONF_VALUE_INT:
-		g_snprintf (string, 32, "%d", gconf_value_int (value));
+		g_snprintf (string, 32, "%d", gconf_value_get_int (value));
 		gtk_entry_set_text (entry, string);
 		break;
 	case GCONF_VALUE_FLOAT:
-		g_snprintf (string, 32, "%f", gconf_value_float (value));
+		g_snprintf (string, 32, "%f", gconf_value_get_float (value));
 		gtk_entry_set_text (entry, string);
 		break;
 	default:
@@ -144,11 +150,11 @@ gnome_gconf_spin_button_set (GtkSpinButton *spin_button,
 
 	switch (value->type) {
 	case GCONF_VALUE_INT:
-		f = gconf_value_int (value);
+		f = gconf_value_get_int (value);
 		gtk_spin_button_set_value (spin_button, f);
 		break;
 	case GCONF_VALUE_FLOAT:
-		f = gconf_value_float (value);
+		f = gconf_value_get_float (value);
 		gtk_spin_button_set_value (spin_button, f);
 		break;
 	default:
@@ -201,10 +207,10 @@ gnome_gconf_gtk_radio_button_set (GtkRadioButton  *radio,
 
 	switch (value->type) {
 	case GCONF_VALUE_BOOL:
-		j = gconf_value_bool (value);
+		j = gconf_value_get_bool (value);
 		break;
 	case GCONF_VALUE_INT:
-		j = gconf_value_int (value);
+		j = gconf_value_get_int (value);
 		break;
 	default:
 		g_assert_not_reached();
@@ -259,10 +265,10 @@ gnome_gconf_gtk_range_set (GtkRange       *range,
 
 	switch (value->type) {
 	case GCONF_VALUE_FLOAT:
-		f = gconf_value_float (value);
+		f = gconf_value_get_float (value);
 		break;
 	case GCONF_VALUE_INT:
-		f = gconf_value_int (value);
+		f = gconf_value_get_int (value);
 		break;
 	default:
 		g_assert_not_reached();
@@ -308,10 +314,10 @@ gnome_gconf_gtk_toggle_button_set (GtkToggleButton *toggle,
 
 	switch (value->type) {
 	case GCONF_VALUE_BOOL:
-		gtk_toggle_button_set_active (toggle, gconf_value_bool (value));
+		gtk_toggle_button_set_active (toggle, gconf_value_get_bool (value));
 		break;
 	case GCONF_VALUE_INT:
-		gtk_toggle_button_set_active (toggle, gconf_value_int (value));
+		gtk_toggle_button_set_active (toggle, gconf_value_get_int (value));
 		break;
 	default:
 		g_assert_not_reached ();
@@ -355,7 +361,7 @@ gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
 	g_return_if_fail (value != NULL);
 	g_return_if_fail (value->type == GCONF_VALUE_STRING);
 
-	color = g_strndup (gconf_value_string (value), 17);
+	color = g_strndup (gconf_value_get_string (value), 17);
 	a = strtol (color  + 13, (char **)NULL, 16);
 	*(color +13) = '\0';
 	b = strtol (color  + 9, (char **)NULL, 16);
@@ -442,7 +448,7 @@ gnome_gconf_gnome_icon_entry_set (GnomeIconEntry *icon_entry,
 	g_return_if_fail (value->type == GCONF_VALUE_STRING);
 	g_return_if_fail (value != NULL);
 
-	/* gnome_icon_entry_set_icon (icon_entry, gconf_value_string (value)); */
+	/* gnome_icon_entry_set_icon (icon_entry, gconf_value_get_string (value)); */
 }
 
 GConfValue *
@@ -483,7 +489,7 @@ gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
                           NULL);
 
         if (subkey && *subkey) {
-                key = gconf_concat_key_and_dir(dir, subkey);
+                key = gconf_concat_dir_and_key(dir, subkey);
                 g_free(dir);
         } else {
                 /* subkey == "" */
@@ -504,7 +510,7 @@ gnome_gconf_get_app_settings_relative (const gchar *subkey)
                           NULL);
 
         if (subkey && *subkey) {
-                key = gconf_concat_key_and_dir(dir, subkey);
+                key = gconf_concat_dir_and_key(dir, subkey);
                 g_free(dir);
         } else {
                 /* subkey == "" */
@@ -520,7 +526,7 @@ gnome_gconf_get_app_settings_relative (const gchar *subkey)
 static void gnome_default_gconf_client_error_handler (GConfClient                  *client,
                                                       GConfClientParentWindowFunc   parent_func,
                                                       gpointer                      parent_user_data,
-                                                      GConfError                   *error);
+                                                      GError                       *error);
 
 
 static GConfClient* global_client = NULL;
@@ -608,11 +614,10 @@ error_idle_func(gpointer data)
         
         iter = pending_errors;
         while (iter != NULL) {
-                GConfError *error = iter->data;
+                GError *error = iter->data;
 
-                if (error->num == GCONF_ERROR_OVERRIDDEN) {
+                if (g_error_matches (error, GCONF_ERROR, GCONF_ERROR_OVERRIDDEN))
                         have_overridden = TRUE;
-                }
                 
                 iter = g_slist_next(iter);
         }
@@ -646,11 +651,11 @@ error_idle_func(gpointer data)
            that can be opened up if users are interested */
         iter = pending_errors;
         while (iter != NULL) {
-                GConfError *error = iter->data;
+                GError *error = iter->data;
 
-                fprintf(stderr, _("GConf error details: %s\n"), error->str);
+                fprintf(stderr, _("GConf error details: %s\n"), error->message);
 
-                gconf_error_destroy(error);
+                g_error_free(error);
                 
                 iter = g_slist_next(iter);
         }
@@ -671,7 +676,7 @@ static void
 gnome_default_gconf_client_error_handler (GConfClient                  *client,
                                           GConfClientParentWindowFunc   parent_func,
                                           gpointer                      parent_user_data,
-                                          GConfError                   *error)
+                                          GError                       *error)
 {
         gtk_object_ref(GTK_OBJECT(client));
         
@@ -683,7 +688,7 @@ gnome_default_gconf_client_error_handler (GConfClient                  *client,
         eid.parent_user_data = parent_user_data;
         eid.client = client;
         
-        pending_errors = g_slist_append(pending_errors, gconf_error_copy(error));
+        pending_errors = g_slist_append(pending_errors, g_error_copy(error));
 
         if (error_handler_idle == 0) {
                 error_handler_idle = gtk_idle_add(error_idle_func, NULL);
