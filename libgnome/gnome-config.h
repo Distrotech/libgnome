@@ -52,8 +52,10 @@ void gnome_config_clean_section  (char *path);
 
 /* Drops the information for a specific key */
 void gnome_config_clean_key (char *path);
-void gnome_config_set_prefix (char *path);
-void gnome_config_drop_prefix (void);
+
+/* Set an active prefix and remove an active prefix */
+void gnome_config_push_prefix (char *path);
+void gnome_config_pop_prefix (void);
 
 END_GNOME_DECLS
 

@@ -97,11 +97,21 @@ typedef struct {
 	char *path, *opath;
 } ParsedPath;
 
+struct _prefix_list {
+	char *p_prefix;
+	struct _prefix_list *p_back;
+};
+
+typedef struct _prefix_list prefix_list_t;
+
 /*
  * Prefix for all the configuration operations
  * iff the path does not begin with / or with #
  */
-static char *prefix;
+
+#define prefix (prefix_list ? prefix_list->p_prefix : NULL)
+
+static prefix_list_t *prefix_list;
 
 static TProfile *Current = 0;
 
@@ -667,16 +677,23 @@ gnome_config_set_bool (char *path, int new_value)
 }
 
 void
-gnome_config_set_prefix (char *path)
+gnome_config_push_prefix (char *path)
 {
-	prefix = strdup (path);
+	prefix_list_t *p = g_malloc (sizeof (prefix_list_t));
+
+	p->p_back = prefix_list;
+	p->p_prefix = strdup (path);
 }
 
 void
-gnome_config_drop_prefix (void)
+gnome_config_pop_prefix (void)
 {
-	if (!prefix)
+	prefix_list_t *p = prefix_list;
+	
+	if (!p)
 		return;
-	free (prefix);
-	prefix = 0;
+
+	free (p->p_prefix);
+	prefix_list = p->p_back;
+	free (p);
 }

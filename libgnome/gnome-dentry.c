@@ -69,12 +69,12 @@ gnome_desktop_entry_load (char *file)
 
 	prefix = g_copy_strings ("=", file, "=/Desktop Entry/", NULL);
 
-	gnome_config_set_prefix (prefix);
+	gnome_config_push_prefix (prefix);
 	g_free (prefix);
 
 	exec_file = gnome_config_get_string ("Exec");
 	if (!exec_file){
-		gnome_config_drop_prefix ();
+		gnome_config_pop_prefix ();
 		return 0;
 	}
 	try_file = gnome_config_get_string ("TryExec");
@@ -82,7 +82,7 @@ gnome_desktop_entry_load (char *file)
 		if (!gnome_is_program_in_path (try_file)){
 			g_free (try_file);
 			g_free (exec_file);
-			gnome_config_drop_prefix ();
+			gnome_config_pop_prefix ();
 			return 0;
 		}
 	}
@@ -122,7 +122,7 @@ gnome_desktop_entry_load (char *file)
 	} else {
 		newitem->small_icon = newitem->transparent_icon = 0;
 	}
-	gnome_config_drop_prefix ();
+	gnome_config_pop_prefix ();
 	return newitem;
 }
 
@@ -139,7 +139,7 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	gnome_config_clean_section(prefix);
 
 	prefix = g_copy_strings(prefix, "/", NULL);
-	gnome_config_set_prefix(prefix);
+	gnome_config_push_prefix(prefix);
 	g_free(prefix);
 
 	if (dentry->exec)
@@ -162,7 +162,7 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	if (dentry->type)
 		gnome_config_set_string("Type", dentry->type);
 
-	gnome_config_drop_prefix();
+	gnome_config_pop_prefix();
 	gnome_config_sync();
 }
 
