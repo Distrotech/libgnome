@@ -111,7 +111,6 @@ static char *lock_directory;
 #define LIST "list"
 #define LISTLEN 4
 
-
 
 
 /* Initialize the database.  Returns 0 on success.  */
@@ -141,6 +140,7 @@ lock (void)
 		/* We use a lock directory and not flock/fcntl because
 		   we want this to work when the database is on an NFS
 		   filesystem.  Sigh.  */
+
 		while (mkdir (lock_directory, 0)) {
 			if (errno != EEXIST) {
 				/* Don't know what to do here.  */
@@ -163,6 +163,30 @@ unlock (void)
 		database->sync (database, 0);
 		rmdir (lock_directory);
 	}
+}
+
+/**
+ * gnome_metadata_lock:
+ *
+ * Locks the metadata system.  Used if you are going to invoke
+ * many metadata operations to speed up metadata access.
+ */
+void
+gnome_metadata_lock ()
+{
+	lock ();
+}
+
+/**
+ * gnome_metadata_lock:
+ *
+ * Unlocks the metadata system.  Used if you are going to invoke
+ * many metadata operations to speed up metadata access.
+ */
+void
+gnome_metadata_unlock ()
+{
+	unlock ();
 }
 
 /* Set a piece of metadata.  */

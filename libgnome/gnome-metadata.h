@@ -94,6 +94,8 @@ void gnome_metadata_type_add (const char *type, const char *key,
 /* Remove a file type from the internal list.  */
 void gnome_metadata_type_remove (const char *type, const char *key);
 
+void gnome_metadata_lock (void);
+void gnome_metadata_unlock (void);
 END_GNOME_DECLS
 
 #endif /* GNOME_METADATA_H */
