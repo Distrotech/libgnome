@@ -63,7 +63,7 @@ bonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 	int dumb_argc = 1;
 	char *dumb_argv[] = {NULL};
 
-	dumb_argv[0] = program_invocation_name;
+	dumb_argv[0] = g_get_prgname ();
 
 	bonobo_init (&dumb_argc, dumb_argv);
 }
@@ -127,7 +127,7 @@ bonobo_activation_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_i
 		int dumb_argc = 1;
 		char *dumb_argv[] = {NULL};
 
-		dumb_argv[0] = program_invocation_name;
+		dumb_argv[0] = g_get_prgname ();
 		(void) bonobo_activation_orb_init (&dumb_argc, dumb_argv);
 		
 		bonobo_activation_postinit (program, mod_info);

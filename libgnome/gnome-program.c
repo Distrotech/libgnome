@@ -1240,12 +1240,9 @@ gnome_program_preinit (GnomeProgram *program,
     if (program->_priv->state != APP_CREATE_DONE)
 	return NULL;
 
-    /* On non-glibc systems, this is not set up for us.  */
-    if (!program_invocation_name) {
-	program_invocation_name = g_strdup (argv[0]);
-	program_invocation_short_name = g_path_get_basename (program_invocation_name);
-    }
-
+    /* Store invocation name */
+    g_set_prgname (argv[0]);
+    
     /* 0. Misc setup */
     if (program->_priv->app_id)
 	g_free (program->_priv->app_id);

@@ -266,15 +266,8 @@ gnome_program_initv (GType type,
 		     int argc, char **argv,
 		     const char *first_property_name, va_list args);
 
-
-/* Some systems, like Red Hat 4.0, define these but don't declare
-   them.  Hopefully it is safe to always declare them here.  */
-#ifndef program_invocation_short_name
-char *program_invocation_short_name;
-#endif
-#ifndef program_invocation_name
-char *program_invocation_name;
-#endif
+const gchar * gnome_program_get_invocation_name       () G_GNUC_CONST;
+const gchar * gnome_program_get_short_invocation_name () G_GNUC_CONST;
 
 G_END_DECLS
 

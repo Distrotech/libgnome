@@ -1,3 +1,9 @@
+2001-12-07  ERDI Gergo  <cactus@cactus.rulez.org>
+
+	* gnome-program.h: Removed buggy buggy BUGGY
+	program_invocation_name public variable. If you've used it in your
+	code, use g_get_prgname from Glib instead.
+
 2001-12-04  Richard Hestilow  <hestilow@ximian.com>
 
 	* gnome-exec.c (gnome_prepend_terminal_to_vector): Don't
