@@ -174,8 +174,9 @@ is_loaded (const char *filename, TSecHeader **section)
 	struct stat st;
 	
 	while (p){
-		if (!strcasecmp (filename, p->filename)){
-			stat (filename, &st);
+		if (strcasecmp (filename, p->filename) == 0){
+			if (stat (filename, &st) == -1)
+				st.st_mtime = 0;
 			if (p->mtime != st.st_mtime)
 				return 0;
 			Current = p;
@@ -381,7 +382,7 @@ access_config (access_type mode, const char *section_name,
 		*def_used = 0;
 	if (!is_loaded (filename, &section)){
 		struct stat st;
-		stat (filename, &st);
+		if (stat (filename, &st) == -1) st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
@@ -560,7 +561,7 @@ gnome_config_init_iterator (const char *path)
 	
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
-		stat (pp->file, &st);
+		if (stat (pp->file, &st) == -1) st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
@@ -600,7 +601,7 @@ gnome_config_init_iterator_sections (const char *path)
 	
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
-		stat (pp->file, &st);
+		if (stat (pp->file, &st) == -1) st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;

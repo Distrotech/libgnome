@@ -27,6 +27,7 @@ libgnome_la_SOURCES = \
 	gnome-fileconvert.c	\
 	gnome-history.c		\
 	gnome-mime.c		\
+	gnome-net.c		\
 	gnome-score.c		\
 	gnome-string.c		\
 	gnome-triggers.c
@@ -43,6 +44,7 @@ libgnomeinclude_HEADERS = \
 	gnome-history.h		\
 	gnome-i18n.h 		\
 	gnome-mime.h		\
+	gnome-net.h		\
 	gnome-triggers.h 	\
 	gnome-score.h		\
 	gnome-string.h		\

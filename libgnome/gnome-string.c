@@ -55,7 +55,7 @@ gchar **gnome_string_split(gchar *string, gchar *delim, gint max_tokens)
 }
 
 gchar *
-gnome_string_join(gchar *separator, gchar *first, ...)
+gnome_string_join(gchar *separator, ...)
 {
 	va_list l;
 	gint nstrings, i;
@@ -64,7 +64,7 @@ gnome_string_join(gchar *separator, gchar *first, ...)
 	
 	/* Count number of strings */
 
-	va_start(l, first);
+	va_start(l, separator);
 	for (nstrings = 0; va_arg(l, gchar *); nstrings++);
 	va_end(l);
 
@@ -72,7 +72,7 @@ gnome_string_join(gchar *separator, gchar *first, ...)
 
 	strings = g_new(gchar *, nstrings);
 
-	va_start(l, first);
+	va_start(l, separator);
 
 	for (i = 0; i < nstrings; i++)
 		strings[i] = va_arg(l, gchar *);
