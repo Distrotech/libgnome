@@ -27,7 +27,7 @@
 #include <glib.h>
 #include <libgnomebase/gnome-defs.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 typedef struct _GnomeURLDisplayContext GnomeURLDisplayContext;
 
@@ -87,5 +87,5 @@ void gnome_url_display_context_free(GnomeURLDisplayContext *display_context,
 /* returns FALSE on error, TRUE if everything went fine */
 gboolean gnome_url_show(const char *url);
 
-END_GNOME_DECLS
+G_END_DECLS
 #endif

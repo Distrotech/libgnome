@@ -27,7 +27,7 @@
 #include <glib.h>
 #include <libgnomebase/gnome-defs.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 /* Return a command which should be used to run a program on HOST.
    Typically this command will be something like "rsh".  If HOST is
@@ -40,6 +40,6 @@ void gnome_remote_get_command (const char *host, gint *argcp, char ***argvp);
    is NULL, the default command is set.  */
 void gnome_remote_set_command (const char *host, gint argc, const char * const argv[]);
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif /* GNOME_REMOTE_H */

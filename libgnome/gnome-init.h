@@ -31,7 +31,7 @@
 
 #include <gconf/gconf-client.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 GConfClient *
 gnome_program_get_gconf_client (GnomeProgram *program);
@@ -43,6 +43,6 @@ extern GnomeModuleInfo gnome_gconf_module_info;
 extern GnomeModuleInfo gnome_vfs_module_info;
 extern GnomeModuleInfo libgnome_module_info;
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif /* LIBGNOMEINIT_H */

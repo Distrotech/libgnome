@@ -32,7 +32,7 @@
 #include <libgnomebase/gnome-defs.h>
 #include <libgnomebase/gnome-program.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 /* locate a program in $PATH, or return NULL if not found */
 char *gnome_is_program_in_path (const gchar *program);
@@ -62,6 +62,6 @@ char ** g_copy_vector    (const char ** vec);
 /* Find the name of the user's shell.  */
 char *gnome_util_user_shell (void);
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif

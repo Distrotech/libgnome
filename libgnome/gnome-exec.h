@@ -30,7 +30,7 @@
 #include <glib.h>
 #include <libgnomebase/gnome-defs.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 
 /* Fork and execute some program in the background.  Returns -1 on
@@ -74,6 +74,6 @@ int gnome_execute_terminal_shell_fds (const char *dir,
 				      const char *commandline,
 				      gboolean close_fds);
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif /* GNOME_EXEC_H */

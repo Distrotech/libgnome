@@ -31,7 +31,7 @@
 
 /* WARNING ____ IMMATURE API ____ liable to change */
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 /* Returns -1 if no conversion is possible */
 gint
@@ -40,6 +40,6 @@ gnome_file_convert_fd(gint fd, const char *fromtype, const char *totype);
 gint
 gnome_file_convert(const char *filename, const char *fromtype, const char *totype);
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif /* __GNOME_FILECONVERT_H__ */

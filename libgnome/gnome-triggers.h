@@ -29,7 +29,7 @@
 #include <glib.h>
 #include <libgnomebase/gnome-defs.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 typedef enum {
 	GTRIG_NONE,
@@ -80,6 +80,6 @@ void gnome_triggers_do           (const char *msg,
 void gnome_triggers_vdo          (const char *msg, const char *level,
 				  const char *supinfo[]);
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif /* __GNOME_TRIGGERS_H__ */

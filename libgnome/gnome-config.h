@@ -29,7 +29,7 @@
 #include <glib.h>
 #include <libgnomebase/gnome-defs.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 /* Prototypes for the profile management functions */
 
@@ -287,6 +287,6 @@ char *gnome_config_assemble_vector (int argc, const char *const argv []);
 void gnome_config_set_set_handler(void (*func)(void *),void *data);
 void gnome_config_set_sync_handler(void (*func)(void *),void *data);
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif

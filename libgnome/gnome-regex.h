@@ -26,7 +26,7 @@
 
 #include <libgnomebase/gnome-defs.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 #include <sys/types.h>
 #include <regex.h>
@@ -59,6 +59,6 @@ regex_t *gnome_regex_cache_compile (GnomeRegexCache *rxc, const char *pattern,
 				    int flags);
 
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif /* GNOME_REGEX_H */

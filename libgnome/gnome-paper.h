@@ -30,7 +30,7 @@
 #include <glib.h>
 #include <libgnomebase/gnome-defs.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 typedef struct _GnomePaper GnomePaper;
 typedef struct _GnomeUnit  GnomeUnit;
@@ -68,6 +68,6 @@ double           gnome_unit_convert     (double othervalue,
 					 const GnomeUnit *from,
 					 const GnomeUnit *to);
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif 

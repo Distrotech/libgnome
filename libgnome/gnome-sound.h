@@ -29,7 +29,7 @@
 #include <glib.h>
 #include <libgnomebase/gnome-defs.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 /* Use this with the Esound functions */
 extern int gnome_sound_connection;
@@ -46,6 +46,6 @@ int gnome_sound_sample_load(const char *sample_name, const char *filename);
 /* Loads sample, plays sample, frees sample */
 void gnome_sound_play (const char * filename);
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif /* __GNOME_SOUND_H__ */

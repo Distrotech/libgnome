@@ -35,7 +35,7 @@
 #include <libgnomebase/gnome-defs.h>
 #include <libgnomebase/gnome-i18n.h>
 
-BEGIN_GNOME_DECLS
+G_BEGIN_DECLS
 
 const char *	gnome_i18n_get_language			(void);
 
@@ -91,6 +91,6 @@ void		gnome_i18n_pop_c_numeric_locale		(void);
    be called by user code.  */
 void		gnome_i18n_init				(void);
 
-END_GNOME_DECLS
+G_END_DECLS
 
 #endif /* __GNOME_I18NP_H__ */
