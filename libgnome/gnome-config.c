@@ -70,6 +70,7 @@ enum {
 	FirstBrace,
 	OnSecHeader,
 	IgnoreToEOL,
+	IgnoreToEOLFirst,
 	KeyDef,
 	KeyDefOnKey,
 	KeyValue
@@ -103,8 +104,8 @@ typedef struct TProfile {
 	struct TProfile *link;
 	time_t last_checked;
 	time_t mtime;
-	int written_to;
-	int to_be_deleted;
+	gboolean written_to;
+	gboolean to_be_deleted;
 } TProfile;
 
 /*
@@ -339,8 +340,12 @@ load (const char *file)
 			break;
 
 		case IgnoreToEOL:
+		case IgnoreToEOLFirst:
 			if (c == '\n'){
-				state = KeyDef;
+				if (state == IgnoreToEOLFirst)
+					state = FirstBrace;
+				else
+					state = KeyDef;
 				next = CharBuffer;
 			}
 			break;
@@ -349,7 +354,10 @@ load (const char *file)
 		case KeyDef:
 		case KeyDefOnKey:
 			if (c == '#') {
-				state = IgnoreToEOL;
+				if (state == FirstBrace)
+					state = IgnoreToEOLFirst;
+				else
+					state = IgnoreToEOL;
 				break;
 			}
 
@@ -373,6 +381,7 @@ load (const char *file)
 	    
 			if (c == '\n' || overflow) { /* Abort Definition */
 				next = CharBuffer;
+				state = KeyDef;
                                 break;
                         }
 	    
@@ -1470,46 +1479,47 @@ _gnome_config_get_translated_string_with_default (const char *path,
 
 	while (!value && language_list) {
 		const char *lang= language_list->data;
+		gchar *tkey;
 
-		if (strcmp (lang, "C") == 0) {
-			value = _gnome_config_get_string_with_default (path, def, priv);
-			if (value)
-				return value;
-		} else {
-			gchar *tkey;
+		tkey = g_strconcat (path, "[", lang, "]", NULL);
+		value = _gnome_config_get_string_with_default (tkey, def, priv);
+		g_free (tkey);
 
-			tkey = g_strconcat (path, "[", lang, "]", NULL);
-			value = _gnome_config_get_string_with_default (tkey, def, priv);
-			g_free (tkey);
+		if (!value || *value == '\0') {
+			size_t n;
 
-			if (!value || *value == '\0') {
-				size_t n;
+			g_free (value);
+			value= NULL;
 
-				g_free (value);
-				value= NULL;
-
-				/* Sometimes the locale info looks
-				   like `pt_PT@verbose'.  In this case
-				   we want to try `pt' as a backup.  */
-				n = strcspn (lang, "@_");
-				if (lang[n]) {
-					char *copy = g_strndup (lang, n);
-					tkey = g_strconcat (path, "[",
-							    copy, "]",
-							    NULL);
-					value = _gnome_config_get_string_with_default (tkey, def, priv);
-					g_free (tkey);
-					g_free (copy);
-					if (! value || *value == '\0') {
-						g_free (value);
-						value = NULL;
-					}
+			/* Sometimes the locale info looks
+			   like `pt_PT@verbose'.  In this case
+			   we want to try `pt' as a backup.  */
+			n = strcspn (lang, "@_");
+			if (lang[n]) {
+				char *copy = g_strndup (lang, n);
+				tkey = g_strconcat (path, "[",
+						    copy, "]",
+						    NULL);
+				value = _gnome_config_get_string_with_default (tkey, def, priv);
+				g_free (tkey);
+				g_free (copy);
+				if (! value || *value == '\0') {
+					g_free (value);
+					value = NULL;
 				}
 			}
 		}
 		language_list = language_list->next;
 	}
 
+	if (!value){
+		value = _gnome_config_get_string_with_default (path, def, priv);
+
+		if (!value || *value == '\0'){
+			g_free (value);
+			value = NULL;
+		}
+	}
 	return value;
 }
 

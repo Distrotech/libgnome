@@ -1,3 +1,13 @@
+Mon Mar 20 20:36:35 2000  George Lebl <jirka@5z.com>
+
+	* gnome-config.c: Apply patch from miguel made to gnome-libs-1-0,
+	  fix segfault when loading illegal files by correctly setting state
+	  after ignore.  also correctly set state after premature end of line
+	
+	* gnome-dentry.c: when saving names and comments, save them to the
+	  default (no language) first just in case there was no setting,
+	  fixes first part of #7300
+
 2000-02-24  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnome-util.c (g_concat_dir_and_file): dir or file being NULL is
