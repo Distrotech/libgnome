@@ -14,7 +14,7 @@
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
 #include <storage-modules/bonobo-storage-fs.h>
-#include <bonobo/bonobo-stream-fs.h>
+#include <storage-modules/bonobo-stream-fs.h>
 #include <bonobo/bonobo-storage-plugin.h>
 
 static BonoboStorageClass *bonobo_storage_fs_parent_class;

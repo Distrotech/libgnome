@@ -14,7 +14,7 @@
 #include <sys/stat.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
-#include <bonobo/bonobo-stream-fs.h>
+#include <storage-modules/bonobo-stream-fs.h>
 #include <errno.h>
 
 static BonoboStreamClass *bonobo_stream_fs_parent_class;
