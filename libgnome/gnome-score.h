@@ -4,6 +4,17 @@
 #include <time.h>
 
 BEGIN_GNOME_DECLS
+/*
+ * gnome_score_init()
+ * creates a child process with which we communicate through a pair of pipes,
+ * then drops privileges.
+ * this should be called as the first statement in main().
+ * returns 0 on success, drops privs and returns -1 on failure
+ */
+
+gint
+gnome_score_init (const gchar * gamename);
+
 /* Returns the position in the top-ten starting from 1, or 0 if it isn't in the table */
 gint
 gnome_score_log(gfloat score,
