@@ -374,11 +374,8 @@ gnome_triggers_play_sound(const char *sndname)
   if(sid < 0) return;
   sid--;
   esd_sample_play(gnome_sound_connection, sid);
-#else
-  g_warning("Request to play sound name %s - esound support not available\n",
-	    sndname);
 #endif
-
+  /* If there's no esound, this is just a no-op */
 }
 
 void
