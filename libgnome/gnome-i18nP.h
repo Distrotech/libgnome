@@ -35,6 +35,8 @@ BEGIN_GNOME_DECLS
 
 const char *gnome_i18n_get_language(void);
 
+GList      *gnome_i18n_get_language_list (const gchar *category_name);
+
 END_GNOME_DECLS
 
 #endif /* __GNOME_UTIL_H__ */
