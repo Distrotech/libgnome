@@ -1434,9 +1434,11 @@ _gnome_config_get_float_with_default (const char *path, gboolean *def, gint priv
 	}
 
         /* make sure we read values in a consistent manner */
-        old_locale = setlocale (LC_NUMERIC, "C");
+	old_locale = g_strdup (setlocale (LC_NUMERIC, NULL));
+        setlocale (LC_NUMERIC, "C");
 	v = strtod(r, NULL);
         setlocale (LC_NUMERIC, old_locale);
+	g_free (old_locale);
 
 	release_path (pp);
 	return v;
@@ -1888,9 +1890,11 @@ _gnome_config_set_float (const char *path, gdouble new_value, gint priv)
 	pp = parse_path (path, priv);
 
         /* make sure we write values in a consistent manner */
-        old_locale = setlocale (LC_NUMERIC, "C");
+	old_locale = g_strdup (setlocale (LC_NUMERIC, NULL));
+        setlocale (LC_NUMERIC, "C");
 	g_snprintf (floatbuf, sizeof(floatbuf), "%.17g", new_value);
         setlocale (LC_NUMERIC, old_locale);
+	g_free (old_locale);
 
 	r = access_config (SET, pp->section, pp->key, floatbuf, pp->file,
 			   NULL);
