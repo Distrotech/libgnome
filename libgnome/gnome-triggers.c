@@ -94,6 +94,7 @@ gnome_triggers_init(void)
   char *val;
   int n;
 
+#if 0
   fn = gnome_datadir_file("gnome/triggers/list");
   if(fn) {
     gnome_triggers_readfile(fn);
@@ -105,7 +106,10 @@ gnome_triggers_init(void)
     gnome_triggers_readfile(fn);
     g_free(fn);
   }
+#endif
 
+  if(gnome_config_get_bool("/sound/system/settings/start_esd=1")
+     && gnome_config_get_bool("/sound/system/settings/event_sounds=1")) {
 #ifdef HAVE_ESD
 #define DO_SAMPLE_LOAD(n, name) \
   trigger_msg_sample_ids[n] = esd_sample_getid(gnome_sound_connection, name); \
@@ -116,22 +120,23 @@ gnome_triggers_init(void)
     g_free(val); \
   }
 
-  DO_SAMPLE_LOAD(0, "info");
-  DO_SAMPLE_LOAD(1, "warning");
-  DO_SAMPLE_LOAD(2, "error");
-  DO_SAMPLE_LOAD(3, "question");
-  DO_SAMPLE_LOAD(4, "generic");
+    DO_SAMPLE_LOAD(0, "info");
+    DO_SAMPLE_LOAD(1, "warning");
+    DO_SAMPLE_LOAD(2, "error");
+    DO_SAMPLE_LOAD(3, "question");
+    DO_SAMPLE_LOAD(4, "generic");
 #endif
 
-  val = gnome_config_file("/sound/events");
-  if(val)
-    gnome_triggers_read_path(val);
-  g_free(val);
+    val = gnome_config_file("/sound/events");
+    if(val)
+      gnome_triggers_read_path(val);
+    g_free(val);
 
-  val = gnome_util_home_file("/sound/events");
-  if(val)
-    gnome_triggers_read_path(val);
-  g_free(val);
+    val = gnome_util_home_file("/sound/events");
+    if(val)
+      gnome_triggers_read_path(val);
+    g_free(val);
+  }
 }
 
 /* snarfed almost directly from sound-properties. */
