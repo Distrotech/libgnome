@@ -15,47 +15,43 @@ INCLUDES = \
 	-DG_LOG_DOMAIN=\"GnomeMonikers\"
 
 EXTRA_DIST = \
-	Bonobo_Moniker_ditem.oaf.in
+	Bonobo_Moniker_ditem.server.in
 
-moniker_LTLIBRARIES = libmoniker_ditem.la
-monikerdir = $(libdir)/bonobo/monikers
+Bonobo_Moniker_ditem.server.in: Bonobo_Moniker_ditem.server.in.in
+	sed -e "s|\@MONIKER_BINDIR\@|$(bindir)|" $< > $@
 
-# Desktop Item specific bits...
+bin_PROGRAMS = bonobo-moniker-ditem
 
-# Data
-gnomesysconfdir = $(sysconfdir)/gnome-2.0
-gnomesysconf_DATA = gnome-desktop.xmldb
+serverdir = $(libdir)/bonobo/servers
+server_DATA = Bonobo_Moniker_ditem.server
+
+@XML_I18N_MERGE_SERVER_RULE@
 
 # DItem moniker
 
-Bonobo_Moniker_ditem.oaf : $(srcdir)/Bonobo_Moniker_ditem.oaf.in $(top_builddir)/config.status
-	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir)|" \
-	$(srcdir)/Bonobo_Moniker_ditem.oaf.in > Bonobo_Moniker_ditem.oaf 
-
-libmoniker_ditem_la_SOURCES =	 		\
+bonobo_moniker_ditem_SOURCES =	 		\
 	bonobo-moniker-ditem.c 			\
 	bonobo-config-ditem.c			\
 	bonobo-config-ditem.h			\
 	bonobo-config-ditem-utils.c		\
 	bonobo-config-ditem-utils.h
 
-libmoniker_ditem_la_LIBADD = \
+bonobo_moniker_ditem_LDADD =			\
 	../libgnome/libgnome-2.la		\
 	$(MONIKER_LIBS)
 
 # DItem tests ...
 
-noinst_PROGRAMS = test-ditem desktop-item-boot
+noinst_PROGRAMS = test-ditem
 
 test_ditem_SOURCES = \
+	bonobo-config-ditem.c			\
+	bonobo-config-ditem.h			\
+	bonobo-config-ditem-utils.c		\
+	bonobo-config-ditem-utils.h		\
 	test-ditem.c
 
 test_ditem_LDADD = \
 	../libgnome/libgnome-2.la		\
 	$(MONIKER_LIBS)
 
-desktop_item_boot_SOURCES = \
-	desktop-item-boot.c
-
-desktop_item_boot_LDADD = \
-	../libgnome/libgnome-2.la

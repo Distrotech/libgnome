@@ -1,91 +1,13 @@
 /* -*- Mode: C; c-set-style: gnu indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 #include <libbonobo.h>
 #include <libgnome/Gnome.h>
-#include <libgnome/gnome-ditem.h>
 #include <locale.h>
 #include <stdlib.h>
 
 #include "bonobo-config-ditem.h"
 
-static void G_GNUC_UNUSED
-boot_ditem (Bonobo_ConfigDatabase db)
-{
-	BonoboArg *arg;
-	CORBA_Environment ev;
-
-	arg = bonobo_arg_new (TC_GNOME_DesktopEntry);
-	bonobo_pbclient_set_value (db, "/Desktop Entry", arg, NULL);
-	bonobo_arg_release (arg);
-
-	/* For some strange reason, this function causes the config moniker
-	 * (bonobo-config-xmldb) to crash after successfully writing the file.
-	 * So call this function to initialize the file and the comment it out.
-	 */
-
-	CORBA_exception_init (&ev);
-	Bonobo_ConfigDatabase_sync (db, &ev);
-	CORBA_exception_free (&ev);
-}
-
-static void G_GNUC_UNUSED
-test_ditem (Bonobo_ConfigDatabase db)
-{
-	GnomeDesktopItem *ditem;
-	GNOME_DesktopEntryType type;
-	const gchar *text;
-	GSList *list, *c;
-
-	ditem = gnome_desktop_item_new_from_file ("/tmp/test.desktop",
-						  GNOME_DESKTOP_ITEM_LOAD_ONLY_IF_EXISTS);
-
-	text = gnome_desktop_item_get_location (ditem);
-	g_print ("LOCATION: |%s|\n", text);
-
-	type = gnome_desktop_item_get_type (ditem);
-	g_print ("TYPE: |%d|\n", type);
-
-	text = gnome_desktop_item_get_command (ditem);
-	g_print ("COMMAND: |%s|\n", text);
-
-	text = gnome_desktop_item_get_icon_path (ditem);
-	g_print ("ICON PATH: |%s|\n", text);
-
-	text = gnome_desktop_item_get_name (ditem, NULL);
-	g_print ("NAME: |%s|\n", text);
-
-	text = gnome_desktop_item_get_name (ditem, "de");
-	g_print ("NAME (de): |%s|\n", text);
-
-	text = gnome_desktop_item_get_local_name (ditem);
-	g_print ("LOCAL NAME: |%s|\n", text);
-
-	text = gnome_desktop_item_get_comment (ditem, NULL);
-	g_print ("COMMENT: |%s|\n", text);
-
-	text = gnome_desktop_item_get_comment (ditem, "de");
-	g_print ("COMMENT (de): |%s|\n", text);
-
-	text = gnome_desktop_item_get_local_comment (ditem);
-	g_print ("LOCAL COMMENT: |%s|\n", text);
-
-	list = gnome_desktop_item_get_attributes (ditem);
-	for (c = list; c; c = c->next) {
-		const gchar *attr = c->data;
-
-		g_print ("ATTRIBUTE: |%s|\n", attr);
-	}
-
-#if 1
-	gnome_desktop_item_set_name (ditem, "de", "Neu gesetzt!");
-
-	gnome_desktop_item_save (ditem, NULL);
-#endif
-
-	gnome_desktop_item_save (ditem, "/tmp/foo.desktop");
-}
-
 #if 0
-static void G_GNUC_UNUSED
+static void
 test_builtin (void)
 {
 	Bonobo_ConfigDatabase db, parent_db;
@@ -133,12 +55,14 @@ main (int argc, char **argv)
 
 	// test_builtin ();
 
-	// db = bonobo_config_ditem_new ("/tmp/test.desktop");
-
+#if 1
+	db = bonobo_config_ditem_new ("/tmp/test.desktop");
+#else
         CORBA_exception_init (&ev);
 	db = bonobo_get_object ("ditem:/tmp/test.desktop", "Bonobo/ConfigDatabase", &ev);
 	g_assert (!BONOBO_EX (&ev));
         CORBA_exception_free (&ev);
+#endif
 
         CORBA_exception_init (&ev);
 	default_db = bonobo_get_object ("xmldb:/tmp/foo.xml", "Bonobo/ConfigDatabase", &ev);
@@ -148,14 +72,11 @@ main (int argc, char **argv)
 	g_assert (db != NULL);
 	g_assert (default_db != NULL);
 
-	test_ditem (db);
-
         CORBA_exception_init (&ev);
 	Bonobo_ConfigDatabase_addDatabase (db, default_db, "/gnome-ditem/",
 					   Bonobo_ConfigDatabase_DEFAULT, &ev);
 	g_assert (!BONOBO_EX (&ev));
 
-#if 0
 	dirlist = Bonobo_ConfigDatabase_getDirs (db, "", &ev);
 	g_assert (!BONOBO_EX (&ev));
 
@@ -179,7 +100,6 @@ main (int argc, char **argv)
 	if (keylist)
 		for (j = 0; j < keylist->_length; j++)
 			g_print ("TEST KEY: |%s|\n", keylist->_buffer [j]);
-#endif
 
         CORBA_exception_init (&ev);
 	type = bonobo_pbclient_get_type (db, "/Foo/Test", &ev);
@@ -237,13 +157,6 @@ main (int argc, char **argv)
 	CORBA_exception_init (&ev);
 	Bonobo_ConfigDatabase_sync (db, &ev);
 	g_assert (!BONOBO_EX (&ev));
-        CORBA_exception_free (&ev);
-
-        CORBA_exception_init (&ev);
-	value = bonobo_pbclient_get_value (db, "/Desktop Entry", TC_GNOME_DesktopEntry, &ev);
-	g_message (G_STRLOC ": %p", value);
-	if (value)
-		printf ("got value as GNOME::DesktopEntry\n");
         CORBA_exception_free (&ev);
 
 	exit (0);
