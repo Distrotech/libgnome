@@ -155,6 +155,8 @@ gnomelib_init (const char *app_id,
 	gnome_app_id = (char *)app_id;
 	gnome_app_version = (char *)app_version;
 
+	g_set_prgname(app_id);
+
 	gnome_user_home_dir = gnome_util_user_home();
 
 	/*
