@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <glib.h>
+#include "gnome-defs.h"
 
 BEGIN_GNOME_DECLS
 
