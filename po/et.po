@@ -1,302 +1,17 @@
-# Gnome-libs eesti keele tõlge.
-# Copyright (C) 1999 Free Software Foundation, Inc.
+# libgnome eesti keele tõlge.
+# Copyright (C) 1999-2002 Free Software Foundation, Inc.
 # Lauris Kaplinski <lauris@ariman.ee>, 1999.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-libs\n"
-"POT-Creation-Date: 2002-04-16 14:48+0200\n"
-"PO-Revision-Date: 2002-04-16 14:48+0200\n"
-"Last-Translator: Ilmar Kerm <ikerm@hot.ee>\n"
+"Project-Id-Version: libgnome\n"
+"POT-Creation-Date: 2002-06-01 16:06+0300\n"
+"PO-Revision-Date: 2002-06-01 16:11+0300\n"
+"Last-Translator: Tõivo Leedjärv <toivo@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: libgnome/gnome-exec.c:438
-msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr ""
-
-#. FIXME: get this from bonobo
-#: libgnome/gnome-init.c:88
-msgid "Bonobo Support"
-msgstr ""
-
-#: libgnome/gnome-init.c:142
-msgid "Bonobo activation Support"
-msgstr ""
-
-#: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
-#, c-format
-msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr ""
-
-#: libgnome/gnome-init.c:298
-#, c-format
-msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory `%"
-"s': %s\n"
-msgstr ""
-
-#: libgnome/gnome-init.c:305
-#, c-format
-msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr ""
-
-#: libgnome/gnome-init.c:357
-msgid "Disable sound server usage"
-msgstr "Ei ürita kasutada heliserverit"
-
-#: libgnome/gnome-init.c:360
-msgid "Enable sound server usage"
-msgstr "Üritab kasutada heliserverit"
-
-#: libgnome/gnome-init.c:363
-msgid "Host:port on which the sound server to use is running"
-msgstr "Kasutatava heliserveri host:port"
-
-#: libgnome/gnome-init.c:365
-msgid "HOSTNAME:PORT"
-msgstr "HOSTNAME:PORT"
-
-#: libgnome/gnome-init.c:383
-msgid "GNOME Virtual Filesystem"
-msgstr ""
-
-#: libgnome/gnome-init.c:404
-msgid "GNOME Library"
-msgstr ""
-
-#: libgnome/gnome-gconf.c:174
-msgid "GNOME GConf Support"
-msgstr ""
-
-#: libgnome/gnome-help.c:149
-msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr ""
-
-#: libgnome/gnome-help.c:163
-msgid ""
-"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
-"libs was compiled incorrectly."
-msgstr ""
-
-#: libgnome/gnome-help.c:175
-#, c-format
-msgid ""
-"Unable to show help as file %s is not a directory.  This implies an "
-"incorrect installation."
-msgstr ""
-
-#: libgnome/gnome-help.c:193
-#, c-format
-msgid "Help document %s for %s not found"
-msgstr ""
-
-#: libgnome/gnome-help.c:270
-#, c-format
-msgid "Unable to find doc_id %s in the help path"
-msgstr ""
-
-#: libgnome/gnome-help.c:291
-#, c-format
-msgid "Help document %s/%s not found"
-msgstr ""
-
-#: libgnome/gnome-i18n.c:85
-msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
-
-#: libgnome/gnome-program.c:426
-msgid "Popt Table"
-msgstr ""
-
-#: libgnome/gnome-program.c:427
-msgid "The table of options for popt"
-msgstr ""
-
-#: libgnome/gnome-program.c:434
-msgid "Popt Flags"
-msgstr ""
-
-#: libgnome/gnome-program.c:435
-msgid "The flags to use for popt"
-msgstr ""
-
-#: libgnome/gnome-program.c:443
-msgid "Popt Context"
-msgstr ""
-
-#: libgnome/gnome-program.c:444
-msgid "The popt context pointer that GnomeProgram is using"
-msgstr ""
-
-#: libgnome/gnome-program.c:452
-msgid "Human readable name"
-msgstr ""
-
-#: libgnome/gnome-program.c:453
-#, fuzzy
-msgid "Human readable name of this application"
-msgstr "Informatsioon käesoleva programmi kohta"
-
-#: libgnome/gnome-program.c:462
-#, fuzzy
-msgid "GNOME path"
-msgstr "GNOME häälestus"
-
-#: libgnome/gnome-program.c:463
-msgid "Path in which to look for installed files"
-msgstr ""
-
-#: libgnome/gnome-program.c:472
-msgid "App ID"
-msgstr ""
-
-#: libgnome/gnome-program.c:473
-#, fuzzy
-msgid "ID string to use for this application"
-msgstr "Informatsioon käesoleva programmi kohta"
-
-#: libgnome/gnome-program.c:480
-msgid "App version"
-msgstr ""
-
-#: libgnome/gnome-program.c:481
-#, fuzzy
-msgid "Version of this application"
-msgstr "Informatsioon käesoleva programmi kohta"
-
-#: libgnome/gnome-program.c:488
-msgid "GNOME Prefix"
-msgstr ""
-
-#: libgnome/gnome-program.c:489
-msgid "Prefix where GNOME was installed"
-msgstr ""
-
-#: libgnome/gnome-program.c:498
-msgid "GNOME Libdir"
-msgstr ""
-
-#: libgnome/gnome-program.c:499
-msgid "Library prefix where GNOME was installed"
-msgstr ""
-
-#: libgnome/gnome-program.c:508
-#, fuzzy
-msgid "GNOME Datadir"
-msgstr "GNOME häälestus"
-
-#: libgnome/gnome-program.c:509
-msgid "Data prefix where GNOME was installed"
-msgstr ""
-
-#: libgnome/gnome-program.c:518
-msgid "GNOME Sysconfdir"
-msgstr ""
-
-#: libgnome/gnome-program.c:519
-msgid "Configuration prefix where GNOME was installed"
-msgstr ""
-
-#: libgnome/gnome-program.c:529
-msgid "GNOME App Prefix"
-msgstr ""
-
-#: libgnome/gnome-program.c:530
-msgid "Prefix where this application was installed"
-msgstr ""
-
-#: libgnome/gnome-program.c:538
-msgid "GNOME App Libdir"
-msgstr ""
-
-#: libgnome/gnome-program.c:539
-msgid "Library prefix where this application was installed"
-msgstr ""
-
-#: libgnome/gnome-program.c:548
-#, fuzzy
-msgid "GNOME App Datadir"
-msgstr "GNOME häälestus"
-
-#: libgnome/gnome-program.c:549
-msgid "Data prefix where this application was installed"
-msgstr ""
-
-#: libgnome/gnome-program.c:558
-msgid "GNOME App Sysconfdir"
-msgstr ""
-
-#: libgnome/gnome-program.c:559
-msgid "Configuration prefix where this application was installed"
-msgstr ""
-
-#: libgnome/gnome-program.c:568
-msgid "Create Directories"
-msgstr ""
-
-#: libgnome/gnome-program.c:569
-msgid "Create standard GNOME directories on startup"
-msgstr ""
-
-#: libgnome/gnome-program.c:578
-msgid "Enable Sound"
-msgstr ""
-
-#: libgnome/gnome-program.c:579
-#, fuzzy
-msgid "Enable sound on startup"
-msgstr "Üritab kasutada heliserverit"
-
-#: libgnome/gnome-program.c:588
-msgid "Espeaker"
-msgstr ""
-
-#: libgnome/gnome-program.c:589
-msgid "How to connect to esd"
-msgstr ""
-
-#: libgnome/gnome-program.c:1335
-#, fuzzy
-msgid "Help options"
-msgstr "%s häälestus"
-
-#: libgnome/gnome-program.c:1340
-msgid "Application options"
-msgstr ""
-
-#: libgnome/gnome-program.c:1356
-msgid "Dynamic modules to load"
-msgstr ""
-
-#: libgnome/gnome-program.c:1357
-msgid "MODULE1,MODULE2,..."
-msgstr ""
-
-#: monikers/GNOME_Moniker_std.server.in.in.h:1
-msgid "Extra Moniker factory"
-msgstr ""
-
-#: monikers/GNOME_Moniker_std.server.in.in.h:2
-#, fuzzy
-msgid "GConf moniker"
-msgstr "Kinnitage"
-
-#: monikers/GNOME_Moniker_std.server.in.in.h:3
-msgid "config indirect moniker"
-msgstr ""
-
-#: monikers/bonobo-moniker-conf-indirect.c:44
-#, fuzzy, c-format
-msgid "Key %s not found in configuration"
-msgstr "Määrab salvestatud konfiguratsiooni prefiks"
-
-#: monikers/bonobo-config-bag.c:230
-#, fuzzy
-msgid "Unknown type"
-msgstr "Tundmatu süsteemne viga"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error Messages"
@@ -340,8 +55,283 @@ msgstr "Linukese tegemine/kustutamine"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Menu item activation"
-msgstr "Menüürea aktiveerimine"
+msgstr "Menüüvaliku aktiveerimine"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
 msgstr "Kasutajaliidese sündmused"
+
+#: libgnome/gnome-exec.c:438
+msgid "Cannot find a terminal, using xterm, even if it may not work"
+msgstr ""
+
+#: libgnome/gnome-gconf.c:174
+msgid "GNOME GConf Support"
+msgstr ""
+
+#: libgnome/gnome-help.c:167
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr ""
+
+#: libgnome/gnome-help.c:180
+msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
+msgstr ""
+
+#: libgnome/gnome-help.c:193 libgnome/gnome-help.c:208
+#, c-format
+msgid ""
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
+msgstr ""
+
+#: libgnome/gnome-help.c:217 libgnome/gnome-help.c:233
+#, c-format
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
+msgstr ""
+
+#: libgnome/gnome-help.c:312
+#, c-format
+msgid "Unable to find doc_id %s in the help path"
+msgstr ""
+
+#: libgnome/gnome-help.c:333
+#, c-format
+msgid "Help document %s/%s not found"
+msgstr "Ei leia abiinfo dokumenti %s/%s"
+
+#: libgnome/gnome-i18n.c:85
+msgid "Too many alias levels for a locale, may indicate a loop"
+msgstr ""
+
+#. FIXME: get this from bonobo
+#: libgnome/gnome-init.c:88
+msgid "Bonobo Support"
+msgstr ""
+
+#: libgnome/gnome-init.c:142
+msgid "Bonobo activation Support"
+msgstr ""
+
+#: libgnome/gnome-init.c:281 libgnome/gnome-init.c:295
+#, c-format
+msgid "Could not create per-user gnome configuration directory `%s': %s\n"
+msgstr ""
+
+#: libgnome/gnome-init.c:304
+#, c-format
+msgid ""
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
+msgstr ""
+
+#: libgnome/gnome-init.c:311
+#, c-format
+msgid "Could not create gnome accelerators directory `%s': %s\n"
+msgstr ""
+
+#: libgnome/gnome-init.c:367
+msgid "Disable sound server usage"
+msgstr "Heliserveri kasutamine keelatud"
+
+#: libgnome/gnome-init.c:370
+msgid "Enable sound server usage"
+msgstr "Heliserveri kasutamine lubatud"
+
+#: libgnome/gnome-init.c:373
+msgid "Host:port on which the sound server to use is running"
+msgstr "Kasutatava heliserveri host:port"
+
+#: libgnome/gnome-init.c:375
+msgid "HOSTNAME:PORT"
+msgstr "HOSTNAME:PORT"
+
+#: libgnome/gnome-init.c:393
+msgid "GNOME Virtual Filesystem"
+msgstr ""
+
+#: libgnome/gnome-init.c:414
+msgid "GNOME Library"
+msgstr ""
+
+#: libgnome/gnome-program.c:426
+msgid "Popt Table"
+msgstr ""
+
+#: libgnome/gnome-program.c:427
+msgid "The table of options for popt"
+msgstr ""
+
+#: libgnome/gnome-program.c:434
+msgid "Popt Flags"
+msgstr ""
+
+#: libgnome/gnome-program.c:435
+msgid "The flags to use for popt"
+msgstr ""
+
+#: libgnome/gnome-program.c:443
+msgid "Popt Context"
+msgstr ""
+
+#: libgnome/gnome-program.c:444
+msgid "The popt context pointer that GnomeProgram is using"
+msgstr ""
+
+#: libgnome/gnome-program.c:452
+msgid "Human readable name"
+msgstr ""
+
+#: libgnome/gnome-program.c:453
+msgid "Human readable name of this application"
+msgstr ""
+
+#: libgnome/gnome-program.c:462
+msgid "GNOME path"
+msgstr ""
+
+#: libgnome/gnome-program.c:463
+msgid "Path in which to look for installed files"
+msgstr ""
+
+#: libgnome/gnome-program.c:472
+msgid "App ID"
+msgstr ""
+
+#: libgnome/gnome-program.c:473
+msgid "ID string to use for this application"
+msgstr ""
+
+#: libgnome/gnome-program.c:480
+msgid "App version"
+msgstr ""
+
+#: libgnome/gnome-program.c:481
+msgid "Version of this application"
+msgstr ""
+
+#: libgnome/gnome-program.c:488
+msgid "GNOME Prefix"
+msgstr ""
+
+#: libgnome/gnome-program.c:489
+msgid "Prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:498
+msgid "GNOME Libdir"
+msgstr ""
+
+#: libgnome/gnome-program.c:499
+msgid "Library prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:508
+msgid "GNOME Datadir"
+msgstr ""
+
+#: libgnome/gnome-program.c:509
+msgid "Data prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:518
+msgid "GNOME Sysconfdir"
+msgstr ""
+
+#: libgnome/gnome-program.c:519
+msgid "Configuration prefix where GNOME was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:529
+msgid "GNOME App Prefix"
+msgstr ""
+
+#: libgnome/gnome-program.c:530
+msgid "Prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:538
+msgid "GNOME App Libdir"
+msgstr ""
+
+#: libgnome/gnome-program.c:539
+msgid "Library prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:548
+msgid "GNOME App Datadir"
+msgstr ""
+
+#: libgnome/gnome-program.c:549
+msgid "Data prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:558
+msgid "GNOME App Sysconfdir"
+msgstr ""
+
+#: libgnome/gnome-program.c:559
+msgid "Configuration prefix where this application was installed"
+msgstr ""
+
+#: libgnome/gnome-program.c:568
+msgid "Create Directories"
+msgstr ""
+
+#: libgnome/gnome-program.c:569
+msgid "Create standard GNOME directories on startup"
+msgstr ""
+
+#: libgnome/gnome-program.c:578
+msgid "Enable Sound"
+msgstr ""
+
+#: libgnome/gnome-program.c:579
+msgid "Enable sound on startup"
+msgstr ""
+
+#: libgnome/gnome-program.c:588
+msgid "Espeaker"
+msgstr ""
+
+#: libgnome/gnome-program.c:589
+msgid "How to connect to esd"
+msgstr ""
+
+#: libgnome/gnome-program.c:1352
+msgid "Help options"
+msgstr ""
+
+#: libgnome/gnome-program.c:1357
+msgid "Application options"
+msgstr ""
+
+#: libgnome/gnome-program.c:1373
+msgid "Dynamic modules to load"
+msgstr ""
+
+#: libgnome/gnome-program.c:1374
+msgid "MODULE1,MODULE2,..."
+msgstr ""
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:1
+msgid "Extra Moniker factory"
+msgstr ""
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:2
+msgid "GConf moniker"
+msgstr ""
+
+#: monikers/GNOME_Moniker_std.server.in.in.h:3
+msgid "config indirect moniker"
+msgstr ""
+
+#: monikers/bonobo-config-bag.c:230
+msgid "Unknown type"
+msgstr "Tundmatu tüüp"
+
+#: monikers/bonobo-moniker-conf-indirect.c:44
+#, c-format
+msgid "Key %s not found in configuration"
+msgstr ""
