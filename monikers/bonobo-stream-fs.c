@@ -94,46 +94,46 @@ fs_copy_to  (GnomeStream *stream,
 {
 	GnomeStreamFS *sfs = GNOME_STREAM_FS (stream);
 	CORBA_octet *data;
-  CORBA_unsigned_long more = bytes;
+	CORBA_unsigned_long more = bytes;
 	int v, w;
-  int fd_out;
+	int fd_out;
 
 #define READ_CHUNK_SIZE 65536
 
 	data = CORBA_sequence_CORBA_octet_allocbuf (READ_CHUNK_SIZE);
 
-  *read_bytes = 0;
-  *written_bytes = 0;
+	*read_bytes = 0;
+	*written_bytes = 0;
 
-  fd_out = creat(dest, 0666);
-  if(fd_out == -1)
-    return;
+	fd_out = creat(dest, 0666);
+	if(fd_out == -1)
+		return;
 
-  do {
-    do {
-      v = read (sfs->fd, data, MIN(READ_CHUNK_SIZE, more));
-    } while (v == -1 && errno == EINTR);
+	do {
+		do {
+			v = read (sfs->fd, data, MIN(READ_CHUNK_SIZE, more));
+		} while (v == -1 && errno == EINTR);
 
-    if (v != -1) {
-      *read_bytes += v;
-      more -= v;
-      do {
-        w = write (fd_out, data, v);
-      } while (w == -1 && errno == EINTR);
-      if (w != -1)
-        *written_bytes += w;
-      else if(errno != EINTR) {
-        /* should probably do something to signal an error here */
-        break;
-      }
-    }
-    else if(errno != EINTR) {
-      /* should probably do something to signal an error here */
-      break;
-    }
-  } while(more > 0 && v > 0);
+		if (v != -1) {
+			*read_bytes += v;
+			more -= v;
+			do {
+				w = write (fd_out, data, v);
+			} while (w == -1 && errno == EINTR);
+			if (w != -1)
+				*written_bytes += w;
+			else if(errno != EINTR) {
+				/* should probably do something to signal an error here */
+				break;
+			}
+		}
+		else if(errno != EINTR) {
+			/* should probably do something to signal an error here */
+			break;
+		}
+	} while(more > 0 && v > 0);
 
-  close(fd_out);
+	close(fd_out);
 }
 
 static void
@@ -159,6 +159,11 @@ gnome_stream_fs_class_init (GnomeStreamFSClass *class)
 	sclass->commit   = fs_commit;
 }
 
+/**
+ * gnome_stream_fs_get_type:
+ *
+ * Returns the GtkType for a GnomeStreamFS interface object.
+ */
 GtkType
 gnome_stream_fs_get_type (void)
 {
@@ -182,6 +187,16 @@ gnome_stream_fs_get_type (void)
 	return type;
 }
 
+/**
+ * gnome_stream_fs_construct:
+ * @stream: The GnomeStreamFS object to initialize.
+ * @corba_stream: The CORBA server which implements the GnomeStreamFS service.
+ *
+ * This function initializes an object of type GnomeStreamFS using the
+ * provided CORBA server @corba_stream.
+ *
+ * Returns the constructed GnomeStreamFS @stream.
+ */
 GnomeStream *
 gnome_stream_fs_construct (GnomeStreamFS *stream,
 			   GNOME_Stream corba_stream)
@@ -236,6 +251,17 @@ gnome_stream_create (GnomeStorageFS *parent, int fd)
 	return gnome_stream_fs_construct (stream_fs, corba_stream);
 }
 
+
+/**
+ * gnome_stream_fs_open:
+ * @parent: A storage file system object.
+ * @path: The path to the file to be opened.
+ * @mode: The mode with which the file should be opened.
+ *
+ * Creates a new GnomeStream object for the filename specified by
+ * @path.  If @parent is not %NULL, the path specified in @path is
+ * taken relative to the GnomeStorageFS provided by @parent.
+ */
 GnomeStream *
 gnome_stream_fs_open (GnomeStorageFS *parent, const CORBA_char *path, GNOME_Storage_OpenMode mode)
 {
@@ -282,6 +308,15 @@ gnome_stream_fs_open (GnomeStorageFS *parent, const CORBA_char *path, GNOME_Stor
 	return gnome_stream_create (parent, fd);
 }
 
+/**
+ * gnome_stream_fs_create:
+ * @fs: A storage file system object.
+ * @path: The path to the file to be opened.
+ *
+ * Creates a new GnomeStream which is bound to the file specified by @path.
+ * If @fs is not %NULL, @path is taken to be relative to the storage provided
+ * in @fs.
+ */
 GnomeStream *
 gnome_stream_fs_create (GnomeStorageFS *fs, const CORBA_char *path)
 {
