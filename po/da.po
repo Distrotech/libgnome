@@ -1,313 +1,304 @@
-# Danish translation of gnome-libs
-# Copyright (C) 1998,1999,2000 Free Software Foundation, Inc.
+# Danish translation of libgnome
+# Copyright (C) 1998, 99, 20, 01, 02 Free Software Foundation, Inc.
 # Keld Simonsen <keld@dkuug.dk>, 2001.
-# Kjartan Maraas <kmaraas@gnome.org>, 1998,1999,2000
+# Kjartan Maraas <kmaraas@gnome.org>, 1998, 99, 2000.
+# Ole Laursen <olau@hardworking.dk>, 2002.
+#
+# Konventioner:
+#
+#   application -> program
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
-"POT-Creation-Date: 2002-01-14 21:15+0100\n"
-"PO-Revision-Date: 2001-10-19 18:06+0200\n"
-"Last-Translator: Keld Simonsen <keld@dkuug.dk>\n"
+"POT-Creation-Date: 2002-01-25 22:31+0100\n"
+"PO-Revision-Date: 2002-01-25 22:47+0100\n"
+"Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
 #: libgnome/gnome-exec.c:429
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "Kan ikke finde en terminal, bruger xterm selv om den mÂske ikke virker"
+msgstr "Kan ikke finde en terminal, bruger xterm selvom den m√•ske ikke virker"
 
 #: libgnome/gnome-url.c:182
 #, c-format
 msgid "Cannot parse: %s"
-msgstr "Kan ikke tolke: %s"
+msgstr "Kan ikke fortolke: %s"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
 msgid "Bonobo Support"
-msgstr "Bonobo underst¯ttelse"
+msgstr "Bonobo-underst√∏ttelse"
 
 #: libgnome/gnome-init.c:142
 msgid "Bonobo activation Support"
-msgstr "Bonobo aktiveringsst¯ttelse"
+msgstr "Bonobo-aktiveringsunderst√∏ttelse"
 
 #: libgnome/gnome-init.c:275 libgnome/gnome-init.c:289
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Kunne ikke oprette per-bruger gnome konfigurationskatalog `%s': %s\n"
+msgstr "Kunne ikke oprette per-bruger Gnome-konfigurationsmappen '%s': %s\n"
 
 #: libgnome/gnome-init.c:298
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
-msgstr ""
-"Kunne ikke sÊtte modus 0700 pÂ privat per-bruger gnome konfigurationskatalog "
-"`%s': %s\n"
+msgstr "Kunne ikke s√¶tte tilstanden 0700 p√• privat per-bruger Gnome-konfigurationsmappen '%s': %s\n"
 
 #: libgnome/gnome-init.c:305
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Kunne ikke oprette gnome accelleratorkatalog `%s': %s\n"
+msgstr "Kunne ikke oprette Gnome-acceleratormappen '%s': %s\n"
 
 #: libgnome/gnome-init.c:357
 msgid "Disable sound server usage"
-msgstr "DeaktivÈr brug af lydserver"
+msgstr "Deaktiv√©r brug af lydserver"
 
 #: libgnome/gnome-init.c:360
 msgid "Enable sound server usage"
-msgstr "AktivÈr brug af lydserver"
+msgstr "Aktiv√©r brug af lydserver"
 
 #: libgnome/gnome-init.c:363
 msgid "Host:port on which the sound server to use is running"
-msgstr "VÊrt:port hvor lydserveren, som skal bruges, k¯rer"
+msgstr "V√¶rt:port hvor lydserveren som skal bruges, k√∏rer"
 
 #: libgnome/gnome-init.c:365
 msgid "HOSTNAME:PORT"
-msgstr "V∆RTSNAVN:PORT"
+msgstr "V√ÜRTSNAVN:PORT"
 
 #: libgnome/gnome-init.c:383
 msgid "GNOME Virtual Filesystem"
-msgstr "GNOME virtuelt filsystem"
+msgstr "Gnome virtuelt filsystem"
 
 #: libgnome/gnome-init.c:404
 msgid "GNOME Library"
-msgstr "GNOME bibliotek"
+msgstr "Gnome-biblioteket"
 
 #: libgnome/test-libgnome.c:21
 msgid "Test option."
-msgstr "Test-alternativ."
+msgstr "Testtilvalg"
 
 #: libgnome/test-libgnome.c:154
 msgid "The Application Name"
-msgstr "Applikationens navn"
+msgstr "Programnavnet"
 
 #: libgnome/gnome-gconf.c:173
 msgid "GNOME GConf Support"
-msgstr "GNOME GConf underst¯ttelse"
+msgstr "Gnome GConf-underst√∏ttelse"
 
 #: libgnome/gnome-help.c:149
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr ""
+msgstr "Kunne ikke finde GNOME_FILE_DOMAIN_APP_HELP-dom√¶net"
 
 #: libgnome/gnome-help.c:163
 msgid ""
 "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
 "libs was compiled incorrectly."
-msgstr ""
+msgstr "Kunne ikke finde GNOME_FILE_DOMAIN_APP_HELP-dom√¶net. Dette indeb√¶rer at libgnome var oversat forkert."
 
 #: libgnome/gnome-help.c:176
 #, c-format
 msgid ""
 "Unable to show help as file %s is not a directory.  This implies an "
 "incorrect installation."
-msgstr ""
+msgstr "Kan ikke vise hj√¶lp da filen %s ikke er en mappe. Dette indeb√¶rer en forkert installation."
 
 #: libgnome/gnome-help.c:193
 #, c-format
 msgid "Help document %s for %s not found"
-msgstr "HjÊlpedokument %s for %s blev ikke fundet"
+msgstr "Hj√¶lpedokumentet %s til %s blev ikke fundet"
 
 #: libgnome/gnome-help.c:270
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr ""
+msgstr "Kan ikke finde doc_id %s i hj√¶lpestien"
 
 #: libgnome/gnome-help.c:291
-#, fuzzy, c-format
+#, c-format
 msgid "Help document %s/%s not found"
-msgstr "HjÊlpedokument %s for %s blev ikke fundet"
+msgstr "Hj√¶lpedokumentet %s/%s blev ikke fundet"
 
 #: libgnome/gnome-i18n.c:85
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "For mange aliasniveauer for et lokale, kan indikere en l¯kke"
+msgstr "For mange aliasniveauer for regionaldata, kan indikere en l√∏kke"
+
+#: libgnome/gnome-program.c:419
+msgid "Popt Table"
+msgstr "Popt-tabel"
 
 #: libgnome/gnome-program.c:420
-msgid "Popt Table"
-msgstr ""
-
-#: libgnome/gnome-program.c:421
 msgid "The table of options for popt"
-msgstr ""
+msgstr "Tabellen over tilvalg til popt"
+
+#: libgnome/gnome-program.c:427
+msgid "Popt Flags"
+msgstr "Popt-tilvalg"
 
 #: libgnome/gnome-program.c:428
-msgid "Popt Flags"
-msgstr ""
-
-#: libgnome/gnome-program.c:429
 msgid "The flags to use for popt"
-msgstr ""
+msgstr "De tilvalg der skal bruges til popt"
+
+#: libgnome/gnome-program.c:436
+msgid "Popt Context"
+msgstr "Popt-kontekst"
 
 #: libgnome/gnome-program.c:437
-msgid "Popt Context"
-msgstr ""
-
-#: libgnome/gnome-program.c:438
 msgid "The popt context pointer that GnomeProgram is using"
-msgstr ""
+msgstr "Den popt-konteksthenvisning som GnomeProgram bruger"
+
+#: libgnome/gnome-program.c:445
+msgid "Human readable name"
+msgstr "L√¶sevenligt navn"
 
 #: libgnome/gnome-program.c:446
-msgid "Human readable name"
-msgstr "LÊsbart navn"
-
-#: libgnome/gnome-program.c:447
 msgid "Human readable name of this application"
-msgstr "LÊsbart navn for denne applikation"
+msgstr "L√¶sevenligt navn til dette program"
+
+#: libgnome/gnome-program.c:455
+msgid "GNOME path"
+msgstr "Gnome-sti"
 
 #: libgnome/gnome-program.c:456
-msgid "GNOME path"
-msgstr "GNOME sti"
-
-#: libgnome/gnome-program.c:457
 msgid "Path in which to look for installed files"
 msgstr "Sti hvor der skal ledes efter installerede filer"
 
-#: libgnome/gnome-program.c:466
+#: libgnome/gnome-program.c:465
 msgid "App ID"
-msgstr ""
+msgstr "Program-id"
 
-#: libgnome/gnome-program.c:467
-#, fuzzy
+#: libgnome/gnome-program.c:466
 msgid "ID string to use for this application"
-msgstr "Version for denne applikation"
+msgstr "Id-streng til brug for dette program"
+
+#: libgnome/gnome-program.c:473
+msgid "App version"
+msgstr "Programversion"
 
 #: libgnome/gnome-program.c:474
-msgid "App version"
-msgstr "Version af applikation"
-
-#: libgnome/gnome-program.c:475
 msgid "Version of this application"
-msgstr "Version for denne applikation"
+msgstr "Versionen af dette program"
+
+#: libgnome/gnome-program.c:481
+msgid "GNOME Prefix"
+msgstr "Gnome-pr√¶fiks"
 
 #: libgnome/gnome-program.c:482
-msgid "GNOME Prefix"
-msgstr ""
-
-#: libgnome/gnome-program.c:483
 msgid "Prefix where GNOME was installed"
-msgstr ""
+msgstr "Pr√¶fikset hvor Gnome blev installeret"
+
+#: libgnome/gnome-program.c:491
+msgid "GNOME Libdir"
+msgstr "Gnome-biblioteksmappe"
 
 #: libgnome/gnome-program.c:492
-#, fuzzy
-msgid "GNOME Libdir"
-msgstr "GNOME bibliotek"
-
-#: libgnome/gnome-program.c:493
 msgid "Library prefix where GNOME was installed"
-msgstr ""
+msgstr "Bibliotekspr√¶fiks til hvor Gnome blev installeret"
+
+#: libgnome/gnome-program.c:501
+msgid "GNOME Datadir"
+msgstr "Gnome-datamappe"
 
 #: libgnome/gnome-program.c:502
-#, fuzzy
-msgid "GNOME Datadir"
-msgstr "GNOME sti"
-
-#: libgnome/gnome-program.c:503
 msgid "Data prefix where GNOME was installed"
-msgstr ""
+msgstr "Datapr√¶fikset til hvor Gnome blev installeret"
+
+#: libgnome/gnome-program.c:511
+msgid "GNOME Sysconfdir"
+msgstr "Gnome-systemkonfiguration"
 
 #: libgnome/gnome-program.c:512
-msgid "GNOME Sysconfdir"
-msgstr ""
-
-#: libgnome/gnome-program.c:513
 msgid "Configuration prefix where GNOME was installed"
-msgstr ""
+msgstr "Konfigurationspr√¶fiks til hvor Gnome blev installeret"
+
+#: libgnome/gnome-program.c:522
+msgid "GNOME App Prefix"
+msgstr "Gnome-programpr√¶fiks"
 
 #: libgnome/gnome-program.c:523
-msgid "GNOME App Prefix"
-msgstr ""
-
-#: libgnome/gnome-program.c:524
 msgid "Prefix where this application was installed"
-msgstr ""
+msgstr "Pr√¶fiks til hvor dette program blev installeret"
+
+#: libgnome/gnome-program.c:531
+msgid "GNOME App Libdir"
+msgstr "Gnome-programbiblioteksmappe"
 
 #: libgnome/gnome-program.c:532
-#, fuzzy
-msgid "GNOME App Libdir"
-msgstr "GNOME bibliotek"
-
-#: libgnome/gnome-program.c:533
 msgid "Library prefix where this application was installed"
-msgstr ""
+msgstr "Bibliotekspr√¶fiks til hvor dette program blev installeret"
+
+#: libgnome/gnome-program.c:541
+msgid "GNOME App Datadir"
+msgstr "Gnome-programdatamappe"
 
 #: libgnome/gnome-program.c:542
-#, fuzzy
-msgid "GNOME App Datadir"
-msgstr "GNOME sti"
-
-#: libgnome/gnome-program.c:543
 msgid "Data prefix where this application was installed"
-msgstr ""
+msgstr "Datapr√¶fikset til hvor dette program blev installeret"
+
+#: libgnome/gnome-program.c:551
+msgid "GNOME App Sysconfdir"
+msgstr "Gnome-programsystemkonfiguration"
 
 #: libgnome/gnome-program.c:552
-msgid "GNOME App Sysconfdir"
-msgstr ""
-
-#: libgnome/gnome-program.c:553
 msgid "Configuration prefix where this application was installed"
-msgstr ""
+msgstr "Konfigurationspr√¶fiks til hvor dette program blev installeret"
+
+#: libgnome/gnome-program.c:561
+msgid "Create Directories"
+msgstr "Opret mapper"
 
 #: libgnome/gnome-program.c:562
-msgid "Create Directories"
-msgstr ""
-
-#: libgnome/gnome-program.c:563
 msgid "Create standard GNOME directories on startup"
-msgstr ""
+msgstr "Opret Gnomes standardmapper ved opstart"
+
+#: libgnome/gnome-program.c:571
+msgid "Enable Sound"
+msgstr "Aktiv√©r lyd"
 
 #: libgnome/gnome-program.c:572
-msgid "Enable Sound"
-msgstr ""
-
-#: libgnome/gnome-program.c:573
-#, fuzzy
 msgid "Enable sound on startup"
-msgstr "AktivÈr brug af lydserver"
+msgstr "Aktiv√©r lyd ved opstart"
+
+#: libgnome/gnome-program.c:581
+msgid "Espeaker"
+msgstr "Espeaker"
 
 #: libgnome/gnome-program.c:582
-msgid "Espeaker"
-msgstr ""
-
-#: libgnome/gnome-program.c:583
 msgid "How to connect to esd"
-msgstr ""
+msgstr "Hvordan der skal tilsluttes til esd"
 
-#: libgnome/gnome-program.c:1319
+#: libgnome/gnome-program.c:1318
 msgid "Help options"
-msgstr "HjÊlpe-alternativ"
+msgstr "Hj√¶lpetilvalg"
 
-#: libgnome/gnome-program.c:1324
+#: libgnome/gnome-program.c:1323
 msgid "Application options"
-msgstr "Applikationsalternativer"
+msgstr "Programtilvalg"
+
+#: libgnome/gnome-program.c:1339
+msgid "Dynamic modules to load"
+msgstr "Dynamiske moduler som skal indl√¶ses"
 
 #: libgnome/gnome-program.c:1340
-msgid "Dynamic modules to load"
-msgstr "Dynamiske moduler som skal indlÊses"
-
-#: libgnome/gnome-program.c:1341
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr ""
+msgstr "Ekstra aliasfabrikker"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
-msgstr ""
+msgstr "Gconf-alias"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr ""
+msgstr "omdirigeringsalias til konfiguration"
 
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr ""
-
-#~ msgid "Can not bonobo_init"
-#~ msgstr "Kan ikke k¯re bonobo_init"
-
-#~ msgid "Internal error"
-#~ msgstr "Intern fejl"
+msgstr "N√∏glen %s ikke fundet i konfigurationen"
