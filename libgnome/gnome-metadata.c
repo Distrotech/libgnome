@@ -153,12 +153,18 @@ init (void)
 static void
 lock (void)
 {
+	struct stat time1, time2;
+	
 	if (! lock_count++) {
+		int attempts;
+		
 		/* We use a lock directory and not flock/fcntl because
 		   we want this to work when the database is on an NFS
 		   filesystem.  Sigh.  */
 
+		attempts = 0;
 		while (mkdir (lock_directory, 0)) {
+			attempts++;
 			if (errno != EEXIST) {
 				/* Don't know what to do here.  */
 				return;
@@ -167,7 +173,16 @@ lock (void)
 			   question.  FIXME: at least use usleep to
 			   try to sleep less than a whole second.
 			   Typical db access times will be small.  */
+			stat (lock_directory, &time1);
 			sleep (1);
+			stat (lock_directory, &time2);
+
+			if (time1.st_ctime != time2.st_ctime)
+				attempts = 0;
+			
+			if (attempts > 30){
+				break;
+			}
 		}
 	}
 }
