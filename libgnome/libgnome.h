@@ -29,6 +29,7 @@
 #include "libgnome/gnome-metadata.h"
 #include "libgnome/gnome-mime.h"
 #include "libgnome/gnome-mime-info.h"
+/* Should this be in gnome-print? */
 #include "libgnome/gnome-paper.h"
 #include "libgnome/gnome-popt.h"
 #include "libgnome/gnome-remote.h"
@@ -48,3 +49,8 @@ extern char gnome_do_not_create_directories;
 void gnomelib_init (const char *app_id, const char *app_version);
 
 #endif
+
+
+
+
+
