@@ -84,6 +84,8 @@ main(int argc, char **argv) {
 
 	gdb_docname = argv[1];
 
+
+
 	/* check to see if gdb_docname has a ?sectid included */
 	for (ptr = gdb_docname; *ptr; ptr++){
 		if (*ptr == '?') {
@@ -125,7 +127,15 @@ main(int argc, char **argv) {
 	
 	/* retrieve path component of filename passed in at
 	   command line */
-	gdb_pathname = g_dirname (gdb_doc->URL);
+	gdb_pathname = g_path_get_dirname (gdb_doc->URL);
+	gdb_docname = g_path_get_basename (gdb_doc->URL);
+
+	for (ptr = gdb_docname; *ptr; ptr++){
+		if (*ptr == '.') {
+			*ptr = '\000';
+			
+		}
+	}
 
 	/* set params to be passed to stylesheet */
 	params[0] = "gdb_docname";
