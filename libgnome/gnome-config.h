@@ -5,6 +5,36 @@ BEGIN_GNOME_DECLS
 
 /* Prototypes for the profile management functions */
 
+/*
+ * DOC: gnome configuration routines.
+ *
+ * All of the routines receive a pathname, the pathname has the following
+ * form:
+ *
+ *      /filename/section/key[=default]
+ *
+ * This format reprensents: a filename relative to the Gnome config
+ * directory called filename (ie, ~/.gnome/filename), in that file there
+ * is a section called [section] and key is the left handed side of the
+ * values.
+ *
+ * If default is provided, it cane be used to return a default value
+ * if none is specified on the config file.
+ *
+ * Examples:
+ * 
+ * /gmix/Balance/Ratio=0.5
+ * /filemanager/Panel Display/html=1
+ *
+ * If the pathname starts with '=', then instead of being a ~/.gnome relative
+ * file, it is an abolute pathname, example:
+ *
+ * =/home/miguel/.mc.ini=/Left Panel/reverse=1
+ *
+ * This reprensents the config file: /home/miguel/.mc.ini, section [Left Panel],
+ * variable reverse.
+ */
+
 /* These functions look for the config option named in PATH.  If the
    option does not exist, and a default is specified in PATH, then the
    default will be returned.  In all cases, *DEF is set to 1 if the

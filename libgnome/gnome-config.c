@@ -5,9 +5,9 @@
  *
  * Authors: Miguel de Icaza
 
-   This program is g_free software; you can redistribute it and/or modify
+   This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the G_Free Software Foundation; either version 2 of the License, or
+   the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
    
    This program is distributed in the hope that it will be useful,
@@ -18,36 +18,7 @@
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the G_Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-
-   DOC: gnome configuration routines.
-   
-   All of the routines receive a pathname, the pathname has the following
-   form:
-
-        /filename/section/key[=default]
-
-   This format reprensents: a filename relative to the Gnome config
-   directory called filename (ie, ~/.gnome/filename), in that file there
-   is a section called [section] and key is the left handed side of the
-   values.
-
-   If default is provided, it cane be used to return a default value
-   if none is specified on the config file.
-
-   Examples:
-   
-   /gmix/Balance/Ratio=0.5
-   /filemanager/Panel Display/html=1
-
-   If the pathname starts with '=', then instead of being a ~/.gnome relative
-   file, it is an abolute pathname, example:
-
-   =/home/miguel/.mc.ini=/Left Panel/reverse=1
-
-   This reprensents the config file: /home/miguel/.mc.ini, section [Left Panel],
-   variable reverse.
-   
-   */
+*/
 
 /* #include <config.h> */
 #include <stdio.h>
