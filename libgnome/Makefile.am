@@ -21,11 +21,11 @@ INCLUDES = \
 	-I$(srcdir)/..				\
 	$(WARN_CFLAGS)				\
 	$(GLIB_CFLAGS)				\
+	$(LIBBONOBO_CFLAGS)			\
 	$(OAF_CFLAGS)				\
 	$(GCONF_CFLAGS)				\
 	$(LIBXML_CFLAGS)			\
 	$(GNOME_VFS_CFLAGS)			\
-	$(LIBBONOBO_CFLAGS)			\
 	-DLIBGNOME_PREFIX=\""$(prefix)"\"		\
 	-DLIBGNOME_LIBDIR=\""$(libdir)"\"		\
 	-DLIBGNOME_DATADIR=\""$(datadir)"\"		\

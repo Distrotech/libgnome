@@ -1,3 +1,8 @@
+2001-04-22  Dietmar Maurer  <dietmar@ximian.com>
+
+	* Makefile.am (INCLUDES): move LIBBONOBO_CFLAGS before
+	OAF_CFLAGS, because OAF_CFLAGS include /usr/local/include
+
 2001-04-21  Martin Baulig  <baulig@suse.de>
 
 	* Makefile.am (INCLUDES): Use `LIBGNOME_*DIR' instead of `GNOME*DIR'.
