@@ -52,12 +52,8 @@ fs_get_info (BonoboStream                   *stream,
 
 	si->size = st.st_size;
 	si->type = Bonobo_STORAGE_TYPE_REGULAR;
-	si->name = NULL;
-	si->content_type = NULL;
-	
-	if ((mask & Bonobo_FIELD_CONTENT_TYPE))
-		si->content_type = 
-			CORBA_string_dup ("application/octet-stream");
+	si->name = CORBA_string_dup ("");
+	si->content_type = CORBA_string_dup ("application/octet-stream");
 
 	return si;
 
