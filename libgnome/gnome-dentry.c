@@ -76,6 +76,11 @@ get_translated_string (char *key)
 		value = gnome_config_get_string (tkey);
 		g_free (tkey);
 
+		if (value && *value == '\0') {
+			g_free (value);
+			value = NULL;
+		}
+
 		if (!value)
 			value = gnome_config_get_string (key); /* Fall back to untranslated case */
 	} else
