@@ -248,6 +248,7 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 				argv [i] = item->exec [i];
 			for (i = 0; i < the_argc; i++)
 				argv [item->exec_length + i] = the_argv [i];
+			argv [argc] = NULL;
 		} else {
 			argc = item->exec_length;
 			argv = item->exec;
