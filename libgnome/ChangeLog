@@ -1,3 +1,13 @@
+Sat May 06 16:46:13 2000  George Lebl <jirka@5z.com>
+
+	* gnome-config.c (_gnome_config_get_float_with_default)
+	  (_gnome_config_set_float): setlocae for LC_NUMERIC to "C" and
+	  then back to original locale when reading and writing floats
+	  so that we can read/write floats over different locales
+
+	* gnome-score.c (gnome_get_score_file_name) (log_score): 
+	  The same as above.  Fixes bugs #10404, #10257
+
 Fri May 05 20:53:11 2000  George Lebl <jirka@5z.com>
 
 	* gnome-url.c: gnome_url_show had it's return value inversed, duh!

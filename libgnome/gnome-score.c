@@ -37,6 +37,7 @@
 #include <glib.h>
 #include <pwd.h>
 #include <ctype.h>
+#include <locale.h>
 #ifdef HAVE_SYS_FSUID_H
 #ifdef HAVE_SETFSGID
 #include <sys/fsuid.h>
@@ -86,8 +87,11 @@ gnome_get_score_file_name (const gchar * progname, const gchar * level)
 static void
 print_ascore (struct ascore_t *ascore, FILE * outfile)
 {
+   /* make sure we write values to files in a consistent manner */
+   char *old_locale = setlocale (LC_NUMERIC, "C");
    fprintf (outfile, "%f %ld %s\n", ascore->score,
 	    (long int) ascore->scoretime, ascore->username);
+   setlocale (LC_NUMERIC, old_locale);
 }
 
 static void
@@ -130,6 +134,8 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
    infile = fopen (game_score_file, "r");
    if (infile)
      {
+       /* make sure we read values from files in a consistent manner */
+       char *old_locale = setlocale (LC_NUMERIC, "C");
        while(fgets(buf, sizeof(buf), infile))
 	 {
 	     long ltime;
@@ -146,6 +152,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 	     anitem->scoretime = (time_t)ltime;
 	     scores = g_list_append (scores, (gpointer) anitem);
 	  }
+        setlocale (LC_NUMERIC, old_locale);
 	fclose (infile);
      }
    

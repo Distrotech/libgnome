@@ -46,6 +46,7 @@ char *alloca ();
 #include <string.h>
 #include <unistd.h>	/* unlink() */
 #include <stdlib.h>	/* atoi() */
+#include <locale.h>	/* setlocale() */
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <glib.h>
@@ -1431,6 +1432,7 @@ _gnome_config_get_float_with_default (const char *path, gboolean *def, gboolean 
 	ParsedPath *pp;
 	const char *r;
 	gdouble v;
+        char *old_locale;
 	
 	pp = parse_path (path, priv);
 	if (!priv && pp->opath[0] != '=')
@@ -1446,7 +1448,11 @@ _gnome_config_get_float_with_default (const char *path, gboolean *def, gboolean 
 		return 0;
 	}
 
+        /* make sure we read values in a consistent manner */
+        old_locale = setlocale (LC_NUMERIC, "C");
 	v = strtod(r, NULL);
+        setlocale (LC_NUMERIC, old_locale);
+
 	release_path (pp);
 	return v;
 }
@@ -1892,9 +1898,15 @@ _gnome_config_set_float (const char *path, gdouble new_value, gboolean priv)
 	ParsedPath *pp;
 	char floatbuf [40];
 	const char *r;
+        char *old_locale;
 	
 	pp = parse_path (path, priv);
+
+        /* make sure we write values in a consistent manner */
+        old_locale = setlocale (LC_NUMERIC, "C");
 	g_snprintf (floatbuf, sizeof(floatbuf), "%.17g", new_value);
+        setlocale (LC_NUMERIC, old_locale);
+
 	r = access_config (SET, pp->section, pp->key, floatbuf, pp->file,
 			   NULL);
 	release_path (pp);
