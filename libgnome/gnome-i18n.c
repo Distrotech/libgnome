@@ -48,7 +48,7 @@ unalias_lang (char *lang)
       read_aliases ("/usr/lib/X11/locale/locale.alias");
       read_aliases ("/usr/openwin/lib/locale/locale.alias");
     }
-  while ((p=g_hash_table_lookup(alias_table,lang)))
+  while ((p=g_hash_table_lookup(alias_table,lang)) && strcmp(p, lang))
     lang = p;
   return lang;
 }
