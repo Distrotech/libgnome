@@ -138,5 +138,73 @@
      </locale>
    </schema>
 
+   <schema>   
+     <key>/schemas/desktop/gnome/url-handlers/http/enabled</key>
+     <applyto>/desktop/gnome/url-handlers/http/enabled</applyto>
+     <owner>gnome</owner>
+     <type>bool</type>
+     <default>true</default>
+     <locale name="C">
+       <short>How to handle http URLs</short>
+       <long>Set to true to have a program specified in command handle http URLs</long>
+     </locale>
+   </schema>
+   <schema>
+     <key>/schemas/desktop/gnome/url-handlers/http/command</key>
+     <applyto>/desktop/gnome/url-handlers/http/command</applyto>
+     <owner>gnome</owner>
+     <type>string</type>
+     <default>epiphany %s</default>
+     <locale name="C">
+       <short>URL handler for http uris</short>
+       <long>URL handler for http uris</long>
+     </locale>
+   </schema>
+   <schema>
+     <key>/schemas/desktop/gnome/url-handlers/http/need-terminal</key>
+     <applyto>/desktop/gnome/url-handlers/http/need-terminal</applyto>
+     <owner>gnome</owner>
+     <type>bool</type>
+     <default>false</default>
+     <locale name="C">
+       <short>Run program in terminal</short>
+       <long>True if the program to handle this URL should be run in a terminal</long>
+     </locale>
+   </schema>
+   
+   <schema>   
+     <key>/schemas/desktop/gnome/url-handlers/https/enabled</key>
+     <applyto>/desktop/gnome/url-handlers/https/enabled</applyto>
+     <owner>gnome</owner>
+     <type>bool</type>
+     <default>true</default>
+     <locale name="C">
+       <short>How to handle https URLs</short>
+       <long>Set to true to have a program specified in command handle https URLs</long>
+     </locale>
+   </schema>
+   <schema>
+     <key>/schemas/desktop/gnome/url-handlers/https/command</key>
+     <applyto>/desktop/gnome/url-handlers/https/command</applyto>
+     <owner>gnome</owner>
+     <type>string</type>
+     <default>epiphany %s</default>
+     <locale name="C">
+       <short>URL handler for https uris</short>
+       <long>URL handler for https uris</long>
+     </locale>
+   </schema>
+   <schema>
+     <key>/schemas/desktop/gnome/url-handlers/https/need-terminal</key>
+     <applyto>/desktop/gnome/url-handlers/https/need-terminal</applyto>
+     <owner>gnome</owner>
+     <type>bool</type>
+     <default>false</default>
+     <locale name="C">
+       <short>Run program in terminal</short>
+       <long>True if the program to handle this URL should be run in a terminal</long>
+     </locale>
+   </schema>
+
   </schemalist>
 </gconfschemafile>
