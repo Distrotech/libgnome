@@ -24,6 +24,16 @@
       </locale>
     </schema>
     <schema>
+      <applyto>/desktop/gnome/interface/can_change_accels</applyto>
+      <key>/schemas/desktop/gnome/interface/can_change_accels</key>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <locale name="C">
+        <short>Can Change Accels</short>
+        <long>Can Change Accels</long>
+      </locale>
+    </schema>
+    <schema>
       <applyto>/desktop/gnome/interface/toolbar_style</applyto>
       <key>/schemas/desktop/gnome/interface/toolbar_style</key>
       <owner>gnome</owner>
@@ -68,6 +78,16 @@
 	</locale>
     </schema>
     <schema>
+      <applyto>/desktop/gnome/interface/toolbar_icon_size</applyto>
+      <key>/schemas/desktop/gnome/interface/toolbar_icon_size</key>
+      <owner>gnome</owner>
+      <type>int</type>
+      <locale name="C">
+        <short>Toolbar Icon Size</short>
+        <long>Toolbar Icon Size</long>
+	</locale>
+    </schema>
+    <schema>
       <applyto>/desktop/gnome/interface/cursor_blink</applyto>
       <key>/schemas/desktop/gnome/interface/cursor_blink</key>
       <owner>gnome</owner>
@@ -92,6 +112,17 @@
     <schema>
       <applyto>/desktop/gnome/interface/gtk_theme</applyto>
       <key>/schemas/desktop/gnome/interface/gtk_theme</key>
+      <owner>gnome</owner>
+      <type>string</type>
+      <default>Default</default>
+      <locale name="C">
+	<short>Gtk+ theme</short>
+	<long>Basename of the default theme used by gtk+.</long>
+      </locale>
+    </schema>
+    <schema>
+      <applyto>/desktop/gnome/interface/gtk_key_theme</applyto>
+      <key>/schemas/desktop/gnome/interface/gtk_key_theme</key>
       <owner>gnome</owner>
       <type>string</type>
       <default>Default</default>
