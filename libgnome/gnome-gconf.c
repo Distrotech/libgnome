@@ -353,7 +353,7 @@ gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
 	g_return_if_fail (picker != NULL);
 	g_return_if_fail (GNOME_IS_COLOR_PICKER (picker));
 	g_return_if_fail (value != NULL);
-	g_return_if_fail ((value->type == GCONF_VALUE_STRING));
+	g_return_if_fail (value->type == GCONF_VALUE_STRING);
 
 	color = g_strndup (gconf_value_string (value), 17);
 	a = strtol (color  + 13, (char **)NULL, 16);
