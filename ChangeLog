@@ -1,3 +1,9 @@
+2002-03-03  Mikael Hallendal  <micke@codefactory.se>
+
+	* help-converters/info/html.c:
+	(dump_html_for_node): add a &nbsp; in anchor tag, otherwise
+	  gtkhtml2 won't be able to jump to it.
+
 Fri Feb 22 12:51:48 2002  Jonathan Blandford  <jrb@redhat.com>
 
 	* schemas/desktop_gnome_peripherals_mouse.schemas: why oh why was
