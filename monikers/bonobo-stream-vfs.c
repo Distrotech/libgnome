@@ -220,8 +220,8 @@ fs_length (BonoboStream *stream,
 
 	gnome_vfs_file_info_init (&fi);
 	if (gnome_vfs_get_file_info_from_handle (sfs->handle, &fi,
-						 GNOME_VFS_FILE_INFO_DEFAULT,
-						 NULL) != GNOME_VFS_OK) {
+						 GNOME_VFS_FILE_INFO_DEFAULT)
+						 != GNOME_VFS_OK) {
 		CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
 				     ex_Bonobo_Stream_NotSupported, NULL);
 		return 0;

@@ -111,7 +111,7 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 
 	result = gnome_vfs_directory_list_load (
 		&dir_list, uri, GNOME_VFS_FILE_INFO_DEFAULT,
-		NULL, NULL);
+		NULL);
 	if (result != GNOME_VFS_OK) {
 		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
 				     ex_Bonobo_Storage_NotFound, NULL);
@@ -171,7 +171,7 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode)
 
 	info = gnome_vfs_file_info_new ();
 	result = gnome_vfs_get_file_info (
-		path, info, GNOME_VFS_FILE_INFO_DEFAULT, NULL);
+		path, info, GNOME_VFS_FILE_INFO_DEFAULT);
 
 	if (result == GNOME_VFS_ERROR_NOT_FOUND &&
 	    (flags & BONOBO_SS_CREATE))
