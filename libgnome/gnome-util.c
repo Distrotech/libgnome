@@ -29,7 +29,7 @@ static char *
 gnome_dirrelative_file (const char *base, const char *sub, const char *filename, int unconditional)
 {
         static char *gnomedir = NULL;
-	char *f = NULL, *t = NULL, *u = NULL, *v = NULL;
+	char *dir = NULL, *fil = NULL, *odir = NULL, *ofil = NULL;
 	char *retval = NULL;
 	
 	/* First try the env GNOMEDIR relative path */
@@ -37,52 +37,47 @@ gnome_dirrelative_file (const char *base, const char *sub, const char *filename,
 		gnomedir = getenv ("GNOMEDIR");
 	
 	if (gnomedir) {
-		t = g_concat_dir_and_file (gnomedir, sub);
-		u = g_strconcat (t, "/", filename, NULL);
-		g_free (t); t = NULL;
-		
-		if (g_file_exists (u)) {
-			retval = u; u = NULL; goto out;
+		dir = g_concat_dir_and_file (gnomedir, sub);
+		fil = g_concat_dir_and_file (dir, filename);
+
+		if (g_file_exists (fil)) {
+			retval = fil; fil = NULL; goto out;
 		}
 
-		t = g_concat_dir_and_file (gnome_util_user_home (), sub);
-		v = g_strconcat (t, "/", filename, NULL);
-		g_free (t); t = NULL;
+		odir = dir; ofil = fil;
+		dir = g_concat_dir_and_file (gnome_util_user_home (), sub);
+		fil = g_concat_dir_and_file (dir, filename);
 
-		if (g_file_exists (v)){
-			retval = v; v = NULL; goto out;
+		if (strcmp (odir, dir) != 0 && g_file_exists (fil)) {
+			retval = fil; fil = NULL; goto out;
 		}
 
 		if (unconditional) {
-			retval = u; u = NULL; goto out;
+			retval = ofil; ofil = NULL; goto out;
 		}
-		
 	}
 
-	g_free(t); t = NULL;
-	if(gnomedir)
-		t = g_concat_dir_and_file (gnomedir, sub);
-	else
-		t = g_concat_dir_and_file (gnome_util_user_home (), sub);
-	if(t && strcmp(base, t)) {
+	if ((!dir || strcmp (base, dir) != 0)
+	    && (!odir || strcmp (base, odir) != 0)) {
 		/* Then try the hardcoded path */
-		f = g_concat_dir_and_file (base, filename);
-	
-		if (g_file_exists (f) || unconditional) {
-			retval = f; f = NULL; goto out;
+		g_free (fil);
+		fil = g_concat_dir_and_file (base, filename);
+		
+		if (unconditional || g_file_exists (fil)) {
+			retval = fil; fil = NULL; goto out;
 		}
 	}
-	
+
 	/* Finally, attempt to find it in the current directory */
-	g_free (f);
-	f = g_concat_dir_and_file (".", filename);
+	g_free (fil);
+	fil = g_concat_dir_and_file (".", filename);
 	
-	if (g_file_exists (f)) {
-		retval = f; f = NULL; goto out;
+	if (g_file_exists (fil)) {
+		retval = fil; fil = NULL; goto out;
 	}
 
 out:	
-	g_free(f); g_free(t); g_free(v); g_free(u);
+	g_free (dir); g_free (odir); g_free (fil); g_free (ofil);
 
 	return retval;
 }

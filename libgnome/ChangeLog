@@ -1,3 +1,8 @@
+1999-03-07  Raja R Harinath  <harinath@cs.umn.edu>
+
+	* gnome-util.c (gnome_dirrelative_file): Rationalize.  Fix a bug
+	with it not working if prefix == $HOME and $GNOMEDIR is not set.
+
 1999-02-34  Eckehard Berns  <eb@berns.i-s-o.net>
 
 	* gnome-help.c (gnome_help_file_find_file): revert the stripping of '#'
