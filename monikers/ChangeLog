@@ -1,5 +1,17 @@
 2001-06-10  Martin Baulig  <baulig@suse.de>
 
+	* bonobo-config-ditem.c, bonobo-config-ditem-utils.c: We now
+	preserve the order of all entries when saving the file back.
+	Actually, the first save of a files saves it in some kind of
+	a "canonical" format and sort order which will be preserved by
+	all subsequent saves.
+
+	* bonobo-config-ditem.h (Directory, Section): New types.
+
+	* bonobo-config-ditem.c (TSecHeader): Removed.
+
+2001-06-10  Martin Baulig  <baulig@suse.de>
+
 	* bonobo-config-ditem.c (real_set_value): Implemented.
 
 	* bonobo-config-ditem-utils.c (bonobo_config_ditem_encode_any):
