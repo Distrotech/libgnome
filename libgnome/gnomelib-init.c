@@ -21,7 +21,9 @@ void
 gnomelib_init (char *app_id)
 {
 	gnome_user_home_dir = getenv ("HOME");
-	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome"); /* FIXME: never freed */
+	/* never freed - gnome_config currently uses this, and it's better
+	   to figure it out once than to repeatedly get it */
+	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome");
 	mkdir (gnome_user_dir, 0755);
 	gnome_app_id = app_id;
 
