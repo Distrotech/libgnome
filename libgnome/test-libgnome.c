@@ -9,6 +9,8 @@
 
 #include "libgnome.h"
 
+#include <libgnome/gnome-url.h>
+
 #include <gobject/gvaluetypes.h>
 #include <gobject/gparamspecs.h>
 
@@ -137,6 +139,12 @@ test_bonobo (GnomeProgram *program)
     g_message (G_STRLOC ": %p", db);
 }
 
+static void
+test_url (void)
+{
+    gnome_url_show ("http://www.gnu.org/");
+}
+
 int
 main (int argc, char **argv)
 {
@@ -188,6 +196,8 @@ main (int argc, char **argv)
     test_properties (program);
 
     test_bonobo (program);
+
+    test_url ();
 
     return 0;
 }

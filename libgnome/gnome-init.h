@@ -47,6 +47,12 @@ gnome_program_get_desktop_config_database (GnomeProgram *program);
 Bonobo_ConfigDatabase
 gnome_program_get_config_database (GnomeProgram *program);
 
+/*
+ * Shortcut for gnome_program_get_config_database (gnome_program_get ()).
+ */
+Bonobo_ConfigDatabase
+gnome_get_config_database (void);
+
 #define GNOME_PARAM_CONFIG_DATABASE "config-database"
 #define GNOME_PARAM_CONFIG_MONIKER  "config-moniker"
 

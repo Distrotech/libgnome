@@ -1,3 +1,4 @@
+/* -*- Mode: C; c-set-style: gnu indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 /* gnome-url.c
  * Copyright (C) 1998, James Henstridge <james@daa.com.au>
  * Copyright (C) 1999, 2000 Red Hat, Inc.
@@ -31,9 +32,10 @@
 #include <unistd.h>
 #include <errno.h>
 
-#include <libgnome/gnome-config.h>
+#include <bonobo/bonobo-property-bag-client.h>
 #include <libgnome/gnome-exec.h>
 #include <libgnome/gnome-util.h>
+#include <libgnome/libgnome-init.h>
 #include "gnome-url.h"
 #include "gnome-i18nP.h"
 #include <popt.h>
@@ -59,8 +61,13 @@ gnome_url_default_handler (void)
 	if (!default_handler) {
 		gchar *str, *app;
 		gboolean def;
-		str = gnome_config_get_string_with_default ("/Gnome/URL Handlers/default-show",
-							    &def);
+		Bonobo_ConfigDatabase cdb;
+
+		cdb = gnome_get_config_database ();
+
+		str = bonobo_pbclient_get_string_with_default (cdb, "/Gnome/URL Handlers/default-show",
+							       NULL, &def);
+		g_message (G_STRLOC ": %d - `%s'", def, str);
 		if (def) {
 			app = gnome_is_program_in_path ("nautilus");
 			if (app) {
@@ -71,22 +78,24 @@ gnome_url_default_handler (void)
 
 			/* first time gnome_url_show is run -- set up some useful defaults */
 			default_handler = DEFAULT_HANDLER;
-			gnome_config_set_string ("/Gnome/URL Handlers/default-show", default_handler);
+			bonobo_pbclient_set_string (cdb, "/Gnome/URL Handlers/default-show",
+						    default_handler, NULL);
 
-			g_free (gnome_config_get_string_with_default(
-				"/Gnome/URL Handlers/info-show", &def));
+			g_free (bonobo_pbclient_get_string_with_default(
+				cdb, "/Gnome/URL Handlers/info-show", NULL, &def));
 			if (def)
-				gnome_config_set_string ("/Gnome/URL Handlers/info-show", app);
-			g_free (gnome_config_get_string_with_default(
-				"/Gnome/URL Handlers/man-show", &def));
+				bonobo_pbclient_set_string (cdb, "/Gnome/URL Handlers/info-show",
+							    app, NULL);
+			g_free (bonobo_pbclient_get_string_with_default(
+				cdb, "/Gnome/URL Handlers/man-show", NULL, &def));
 			if (def)
-				gnome_config_set_string ("/Gnome/URL Handlers/man-show", app);
-			g_free (gnome_config_get_string_with_default(
-				"/Gnome/URL Handlers/ghelp-show", &def));
+				bonobo_pbclient_set_string (cdb, "/Gnome/URL Handlers/man-show",
+							    app, NULL);
+			g_free (bonobo_pbclient_get_string_with_default(
+				cdb, "/Gnome/URL Handlers/ghelp-show", NULL, &def));
 			if (def)
-				gnome_config_set_string ("/Gnome/URL Handlers/ghelp-show", app);
-
-			gnome_config_sync_file ("/Gnome/");
+				bonobo_pbclient_set_string (cdb, "/Gnome/URL Handlers/ghelp-show",
+							    app, NULL);
 		} else
 			default_handler = str;
 	}
@@ -127,7 +136,11 @@ create_cmd(GnomeURLDisplayContext *rdc, const char *template,
 	/* sort of a hack, if the command is gnome-moz-remote, first look
 	 * if mozilla is in path */
 	if(strcmp(temp_argv[0], "gnome-moz-remote") == 0) {
-		char *moz = gnome_config_get_string("/gnome-moz-remote/Mozilla/filename=netscape");
+		Bonobo_ConfigDatabase cdb = gnome_get_config_database ();
+		char *moz = bonobo_pbclient_get_string_with_default(cdb,
+								    "/gnome-moz-remote/Mozilla/filename",
+								    "netscape",
+								    NULL);
 		char *foo;
 
 		foo = gnome_is_program_in_path(moz);
@@ -227,8 +240,11 @@ gnome_url_show_full(GnomeURLDisplayContext *display_context, const char *url,
   char path[PATH_MAX];
   gboolean def, free_template = FALSE;
   GnomeURLDisplayContext *rdc = display_context;
+  Bonobo_ConfigDatabase cdb;
 
   g_return_val_if_fail (!(flags & GNOME_URL_DISPLAY_CLOSE) || display_context, display_context);
+
+  cdb = gnome_get_config_database();
 
   if(flags & GNOME_URL_DISPLAY_CLOSE)
     url = url_type = ""; /* Stick in a dummy URL to make code happy */
@@ -246,7 +262,7 @@ gnome_url_show_full(GnomeURLDisplayContext *display_context, const char *url,
       if (url_type)
 	{
 	  g_snprintf(path, sizeof(path), "/Gnome/URL Handlers/%s-show", url_type);
-	  template = gnome_config_get_string_with_default (path, &def);
+	  template = bonobo_pbclient_get_string_with_default (cdb, path, NULL, &def);
 	  if(def)
 	    {
 	      g_free(template);
@@ -265,7 +281,7 @@ gnome_url_show_full(GnomeURLDisplayContext *display_context, const char *url,
 
 	  g_snprintf (path, sizeof(path), "/Gnome/URL Handlers/%.*s-show", (int)(pos - url - 3), url);
 
-	  template = gnome_config_get_string_with_default (path, &def);
+	  template = bonobo_pbclient_get_string_with_default (cdb, path, NULL, &def);
 
 	  if (def) {
 	    g_free(template);

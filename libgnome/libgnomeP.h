@@ -29,6 +29,7 @@
 #include <glib.h>
 #include <libgnome/libgnome.h>
 
+#include "gnome-config.h"
 #include "gnome-i18nP.h"
 
 #define PATH_SEP '/'

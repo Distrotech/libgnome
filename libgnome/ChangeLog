@@ -1,3 +1,14 @@
+2001-06-05  Martin Baulig  <baulig@suse.de>
+
+	* gnome-url.c: Use bonobo-config instead of gnome-config.
+
+	* libgnome-init.h (gnome_get_config_database): New function.
+
+	* Makefile.am (libgnome_headers): Don't install gnome-config.h.
+	(libgnome_src): Removed gnome-triggers.c.
+
+	* libgnome.h: Don't #include <libgnome/gnome-config.h>.
+
 2001-06-04  Martin Baulig  <baulig@suse.de>
 
 	* gnome-selector.c (gnome_selector_add_event_supplier): New function.

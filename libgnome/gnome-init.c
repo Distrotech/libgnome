@@ -137,6 +137,12 @@ gnome_program_get_desktop_config_database (GnomeProgram *program)
 	return get_db (program, GNOME_PARAM_DESKTOP_CONFIG_DATABASE, NULL);
 }
 
+Bonobo_ConfigDatabase
+gnome_get_config_database (void)
+{
+	return gnome_program_get_config_database (gnome_program_get ());
+}    
+
 static void
 libbonobo_get_property (GObject *object, guint param_id, GValue *value,
 			GParamSpec *pspec)
@@ -243,7 +249,7 @@ libbonobo_class_init (GnomeProgramClass *klass, const GnomeModuleInfo *mod_info)
 	cdata->desktop_config_moniker_id = gnome_program_install_property
 		(klass, libbonobo_get_property, libbonobo_set_property,
 		 g_param_spec_string (GNOME_PARAM_DESKTOP_CONFIG_MONIKER, NULL, NULL,
-				      NULL,
+				      "xmldb:" LIBGNOME_SYSCONFDIR "/gnome-2.0/gnome-desktop.xmldb",
 				      (G_PARAM_READABLE | G_PARAM_WRITABLE |
 				       G_PARAM_CONSTRUCT_ONLY)));
 
@@ -289,7 +295,20 @@ libbonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 	priv->config_database = bonobo_get_object (priv->config_moniker, "Bonobo/ConfigDatabase", &ev);
 	CORBA_exception_free (&ev);
 
+	CORBA_exception_init (&ev);
+	priv->desktop_config_database = bonobo_get_object (priv->desktop_config_moniker,
+							   "Bonobo/ConfigDatabase", &ev);
+	CORBA_exception_free (&ev);
+
+	if (priv->config_database != CORBA_OBJECT_NIL) {
+	    CORBA_exception_init (&ev);
+	    Bonobo_ConfigDatabase_addDatabase (priv->config_database, priv->desktop_config_database,
+					       "", "/Gnome/", &ev);
+	    CORBA_exception_free (&ev);
+	}
+
 	g_message (G_STRLOC ": %p - `%s'", priv->config_database, priv->config_moniker);
+	g_message (G_STRLOC ": %p - `%s'", priv->desktop_config_database, priv->desktop_config_moniker);
 }
 
 static GnomeModuleRequirement libbonobo_requirements [] = {
@@ -404,7 +423,7 @@ libgnome_post_args_parse (GnomeProgram *program,
 	create_dirs_val = g_value_get_boolean (&value);
 	g_value_unset (&value);
 
-	gnome_triggers_init ();
+	// gnome_triggers_init ();
 
 	libgnome_userdir_setup (create_dirs_val);
 

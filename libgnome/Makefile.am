@@ -60,6 +60,7 @@ libgnome_src = \
 	gnome-selector.c	\
 	gnome-selector-factory.c\
 	gnome-config.c		\
+        gnome-config.h 		\
 	gnome-ditem.c		\
 	gnome-exec.c		\
 	gnome-fileconvert.c	\
@@ -67,7 +68,6 @@ libgnome_src = \
 	gnome-regex.c		\
 	gnome-remote.c		\
 	gnome-score.c		\
-	gnome-triggers.c	\
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-paper.c		\
@@ -86,7 +86,6 @@ libgnome_headers = \
 	gnome-async-context.h	\
 	gnome-program.h		\
 	gnome-i18n.h		\
-        gnome-config.h 		\
 	gnome-fileconvert.h	\
 	gnome-ditem.h		\
 	gnome-exec.h		\
@@ -215,3 +214,5 @@ test_libgnome_LDADD = \
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libgnome-2.0.pc
 
+gnomesysconfdir = $(sysconfdir)/gnome-2.0
+gnomesysconf_DATA = gnome-desktop.xmldb

@@ -29,7 +29,6 @@
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-i18n.h>
 
-#include <libgnome/gnome-config.h>
 #include <libgnome/gnome-exec.h>
 
 /* Should this be in gnome-print? */
