@@ -349,6 +349,33 @@ add_directory_handler (GnomeSelector *selector, const gchar *uri, gint position)
     gnome_vfs_uri_unref (vfs_uri);
 }
 
+static void
+stop_loading_handler (GnomeSelector *selector)
+{
+    GnomeFileSelector *fselector;
+
+    g_return_if_fail (selector != NULL);
+    g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
+
+    fselector = GNOME_FILE_SELECTOR (selector);
+
+    while (fselector->_priv->async_ops != NULL) {
+	GnomeFileSelectorAsyncData *async_data =
+	    fselector->_priv->async_ops->data;
+
+	g_message (G_STRLOC ": cancelling async handler %p",
+		   async_data->handle);
+	gnome_vfs_async_cancel (async_data->handle);
+
+	free_the_async_data (fselector, async_data);
+    }
+
+    /* it's important to always call the parent handler of this signal
+     * since the parent class may have pending async operations as well. */
+    if (GNOME_SELECTOR_CLASS (parent_class)->stop_loading)
+	(* GNOME_SELECTOR_CLASS (parent_class)->stop_loading) (selector);
+}
+
 void
 gnome_file_selector_set_filter (GnomeFileSelector *fselector,
 				GnomeVFSDirectoryFilter *filter)
@@ -559,7 +586,6 @@ _update_file_list_handler_file (GnomeSelector *selector, const gchar *uri,
 				gboolean defaultp)
 {
     GnomeVFSResult result;
-    GnomeVFSDirectoryHandle *handle = NULL;
     GnomeVFSFileInfo *info;
     GnomeVFSURI *vfs_uri;
 
