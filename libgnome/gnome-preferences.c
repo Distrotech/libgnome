@@ -22,6 +22,7 @@
 #include <libgnome/gnome-init.h>
 #include <bonobo/bonobo-property-bag-client.h>
 #include <string.h>
+#include <unistd.h>
 
 static void
 do_warning (void)
@@ -37,7 +38,6 @@ do_warning (void)
 		sleep (2);
 	}
 	slept = TRUE;
-	return FALSE;
 }
 
 #define DEFINE_DESKTOP_PROP_BOOLEAN(c_name, prop_name)  \
