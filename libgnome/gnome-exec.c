@@ -87,6 +87,8 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
   switch(child_pid) {
   case -1:
+    close(comm_pipes[0]);
+    close(comm_pipes[1]);
     return -1;
 
   case 0: /* START PROCESS 1: child */
@@ -126,7 +128,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 	/* Close all file descriptors but stdin stdout and stderr */
 	open_max = sysconf (_SC_OPEN_MAX);
 	for (i = 3; i < open_max; i++){
-	  close (i);
+	  fcntl(i, F_SETFD, 1);
 	}
       }
       /* doit */
@@ -155,6 +157,8 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
   /* do this after the read's in case some OS's handle blocking on pipe writes
      differently */
   waitpid(immediate_child_pid, &itmp, 0); /* eat zombies */
+
+  close(comm_pipes[0]);
 
   return child_pid;
 }
