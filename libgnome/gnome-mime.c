@@ -34,6 +34,10 @@ typedef struct {
 	unsigned int system_dir : 1;
 } mime_dir_source_t;
 
+/* chached localhostname */
+static char localhostname[1024];
+static gboolean got_localhostname = FALSE;
+
 /* These ones are used to automatically reload mime-types on demand */
 static mime_dir_source_t gnome_mime_dir, user_mime_dir;
 static time_t last_checked;
@@ -554,8 +558,11 @@ gnome_mime_type_list_of_file (const char *existing_filename)
  * gnome_uri_list_extract_uris:
  * @uri_list: an uri-list in the standard format.
  *
- * Returns a GList containing strings allocated with g_malloc
- * that have been splitted from @uri-list.
+ * Extract URIs from a @uri-list and return a list
+ *
+ * Returns: a GList containing strings allocated with g_malloc.
+ * You should use #gnome_uri_list_free_strings to free the
+ * returned list
  */
 GList*
 gnome_uri_list_extract_uris (const gchar* uri_list)
@@ -606,11 +613,13 @@ gnome_uri_list_extract_uris (const gchar* uri_list)
  * gnome_uri_list_extract_filenames:
  * @uri_list: an uri-list in the standard format
  *
- * Returns a GList containing strings allocated with g_malloc
- * that contain the filenames in the uri-list.
+ * Extract local files from a @uri-list and return a list.  Note
+ * that unlike the #gnome_uri_list_extract_uris function, this
+ * will only return local files and not any other urls.
  *
- * Note that unlike gnome_uri_list_extract_uris() function, this
- * will discard any non-file uri from the result value.
+ * Returns: a GList containing strings allocated with g_malloc.
+ * You should use #gnome_uri_list_free_strings to free the
+ * returned list.
  */
 GList*
 gnome_uri_list_extract_filenames (const gchar* uri_list)
@@ -628,15 +637,80 @@ gnome_uri_list_extract_filenames (const gchar* uri_list)
 		node = tmp_list;
 		tmp_list = tmp_list->next;
 
-		if (!strncmp (s, "file:", 5)) {
-			node->data = g_strdup (s+5);
-		} else {
+		node->data = gnome_uri_extract_filename(s);
+
+		/* if we didn't get anything, just remove the element */
+		if (!node->data) {
 			result = g_list_remove_link(result, node);
 			g_list_free_1 (node);
 		}
 		g_free (s);
 	}
 	return result;
+}
+
+/**
+ * gnome_uri_extract_filename:
+ * @uri: a single URI
+ *
+ * If the @uri is a local file, return the local filename only
+ * without the file:[//hostname] prefix.
+ *
+ * Returns: a newly allocated string if the @uri, or %NULL
+ * if the @uri was not a local file
+ */
+gchar *
+gnome_uri_extract_filename (const gchar* uri)
+{
+	/* file uri with a hostname */
+	if (strncmp(uri, "file://", strlen("file://"))==0) {
+		char *hostname = g_strdup(&uri[strlen("file://")]);
+		char *p = strchr(hostname,'/');
+		char *path;
+		/* if we can't find the '/' this uri is bad */
+		if(!p) {
+			g_free(hostname);
+			return NULL;
+		}
+		/* if no hostname */
+		if(p==hostname)
+			return hostname;
+
+		path = g_strdup(p);
+		*p = '\0';
+
+		/* gel local host name and cache it */
+		if(!got_localhostname) {
+			G_LOCK (mime_mutex);
+			if(gethostname(localhostname,
+				       sizeof(localhostname)) < 0) {
+				strcpy(localhostname,"");
+			}
+			got_localhostname = TRUE;
+			G_UNLOCK (mime_mutex);
+		}
+
+		/* if really local */
+		if((localhostname[0] &&
+		    g_strcasecmp(hostname,localhostname)==0) ||
+		   g_strcasecmp(hostname,"localhost")==0) {
+			g_free(hostname);
+			return path;
+		}
+		
+		g_free(hostname);
+		g_free(path);
+		return NULL;
+
+	/* if the file doesn't have the //, we take it containing 
+	   a local path */
+	} else if (strncmp(uri, "file:", strlen("file:"))==0) {
+		const char *path = &uri[strlen("file:")];
+		/* if empty bad */
+		if(!*path) return NULL;
+		return g_strdup(path);
+	}
+	return NULL;
 }
 
 /**

@@ -1,3 +1,20 @@
+Thu Jan 20 00:07:37 2000  George Lebl <jirka@5z.com>
+
+	* gnome-mime.[ch]: add a function gnome_uri_extract_filename,
+	  which will take a single uri and return a newly allocated
+	  string with a local filename or NULL if it's not file: and
+	  local.  Use this in extract_filenames so that we actually
+	  get real files for things that specify hostname too
+
+	* gnome-ditem.c: use gnome_uri_extract_filename to test for
+	  something being a local file and use it to extract the filename
+	  itself.  If we actually append ".directory" and read the file,
+	  stat it again to get the correct mtime.  Store full path in
+	  location.  Make sure the type is "Directory" if and only if
+	  the loaded file is a ".directory".  Recognize "<dir>/.directory"
+	  as a directory file as well.  Add _() around the g_warning
+	  messages.  Fix .order file reading by opening the right file.
+
 Tue Jan 18 00:30:56 2000  George Lebl <jirka@5z.com>
 
 	* gnome-util.c: (g_file_test) make the tests work sanely again.
