@@ -1,5 +1,5 @@
 /*
- * gnome-moniker-file.c: Sample file-system based Moniker implementation
+ * bonobo-moniker-file.c: Sample file-system based Moniker implementation
  *
  * This is the file-system based Moniker implementation.
  *

@@ -78,7 +78,7 @@ bonobo_std_moniker_factory (BonoboGenericFactory *this,
 }
 
 
-BONOBO_OAF_SHLIB_FACTORY_MULTI ("OAFIID:Bonobo_Moniker_std_Factory",
+BONOBO_OAF_SHLIB_FACTORY_MULTI ("OAFIID:Bonobo_Moniker_stdFactory",
 				"bonobo standard moniker",
 				bonobo_std_moniker_factory,
 				NULL);
