@@ -390,7 +390,7 @@ gnome_url_show(const gchar *url)
   GnomeURLError error;
   gnome_url_show_full(NULL, url, NULL, GNOME_URL_DISPLAY_NO_RETURN_CONTEXT,
 		      &error);
-  return error != GNOME_URL_NO_ERROR;
+  return error == GNOME_URL_NO_ERROR;
 }
 
 static void
