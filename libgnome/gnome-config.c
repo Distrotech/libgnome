@@ -468,7 +468,7 @@ check_path(char *path, mode_t newmode)
 	struct stat s;
 
 
-	g_return_if_fail(path!=NULL);
+	g_return_val_if_fail(path!=NULL, FALSE);
 
 	if(strchr(path,'/')==NULL)
 		return FALSE;
@@ -947,9 +947,9 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 				       char ***argvp, gboolean *def, gint priv)
 {
 	ParsedPath *pp;
-	const char *r, *p, *last;
-	char *tmp;
-	int count;
+	const char *r, *p, *last, *p2;
+	char *tmp, *p1;
+	int count, esc_spcs;
 
 	pp = parse_path (path, priv);
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
@@ -962,8 +962,6 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 	count = 1;
 	for (p = r; *p; ++p) {
 	        if (*p == '\\') {
-		        if (! *p)
-			        break;
 			++p;
 		} else if (*p == ' ') {
 		        ++count;
@@ -976,15 +974,23 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 
 	count = 0;
 	last = r;
+	esc_spcs = 0;
 	for (p = r; *p; ++p) {
 	        if (*p == '\\') {
-		        if (! *p)
-			        break;
 			++p;
+			++esc_spcs;
 		} else if (*p == ' ') {
-		        tmp = g_malloc (p - last + 1);
-			strncpy (tmp, last, p - last);
-			tmp[p - last] = '\0';
+		        tmp = g_malloc (p - last + 1 - esc_spcs);
+			p1 = tmp;
+			p2 = last;
+			while (p2 < p) {
+				if ((*p2 == '\\') && (p2[1] == ' ')) {
+					++p2;
+				}
+				*p1 = *p2;
+				++p1; ++p2;
+			}
+			*p1 = '\0';
 		        (*argvp)[count++] = tmp;
 			last = p + 1;
 		}
@@ -1235,21 +1241,21 @@ gnome_config_clean_file(const char *path)
 gboolean
 gnome_config_has_section(const char *path)
 {
-	_gnome_config_has_section(path,FALSE);
+	return _gnome_config_has_section(path,FALSE);
 }
 
 
 void *
 gnome_config_init_iterator(const char *path)
 {
-	_gnome_config_init_iterator(path,FALSE);
+	return _gnome_config_init_iterator(path,FALSE);
 }
 
 
 void *
 gnome_config_init_iterator_sections(const char *path)
 {
-	_gnome_config_init_iterator_sections(path,FALSE);
+	return _gnome_config_init_iterator_sections(path,FALSE);
 }
 
 #endif
