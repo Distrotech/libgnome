@@ -1,3 +1,9 @@
+1999-09-08  Martin Baulig  <martin@home-of-linux.org>
+
+	* gnome-triggers.h (GnomeTriggerType, _GnomeTriggerType):
+	Use `typedef enum { ... } GnomeTriggerType' instead of
+ 	`typedef enum _GnomeTriggerType { ... } GnomeTriggerType'.
+
 1999-09-01  Jacob Berkman  <jberkman@andrew.cmu.edu>
 
 	* gnome-dentry.c (gnome_desktop_entry_load_flags_conditional): 

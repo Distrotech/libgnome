@@ -5,7 +5,7 @@
 #include <glib.h>
 BEGIN_GNOME_DECLS
 
-typedef enum _GnomeTriggerType {
+typedef enum {
 	GTRIG_NONE,
 	GTRIG_FUNCTION,
 	GTRIG_COMMAND,
