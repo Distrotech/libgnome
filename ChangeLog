@@ -1,4 +1,10 @@
-2003-05-01  Kjartan Maraas  <set EMAIL_ADDRESS environment variable>
+2003-05-01  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* help-converters/man/Makefile.am:
+	* help-converters/man/gnome-man2html.c: (output_meta_element),
+	(scan_request): Fix for bug #79071. Localised man pages work.
+
+2003-05-01  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* help-converters/man/gnome-man2html.c: (main): Fix for
 	bug #73597. Patch from Roderich Schupp.
