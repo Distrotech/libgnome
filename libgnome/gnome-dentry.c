@@ -164,7 +164,7 @@ gnome_desktop_entry_load (char *file)
 	newitem->tryexec   = try_file;
 	newitem->icon_base = gnome_config_get_string ("Icon");
 	newitem->docpath   = gnome_config_get_string ("DocPath");
-	newitem->terminal  = gnome_config_get_bool   ("Terminal");
+	newitem->terminal  = gnome_config_get_bool   ("Terminal=0");
 	newitem->type      = gnome_config_get_string ("Type");
 	newitem->location  = g_strdup (file);
 	
