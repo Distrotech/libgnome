@@ -373,32 +373,6 @@ gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
 	g_free (color);
 }
 
-GConfValue *
-gnome_gconf_gnome_entry_get (GnomeEntry     *gnome_entry,
-			     GConfValueType  type)
-{
-	GtkWidget *entry;
-
-	g_return_val_if_fail (gnome_entry != NULL, NULL);
-	g_return_val_if_fail (GNOME_IS_ENTRY (gnome_entry), NULL);
-	
-	entry = gnome_entry_gtk_entry (gnome_entry);
-	return gnome_gconf_gtk_entry_get (GTK_ENTRY (entry), type);
-}
-
-void
-gnome_gconf_gnome_entry_set (GnomeEntry *gnome_entry,
-			     GConfValue *value)
-{
-	GtkWidget *entry;
-
-	g_return_if_fail (gnome_entry != NULL);
-	g_return_if_fail (GNOME_IS_ENTRY (gnome_entry));
-
-	entry = gnome_entry_gtk_entry (gnome_entry);
-	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
-}
-
 gchar*
 gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
 {

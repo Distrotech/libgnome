@@ -35,7 +35,6 @@
 #include <gtk/gtkradiobutton.h>
 #include <libgnome/gnomelib-init2.h>
 #include "gnome-color-picker.h"
-#include "gnome-entry.h"
 /* GTK Widgets */
 GConfValue *gnome_gconf_gtk_entry_get          (GtkEntry         *entry,
 						GConfValueType    type);
@@ -64,11 +63,6 @@ GConfValue *gnome_gconf_gnome_color_picker_get (GnomeColorPicker *picker,
 						GConfValueType    type);
 void        gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
 						GConfValue       *value);
-GConfValue *gnome_gconf_gnome_entry_get        (GnomeEntry       *entry,
-						GConfValueType    type);
-void        gnome_gconf_gnome_entry_set        (GnomeEntry       *entry,
-						GConfValue       *value);
-
 /* Get keys relative to the gnome-libs internal per-app directory and the
    application author per-app directory */
 gchar      *gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey);
