@@ -1019,7 +1019,7 @@ _gnome_config_set_translated_string (const char *path, const char *value,
 
   lang= language_list ? language_list->data : NULL;
   
-  if (lang)
+  if (lang && (strcmp (lang, "C") != 0))
     {
       tkey = g_copy_strings (path, "[", lang, "]", NULL);
       _gnome_config_set_string(tkey, value, priv);
