@@ -247,7 +247,6 @@ mozilla_remote_find_window_recurse(Display *dpy, Window win,
   int r_format;
   unsigned long count, after;
   unsigned char *data;
-  gboolean send, found;
 
   XGetWindowProperty(dpy, win, XA_WM_STATE, 0, 0, False, AnyPropertyType,
 		     &r_type, &r_format, &count, &after, &data);
@@ -833,7 +832,6 @@ int
 main (int argc, char **argv)
 {
   Display *dpy;
-  poptContext ctx;
 
   /* Parse arguments ... */
   gnomelib_init("gnome-moz-remote", VERSION);

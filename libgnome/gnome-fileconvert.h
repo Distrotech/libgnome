@@ -7,7 +7,7 @@ BEGIN_GNOME_DECLS
 
 /* Returns -1 if no conversion is possible */
 gint
-gnome_file_convert_fd(gint fd, gchar *fromtype, gchar *totype);
+gnome_file_convert_fd(gint fd, const char *fromtype, const char *totype);
 /* Convenience wrapper for the above function */
 gint
 gnome_file_convert(const char *filename, const char *fromtype, const char *totype);

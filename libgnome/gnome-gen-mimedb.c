@@ -21,7 +21,6 @@ int main(int argc, char *argv[])
 	char *filename = NULL, *out_filename;
 	int nents;
 
-	char *outmem;
 	FILE *f;
 
 	gnome_do_not_create_directories = 1;

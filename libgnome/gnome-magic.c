@@ -390,7 +390,6 @@ gnome_mime_type_from_magic(const gchar *filename)
 {
   FILE *fh;
   static GnomeMagicEntry *ents = NULL;
-  static char *fn;
   int i;
   struct stat sbuf;
 

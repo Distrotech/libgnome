@@ -40,8 +40,6 @@ typedef struct _sample
   }
 GnomeSoundSample;
 
-static void gnome_sound_sample_destroy (GnomeSoundSample * s);
-
 #ifndef HAVE_LIBAUDIOFILE
 typedef struct _WAVFormatChunk
   {
@@ -297,7 +295,7 @@ gnome_sound_sample_load_audiofile(const char *file)
   int bytes_per_frame;
   AFframecount frame_count, frames_read;
 
-  int out_sock, out_bits, out_channels, out_rate;
+  int out_bits, out_channels, out_rate;
   int out_mode = ESD_STREAM, out_func = ESD_PLAY;
   esd_format_t out_format;
 

@@ -44,18 +44,10 @@ static void gnome_trigger_do_mediaplay(GnomeTrigger* t,
 				       const char *msg,
 				       const char *level,
 				       const char *supinfo[]);
-static gint gnome_triggers_read_path(const char *config_path);
 
 /* FILEWIDE VARIABLES */
 
 static GnomeTriggerList* gnome_triggerlist_topnode = NULL;
-static int trigger_msg_sample_ids[] = {
-  -1, /* info */
-  -1, /* warning */
-  -1, /* error */
-  -1, /* question */
-  -1, /* generic */
-};
 
 static const GnomeTriggerTypeFunction actiontypes[] =
 /* This list should have entries for all the trigger types in
@@ -476,16 +468,6 @@ gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 	    gnome_trigger_do(curnode->actions[j], msg, level, supinfo);
 	}
     }
-}
-
-static void
-gnome_triggers_destroy(void)
-{
-  g_return_if_fail(gnome_triggerlist_topnode != NULL);
-  gnome_triggerlist_free(gnome_triggerlist_topnode);
-  gnome_triggerlist_topnode = NULL;
-  g_hash_table_foreach_remove(sound_ids, (GHRFunc)g_free, NULL);
-  g_hash_table_destroy(sound_ids);
 }
 
 static void

@@ -47,7 +47,7 @@ struct _FileType {
 	FileConverter *best_way_here;
 };
 
-static GList *gfc_get_path(gchar *fromtype, gchar *totype);
+static GList *gfc_get_path(const char *fromtype, const char *totype);
 static gint   gfc_run_pipe(gchar *acmd, gint infd);
 
 /**
@@ -84,7 +84,7 @@ gnome_file_convert (const char *filename, const char *fromtype, const char *toty
  * file.
  */
 gint
-gnome_file_convert_fd (gint fd, gchar *fromtype, gchar *totype)
+gnome_file_convert_fd (gint fd, const char *fromtype, const char *totype)
 {
 	GList *convlist, *l;
 	gint infd, outfd;
@@ -277,7 +277,7 @@ gfc_shortest_path (GHashTable *file_types,
 
 /* Get the list of converters required to convert fromtype to totype */
 static GList *
-gfc_get_path (gchar *fromtype, gchar *totype)
+gfc_get_path (const char *fromtype, const char *totype)
 {
 	static GHashTable *file_types;
 	static gboolean read_datfile = FALSE;

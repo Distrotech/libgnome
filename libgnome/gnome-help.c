@@ -235,7 +235,6 @@ gnome_help_pbox_goto (void *ignore, int ignore2, GnomeHelpMenuEntry *ref)
  */
 void gnome_help_goto (void *ignore, gchar *file)
 {
-	pid_t pid;
 	
 #ifdef GNOME_ENABLE_DEBUG    
 	printf("gnome_help_goto: %s\n", (char *)file);

@@ -406,7 +406,6 @@ static gboolean
 remove_keys (gpointer key, gpointer value, gpointer user_data)
 {
 	GnomeMimeContext *context = value;
-	char *mime_type = key;
 
 	context_destroy (context);
 	
@@ -419,7 +418,6 @@ maybe_reload (void)
 	time_t now = time (NULL);
 	gboolean need_reload = FALSE;
 	struct stat s;
-	int i;
 	
 	if (last_checked + 5 >= now)
 		return;

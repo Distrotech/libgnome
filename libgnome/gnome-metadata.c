@@ -582,7 +582,7 @@ add_hash_entry (GHashTable *hash, char *hashkey, char *key, char *value)
    reads the file and puts the information into the global
    structures.  */
 static int
-scan_app_file (struct dirent *ent)
+scan_app_file (const struct dirent *ent)
 {
 	FILE *f;
 	int c, comment, column, was_space, skipping, equals;
@@ -989,7 +989,6 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 	    int is_fast)
 {
 	int type_size, r;
-	int is_type = 0;
 	gchar *type;
 	const gchar *type_c;
 

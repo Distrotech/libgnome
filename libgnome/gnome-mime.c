@@ -276,8 +276,6 @@ maybe_reload (void)
 static void
 mime_init (void)
 {
-	char *mime_info_dir;
-	
 	mime_extensions [0] = g_hash_table_new (g_str_hash, g_str_equal);
 	mime_extensions [1] = g_hash_table_new (g_str_hash, g_str_equal);
 
@@ -308,7 +306,6 @@ const char *
 gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 {
 	const gchar *ext;
-	gchar *result;
 	int priority;
 	
 	if (!filename)
