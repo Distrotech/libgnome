@@ -106,6 +106,8 @@ gnome_desktop_entry_load (char *file)
 					      "-small.xpm", NULL);
 			newitem->transparent_icon = g_copy_strings (newitem->icon_base,
 					      "-transparent.xpm", NULL);
+			newitem->opaque_icon = g_copy_strings (newitem->icon_base,
+					      ".xpm", NULL);
 			*dot = '.';
 		}
 
@@ -113,14 +115,18 @@ gnome_desktop_entry_load (char *file)
 		if (*newitem->icon_base != '/'){
 			char *s = newitem->small_icon;
 			char *t = newitem->transparent_icon;
+			char *o = newitem->opaque_icon;
 
 			newitem->small_icon = gnome_pixmap_file (s);
 			newitem->transparent_icon = gnome_pixmap_file (t);
+			newitem->opaque_icon = gnome_pixmap_file (o);
 			g_free (s);
 			g_free (t);
+			g_free (o);
 		}
 	} else {
-		newitem->small_icon = newitem->transparent_icon = 0;
+		newitem->small_icon = newitem->transparent_icon =
+			newitem->opaque_icon = 0;
 	}
 	gnome_config_pop_prefix ();
 	return newitem;
@@ -178,6 +184,7 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
 	free_if_empty (item->type);
 	free_if_empty (item->small_icon);
 	free_if_empty (item->transparent_icon);
+	free_if_empty (item->opaque_icon);
 	free_if_empty (item->location);
 	g_free (item);
 }

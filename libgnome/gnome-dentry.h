@@ -16,6 +16,7 @@ typedef struct {
 	/* These are computed from icon_base */
 	char *small_icon;
 	char *transparent_icon;
+	char *opaque_icon;
 } GnomeDesktopEntry;
 
 GnomeDesktopEntry *gnome_desktop_entry_load (char *file);
