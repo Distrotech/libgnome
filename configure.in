@@ -39,11 +39,14 @@ GNOME_COMPILE_WARNINGS(maximum)
 dnl Define GNOME_ENABLE_DEBUG if the --enable-debug switch was given.
 GNOME_DEBUG_CHECK
 
-AC_PROG_AWK
-
-dnl Don't use AC_PROG_AWK since we need the full pathname.
-AC_PATH_PROGS(AWK, mawk gawk nawk awk, )
-AC_PATH_PROGS(PERL, perl5 perl)
+AC_PATH_PROG(GNOME_MAKETYPES, gnome-maketypes.awk)
+AC_PATH_PROG(GNOME_MAKEENUMS, gnome-makeenums.pl)
+if test -z "$GNOME_MAKETYPES" || test -z "$GNOME_MAKEENUMS" ; then
+  AC_MSG_ERROR([
+*** Cannot find the gnome-maketypes.awk and gnome-makeenums.pl scripts
+*** which are installed from libgnomebase
+])
+fi
 
 AC_ARG_ENABLE(prefer-db1, [  --enable-prefer-db1     Prefer Berkeley DB 1.x],[prefer_db1="$enableval"],[prefer_db1=yes])
 dnl
@@ -93,9 +96,9 @@ AC_PATH_PROG(ORBIT_IDL, orbit-idl, no)
 AC_SUBST(ORBIT_CFLAGS)
 AC_SUBST(ORBIT_LIBS)
 
-GNOME_PKGCONFIG_CHECK_MODULES(GNOMESUPPORT, gnome-support-2.0:1.2.1)
-AC_SUBST(GNOMESUPPORT_CFLAGS)
-AC_SUBST(GNOMESUPPORT_LIBS)
+GNOME_PKGCONFIG_CHECK_MODULES(LIBGNOMEBASE, libgnomebase-2.0:1.2.1)
+AC_SUBST(LIBGNOMEBASE_CFLAGS)
+AC_SUBST(LIBGNOMEBASE_LIBS)
 
 GNOME_PKGCONFIG_CHECK_MODULES(GLIB, glib-2.0:1.3.1)
 AC_SUBST(GLIB_CFLAGS)
@@ -159,15 +162,9 @@ AC_OUTPUT([
 Makefile
 po/Makefile.in
 intl/Makefile
-tools/Makefile
-tools/gnome-maketypes.awk
 libgnome/Makefile
 libgnome/gnome-portability.h
 libgnome/libgnome-2.0.pc
-doc/Makefile
-],[case "$CONFIG_FILES" in
-*tools/gnome-maketypes.awk*)chmod +x tools/gnome-maketypes.awk;;
-esac]
-)
+doc/Makefile])
 
 cat $srcdir/message-of-doom
