@@ -1,5 +1,11 @@
 2001-07-10  Michael Meeks  <michael@ximian.com>
 
+	* bonobo-storage-fs.c (fs_open_storage),
+	(fs_open_stream): CORBA_Object_duplicate the return
+	values.
+
+2001-07-10  Michael Meeks  <michael@ximian.com>
+
 	* bonobo-moniker-file.c (bonobo_moniker_file_resolve):
 	upd. to use it.
 

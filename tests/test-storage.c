@@ -474,7 +474,9 @@ main (int argc, char *argv [])
 		g_error (_("Can not bonobo_init"));
 
 	orb = bonobo_orb ();
-	
+
+#warning FIXME: we need to port this to bonobo_get_object from bonobo_storage_open_full
+#if 0
 	while ((driver = driver_list [dn++])) {
 		printf ("TEST DRIVER: %s\n", driver);
 		
@@ -524,6 +526,7 @@ main (int argc, char *argv [])
 		bonobo_object_unref (BONOBO_OBJECT(bonobo_storage1));
 
 	}
+#endif
 
 	CORBA_exception_free (&ev);
    

@@ -135,7 +135,8 @@ fs_open_stream (PortableServer_Servant  storage,
 		bonobo_stream_fs_open (full, mode, 0644, ev));
 	g_free (full);
 
-	return BONOBO_OBJREF (stream);
+	return CORBA_Object_duplicate (
+		BONOBO_OBJREF (stream), ev);
 }
 
 static Bonobo_Storage
@@ -154,7 +155,8 @@ fs_open_storage (PortableServer_Servant  storage,
 		bonobo_storage_fs_open (full, mode, 0644, ev));
 	g_free (full);
 
-	return BONOBO_OBJREF (new_storage);
+	return CORBA_Object_duplicate (
+		BONOBO_OBJREF (new_storage), ev);
 }
 
 static void
