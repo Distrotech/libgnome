@@ -1,3 +1,10 @@
+Mon Feb 14 20:42:15 2000  Iain Holmes <ih@csd.abdn.ac.uk>
+
+	* gnome-mime.c (gnome_mime_type_or_default): Check for an uppercase 
+	version of the extension, then check for a lower case version as well
+	as the requested on. An attempt to remove the need to .HTML and .html
+	to exist in the gnome.mime file.
+
 Mon Jan 17 13:59:59 2000  George Lebl <jirka@5z.com>
 
 	* gnome-dentry.c: if we find gnome-terminal use that as

@@ -336,7 +336,29 @@ gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 		char *res;
 
 		if (ext){
+			gchar *upext;
+
 			res = g_hash_table_lookup (mime_extensions [priority], ext);
+			if (res) {
+				result = res;
+				goto done;
+			}
+			/* Search for the UPPER case extension */
+			upext = g_strdup (ext);
+			g_strup (upext);
+			res = g_hash_table_lookup (mime_extensions [priority],
+						   upext);
+			if (res) {
+				result = res;
+				g_free (upext);
+				goto done;
+			}
+
+			/* Final check for lower case */
+			g_strdown (upext);
+			res = g_hash_table_lookup (mime_extensions [priority],
+						   upext);
+			g_free (upext);
 			if (res) {
 				result = res;
 				goto done;
