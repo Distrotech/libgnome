@@ -24,7 +24,7 @@
   @NOTATION@
  */
 
-#include <libgnomeuiP.h>
+#include <libgnomeP.h>
 
 #include <gobject/genums.h>
 #include <gobject/gvaluetypes.h>

@@ -35,7 +35,8 @@ INCLUDES = \
 	-DG_LOG_DOMAIN=\"Gnome\"
 
 libgnome_2_la_SOURCES = \
-	$(BUILT_SOURCES)	\
+	libgnometypebuiltins.h	\
+	libgnometypebuiltins.c	\
 	gnome-program.c		\
 	gnome-config.c		\
 	gnome-ditem.c		\
@@ -67,6 +68,7 @@ libgnome_headers = \
 	gnome-util.h   		\
 	gnome-paper.h		\
 	gnome-preferences.h	\
+	gnome-marshal-main.c	\
 	libgnome-init.h		\
 	libgnome.h
 
@@ -131,13 +133,28 @@ $(srcdir)/libgnometypebuiltins.h: @REBUILD@ Makefile.am $(libgnome_headers)
 	&& cp xgen-gth $(@F) \
 	&& rm -f xgen-gth
 
+$(srcdir)/stamp-gnome-marshal.h: gnome-marshal.list
+	cd $(srcdir) \
+	&& glib-genmarshal --prefix=gnome_marshal gnome-marshal.list --header >> xgen-gmh \
+	&& (cmp -s xgen-gmh gnome-marshal.h || cp xgen-gmh gnome-marshal.h) \
+	&& rm -f xgen-gmh xgen-gmh~ \
+	&& echo timestamp > $(@F)
+
+$(srcdir)/gnome-marshal.h $(srcdir)/gnome-marshal.c: stamp-gnome-marshal.h
+	cd $(srcdir) \
+	&& glib-genmarshal --prefix=gnome_marshal gnome-marshal.list --body >> xgen-gmc \
+	&& cp xgen-gmc gnome-marshal.c \
+	&& rm -f xgen-gmc xgen-gmc~
+
 EXTRA_DIST = \
 	parse-path.cP			\
 	libgnome-2.0.pc.in
 
 BUILT_SOURCES = \
 	libgnometypebuiltins.h		\
-	libgnometypebuiltins.c
+	libgnometypebuiltins.c		\
+	gnome-marshal.h			\
+	gnome-marshal.c
 
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP

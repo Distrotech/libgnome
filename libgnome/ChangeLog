@@ -1,3 +1,12 @@
+2001-04-30  Martin Baulig  <baulig@suse.de>
+
+	* gnome-marshal.list, gnome-marshal-main.c: Moved here
+	from libgnomeui.
+
+	* Makefile.am: Create gnome-marshal.[ch] from gnome-marshal.list.
+
+	* libgnome.h: #include <libgnome/gnome-marshal.h>.
+
 2001-04-29  Martin Baulig  <baulig@suse.de>
 
 	* Makefile.am: Use the new glib-mkenums instead of our own

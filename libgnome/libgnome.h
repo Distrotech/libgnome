@@ -42,6 +42,7 @@
 #include <libgnome/gnome-ditem.h>
 
 #include <libgnome/gnome-preferences.h>
+#include <libgnome/gnome-marshal.h>
 
 #include <libgnome/libgnome-init.h>
 
