@@ -141,6 +141,9 @@ mime_fill_from_file (const char *filename)
 			if (!used && current_key)
 				g_free (current_key);
 			current_key = g_strdup (buf);
+			if (current_key [strlen (current_key)-1] == ':')
+				current_key [strlen (current_key)-1] = 0;
+			
 			used = FALSE;
 		}
 	}
