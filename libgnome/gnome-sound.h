@@ -58,7 +58,8 @@ struct _GnomeSoundPlugin {
     void (*cache_remove_sample) (GnomeSoundSample *sample,
 				 GError **error);
 
-    GnomeSoundSample * (*sample_new_from_file) (const gchar *filename,
+    GnomeSoundSample * (*sample_new_from_file) (const gchar *name,
+						const gchar *filename,
 						GError **error);
     GnomeSoundSample * (*sample_new_from_cache) (const gchar *name,
 						 GError **error);
@@ -113,7 +114,8 @@ void
 gnome_sound_cache_remove_sample (GnomeSoundSample *sample, GError **error);
 
 GnomeSoundSample *
-gnome_sound_sample_new_from_file (const char *filename,
+gnome_sound_sample_new_from_file (const char *name,
+				  const char *filename,
 				  GError **error);
 
 GnomeSoundSample *

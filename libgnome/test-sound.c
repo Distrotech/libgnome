@@ -27,31 +27,6 @@ sample_trigger_function(char *msg, char *level, char *supinfo[])
     global_cntr++;
 }
 
-static void
-sample_read_from_file (GnomeSoundSample *gs, const gchar *name)
-{
-    int fd = open (name, O_RDONLY);
-
-    if (fd >= 0) {
-	char buffer[4096];
-	int len;		
-
-	do {
-	    do
-		len = read (fd, buffer, sizeof (buffer));
-	    while (len < 0 && errno == EINTR);
-	      
-	    if (len > 0)
-		gnome_sound_sample_write (gs, len, buffer, NULL);
-	}
-
-	while (len > 0);
-	close (fd);
-    }
-
-    gnome_sound_sample_write_done (gs, NULL);
-}
-
 int
 main (int argc, char **argv)
 {
@@ -65,13 +40,15 @@ main (int argc, char **argv)
 
     gnome_sound_init ("csl", NULL, NULL, NULL);
 
-    gs = gnome_sound_sample_new ("gnome/warning", NULL);
-    sample_read_from_file (gs, "/usr/share/sounds/phone.wav");
+    gs = gnome_sound_sample_new_from_file ("gnome/warning",
+					   "/usr/share/sounds/phone.wav",
+					   NULL);
     gnome_sound_cache_add_sample (gs, NULL);
     gnome_sound_sample_release (gs, NULL);
 
-    gs = gnome_sound_sample_new ("test/one", NULL);
-    sample_read_from_file (gs, "/usr/share/sounds/panel/slide.wav");
+    gs = gnome_sound_sample_new_from_file ("test/one",
+					   "/usr/share/sounds/panel/slide.wav",
+					   NULL);
     gnome_sound_cache_add_sample (gs, NULL);
     gnome_sound_sample_release (gs, NULL);
 

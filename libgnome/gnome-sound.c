@@ -74,10 +74,11 @@ gnome_sound_cache_remove_sample (GnomeSoundSample *gs, GError **error)
 }
 
 GnomeSoundSample *
-gnome_sound_sample_new_from_file (const char *filename, GError **error)
+gnome_sound_sample_new_from_file (const gchar *name, const char *filename,
+				  GError **error)
 {
     if (sound_plugin)
-	return sound_plugin->sample_new_from_file (filename, error);
+	return sound_plugin->sample_new_from_file (name, filename, error);
     else {
 	_gnome_sound_error_nodriver (error);
 	return NULL;

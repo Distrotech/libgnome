@@ -24,6 +24,10 @@
  */
 
 #include "config.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
 
 #include <glib.h>
 #include <libgnome/gnome-sound.h>
@@ -61,21 +65,46 @@ gnome_sound_csl_play_file (const char *filename, GError **error)
 }
 
 static GnomeSoundSample *
-gnome_sound_csl_sample_new_from_file (const char *filename, GError **error)
+gnome_sound_csl_sample_new_from_file (const char *name, const char *filename,
+				      GError **error)
 {
     CslErrorType err;
     CslSample *sample;
     GnomeSoundSample *retval;
+    int fd;
 
     if (!gnome_sound_csl_driver)
 	return NULL;
 
-    err = csl_sample_new_from_file (gnome_sound_csl_driver, filename,
-				    "gnome_sound_csl_sample_new", NULL,
-				    &sample);
+    err = csl_sample_new (gnome_sound_csl_driver, name,
+			  "gnome_sound_csl_sample_new", NULL,
+			  &sample);
     if (err) {
-	csl_warning ("unable to create sample from file '%s': %s",
-		     filename, csl_strerror (err));
+	csl_warning ("unable to create sample '%s': %s",
+		     name, csl_strerror (err));
+	return NULL;
+    }
+
+    fd = open (filename, O_RDONLY);
+
+    if (fd >= 0) {
+	char buffer[4096];
+	int len;		
+
+	do {
+	    do
+		len = read (fd, buffer, sizeof(buffer));
+	    while (len < 0 && errno == EINTR);
+	      
+	    if (len > 0)
+		csl_sample_write (sample, len, buffer);
+	}
+	while (len > 0);
+	close (fd);
+
+	csl_sample_write_done (sample);
+    } else {
+	csl_sample_release (sample);
 	return NULL;
     }
 
