@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-03-26 19:08+0100\n"
+"POT-Creation-Date: 2003-06-04 08:26+0200\n"
 "PO-Revision-Date: 2003-02-07 14:43+0200\n"
 "Last-Translator: Arman Aksoy (Armish) <armish@linux-sevenler.de>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -108,7 +108,7 @@ msgstr "Yardım dosyaları arasında %s belge numarası bulunamadı"
 msgid "Help document %s/%s not found"
 msgstr "%s/%s yardım belgesi bulunamadı"
 
-#: libgnome/gnome-i18n.c:85
+#: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "Yerel için çok fazla alias seviyesi var , bir iç döngü ile yapılabilir"
 
@@ -140,27 +140,27 @@ msgstr ""
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Gnome hızlandırıcı dizinler yaratılamıyor `%s': %s\n"
 
-#: libgnome/gnome-init.c:391
+#: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
 msgstr "Ses Sunucusunun kullanımını pasifleştir"
 
-#: libgnome/gnome-init.c:394
+#: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
 msgstr "Ses Sunucusunun kullanımını Aktifleştir"
 
-#: libgnome/gnome-init.c:397
+#: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
 msgstr "Sunucu:Ses Sunucusunun kullandığı kapı(port)"
 
-#: libgnome/gnome-init.c:399
+#: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
 msgstr "SUNUCU_ADI:PORT"
 
-#: libgnome/gnome-init.c:417
+#: libgnome/gnome-init.c:410
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Sanal DosyaSistemi"
 
-#: libgnome/gnome-init.c:438
+#: libgnome/gnome-init.c:431
 msgid "GNOME Library"
 msgstr "GNOME Kütüphanesi"
 
@@ -308,21 +308,54 @@ msgstr "Ehoparlör"
 msgid "How to connect to esd"
 msgstr "Esd'e nasıl bağlanılacağı"
 
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1353
 msgid "Help options"
 msgstr "Yardım Seçeneği"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1358
 msgid "Application options"
 msgstr "Uygulama seçenekleri"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1374
 msgid "Dynamic modules to load"
 msgstr "Yüklenecek Dinamik modüller"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1375
 msgid "MODULE1,MODULE2,..."
 msgstr "MODÜL1,MODÜL2,..."
+
+#: libgnome/gnome-url.c:81
+msgid "Unknown internal error while displaying this location."
+msgstr ""
+
+#: libgnome/gnome-url.c:88
+msgid "The specified location is invalid."
+msgstr ""
+
+#: libgnome/gnome-url.c:95
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr ""
+
+#: libgnome/gnome-url.c:103
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
+msgstr ""
+
+#: libgnome/gnome-url.c:111
+msgid "There is no default action associated with this location."
+msgstr ""
+
+#: libgnome/gnome-url.c:118
+msgid "The default action does not support this protocol."
+msgstr ""
+
+#: libgnome/gnome-url.c:125
+#, c-format
+msgid "Unknown error code: %d"
+msgstr ""
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -612,7 +645,8 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Panel, nautilus vs. kullanmak için simge teması"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-msgid "Length of the cursor blink cycle, in milleseconds"
+#, fuzzy
+msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "İmlecin yanıp sönme sırasındaki geçiş süresi, milisaniye olarak"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
@@ -850,166 +884,141 @@ msgid "Whether to play sounds on user events."
 msgstr "Kullanıcı olaylarında ses çalınır."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-msgid "Default URL show handler"
-msgstr "Öntanımlı URL işleyiciyi gösterir"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-msgid "How to handle applications URLs"
-msgstr "Uygulama URL'leri nasıl kullanılır"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-msgid "How to handle ghelp URLs"
-msgstr "Ghelp URL'leri nasıl kullanılır"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
-msgid "How to handle info URLs"
-msgstr "İnfo URL'leri nasıl kullanılır"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
-msgid "How to handle man URLs"
-msgstr "Man URL'leri nasıl kullanılır"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid "How to handle preferences URLs"
-msgstr "Tercihler URL'leri nasıl kullanılır"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid "How to handle server-settings URLs"
-msgstr "Sunucu ayarları URL'leri nasıl kullanılır"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-msgid "How to handle start-here URLs"
-msgstr "Başlangıç URL'leri nasıl kullanılır"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid "How to handle system-settings URLs"
-msgstr "Sistem ayarları URL'leri nasıl kullanılır"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
 msgstr "Çöp URL'leri nasıl kullanılır"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
-msgid "How to handle unknown URLs"
-msgstr "Bilinmeyen URL'ler nasıl kullanılır"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "Run program in terminal"
 msgstr "Programı uçbirimde çalıştır"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-msgid ""
-"Set to true to have a program specified in applications/command handle "
-"applications URLs"
-msgstr ""
-"Uygulamalar/komut içinde belirtilen bir programın URL'leri kullanması için "
-"bu değere doğru atayın"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
-msgid ""
-"Set to true to have a program specified in preferences/command handle "
-"preferences URLs"
-msgstr ""
-"Tercihler/komut içinde belirtilen bir programın URL'leri kullanması için bu "
-"değere doğru atayın"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr ""
-"Uygulamalar/ghelp içinde belirtilen bir programın URL'leri kullanması için "
-"bu değere doğru atayın"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
-msgstr ""
-"Uygulamalar/bilgi içinde belirtilen bir programın URL'leri kullanması için "
-"bu değere doğru atayın"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
-msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr ""
-"Uygulamalar/man içinde belirtilen bir programın URL'leri kullanması için bu "
-"değere doğru atayın"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
-msgid ""
-"Set to true to have a program specified in programs/unknown handle unknown "
-"URLs"
-msgstr ""
-"Uygulamalar/bilinmeyen içinde belirtilen bir programın URL'leri kullanması "
-"için bu değere doğru atayın"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
-msgid ""
-"Set to true to have a program specified in server-settings/command handle "
-"server-settings URLs"
-msgstr ""
-"Sunucu-ayaları/komut içinde belirtilen bir programın URL'leri kullanması "
-"için bu değere doğru atayın"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
-msgid ""
-"Set to true to have a program specified in start-here/command handle start-"
-"here URLs"
-msgstr ""
-"Başlangıç/komut içinde belirtilen bir programın URL'leri kullanması için bu "
-"değere doğru atayın"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:21
-msgid ""
-"Set to true to have a program specified in system-settings/command handle "
-"system-settings URLs"
-msgstr ""
-"Sistem-ayarları/komut içinde belirtilen bir programın URL'leri kullanması "
-"için bu değere doğru atayın"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:22
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Çöp/komut içinde belirtilen bir programın URL'leri kullanması için bu değere "
 "doğru atayın"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:23
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Eğer URL'i kullanacak programın uçbirimde çalışmasını istiyorsanız bu değere "
 "doğru atayın"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:24
-msgid "URL handler for applications pages"
-msgstr "Uygulama sayfaları için URL algılayıcısı"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:25
-msgid "URL handler for ghelp pages"
-msgstr "Ghelp sayfaları için URL algılayıcısı"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:26
-msgid "URL handler for info pages"
-msgstr "Bilgi sayfaları için URL algılayıcısı"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:27
-msgid "URL handler for man pages"
-msgstr "Man sayfaları için URL algılayıcısı"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:28
-msgid "URL handler for preferences pages"
-msgstr "Tercihler sayfaları için URL algılayıcısı"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:29
-msgid "URL handler for server-settings pages"
-msgstr "Sunucu-ayarları sayfaları için URL algılayıcısı"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:30
-msgid "URL handler for start-here pages"
-msgstr "Başlangıç sayfaları için URL algılayıcısı"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:31
-msgid "URL handler for system-settings pages"
-msgstr "Sistem-ayarlarısayfaları için URL algılayıcısı"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:32
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "URL handler for trash pages"
 msgstr "Çöp sayfaları için URL algılayıcısı"
+
+#~ msgid "Default URL show handler"
+#~ msgstr "Öntanımlı URL işleyiciyi gösterir"
+
+#~ msgid "How to handle applications URLs"
+#~ msgstr "Uygulama URL'leri nasıl kullanılır"
+
+#~ msgid "How to handle ghelp URLs"
+#~ msgstr "Ghelp URL'leri nasıl kullanılır"
+
+#~ msgid "How to handle info URLs"
+#~ msgstr "İnfo URL'leri nasıl kullanılır"
+
+#~ msgid "How to handle man URLs"
+#~ msgstr "Man URL'leri nasıl kullanılır"
+
+#~ msgid "How to handle preferences URLs"
+#~ msgstr "Tercihler URL'leri nasıl kullanılır"
+
+#~ msgid "How to handle server-settings URLs"
+#~ msgstr "Sunucu ayarları URL'leri nasıl kullanılır"
+
+#~ msgid "How to handle start-here URLs"
+#~ msgstr "Başlangıç URL'leri nasıl kullanılır"
+
+#~ msgid "How to handle system-settings URLs"
+#~ msgstr "Sistem ayarları URL'leri nasıl kullanılır"
+
+#~ msgid "How to handle unknown URLs"
+#~ msgstr "Bilinmeyen URL'ler nasıl kullanılır"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in applications/command handle "
+#~ "applications URLs"
+#~ msgstr ""
+#~ "Uygulamalar/komut içinde belirtilen bir programın URL'leri kullanması "
+#~ "için bu değere doğru atayın"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in preferences/command handle "
+#~ "preferences URLs"
+#~ msgstr ""
+#~ "Tercihler/komut içinde belirtilen bir programın URL'leri kullanması için "
+#~ "bu değere doğru atayın"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
+#~ "URLs"
+#~ msgstr ""
+#~ "Uygulamalar/ghelp içinde belirtilen bir programın URL'leri kullanması "
+#~ "için bu değere doğru atayın"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/info handle info URLs"
+#~ msgstr ""
+#~ "Uygulamalar/bilgi içinde belirtilen bir programın URL'leri kullanması "
+#~ "için bu değere doğru atayın"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/man handle man URLs"
+#~ msgstr ""
+#~ "Uygulamalar/man içinde belirtilen bir programın URL'leri kullanması için "
+#~ "bu değere doğru atayın"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/unknown handle "
+#~ "unknown URLs"
+#~ msgstr ""
+#~ "Uygulamalar/bilinmeyen içinde belirtilen bir programın URL'leri "
+#~ "kullanması için bu değere doğru atayın"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in server-settings/command handle "
+#~ "server-settings URLs"
+#~ msgstr ""
+#~ "Sunucu-ayaları/komut içinde belirtilen bir programın URL'leri kullanması "
+#~ "için bu değere doğru atayın"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in start-here/command handle "
+#~ "start-here URLs"
+#~ msgstr ""
+#~ "Başlangıç/komut içinde belirtilen bir programın URL'leri kullanması için "
+#~ "bu değere doğru atayın"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in system-settings/command handle "
+#~ "system-settings URLs"
+#~ msgstr ""
+#~ "Sistem-ayarları/komut içinde belirtilen bir programın URL'leri kullanması "
+#~ "için bu değere doğru atayın"
+
+#~ msgid "URL handler for applications pages"
+#~ msgstr "Uygulama sayfaları için URL algılayıcısı"
+
+#~ msgid "URL handler for ghelp pages"
+#~ msgstr "Ghelp sayfaları için URL algılayıcısı"
+
+#~ msgid "URL handler for info pages"
+#~ msgstr "Bilgi sayfaları için URL algılayıcısı"
+
+#~ msgid "URL handler for man pages"
+#~ msgstr "Man sayfaları için URL algılayıcısı"
+
+#~ msgid "URL handler for preferences pages"
+#~ msgstr "Tercihler sayfaları için URL algılayıcısı"
+
+#~ msgid "URL handler for server-settings pages"
+#~ msgstr "Sunucu-ayarları sayfaları için URL algılayıcısı"
+
+#~ msgid "URL handler for start-here pages"
+#~ msgstr "Başlangıç sayfaları için URL algılayıcısı"
+
+#~ msgid "URL handler for system-settings pages"
+#~ msgstr "Sistem-ayarlarısayfaları için URL algılayıcısı"

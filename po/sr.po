@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.2\n"
-"POT-Creation-Date: 2003-04-28 12:23+0200\n"
+"POT-Creation-Date: 2003-06-04 08:26+0200\n"
 "PO-Revision-Date: 2003-05-02 12:24+0200\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
@@ -66,7 +66,8 @@ msgstr "Догађаји корисничког сучеља"
 
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "Не може да пронађе терминал, користи xterm, мада и то можда неће радити"
+msgstr ""
+"Не може да пронађе терминал, користи xterm, мада и то можда неће радити"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
@@ -85,14 +86,18 @@ msgstr "Не може да пронађе GNOME_FILE_DOMAIN_HELP домен."
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr "Не може да прикаже помоћ пошто %s није директоријум. Проверите вашу инсталацију."
+msgstr ""
+"Не може да прикаже помоћ пошто %s није директоријум. Проверите вашу "
+"инсталацију."
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr "Не може да пронађе помоћне датотеке ни у %s ни у %s. Проверите вашу инсталацију."
+msgstr ""
+"Не може да пронађе помоћне датотеке ни у %s ни у %s. Проверите вашу "
+"инсталацију."
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -104,7 +109,7 @@ msgstr "Не може да пронађе doc_id %s у путањи за пом�
 msgid "Help document %s/%s not found"
 msgstr "Није пронађен документ за помоћ %s/%s"
 
-#: libgnome/gnome-i18n.c:85
+#: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "Превише имена за један локалитет, можда је у питању међусобно позивање"
 
@@ -127,34 +132,36 @@ msgstr "Не може да направи директоријум „%s“ за
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
-msgstr "Не може да постави овлашћења 0700 на директоријум „%s“ за Гном поставке корисника: %s\n"
+msgstr ""
+"Не може да постави овлашћења 0700 на директоријум „%s“ за Гном поставке "
+"корисника: %s\n"
 
 #: libgnome/gnome-init.c:335
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Не може да направи директоријум са Гном пречицама „%s“: %s\n"
 
-#: libgnome/gnome-init.c:391
+#: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
 msgstr "Онемогући употребу звука"
 
-#: libgnome/gnome-init.c:394
+#: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
 msgstr "Омогући употребу звука"
 
-#: libgnome/gnome-init.c:397
+#: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
 msgstr "Сервер:порт где жељени сервер за звук ослушкује"
 
-#: libgnome/gnome-init.c:399
+#: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
 msgstr "СЕРВЕР:ПОРТ"
 
-#: libgnome/gnome-init.c:417
+#: libgnome/gnome-init.c:410
 msgid "GNOME Virtual Filesystem"
 msgstr "Гномов Виртуелни Систем Датотека"
 
-#: libgnome/gnome-init.c:438
+#: libgnome/gnome-init.c:431
 msgid "GNOME Library"
 msgstr "Гномова Библиотека"
 
@@ -311,21 +318,54 @@ msgstr "Е-звучник"
 msgid "How to connect to esd"
 msgstr "Како да успостави везу са esd-ом"
 
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1353
 msgid "Help options"
 msgstr "Помоћне опције"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1358
 msgid "Application options"
 msgstr "Поставке програма"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1374
 msgid "Dynamic modules to load"
 msgstr "Учитај динамичке модуле"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1375
 msgid "MODULE1,MODULE2,..."
 msgstr "МОДУЛ1,МОДУЛ2,..."
+
+#: libgnome/gnome-url.c:81
+msgid "Unknown internal error while displaying this location."
+msgstr ""
+
+#: libgnome/gnome-url.c:88
+msgid "The specified location is invalid."
+msgstr ""
+
+#: libgnome/gnome-url.c:95
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr ""
+
+#: libgnome/gnome-url.c:103
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
+msgstr ""
+
+#: libgnome/gnome-url.c:111
+msgid "There is no default action associated with this location."
+msgstr ""
+
+#: libgnome/gnome-url.c:118
+msgid "The default action does not support this protocol."
+msgstr ""
+
+#: libgnome/gnome-url.c:125
+#, c-format
+msgid "Unknown error code: %d"
+msgstr ""
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -364,12 +404,15 @@ msgstr "Не сматрај тастер притиснутим док се не
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "Колико времена (у милисекундама) треба да дође од нуле до највеће брзине"
+msgstr ""
+"Колико времена (у милисекундама) треба да дође од нуле до највеће брзине"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "Колико времена (у милисекундама) треба да прође пре него што тастери за померање миша почну да раде"
+msgstr ""
+"Колико времена (у милисекундама) треба да прође пре него што тастери за "
+"померање миша почну да раде"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -377,7 +420,8 @@ msgstr "Колико тачака у секунди да прелази при �
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "Занемари вишеструки притисак на _исти_ тастер у распону од @delay милисекунди"
+msgstr ""
+"Занемари вишеструки притисак на _исти_ тастер у распону од @delay милисекунди"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -439,7 +483,9 @@ msgstr "Да ли уобичајени читач помоћи захтева т
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Аргумент са којим се извршавају програми у терминалу дефинисаном помоћу „exec“ кључа."
+msgstr ""
+"Аргумент са којим се извршавају програми у терминалу дефинисаном помоћу "
+"„exec“ кључа."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -451,7 +497,9 @@ msgstr "Терминалски програм"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr "Терминалски програм који се користи за покретање програма којима је исти потребан"
+msgstr ""
+"Терминалски програм који се користи за покретање програма којима је исти "
+"потребан"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
@@ -463,7 +511,8 @@ msgstr "Резервни управник прозора"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr "Резервни управник прозора уколико не може да пронађе корисников управник"
+msgstr ""
+"Резервни управник прозора уколико не може да пронађе корисников управник"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -493,7 +542,9 @@ msgstr "Врста претапања боја"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr "Одређује како се исцртава слика постављена помоћу wallpaper_filename. Могуће вредности су „none“, „wallpaper“, „centered“, „scaled“, „stretched“."
+msgstr ""
+"Одређује како се исцртава слика постављена помоћу wallpaper_filename. Могуће "
+"вредности су „none“, „wallpaper“, „centered“, „scaled“, „stretched“."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -511,11 +562,15 @@ msgstr "Да ли да Гном исцрта позадину радне пов�
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
-msgstr "Како да претапа боје позадине. Могуће вредности су „horizontal-gradient“, „vertical-gradient“ и „solid“"
+msgstr ""
+"Како да претапа боје позадине. Могуће вредности су „horizontal-gradient“, "
+"„vertical-gradient“ и „solid“"
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr "Боја на врху или левој страни при исцртавању претапања боја, или боја једнобојне позадине."
+msgstr ""
+"Боја на врху или левој страни при исцртавању претапања боја, или боја "
+"једнобојне позадине."
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
@@ -539,7 +594,9 @@ msgstr "Основна боја"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "Боја на дну или десној страни при исцртавању претапања боја; не користи се за једнобојну позадину."
+msgstr ""
+"Боја на дну или десној страни при исцртавању претапања боја; не користи се "
+"за једнобојну позадину."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -603,7 +660,8 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Тема икона која се користи за панел, Наутилус, итд."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-msgid "Length of the cursor blink cycle, in milleseconds"
+#, fuzzy
+msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Дужина периода треперења курсора, у милисекундама"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
@@ -652,7 +710,8 @@ msgstr "Стил алатки"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
-msgstr "Стил алатки. Дозвољене вредности су „both“, „both_horiz“, „icon“ и „text“"
+msgstr ""
+"Стил алатки. Дозвољене вредности су „both“, „both_horiz“, „icon“ и „text“"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
@@ -666,7 +725,9 @@ msgstr "Да ли програми садрже подршку за присту
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
-msgstr "Да ли се приказују анимације. Напомена: ово је општи кључ, и измениће понашање управника прозора, панела, итд."
+msgstr ""
+"Да ли се приказују анимације. Напомена: ово је општи кључ, и измениће "
+"понашање управника прозора, панела, итд."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
@@ -680,7 +741,8 @@ msgstr "Да ли је меније могуће откинути"
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr "Да ли корисник може динамички да постави нову пречицу када је мени приказан"
+msgstr ""
+"Да ли корисник може динамички да постави нову пречицу када је мени приказан"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
@@ -738,7 +800,11 @@ msgid ""
 "XFree86 4.3 and later. This value is only propagated to the X server start "
 "of each session, so changing it mid-session won't have an effect until the "
 "next time you log in."
-msgstr "Име теме за курсор. Користе само Икс сервери који подржавају ИксКурсор, као што је ИксФри86 4.3 и новији. Ова вредност са шаље Икс серверу само на почетку рада, па измене у току рада неће имати утицаја док се поново не пријавите."
+msgstr ""
+"Име теме за курсор. Користе само Икс сервери који подржавају ИксКурсор, као "
+"што је ИксФри86 4.3 и новији. Ова вредност са шаље Икс серверу само на "
+"почетку рада, па измене у току рада неће имати утицаја док се поново не "
+"пријавите."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -748,7 +814,9 @@ msgstr "Растојање пре почетка превлачења"
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
-msgstr "Растојање у тачкама које показивач мора да пређе пре него што се покрене убрзано кретање миша. Уобичајена системска вредност је -1."
+msgstr ""
+"Растојање у тачкама које показивач мора да пређе пре него што се покрене "
+"убрзано кретање миша. Уобичајена системска вредност је -1."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -763,13 +831,18 @@ msgid ""
 "Font name of the cursor. If unset set, the default font is used. This value "
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
-msgstr "Име писма за курсор. Уколико није постављено, користи се уобичајено писмо. Ова вредност са шаље Икс серверу само на почетку рада, па измене у току рада неће имати утицаја док се поново не пријавите."
+msgstr ""
+"Име писма за курсор. Уколико није постављено, користи се уобичајено писмо. "
+"Ова вредност са шаље Икс серверу само на почетку рада, па измене у току рада "
+"неће имати утицаја док се поново не пријавите."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
-msgstr "Истиче тренутну позицију показивача када се притисне или отпусти Control тастер."
+msgstr ""
+"Истиче тренутну позицију показивача када се притисне или отпусти Control "
+"тастер."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
@@ -800,7 +873,10 @@ msgid ""
 "Size of the cursor referenced by cursor_theme. This value is only propagated "
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
-msgstr "Величина курсора коју тражи cursor_theme. Ова вредност са шаље Икс серверу само на почетку рада, па измене у току рада неће имати утицаја док се поново не пријавите."
+msgstr ""
+"Величина курсора коју тражи cursor_theme. Ова вредност са шаље Икс серверу "
+"само на почетку рада, па измене у току рада неће имати утицаја док се поново "
+"не пријавите."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -823,144 +899,122 @@ msgid "Whether to play sounds on user events."
 msgstr "Да ли да пусти звук при корисниковим догађајима."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-msgid "Default URL show handler"
-msgstr "Уобичајени програм за приказивање адреса (show)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-msgid "How to handle applications URLs"
-msgstr "Како баратати адресама програма"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-msgid "How to handle ghelp URLs"
-msgstr "Како баратати адресама за помоћ (ghelp)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
-msgid "How to handle info URLs"
-msgstr "Како баратати адресама за помоћ (info)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
-msgid "How to handle man URLs"
-msgstr "Како баратати адресама за помоћ (man)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid "How to handle preferences URLs"
-msgstr "Како баратати адресама за подешавања (preferences)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid "How to handle server-settings URLs"
-msgstr "Како баратати адресама за подешавања сервера (server-settings)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-msgid "How to handle start-here URLs"
-msgstr "Како баратати адресама за почетне стране (start-here)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid "How to handle system-settings URLs"
-msgstr "Како баратати адресама за подешавања система (system-settings)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
 msgstr "Како баратати адресама за смеће (trash)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
-msgid "How to handle unknown URLs"
-msgstr "Како баратати непознатим адресама"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "Run program in terminal"
 msgstr "Покрени програм у терминалу"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-msgid ""
-"Set to true to have a program specified in applications/command handle "
-"applications URLs"
-msgstr "Поставите како би наведени програм баратао адресама програма"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
-msgid ""
-"Set to true to have a program specified in preferences/command handle "
-"preferences URLs"
-msgstr "Поставите како би наведени програм баратао адресама за подешавања (preferences)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr "Поставите како би наведени програм баратао адресама за помоћ (ghelp)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
-msgstr "Поставите како би наведени програм баратао адресама за помоћ (info)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
-msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr "Поставите како би наведени програм баратао адресама за помоћ (man)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
-msgid ""
-"Set to true to have a program specified in programs/unknown handle unknown "
-"URLs"
-msgstr "Поставите како би наведени програм баратао непознатим адресама"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
-msgid ""
-"Set to true to have a program specified in server-settings/command handle "
-"server-settings URLs"
-msgstr "Поставите како би наведени програм баратао подешавањима сервера"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
-msgid ""
-"Set to true to have a program specified in start-here/command handle start-"
-"here URLs"
-msgstr "Поставите како би наведени програм баратао почетним страницама"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:21
-msgid ""
-"Set to true to have a program specified in system-settings/command handle "
-"system-settings URLs"
-msgstr "Поставите како би наведени програм баратао подешавањима система"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:22
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr "Поставите како би наведени програм баратао смећем"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:23
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "Поставите ако програм за ову адресу треба да ради у терминалу"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:24
-msgid "URL handler for applications pages"
-msgstr "Програм за странице са програмима"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:25
-msgid "URL handler for ghelp pages"
-msgstr "Програм за помоћне странице (ghelp)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:26
-msgid "URL handler for info pages"
-msgstr "Програм за помоћне странице (info)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:27
-msgid "URL handler for man pages"
-msgstr "Програм за помоћне странице (man)"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:28
-msgid "URL handler for preferences pages"
-msgstr "Програм за странице са подешавањима"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:29
-msgid "URL handler for server-settings pages"
-msgstr "Програм за странице са подешавањима сервера"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:30
-msgid "URL handler for start-here pages"
-msgstr "Програм за почетне странице"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:31
-msgid "URL handler for system-settings pages"
-msgstr "Програм за странице са подешавањима система"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:32
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "URL handler for trash pages"
 msgstr "Програм за странице са смећем"
+
+#~ msgid "Default URL show handler"
+#~ msgstr "Уобичајени програм за приказивање адреса (show)"
+
+#~ msgid "How to handle applications URLs"
+#~ msgstr "Како баратати адресама програма"
+
+#~ msgid "How to handle ghelp URLs"
+#~ msgstr "Како баратати адресама за помоћ (ghelp)"
+
+#~ msgid "How to handle info URLs"
+#~ msgstr "Како баратати адресама за помоћ (info)"
+
+#~ msgid "How to handle man URLs"
+#~ msgstr "Како баратати адресама за помоћ (man)"
+
+#~ msgid "How to handle preferences URLs"
+#~ msgstr "Како баратати адресама за подешавања (preferences)"
+
+#~ msgid "How to handle server-settings URLs"
+#~ msgstr "Како баратати адресама за подешавања сервера (server-settings)"
+
+#~ msgid "How to handle start-here URLs"
+#~ msgstr "Како баратати адресама за почетне стране (start-here)"
+
+#~ msgid "How to handle system-settings URLs"
+#~ msgstr "Како баратати адресама за подешавања система (system-settings)"
+
+#~ msgid "How to handle unknown URLs"
+#~ msgstr "Како баратати непознатим адресама"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in applications/command handle "
+#~ "applications URLs"
+#~ msgstr "Поставите како би наведени програм баратао адресама програма"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in preferences/command handle "
+#~ "preferences URLs"
+#~ msgstr ""
+#~ "Поставите како би наведени програм баратао адресама за подешавања "
+#~ "(preferences)"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
+#~ "URLs"
+#~ msgstr ""
+#~ "Поставите како би наведени програм баратао адресама за помоћ (ghelp)"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/info handle info URLs"
+#~ msgstr "Поставите како би наведени програм баратао адресама за помоћ (info)"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/man handle man URLs"
+#~ msgstr "Поставите како би наведени програм баратао адресама за помоћ (man)"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/unknown handle "
+#~ "unknown URLs"
+#~ msgstr "Поставите како би наведени програм баратао непознатим адресама"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in server-settings/command handle "
+#~ "server-settings URLs"
+#~ msgstr "Поставите како би наведени програм баратао подешавањима сервера"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in start-here/command handle "
+#~ "start-here URLs"
+#~ msgstr "Поставите како би наведени програм баратао почетним страницама"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in system-settings/command handle "
+#~ "system-settings URLs"
+#~ msgstr "Поставите како би наведени програм баратао подешавањима система"
+
+#~ msgid "URL handler for applications pages"
+#~ msgstr "Програм за странице са програмима"
+
+#~ msgid "URL handler for ghelp pages"
+#~ msgstr "Програм за помоћне странице (ghelp)"
+
+#~ msgid "URL handler for info pages"
+#~ msgstr "Програм за помоћне странице (info)"
+
+#~ msgid "URL handler for man pages"
+#~ msgstr "Програм за помоћне странице (man)"
+
+#~ msgid "URL handler for preferences pages"
+#~ msgstr "Програм за странице са подешавањима"
+
+#~ msgid "URL handler for server-settings pages"
+#~ msgstr "Програм за странице са подешавањима сервера"
+
+#~ msgid "URL handler for start-here pages"
+#~ msgstr "Програм за почетне странице"
+
+#~ msgid "URL handler for system-settings pages"
+#~ msgstr "Програм за странице са подешавањима система"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.3.0\n"
-"POT-Creation-Date: 2003-05-01 21:04+0900\n"
+"POT-Creation-Date: 2003-06-04 08:26+0200\n"
 "PO-Revision-Date: 2003-05-01 23:46+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <gnome-kr-translation@lists.sourceforge.net>\n"
@@ -108,7 +108,7 @@ msgstr "도움말 경로에서 doc_id %s을(를) 찾을 수 없습니다"
 msgid "Help document %s/%s not found"
 msgstr "도움말 문서 %s/%s을(를) 찾을 수 없습니다"
 
-#: libgnome/gnome-i18n.c:85
+#: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "로케일에 대한 별명의 단계가 너무 많습니다. 무한 루프일 수 있습니다"
 
@@ -140,27 +140,27 @@ msgstr ""
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "그놈 단축글쇠 설정 디렉토리 `%s'을(를) 만들 수 없습니다: %s\n"
 
-#: libgnome/gnome-init.c:391
+#: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
 msgstr "사운드 서버 사용을 하지 않습니다"
 
-#: libgnome/gnome-init.c:394
+#: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
 msgstr "사운드 서버를 사용합니다"
 
-#: libgnome/gnome-init.c:397
+#: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
 msgstr "사용할 사운드 서버가 호스트:포트 에서 실행되고 있습니다"
 
-#: libgnome/gnome-init.c:399
+#: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
 msgstr "호스트이름:포트"
 
-#: libgnome/gnome-init.c:417
+#: libgnome/gnome-init.c:410
 msgid "GNOME Virtual Filesystem"
 msgstr "그놈 가상 파일시스템"
 
-#: libgnome/gnome-init.c:438
+#: libgnome/gnome-init.c:431
 msgid "GNOME Library"
 msgstr "그놈 라이브러리"
 
@@ -308,19 +308,19 @@ msgstr "espeaker"
 msgid "How to connect to esd"
 msgstr "esd로 연결할 방법"
 
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1353
 msgid "Help options"
 msgstr "도움말 옵션"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1358
 msgid "Application options"
 msgstr "응용프로그램 옵션"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1374
 msgid "Dynamic modules to load"
 msgstr "읽어들일 동적 모듈"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1375
 msgid "MODULE1,MODULE2,..."
 msgstr "모듈1,모듈2,..."
 
@@ -543,7 +543,9 @@ msgstr "그놈 데스크탑에서 데스크탑 바탕을 그립니다"
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
-msgstr "바탕 색상을 어떻게 변화시킬 것인 지 결정하세요. 가능한 값들은 \"horizontal-gradient\", \"vertical-gradient\"와 \"solid\"입니다."
+msgstr ""
+"바탕 색상을 어떻게 변화시킬 것인 지 결정하세요. 가능한 값들은 \"horizontal-"
+"gradient\", \"vertical-gradient\"와 \"solid\"입니다."
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -634,7 +636,8 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "패널, 노틸러스등에서 사용할 아이콘 테마"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-msgid "Length of the cursor blink cycle, in milleseconds"
+#, fuzzy
+msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "밀리초 단위의 커서 깜빡임 길이"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
@@ -697,7 +700,9 @@ msgstr "응용프로그램이 엑세서빌리티를 지원하는 지의 여부"
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
-msgstr "에니메이션을 보여주어야 하는 지의 여부. 주의: 이것은 전역 키입니다, 즉 창 관리자, 패널등의 동작을 바꿀 수 있습니다."
+msgstr ""
+"에니메이션을 보여주어야 하는 지의 여부. 주의: 이것은 전역 키입니다, 즉 창 관"
+"리자, 패널등의 동작을 바꿀 수 있습니다."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"

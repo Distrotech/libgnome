@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-03-26 19:08+0100\n"
+"POT-Creation-Date: 2003-06-04 08:26+0200\n"
 "PO-Revision-Date: 2003-01-22 22:39+0800\n"
 "Last-Translator: Xiong Jiang <jxiong@offtopic.org>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
@@ -118,7 +118,7 @@ msgstr "无法在帮助路径中找到 doc_id %s"
 msgid "Help document %s/%s not found"
 msgstr "没有找到帮助文件 %s/%s"
 
-#: libgnome/gnome-i18n.c:85
+#: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr "区域设置有太多的别名级别，可能是循环"
 
@@ -148,27 +148,27 @@ msgstr "无法将用户私有的 gnome 配置目录“%s”的权限设置为 07
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "无法创建 gnome 加速目录“%s”：%s\n"
 
-#: libgnome/gnome-init.c:391
+#: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
 msgstr "禁用声音服务器"
 
-#: libgnome/gnome-init.c:394
+#: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
 msgstr "启用声音服务器"
 
-#: libgnome/gnome-init.c:397
+#: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
 msgstr "声音服务器使用的“主机:端口”是 "
 
-#: libgnome/gnome-init.c:399
+#: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
 msgstr "主机:端口"
 
-#: libgnome/gnome-init.c:417
+#: libgnome/gnome-init.c:410
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME 虚拟文件系统"
 
-#: libgnome/gnome-init.c:438
+#: libgnome/gnome-init.c:431
 msgid "GNOME Library"
 msgstr "GNOME 库"
 
@@ -316,21 +316,54 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "如何连接 esd"
 
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1353
 msgid "Help options"
 msgstr "帮助选项"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1358
 msgid "Application options"
 msgstr "程序选项"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1374
 msgid "Dynamic modules to load"
 msgstr "要载入的动态模块"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1375
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1，MODULE2，..."
+
+#: libgnome/gnome-url.c:81
+msgid "Unknown internal error while displaying this location."
+msgstr ""
+
+#: libgnome/gnome-url.c:88
+msgid "The specified location is invalid."
+msgstr ""
+
+#: libgnome/gnome-url.c:95
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr ""
+
+#: libgnome/gnome-url.c:103
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
+msgstr ""
+
+#: libgnome/gnome-url.c:111
+msgid "There is no default action associated with this location."
+msgstr ""
+
+#: libgnome/gnome-url.c:118
+msgid "The default action does not support this protocol."
+msgstr ""
+
+#: libgnome/gnome-url.c:125
+#, c-format
+msgid "Unknown error code: %d"
+msgstr ""
 
 # SUN CHANGED MESSAGE
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
@@ -611,7 +644,8 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "用于面板、Nautilus 等的图标主题。"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-msgid "Length of the cursor blink cycle, in milleseconds"
+#, fuzzy
+msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "光标闪烁周期的长度，单位为毫秒"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
@@ -843,147 +877,124 @@ msgid "Whether to play sounds on user events."
 msgstr "是否在用户事件发生时播放声音。"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-msgid "Default URL show handler"
-msgstr "默认的 URL 显示处理程序"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-msgid "How to handle applications URLs"
-msgstr "如何处理“应用程序”URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-msgid "How to handle ghelp URLs"
-msgstr "如何处理 ghelp URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
-msgid "How to handle info URLs"
-msgstr "如何处理 info URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
-msgid "How to handle man URLs"
-msgstr "如何处理 man URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid "How to handle preferences URLs"
-msgstr "如何处理 首选项 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid "How to handle server-settings URLs"
-msgstr "如何处理 服务器设置 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-msgid "How to handle start-here URLs"
-msgstr "如何处理 从这里开始 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid "How to handle system-settings URLs"
-msgstr "如何处理 系统设置 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
 msgstr "如何处理 回收站 URL"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
-msgid "How to handle unknown URLs"
-msgstr "如何处理未知的 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "Run program in terminal"
 msgstr "在终端中运行程序"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-msgid ""
-"Set to true to have a program specified in applications/command handle "
-"applications URLs"
-msgstr "设置为“真”可以用在 应用程序/命令 中指定的程序来处理 应用程序 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
-msgid ""
-"Set to true to have a program specified in preferences/command handle "
-"preferences URLs"
-msgstr "设置为“真”可以用在 首选项/命令 中指定的程序来处理 首选项 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr "设置为“真”可以用在 程序/ghelp 中指定的程序来处理 ghelp URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
-msgstr "设置为“真”可以用在 程序/info 中指定的程序来处理 info URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
-msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr "设置为“真”可以用在 程序/man 中指定的程序来处理 man URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
-msgid ""
-"Set to true to have a program specified in programs/unknown handle unknown "
-"URLs"
-msgstr "设置为“真”可以用在 程序/未知 中指定的程序来处理未知的 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
-msgid ""
-"Set to true to have a program specified in server-settings/command handle "
-"server-settings URLs"
-msgstr "设置为“真”可以用在 服务器设置/命令 中指定的程序来处理 服务器设置 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
-msgid ""
-"Set to true to have a program specified in start-here/command handle start-"
-"here URLs"
-msgstr "设置为“真”可以用在 从这里开始/命令 中指定的程序来处理 从这里开始 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:21
-msgid ""
-"Set to true to have a program specified in system-settings/command handle "
-"system-settings URLs"
-msgstr "设置为“真”可以用在 系统设置/命令 中指定的程序来处理 系统设置 URL"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:22
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr "设置为“真”可以用在 回收站/命令 中指定的程序来处理 回收站 URL"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:23
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "如果处理此 URL 的程序需要在终端中运行则设置为“真”"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:24
-msgid "URL handler for applications pages"
-msgstr "应用程序页的 URL 处理程序"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:25
-msgid "URL handler for ghelp pages"
-msgstr "ghelp 页的 URL 处理程序"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:26
-msgid "URL handler for info pages"
-msgstr "info 页的 URL 处理程序"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:27
-msgid "URL handler for man pages"
-msgstr "man 页的 URL 处理程序"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:28
-msgid "URL handler for preferences pages"
-msgstr "首选项页的 URL 处理程序"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:29
-msgid "URL handler for server-settings pages"
-msgstr "服务器设置页的 URL 处理程序"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:30
-msgid "URL handler for start-here pages"
-msgstr "从这里开始页的 URL 处理程序"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:31
-msgid "URL handler for system-settings pages"
-msgstr "系统设置页的 URL 处理程序"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:32
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "URL handler for trash pages"
 msgstr "回收站页的 URL 处理程序"
+
+#~ msgid "Default URL show handler"
+#~ msgstr "默认的 URL 显示处理程序"
+
+#~ msgid "How to handle applications URLs"
+#~ msgstr "如何处理“应用程序”URL"
+
+#~ msgid "How to handle ghelp URLs"
+#~ msgstr "如何处理 ghelp URL"
+
+#~ msgid "How to handle info URLs"
+#~ msgstr "如何处理 info URL"
+
+#~ msgid "How to handle man URLs"
+#~ msgstr "如何处理 man URL"
+
+#~ msgid "How to handle preferences URLs"
+#~ msgstr "如何处理 首选项 URL"
+
+#~ msgid "How to handle server-settings URLs"
+#~ msgstr "如何处理 服务器设置 URL"
+
+#~ msgid "How to handle start-here URLs"
+#~ msgstr "如何处理 从这里开始 URL"
+
+#~ msgid "How to handle system-settings URLs"
+#~ msgstr "如何处理 系统设置 URL"
+
+#~ msgid "How to handle unknown URLs"
+#~ msgstr "如何处理未知的 URL"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in applications/command handle "
+#~ "applications URLs"
+#~ msgstr "设置为“真”可以用在 应用程序/命令 中指定的程序来处理 应用程序 URL"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in preferences/command handle "
+#~ "preferences URLs"
+#~ msgstr "设置为“真”可以用在 首选项/命令 中指定的程序来处理 首选项 URL"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
+#~ "URLs"
+#~ msgstr "设置为“真”可以用在 程序/ghelp 中指定的程序来处理 ghelp URL"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/info handle info URLs"
+#~ msgstr "设置为“真”可以用在 程序/info 中指定的程序来处理 info URL"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/man handle man URLs"
+#~ msgstr "设置为“真”可以用在 程序/man 中指定的程序来处理 man URL"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/unknown handle "
+#~ "unknown URLs"
+#~ msgstr "设置为“真”可以用在 程序/未知 中指定的程序来处理未知的 URL"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in server-settings/command handle "
+#~ "server-settings URLs"
+#~ msgstr ""
+#~ "设置为“真”可以用在 服务器设置/命令 中指定的程序来处理 服务器设置 URL"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in start-here/command handle "
+#~ "start-here URLs"
+#~ msgstr ""
+#~ "设置为“真”可以用在 从这里开始/命令 中指定的程序来处理 从这里开始 URL"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in system-settings/command handle "
+#~ "system-settings URLs"
+#~ msgstr "设置为“真”可以用在 系统设置/命令 中指定的程序来处理 系统设置 URL"
+
+#~ msgid "URL handler for applications pages"
+#~ msgstr "应用程序页的 URL 处理程序"
+
+#~ msgid "URL handler for ghelp pages"
+#~ msgstr "ghelp 页的 URL 处理程序"
+
+#~ msgid "URL handler for info pages"
+#~ msgstr "info 页的 URL 处理程序"
+
+#~ msgid "URL handler for man pages"
+#~ msgstr "man 页的 URL 处理程序"
+
+#~ msgid "URL handler for preferences pages"
+#~ msgstr "首选项页的 URL 处理程序"
+
+#~ msgid "URL handler for server-settings pages"
+#~ msgstr "服务器设置页的 URL 处理程序"
+
+#~ msgid "URL handler for start-here pages"
+#~ msgstr "从这里开始页的 URL 处理程序"
+
+#~ msgid "URL handler for system-settings pages"
+#~ msgstr "系统设置页的 URL 处理程序"
 
 #~ msgid ""
 #~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "

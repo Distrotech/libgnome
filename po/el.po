@@ -15,7 +15,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.0.5\n"
-"POT-Creation-Date: 2003-03-26 19:08+0100\n"
+"POT-Creation-Date: 2003-06-04 08:26+0200\n"
 "PO-Revision-Date: 2003-01-28 13:25+0200\n"
 "Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -118,7 +118,7 @@ msgstr "Αδυναμία εύρεσης doc_id %s στη διαδρομή της
 msgid "Help document %s/%s not found"
 msgstr "Το αρχείο βοήθειας %s/%s δε βρέθηκε"
 
-#: libgnome/gnome-i18n.c:85
+#: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
 msgstr ""
 "Πάρα πολλά επίπεδα ψευδονύμων για locale, μπορεί να προκαλείται από βρόγχο"
@@ -152,30 +152,30 @@ msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Αδυναμία δημιουργίας καταλόγου συντομεύσεων gnome `%s': %s\n"
 
 #
-#: libgnome/gnome-init.c:391
+#: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
 msgstr "Απενεργοποίηση χρήσης εξυπηρέτη ήχου"
 
 #
-#: libgnome/gnome-init.c:394
+#: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
 msgstr "Ενεργοποίηση χρήσης εξυπηρέτη ήχου"
 
 #
-#: libgnome/gnome-init.c:397
+#: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
 msgstr "Σύστημα:θύρα όπου βρίσκεται ο εν χρήση εξυπηρέτης ήχου"
 
 #
-#: libgnome/gnome-init.c:399
+#: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
 msgstr "ΣΎΣΤΗΜΑ:ΘΎΡΑ"
 
-#: libgnome/gnome-init.c:417
+#: libgnome/gnome-init.c:410
 msgid "GNOME Virtual Filesystem"
 msgstr "Ιδεατό Σύστημα Αρχείων GNOME"
 
-#: libgnome/gnome-init.c:438
+#: libgnome/gnome-init.c:431
 msgid "GNOME Library"
 msgstr "Βιβλιοθήκη GNOME"
 
@@ -331,21 +331,54 @@ msgid "How to connect to esd"
 msgstr "Πώς να συνδεθείτε στο esd"
 
 #
-#: libgnome/gnome-program.c:1352
+#: libgnome/gnome-program.c:1353
 msgid "Help options"
 msgstr "Επιλογές βοήθειας"
 
-#: libgnome/gnome-program.c:1357
+#: libgnome/gnome-program.c:1358
 msgid "Application options"
 msgstr "Επιλογές εφαρμογής"
 
-#: libgnome/gnome-program.c:1373
+#: libgnome/gnome-program.c:1374
 msgid "Dynamic modules to load"
 msgstr "Δυναμικές μονάδες για φόρτωση"
 
-#: libgnome/gnome-program.c:1374
+#: libgnome/gnome-program.c:1375
 msgid "MODULE1,MODULE2,..."
 msgstr "ΣΥΣΤΑΤΙΚΌ1,ΣΥΣΤΑΤΙΚΌ2,..."
+
+#: libgnome/gnome-url.c:81
+msgid "Unknown internal error while displaying this location."
+msgstr ""
+
+#: libgnome/gnome-url.c:88
+msgid "The specified location is invalid."
+msgstr ""
+
+#: libgnome/gnome-url.c:95
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr ""
+
+#: libgnome/gnome-url.c:103
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
+msgstr ""
+
+#: libgnome/gnome-url.c:111
+msgid "There is no default action associated with this location."
+msgstr ""
+
+#: libgnome/gnome-url.c:118
+msgid "The default action does not support this protocol."
+msgstr ""
+
+#: libgnome/gnome-url.c:125
+#, c-format
+msgid "Unknown error code: %d"
+msgstr ""
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -653,7 +686,8 @@ msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Θέμα εικονιδίου που χρησιμοποιείται για το ταμπλώ, το ναυτίλο κτλ."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
-msgid "Length of the cursor blink cycle, in milleseconds"
+#, fuzzy
+msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Διάρκεια του κύκλου εναλλαγής παλμού δρομέα σε χιλιοστά δευτερολ."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
@@ -907,165 +941,140 @@ msgid "Whether to play sounds on user events."
 msgstr "Αν θα αναπαράγονται ήχοι στα γεγονότα χρήστη."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-msgid "Default URL show handler"
-msgstr "Εξ ορισμού χειριστής URL "
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
-msgid "How to handle applications URLs"
-msgstr "Πώς θα γίνεται ο χειρισμός των URLs εφαρμογών"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
-msgid "How to handle ghelp URLs"
-msgstr "Πώς θα γίνεται ο χειρισμός των URLs ghelp"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
-msgid "How to handle info URLs"
-msgstr "Πώς θα γίνεται ο χειρισμός των URLs πληροφοριών"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
-msgid "How to handle man URLs"
-msgstr "Πώς θα γίνεται ο χειρισμός των URLs man"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid "How to handle preferences URLs"
-msgstr "Πώς θα γίνεται ο χειρισμός των URLs προτιμήσεων"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid "How to handle server-settings URLs"
-msgstr "Πώς θα γίνεται ο χειρισμός των URLs ρυθμίσεων εξυπηρετητή"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
-msgid "How to handle start-here URLs"
-msgstr "Πώς θα γίνεται ο χειρισμός των URLs του Ξεκινήστε Εδώ"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid "How to handle system-settings URLs"
-msgstr "Πώς θα γίνεται ο χειρισμός των URLs των ρυθμίσεων συστήματος"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "How to handle trash URLs"
 msgstr "Πώς θα γίνεται ο χειρισμός των URLs των απορριμάτων"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
-msgid "How to handle unknown URLs"
-msgstr "Πώς θα γίνεται ο χειρισμός των άγνωστων URLs"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "Run program in terminal"
 msgstr "Εκτέλεση προγράμματος σε τερματικό"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
-msgid ""
-"Set to true to have a program specified in applications/command handle "
-"applications URLs"
-msgstr ""
-"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο εφαρμογές/εντολή για να "
-"χειρίζεται τα  URLs εφαρμογών"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
-msgid ""
-"Set to true to have a program specified in preferences/command handle "
-"preferences URLs"
-msgstr ""
-"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προτιμήσεις/εντολή για να "
-"χειρίζεται τα  URLs προτιμήσεων"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:15
-msgid ""
-"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr ""
-"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/εντολή για να "
-"χειρίζεται τα  URLs ghelp"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:16
-msgid ""
-"Set to true to have a program specified in programs/info handle info URLs"
-msgstr ""
-"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/πληροφορίες "
-"για να χειρίζεται τα  URLs πληροφοριών"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:17
-msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr ""
-"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/man για να "
-"χειρίζεται τα  URLs man"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:18
-msgid ""
-"Set to true to have a program specified in programs/unknown handle unknown "
-"URLs"
-msgstr ""
-"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/άγνωστα για να "
-"χειρίζεται τα άγνωστα URLs "
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:19
-msgid ""
-"Set to true to have a program specified in server-settings/command handle "
-"server-settings URLs"
-msgstr ""
-"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο ρυθμίσεις-εξυπηρετητή/"
-"εντολή για να χειρίζεται τα  URLs των ρυθμίσεων εξυπηρετητή"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:20
-msgid ""
-"Set to true to have a program specified in start-here/command handle start-"
-"here URLs"
-msgstr ""
-"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο Ξεκινήστε Εδώ/εντολή για "
-"να χειρίζεται τα  URLs του Ξεκινήστε Εδώ"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:21
-msgid ""
-"Set to true to have a program specified in system-settings/command handle "
-"system-settings URLs"
-msgstr ""
-"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο ρυθμίσεις-συστήματος/"
-"εντολή για να χειρίζεται τα  URLs των ρυθμίσεων συστήματος"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:22
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο Απορρίματα/εντολή για να "
 "χειρίζεται τα  URLs των Απορριμάτων"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:23
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "True αν το πρόγραμμα που χειρίζεται τα URL πρέπει να εκτελείται σε τερματικό"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:24
-msgid "URL handler for applications pages"
-msgstr "Χειριστής URL για τις σελίδες εφαρμογών"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:25
-msgid "URL handler for ghelp pages"
-msgstr "Χειριστής URL για τις σελίδες ghelp"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:26
-msgid "URL handler for info pages"
-msgstr "Χειριστής URL για τις σελίδες πληροφοριών"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:27
-msgid "URL handler for man pages"
-msgstr "Χειριστής URL για τις σελίδες man"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:28
-msgid "URL handler for preferences pages"
-msgstr "Χειριστής URL για τις σελίδες προτιμήσεων"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:29
-msgid "URL handler for server-settings pages"
-msgstr "Χειριστής URL για τις σελίδες ρυθμίσεων συστήματος"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:30
-msgid "URL handler for start-here pages"
-msgstr "Χειριστής URL για τις σελίδες Ξεκινήστε Εδώ"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:31
-msgid "URL handler for system-settings pages"
-msgstr "Χειριστής URL για τις σελίδες ρυθμίσεων συστήματος"
-
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:32
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "URL handler for trash pages"
 msgstr "Χειριστής URL για τις σελίδες απορριμάτων"
+
+#~ msgid "Default URL show handler"
+#~ msgstr "Εξ ορισμού χειριστής URL "
+
+#~ msgid "How to handle applications URLs"
+#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs εφαρμογών"
+
+#~ msgid "How to handle ghelp URLs"
+#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs ghelp"
+
+#~ msgid "How to handle info URLs"
+#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs πληροφοριών"
+
+#~ msgid "How to handle man URLs"
+#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs man"
+
+#~ msgid "How to handle preferences URLs"
+#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs προτιμήσεων"
+
+#~ msgid "How to handle server-settings URLs"
+#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs ρυθμίσεων εξυπηρετητή"
+
+#~ msgid "How to handle start-here URLs"
+#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs του Ξεκινήστε Εδώ"
+
+#~ msgid "How to handle system-settings URLs"
+#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs των ρυθμίσεων συστήματος"
+
+#~ msgid "How to handle unknown URLs"
+#~ msgstr "Πώς θα γίνεται ο χειρισμός των άγνωστων URLs"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in applications/command handle "
+#~ "applications URLs"
+#~ msgstr ""
+#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο εφαρμογές/εντολή για να "
+#~ "χειρίζεται τα  URLs εφαρμογών"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in preferences/command handle "
+#~ "preferences URLs"
+#~ msgstr ""
+#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προτιμήσεις/εντολή για "
+#~ "να χειρίζεται τα  URLs προτιμήσεων"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
+#~ "URLs"
+#~ msgstr ""
+#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/εντολή για "
+#~ "να χειρίζεται τα  URLs ghelp"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/info handle info URLs"
+#~ msgstr ""
+#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/πληροφορίες "
+#~ "για να χειρίζεται τα  URLs πληροφοριών"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/man handle man URLs"
+#~ msgstr ""
+#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/man για να "
+#~ "χειρίζεται τα  URLs man"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in programs/unknown handle "
+#~ "unknown URLs"
+#~ msgstr ""
+#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/άγνωστα για "
+#~ "να χειρίζεται τα άγνωστα URLs "
+
+#~ msgid ""
+#~ "Set to true to have a program specified in server-settings/command handle "
+#~ "server-settings URLs"
+#~ msgstr ""
+#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο ρυθμίσεις-εξυπηρετητή/"
+#~ "εντολή για να χειρίζεται τα  URLs των ρυθμίσεων εξυπηρετητή"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in start-here/command handle "
+#~ "start-here URLs"
+#~ msgstr ""
+#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο Ξεκινήστε Εδώ/εντολή "
+#~ "για να χειρίζεται τα  URLs του Ξεκινήστε Εδώ"
+
+#~ msgid ""
+#~ "Set to true to have a program specified in system-settings/command handle "
+#~ "system-settings URLs"
+#~ msgstr ""
+#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο ρυθμίσεις-συστήματος/"
+#~ "εντολή για να χειρίζεται τα  URLs των ρυθμίσεων συστήματος"
+
+#~ msgid "URL handler for applications pages"
+#~ msgstr "Χειριστής URL για τις σελίδες εφαρμογών"
+
+#~ msgid "URL handler for ghelp pages"
+#~ msgstr "Χειριστής URL για τις σελίδες ghelp"
+
+#~ msgid "URL handler for info pages"
+#~ msgstr "Χειριστής URL για τις σελίδες πληροφοριών"
+
+#~ msgid "URL handler for man pages"
+#~ msgstr "Χειριστής URL για τις σελίδες man"
+
+#~ msgid "URL handler for preferences pages"
+#~ msgstr "Χειριστής URL για τις σελίδες προτιμήσεων"
+
+#~ msgid "URL handler for server-settings pages"
+#~ msgstr "Χειριστής URL για τις σελίδες ρυθμίσεων συστήματος"
+
+#~ msgid "URL handler for start-here pages"
+#~ msgstr "Χειριστής URL για τις σελίδες Ξεκινήστε Εδώ"
+
+#~ msgid "URL handler for system-settings pages"
+#~ msgstr "Χειριστής URL για τις σελίδες ρυθμίσεων συστήματος"
