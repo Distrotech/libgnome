@@ -37,6 +37,7 @@
 
 #include "libgnomeP.h"
 #include "gnome-mime.h"
+#include "gnome-regex.h"
 #ifdef NEED_GNOMESUPPORT_H
 #include "gnomesupport.h"
 #endif

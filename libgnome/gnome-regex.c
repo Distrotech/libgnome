@@ -22,6 +22,7 @@
 #include <string.h>
 
 #include "libgnomeP.h"
+#include "gnome-regex.h"
 
 #define DEFAULT_SIZE 5
 
