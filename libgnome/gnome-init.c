@@ -154,13 +154,13 @@ libbonobo_get_property (GObject *object, guint param_id, GValue *value,
 	priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
 
 	if (param_id == cdata->config_database_id)
-		g_value_set_object (value, (GObject *) priv->config_database);
+		g_value_set_pointer (value, priv->config_database);
 
 	else if (param_id == cdata->config_moniker_id)
 		g_value_set_string (value, priv->config_moniker);
 
 	else if (param_id == cdata->desktop_config_database_id)
-		g_value_set_object (value, (GObject *) priv->desktop_config_database);
+		g_value_set_pointer (value, priv->desktop_config_database);
 
 	else if (param_id == cdata->desktop_config_moniker_id)
 		g_value_set_string (value, priv->desktop_config_moniker);
@@ -236,10 +236,9 @@ libbonobo_class_init (GnomeProgramClass *klass, const GnomeModuleInfo *mod_info)
 
 	cdata->config_database_id = gnome_program_install_property
 		(klass, libbonobo_get_property, libbonobo_set_property,
-		 g_param_spec_object (GNOME_PARAM_CONFIG_DATABASE, NULL, NULL,
-				      G_TYPE_POINTER,
-				      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-				       G_PARAM_CONSTRUCT_ONLY)));
+		 g_param_spec_pointer (GNOME_PARAM_CONFIG_DATABASE, NULL, NULL,
+				       (G_PARAM_READABLE | G_PARAM_WRITABLE |
+					G_PARAM_CONSTRUCT_ONLY)));
 
 	cdata->desktop_config_moniker_id = gnome_program_install_property
 		(klass, libbonobo_get_property, libbonobo_set_property,
@@ -250,10 +249,9 @@ libbonobo_class_init (GnomeProgramClass *klass, const GnomeModuleInfo *mod_info)
 
 	cdata->desktop_config_database_id = gnome_program_install_property
 		(klass, libbonobo_get_property, libbonobo_set_property,
-		 g_param_spec_object (GNOME_PARAM_DESKTOP_CONFIG_DATABASE, NULL, NULL,
-				      G_TYPE_POINTER,
-				      (G_PARAM_READABLE | G_PARAM_WRITABLE |
-				       G_PARAM_CONSTRUCT_ONLY)));
+		 g_param_spec_pointer (GNOME_PARAM_DESKTOP_CONFIG_DATABASE, NULL, NULL,
+				       (G_PARAM_READABLE | G_PARAM_WRITABLE |
+					G_PARAM_CONSTRUCT_ONLY)));
 }
 
 static void
@@ -288,8 +286,10 @@ libbonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 	g_message (G_STRLOC ": %p - `%s'", priv->config_database, priv->config_moniker);
 
 	CORBA_exception_init (&ev);
-	bonobo_get_object (priv->config_moniker, "Bonobo/ConfigDatabase", &ev);
+	priv->config_database = bonobo_get_object (priv->config_moniker, "Bonobo/ConfigDatabase", &ev);
 	CORBA_exception_free (&ev);
+
+	g_message (G_STRLOC ": %p - `%s'", priv->config_database, priv->config_moniker);
 }
 
 static GnomeModuleRequirement libbonobo_requirements [] = {
