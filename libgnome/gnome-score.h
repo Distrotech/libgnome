@@ -4,11 +4,15 @@
 #include <time.h>
 
 BEGIN_GNOME_DECLS
-gboolean /* Returns TRUE if it was a notable (top ten) score */
-gnome_score_log(gfloat score);
+gint /* Returns the position in the top-ten starting from 1, or 0 if it isn't
+	in the table */
+gnome_score_log(gfloat score, 
+		gchar *level,
+		int ordering);
 
 gint /* Returns number of items in the arrays */
 gnome_score_get_notable(gchar *gamename, /* Will be auto-determined if NULL */
+			gchar *level,
 			gchar ***names,
 			gfloat **scores,
 			time_t **scoretimes);

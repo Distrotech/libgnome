@@ -19,6 +19,7 @@
 #include <pwd.h>
 #include <grp.h>
 #include <errno.h>
+#include <locale.h>
 
 #ifndef GNOME_SCORE_C
 #include "gnome-defs.h"
@@ -109,11 +110,11 @@ print_ascore(struct ascore_t *ascore, FILE *outfile)
 }
 
 gint
-log_score(gchar *progname, gchar *username, gfloat score)
+log_score(gchar *progname, gchar *level, gchar *username, gfloat score, int ordering)
 {
 	FILE *infile;
 	FILE *outfile;
-	gchar buf [512];
+	gchar buf [512], *buf2;
 	GList *scores = NULL;
 	gchar *name, *game_score_file;
 	gfloat ascore;
@@ -121,11 +122,9 @@ log_score(gchar *progname, gchar *username, gfloat score)
 	struct ascore_t *anitem;
 	int i;
 	gint retval = 1;
-	GList *item;
 	gint pos;
-	gboolean we_are_top_ten = FALSE;
 
-	game_score_file = g_copy_strings (SCORE_PATH "/", progname, ".scores", NULL);
+	game_score_file = g_copy_strings (SCORE_PATH "/", progname, ".", level, ".scores", NULL);
 	infile = fopen (game_score_file, "r");
 	if(infile)
 	{
@@ -133,9 +132,14 @@ log_score(gchar *progname, gchar *username, gfloat score)
 		{
 			i = strlen(buf) - 1; /* Chomp */
 			while(isspace(buf[i])) buf[i--] = '\0';
-			
-			sscanf(buf, "%f %ld %as", &ascore, (long int *)&atime, &name);
-			
+ 
+			buf2 = strtok(buf, " ");
+			ascore = atof(buf2);
+			buf2 = strtok(NULL, " ");
+			(long int)atime = atoi(buf2);
+			buf2 = strtok(NULL, "\n");
+			name = strdup(buf2);
+
 			anitem = g_malloc(sizeof(struct ascore_t));
 			anitem->score = ascore;
 			anitem->username = name;
@@ -148,34 +152,34 @@ log_score(gchar *progname, gchar *username, gfloat score)
 	anitem->score = score;
 	anitem->username = username;
 	anitem->scoretime = time(NULL);
-	
-	/* Certifiable spaghetti code. There has to be a nicer way to do this,
-	   I'm sure */
-	
-	for(item = scores, pos = 0; item; item = item->next, pos++)
+
+	for(pos = 0; pos<NSCORES && pos< g_list_length(scores) ; pos++)
 	{
-		if(((struct ascore_t *)item->data)->score < anitem->score)
-		{
-			scores = g_list_insert(scores, anitem, pos);
-			we_are_top_ten = TRUE;
+	   if( ordering &&
+	     (((struct ascore_t*)g_list_nth(scores,pos)->data)->score < anitem->score ) )
 			break;
-		}
+	   if( !ordering &&
+	     (((struct ascore_t*)g_list_nth(scores,pos)->data)->score > anitem->score ) )
+			break;
 	}
- out_of_loop:
-	if(we_are_top_ten)
+	
+	if( pos<NSCORES )
 	{
+		scores = g_list_insert(scores, anitem, pos);
 		scores = g_list_remove_link(scores, g_list_nth(scores, NSCORES));
-		retval = 0;
+		retval = pos+1;
 	}
+	else
+		retval = 0;
 	
 /* XXX TODO: set permissions etc. on this file... Need suid root though :( */
 	umask(202);
 	outfile = fopen(game_score_file, "w");
-	{ 
+	/*{ 
 		struct group *gent = getgrnam("games");
 		if(gent)
 			chown(buf, -1, gent->gr_gid);
-	}
+	}*/
 	g_free (game_score_file);
 	
 	if(outfile){
@@ -197,6 +201,9 @@ main(int argc, char *argv[])
 	gfloat realfloat;
 	struct passwd *pwent;
 	gchar *progname;
+	gchar *level;
+	int ordering;
+
 #ifdef DEBUG
 	int i;
 	
@@ -204,20 +211,24 @@ main(int argc, char *argv[])
 		g_print("%s: %s\n", argv[0], argv[i]);
 #endif
 	
-	if(argc != 2)
-		return 1;
+	if(argc != 4)
+		return 0;
+
+	setlocale(LC_ALL, "");
 	
 	progname = gnome_get_program_name(getppid());
 	if(progname == NULL)
-		return 1;
-	
+		return 0;
+
 	realfloat = atof(argv[1]);
+	ordering= atoi(argv[3]);
 	pwent = getpwuid(getuid());
 	if(!pwent)
-		return 1;
+		return 0;
 	
-	username = pwent->pw_name;
-	
-	return log_score(progname, username, realfloat);
+	username = pwent->pw_gecos;
+	level = argv[2];
+
+	return log_score(progname, level, username, realfloat, ordering);
 }
 #endif
