@@ -702,7 +702,7 @@ _gnome_config_clean_file (const char *path, gint priv)
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 
-	/*this is the current so don't look no further*/
+	/* this is the current so don't look no further*/
 	if (Current && strcmp (pp->file, Current->filename) == 0) {
 		free_sections (Current->section);
 		Current->section = 0;
@@ -1129,8 +1129,10 @@ _gnome_config_get_bool_with_default (const char *path, gboolean *def,
 			   def);
 
 	/* It isn't an error if the key is not found.  */
-	if (r == NULL)
+	if (r == NULL){
+		release_path (pp);
 		return 0;
+	}
 
 	if (!strcasecmp (r, "true")){
 		v = 1;
