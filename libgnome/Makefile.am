@@ -92,7 +92,7 @@ gnome_dump_metadata_LDFLAGS = `glib-config --libs`
 
 gnome_moz_remote_SOURCES = gnome-moz-remote.c vroot.h
 gnome_moz_remote_LDADD = libgnome.la $(LIBSUPPORT) $(LIBGNOME_LIBS) \
-	$(X_LIBS) $(X_PRE_LIBS) -lXmu -lXt -lX11 $(X_EXTRA_LIBS) $(INTLLIBS)
+	$(X_LIBS) $(X_PRE_LIBS) -lXmu -lXext -lXt -lX11 $(X_EXTRA_LIBS) $(INTLLIBS)
 
 
 install-data-local:
