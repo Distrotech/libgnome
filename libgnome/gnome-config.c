@@ -786,7 +786,7 @@ _gnome_config_init_iterator (const char *path, gint priv)
 	iterator_type *iter;
 
 
-	fake_path = g_copy_strings (path, "/key", NULL);
+	fake_path = g_concat_dir_and_file (path, "key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
@@ -960,7 +960,7 @@ _gnome_config_clean_section (const char *path, gint priv)
 	ParsedPath *pp;
 	char *fake_path;
 
-	fake_path = g_copy_strings (path, "/key", NULL);
+	fake_path = g_concat_dir_and_file (path, "key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
 	
@@ -1074,7 +1074,7 @@ _gnome_config_has_section (const char *path, gint priv)
 	ParsedPath *pp;
 	char *fake_path;
 
-	fake_path = g_copy_strings (path, "/key", NULL);
+	fake_path = g_concat_dir_and_file (path, "key");
 	pp = parse_path (fake_path,priv);
 	g_free (fake_path);
 	
