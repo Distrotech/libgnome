@@ -1630,7 +1630,7 @@ gnome_program_initv (GType type,
 	    if (a_module && a_module->class_init)
 		a_module->class_init (klass, a_module);
 	}
-    } else {
+    } else if ( ! gnome_program_module_registered (module_info)) {
 	/* Register the requested modules. */
 	gnome_program_module_register (module_info);
 
