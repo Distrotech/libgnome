@@ -71,7 +71,7 @@ noinst_HEADERS =				\
 	gnome-triggersP.h			\
 	libgnomeP.h
 
-EXTRA_DIST = lib_date.README parse-path.cP
+EXTRA_DIST = parse-path.cP
 
 #just to be sure, add an explicit dependency
 gnome-config.o: parse-path.cP
