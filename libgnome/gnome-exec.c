@@ -74,7 +74,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 {
   int parent_comm_pipes[2], child_comm_pipes[2];
   int child_errno, itmp, i, open_max;
-  int res;
+  gssize res;
   char **cpargv;
   pid_t child_pid, immediate_child_pid; /* XXX this routine assumes
 					   pid_t is signed */

@@ -109,19 +109,19 @@ paper_init (void)
     }
 }
 
-static int 
+static long 
 paper_name_compare (const GnomePaper* a, const gchar *b)
 {
   return (g_strcasecmp(a->name, b));
 }
 
-static int 
+static long 
 unit_name_compare (const GnomeUnit* a, const gchar *b)
 {
   return (g_strcasecmp(a->name, b));
 }
 
-static int
+static long
 unit_abbrev_compare (const GnomeUnit *a, const gchar *b)
 {
   return (g_strcasecmp(a->unit, b));

@@ -645,8 +645,8 @@ gnome_program_install_property (GnomeProgramClass *pclass,
     g_return_val_if_fail (GNOME_IS_PROGRAM_CLASS (pclass), -1);
     g_return_val_if_fail (pspec != NULL, -1);
 
-    g_param_spec_set_qdata (pspec, quark_get_prop, get_fn);
-    g_param_spec_set_qdata (pspec, quark_set_prop, set_fn);
+    g_param_spec_set_qdata (pspec, quark_get_prop, (gpointer)get_fn);
+    g_param_spec_set_qdata (pspec, quark_set_prop, (gpointer)set_fn);
 
     g_object_class_install_property (G_OBJECT_CLASS (pclass),
 				     last_property_id, pspec);

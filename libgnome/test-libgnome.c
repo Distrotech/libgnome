@@ -180,7 +180,8 @@ main (int argc, char **argv)
     g_message (G_STRLOC ": %d - `%s' - `%s' - `%s' - `%s'", foo, app_prefix,
 	       app_id, app_version, human_readable_name);
 
-    g_message (G_STRLOC ": GNOME_PATH == `%s'", gnome_path);
+    if (gnome_path)
+	g_message (G_STRLOC ": GNOME_PATH == `%s'", gnome_path);
 
     test_file_locate (program);
 

@@ -198,7 +198,7 @@ mozilla_remote_test_window(Display *dpy, Window win, Bool isLocal)
     if (hostname) XFree(hostname);
     return False;
   }
-  if (! g_strcasecmp(hostname, localhostname)) {
+  if (! g_strcasecmp((const char*)hostname, localhostname)) {
     XFree(hostname);
     return True;
   }

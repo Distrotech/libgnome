@@ -1956,7 +1956,8 @@ gnome_config_assemble_vector (int argc, const char *const argv [])
 {
 	char *value, *p;
 	const char *s;
-	int i, len;
+	int i;
+	size_t len;
 
 	/*
 	 * Compute length of quoted string.  We cheat and just use

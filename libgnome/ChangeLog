@@ -1,3 +1,36 @@
+2001-05-16  Mark Murnane  <Mark.Murnane@ireland.sun.com>
+
+	* Changes to eliminate any potential problems on 64-bit platforms.
+	
+	* gnome-config.c (gnome_config_assemble_vector): Modified type
+	of len to match return type of strlen().
+
+	* gnome-ditem.c (replace_percentsign): Modified type of start,
+	string_len and ps_len as they are used in strlen() operations.
+	(strip_the_amp): Ditto for exec_len.
+	(stripstreq): Ditto for len2.
+
+	* gnome-exec.c (gnome_execute_async_with_env_fds): Modiifed type
+	of res to gssize to match return type of read() and write() system
+	calls.
+
+	* gnome-moz-remote.c (mozilla_remote_test_window): Cast 
+	hostname to const char* to match g_strcasecmp's signature.
+
+	* gnome-paper.c	(paper_name_compare): Modified return type
+	from int to long to match return type of g_strcasecmp.
+	(unit_name_compare): Ditto
+	(unit_abbrev_compare): Ditto
+
+	* gnome-program.c (gnome_program_install_property): Cast
+	parameter #3 of both calls to g_param_spec_set_qdata.
+
+	* gnome-score.c (log_score): Modified type of counter i to 
+	match return from strlen().
+
+	* gnome-selector.c (_gnome_selector_add_history): Cast 
+	parameter #3 to GCompareFunc.
+
 2001-05-15  Martin Baulig  <baulig@suse.de>
 
 	* libgnome-init.c (gnome_vfs_pre_args_parse): Call gnome_vfs_init()
