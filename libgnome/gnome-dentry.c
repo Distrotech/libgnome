@@ -517,7 +517,7 @@ join_with_quotes(char *argv[], int argc)
 void
 gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[])
 {
-	char *uargv[4];
+	char *uargv[8], *env [2];
 	char *exec_str;
 	char **term_argv;
 	int term_argc = 0;
@@ -525,7 +525,10 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	char **argv;
 	GSList *args_to_free = NULL;
 	gchar *sub_arg;
-	int i, argc;
+	int i, argc, uargs=4;
+	int envc = 0;
+	char **envp = NULL;
+	char *xalf;
 
 	g_assert (item != NULL);
 
@@ -596,15 +599,40 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 		g_free ((char *) argv);
 	}
 
-	uargv[0] = "/bin/sh";
-	uargv[1] = "-c";
-	uargv[2] = exec_str;
-	uargv[3] = NULL;
+	xalf = gnome_is_program_in_path ("xalf");
+	if (xalf && getenv ("GNOME_USE_XALF")) {
+		uargv[0] = xalf;
+		uargv[1] = "-i";
+		uargv[2] = "--title";
+		uargv[3] = item->name;
+		uargs=8;
+	}
+	
+	uargv[uargs-4] = "/bin/sh";
+	uargv[uargs-3] = "-c";
+	uargv[uargs-2] = exec_str;
+	uargv[uargs-1] = NULL;
 
+	if (item->icon && !item->is_kde) {
+		char *path = g_strdup_printf ("=%s=/Desktop Entry/X-GNOME-SetIcon=true",
+					      item->location);
+		if (gnome_config_get_bool (path)) {
+			envc = 1;
+			env [0] = g_strconcat ("GNOME_DESKTOP_ICON=", item->icon, NULL);
+			env [1] = NULL;
+			envp = env;
+		}
+		g_free (path);
+	}
+		
 	/* FIXME: do something if there's an error.  */
-	gnome_execute_async (NULL, 4, uargv);
+	gnome_execute_async_with_env (NULL, uargs, uargv, envc, envp);
 
+	if (envp)
+		g_free (env [0]);
+	
 	g_free (exec_str);
+	g_free (xalf);
 }
 
 /**

@@ -1,3 +1,15 @@
+2000-05-04  Jacob Berkman  <jacob@helixcode.com>
+
+	* gnomelib-init.c (gnomelib_option_cb): patch from Red Hat RPMs to
+	not start esd if it is disabled (changed to default to true, since
+	that is what the sound capplet does)
+
+	* gnome-dentry.c (gnome_desktop_entry_launch_with_args): if xalf is
+	installed and GNOME_USE_XALF is in the environment, use it to start
+	apps.
+	(gnome_desktop_entry_launch_with_args): export the icon in the dentry
+	if we aren't a KDE .desktop and X-GNOME-SetIcon is true
+
 Sun Apr 30 22:44:55 2000  George Lebl <jirka@5z.com>
 
 	* gnome-config.c: when getting a bool, accept numbers as well, this
