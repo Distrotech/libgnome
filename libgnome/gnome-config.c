@@ -894,6 +894,24 @@ _gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
 	return v;
 }
 
+gdouble
+_gnome_config_get_float_with_default (const char *path, gboolean *def, gint priv)
+{
+	ParsedPath *pp;
+	const char *r;
+	gdouble v;
+	
+	pp = parse_path (path, priv);
+	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
+			   def);
+
+	g_return_val_if_fail(r != NULL, 0);
+
+	v = strtod(r, NULL);
+	release_path (pp);
+	return v;
+}
+
 char *
 _gnome_config_get_translated_string_with_default (const char *path,
 						  gboolean *def,
@@ -1106,6 +1124,21 @@ _gnome_config_set_int (const char *path, int new_value, gint priv)
 	pp = parse_path (path, priv);
 	sprintf (intbuf, "%d", new_value);
 	r = access_config (SET, pp->section, pp->key, intbuf, pp->file,
+			   NULL);
+	release_path (pp);
+	CALL_SET_HANDLER();
+}
+
+void
+_gnome_config_set_float (const char *path, gdouble new_value, gint priv)
+{
+	ParsedPath *pp;
+	char floatbuf [40];
+	const char *r;
+	
+	pp = parse_path (path, priv);
+	sprintf (floatbuf, "%f", new_value);
+	r = access_config (SET, pp->section, pp->key, floatbuf, pp->file,
 			   NULL);
 	release_path (pp);
 	CALL_SET_HANDLER();

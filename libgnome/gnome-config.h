@@ -53,6 +53,9 @@ char *_gnome_config_get_translated_string_with_default(const char *path,
 gint  _gnome_config_get_int_with_default       (const char *path,
 					        gboolean *def,
 						gint priv);
+gdouble  _gnome_config_get_float_with_default  (const char *path,
+					        gboolean *def,
+						gint priv);
 gboolean _gnome_config_get_bool_with_default   (const char *path,
 					        gboolean *def,
 					        gint priv);
@@ -70,6 +73,8 @@ void _gnome_config_get_vector_with_default     (const char *path, gint *argcp,
 	(_gnome_config_get_translated_string_with_default((Path),(Def),FALSE))
 #define gnome_config_get_int_with_default(Path,Def) \
 	(_gnome_config_get_int_with_default((Path),(Def),FALSE))
+#define gnome_config_get_float_with_default(Path,Def) \
+	(_gnome_config_get_float_with_default((Path),(Def),FALSE))
 #define gnome_config_get_bool_with_default(Path,Def) \
 	(_gnome_config_get_bool_with_default((Path),(Def),FALSE))
 #define gnome_config_get_vector_with_default(Path, Argcp, Argvp, Def) \
@@ -82,6 +87,8 @@ void _gnome_config_get_vector_with_default     (const char *path, gint *argcp,
 #define gnome_config_private_get_translated_string_with_default(Path,Def) \
 	(_gnome_config_get_translated_string_with_default((Path), (Def),TRUE))
 #define gnome_config_private_get_int_with_default(Path,Def) \
+	(_gnome_config_get_int_with_default((Path),(Def),TRUE))
+#define gnome_config_private_get_float_with_default(Path,Def) \
 	(_gnome_config_get_int_with_default((Path),(Def),TRUE))
 #define gnome_config_private_get_bool_with_default(Path,Def) \
 	(_gnome_config_get_bool_with_default((Path),(Def),TRUE))
@@ -98,6 +105,8 @@ void _gnome_config_get_vector_with_default     (const char *path, gint *argcp,
 	(_gnome_config_get_translated_string_with_default ((Path), NULL, FALSE))
 #define gnome_config_get_int(Path) \
 	(_gnome_config_get_int_with_default ((Path), NULL, FALSE))
+#define gnome_config_get_float(Path) \
+	(_gnome_config_get_float_with_default ((Path), NULL, FALSE))
 #define gnome_config_get_bool(Path) \
 	(_gnome_config_get_bool_with_default ((Path), NULL, FALSE))
 #define gnome_config_get_vector(Path, Argcp, Argvp) \
@@ -111,6 +120,8 @@ void _gnome_config_get_vector_with_default     (const char *path, gint *argcp,
 	(_gnome_config_get_translated_string_with_default ((Path), NULL, TRUE))
 #define gnome_config_private_get_int(Path) \
 	(_gnome_config_get_int_with_default ((Path), NULL, TRUE))
+#define gnome_config_private_get_float(Path) \
+	(_gnome_config_get_float_with_default ((Path), NULL, TRUE))
 #define gnome_config_private_get_bool(Path) \
 	(_gnome_config_get_bool_with_default ((Path), NULL, TRUE))
 #define gnome_config_private_get_vector(Path, Argcp, Argvp) \
@@ -124,6 +135,8 @@ void _gnome_config_set_translated_string (const char *path, const char *value,
 					  gint priv);
 void _gnome_config_set_int        (const char *path, int value,
 				   gint priv);
+void _gnome_config_set_float        (const char *path, gdouble value,
+				     gint priv);
 void _gnome_config_set_bool       (const char *path, gboolean value,
 				   gint priv);
 void _gnome_config_set_vector     (const char *path,
@@ -139,6 +152,8 @@ void _gnome_config_set_vector     (const char *path,
 	(_gnome_config_set_translated_string((Path),(Val),FALSE))
 #define gnome_config_set_int(Path,Val) \
 	(_gnome_config_set_int((Path),(Val),FALSE))
+#define gnome_config_set_float(Path,Val) \
+	(_gnome_config_set_float((Path),(Val),FALSE))
 #define gnome_config_set_bool(Path,Val) \
 	(_gnome_config_set_bool((Path),(Val),FALSE))
 #define gnome_config_set_vector(Path,Argc,Argv) \
@@ -151,6 +166,8 @@ void _gnome_config_set_vector     (const char *path,
 	(_gnome_config_set_translated_string((Path),(Val),TRUE))
 #define gnome_config_private_set_int(Path,Val) \
 	(_gnome_config_set_int((Path),(Val),TRUE))
+#define gnome_config_private_set_float(Path,Val) \
+	(_gnome_config_set_float((Path),(Val),TRUE))
 #define gnome_config_private_set_bool(Path,Val) \
 	(_gnome_config_set_bool((Path),(Val),TRUE))
 #define gnome_config_private_set_vector(Path,Argc,Argv) \
