@@ -661,7 +661,7 @@ main (int argc, char **argv)
     argv[0] = gnome_config_get_string("/gnome-moz-remote/Mozilla/filename=netscape");
     argv[1] = url_string;
     argv[2] = NULL;
-    return (gnome_execute_async(NULL, 2, argv));
+    return (gnome_execute_async(NULL, 2, argv) >= 0);
   } else
     return (mozilla_remote_commands (dpy, (Window) remote_window,
 				     remote_commands));
