@@ -1,3 +1,9 @@
+1999-02-06  Federico Mena Quintero  <federico@nuclecu.unam.mx>
+
+	* gnome-metadata.c (maybe_scan_app_dir): It is not necessary to
+	cast scan_app_file when passing it to scandir().  Pointed out by
+	Frederic L.W.Meunier (linux@urbi.com.br).
+
 1999-02-05  Felix Bellaby <felix@pooh.u-net.com>
 
 	* gnome-config.c (gnome_config_make_vector): Unescape characters

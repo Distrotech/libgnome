@@ -563,7 +563,7 @@ add_hash_entry (GHashTable *hash, char *hashkey, char *key, char *value)
    reads the file and puts the information into the global
    structures.  */
 static int
-scan_app_file (const struct dirent *ent)
+scan_app_file (struct dirent *ent)
 {
 	FILE *f;
 	int c, comment, column, was_space, skipping, equals;
@@ -724,9 +724,8 @@ maybe_scan_app_dir (void)
 	}
 	app_type_hash = g_hash_table_new (g_str_hash, g_str_equal);
 
-	if (scandir (gnome_metadata_app_dir, &list,
-		     (gpointer)scan_app_file, alphasort) != -1)
-		if  (list)
+	if (scandir (gnome_metadata_app_dir, &list, scan_app_file, alphasort) != -1)
+		if (list)
 			g_free (list);
 }
 
