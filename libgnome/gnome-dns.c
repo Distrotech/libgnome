@@ -41,7 +41,6 @@
 static void gnome_dns_callback(gpointer server_num, gint source,
 			       GdkInputCondition condition);
 static gint gnome_dns_create_server(void);
-static void gnome_dns_server(gint pipefd[2]);
 
 typedef struct
 {
@@ -405,11 +404,12 @@ gint gnome_dns_create_server(void)
 	
 	/* start server in child */
 	if (pid == 0) {
-		pipefd[0] = pipefd0[0];
-		pipefd[1] = pipefd1[1];
-		gnome_dns_server(pipefd);
-		/* does not return */
+	  dup2(pipefd0[0], 0);
+	  dup2(pipefd1[1], 1);
+	  execlp("dns-helper", "dns-helper", NULL);
+	  /* does not return */
 	}
+	/* else */
 	
 	index = num_servers;
 	
@@ -424,94 +424,4 @@ gint gnome_dns_create_server(void)
 	num_servers++;
 	
 	return(index);
-}
-
-/*
- *--------------------------------------------------------------
- * gnome_dns_server
- *
- * internal function - this is the actual server process.  
- * Called from gnome_dns_server_create().
- *
- *
- * Arguments:
- * 
- * pipefd[2] - an open set of pipes - 0 for writing, 1 for
- * reading.
- * 
- * Results:
- * sets up a server listening for char *hostnames on pipefd[0], 
- * and writing results of dns lookups as guints into pipefd[1].
- *
- * Side effects:
- * 
- *--------------------------------------------------------------
- */
-
-
-void gnome_dns_server(gint pipefd[2])
-{
-	char hostname[4096];
-	gint nread;
-	struct hostent *host;
-	gint fd;
-	gint max_fd;
-	guint32 ip_addr;
-	
-	
-	/* todo: just close the pipe fd's */
-	/* close all file descriptors except ones used by the pipes. */
-	/* FIXME! getdtablesize is probably not a terribly portable call. */
-	max_fd = getdtablesize();
-	for(fd = 0; fd < max_fd; fd++)
-		if ( (fd != pipefd[0]) && (fd != pipefd[1]) && (fd !=1) && (fd != 2) )
-			close(fd);
-	
-#ifdef VERBOSE
-	g_print ("gnome_dns_server: started\n");
-#endif
-	while(1) {
-		/* block on read from client */
-		nread = read(pipefd[0], hostname, 4096);
-		
-		/* will return 0 if parent exits. */
-		/* where are those errors coming from anyway ?? 
-		 *  "** ERROR **: an x io error occurred" */
-		if (nread == 0) {
-#ifdef VERBOSE
-			g_print("---> dns_server - returned 0 - Exiting.\n");
-#endif
-			exit(0);
-		}
-		
-		if (nread < 0) {
-			g_error("gnome_dns_server: reading from pipe: %s\n", g_strerror(errno));
-		}
-		
-#ifdef VERBOSE
-		g_print("---> dns_server - looking up >%s<\n", hostname);
-#endif
-		
-		host = gethostbyname(hostname);
-		
-		if (host == NULL) {
-#ifdef VERBOSE
-			g_printf("---> dns_server - NULL return\n");
-#endif
-			ip_addr = 0;
-		} else {
-#ifdef VERBOSE
-			g_printf("---> dns_server - good return\n");
-#endif
-			memcpy(&ip_addr, host->h_addr_list[0], sizeof(ip_addr));
-			ip_addr = ntohl(ip_addr);
-		}
-		
-#ifdef VERBOSE
-		g_printf("gnome_dns_server: ip of %s is %x\n", hostname, ip_addr);
-#endif
-		/* write hostname to client */
-		if ( (write(pipefd[1], &ip_addr, sizeof(ip_addr))) < 0)
-			g_error("gnome_dns_server: writing to pipe: %s\n", g_strerror(errno));
-	}
 }

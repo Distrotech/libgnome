@@ -52,12 +52,14 @@ libgnomeinclude_HEADERS = \
 libgnome_la_LDFLAGS = -version-info 0:0:0 -rpath $(libdir)
 libgnome_la_LIBADD = -lgdk -lglib -lm
 
-bin_PROGRAMS = gnome-score-helper
+bin_PROGRAMS = gnome-score-helper dns-helper
 
 gnome_score_helper_SOURCES = gnome-score-helper.c
 gnome_score_helper_LDADD = \
 	$(top_builddir)/libgnome/libgnome.la \
 	-lgdk -lglib $(X_LIBS) $(x_libs) $(INTLLIBS)
+
+dns_helper_SOURCES = dns-helper.c
 
 install-data-local:
 	-chgrp games $(bindir)/gnome-score-helper

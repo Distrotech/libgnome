@@ -16,8 +16,9 @@
 #include "gnome-dl.h"
 
 /* this stuff should be autoconf'ed */
-#if defined( __FreeBSD__ )
+#if defined( __FreeBSD__ ) || defined( __Lame_OLD_Dead_FleaBSD__ )
 /* what about -current and ELF? */
+#warning "Need a better OS"
 #define NEED_UNDERSCORE
 #define LIB_SUFFIX ".so.1.0"
 #elif defined ( linux ) || defined( sgi )
@@ -203,7 +204,7 @@ gnome_dl_exec_handle()
 GnomeLibHandle*
 gnome_dl_find(char *lib_name, int bind_lazy)
 {
-  gwarning("gnome_dl_find() not implemented yet.  return NULL\n");
+  g_warning("gnome_dl_find() not implemented yet.  return NULL\n");
 
   /* we want to force the last error to be this value, not (possibly) consult dl_error. */
   last_error = "gnome_dl_find() not implemented yet.";
