@@ -51,6 +51,22 @@ typedef struct _GnomeProgram          GnomeProgram;
 typedef struct _GnomeProgramPrivate   GnomeProgramPrivate;
 typedef struct _GnomeProgramClass     GnomeProgramClass;
 
+/**
+ * GnomeFileDomain:
+ * @GNOME_FILE_DOMAIN_UNKNOWN: An unknown file domain (should never be used).
+ * @GNOME_FILE_DOMAIN_LIBDIR: Libraries in the main GNOME installation.
+ * @GNOME_FILE_DOMAIN_DATADIR: Data files in the main GNOME installation.
+ * @GNOME_FILE_DOMAIN_SOUND: Sound files in the main GNOME installation.
+ * @GNOME_FILE_DOMAIN_PIXMAP: Pixmap files in the main GNOME installation.
+ * @GNOME_FILE_DOMAIN_CONFIG: Config files in the main GNOME installation.
+ * @GNOME_FILE_DOMAIN_HELP: Help files in the main GNOME installation.
+ * @GNOME_FILE_DOMAIN_APP_LIBDIR: Application specific libraries.
+ * @GNOME_FILE_DOMAIN_APP_DATADIR: Application specific data files.
+ * @GNOME_FILE_DOMAIN_APP_SOUND: Application specific sound files.
+ * @GNOME_FILE_DOMAIN_APP_PIXMAP: Application specific pixmap files.
+ * @GNOME_FILE_DOMAIN_APP_CONFIG: Application specific config files.
+ * @GNOME_FILE_DOMAIN_APP_HELP: Application specific help files.
+ **/
 typedef enum {
     GNOME_FILE_DOMAIN_UNKNOWN = 0,
 
@@ -140,6 +156,11 @@ gnome_module_info_get_type              (void);
 typedef struct _GnomeModuleInfo GnomeModuleInfo;
 typedef struct _GnomeModuleRequirement GnomeModuleRequirement;
 
+/**
+ * GnomeModuleRequirement:
+ * @required_version: The version required by the parent module.
+ * @module_info: The required module's information.
+ */
 struct _GnomeModuleRequirement {
     const char *required_version;
     const GnomeModuleInfo *module_info;
@@ -151,8 +172,28 @@ typedef void (*GnomeModuleClassInitHook) (GnomeProgramClass *klass,
 typedef void (*GnomeModuleHook) (GnomeProgram *program,
 				 GnomeModuleInfo *mod_info);
 
+/**
+ * GnomeModuleInfo:
+ * @name: The module name.
+ * @version: The module's version string.
+ * @description: A string describing the module (can be %NULL).
+ * @requirements: A pointer to a module that is required by this module. If no
+ * requirements, this should be %NULL.
+ * @instance_init:
+ * @pre_args_parse:
+ * @post_args_parse:
+ * @options:
+ * @init_pass: A function which is run before the preinit function to allow the
+ * module to register other modules as needed. The module cannot assume its
+ * required modules are initialized (they aren't).
+ * @class_init:
+ * @expansion1: Unused.
+ * @expansion2: Unused.
+ */
 struct _GnomeModuleInfo {
-    const char *name, *version, *description;
+    const char *name;
+    const char *version;
+    const char *description;
     GnomeModuleRequirement *requirements; /* last element has NULL version */
 
     GnomeModuleHook instance_init;
@@ -160,11 +201,7 @@ struct _GnomeModuleInfo {
 
     struct poptOption *options;
 
-    GnomeModuleInitHook init_pass; /* This gets run before the preinit
-				      function to allow the module to
-				      register other modules as needed. The
-				      module cannot assume its required
-				      modules are initialized (they aren't). */
+    GnomeModuleInitHook init_pass;
 
     GnomeModuleClassInitHook class_init;
 
