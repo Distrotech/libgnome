@@ -206,7 +206,7 @@ mime_init (void)
  * Returns the mime-type of the @filename.  If no value could not be
  * determined, it will return @defaultv.
  */
-gchar *
+const char *
 gnome_mime_type_or_default (gchar * filename, gchar * defaultv)
 {
 	gchar *ext;
@@ -251,7 +251,7 @@ gnome_mime_type_or_default (gchar * filename, gchar * defaultv)
  *
  * Returns the mime-type for this filename.
  */
-gchar *
+const char *
 gnome_mime_type (gchar * filename)
 {
 	return gnome_mime_type_or_default (filename, "text/plain");
@@ -269,12 +269,12 @@ gnome_mime_type (gchar * filename)
  * Returns the mime-type of the @existing_filename.  If no value could not be
  * determined, it will return @defaultv.
  */
-gchar *
+const char *
 gnome_mime_type_or_default_of_file (char *existing_filename, gchar *defaultv)
 {
 	char *mime_type;
 
-	mime_type = gnome_mime_type_from_magic (existing_filename);
+	mime_type = (char *)gnome_mime_type_from_magic (existing_filename);
 	if (mime_type)
 		return mime_type;
 	
@@ -291,12 +291,12 @@ gnome_mime_type_or_default_of_file (char *existing_filename, gchar *defaultv)
  *
  * Returns the mime-type for this filename.
  */
-gchar *
+const char *
 gnome_mime_type_of_file (char *existing_filename)
 {
 	char *mime_type;
 
-	mime_type = gnome_mime_type_from_magic (existing_filename);
+	mime_type = (char *)gnome_mime_type_from_magic (existing_filename);
 	if (mime_type)
 		return mime_type;
 

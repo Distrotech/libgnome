@@ -12,6 +12,9 @@
 #include <glib.h>
 #include <pwd.h>
 #include <ctype.h>
+#ifdef HAVE_SETFSGID
+#include <sys/fsuid.h>
+#endif
 
 #include "gnome-defs.h"
 #include "gnome-score.h"
