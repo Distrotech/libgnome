@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: Samuel Jon Gunnarsson <sammi@techattack.nu>\n"
 "Language-Team: icelandic <gnome@techattack.nu>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
@@ -19,26 +19,22 @@ msgid "Error message"
 msgstr "Villuskilaboð"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
-#, fuzzy
 msgid "Informational message"
 msgstr "Upplýsingaskilaboð"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
-#, fuzzy
 msgid "Log in"
-msgstr "Innskrá"
+msgstr "Stimpla inn"
 
 #: gnome-data/gnome-2.soundlist.in.h:4
-#, fuzzy
 msgid "Log out"
-msgstr "afskrá"
+msgstr "Stimpla út"
 
 #: gnome-data/gnome-2.soundlist.in.h:5
 msgid "Miscellaneous message"
 msgstr "Ýmis skilaboð"
 
 #: gnome-data/gnome-2.soundlist.in.h:6
-#, fuzzy
 msgid "Question dialog"
 msgstr "Spurningargluggi"
 
@@ -60,7 +56,7 @@ msgstr "Ýttu á skipunarhnapp"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Select check box"
-msgstr "Veldu hökunarbox"
+msgstr "Veldu fjölvalsreit"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -86,13 +82,13 @@ msgstr "Ekki tókst að finna GNOME_FILE_DOMAIN_HELP lénið."
 #: libgnome/gnome-help.c:200
 #, c-format
 msgid "Unable to show help as %s is not a directory.  Please check your installation."
-msgstr "Ekki tókst að sýna hjálp þar sem %s er ekki mappa. Vinamlegast athugaðu innsetninguna."
+msgstr "Ekki tókst að sýna hjálp þar sem %s er ekki mappa. Vinamlegast athugaðu uppsetninguna þína."
 
 #: libgnome/gnome-help.c:209
 #: libgnome/gnome-help.c:225
 #, c-format
 msgid "Unable to find the help files in either %s or %s.  Please check your installation"
-msgstr "Ekki tókst að finna hjálparskrár, hvorki  %s né %s.  Vinsamlegast athugaðu innsetninguna"
+msgstr "Ekki tókst að finna hjálparskrár, hvorki  %s né %s.  Vinsamlegast athugaðu uppsetninguna þína"
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -106,7 +102,7 @@ msgstr "Hjálpargagn %s/%s fannst ekki"
 
 #: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr ""
+msgstr "Of mörg samheitastig staðfærslunnar. Gæti verið lykkja "
 
 #  FIXME: get this from bonobo
 #. FIXME: get this from bonobo
@@ -122,33 +118,33 @@ msgstr "Bonobo virkjunarstuðningur"
 #: libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Ekki tókst að stofna per-notanda möppu fyrir gnome stillingar `%s': %s\n"
+msgstr "Ekki tókst að stofna einka möppu notanda fyrir gnome stillingar `%s': %s\n"
 
 #: libgnome/gnome-init.c:328
 #, c-format
 msgid "Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
-msgstr "Ekki tókst að setja heimild 0700 fyrir per-notanda fyrir gnome stillingar `%s': %s\n"
+msgstr "Ekki tókst að setja heimild 0700 á stillingamöppu gnome `%s': %s\n"
 
 #: libgnome/gnome-init.c:335
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr ""
+msgstr "Gat ekki búið til gnome hraðlamöppuna `%s': %s\n"
 
 #: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
-msgstr "Afvirkja notkun hljóðþjóns"
+msgstr "Ekki nota hljóðþjón"
 
 #: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
-msgstr "Virkja notkun hljóðþjóns"
+msgstr "Nota hljóðþjón"
 
 #: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
-msgstr "Hýsill:port þar sem hljóðþjónn keyrir"
+msgstr "Vél:gátt þar sem hljóðþjónn keyrir"
 
 #: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
-msgstr "HÝSILL:PORT"
+msgstr "VÉL:GÁTT"
 
 #: libgnome/gnome-init.c:410
 msgid "GNOME Virtual Filesystem"
@@ -156,7 +152,7 @@ msgstr "Sýndarskráakerfi GNOME"
 
 #: libgnome/gnome-init.c:431
 msgid "GNOME Library"
-msgstr "GNOME safn"
+msgstr "GNOME safnskrá"
 
 #: libgnome/gnome-program.c:426
 msgid "Popt Table"
@@ -164,15 +160,15 @@ msgstr "Popt tafla"
 
 #: libgnome/gnome-program.c:427
 msgid "The table of options for popt"
-msgstr "Tafla stillinga fyrir popt"
+msgstr "Stillingatafla fyrir popt"
 
 #: libgnome/gnome-program.c:434
 msgid "Popt Flags"
-msgstr "Popt flögg"
+msgstr "Popt rofar"
 
 #: libgnome/gnome-program.c:435
 msgid "The flags to use for popt"
-msgstr "Flögg sem nota á með popt"
+msgstr "Rofar sem nota á með popt"
 
 #: libgnome/gnome-program.c:443
 msgid "Popt Context"
@@ -184,15 +180,15 @@ msgstr "Bendill á popt innihald sem GnomeProgram er að nota"
 
 #: libgnome/gnome-program.c:452
 msgid "Human readable name"
-msgstr "Nafn lesanlegt af manneskjum"
+msgstr "Heiti lesanlegt af manneskjum"
 
 #: libgnome/gnome-program.c:453
 msgid "Human readable name of this application"
-msgstr "Nafn sem lesanlegt er af manneskjum fyrir þetta forrit"
+msgstr "Heiti sem lesanlegt er af manneskjum fyrir þetta forrit"
 
 #: libgnome/gnome-program.c:462
 msgid "GNOME path"
-msgstr "GNOME stígur"
+msgstr "GNOME slóð"
 
 #: libgnome/gnome-program.c:463
 msgid "Path in which to look for installed files"
@@ -216,7 +212,7 @@ msgstr "Útgáfunúmer þessa forrits"
 
 #: libgnome/gnome-program.c:488
 msgid "GNOME Prefix"
-msgstr "GNOME "
+msgstr "GNOME forskeyti"
 
 #: libgnome/gnome-program.c:489
 msgid "Prefix where GNOME was installed"
@@ -224,7 +220,7 @@ msgstr "Forskeyti þess hvar GNOME var insett"
 
 #: libgnome/gnome-program.c:498
 msgid "GNOME Libdir"
-msgstr "GNOME Safnmappa"
+msgstr "GNOME safnmappa"
 
 #: libgnome/gnome-program.c:499
 msgid "Library prefix where GNOME was installed"
@@ -328,15 +324,15 @@ msgstr "Uppgefin áfangastaður er ógildur."
 
 #: libgnome/gnome-url.c:95
 msgid "There was an error parsing the default action command associated with this location."
-msgstr ""
+msgstr "Það kom upp villa við þáttun sjáfgefinnar skipunar sem tilheyrir þessari staðsetningu."
 
 #: libgnome/gnome-url.c:103
 msgid "There was an error launching the default action command associated with this location."
-msgstr "Villa kom upp við ræsingu á sjálfgefin aðgerð-skipun tengd þessum áfangastað."
+msgstr "Villa kom upp við ræsingu á sjálfgefnu aðgerðinni sem er tengd þessum áfangastað."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
-msgstr "Það er engin sjálfgefin aðgerð bundin þessari staðsetningu."
+msgstr "Það er engin sjálfgefin aðgerð tengd þessari staðsetningu."
 
 #: libgnome/gnome-url.c:118
 msgid "The default action does not support this protocol."
@@ -350,7 +346,7 @@ msgstr "Óþekktur villu kóði: %d"
 #: libgnome/gnome-open.c:35
 #, c-format
 msgid "Error showing url: %s\n"
-msgstr ""
+msgstr "Villa við að sýna url: %s\n"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -374,9 +370,8 @@ msgid "Key %s not found in configuration"
 msgstr "Hnappur %s var ekki fundin í stillingum"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-#, fuzzy
 msgid "Beep when a modifier is pressed"
-msgstr "Gefa frá sér hljóð þegar þrýst er á \"modifier\" hnapp"
+msgstr "Gefa frá sér hljóð þegar þrýst er á \"modifier\""
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
@@ -420,15 +415,15 @@ msgstr "pixels á sekúndu"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid "List of assistive technology applications to start when logging into the GNOME desktop"
-msgstr ""
+msgstr "Listi af hjálpartólum sem ræsa skal þegar notandi skráir sig inn í GNOME viðmótið"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
-msgstr ""
+msgstr "Hjálpartólalisti"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
-msgstr "Vafrari þarf útstöð"
+msgstr "Vafrari þarf skél"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:2
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
@@ -437,7 +432,7 @@ msgstr "Vafri skilur fjarstýringu"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:3
 msgid "Default browser"
-msgstr "Sjálfgefin vafrari"
+msgstr "Sjálfgefinn vafrari"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:4
 msgid "Default browser for all URLs"
@@ -468,13 +463,12 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "Hvort sjálfgefin hjálparrýnir þurfi útstöð til að keyra"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-#, fuzzy
 msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Rök notuð til þess að ræsa forrit í skel skilgreind með 'exec' lykli."
+msgstr "Viðföng notuð til þess að ræsa forrit í skel skilgreind með 'exec' lykli."
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
-msgstr "Ræsirök"
+msgstr "Ræsiviðföng"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
 msgid "Terminal application"
@@ -498,7 +492,7 @@ msgstr "Vara gluggastjóri ef gluggastjóri notanda finnst ekki"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
-msgstr "Nöfn vinnusvæða"
+msgstr "Heiti vinnusvæða"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
 msgid "The number of workspaces"
@@ -522,7 +516,7 @@ msgstr "Gerð skuggalits"
 
 #: schemas/desktop_gnome_background.schemas.in.h:2
 msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr ""
+msgstr "Stýrir hvernig myndin sem 'wallpaper_filename' vísar í er teiknuð. Möguleg gildi eru \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -538,11 +532,11 @@ msgstr "Fá GNOME til að teikna bakgrunn skjáborðs"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
 msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
-msgstr ""
+msgstr "Hvernig skal skyggja bakgrunnslitinn. Möguleg gildi eru \"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr ""
+msgstr "Vinstri eða efsti litur þegar 'gradients' eru teiknaðir eða heill litur."
 
 #: schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
@@ -566,11 +560,11 @@ msgstr "Aðallitur"
 
 #: schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr ""
+msgstr "Hægri eða neðsti litur þegar 'gradients' eru teiknaðir eða heill litur."
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
-msgstr "Annar litur"
+msgstr "Auka litur"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:1
 msgid "File Icon Theme"
@@ -582,11 +576,11 @@ msgstr "Þema notað til að sýna skráartáknmyndir"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr ""
+msgstr "Grunnheiti sjálfgefinnar þemu gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
-msgstr ""
+msgstr "Getur breytt flytilyklum"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
@@ -622,11 +616,11 @@ msgstr "Gtk+ þema"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:11
 msgid "Icon Theme"
-msgstr "Smátáknmyndaþema"
+msgstr "Táknmyndaþema"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon theme to use for the panel, nautilus etc."
-msgstr "Táknmyndaþema sem nota á með "
+msgstr "Táknmyndaþema sem nota á í spjaldinu, nautilus of svo framvegis."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Length of the cursor blink cycle, in milliseconds"
@@ -646,23 +640,23 @@ msgstr "Hægt er að rífa valmyndir af"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Monospace font"
-msgstr "Monospace letur"
+msgstr "Jafnbreitt letur"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr ""
+msgstr "Heiti jafnbreiðs leturs sem á að nota í hlutum eins og skjáhermum."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr "Nafn GTK+ inngangsaðgerð sem Preedit Style notaður af gtk+."
+msgstr "Heiti GTK+ inngangsaðgerðarinnar Preedit Style sem gtk+ notar."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
+msgstr "Heiti GTK+ inngangsaðgerðarinnar Status Style sem gtk+ notar."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the default font used by gtk+."
-msgstr "Nafn fyrir sjálfgefið letur sem notast á af gtk+."
+msgstr "Heiti sjálfgefna letursins sem gtk+ notar."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Status Bar on Right"
@@ -686,7 +680,7 @@ msgstr "Stíll tólstiku"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and \"text\""
-msgstr ""
+msgstr "Stíll tólstiku. Möguleg gildi eru \"both\", \"both_horiz\", \"icon\", og \"text\""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
@@ -694,7 +688,7 @@ msgstr "Nota annað letur"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
-msgstr "Hvort að forrit eigi að fá stuðning við aukið aðgengi"
+msgstr "Hvort forrit eigi að fá stuðning við aukið aðgengi"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
@@ -882,15 +876,15 @@ msgstr ""
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle ghelp URLs"
-msgstr "Hvernig meðhöndla eigi ghelp slóðir"
+msgstr "Hvernig meðhöndla eigi ghelp-slóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
 msgid "How to handle info URLs"
-msgstr "Hvernig meðhöndla eigi info slóðir"
+msgstr "Hvernig meðhöndla eigi info-slóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:3
 msgid "How to handle man URLs"
-msgstr "Hvernig meðhöndla eigi man slóðir"
+msgstr "Hvernig meðhöndla eigi handbókarslóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
@@ -898,41 +892,41 @@ msgstr "Hvernig meðhöndla á slóðir á rusl"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
-msgstr "Keyra forrit í útstöð"
+msgstr "Keyra forrit í skjáhermi"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:6
 msgid "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
-msgstr "Setja sem satt til þess að gera uppgefnu forriti í forrit/ghelp möguleika á að meðhöndla ghelp slóðir"
+msgstr "Setja sem satt til þess að gera uppgefnu forriti í forrit/ghelp möguleika á að meðhöndla ghelp-slóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:7
 msgid "Set to true to have a program specified in programs/info handle info URLs"
-msgstr "Setja sem satt til þess að gera uppgefnu forriti í forrit/info möguleika á að meðhöndla info slóðir"
+msgstr "Setja sem satt til þess að gera uppgefnu forriti í forrit/info möguleika á að meðhöndla info-slóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
 msgid "Set to true to have a program specified in programs/man handle man URLs"
-msgstr "Setja sem satt til þess að gera uppgefnu forriti í forrit/man möguleika á að meðhöndla man slóðir"
+msgstr "Setja sem satt til þess að gera uppgefnu forriti í forrit/man möguleika á að meðhöndla handbókarslóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid "Set to true to have a program specified in trash/command handle trash URLs"
-msgstr "Setja sem satt til þess að gera uppgefnu forriti í rusl/skipun möguleika á að meðhöndla rusl slóðir"
+msgstr "Setja sem satt til þess að gera uppgefnu forriti í rusl/skipun möguleika á að meðhöndla ruslslóðir"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
-msgstr "Satt ef umsjónarforrit á að keyra slóð í útstöð"
+msgstr "Satt ef umsjónarforrit á að keyra slóð í skjáhermi"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:11
 msgid "URL handler for ghelp pages"
-msgstr "Slóðameðhöndlun fyrir ghelp síður"
+msgstr "Slóðameðhöndlun fyrir ghelp-síður"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:12
 msgid "URL handler for info pages"
-msgstr "Slóðameðhöndlun fyrir info síður"
+msgstr "Slóðameðhöndlun fyrir info-síður"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:13
 msgid "URL handler for man pages"
-msgstr "Slóðameðhöndlun fyrir man síður"
+msgstr "Slóðameðhöndlun fyrir handbókarsíður"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
-msgstr "Slóðameðhöndlun fyrir rusl síður"
+msgstr "Slóðameðhöndlun fyrir ruslsíður"
 
