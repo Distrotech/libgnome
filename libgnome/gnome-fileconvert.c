@@ -2,6 +2,9 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <time.h>
 #include <glib.h>
 
 #include "gnome-defs.h"
@@ -44,7 +47,6 @@ gnome_file_convert_fd(gint fd, gchar *fromtype, gchar *totype)
   GList *convlist, *l;
   gint infd, outfd;
   FileConverter *anode;
-  gchar *ccmd;
 
   srand(time(NULL));
 
