@@ -340,7 +340,7 @@ bonobo_storage_fs_init (GtkObject *object)
 	/* nothing to do */
 }
 
-BONOBO_GTK_TYPE_FUNC (BonoboStorageFS, 
+BONOBO_X_TYPE_FUNC (BonoboStorageFS, 
 		      bonobo_storage_get_type (),
 		      bonobo_storage_fs);
 
