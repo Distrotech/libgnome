@@ -121,6 +121,7 @@ static void *sync_handler_data;
 static void
 release_path (ParsedPath *p)
 {
+	g_free (p->file);
 	g_free (p->opath);
 	g_free (p);
 }
@@ -142,7 +143,7 @@ parse_path (const char *path, gint priv)
 	if (*p->path == '='){
 		/* If it is an absolute path name */
 		p->path++;
-		p->file    = strtok (p->path, "=");
+		p->file    = g_strdup (strtok (p->path, "="));
 		p->section = strtok (NULL, "/=");
 		p->key     = strtok (NULL, "=");
 		p->def     = strtok (NULL, "=");
