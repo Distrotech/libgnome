@@ -3,7 +3,7 @@
 
 #if !defined(__GNOME_COMPILATION) && defined(__ORBIT_IDL__)
 %{
-#pragma include_defs gnome/Gnome.h
+#pragma include_defs libgnome/Gnome.h
 %}
 #pragma inhibit push
 #endif
@@ -11,6 +11,19 @@
 module GNOME {
 
     typedef sequence<string> stringlist;
+
+    enum Tristate {
+	TRISTATE_DEFAULT,
+	TRISTATE_NO,
+	TRISTATE_YES
+    };
+
+    enum SelectionMode {
+	SELECTION_MODE_SINGLE,
+	SELECTION_MODE_BROWSE,
+	SELECTION_MODE_MULTIPLE,
+	SELECTION_MODE_EXTENDED
+    };
 
 };
 
