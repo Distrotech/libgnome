@@ -42,6 +42,13 @@ fs_get_info (BonoboStorage *storage,
 	struct stat st;
 	char *full = NULL;
 	
+	if (mask & ~(Bonobo_FIELD_CONTENT_TYPE | Bonobo_FIELD_SIZE |
+		     Bonobo_FIELD_TYPE)) {
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NotSupported, NULL);
+		return CORBA_OBJECT_NIL;
+	}
+
 	full = g_concat_dir_and_file (storage_fs->path, path);
 
 	if (stat (full, &st) == -1)
@@ -91,7 +98,7 @@ fs_set_info (BonoboStorage *storage,
 	     CORBA_Environment *ev)
 {
 	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
-			     ex_Bonobo_Storage_NoPermission, 
+			     ex_Bonobo_Storage_NotSupported, 
 			     NULL);
 }
 
@@ -188,6 +195,13 @@ fs_list_contents (BonoboStorage *storage, const CORBA_char *path,
 	DIR *dir = NULL;
 	gint i, max, v, num_entries = 0;
 	gchar *full;
+
+	if (mask & ~(Bonobo_FIELD_CONTENT_TYPE | Bonobo_FIELD_SIZE |
+		     Bonobo_FIELD_TYPE)) {
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NotSupported, NULL);
+		return CORBA_OBJECT_NIL;
+	}
 
 	if (!(dir = opendir (storage_fs->path)))
 			goto list_contents_except;

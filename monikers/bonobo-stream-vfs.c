@@ -55,6 +55,13 @@ vfs_get_info (BonoboStream                   *stream,
 	GnomeVFSFileInfo    fi;
 	GnomeVFSResult      result;
 
+	if (mask & ~(Bonobo_FIELD_CONTENT_TYPE | Bonobo_FIELD_SIZE |
+		     Bonobo_FIELD_TYPE)) {
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NotSupported, NULL);
+		return CORBA_OBJECT_NIL;
+	}
+
 	gnome_vfs_file_info_init (&fi);
 	result = gnome_vfs_get_file_info_from_handle (
 		sfs->handle, &fi,
@@ -89,7 +96,7 @@ vfs_set_info (BonoboStream                   *stream,
 {
 	g_warning ("FIXME: set_info: a curious and not yet implemented API");
 	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
-			     ex_Bonobo_Stream_NoPermission, NULL);
+			     ex_Bonobo_Stream_NotSupported, NULL);
 }
 
 static void

@@ -45,6 +45,13 @@ fs_get_info (BonoboStream                   *stream,
 	Bonobo_StorageInfo *si;
 	struct stat st;
 
+	if (mask & ~(Bonobo_FIELD_CONTENT_TYPE | Bonobo_FIELD_SIZE |
+		     Bonobo_FIELD_TYPE)) {
+		CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
+				     ex_Bonobo_Storage_NotSupported, NULL);
+		return CORBA_OBJECT_NIL;
+	}
+
 	if (fstat (stream_fs->fd, &st) == -1)
 		goto get_info_except;
 		
@@ -77,7 +84,7 @@ fs_set_info (BonoboStream                   *stream,
 	     CORBA_Environment              *ev)
 {
 	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
-			     ex_Bonobo_Stream_NoPermission, NULL);
+			     ex_Bonobo_Stream_NotSupported, NULL);
 }
 
 static void

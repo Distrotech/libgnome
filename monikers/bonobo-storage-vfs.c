@@ -24,7 +24,7 @@ vfs_get_info (BonoboStorage *storage,
 {
 	g_warning ("FIXME: get_info not yet implemented");
 	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
-			     ex_Bonobo_Storage_NoPermission, 
+			     ex_Bonobo_Storage_NotSupported, 
 			     NULL);
 	return CORBA_OBJECT_NIL;
 }
@@ -38,7 +38,7 @@ vfs_set_info (BonoboStorage *storage,
 {
 	g_warning ("FIXME: set_info not yet implemented");
 	CORBA_exception_set (ev, CORBA_USER_EXCEPTION, 
-			     ex_Bonobo_Storage_NoPermission, 
+			     ex_Bonobo_Storage_NotSupported, 
 			     NULL);
 }
 
