@@ -1,4 +1,4 @@
-SUBDIRS = idl libgnome tests tools po
+SUBDIRS = idl libgnome tests po
 
 EXTRA_DIST = message-of-doom
 
