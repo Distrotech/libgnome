@@ -138,7 +138,8 @@ static char *lock_directory;
    since this was done in lock() and unlock(), a recursive mutex was
    required.  glib 1.2 doesn't have these, so instead we adopt the
    simpler, but less efficient, strategy of locking the database
-   around the body of every exported function.  */
+   around the body of every exported function.  This works because the
+   exported functions never call each other.  */
 G_LOCK_DEFINE_STATIC (database_mu);
 
 #endif /* G_THREADS_ENABLED */
@@ -151,27 +152,21 @@ init (void)
 {
 	char *filename;
 
-	/* Each invocation checks `database' (for performance), but
-	   there is a race condition if we don't check again.  */
-	if (! database) {
-		if (gnome_metadata_db_file_name)
-			filename = gnome_metadata_db_file_name;
-		else
-			filename = gnome_util_home_file ("metadata.db");
-		database = dbopen (filename, O_CREAT | O_RDWR, 0700,
-				   DB_HASH, NULL);
-		if (filename != gnome_metadata_db_file_name)
-			g_free (filename);
-		lock_directory = gnome_util_home_file ("metadata.lock");
-	}
+	/* g_assert (! database); */
+	if (gnome_metadata_db_file_name)
+		filename = gnome_metadata_db_file_name;
+	else
+		filename = gnome_util_home_file ("metadata.db");
+	database = dbopen (filename, O_CREAT | O_RDWR, 0700,
+			   DB_HASH, NULL);
+	if (filename != gnome_metadata_db_file_name)
+		g_free (filename);
+	lock_directory = gnome_util_home_file ("metadata.lock");
 
 	return database == NULL;
 }
 
-/* Lock the database.  If THREAD is zero, then we are acquiring
-   a lock to prevent other processes from using the database.  If
-   THREAD is nonzero, then we are also locking out other threads in
-   this process.  */
+/* Lock the database.  */
 static void
 lock (void)
 {
@@ -607,8 +602,7 @@ add_hash_entry (GHashTable *hash, char *hashkey, char *key, char *value)
 
 /* This is called once per file in the application directory.  It
    reads the file and puts the information into the global
-   structures.  This function assumes it is called single-threaded, so
-   acquire the lock before calling.  */
+   structures.  */
 static int
 scan_app_file (const struct dirent *ent)
 {
@@ -740,8 +734,7 @@ free_hash_entry (gpointer key, gpointer value, gpointer user_data)
 }
 
 /* If the application install directory has changed, throw away our
-   current application data and rescan.  This function assumes it is
-   called single-threaded, so acquire the lock before calling.  */
+   current application data and rescan.  */
 static void
 maybe_scan_app_dir (void)
 {
@@ -794,8 +787,7 @@ static int type_desired;
 
 /* This is called for each hash table entry.  If the regular
    expression match succeeds, we search for the desired key.  If that
-   succeeds, we set SHORT_CIRCUIT to the value.  This function assumes
-   it is called single-threaded, so acquire the lock before calling.  */
+   succeeds, we set SHORT_CIRCUIT to the value.  */
 static void
 try_one_app_regex (gpointer key, gpointer value, gpointer user_data)
 {
@@ -938,24 +930,15 @@ gnome_metadata_remove (const char *file, const char *name)
 	return r;
 }
 
-/**
- * gnome_metadata_list
- * @file: File name.
- *
- * Returns an array of all metadata keys associated with @file.  The
- * array is %NULL terminated.  The result can be freed with
- * g_strfreev().  This only returns keys for which there
- * is a particular association with @file.  It will not return keys
- * for which a regex or other match succeeds.
- */
-char **
-gnome_metadata_list (const char *file)
+
+
+/* Do the work of gnome_metadata_list, but assume the lock is held.  */
+static char **
+metadata_list_nolock (const char *file)
 {
 	DBT value;
 	int num, i;
 	char **result = NULL, *p, *dd;
-
-	G_LOCK (database_mu);
 
 	if (! database && init ())
 		goto done;
@@ -984,8 +967,26 @@ gnome_metadata_list (const char *file)
 	result[i] = NULL;
 
  done:
-	G_UNLOCK (database_mu);
+	return result;
+}
 
+/**
+ * gnome_metadata_list
+ * @file: File name.
+ *
+ * Returns an array of all metadata keys associated with @file.  The
+ * array is %NULL terminated.  The result can be freed with
+ * g_strfreev().  This only returns keys for which there
+ * is a particular association with @file.  It will not return keys
+ * for which a regex or other match succeeds.
+ */
+char **
+gnome_metadata_list (const char *file)
+{
+	char **result;
+	G_LOCK (database_mu);
+	result = metadata_list_nolock (file);
+	G_UNLOCK (database_mu);
 	return result;
 }
 
@@ -1191,7 +1192,7 @@ worker (const char *from, const char *to, int op)
 	/* Could use metadata_get_list here.  That would be more
 	   efficient, but perhaps messier.  */
 
-	keys = gnome_metadata_list (from);
+	keys = metadata_list_nolock (from);
 	if (! keys){
 		unlock ();
 		return 0;

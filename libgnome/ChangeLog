@@ -1,5 +1,10 @@
 1999-08-28  Tom Tromey  <tromey@cygnus.com>
 
+	* gnome-metadata.c (metadata_list_nolock): New function.
+	(gnome_metadata_list): Use it.
+	(worker): Use it.
+	(init): Don't re-check `database'.
+
 	* gnome-metadata.c (database_mu): Now an ordinary static mutex.
 	(TLOCK): Removed.
 	(TUNLOCK): Likewise.
