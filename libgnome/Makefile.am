@@ -41,8 +41,7 @@ libgnome_la_SOURCES = \
 	gnome-triggers.c	\
 	gnome-util.c		\
 	gnomelib-init.c         \
-	lib_date.c		\
-	lib_defs.h
+	lib_date.c
 
 libgnomeinclude_HEADERS = \
         gnome-config.h 		\
@@ -65,6 +64,7 @@ libgnomeinclude_HEADERS = \
 	gnome-triggers.h 	\
 	gnome-util.h   		\
 	lib_date.h		\
+	lib_defs.h		\
 	libgnome.h
 
 noinst_HEADERS = \
