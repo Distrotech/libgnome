@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.3.3\n"
+"Project-Id-Version: libgnome 2.3.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-06 12:46+0200\n"
-"PO-Revision-Date: 2003-07-06 12:05+0200\n"
+"POT-Creation-Date: 2003-07-20 12:02+0200\n"
+"PO-Revision-Date: 2003-07-20 11:43+0200\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,48 +17,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
-msgid "Error Messages"
-msgstr "Messages d'erreur"
+msgid "Error message"
+msgstr "Message d'erreur"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
-msgid "GNOME system events"
-msgstr "Événements système GNOME"
+msgid "Informational message"
+msgstr "Message d'information"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
-msgid "Informational Messages"
-msgstr "Messages d'information"
+msgid "Log in"
+msgstr "Ouverture de session"
 
 #: gnome-data/gnome-2.soundlist.in.h:4
-msgid "Login"
-msgstr "Connexion"
+msgid "Log out"
+msgstr "Fermeture de session"
 
 #: gnome-data/gnome-2.soundlist.in.h:5
-msgid "Logout"
-msgstr "Déconnexion"
+msgid "Miscellaneous message"
+msgstr "Message divers"
 
 #: gnome-data/gnome-2.soundlist.in.h:6
-msgid "Miscellaneous Messages"
-msgstr "Messages divers"
+msgid "Question dialog"
+msgstr "Dialogue d'interrogation"
 
 #: gnome-data/gnome-2.soundlist.in.h:7
-msgid "Question Dialogs"
-msgstr "Dialogues d'interrogation"
+msgid "System events"
+msgstr "Événements système"
 
 #: gnome-data/gnome-2.soundlist.in.h:8
-msgid "Warning Messages"
-msgstr "Messages d'avertissement"
+msgid "Warning message"
+msgstr "Message d'avertissement"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
-msgid "Action button click"
-msgstr "Clic de bouton d'action"
+msgid "Choose menu item"
+msgstr "Choisir un élément de menu"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
-msgid "Check box toggled"
-msgstr "Basculement de case à cocher"
+msgid "Click on command button"
+msgstr "Cliquer sur un bouton de commande"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
-msgid "Menu item activation"
-msgstr "Activation d'élément de menu"
+msgid "Select check box"
+msgstr "Sélectionner une case à cocher"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -72,7 +72,7 @@ msgstr ""
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
-msgstr "Support GConf de GNOME"
+msgstr "Support GConf GNOME"
 
 #: libgnome/gnome-help.c:159
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
@@ -146,15 +146,15 @@ msgstr "Impossible de créer le répertoire d'accélérateurs gnome « %s » 
 
 #: libgnome/gnome-init.c:384
 msgid "Disable sound server usage"
-msgstr "Désactive l'utilisation du serveur de son"
+msgstr "Désactive l'utilisation du serveur de sons"
 
 #: libgnome/gnome-init.c:387
 msgid "Enable sound server usage"
-msgstr "Active l'utilisation du serveur de son"
+msgstr "Active l'utilisation du serveur de sons"
 
 #: libgnome/gnome-init.c:390
 msgid "Host:port on which the sound server to use is running"
-msgstr "Hôte:port où trouver le serveur de son à utiliser"
+msgstr "Hôte:Port où le serveur de sons à utiliser se situe"
 
 #: libgnome/gnome-init.c:392
 msgid "HOSTNAME:PORT"
@@ -342,19 +342,19 @@ msgid ""
 "location."
 msgstr ""
 "Il y a eu une erreur lors de l'analyse de la commande d'action par défaut "
-"associé à cet emplacement."
+"associée à cet emplacement."
 
 #: libgnome/gnome-url.c:103
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr ""
-"Il y a eu une erreur au lancement de la commande d'action par défaut associé "
-"à cet emplacement."
+"Il y a eu une erreur au lancement de la commande d'action par défaut "
+"associée à cet emplacement."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
-msgstr "Il n'y a pas de commande d'action associé à cet emplacement."
+msgstr "Il n'y a pas de commande d'action associée à cet emplacement."
 
 #: libgnome/gnome-url.c:118
 msgid "The default action does not support this protocol."
@@ -409,13 +409,13 @@ msgstr ""
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr ""
-"Combien de millisecondes nécessaire pour passer de 0 à la vitesse maximum"
+"Nombre de millisecondes nécessaire pour passer de 0 à la vitesse maximum"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
-"Combien de millisecondes attendre avant que les touches de mouvements de la "
+"Nombre de millisecondes à attendre avant que les touches de mouvements de la "
 "souris commencent à opérer"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
@@ -608,7 +608,7 @@ msgstr "Opacité de l'image"
 
 #: schemas/desktop_gnome_background.schemas.in.h:11
 msgid "Picture Options"
-msgstr "Options de l'images"
+msgstr "Options de l'image"
 
 #: schemas/desktop_gnome_background.schemas.in.h:12
 msgid "Primary Color"
@@ -634,7 +634,7 @@ msgstr "Thème utilisé pour afficher le fichier d'icônes"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr "Nom de base du thème par défaut utilisé par gtk+."
+msgstr "Nom de base du thème par défaut utilisé par Gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
@@ -697,39 +697,49 @@ msgid "Menus Have Tearoff"
 msgstr "Les menus sont détachables"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
-msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
-"Nom du style de prédition de la méthode de saisie GTK+ utilisé par gtk+."
+msgid "Monospace font"
+msgstr "Police à pas fixe"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:18
-msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "Nom du style d'état de la méthode de saisie GTK+ utilisé par gtk+."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr ""
+"Nom d'une police à pas fixe à utiliser à des endroits tel que des terminaux."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:19
-msgid "Name of the default font used by gtk+."
-msgstr "Nom de la police par défaut utilisé par gtk+."
+msgid "Name of the GTK+ input method Preedit Style used by gtk+."
+msgstr ""
+"Nom du style de prédition de la méthode de saisie GTK+ utilisé par Gtk+."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:20
+msgid "Name of the GTK+ input method Status Style used by gtk+."
+msgstr "Nom du style d'état de la méthode de saisie GTK+ utilisé par Gtk+."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:21
+msgid "Name of the default font used by gtk+."
+msgstr "Nom de la police par défaut utilisé par Gtk+."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Status Bar on Right"
 msgstr "Barre d'état sur la droite"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Ceci spécifie la taille des icônes affichées dans les barre d'outils"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Toolbar Detachable"
 msgstr "Barre d'outils détachable"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Icon Size"
 msgstr "Taille des icônes de la barre d'outils"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Style"
 msgstr "Style de barre d'outils"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
@@ -737,15 +747,15 @@ msgstr ""
 "Style de barre d'outils. Les valeurs valides sont « both », « both_horiz », "
 "« icon » et « text »"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
 msgstr "Utiliser une police personnalisée"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
 msgstr "SI les applications doivent avoir le support de l'accessibilité"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -753,28 +763,28 @@ msgstr ""
 "Si les animations doivent être affichées. Note : C'est une clé globale, cela "
 "change le comportement du gestionnaire de fenêtres, du tableau de bord, etc."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr ""
 "Si les menus doivent être affichés avec une icône a coté de l'entrée de menu"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether menus should have a tearoff"
 msgstr "Si les menu doivent avoir un séparateur"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the cursor should blink"
 msgstr "Si le curseur doit clignoter"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Si l'utilisateur peut détacher les barres de menus et les déplacer"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Si l'utilisateur peut détacher les barres d'outils et les déplacer"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -782,22 +792,22 @@ msgstr ""
 "Si l'utilisateur peut saisir dynamiquement un nouvel accélérateur quand un "
 "menu est déroulé"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
 msgstr "Si il faut afficher un indicateur de barre d'état su la droite"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr ""
-"Si il faut utiliser une police personnalisée dans les applications gtk+"
+"Si il faut utiliser une police personnalisée dans les applications Gtk+"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
-msgstr "Nom de fichier du son de cloche a jouer"
+msgstr "Nom du fichier du son de cloche à jouer"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr "Nom de fichier du bip de clavier personnalisé"
+msgstr "Nom du fichier du bip de clavier personnalisé"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -920,7 +930,7 @@ msgstr "Activer ESD"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:2
 msgid "Enable sound server startup."
-msgstr "Activer le serveur de son au démarrage."
+msgstr "Activer le serveur de sons au démarrage."
 
 #: schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Sounds for events"
@@ -932,14 +942,14 @@ msgstr "Si il faut jouer des sons sur les événements utilisateur"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
-msgstr "Désactiver tous les programme de vignetage externe"
+msgstr "Désactiver tous les programme de vignettage externe"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
-"Définir à vrai pour désactiver tous les programmes de vignetage externe, "
+"Définir à vrai pour désactiver tous les programmes de vignettage externe, "
 "qu'ils soient indépendemment activé ou désactivé."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
@@ -1041,6 +1051,15 @@ msgstr "Gestionnaire d'URL pour les pages « man »"
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Gestionnaire d'URL pour les pages « trash »"
+
+#~ msgid "Action button click"
+#~ msgstr "Clic de bouton d'action"
+
+#~ msgid "Check box toggled"
+#~ msgstr "Basculement de case à cocher"
+
+#~ msgid "Menu item activation"
+#~ msgstr "Activation d'élément de menu"
 
 #~ msgid "Default URL show handler"
 #~ msgstr "Gestionnaire d'URL par défaut"
