@@ -649,6 +649,7 @@ gnome_config_iterator_next (void *s, char **key, char **value)
 void 
 gnome_config_clean_section (const char *path)
 {
+	TProfile   *New;
 	TSecHeader *section;
 	ParsedPath *pp;
 	char *fake_path;
@@ -657,11 +658,18 @@ gnome_config_clean_section (const char *path)
 	pp = parse_path (fake_path);
 	g_free (fake_path);
 	
-	/* We assume the user has called one of the other initialization funcs */
 	if (!is_loaded (pp->file, &section)){
-		g_warning ("Warning: profile_clean_section called before init\n");
-		release_path (pp);
-		return;
+		struct stat st;
+		if (stat (pp->file, &st) == -1) st.st_mtime = 0;
+
+		New = (TProfile *) g_malloc (sizeof (TProfile));
+		New->link = Base;
+		New->filename = g_strdup (pp->file);
+		New->section = load (pp->file);
+		New->mtime = st.st_mtime;
+		Base = New;
+		section = New->section;
+		Current = New;
 	}
 	/* We only disable the section, so it will still be g_freed, but it */
 	/* won't be find by further walks of the structure */
@@ -678,17 +686,25 @@ void
 gnome_config_clean_key (const char *path)
 	/* *section_name, char *file */
 {
+	TProfile   *New;
 	TSecHeader *section;
 	TKeys *key;
 	ParsedPath *pp;
 	
 	pp = parse_path (path);
 	
-	/* We assume the user has called one of the other initialization funcs */
 	if (!is_loaded (pp->file, &section)){
-		g_warning ("Warning: profile_clean_section called before init\n");
-		release_path (pp);
-		return;
+		struct stat st;
+		if (stat (pp->file, &st) == -1) st.st_mtime = 0;
+
+		New = (TProfile *) g_malloc (sizeof (TProfile));
+		New->link = Base;
+		New->filename = g_strdup (pp->file);
+		New->section = load (pp->file);
+		New->mtime = st.st_mtime;
+		Base = New;
+		section = New->section;
+		Current = New;
 	}
 	for (; section; section = section->link){
 	        if (strcasecmp (section->section_name, pp->section))
@@ -706,6 +722,7 @@ gboolean
 gnome_config_has_section (const char *path)
 	/* char *section_name, char *profile */
 {
+	TProfile   *New;
 	TSecHeader *section;
 	ParsedPath *pp;
 	char *fake_path;
@@ -714,10 +731,18 @@ gnome_config_has_section (const char *path)
 	pp = parse_path (fake_path);
 	g_free (fake_path);
 	
-	/* We assume the user has called one of the other initialization funcs */
 	if (!is_loaded (pp->file, &section)){
-		release_path (pp);
-		return 0;
+		struct stat st;
+		if (stat (pp->file, &st) == -1) st.st_mtime = 0;
+
+		New = (TProfile *) g_malloc (sizeof (TProfile));
+		New->link = Base;
+		New->filename = g_strdup (pp->file);
+		New->section = load (pp->file);
+		New->mtime = st.st_mtime;
+		Base = New;
+		section = New->section;
+		Current = New;
 	}
 	for (; section; section = section->link){
 		if (strcasecmp (section->section_name, pp->section))
