@@ -33,7 +33,7 @@ AC_PATH_PROGS(PATH_TO_XRDB, "xrdb")
 dnl utility conditional
 AM_CONDITIONAL(FALSE, test "x" = "y")
 
-ALL_LINGUAS="az es fr it nn no sk sv ta tr"
+ALL_LINGUAS="az es fr it nn no sk sv ta tr zh_TW"
 AM_GNOME2_GETTEXT
 gnomelocaledir='${prefix}/${DATADIRNAME}/locale'
 AC_SUBST(gnomelocaledir)
