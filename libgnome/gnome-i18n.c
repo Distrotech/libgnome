@@ -1,7 +1,7 @@
 #include <config.h>
 #include <string.h>
-#include "libgnome.h"
-#include "gnome-i18n.h"
+
+#include "libgnomeP.h"
 
 /* Name of config key we use when looking up preferred language.   */
 #define LANGKEY "/Gnome/i18n/LANG"
@@ -13,7 +13,7 @@ gnome_i18n_get_language(void)
 }
 
 /* The following is (partly) taken from the gettext package.
-   Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.  */
+   Copyright (C) 1995, 1996, 1997, 1998 Free Software Foundation, Inc.  */
 
 static const gchar *
 guess_category_value (const gchar *categoryname)

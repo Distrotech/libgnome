@@ -11,7 +11,7 @@
 #include <glib.h>
 #include "gnome-defs.h"
 #include "gnome-util.h"
-#include "gnome-i18n.h"
+#include "gnome-i18nP.h"
 #include <errno.h>
 
 char *gnome_user_home_dir = 0;

@@ -37,6 +37,8 @@ const char *gnome_i18n_get_language(void);
 
 GList      *gnome_i18n_get_language_list (const gchar *category_name);
 
+void gnome_i18n_init (void);
+
 END_GNOME_DECLS
 
 #endif /* __GNOME_UTIL_H__ */

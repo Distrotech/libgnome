@@ -5,10 +5,11 @@
 #include <sys/types.h>
 #include <errno.h>
 #include <string.h>
+#include <sys/wait.h>
 
 #include "gnome-defs.h"
 #include "gnome-help.h"
-#include "gnome-i18n.h"
+#include "gnome-i18nP.h"
 #include "gnome-util.h"
 
 #define HELP_PROG "gnome-help-browser"

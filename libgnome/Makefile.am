@@ -58,7 +58,8 @@ libgnomeinclude_HEADERS = \
 	libgnome.h
 
 noinst_HEADERS = \
-	gnome-i18nP.h
+	gnome-i18nP.h		\
+	libgnomeP.h
 
 EXTRA_DIST = lib_date.README
 

@@ -20,14 +20,14 @@
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
-/* #include <config.h> */
+#include <config.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>	/* atoi() */
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <glib.h>
-#include "libgnome.h"
+#include "libgnomeP.h"
 
 #ifndef HAVE_STRNDUP
 /* Like strdup, but only copy N chars.  */

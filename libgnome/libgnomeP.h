@@ -1,7 +1,8 @@
-/* Note: Keep this file in sync with libgnomeP.h.  */
+/* libgnomeP.h - Private version of libgnome.h.
+   Note: Keep this file in sync with libgnome.h.  */
 
-#ifndef LIBGNOME_H
-#define LIBGNOME_H
+#ifndef LIBGNOMEP_H
+#define LIBGNOMEP_H
 
 #include "libgnome/gnome-defs.h"
 #include "libgnome/gnome-config.h"
@@ -9,7 +10,7 @@
 #include "libgnome/gnome-dl.h"
 #include "libgnome/gnome-exec.h"
 #include "libgnome/gnome-hook.h"
-#include "libgnome/gnome-i18n.h"
+#include "libgnome/gnome-i18nP.h"
 #include "libgnome/gnome-parse.h"
 #include "libgnome/gnome-score.h"
 #include "libgnome/gnome-string.h"
@@ -24,4 +25,4 @@ extern char *gnome_app_id;
 void gnomelib_init (char *app_id);
 void gnomelib_register_arguments (void);
 
-#endif
+#endif /* LIBGNOMEP_H */
