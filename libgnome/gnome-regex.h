@@ -20,6 +20,8 @@
 #ifndef GNOME_REGEX_H
 #define GNOME_REGEX_H
 
+#include <libgnome/gnome-defs.h>
+
 BEGIN_GNOME_DECLS
 
 #include <sys/types.h>
@@ -30,16 +32,16 @@ typedef struct {
 	int next;		/* Next available slot.  */
 	char **regexs;		/* Regular expression strings.  */
 	regex_t *patterns;	/* Compiled expressions.  */
-	/* FIXME: probably should cache compilation flags along with
-	   regex and use those to determine caching.  For now we
-	   assume that the flags never change.  Another option would
-	   be to put the flag info into this structure and just not
-	   let the user ever change it.  */
+	int *flags;		/* Compilation flags for each expression */
 } GnomeRegexCache;
 
 /* Create a new regular expression cache with default number of
    items.  */
 GnomeRegexCache *gnome_regex_cache_new (void);
+
+/* Create a new regular expression cache with specified number of
+   items.  */
+GnomeRegexCache *gnome_regex_cache_new_with_size (int size);
 
 /* Free a regular expression cache.  */
 void gnome_regex_cache_destroy (GnomeRegexCache *rxc);

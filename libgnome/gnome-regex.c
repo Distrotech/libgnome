@@ -20,8 +20,8 @@
 #include <config.h>
 
 #include <string.h>
+#include <glib.h>
 
-#include "libgnomeP.h"
 #include "gnome-regex.h"
 
 #define DEFAULT_SIZE 96
@@ -29,18 +29,33 @@
 /**
  * gnome_regex_cache_new:
  * 
- * Creates a new regular expression cache object.
+ * Creates a new regular expression cache object with default size of items
  * 
  * Return value: the new cache object.
  **/
 GnomeRegexCache *
 gnome_regex_cache_new (void)
 {
+	return gnome_regex_cache_new_with_size (DEFAULT_SIZE);
+}
+
+/**
+ * gnome_regex_cache_new:
+ * @size: the number of cache items
+ * 
+ * Creates a new regular expression cache object.
+ * 
+ * Return value: the new cache object.
+ **/
+GnomeRegexCache *
+gnome_regex_cache_new_with_size (int size)
+{
 	GnomeRegexCache *rxc = g_new (GnomeRegexCache, 1);
-	rxc->size = DEFAULT_SIZE;
+	rxc->size = size;
 	rxc->next = 0;
 	rxc->regexs = g_new0 (char *, rxc->size);
 	rxc->patterns = g_new (regex_t, rxc->size);
+	rxc->flags = g_new0 (int, rxc->size);
 	return rxc;
 }
 
@@ -74,6 +89,7 @@ gnome_regex_cache_destroy (GnomeRegexCache *rxc)
 
 	g_free (rxc->regexs);
 	g_free (rxc->patterns);
+	g_free (rxc->flags);
 	g_free (rxc);
 }
 
@@ -94,7 +110,9 @@ gnome_regex_cache_set_size (GnomeRegexCache *rxc, int new_size)
 
 	if (new_size < rxc->size) {
 		int i;
-		for (i = new_size + 1; i < rxc->size; ++i) {
+		/* FIXME This deletes not the oldest elements in cache,
+		 * but truncates the end of it instead  */
+		for (i = new_size; i < rxc->size; i++) {
 			free_element (rxc, i);
 		}
 	}
@@ -131,10 +149,11 @@ gnome_regex_cache_compile (GnomeRegexCache *rxc, const char *pattern,
 	int i;
 	regex_t rx;
 
-	for (i = 0; i < rxc->size; ++i) {
+	for (i = 0; i < rxc->size; i++) {
 		if (! rxc->regexs[i])
 			break;
-		if (! strcmp (rxc->regexs[i], pattern)) {
+		if ((rxc->flags[i] == flags)
+		    && (! strcmp (rxc->regexs[i], pattern))) {
 			return &rxc->patterns[i];
 		}
 	}
@@ -149,6 +168,7 @@ gnome_regex_cache_compile (GnomeRegexCache *rxc, const char *pattern,
 
 	rxc->regexs[rxc->next] = g_strdup (pattern);
 	memcpy (&rxc->patterns[rxc->next], &rx, sizeof (regex_t));
+	rxc->flags[rxc->next] = flags;
 
 	i = rxc->next;
 	if (++rxc->next >= rxc->size)
@@ -156,3 +176,4 @@ gnome_regex_cache_compile (GnomeRegexCache *rxc, const char *pattern,
 
 	return &rxc->patterns[i];
 }
+
