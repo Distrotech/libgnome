@@ -1,3 +1,13 @@
+1999-03-11  Jonathan Blandford  <jrb@redhat.com>
+
+	* gnome-mime.c (mime_load_from_dir): We want to open gnome.mime
+	first and user.mime last.  This way we have a consistent set of
+	defaults, and a way for the user to override (but not remove) any
+	value.
+
+	* gnome-mime-info.c (load_mime_type_info_from_dir): We want to
+	open gnome.keys first and user.keys last.
+
 1999-03-08  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnome-exec.c (gnome_execute_async_with_env_fds): Set SIGPIPE to

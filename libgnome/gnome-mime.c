@@ -153,28 +153,40 @@ mime_fill_from_file (const char *filename)
 }
 
 static void
-mime_load_from_dir (const char *mime_info_dir)
+mime_load_from_dir (const char *mime_info_dir, gboolean system_dir)
 {
 	DIR *dir;
 	struct dirent *dent;
 	const int extlen = sizeof (".mime") - 1;
+	char *filename;
 	
 	dir = opendir (mime_info_dir);
 	if (!dir)
 		return;
-
+	if (system_dir) {
+		filename = g_concat_dir_and_file (mime_info_dir, "gnome.mime");
+		mime_fill_from_file (filename);
+		g_free (filename);
+	}
 	while ((dent = readdir (dir)) != NULL){
-		char *filename;
 		
 		int len = strlen (dent->d_name);
 
 		if (len <= extlen)
 			continue;
-		
 		if (strcmp (dent->d_name + len - extlen, ".mime"))
 			continue;
-
+		if (system_dir && !strcmp (dent->d_name, "gnome.mime"))
+			continue;
+		if (!system_dir && !strcmp (dent->d_name, "user.mime"))
+			continue;
+		
 		filename = g_concat_dir_and_file (mime_info_dir, dent->d_name);
+		mime_fill_from_file (filename);
+		g_free (filename);
+	}
+	if (!system_dir) {
+		filename = g_concat_dir_and_file (mime_info_dir, "user.mime");
 		mime_fill_from_file (filename);
 		g_free (filename);
 	}
@@ -190,11 +202,11 @@ mime_init (void)
 	mime_extensions [1] = g_hash_table_new (g_str_hash, g_str_equal);
 
 	mime_info_dir = gnome_unconditional_datadir_file ("mime-info");
-	mime_load_from_dir (mime_info_dir);
+	mime_load_from_dir (mime_info_dir, TRUE);
 	g_free (mime_info_dir);
 
 	mime_info_dir = g_concat_dir_and_file (gnome_util_user_home (), ".gnome/mime-info");
-	mime_load_from_dir (mime_info_dir);
+	mime_load_from_dir (mime_info_dir, FALSE);
 	g_free (mime_info_dir);
 
 	module_inited = TRUE;

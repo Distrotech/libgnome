@@ -295,31 +295,44 @@ load_mime_type_info_from (char *filename)
 }
 
 static void
-load_mime_type_info_from_dir (char *mime_info_dir)
+load_mime_type_info_from_dir (char *mime_info_dir, gboolean system_dir)
 {
 	DIR *dir;
 	struct dirent *dent;
 	const int extlen = sizeof (".keys") - 1;
+	char *filename;
 	
 	dir = opendir (mime_info_dir);
 	if (!dir)
 		return;
-
+	if (system_dir) {
+		filename = g_concat_dir_and_file (mime_info_dir, "gnome.keys");
+		load_mime_type_info_from (filename);
+		g_free (filename);
+	}
 	while ((dent = readdir (dir)) != NULL){
-		char *filename;
 		
 		int len = strlen (dent->d_name);
 
 		if (len <= extlen)
 			continue;
-		
 		if (strcmp (dent->d_name + len - extlen, ".keys"))
+			continue;
+		if (system_dir && !strcmp (dent->d_name, "gnome.keys"))
+			continue;
+		if (!system_dir && !strcmp (dent->d_name, "user.keys"))
 			continue;
 
 		filename = g_concat_dir_and_file (mime_info_dir, dent->d_name);
 		load_mime_type_info_from (filename);
 		g_free (filename);
 	}
+	if (!system_dir) {
+		filename = g_concat_dir_and_file (mime_info_dir, "user.keys");
+		load_mime_type_info_from (filename);
+		g_free (filename);
+	}
+
 	closedir (dir);
 }
 
@@ -331,11 +344,11 @@ load_mime_type_info (void)
 	current_lang = getenv ("LANG");
 	
 	mime_info_dir = gnome_unconditional_datadir_file ("mime-info");	
-	load_mime_type_info_from_dir (mime_info_dir);
+	load_mime_type_info_from_dir (mime_info_dir, TRUE);
 	g_free (mime_info_dir);
 
 	mime_info_dir = g_concat_dir_and_file (gnome_util_user_home (), ".gnome/mime-info");
-	load_mime_type_info_from_dir (mime_info_dir);
+	load_mime_type_info_from_dir (mime_info_dir, FALSE);
 	g_free (mime_info_dir);
 }
 
