@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-16 13:00+0100\n"
-"PO-Revision-Date: 2004-02-11 13:50+0800\n"
+"POT-Creation-Date: 2004-03-18 15:15+0100\n"
+"PO-Revision-Date: 2004-03-18 23:48+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -17,42 +17,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0\n"
 
-# SUN NEW TRANSLATION
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
 msgstr "错误消息"
 
-# SUN NEW TRANSLATION
 #: gnome-data/gnome-2.soundlist.in.h:2
 msgid "Informational message"
-msgstr "指示性消息"
+msgstr "信息性消息"
 
-# SUN NEW TRANSLATION
 #: gnome-data/gnome-2.soundlist.in.h:3
 msgid "Log in"
 msgstr "登录"
 
-# SUN NEW TRANSLATION
 #: gnome-data/gnome-2.soundlist.in.h:4
 msgid "Log out"
 msgstr "注销"
 
-# SUN NEW TRANSLATION
 #: gnome-data/gnome-2.soundlist.in.h:5
 msgid "Miscellaneous message"
 msgstr "其它消息"
 
-# SUN NEW TRANSLATION
 #: gnome-data/gnome-2.soundlist.in.h:6
 msgid "Question dialog"
-msgstr "问题对话框"
+msgstr "提问对话框"
 
-# SUN NEW TRANSLATION
 #: gnome-data/gnome-2.soundlist.in.h:7
 msgid "System events"
 msgstr "系统事件"
 
-# SUN NEW TRANSLATION
 #: gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning message"
 msgstr "警告消息"
@@ -69,14 +61,13 @@ msgstr "单击命令按钮"
 msgid "Select check box"
 msgstr "选择复选框"
 
-# SUN NEW TRANSLATION
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
 msgstr "用户界面事件"
 
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "无法找到终端程序，使用 xterm，即使它也可能不工作"
+msgstr "找不到终端程序，将使用 xterm，即使它也可能不工作"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
@@ -97,7 +88,7 @@ msgstr "无法找到 GNOME_FILE_DOMAIN_HELP 域。"
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr "因为 %s 不是目录，所以无法显示帮助。请检查您的安装情况。"
+msgstr "因为 %s 不是目录，所以无法显示帮助。请检查您的安装。"
 
 # SUN CHANGED MESSAGE
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
@@ -105,7 +96,7 @@ msgstr "因为 %s 不是目录，所以无法显示帮助。请检查您的安�
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr "在 %s 或 %s 中都无法找到帮助文件。请检查您的安装情况"
+msgstr "在 %s 或 %s 中都无法找到帮助文件。请检查您的安装"
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -115,7 +106,7 @@ msgstr "无法在帮助路径中找到 doc_id %s"
 #: libgnome/gnome-help.c:360
 #, c-format
 msgid "Help document %s/%s not found"
-msgstr "没有找到帮助文件 %s/%s"
+msgstr "找不到帮助文件 %s/%s"
 
 #: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
@@ -133,7 +124,7 @@ msgstr "Bonobo 激活支持"
 #: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "无法创建用户的 gnome 配置目录“%s”：%s\n"
+msgstr "无法创建每用户的 gnome 配置目录“%s”：%s\n"
 
 #: libgnome/gnome-init.c:328
 #, c-format
@@ -329,7 +320,7 @@ msgstr "要载入的动态模块"
 
 #: libgnome/gnome-program.c:1376
 msgid "MODULE1,MODULE2,..."
-msgstr "MODULE1，MODULE2，..."
+msgstr "MODULE1,MODULE2，..."
 
 #: libgnome/gnome-url.c:81
 msgid "Unknown internal error while displaying this location."
@@ -674,61 +665,73 @@ msgid "Menus Have Tearoff"
 msgstr "菜单具有分离条"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
+msgid "Module for GtkFileChooser"
+msgstr "GtkFileChooser 的模块"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:18
+msgid ""
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gnome-vfs\" and \"gtk+\"."
+msgstr ""
+"GtkFileChooser 部件所用的文件系统模型的模块。可供选择的值是"
+"“gnome-vfs”和“gtk+”。"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Monospace font"
 msgstr "等距字体"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "类似终端程序等位置中所用的等距(固定宽度)字体。"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "gtk+ 使用的 GTK+ 输入法预编辑风格的名称。"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "gtk+ 使用的 GTK+ 输入法状态风格的名称。"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Name of the default font used by gtk+."
 msgstr "gtk+ 使用的默认字体的名称。"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Status Bar on Right"
 msgstr "状态栏位于右边"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "用来指定工具栏上显示的图标的大小"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Detachable"
 msgstr "工具栏可分离"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Toolbar Icon Size"
 msgstr "工具栏图标大小"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Toolbar Style"
 msgstr "工具栏风格"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
 msgstr "工具栏风格。有效的值是“both”，“both_horiz”，“icon”和“text”"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Use Custom Font"
 msgstr "使用自定义字体"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether Applications should have accessibility support"
 msgstr "应用程序是否应该有辅助访问支持"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -736,37 +739,37 @@ msgstr ""
 "是否应该显示动画。注意：这是一个全局的设置，它将改变窗口管理器、面板等的行"
 "为。"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "是否在菜单上菜单项的旁边显示图标"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether menus should have a tearoff"
 msgstr "菜单是否应该有分离条"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the cursor should blink"
 msgstr "光标是否应该闪烁"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether the user can detach menubars and move them around"
 msgstr "用户是否能分离菜单栏并四处移动它们"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "用户是否能分离工具栏并四处移动它们"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr "当菜单弹出后，用户是否能动态地输入新的加速键"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:37
+#: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether to display a status bar meter on the right"
 msgstr "是否在右边显示状态栏指示"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:38
+#: schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "是否在 gtk+ 程序中使用自定义字体。"
 
@@ -919,7 +922,7 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
-"光标主题饮用的光标大小。此设置只有在每次会话开始前传送给 X 服务器，因此在会话"
+"光标主题引用的光标大小。此设置只在每次会话开始前传送给 X 服务器，因此在会话"
 "当中改变它不会有用，要等到您下次登录后才会起作用。"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
