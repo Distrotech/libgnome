@@ -16,7 +16,7 @@
 #include <bonobo/gnome-stream-fs.h>
 #include <errno.h>
 
-static GnomeStorageClass *gnome_stream_fs_parent_class;
+static GnomeStreamClass *gnome_stream_fs_parent_class;
 
 static CORBA_long
 fs_write (GnomeStream *stream, long count,
@@ -113,8 +113,8 @@ gnome_stream_fs_get_type (void)
 	if (!type){
 		GtkTypeInfo info = {
 			"IDL:GNOME/StreamFS:1.0",
-			sizeof (GnomeStream),
-			sizeof (GnomeStreamClass),
+			sizeof (GnomeStreamFS),
+			sizeof (GnomeStreamFSClass),
 			(GtkClassInitFunc) NULL,
 			(GtkObjectInitFunc) NULL,
 			NULL, /* reserved 1 */
