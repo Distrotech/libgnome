@@ -229,3 +229,26 @@ gnome_util_user_shell ()
 	/* Placate compiler.  */
 	return NULL;
 }
+
+
+
+int g_filename_index (const char * path)
+{
+  int last_path_sep;
+
+  g_return_val_if_fail(path != NULL, 0);
+
+  last_path_sep = strlen(path) - 2;  /* Note that the last character
+					is skipped; if it's a /, we
+					don't want to see it
+					anyway. */
+
+  while ( last_path_sep >= 0 ) {
+    if ( path[last_path_sep] == PATH_SEP ) break;
+    --last_path_sep; 
+  }
+
+  return last_path_sep + 1; /* This is 0 if -1 was reached, i.e. no
+			       path separators were found. */
+
+}

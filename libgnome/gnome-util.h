@@ -20,6 +20,11 @@ const char *g_unix_error_string (int error_num);
 
 char *g_concat_dir_and_file (const char *dir, const char *file);
 
+/* Find out where the filename starts; note that it may actually
+   be a directory, it's just the last segment of the full path. 
+   Return is an index into the char array. */
+int g_filename_index (const char * path);
+
 /* returns the home directory of the user
  * This one is NOT to be free'd as it points into the 
  * env structure.
