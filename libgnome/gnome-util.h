@@ -34,20 +34,6 @@
 
 BEGIN_GNOME_DECLS
 
-#define gnome_libdir_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_LIBDIR, (filename), TRUE, NULL)
-#define gnome_datadir_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_DATADIR, (filename), TRUE, NULL)
-#define gnome_sound_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_SOUND, (filename), TRUE, NULL)
-#define gnome_pixmap_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_PIXMAP, (filename), TRUE, NULL)
-#define gnome_config_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_CONFIG, (filename), TRUE, NULL)
-#define gnome_help_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_HELP, (filename), TRUE, NULL)
-#define gnome_app_help_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_HELP, (filename), TRUE, NULL)
-#define gnome_unconditional_libdir_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_LIBDIR, (filename), FALSE, NULL)
-#define gnome_unconditional_datadir_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_DATADIR, (filename), FALSE, NULL)
-#define gnome_unconditional_sound_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_SOUND, (filename), FALSE, NULL)
-#define gnome_unconditional_pixmap_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_PIXMAP, (filename), FALSE, NULL)
-#define gnome_unconditional_config_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_CONFIG, (filename), FALSE, NULL)
-#define gnome_unconditional_help_file(filename) gnome_program_locate_file(gnome_program_get(), GNOME_FILE_DOMAIN_CONFIG, (filename), FALSE, NULL)
-
 /* locate a program in $PATH, or return NULL if not found */
 char *gnome_is_program_in_path (const gchar *program);
 

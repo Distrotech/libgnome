@@ -1,5 +1,12 @@
 2001-04-11  Martin Baulig  <baulig@suse.de>
 
+	* gnome-util.h (gnome_libdir_file, gnome_datadir_file,
+	gnome_sound_file, gnome_pixmap_file, gnome_config_file,
+	gnome_help_file, gnome_app_help_file): Removed.
+	(gnome_unconditional_*_file): Removed.
+
+2001-04-11  Martin Baulig  <baulig@suse.de>
+
 	* gnome-config.c (access_config_extended): Use
 	gnome_program_locate_file() instead of gnome_config_file().
 
