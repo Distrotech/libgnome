@@ -526,8 +526,7 @@ add_directory_async_file_cb (GnomeSelector *selector,
 
 static void
 add_directory_async_cb (GnomeVFSAsyncHandle *handle, GnomeVFSResult result,
-			GnomeVFSDirectoryList *list, guint entries_read,
-			gpointer callback_data)
+			GList *list, guint entries_read, gpointer callback_data)
 {
     GnomeFileSelectorAsyncData *async_data;
     GnomeFileSelector *fselector;
@@ -542,10 +541,10 @@ add_directory_async_cb (GnomeVFSAsyncHandle *handle, GnomeVFSResult result,
     fselector = GNOME_FILE_SELECTOR (async_data->fselector);
 
     if (list != NULL) {
-	GnomeVFSFileInfo *info;
+	GList *c;
 
-	info = gnome_vfs_directory_list_current (list);
-	while (info != NULL) {
+	for (c = list; c; c = c->next) {
+	    GnomeVFSFileInfo *info = c->data;
 	    GnomeFileSelectorSubAsyncData *sub_async_data;
 	    GnomeVFSURI *uri;
 	    gchar *text;
@@ -553,7 +552,6 @@ add_directory_async_cb (GnomeVFSAsyncHandle *handle, GnomeVFSResult result,
 	    if (fselector->_priv->filter &&
 		!gnome_vfs_directory_filter_apply (fselector->_priv->filter,
 						   info)) {
-		info = gnome_vfs_directory_list_next (list);
 		continue;
 	    }
 
@@ -580,8 +578,6 @@ add_directory_async_cb (GnomeVFSAsyncHandle *handle, GnomeVFSResult result,
 
 	    gnome_vfs_uri_unref (uri);
 	    g_free (text);
-
-	    info = gnome_vfs_directory_list_next (list);
 	}
     }
 
@@ -635,7 +631,6 @@ add_directory_handler (GnomeSelector *selector, const gchar *uri,
 
     gnome_vfs_async_load_directory_uri (&async_data->vfs_handle, vfs_uri,
 					fselector->_priv->file_info_options,
-					NULL, FALSE,
 					GNOME_VFS_DIRECTORY_FILTER_NONE,
 					GNOME_VFS_DIRECTORY_FILTER_NODIRS,
 					NULL, 1, add_directory_async_cb,
@@ -898,10 +893,10 @@ gnome_file_selector_construct (GnomeFileSelector *fselector,
 	filesel = GTK_FILE_SELECTION (filesel_widget);
 
 	gtk_signal_connect (GTK_OBJECT (filesel->cancel_button),
-			    "clicked", browse_dialog_cancel,
+			    "clicked", GTK_SIGNAL_FUNC (browse_dialog_cancel),
 			    fselector);
 	gtk_signal_connect (GTK_OBJECT (filesel->ok_button),
-			    "clicked", browse_dialog_ok,
+			    "clicked", GTK_SIGNAL_FUNC (browse_dialog_ok),
 			    fselector);
 
 	browse_dialog = GTK_WIDGET (filesel);
