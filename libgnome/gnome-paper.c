@@ -70,8 +70,11 @@ paper_init (void)
   const GnomeUnit *unit;
   char *str;
 
+  gnome_config_push_prefix (NULL);
+  
   config_iterator =
     gnome_config_init_iterator("="GNOMESYSCONFDIR"/paper.config=/Paper/");
+  gnome_config_pop_prefix ();
   
   if (!config_iterator)
     return;
