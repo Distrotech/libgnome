@@ -4,6 +4,9 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/mman.h>
 
 typedef enum {
   T_END /* end of array */, T_BYTE, T_SHORT, T_LONG, T_STR, T_DATE, 
@@ -25,6 +28,7 @@ typedef struct _GnomeMagicEntry {
   char mimetype[48];
 } GnomeMagicEntry;
 
+#ifndef GEN_MIMEDB
 /****** misc lame parsing routines *******/
 static guchar
 read_octal_str(char **pos)
@@ -125,7 +129,7 @@ read_string_val(char *curpos, char *intobuf, guchar *into_len)
   }
 }
 
-char *read_num_val(char *curpos, int bsize, char *intobuf)
+static char *read_num_val(char *curpos, int bsize, char *intobuf)
 {
   char fmttype, fmtstr[4];
   short itmp;
@@ -157,7 +161,7 @@ char *read_num_val(char *curpos, int bsize, char *intobuf)
   return curpos;
 }
 
-static GnomeMagicEntry *gnome_magic_parse(const char *filename)
+GnomeMagicEntry *gnome_magic_parse(const char *filename, int *nents)
 {
   GArray *array;
   GnomeMagicEntry newent, *retval;
@@ -167,16 +171,12 @@ static GnomeMagicEntry *gnome_magic_parse(const char *filename)
   char aline[256];
   char *curpos;
 
-#if 0
-  infile_name = gnome_datadir_file(filename);
-#else
-  infile_name = g_strdup(filename);
-#endif
+  infile_name = filename;
+
   if(!infile_name)
     return NULL;
 
   infile = fopen(infile_name, "r");
-  g_free(infile_name);
   if(!infile)
     return NULL;
 
@@ -286,13 +286,15 @@ static GnomeMagicEntry *gnome_magic_parse(const char *filename)
   g_array_append_val(array, newent);
 
   retval = (GnomeMagicEntry *)array->data;
-  g_print("array size is %d\n", array->len * sizeof(GnomeMagicEntry));
+  if(nents)
+    *nents = array->len;
+
   g_array_free(array, FALSE);
 
   return retval;
 }
 
-void do_byteswap(guchar *outdata,
+static void do_byteswap(guchar *outdata,
 		 const guchar *data,
 		 gulong datalen)
 {
@@ -342,16 +344,65 @@ gnome_magic_matches_p(FILE *fh, GnomeMagicEntry *ent)
   return retval;
 }
 
+static GnomeMagicEntry *
+gnome_magic_db_load(void)
+{
+  int fd;
+  char *filename;
+  GnomeMagicEntry *retval;
+  struct stat sbuf;
+
+  filename = gnome_config_file("mime-magic.dat");
+
+  if(!filename) return NULL;
+  fd = open(filename, O_RDONLY);
+  g_free(filename);
+  if(fd < 0) return NULL;
+
+  fstat(fd, &sbuf);
+
+  retval = mmap(NULL, sbuf.st_size, PROT_READ, MAP_SHARED, fd, 0);
+
+  close(fd);
+
+  return retval;
+}
+
 const char *gnome_mime_type_from_magic(const char *filename)
 {
   FILE *fh;
   static GnomeMagicEntry *ents = NULL;
+  static char *fn;
   int i;
+  struct stat sbuf;
+
+  /* we really don't want to start reading from devices :) */
+  stat(filename, &sbuf);
+  if(!S_ISREG(sbuf.st_mode)) {
+    if(S_ISDIR(sbuf.st_mode))
+      return "special/directory";
+    else if(S_ISCHR(sbuf.st_mode))
+      return "special/device-char";
+    else if(S_ISBLK(sbuf.st_mode))
+      return "special/device-block";
+    else if(S_ISFIFO(sbuf.st_mode))
+      return "special/fifo";
+    else if(S_ISSOCK(sbuf.st_mode))
+      return "special/socket";
+    else
+      return NULL;
+  }
 
   fh = fopen(filename, "r");
   if(!fh) return NULL;
 
-  if(!ents) ents = gnome_magic_parse("mime-magic");
+  if(!ents) ents = gnome_magic_db_load();
+  if(!ents) {
+    char *fn = gnome_config_file("mime-magic");
+    if(fn)
+      ents = gnome_magic_parse(fn, NULL);
+    g_free(fn);
+  }
   if(!ents) return NULL;
 
   for(i = 0; ents[i].type != T_END; i++) {
@@ -363,3 +414,5 @@ const char *gnome_mime_type_from_magic(const char *filename)
 
   return (ents[i].type == T_END)?NULL:ents[i].mimetype;
 }
+
+#endif

@@ -28,6 +28,7 @@ libgnome_la_SOURCES = \
 	gnome-help.c		\
 	gnome-history.c		\
 	gnome-i18n.c		\
+	gnome-magic.c		\
 	gnome-metadata.c	\
 	gnome-mime.c		\
 	gnome-popt.c		\
@@ -79,7 +80,8 @@ gnome-config.o: parse-path.cP
 libgnome_la_LDFLAGS = -version-info 30:0:30 #-rpath $(libdir)
 libgnome_la_LIBADD = $(GLIB_LIBS) -lm $(DL_LIB)
 
-bin_PROGRAMS = dns-helper gnome-dump-metadata gnome-moz-remote gconfigger
+bin_PROGRAMS = dns-helper gnome-dump-metadata gnome-moz-remote \
+	gconfigger gnome-gen-mimedb
 
 dns_helper_SOURCES = dns-helper.c
 dns_helper_LDADD = $(NSL_LIBS)
@@ -95,4 +97,9 @@ gnome_moz_remote_LDADD = libgnome.la $(LIBSUPPORT) $(LIBGNOME_LIBS) \
 
 gconfigger_SOURCES = gconfigger.c
 gconfigger_LDADD = libgnome.la $(LIBSUPPORT) \
+	$(LIBGNOME_LIBS) $(INTLLIBS)
+
+# go ahead and laugh, it's better than exporting internal routines
+gnome_gen_mimedb_SOURCES = gnome-gen-mimedb.c
+gnome_gen_mimedb_LDADD = libgnome.la $(LIBSUPPORT) \
 	$(LIBGNOME_LIBS) $(INTLLIBS)
