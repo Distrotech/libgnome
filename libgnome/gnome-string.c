@@ -18,6 +18,8 @@ gchar **gnome_string_split(gchar *string, gchar *delim, gint max_tokens)
 	if(max_tokens < 0)
 		max_tokens = INT_MAX;
 
+	if(delim == NULL) delim = " ";
+
 	dlen = strlen(delim);
 	nxt = strstr(string, delim);
 	if(!nxt) {
