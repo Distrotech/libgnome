@@ -32,6 +32,18 @@
 
 G_BEGIN_DECLS
 
+/*
+ * Bonobo::ConfigDatabase for desktop-wide settings.
+ */
+Bonobo_ConfigDatabase
+gnome_program_get_desktop_config_database (GnomeProgram *program);
+
+#define GNOME_PARAM_DESKTOP_CONFIG_DATABASE "desktop-config-database"
+#define GNOME_PARAM_DESKTOP_CONFIG_MONIKER  "desktop-config-moniker"
+
+/*
+ * Bonobo::ConfigDatabase for per-application settings.
+ */
 Bonobo_ConfigDatabase
 gnome_program_get_config_database (GnomeProgram *program);
 

@@ -41,6 +41,8 @@
 #include <libgnome/gnome-url.h>
 #include <libgnome/gnome-ditem.h>
 
+#include <libgnome/gnome-preferences.h>
+
 #include <libgnome/libgnome-init.h>
 
 #ifdef COMPAT_1_0

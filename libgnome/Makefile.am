@@ -51,6 +51,7 @@ libgnome_2_la_SOURCES = \
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-paper.c		\
+	gnome-preferences.c	\
 	libgnome-init.c		\
 	libgnometypes.c
 
@@ -68,6 +69,7 @@ libgnome_headers = \
 	gnome-url.h		\
 	gnome-util.h   		\
 	gnome-paper.h		\
+	gnome-preferences.h	\
 	libgnome-init.h		\
 	libgnome.h
 

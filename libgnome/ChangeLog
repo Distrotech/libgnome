@@ -1,3 +1,14 @@
+2001-04-29  Martin Baulig  <baulig@suse.de>
+
+	* libgnome-init.[ch]
+	(GNOME_PARAM_DESKTOP_CONFIG_DATABASE): New property.
+	(GNOME_PARAM_DESKTOP_CONFIG_MONIKER): Likewise.
+	(gnome_program_get_desktop_config_database): New function.
+
+	* gnome-preferences.[ch]: New files; this has the same API than
+	libgnomeui/gnome-preferences.[ch], but it's using bonobo-conf
+	internally.
+
 2001-04-24  Martin Baulig  <baulig@suse.de>
 
 	* Makefile.am (libgnome_headers): Added gnome-i18n.h.
