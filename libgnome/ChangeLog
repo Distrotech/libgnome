@@ -1,3 +1,15 @@
+1999-10-26  Elliot Lee  <sopwith@redhat.com>
+
+	* gnome-ditem.[ch]: New files - replacement for gnome-dentry.[ch]
+	* gnome-util.[ch] (gnome_file_locate) Redo the file location stuff
+	                  (g_file_test): Use access() if only testing for existence. Also fix the other tests to
+			                 work slightly more sanely (check that all specified conditions are met,
+					 rather than that all unspecified conditions are not met).
+	                  (gnome_user_shell): Use g_strdup instead of strdup
+	* gnomelib-init2.c (gnome_program_attribute_get): Fix inverted error condition.
+	* gnomelib-init.h: Add an attribute for an application-provided file locator function.
+	* gnome-config.c: Recognize [yYtT1-9].* as TRUE boolean values, all others as FALSE boolean values.
+
 1999-10-21  Federico Mena Quintero  <federico@redhat.com>
 
 	* gnome-mime.c (add_ext): New helper function to add an

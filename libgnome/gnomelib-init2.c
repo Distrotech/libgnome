@@ -419,7 +419,7 @@ gnome_program_attribute_get(GnomeProgram *app,
   g_return_val_if_fail(app, NULL);
   g_return_val_if_fail(name, NULL);
   g_return_val_if_fail(name[1] == ':', NULL);
-  g_return_val_if_fail(name[0] == 'A', NULL);
+  g_return_val_if_fail(name[0] != 'A', NULL);
 
   /* Assumptions: We assume that app->state > APP_UNINIT - as long as
      it is impossible for other modules to get hold of a GnomeProgram

@@ -26,6 +26,9 @@ extern GnomeModuleInfo libgnome_module_info;
 #define LIBGNOME_PARAM_CREATE_DIRECTORIES "B:libgnome/create_directories"
 #define LIBGNOME_PARAM_ESPEAKER "S:libgnome/espeaker"
 #define LIBGNOME_PARAM_ENABLE_SOUND "B:libgnome/enable_sound"
+#define LIBGNOME_PARAM_FILE_LOCATOR "P:libgnome/file_locator"
+
+typedef char * (*GnomeFileLocatorFunc)(const char *domain, const char *filename, gboolean only_if_exists);
 
 extern char *gnome_user_home_dir;
 extern char *gnome_user_dir;

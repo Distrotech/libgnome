@@ -3,6 +3,7 @@
 
 BEGIN_GNOME_DECLS
 
+
 typedef struct {
 	char *name;		/* These contain the translated name/comment */
 	char *comment;

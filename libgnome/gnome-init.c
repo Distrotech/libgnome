@@ -57,9 +57,9 @@ libgnome_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
 {
   /* Provide default settings */
   gnome_program_attributes_set(app,
-			  LIBGNOME_PARAM_CREATE_DIRECTORIES, TRUE,
-			  LIBGNOME_PARAM_ENABLE_SOUND, TRUE,
-			  NULL);
+			       LIBGNOME_PARAM_CREATE_DIRECTORIES, TRUE,
+			       LIBGNOME_PARAM_ENABLE_SOUND, TRUE,
+			       NULL);
 }
 
 static void

@@ -42,6 +42,7 @@ endif
 libgnome_la_SOURCES = \
 	gnome-config.c		\
 	gnome-dentry.c          \
+	gnome-ditem.c		\
 	gnome-exec.c		\
 	gnome-fileconvert.c	\
 	gnome-help.c		\
@@ -67,6 +68,7 @@ libgnomeinclude_HEADERS = \
 	gnome-defs.h   		\
 	gnome-fileconvert.h	\
 	gnome-dentry.h 		\
+	gnome-ditem.h		\
 	gnome-exec.h		\
 	gnome-help.h		\
 	gnome-history.h		\

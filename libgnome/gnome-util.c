@@ -22,213 +22,124 @@
 #include <glib.h>
 #include <sys/stat.h>
 #include <pwd.h>
+#include <limits.h>
+#include "gnome-portability.h"
 #include "gnome-defs.h"
 #include "gnome-util.h"
+#include "gnomelib-init2.h"
+#include "gnomelib-init.h"
 
-static char *
-gnome_dirrelative_file (const char *base, const char *sub, const char *filename, int unconditional)
+const char gnome_file_domain_libdir[]="libdir";
+const char gnome_file_domain_datadir[]="datadir";
+const char gnome_file_domain_sound[]="sound";
+const char gnome_file_domain_pixmap[]="pixmap";
+const char gnome_file_domain_config[]="config";
+
+/**
+ * gnome_file_locate:
+ * @domain: A 
+ * @filename: A file name or path inside the 'domain' to find.
+ * @only_if_exists: Only return a full pathname if the specified file actually exists
+ *
+ * This function finds the full path to a file located in the specified "domain". A domain
+ * is a name for a collection of related files. For example, common domains are "libdir", "pixmap",
+ * and "config".
+ *
+ * Returns: The full path to the file, if it exists or only_if_exists is FALSE, or 
+ */
+char *
+gnome_file_locate (const char *domain, const char *filename, gboolean only_if_exists)
 {
-        static char *gnomedir = NULL;
-	char *dir = NULL, *fil = NULL, *odir = NULL, *ofil = NULL;
-	char *retval = NULL;
-	
-	/* First try the env GNOMEDIR relative path */
-	if(!gnomedir)
-	  gnomedir = getenv ("GNOMEDIR");
-	
-	if (gnomedir) {
-		dir = g_concat_dir_and_file (gnomedir, sub);
-		fil = g_concat_dir_and_file (dir, filename);
+  char *retval = NULL, *dir = NULL, *prefix_rel = NULL, *envvar;
+  char fnbuf[PATH_MAX];
 
-		if (g_file_exists (fil)) {
-			retval = fil; fil = NULL; goto out;
-		}
+  g_return_val_if_fail(domain, NULL);
+  g_return_val_if_fail(filename, NULL);
 
-		odir = dir; ofil = fil;
-		dir = g_concat_dir_and_file (g_get_home_dir (), sub);
-		fil = g_concat_dir_and_file (dir, filename);
+  if(filename[0] == '/')
+    return g_strdup(filename);
 
-		if (strcmp (odir, dir) != 0 && g_file_exists (fil)) {
-			retval = fil; fil = NULL; goto out;
-		}
+  /* First, check our hardcoded defaults */
+  switch(domain[0])
+    {
+    case 'l':
+      if(strcmp(domain, gnome_file_domain_libdir))
+	break;
+      dir = GNOMELIBDIR;
+      prefix_rel = "lib";
+      break;
+    case 'd':
+      if(strcmp(domain, gnome_file_domain_datadir))
+	break;
+      dir = GNOMEDATADIR;
+      prefix_rel = "share";
+      break;
+    case 's':
+      if(strcmp(domain, gnome_file_domain_sound))
+	break;
+      dir = GNOMEDATADIR "/sounds";
+      prefix_rel = "share/sounds";
+      break;
+    case 'p':
+      if(strcmp(domain, gnome_file_domain_pixmap))
+	break;
+      dir = GNOMEDATADIR "/pixmaps";
+      prefix_rel = "share/pixmaps";
+      break;
+    case 'c':
+      if(strcmp(domain, gnome_file_domain_config))
+	break;
+      dir = GNOMESYSCONFDIR;
+      prefix_rel = "share/config";
+      break;
+    }
 
-		if (unconditional) {
-			retval = ofil; ofil = NULL; goto out;
-		}
+  if (dir)
+    {
+      g_snprintf(fnbuf, sizeof(fnbuf), "%s/%s", dir, filename);
+
+      if (!only_if_exists || g_file_exists (fnbuf))
+	retval = g_strdup(fnbuf);
+    }
+
+  if (retval)
+    goto out;
+
+  /* Now try $GNOMEDIR */
+  envvar = getenv("GNOMEDIR");
+  if (envvar && prefix_rel)
+    {
+      int i;
+      char **dirs;
+
+      dirs = g_strsplit(envvar, ":", -1);
+
+      for (i = 0; dirs[i] && !retval; i++)
+	{
+	  g_snprintf(fnbuf, sizeof(fnbuf), "%s/%s/%s", dirs[i], prefix_rel, filename);
+	  if (!only_if_exists || g_file_exists (fnbuf))
+	    retval = g_strdup(fnbuf);
 	}
 
-	if ((!dir || strcmp (base, dir) != 0)
-	    && (!odir || strcmp (base, odir) != 0)) {
-		/* Then try the hardcoded path */
-		g_free (fil);
-		fil = g_concat_dir_and_file (base, filename);
-		
-		if (unconditional || g_file_exists (fil)) {
-			retval = fil; fil = NULL; goto out;
-		}
-	}
+      g_strfreev(dirs);
+    }
 
-	/* Finally, attempt to find it in the current directory */
-	g_free (fil);
-	fil = g_concat_dir_and_file (".", filename);
-	
-	if (g_file_exists (fil)) {
-		retval = fil; fil = NULL; goto out;
-	}
+  if (retval)
+    goto out;
 
-out:	
-	g_assert(retval || !unconditional);
+  {
+    GnomeFileLocatorFunc lfunc = NULL;
 
-	g_free (dir); g_free (odir); g_free (fil); g_free (ofil);
+    gnome_program_attributes_get(gnome_program_get(), LIBGNOME_PARAM_FILE_LOCATOR, &lfunc, NULL);
 
-	return retval;
-}
+    if (lfunc)
+      {
+	retval = lfunc(domain, filename, only_if_exists);
+      }
+  }
 
-/**
- * gnome_libdir_file:
- * @filename: filename to locate in libdir
- *
- * Locates a shared file either in the GNOMEDIR tree, the GNOME
- * installation directory or in the current directory
- *
- * Returns a newly allocated pathname pointing to a file in the gnome libdir
- * or NULL if the file does not exist.
- */
-char *
-gnome_libdir_file (const char *filename)
-{
-	return (gnome_dirrelative_file (GNOMELIBDIR, "lib", filename, FALSE));
-}
-
-/**
- * gnome_datadir_file:
- * @filename: shared filename to locate
- *
- * Locates a shared file either in the GNOMEDIR tree, the GNOME
- * installation directory or in the current directory
- *
- * Returns a newly allocated pathname pointing to a file in the gnome sharedir
- * or NULL if the file does not exist.
- */
-char *
-gnome_datadir_file (const char *filename)
-{
-	return (gnome_dirrelative_file (GNOMEDATADIR, "share", filename, FALSE));
-}
-
-/**
- * gnome_sound_file:
- * @filename: sound filename to locate.
- *
- * Locates a sound file either in the GNOMEDIR tree, the GNOME
- * installation directory or in the current directory
- *
- * Returns a newly allocated pathname pointing to a file in the gnome sound directory
- * or NULL if the file does not exist.
- */
-char *
-gnome_sound_file (const char *filename)
-{
-	return (gnome_dirrelative_file (GNOMEDATADIR "/sounds", "share/sounds", filename, FALSE));
-}
-
-/**
- * gnome_unconditional_sound_file:
- * @filename: sound filename
- *
- * Returns a newly allocated filename from the GNOMEDIR tree or from the
- * GNOME installation directory
- */
-char *
-gnome_unconditional_sound_file (const char *filename)
-{
-	return (gnome_dirrelative_file (GNOMEDATADIR "/sounds", "share/sounds", filename, TRUE));
-}
-
-/**
- * gnome_pixmap_file:
- * @filename: pixmap filename
- *
- * Returns a newly allocated filename from the GNOMEDIR tree or from the
- * GNOME installation directory for the pixmap directory ($prefix/share/pixmaps),
- * or NULL if the file does not exist.
- */
-char *
-gnome_pixmap_file (const char *filename)
-{
-	return (gnome_dirrelative_file (GNOMEDATADIR "/pixmaps", "share/pixmaps", filename, FALSE));
-}
-
-/**
- * gnome_unconditional_pixmap_file:
- * @filename: pixmap filename
- *
- * Returns a newly allocated filename from the GNOMEDIR tree or from the
- * GNOME installation directory for the pixmap directory ($prefix/share/pixmaps)
- */
-char *
-gnome_unconditional_pixmap_file (const char *filename)
-{
-	return (gnome_dirrelative_file (GNOMEDATADIR "/pixmaps", "share/pixmaps", filename, TRUE));
-}
-
-/**
- * gnome_config_file:
- * @filename: config filename
- *
- * Locates a configuration file ($prefix/etc) in the GNOMEDIR tree, the
- * GNOME installation direcory or the current directory.
- *
- * Returns a newly allocated filename from the GNOMEDIR tree or from the
- * GNOME installation directory
- */
-char *
-gnome_config_file (const char *filename)
-{
-	return (gnome_dirrelative_file (GNOMESYSCONFDIR, "etc", filename, FALSE));
-}
-
-/**
- * gnome_unconditional_config_file:
- * @filename: configuration filename
- *
- * Returns a newly allocated filename pointing to a (possibly
- * non-existent) file from the GNOMEDIR tree or from the GNOME
- * installation directory for the configuration directory
- * ($prefix/etc).
- */
-char *
-gnome_unconditional_config_file (const char *filename)
-{
-	return (gnome_dirrelative_file (GNOMESYSCONFDIR, "etc", filename, TRUE));
-}
-
-/**
- * gnome_unconditional_libdir_file:
- * @filename: library filename
- *
- * Returns a newly allocated pathname pointing to a (possibly
- * non-existent) file from the GNOMEDIR tree or from the GNOME
- * installation directory
- */
-char *
-gnome_unconditional_libdir_file (const char *filename)
-{
-	return (gnome_dirrelative_file (GNOMELIBDIR, "lib", filename, TRUE));
-}
-
-/**
- * gnome_unconditional_datadir_file:
- * @filename: datadir filename
- *
- * Returns a newly allocated pathname pointing to a (possibly
- * non-existent) file from the GNOMEDIR tree or from the GNOME
- * installation directory
- */
-char *
-gnome_unconditional_datadir_file (const char *filename)
-{
-	return (gnome_dirrelative_file (GNOMEDATADIR, "share", filename, TRUE));
+ out:
+  return retval;
 }
 
 /**
@@ -244,19 +155,28 @@ gnome_unconditional_datadir_file (const char *filename)
  * Returns true if filename passes the specified test (an or expression of
  * tests)
  */
-int
+gboolean
 g_file_test (const char *filename, int test)
 {
-	struct stat s;
-	if(stat (filename, &s) != 0)
-		return FALSE;
-	if(!(test & G_FILE_TEST_ISFILE) && S_ISREG(s.st_mode))
-		return FALSE;
-	if(!(test & G_FILE_TEST_ISLINK) && S_ISLNK(s.st_mode))
-		return FALSE;
-	if(!(test & G_FILE_TEST_ISDIR) && S_ISDIR(s.st_mode))
-		return FALSE;
-	return TRUE;
+  if( (test & G_FILE_TEST_EXISTS) == G_FILE_TEST_EXISTS )
+    {
+      return (access(filename, F_OK)==0);
+    }
+  else
+    {
+      struct stat s;
+      
+      if(stat (filename, &s) != 0)
+	return FALSE;
+      if((test & G_FILE_TEST_ISFILE) && !S_ISREG(s.st_mode))
+	return FALSE;
+      if((test & G_FILE_TEST_ISLINK) && !S_ISLNK(s.st_mode))
+	return FALSE;
+      if((test & G_FILE_TEST_ISDIR) && !S_ISDIR(s.st_mode))
+	return FALSE;
+
+      return TRUE;
+    }
 }
 
 /**
@@ -266,14 +186,12 @@ g_file_test (const char *filename, int test)
  * Returns true if filename exists
  * left in for binary compatibility for a while FIXME: remove
  */
-int
+gboolean
 g_file_exists (const char *filename)
 {
-	struct stat s;
-
-	g_return_val_if_fail (filename != NULL,FALSE);
+	g_return_val_if_fail (filename != NULL, FALSE);
 	
-	return stat (filename, &s) == 0;
+	return (access (filename, F_OK) == 0);
 }
 
 /**
@@ -317,12 +235,12 @@ gnome_util_user_shell (void)
 	}
 	pw = getpwuid(getuid());
 	if (pw && pw->pw_shell) {
-		return strdup (pw->pw_shell);
+		return g_strdup (pw->pw_shell);
 	} 
 
 	for (i = 0; shells [i]; i++) {
 		if (g_file_exists (shells [i])){
-			return strdup (shells[i]);
+			return g_strdup (shells[i]);
 		}
 	}
 
@@ -367,7 +285,7 @@ g_extension_pointer (const char * path)
  * Returns a copy of a NULL-terminated string array.
  */
 char **
-g_copy_vector (char **vec)
+g_copy_vector (const char **vec)
 {
 	char ** new_vec;
 	int size = 0;
@@ -399,7 +317,7 @@ g_copy_vector (char **vec)
  * allocated with g_malloc with the full path name of the program
  * found
  */
-gchar *
+char *
 gnome_is_program_in_path (const gchar *program)
 {
 	static gchar **paths = NULL;
@@ -419,4 +337,3 @@ gnome_is_program_in_path (const gchar *program)
 	}
 	return 0;
 }
-
