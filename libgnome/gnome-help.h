@@ -31,13 +31,14 @@ G_BEGIN_DECLS
 typedef enum {
   GNOME_HELP_ERROR_INTERNAL, /* something went wrong inside, should never happen
 			      * really.  Could be caused by lack of memory */
-  GNOME_HELP_ERROR_NOT_FOUND, /* Help file doesn't exist */
-  GNOME_HELP_ERROR_PARSE, /* if the parsing of the handler failed */
-  GNOME_HELP_ERROR_EXEC /* could not execute handler */
+  GNOME_HELP_ERROR_NOT_FOUND /* Help file doesn't exist */
 } GnomeHelpError;
 
 #define GNOME_HELP_ERROR (gnome_help_error_quark ())
 GQuark gnome_help_error_quark (void) G_GNUC_CONST;
+
+/* Errors that could be returned can be from gnome-url
+ * and g-spawn */
 
 gboolean	gnome_help_display         (GnomeProgram  *program,
 					    const char    *doc_name,

@@ -52,11 +52,6 @@
 #include <gobject/gvaluetypes.h>
 
 #include <bonobo-activation/bonobo-activation.h>
-#include <libbonobo.h>
-
-#ifdef HAVE_GNOMESUPPORT
-#include <gnomesupport.h>
-#endif
 
 #include <libgnomevfs/gnome-vfs-init.h>
 
@@ -78,176 +73,19 @@ bonobo_activation_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_i
 {
 	int dumb_argc = 1;
 	char *dumb_argv[] = {NULL};
-        BonoboActivationBaseService base_service = {};
-
-	bonobo_activation_postinit (program, mod_info);
-
-        base_service.name = "IDL:Bonobo/ActivationContext:1.0";
-        base_service.session_name = bonobo_activation_session_name_get ();
-        base_service.domain = "session";
-
-        bonobo_activation_service_get (&base_service);
 
 	dumb_argv[0] = program_invocation_name;
 	(void) bonobo_activation_orb_init (&dumb_argc, dumb_argv);
+
+	bonobo_activation_postinit (program, mod_info);
 }
 
-GnomeModuleInfo gnome_bonobo_activation_module_info = {
+/* No need to make this public, always pulled in */
+static GnomeModuleInfo gnome_bonobo_activation_module_info = {
 	"bonobo-activation", VERSION, N_("Bonobo activation Support"),
 	NULL, NULL,
 	bonobo_activation_pre_args_parse, bonobo_activation_post_args_parse,
 	bonobo_activation_popt_options
-};
-
-/*****************************************************************************
- * libbonobo
- *****************************************************************************/
-
-typedef struct {
-	guint desktop_config_database_id;
-	guint desktop_config_moniker_id;
-	guint config_database_id;
-	guint config_moniker_id;
-} GnomeProgramClass_libbonobo;
-
-typedef struct {
-	gboolean constructed;
-
-	gchar *app_id;
-
-	gchar *config_moniker;
-	Bonobo_ConfigDatabase config_database;
-
-	gchar *desktop_config_moniker;
-	Bonobo_ConfigDatabase desktop_config_database;
-} GnomeProgramPrivate_libbonobo;
-
-static GQuark quark_gnome_program_private_libbonobo = 0;
-static GQuark quark_gnome_program_class_libbonobo = 0;
-
-static gboolean
-libbonobo_delay_init (GnomeProgramPrivate_libbonobo *priv)
-
-{
-	g_message (G_STRLOC ": %p", priv);
-
-	if (priv->constructed)
-	    return FALSE;
-
-	priv->constructed = TRUE;
-
-	if (priv->desktop_config_database == CORBA_OBJECT_NIL) {
-		CORBA_Environment ev;
-
-		g_message (G_STRLOC);
-
-		CORBA_exception_init (&ev);
-		priv->desktop_config_database = bonobo_get_object
-			(priv->desktop_config_moniker,
-			 "Bonobo/ConfigDatabase", &ev);
-		CORBA_exception_free (&ev);
-	}
-
-	if (priv->config_database == CORBA_OBJECT_NIL) {
-		CORBA_Environment ev;
-
-		g_message (G_STRLOC);
-
-		if (!priv->config_moniker)
-			priv->config_moniker = g_strdup_printf
-				("config:/gnome/%s/", priv->app_id);
-
-		g_message (G_STRLOC ": |%s|", priv->config_moniker);
-
-		CORBA_exception_init (&ev);
-		priv->config_database = bonobo_get_object
-			(priv->config_moniker, "Bonobo/ConfigDatabase", &ev);
-		CORBA_exception_free (&ev);
-	}
-
-	if ((priv->config_database != CORBA_OBJECT_NIL) &&
-	    (priv->desktop_config_database != CORBA_OBJECT_NIL)) {
-	    CORBA_Environment ev;
-
-	    CORBA_exception_init (&ev);
-	    Bonobo_ConfigDatabase_addDatabase
-		(priv->config_database,
-		 priv->desktop_config_database,
-		 "/Gnome/",
-		 Bonobo_ConfigDatabase_DEFAULT,
-		 &ev);
-	    CORBA_exception_free (&ev);
-	}
-
-	g_message (G_STRLOC);
-
-	return FALSE;
-}
-
-static void
-libbonobo_init_pass (const GnomeModuleInfo *mod_info)
-{
-	if (!quark_gnome_program_private_libbonobo)
-		quark_gnome_program_private_libbonobo = g_quark_from_static_string
-			("gnome-program-private:libbonobo");
-
-	if (!quark_gnome_program_class_libbonobo)
-		quark_gnome_program_class_libbonobo = g_quark_from_static_string
-			("gnome-program-class:libbonobo");
-}
-
-static void
-libbonobo_class_init (GnomeProgramClass *klass, const GnomeModuleInfo *mod_info)
-{
-	GnomeProgramClass_libbonobo *cdata = g_new0 (GnomeProgramClass_libbonobo, 1);
-
-	g_type_set_qdata (G_OBJECT_CLASS_TYPE (klass), quark_gnome_program_class_libbonobo, cdata);
-
-}
-
-static void
-libbonobo_instance_init (GnomeProgram *program, GnomeModuleInfo *mod_info)
-{
-	GnomeProgramPrivate_libbonobo *priv = g_new0 (GnomeProgramPrivate_libbonobo, 1);
-
-	g_object_set_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo, priv);
-
-	priv->config_database = CORBA_OBJECT_NIL;
-	priv->desktop_config_database = CORBA_OBJECT_NIL;
-}
-
-static void
-libbonobo_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
-{
-	int dumb_argc = 1;
-	char *dumb_argv[] = {NULL};
-	GnomeProgramPrivate_libbonobo *priv = g_new0 (GnomeProgramPrivate_libbonobo, 1);
-
-	g_message (G_STRLOC);
-
-	dumb_argv [0] = program_invocation_name;
-
-	bonobo_init (&dumb_argc, dumb_argv);
-
-	priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_libbonobo);
-
-	priv->app_id = g_strdup (program_invocation_short_name);
-
-	g_idle_add ((GSourceFunc) libbonobo_delay_init, priv);
-}
-
-static GnomeModuleRequirement libbonobo_requirements [] = {
-	{ VERSION, &gnome_bonobo_activation_module_info },
-	{ NULL }
-};
-
-GnomeModuleInfo libbonobo_module_info = {
-	"libbonobo", VERSION, N_("Bonobo Support"),
-	libbonobo_requirements, libbonobo_instance_init,
-	NULL, libbonobo_post_args_parse,
-	NULL,
-	libbonobo_init_pass, libbonobo_class_init,
-	NULL, NULL
 };
 
 /*****************************************************************************
@@ -256,7 +94,27 @@ GnomeModuleInfo libbonobo_module_info = {
 
 enum { ARG_DISABLE_SOUND = 1, ARG_ENABLE_SOUND, ARG_ESPEAKER, ARG_VERSION };
 
-char *gnome_user_dir = NULL, *gnome_user_private_dir = NULL, *gnome_user_accels_dir = NULL;
+static char *gnome_user_dir = NULL;
+static char *gnome_user_private_dir = NULL;
+static char *gnome_user_accels_dir = NULL;
+
+const char *
+gnome_user_dir_get (void)
+{
+	return gnome_user_dir;
+}
+
+const char *
+gnome_user_private_dir_get (void)
+{
+	return gnome_user_private_dir;
+}
+
+const char *
+gnome_user_accels_dir_get (void)
+{
+	return gnome_user_accels_dir;
+}
 
 static void
 libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
@@ -422,31 +280,49 @@ static struct poptOption gnomelib_options [] = {
 };
 
 static void
-gnome_vfs_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
+gnome_vfs_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
 	gnome_vfs_init ();
 }
 
-GnomeModuleInfo gnome_vfs_module_info = {
+/* No need for this to be public */
+static GnomeModuleInfo gnome_vfs_module_info = {
 	"gnome-vfs", GNOMEVFSVERSION, N_("GNOME Virtual Filesystem"),
 	NULL, NULL,
-	gnome_vfs_pre_args_parse, NULL,
+	NULL, gnome_vfs_post_args_parse,
 	NULL,
-	(GnomeModuleInitHook) gnome_vfs_loadinit,
+	NULL,
 	NULL
 };
 
-static GnomeModuleRequirement libgnome_requirements [] = {
-	{ VERSION, &libbonobo_module_info },
-	{ "0.3.0", &gnome_vfs_module_info },
-	{ VERSION, &gnome_gconf_module_info },
-	{ NULL }
-};
+const GnomeModuleInfo *
+libgnome_module_info_get (void)
+{
+	static GnomeModuleInfo module_info = {
+		"libgnome", VERSION, N_("GNOME Library"),
+		NULL, NULL,
+		NULL, libgnome_post_args_parse,
+		gnomelib_options,
+		NULL, NULL, NULL, NULL
+	};
 
-GnomeModuleInfo libgnome_module_info = {
-	"libgnome", VERSION, N_("GNOME Library"),
-	libgnome_requirements, NULL,
-	NULL, libgnome_post_args_parse,
-	gnomelib_options,
-	NULL, NULL, NULL, NULL
-};
+	if (module_info.requirements == NULL) {
+		static GnomeModuleRequirement req[4];
+
+		req[0].required_version = VERSION;
+		req[0].module_info = &gnome_bonobo_activation_module_info;
+
+		req[1].required_version = "0.3.0";
+		req[1].module_info = &gnome_vfs_module_info;
+
+		req[2].required_version = VERSION;
+		req[2].module_info = gnome_gconf_module_info_get ();
+
+		req[3].required_version = NULL;
+		req[3].module_info = NULL;
+
+		module_info.requirements = req;
+	}
+
+	return &module_info;
+}

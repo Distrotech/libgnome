@@ -22,9 +22,7 @@
   @NOTATION@
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#include <config.h>
 #include <string.h>
 #include <glib.h>
 #include <limits.h>
@@ -35,11 +33,14 @@
 #include "gnome-i18nP.h"
 
 #include <gconf/gconf-client.h>
-#include <libgnome/gnome-exec.h>
-#include <libgnome/gnome-util.h>
-#include <libgnome/gnome-init.h>
-#include <libgnome/gnome-i18n.h>
-#include <libgnome/gnome-url.h>
+
+#include "gnome-exec.h"
+#include "gnome-util.h"
+#include "gnome-init.h"
+#include "gnome-i18n.h"
+#include "gnome-url.h"
+#include "gnome-gconf.h"
+
 #include <popt.h>
 
 #define DEFAULT_HANDLER "mozilla \"%s\""
@@ -56,14 +57,16 @@ gnome_url_default_handler (void)
 		gchar *str, *app;
 		GConfClient *client;
 
+		/* init our gconf stuff if necessary */
+		gnome_gconf_lazy_init ();
+
 		client = gconf_client_get_default ();
 		
 		str = gconf_client_get_string (client, "/desktop/gnome/url-handlers/default-show", NULL);
 
 		if (str) {
 			default_handler = str;
-		}
-		else {
+		} else {
 			/* It's the first time gnome_url_show is run, so up some useful defaults */
 
 			/* FIXME: Should we remove gnome-help-browser here? */
@@ -94,17 +97,18 @@ gnome_url_default_handler (void)
 		g_object_unref (G_OBJECT (client));
 	}
 	
-	return default_handler;
+	return g_strdup (default_handler);
 }
 
 gboolean
-gnome_url_show(const gchar *url, GError **error)
+gnome_url_show (const gchar *url, GError **error)
 {
 	gint i;
 	gchar *pos, *template;
-	gboolean free_template = FALSE;
 	int argc;
-	char **argv;
+	const char **argv;
+	char **newargv;
+	gboolean ret;
 	
 	g_return_val_if_fail (url != NULL, FALSE);
 
@@ -121,6 +125,9 @@ gnome_url_show(const gchar *url, GError **error)
 		protocol[pos - url] = '\0';
 		g_strdown (protocol);
 
+		/* init our gconf stuff if necessary */
+		gnome_gconf_lazy_init ();
+
 		path = g_strconcat ("/desktop/gnome/url-handlers/", protocol, "-show", NULL);
 		client = gconf_client_get_default ();
 
@@ -129,47 +136,53 @@ gnome_url_show(const gchar *url, GError **error)
 		if (template == NULL) {
 			template = gnome_url_default_handler ();
 		}
-		else {
-			free_template = TRUE;
-		}
 
 		g_free (protocol);
-	}
-	else {
+	} else {
 		/* no ':' ? this shouldn't happen. Use default handler */
 		template = gnome_url_default_handler ();
 	}
 
 	/* We use a popt function as it does exactly what we want to do and
 	   gnome already uses popt */
-	if (poptParseArgvString (template, &argc, &argv) != 0) {
+	if (poptParseArgvString (template, &argc,
+				 /* casting is evil, but necessary */&argv) != 0) {
 		/* can't parse */
-		g_warning ("Parse error of '%s'", template);
-		
+		g_set_error (error,
+			     GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_PARSE,
+			     _("Cannot parse: %s"),
+			     template);
+		g_free (template);
 		return FALSE;
 	}
 	
-	/* We can just replace the entry in the array since the
-	 * array is all in one buffer, we won't leak */
+	newargv = g_new0 (char *, argc + 1);
 	for (i = 0; i < argc; i++) {
 		if (strcmp (argv[i], "%s") == 0)
-				/* we can safely cast as it will not get freed nor
-				 * modified */
-			argv[i] = (char *)url;
+			newargv[i] = g_strdup (url);
+		else
+			newargv[i] = g_strdup (argv[i]);
 	}
-	
-	/* use execute async, and not the shell, shell is evil and a
-	 * security hole */
-	/* FIXME: Should we use g_spawn here? */
-	gnome_execute_async (NULL, argc, argv);
-	
-	if (free_template)
-		g_free (template);
-	
+	newargv[i] = NULL;
+
 	/* the way the poptParseArgvString works is that the entire thing
 	 * is allocated as one buffer, so just free will suffice, also
 	 * it must be free and not g_free */
-	free(argv);
+	free (argv);
+	
+	/* This can return some errors */
+	ret = g_spawn_async (NULL /* working directory */,
+			     newargv,
+			     NULL /* envp */,
+			     0 /* flags */,
+			     NULL /* child_setup */,
+			     NULL /* data */,
+			     NULL /* child_pid */,
+			     error);
+	
+	g_strfreev (newargv);
+	g_free (template);
 
 	return TRUE;
 }

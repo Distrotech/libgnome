@@ -31,7 +31,7 @@
 G_BEGIN_DECLS
 
 /* Use this with the Esound functions */
-extern int gnome_sound_connection;
+int gnome_sound_connection_get (void);
 
 /* Initialize esd connection */
 void gnome_sound_init(const char *hostname);

@@ -39,7 +39,7 @@
 
 #ifdef HAVE_ESD
 static char *esound_hostname = NULL;
-int gnome_sound_connection = -1;
+static int gnome_sound_connection = -1;
 #endif
 
 typedef struct _sample
@@ -519,5 +519,23 @@ gnome_sound_shutdown(void)
 		esd_close(gnome_sound_connection);
 		gnome_sound_connection = -1;
 	}
+#endif
+}
+
+/** 
+ * gnome_sound_connection_get:
+ *
+ * Returns: the fd of our Esound connection or -1
+ * on error
+ **/
+int
+gnome_sound_connection_get (void)
+{
+#ifdef HAVE_ESD
+	if ( ! use_sound ())
+		return -1;
+	return gnome_sound_connection;
+#else
+	return -1;
 #endif
 }

@@ -21,15 +21,15 @@
   @NOTATION@
  */
 
-#ifdef HAVE_CONFIG_H
-#  include <config.h>
-#endif
+#include <config.h>
 
 #include "gnome-i18nP.h"
 
-#include <libgnome/gnome-exec.h>
-#include <libgnome/gnome-util.h>
-#include <libgnome/gnome-i18n.h>
+#include "gnome-exec.h"
+#include "gnome-util.h"
+#include "gnome-i18n.h"
+#include "gnome-gconf.h"
+#include "gnome-init.h"
 
 #include <unistd.h>
 #include <fcntl.h>
@@ -40,7 +40,6 @@
 #include <string.h>
 #include <signal.h>
 
-#include <libgnome/gnome-init.h>
 #include <gconf/gconf-client.h>
 
 #include <popt.h>
@@ -372,6 +371,9 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 			;
 		*argc = i;
 	}
+
+	/* init our gconf stuff if necessary */
+	gnome_gconf_lazy_init ();
 
 	client = gconf_client_get_default ();
 	terminal = gconf_client_get_string (client, "/desktop/gnome/applications/terminal", NULL);
