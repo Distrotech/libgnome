@@ -3,6 +3,7 @@
  * originally by Elliot Lee, subsequently bashed around by Nathan Bryant
  */
 
+#include <config.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
