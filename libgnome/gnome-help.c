@@ -13,6 +13,44 @@
 
 #define HELP_PROG "gnome-help-browser"
 
+/* I added this because I didnt want to break all apps using 
+ * gnome_help_file_path() currently. We need a good solution (if this isnt it)
+ * to handle case where locale file didnt exist
+ */
+gchar *gnome_help_file_find_file(gchar *app, gchar *path)
+{
+    GString *buf;
+    const gchar *lang;
+    gchar *res;
+
+    lang = gnome_i18n_get_language();
+    if(!lang)
+      lang = "C";
+
+    /* XXX need to traverse LANGUAGE var to find appropriate topic.dat */
+
+    buf = g_string_new(NULL);
+    g_string_sprintf(buf, "gnome/help/%s/%s/%s", app, lang, path);
+    res = (gchar *)gnome_unconditional_datadir_file(buf->str);
+    g_string_free(buf, TRUE);
+
+    if (access(res, R_OK)) {
+	/* try "C" locale if all fails */
+        g_free(res);
+        buf = g_string_new(NULL);
+        g_string_sprintf(buf, "gnome/help/%s/C/%s", app, path);
+        res = (gchar *)gnome_unconditional_datadir_file(buf->str);
+        g_string_free(buf, TRUE);
+
+	if (access(res, R_OK)) {
+	    g_free(res);
+            res = NULL;
+	}
+    }
+
+    return res;
+}
+
 gchar *gnome_help_file_path(gchar *app, gchar *path)
 {
     GString *buf;
