@@ -1216,22 +1216,6 @@ gnome_config_pop_prefix (void)
 	}
 }
 
-GSList *
-gnome_config_remove_prefix_list (void)
-{
-	GSList *r = prefix_list;
-	prefix_list = NULL;
-	return r;
-}
-
-void
-gnome_config_set_prefix_list (GSList *list)
-{
-	while(prefix_list)
-		gnome_config_pop_prefix();
-	prefix_list = list;
-}
-
 void
 gnome_config_set_set_handler(void (*func)(void *),void *data)
 {
