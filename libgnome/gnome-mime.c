@@ -69,6 +69,33 @@ get_priority (char *def, int *priority)
 	return def;
 }
 
+/* Adds an extension->mime_type mapping */
+static void
+add_ext (int priority, char *ext, char *mime_type)
+{
+	gboolean exists;
+	char *e, *m;
+
+	exists = g_hash_table_lookup_extended (mime_extensions[priority], ext,
+					       (gpointer *) &e, (gpointer *) &m);
+
+	if (exists && strcmp (mime_type, m) != 0) {
+		/* This replaces the old mapping with the new one.  FIXME: we
+		 * should maybe resort for magic content matching in this case.
+		 */
+		g_hash_table_remove (mime_extensions[priority], ext);
+		g_free (e);
+		g_free (m);
+
+		exists = FALSE;
+	}
+
+	if (!exists)
+		g_hash_table_insert (mime_extensions[priority],
+				     g_strdup (ext),
+				     g_strdup (mime_type));
+}
+
 static void
 add_to_key (char *mime_type, char *def)
 {
@@ -83,7 +110,7 @@ add_to_key (char *mime_type, char *def)
 		s = p = g_strdup (def);
 
 		while ((ext = strtok_r (s, " \t\n\r,", &tokp)) != NULL){
-			g_hash_table_insert (mime_extensions [priority], g_strdup (ext), g_strdup (mime_type));
+			add_ext (priority, ext, mime_type);
 			s = NULL;
 		}
 		g_free (p);

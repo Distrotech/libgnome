@@ -1,3 +1,12 @@
+1999-10-21  Federico Mena Quintero  <federico@redhat.com>
+
+	* gnome-mime.c (add_ext): New helper function to add an
+	extension->mime_type mapping.  It checks for the presence of old
+	mappings of the same extension.  This fixes a memory leak in
+	add_to_key() when there are multiple mappings of an extension to
+	mime types in the .mime files.
+	(add_to_key): Use add_ext().
+
 1999-10-18  Jonathan Blandford  <jrb@redhat.com>
 
 	* Makefile.am (libgnome10compat_a_SOURCES): new compatibility lib.
