@@ -109,6 +109,7 @@ gnomelib_option_cb(poptContext ctx, enum poptCallbackReason reason,
 }
 
 static const struct poptOption gnomelib_options[] = {
+        { NULL, '\0', POPT_ARG_INTL_DOMAIN, PACKAGE, 0, NULL, NULL},
 	{ NULL, '\0', POPT_ARG_CALLBACK|POPT_CBFLAG_POST, gnomelib_option_cb, 0, NULL, NULL},
 	{ "disable-sound", '\0', POPT_ARG_NONE,
 	  &disable_sound, 0, N_("Disable sound server usage"), NULL},
