@@ -1,3 +1,11 @@
+2003-02-13  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* configure.in: Require intltool version that supports
+	merging translations of .schemas files
+	* doc/reference/Makefile.am: Removed extra '\'
+	* libgnome/gnome-help.c (gnome_help_display_desktop_with_env):
+	Plug a leak.
+	
 2003-02-11  Frederic Crozat  <fcrozat@mandrakesoft.com>
 
 	* help-converters/gnome-vfs-module/Makefile.am:
@@ -203,7 +211,7 @@ Thu Sep 26 17:25:26 2002  HideToshi Tajima  <hidetoshi.tajima@sun.com>
 2002-08-15  Mikael Hallendal  <micke@codefactory.se>
 
 	* help-converters/man/gnome-man2html.c:
-	(scan_table): applied patch from Kjaartan fixing #77895
+	(scan_table): applied patch from Kjartan fixing #77895
 
 2002-08-15  Padraig O'Briain  <padraig.obriain@sun.com>
 

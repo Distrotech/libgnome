@@ -369,10 +369,11 @@ gnome_help_display_desktop_with_env (GnomeProgram  *program,
 		url = g_strconcat ("ghelp://", file, NULL);
 	}
 
-	g_free (file);
-
 	retval = gnome_help_display_uri_with_env (url, envp, error);
 
+	g_free (file);
+	g_free (url);
+	
 	return retval;
 }
 

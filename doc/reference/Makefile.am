@@ -45,7 +45,8 @@ extra_files =
 GTKDOC_CFLAGS = @STRIP_BEGIN@ 				\
 		@CFLAGS@				\
 		-I$(top_srcdir) 			\
-		-I$(top_builddir) 			\
+		-I$(top_builddir)
+
 GTKDOC_LIBS =
 
 GTKDOC_CC=$(LIBTOOL) --mode=compile $(CC)
