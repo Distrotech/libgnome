@@ -5,14 +5,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.4.x\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-12 14:31+0200\n"
-"PO-Revision-Date: 2003-07-12 14:31+0200\n"
-"Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
+"POT-Creation-Date: 2003-08-04 20:37+0200\n"
+"PO-Revision-Date: 2003-08-04 20:39+0200\n"
+"Last-Translator: Benjamin Greiner <nadaschauher@gmx.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -20,7 +20,7 @@ msgstr "Fehlermeldung"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
 msgid "Informational message"
-msgstr "Informationen-Meldung"
+msgstr "Informations-Meldung"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
 msgid "Log in"
@@ -32,7 +32,7 @@ msgstr "Abmelden"
 
 #: gnome-data/gnome-2.soundlist.in.h:5
 msgid "Miscellaneous message"
-msgstr "Verschiedenes-Meldung"
+msgstr "Meldung für Verschiedenes"
 
 #: gnome-data/gnome-2.soundlist.in.h:6
 msgid "Question dialog"
@@ -57,7 +57,7 @@ msgstr "Befehlsknopf anklicken"
 # CHECK
 #: gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Select check box"
-msgstr "Kontrollkästchen auswählen"
+msgstr "Kontrollkästchen ankreuzen"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -71,7 +71,7 @@ msgstr ""
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
-msgstr "GNOME-GConf-Unterstützung"
+msgstr "Unterstützung für GNOME GConf"
 
 #: libgnome/gnome-help.c:159
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
@@ -96,7 +96,7 @@ msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"Die Hilfedateien konnten Weder in %s noch in %s gefunden werden. Bitte "
+"Die Hilfedateien konnten weder in %s noch in %s gefunden werden. Bitte "
 "überprüfen Sie Ihre Installation."
 
 #: libgnome/gnome-help.c:339
@@ -200,7 +200,7 @@ msgstr "Menschenlesbarer Name"
 
 #: libgnome/gnome-program.c:453
 msgid "Human readable name of this application"
-msgstr "Der menschenlesbarer Name dieser Anwendung"
+msgstr "Der menschenlesbare Name dieser Anwendung"
 
 #: libgnome/gnome-program.c:462
 msgid "GNOME path"
@@ -276,16 +276,15 @@ msgstr "Das Bibliothekspräfix, mit dem diese Anwendung installiert wurde"
 
 #: libgnome/gnome-program.c:548
 msgid "GNOME App Datadir"
-msgstr "GNOME-Anwendungsdatenverzeichnis"
+msgstr "Datenverzeichnis der GNOME-Anwendung"
 
 #: libgnome/gnome-program.c:549
 msgid "Data prefix where this application was installed"
 msgstr "Das Datenpräfix, mit dem diese Anwendung installiert wurde"
 
-# eklig
 #: libgnome/gnome-program.c:558
 msgid "GNOME App Sysconfdir"
-msgstr "GNOME-Systemkonfigurationsverzeichnis der Anwendung"
+msgstr "Systemkonfigurationsverzeichnis der GNOME-Anwendung"
 
 #: libgnome/gnome-program.c:559
 msgid "Configuration prefix where this application was installed"
@@ -516,7 +515,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
-msgstr "Ausführen-Argumente"
+msgstr "Ausführungsargumente"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:3
 msgid "Terminal application"
@@ -541,8 +540,8 @@ msgstr "Fenster-Manager im Problemfall"
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
 msgstr ""
-"Fenster-Manager, der verwendet werden soll, wenn der bevorzugte Fenster-"
-"Manager nicht gefunden werden konnte"
+"Fenster-Manager, der verwendet werden soll, wenn der bevorzugte "
+"Fenster-Manager nicht gefunden werden konnte"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -554,7 +553,7 @@ msgstr "Die Anzahl der Arbeitsflächen"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
 msgid "The number of workspaces the window manager should use"
-msgstr "Die Anzahl der Arbeitsflächen, die der Fenstermanager verwenden soll"
+msgstr "Die Anzahl der Arbeitsflächen, die der Fenster-Manager verwenden soll"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager"
@@ -636,7 +635,7 @@ msgstr "Zweite Farbe"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:1
 msgid "File Icon Theme"
-msgstr "Datei-Icon-Thema"
+msgstr "Dateisymbol-Thema"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons"
@@ -673,11 +672,11 @@ msgstr "Animationen aktivieren"
 # CHECK
 #: schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "GTK IM Preedit Style"
-msgstr "Preedit-Stil der GTK-Eingabemethode"
+msgstr "Stil der Vorbearbeitung der GTK-Eingabemethoden"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Status Style"
-msgstr "Statusstil der GTK-Eingabemethode"
+msgstr "Statusstil der GTK-Eingabemethoden"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:10
 msgid "Gtk+ Theme"
@@ -685,11 +684,11 @@ msgstr "GTK+-Thema"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:11
 msgid "Icon Theme"
-msgstr "Icon-Thema"
+msgstr "Symbol-Thema"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon theme to use for the panel, nautilus etc."
-msgstr "Für das Panel, Nautilus, usw. zu verwendendes Icon-Thema."
+msgstr "Für das Panel, Nautilus, usw. zu verwendendes Symbol-Thema."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Length of the cursor blink cycle, in milliseconds"
@@ -697,7 +696,7 @@ msgstr "Die Cursor-Blinkfrequenz in Millisekunden"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Menubar Detachable"
-msgstr "Menüleiste abnehmbar"
+msgstr "Menüleiste ist abnehmbar"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:15
 msgid "Menus Have Icons"
@@ -744,7 +743,7 @@ msgstr "Werkzeugleisten abtrennbar"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Icon Size"
-msgstr "Icon-Größe in Werkzeugleisten"
+msgstr "Symbolgröße in Werkzeugleisten"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Style"
@@ -776,7 +775,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr "Sollen Menüs ein Icon neben den Menüeinträgen anzeigen dürfen?"
+msgstr "Sollen Menüs ein Symbol neben den Menüeinträgen anzeigen dürfen?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether menus should have a tearoff"
