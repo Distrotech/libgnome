@@ -25,6 +25,7 @@
 struct _Paper {
   char* name;
   double pswidth, psheight;
+  double lmargin, tmargin, rmargin, bmargin;
 };
 
 struct _Unit {
@@ -52,10 +53,21 @@ const Unit*	unit_info		(gchar* unitname);
 */
 
 static const Unit units[] = {
+  /*
   { "Inch",       "in",	1. },
   { "Feet",       "ft",	12. },
   { "Point",      "pt",	1. / 72. },
   { "Meter",      "m",  100. / 2.54 },
+  { "Decimeter",  "dm",	10. / 2.54 },
+  { "Centimeter", "cm",	1. / 2.54 },
+  { "Millimeter", "mm",	.1 / 2.54 },
+  { 0 }
+  */
+
+  { "Inch",       "in",	1. / 72. },
+  { "Feet",       "ft",	1. / (72. * 12.) },
+  { "Point",      "pt",	1. },
+  { "Meter",      "m",  100. / 2.54 }, /* XXX fix metric */
   { "Decimeter",  "dm",	10. / 2.54 },
   { "Centimeter", "cm",	1. / 2.54 },
   { "Millimeter", "mm",	.1 / 2.54 },
@@ -74,25 +86,32 @@ paper_init (void)
   gchar *name, *size;
   Paper	*paper;
   const Unit *unit;
-  gchar *str;
+  char *str;
 
-  config_iterator = gnome_config_init_iterator("="GNOMESYSCONFDIR"/paper.config=/Paper/");
+  config_iterator =
+    gnome_config_init_iterator("="GNOMESYSCONFDIR"/paper.config=/Paper/");
   
   if (!config_iterator)
     return;
 
-  while ((config_iterator = gnome_config_iterator_next(config_iterator, &name, &size))) {
-    paper = g_new(Paper, 1);
+  while ((config_iterator =
+	  gnome_config_iterator_next(config_iterator, &name, &size)))
+    {
+      paper = g_new (Paper, 1);
 
-    paper->name = name;
-    g_strdelimit (size, "{},", ' ');
-    paper->pswidth  = g_strtod (size, &str);
-    paper->psheight = g_strtod (str, NULL);
-    g_free(size);
+      paper->name = name;
+      g_strdelimit (size, "{},", ' ');
+      paper->pswidth  = g_strtod (size, &str);
+      paper->psheight = g_strtod (str, &str);
+      paper->lmargin = g_strtod (str, &str);
+      paper->tmargin = g_strtod (str, &str);
+      paper->rmargin = g_strtod (str, &str);
+      paper->bmargin = g_strtod (str, NULL);
+      g_free(size);
 
-    paper_list = g_list_prepend(paper_list, paper);
-    paper_name_list = g_list_prepend(paper_name_list, paper->name);
-  }
+      paper_list = g_list_prepend(paper_list, paper);
+      paper_name_list = g_list_prepend(paper_name_list, paper->name);
+    }
 
   for (unit=units; unit->name; unit++) {
     unit_list = g_list_prepend(unit_list, (gpointer) unit);
@@ -186,6 +205,38 @@ gnome_paper_psheight (const Paper *paper)
   return paper->psheight;
 }
 
+gdouble
+gnome_paper_lmargin	(const Paper *paper)
+{
+  g_return_val_if_fail(paper, 0.0);
+  
+  return paper->lmargin;
+}
+
+gdouble
+gnome_paper_tmargin	(const Paper *paper)
+{
+  g_return_val_if_fail(paper, 0.0);
+  
+  return paper->tmargin;
+}
+
+gdouble
+gnome_paper_rmargin	(const Paper *paper)
+{
+  g_return_val_if_fail(paper, 0.0);
+  
+  return paper->rmargin;
+}
+
+gdouble
+gnome_paper_bmargin	(const Paper *paper)
+{
+  g_return_val_if_fail(paper, 0.0);
+  
+  return paper->bmargin;
+}
+
 GList*
 gnome_unit_name_list (void)
 {
@@ -212,5 +263,6 @@ gnome_paper_convert (double psvalue, const Unit* unit)
 {
   g_return_val_if_fail(unit, psvalue);
   
-  return psvalue * unit->factor * 72;
+  /*return psvalue * unit->factor * 72;*/
+  return psvalue * unit->factor;
 }

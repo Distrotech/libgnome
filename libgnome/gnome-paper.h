@@ -41,6 +41,10 @@ const Paper	*gnome_paper_with_size	(double pswidth, double psheight);
 const gchar	*gnome_paper_name	(const Paper *paper);
 gdouble		gnome_paper_pswidth	(const Paper *paper);
 gdouble		gnome_paper_psheight	(const Paper *paper);
+gdouble		gnome_paper_lmargin	(const Paper *paper);
+gdouble		gnome_paper_tmargin	(const Paper *paper);
+gdouble		gnome_paper_rmargin	(const Paper *paper);
+gdouble		gnome_paper_bmargin	(const Paper *paper);
 
 const gchar	*gnome_paper_name_default	(void);
 
