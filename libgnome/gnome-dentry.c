@@ -22,6 +22,17 @@
 /* g_free already checks if x is NULL */
 #define free_if_empty(x) g_free (x)
 
+/**
+ * gnome_is_program_in_path:
+ * @program: a program name.
+ *
+ * Looks for program in the PATH, if it is found, a g_strduped
+ * string with the full path name is returned.
+ *
+ * Returns NULL if program is not on the path or a string 
+ * allocated with g_malloc with the full path name of the program
+ * found
+ */
 char *
 gnome_is_program_in_path (const char *program)
 {
@@ -43,6 +54,22 @@ gnome_is_program_in_path (const char *program)
 	return 0;
 }
 	      
+/**
+ * gnome_desktop_entry_load_flags:
+ * @file: a file name that contains a desktop entry.
+ * @clean_from_memory: flag
+ * @unconditional: flag
+ *
+ * Returns a newly created desktop entry loaded from @file or NULL
+ * if the file does not exist.
+ *
+ * if @unconditional is TRUE then the desktop entry is loaded even if
+ * it contains stale data, otherwise, NULL is returned if stale data
+ * is found (like, the program referenced not existing).
+ *
+ * if @clean_from_memory is TRUE, then any data cached used by loading
+ * process is discarded after loading the desktop entry.
+ */
 GnomeDesktopEntry *
 gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_memory, int unconditional)
 {
@@ -131,29 +158,62 @@ gnome_desktop_entry_load_flags_conditional (const char *file, int clean_from_mem
 	return newitem;
 }
 
+/**
+ * gnome_desktop_entry_load_flags:
+ * @file: a file name that contains a desktop entry.
+ * @clean_from_memory: flag
+ *
+ * Returns a newly created desktop entry loaded from @file or NULL
+ * if the file does not exist or contains stale data.
+ *
+ * if @clean_from_memory is TRUE, then any data cached used by loading
+ * process is discarded after loading the desktop entry.
+ */
 GnomeDesktopEntry *
 gnome_desktop_entry_load_flags (const char *file, int clean_from_memory)
 {
 	return gnome_desktop_entry_load_flags_conditional (file, clean_from_memory, FALSE);
 }
 
+/**
+ * gnome_desktop_entry_load:
+ * @file: a file name that contains a desktop entry.
+ *
+ * Returns a newly created desktop entry loaded from @file or NULL
+ * if the file does not exist or contains stale data.
+ */
 GnomeDesktopEntry *
 gnome_desktop_entry_load (const char *file)
 {
 	return gnome_desktop_entry_load_flags (file, 1);
 }
 
+/**
+ * gnome_desktop_entry_load_unconditional:
+ * @file: file name where the desktop entry resides
+ *
+ * Returns a newly created GnomeDesktopEntry loaded from
+ * @file even if the file does not contain a valid desktop entry or NULL
+ * if the file does not exist.
+ */
 GnomeDesktopEntry *
 gnome_desktop_entry_load_unconditional (const char *file)
 {
 	return gnome_desktop_entry_load_flags_conditional (file, 1, TRUE);
 }
 
-/*XXX:this should have same clean_from_memory logic as above maybe???*/
+/**
+ * gnome_desktop_entry_save:
+ * @dentry: A gnome desktop entry.
+ *
+ * Saves the desktop entry to disk
+ */
 void
 gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 {
 	char *prefix;
+	
+/* XXX:this should have same clean_from_memory logic as above maybe??? */
 	
 	g_assert (dentry != NULL);
 	g_assert (dentry->location != NULL);
@@ -198,24 +258,38 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	g_free(prefix);
 }
 
+/**
+ * gnome_desktop_entry_free:
+ * @item: a gnome desktop entry.
+ *
+ * Releases the information used by @item.
+ */
 void
 gnome_desktop_entry_free (GnomeDesktopEntry *item)
 {
-  if(item)
-    {
-      free_if_empty (item->name);
-      free_if_empty (item->comment);
-      g_strfreev (item->exec);
-      free_if_empty (item->tryexec);
-      free_if_empty (item->icon);
-      free_if_empty (item->docpath);
-      free_if_empty (item->type);
-      free_if_empty (item->location);
-      free_if_empty (item->geometry);
-      g_free (item);
-    }
+	if(item){
+		free_if_empty (item->name);
+		free_if_empty (item->comment);
+		g_strfreev (item->exec);
+		free_if_empty (item->tryexec);
+		free_if_empty (item->icon);
+		free_if_empty (item->docpath);
+		free_if_empty (item->type);
+		free_if_empty (item->location);
+		free_if_empty (item->geometry);
+		g_free (item);
+	}
 }
 
+/**
+ * gnome_desktop_entry_launch_with_args:
+ * @item: a gnome desktop entry.
+ * @the_argc: the number of arguments to invoke the desktop entry with.
+ * @the_argv: a vector of arguments for calling the program in @item
+ *
+ * Launches the program associated with @item with @the_argv as its
+ * arguments.
+ */
 void
 gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, char *the_argv[])
 {
@@ -293,12 +367,25 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 	g_free (exec_str);
 }
 
+/**
+ * gnome_desktop_entry_launch:
+ * @item: a gnome desktop entry.
+ *
+ * Launchs the program associated to the @item desktop entry.
+ */
 void
 gnome_desktop_entry_launch (GnomeDesktopEntry *item)
 {
 	gnome_desktop_entry_launch_with_args (item, 0, 0);
 }
 
+/**
+ * gnome_desktop_entry_destroy:
+ * @item: a gnome deskop entry.
+ *
+ * Erases the file that represents @item and releases the 
+ * memory used by @item.
+ */
 void
 gnome_desktop_entry_destroy (GnomeDesktopEntry *item)
 {
@@ -314,24 +401,32 @@ gnome_desktop_entry_destroy (GnomeDesktopEntry *item)
       gnome_config_sync();
 }
 
-GnomeDesktopEntry *gnome_desktop_entry_copy (GnomeDesktopEntry * source)
+/**
+ * gnome_desktop_entry_copy:
+ * @source: a GnomeDesktop entry.
+ *
+ * Returns a copy of the @source GnomeDesktopEntry
+ */
+GnomeDesktopEntry *
+gnome_desktop_entry_copy (GnomeDesktopEntry * source)
 {
-  GnomeDesktopEntry * newitem;
-
-  newitem = g_new (GnomeDesktopEntry, 1);
-
-  newitem->name          = g_strdup (source->name);
-  newitem->comment       = g_strdup (source->comment);
-  newitem->exec_length   = source->exec_length;
-  newitem->exec          = g_copy_vector (source->exec);
-  newitem->tryexec       = g_strdup (source->tryexec);
-  newitem->docpath       = g_strdup (source->docpath);
-  newitem->terminal      = source->terminal;
-  newitem->type          = g_strdup (source->type);
-  newitem->geometry      = g_strdup (source->geometry);
-  newitem->multiple_args = source->multiple_args;
-  newitem->location      = g_strdup (source->location);
-  newitem->icon	         = g_strdup (source->icon);
+	GnomeDesktopEntry * newitem;
 	
-  return newitem;
+	g_return_val_if_fail (source != NULL, NULL);
+	newitem = g_new (GnomeDesktopEntry, 1);
+	
+	newitem->name          = g_strdup (source->name);
+	newitem->comment       = g_strdup (source->comment);
+	newitem->exec_length   = source->exec_length;
+	newitem->exec          = g_copy_vector (source->exec);
+	newitem->tryexec       = g_strdup (source->tryexec);
+	newitem->docpath       = g_strdup (source->docpath);
+	newitem->terminal      = source->terminal;
+	newitem->type          = g_strdup (source->type);
+	newitem->geometry      = g_strdup (source->geometry);
+	newitem->multiple_args = source->multiple_args;
+	newitem->location      = g_strdup (source->location);
+	newitem->icon	         = g_strdup (source->icon);
+	
+	return newitem;
 }

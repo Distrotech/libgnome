@@ -178,7 +178,7 @@ static char *read_num_val(char *curpos, int bsize, char *intobuf)
   return curpos;
 }
 
-GnomeMagicEntry *
+static GnomeMagicEntry *
 gnome_magic_parse(const gchar *filename, gint *nents)
 {
   GArray *array;
@@ -387,6 +387,16 @@ gnome_magic_db_load(void)
   return retval;
 }
 
+/**
+ * gnome_mime_type_from_magic:
+ * @filename: an existing file name for which we want to guess the mime-type
+ *
+ * This routine uses a magic database as described in magic(5) that maps
+ * files into their mime-type (so our modified magic database contains mime-types
+ * rather than textual descriptions of the files).
+ *
+ * Returns a pointer to an internal copy of the mime-type for @filename.
+ */
 const char *
 gnome_mime_type_from_magic(const gchar *filename)
 {

@@ -65,11 +65,14 @@ WAVFormatChunk;
 ( ( x & 0xff000000 ) >> 24 ) )
 #endif
 
-/**** gnome_sound_sample_load_wav
-      Inputs: 'file' - filename to try loading a WAV file from.
-      Outputs: 's' - a GnomeSoundSample
-
-      Description: Used to load a .wav file into esound
+/**
+ * gnome_sound_sample_load_wav:
+ * @file: filename to try loading a WAV file from.
+ * 
+ * Used to load a .wav file into esound.
+ *
+ * Returns a GnomeSoundSample or NULL if file did not exist.
+ *
  */
 static GnomeSoundSample *
 gnome_sound_sample_load_wav(const char *file)
@@ -349,6 +352,13 @@ gnome_sound_sample_load_audiofile(const char *file)
 #endif
 
 
+/**
+ * gnome_sound_sample_load:
+ * @sample_name: the name of the sample
+ * @filename: the filename where the audio is stored
+ *
+ * Loads the audio on @filename and XXXX
+ */
 int
 gnome_sound_sample_load(const char *sample_name, const char *filename)
 {
@@ -414,6 +424,12 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
 #endif
 }
 
+/**
+ * gnome_sound_play:
+ * @filename: file containing the sound sample
+ *
+ * Plays the audio stored in @filename
+ */
 void 
 gnome_sound_play (const char * filename)
 {
@@ -433,8 +449,14 @@ gnome_sound_play (const char * filename)
 #endif
 }
 
-/* Initialize esd connection */
-void gnome_sound_init(const char *hostname)
+/**
+ * gnome_sound_init:
+ * @hostname: hostname where esd daemon resides.
+ *
+ * Initialize esd connection
+ */
+void
+gnome_sound_init(const char *hostname)
 {
 #ifdef HAVE_ESD
   if(gnome_sound_connection < 0
@@ -443,7 +465,13 @@ void gnome_sound_init(const char *hostname)
 #endif
 }
 
-void gnome_sound_shutdown(void)
+/** 
+ * gnome_sound_shutdown:
+ *
+ * shutdowns the gnome sounds support
+ */
+void
+gnome_sound_shutdown(void)
 {
 #ifdef HAVE_ESD
   if(gnome_sound_connection >= 0)

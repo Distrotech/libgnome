@@ -28,6 +28,17 @@
 static void write_history(GList *ents);
 static void free_history_list_entry(gpointer data,gpointer user_data);
 
+/**
+ * gnome_history_recently_used:
+ * @filename: the file name that was recently used.
+ * @filetype: the mime-type of the file used.
+ * @creator: application that created this.
+ * @desc: textual description of the application creator
+ *
+ * This routine is used to keep track of recently used file within the
+ * GNOME desktop.  @filename is the file that was recently used or
+ * just created.
+ */
 void
 gnome_history_recently_used (char *filename, char *filetype,
 			     char *creator, char *desc)
@@ -46,6 +57,12 @@ gnome_history_recently_used (char *filename, char *filetype,
 	gnome_history_free_recently_used_list(ents);
 }
 
+/**
+ * gnome_history_get_recently_used:
+ *
+ * Returns a GList with GnomeHistoryEntry structures with
+ * all of the recently used documents.
+ */
 GList *
 gnome_history_get_recently_used (void)
 {
@@ -104,6 +121,12 @@ write_history(GList *ents)
 	g_free(filename);
 }
 
+/**
+ * gnome_history_free_recently_used_list:
+ * @alist: a list with the recently used documents
+ *
+ * Releases the list of recently used documents
+ */
 void
 gnome_history_free_recently_used_list(GList *alist)
 {
