@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-16 13:00+0100\n"
-"PO-Revision-Date: 2004-02-25 00:34+0900\n"
+"POT-Creation-Date: 2004-03-21 00:10+0900\n"
+"PO-Revision-Date: 2004-03-21 00:08+0900\n"
 "Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -677,47 +677,59 @@ msgid "Menus Have Tearoff"
 msgstr "メニューに可動メニューを表示する"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
+msgid "Module for GtkFileChooser"
+msgstr "GtkFileChooser のモジュール"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:18
+msgid ""
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gnome-vfs\" and \"gtk+\"."
+msgstr ""
+"GtkFileChooser ウィジットのファイルシステム・モデルとして使用するモジュールで"
+"す。設定可能な値: \"gnome-vfs\" と \"gtk+\""
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Monospace font"
 msgstr "等幅フォント"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "端末などで使用する等幅 (固定幅) フォントの名前です。"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "GTK+ が使用する GTK+ IM プレエディット形式の名前"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "GTK+ が使用する GTK+ IM ステータス形式の名前"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Name of the default font used by gtk+."
 msgstr "GTK+ が使用するデフォルトのフォント名"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Status Bar on Right"
 msgstr "ステータス・バーを右側に表示する"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "ツールバーに表示するアイコンのサイズを指定します"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Detachable"
 msgstr "ツールバーを取り外せるようにする"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Toolbar Icon Size"
 msgstr "ツールバーのアイコンのサイズ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Toolbar Style"
 msgstr "ツールバーの形式"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
@@ -725,15 +737,15 @@ msgstr ""
 "ツールバーのスタイルです。設定可能な値: \"both\", \"both_horiz\", \"icon\" "
 "\"text\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Use Custom Font"
 msgstr "カスタム・フォントを使用する"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether Applications should have accessibility support"
 msgstr "アプリケーションにアクセシビリティをサポートさせるかどうか"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -741,27 +753,27 @@ msgstr ""
 "アニメーションを有効にするかどうかを設定します。[注意] これはグローバルな設定"
 "なので、ウィンドウ・マネージャやパネルなどの挙動に影響します。"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "メニュー名の隣にアイコンを表示するかどうか"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether menus should have a tearoff"
 msgstr "メニューに可動メニューを持たせるかどうか"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the cursor should blink"
 msgstr "カーソルを点滅させるかどうか"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Whether the user can detach menubars and move them around"
 msgstr "メニューバーを取り外しして移動できるようにするかどうか"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "ツールバーを取り外しして移動できるようにするかどうか"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -769,11 +781,11 @@ msgstr ""
 "メニューをポップアップした際に新しいアクセラレータキーを動的に入力できるかど"
 "うか"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:37
+#: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether to display a status bar meter on the right"
 msgstr "ステータス・バーのメータを右側に表示するかどうか"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:38
+#: schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "GTK+ アプリケーションでカスタム・フォントを使用するかどうか"
 
