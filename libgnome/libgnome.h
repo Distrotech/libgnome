@@ -35,7 +35,6 @@
 #include <libgnome/gnome-triggers.h>
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-url.h>
-#include <libgnome/gnome-ditem.h>
 
 #include <libgnome/gnome-preferences.h>
 #include <libgnome/gnome-marshal.h>

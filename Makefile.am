@@ -1,4 +1,4 @@
-SUBDIRS = tools idl libgnome monikers tests po intl doc
+SUBDIRS = tools idl libgnome tests po intl doc
 
 EXTRA_SUBDIRS = monikers
 

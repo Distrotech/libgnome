@@ -39,8 +39,7 @@ CORBA_SOURCE =			\
 	Gnome-skels.c
 
 idls =							\
-	$(top_srcdir)/idl/Gnome.idl			\
-	$(top_srcdir)/idl/Gnome_Desktop.idl
+	$(top_srcdir)/idl/Gnome.idl
 
 idl_flags = -I @BONOBO_IDLDIR@ -D__GNOME_COMPILATION
 
@@ -51,7 +50,6 @@ libgnome_src = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
 	gnome-program.c		\
-	gnome-ditem.c		\
 	gnome-exec.c		\
 	gnome-url.c		\
 	gnome-util.c		\
@@ -69,7 +67,6 @@ libgnome_2_la_SOURCES = \
 libgnome_headers = \
 	gnome-program.h		\
 	gnome-i18n.h		\
-	gnome-ditem.h		\
 	gnome-exec.h		\
 	gnome-triggers.h 	\
 	gnome-url.h		\
