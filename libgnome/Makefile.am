@@ -46,7 +46,6 @@ libgnome_2_la_SOURCES = \
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-score.c		\
-	gnome-marshal-main.c	\
 	gnome-init.c
 
 libgnome_headers = \
@@ -61,14 +60,11 @@ libgnome_headers = \
 	gnome-url.h		\
 	gnome-util.h   		\
 	gnome-macros.h		\
-	gnome-marshal.h		\
 	gnome-score.h		\
 	gnome-init.h		\
 	libgnome.h
 
 $(libgnome_2_la_OBJECTS):	  \
-	$(srcdir)/gnome-marshal.h \
-	$(srcdir)/gnome-marshal.c \
 	$(srcdir)/libgnometypebuiltins.c
 
 libgnomeinclude_HEADERS = \
@@ -138,30 +134,14 @@ $(srcdir)/libgnometypebuiltins.h: @REBUILD@ Makefile.am $(libgnome_headers)
 	&& cp xgen-gth $(@F) \
 	&& rm -f xgen-gth
 
-$(srcdir)/gnome-marshal.h: @REBUILD@ Makefile.am gnome-marshal.list
-	cd $(srcdir) \
-	&& glib-genmarshal --prefix=gnome_marshal gnome-marshal.list --header >> xgen-gmh \
-	&& (cmp -s xgen-gmh gnome-marshal.h || cp xgen-gmh gnome-marshal.h) \
-	&& rm -f xgen-gmh xgen-gmh~
-
-$(srcdir)/gnome-marshal.c: @REBUILD@ Makefile.am gnome-marshal.list
-	cd $(srcdir) \
-	&& glib-genmarshal --prefix=gnome_marshal gnome-marshal.list --body >> xgen-gmc \
-	&& cp xgen-gmc gnome-marshal.c \
-	&& rm -f xgen-gmc xgen-gmc~
-
 EXTRA_DIST = \
 	libgnome-2.0.pc.in		\
-	gnome-marshal.list		\
-	gnome-marshal.c			\
 	parse-path.cP			\
 	$(schema_DATA)
 
 BUILT_SOURCES = \
 	libgnometypebuiltins.h		\
-	libgnometypebuiltins.c		\
-	gnome-marshal.h			\
-	gnome-marshal.c			
+	libgnometypebuiltins.c		
 
 libgnome_2_la_LDFLAGS = \
 	-version-info $(LIB_VERSION)	\

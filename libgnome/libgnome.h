@@ -47,8 +47,6 @@
 #include <libgnome/gnome-util.h>
 #include <libgnome/gnome-url.h>
 
-#include <libgnome/gnome-marshal.h>
-
 #include <libgnome/gnome-init.h>
 
 #endif /* LIBGNOME_H */
