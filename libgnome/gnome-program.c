@@ -1446,6 +1446,10 @@ gnome_program_parse_args (GnomeProgram *program)
     if (program->_priv->state != APP_PREINIT_DONE)
 	return;
 
+    /* translate popt output by default */
+#ifdef ENABLE_NLS
+    setlocale (LC_ALL, "");
+#endif
     ctx = program->_priv->arg_context;
     while ((nextopt = poptGetNextOpt (ctx)) > 0 || nextopt == POPT_ERROR_BADOPT)
 	/* do nothing */ ;

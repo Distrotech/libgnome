@@ -441,10 +441,11 @@ libgnome_module_info_get (void)
 		static GnomeModuleRequirement req[4];
 
 		bindtextdomain (GETTEXT_PACKAGE, LIBGNOME_LOCALEDIR);
+#if 0
 #ifdef HAVE_BIND_TEXTDOMAIN_CODESET
 		bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 #endif
-
+#endif
 		req[0].required_version = "0.9.1";
 		req[0].module_info = gnome_bonobo_activation_module_info_get ();
 
