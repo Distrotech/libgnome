@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
   char *outmem;
   FILE *f;
 
+  gnome_do_not_create_directories = 1;
   gnomelib_init("gnome-gen-mimedb", VERSION);
 
   if(argc > 1) {
