@@ -51,7 +51,7 @@ vfs_open_stream (BonoboStorage *storage, const CORBA_char *path,
 	char *full;
 
 	full = g_concat_dir_and_file (storage_vfs->path, path);
-	stream = bonobo_stream_vfs_open (full, mode, 0664, ev);
+	stream = bonobo_stream_vfs_open (full, 0664, mode, ev);
 	g_free (full);
 
 	return stream;
@@ -186,7 +186,7 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode,
 		}
 
 		if ((info->valid_fields & GNOME_VFS_FILE_INFO_FIELDS_TYPE) &&
-		    (info->type != GNOME_VFS_FILE_TYPE_DIRECTORY)) {
+		    (info->type == GNOME_VFS_FILE_TYPE_DIRECTORY)) {
 			CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
 					     ex_Bonobo_Stream_IOError, NULL);
 			return NULL;
@@ -197,7 +197,7 @@ bonobo_storage_vfs_open (const char *path, gint flags, gint mode,
 			create = TRUE;
 		else
 			if ((info->valid_fields & GNOME_VFS_FILE_INFO_FIELDS_TYPE) &&
-			    (info->type != GNOME_VFS_FILE_TYPE_DIRECTORY)) {
+			    (info->type == GNOME_VFS_FILE_TYPE_DIRECTORY)) {
 				CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
 						     ex_Bonobo_Stream_IOError, NULL);
 				return NULL;
