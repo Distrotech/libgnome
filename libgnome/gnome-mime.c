@@ -178,8 +178,10 @@ mime_load (mime_dir_source_t *source)
 		source->valid = FALSE;
 
 	dir = opendir (source->dirname);
-	if (!dir)
+	if (!dir){
+		source->valid = FALSE;
 		return;
+	}
 	
 	if (source->system_dir){
 		filename = g_concat_dir_and_file (source->dirname, "gnome.mime");
@@ -245,6 +247,8 @@ maybe_reload (void)
 		if (s.st_mtime != user_mime_dir.s.st_mtime)
 			need_reload = TRUE;
 
+	last_checked = now;
+	
 	if (!need_reload)
 		return;
 

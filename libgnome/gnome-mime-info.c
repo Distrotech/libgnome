@@ -21,6 +21,8 @@
 #include <glib.h>
 #include <string.h>
 #include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 #include <dirent.h>
 #include "libgnomeP.h"
 #include "gnome-mime.h"
@@ -39,9 +41,24 @@ typedef struct {
 	GHashTable *keys;
 } GnomeMimeContext;
 
+/* Describes the directories we scan for information */
+typedef struct {
+	char *dirname;
+	struct stat s;
+	unsigned int valid : 1;
+	unsigned int system_dir : 1;
+} mime_dir_source_t;
+
+/* These ones are used to automatically reload mime info on demand */
+static mime_dir_source_t gnome_mime_dir, user_mime_dir;
+static time_t last_checked;
+
+/* To initialize the module automatically */
+static gboolean gnome_mime_inited = FALSE;
+
+
 static char *current_lang;
 
-static gboolean gnome_mime_inited = FALSE;
 
 /*
  * A hash table containing all of the Mime records for specific
@@ -96,7 +113,18 @@ release_key_and_value (gpointer key, gpointer value, gpointer user_data)
 static void
 context_destroy (GnomeMimeContext *context)
 {
-	printf ("destroying: %s\n", context->mime_type);
+	/*
+	 * Destroy it
+	 */
+	g_hash_table_foreach_remove (context->keys, release_key_and_value, NULL);
+	g_hash_table_destroy (context->keys);
+	g_free (context->mime_type);
+	g_free (context);
+}
+
+static void
+context_destroy_and_unlink (GnomeMimeContext *context)
+{
 	/*
 	 * Remove the context from our hash tables, we dont know
 	 * where it is: so just remove it from both (it can
@@ -105,13 +133,7 @@ context_destroy (GnomeMimeContext *context)
 	g_hash_table_remove (specific_types, context->mime_type);
 	g_hash_table_remove (generic_types, context->mime_type);
 
-	/*
-	 * Destroy it
-	 */
-	g_hash_table_foreach_remove (context->keys, release_key_and_value, NULL);
-	g_hash_table_destroy (context->keys);
-	g_free (context->mime_type);
-	g_free (context);
+	context_destroy (context);
 }
 
 static gboolean
@@ -284,7 +306,7 @@ load_mime_type_info_from (char *filename)
 			context_add_key (context, key, line->str);
 		else
 			if (!context_used)
-				context_destroy (context);
+				context_destroy_and_unlink (context);
 	}
 
 	g_string_free (line, TRUE);
@@ -295,21 +317,29 @@ load_mime_type_info_from (char *filename)
 }
 
 static void
-load_mime_type_info_from_dir (char *mime_info_dir, gboolean system_dir)
+mime_info_load (mime_dir_source_t *source)
 {
 	DIR *dir;
 	struct dirent *dent;
 	const int extlen = sizeof (".keys") - 1;
 	char *filename;
 	
-	dir = opendir (mime_info_dir);
-	if (!dir)
+	if (stat (source->dirname, &source->s) != -1)
+		source->valid = TRUE;
+	else
+		source->valid = FALSE;
+	
+	dir = opendir (source->dirname);
+	if (!dir){
+		source->valid = FALSE;
 		return;
-	if (system_dir) {
-		filename = g_concat_dir_and_file (mime_info_dir, "gnome.keys");
+	}
+	if (source->system_dir){
+		filename = g_concat_dir_and_file (source->dirname, "gnome.keys");
 		load_mime_type_info_from (filename);
 		g_free (filename);
 	}
+
 	while ((dent = readdir (dir)) != NULL){
 		
 		int len = strlen (dent->d_name);
@@ -318,48 +348,101 @@ load_mime_type_info_from_dir (char *mime_info_dir, gboolean system_dir)
 			continue;
 		if (strcmp (dent->d_name + len - extlen, ".keys"))
 			continue;
-		if (system_dir && !strcmp (dent->d_name, "gnome.keys"))
+		if (source->system_dir && !strcmp (dent->d_name, "gnome.keys"))
 			continue;
-		if (!system_dir && !strcmp (dent->d_name, "user.keys"))
+		if (!source->system_dir && !strcmp (dent->d_name, "user.keys"))
 			continue;
 
-		filename = g_concat_dir_and_file (mime_info_dir, dent->d_name);
+		filename = g_concat_dir_and_file (source->dirname, dent->d_name);
 		load_mime_type_info_from (filename);
 		g_free (filename);
 	}
-	if (!system_dir) {
-		filename = g_concat_dir_and_file (mime_info_dir, "user.keys");
+	if (!source->system_dir) {
+		filename = g_concat_dir_and_file (source->dirname, "user.keys");
 		load_mime_type_info_from (filename);
 		g_free (filename);
 	}
-
 	closedir (dir);
+	
 }
 
 static void
 load_mime_type_info (void)
 {
-	char *mime_info_dir;
-
-	current_lang = getenv ("LANG");
-	
-	mime_info_dir = gnome_unconditional_datadir_file ("mime-info");	
-	load_mime_type_info_from_dir (mime_info_dir, TRUE);
-	g_free (mime_info_dir);
-
-	mime_info_dir = g_concat_dir_and_file (gnome_util_user_home (), ".gnome/mime-info");
-	load_mime_type_info_from_dir (mime_info_dir, FALSE);
-	g_free (mime_info_dir);
+	mime_info_load (&gnome_mime_dir);
+	mime_info_load (&user_mime_dir);
 }
 
 static void
 gnome_mime_init ()
 {
+	/*
+	 * The hash tables that store the mime keys.
+	 */
 	specific_types = g_hash_table_new (g_str_hash, g_str_equal);
 	generic_types  = g_hash_table_new (g_str_hash, g_str_equal);
+
+	current_lang = getenv ("LANG");
+
+	/*
+	 * Setup the descriptors for the information loading
+	 */
+	gnome_mime_dir.dirname = gnome_unconditional_datadir_file ("mime-info");
+	gnome_mime_dir.system_dir = TRUE;
+	
+	user_mime_dir.dirname  = g_concat_dir_and_file (gnome_util_user_home (), ".gnome/mime-info");
+	user_mime_dir.system_dir = FALSE;
+
+	/*
+	 * Load
+	 */
 	load_mime_type_info ();
 
+	last_checked = time (NULL);
 	gnome_mime_inited = TRUE;
+}
+
+static gboolean
+remove_keys (gpointer key, gpointer value, gpointer user_data)
+{
+	GnomeMimeContext *context = value;
+	char *mime_type = key;
+
+	context_destroy (context);
+	
+	return TRUE;
+}
+
+static void
+maybe_reload (void)
+{
+	time_t now = time (NULL);
+	gboolean need_reload = FALSE;
+	struct stat s;
+	int i;
+	
+	if (last_checked + 5 >= now)
+		return;
+
+	if (stat (gnome_mime_dir.dirname, &s) != -1)
+		if (s.st_mtime != gnome_mime_dir.s.st_mtime)
+			need_reload = TRUE;
+
+	if (stat (user_mime_dir.dirname, &s) != -1)
+		if (s.st_mtime != user_mime_dir.s.st_mtime)
+			need_reload = TRUE;
+
+	last_checked = now;
+	
+	if (!need_reload)
+		return;
+
+	/* 1. Clean */
+	g_hash_table_foreach_remove (specific_types, remove_keys, NULL);
+	g_hash_table_foreach_remove (generic_types, remove_keys, NULL);
+	
+	/* 2. Reload */
+	load_mime_type_info ();
 }
 
 /**
@@ -383,6 +466,8 @@ gnome_mime_get_value (const char *mime_type, char *key)
 	if (!gnome_mime_inited)
 		gnome_mime_init ();
 
+	maybe_reload ();
+	
 	context = g_hash_table_lookup (specific_types, mime_type);
 	if (context){
 		value = g_hash_table_lookup (context->keys, key);
@@ -435,6 +520,8 @@ gnome_mime_get_keys (const char *mime_type)
 	if (!gnome_mime_inited)
 		gnome_mime_init ();
 
+	maybe_reload ();
+	
 	generic_type = g_strdup (mime_type);
 	p = strchr (generic_type, '/');
 	if (p)

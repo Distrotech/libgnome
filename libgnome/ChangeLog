@@ -1,3 +1,12 @@
+1999-03-12  Miguel de Icaza  <miguel@nuclecu.unam.mx>
+
+	* gnome-mime-info.c (context_destroy_and_unlink): Splited from
+	context_destroy.  Context_destroy now only destroys the context.
+	(maybe_reload): Tries to find out if it would be wise to reload
+	the contents.  Reloads information if required. 
+	(load_mime_type_info): Use mime_dir_source_t instead of an
+	absolute path name now.
+
 1999-03-09  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnome-mime.c (maybe_reload): Implement mime-information
