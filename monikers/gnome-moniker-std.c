@@ -13,6 +13,7 @@
 #include <bonobo/bonobo-moniker.h>
 #include <bonobo/bonobo-shlib-factory.h>
 #include <bonobo/bonobo-main.h>
+#include <bonobo/bonobo-exception.h>
 
 #include <gtk/gtk.h>
 
@@ -76,44 +77,10 @@ bonobo_std_moniker_factory (BonoboGenericFactory *this,
 	return NULL;
 }
 
-static CORBA_Object
-make_std_factory (PortableServer_POA poa,
-		  const char *iid,
-		  gpointer impl_ptr,
-		  CORBA_Environment *ev)
-{
-	BonoboShlibFactory *f;
-        CORBA_Object object_ref;
 
-	f = bonobo_shlib_factory_new_multi (
-	        "OAFIID:Bonobo_Moniker_stdFactory", poa, impl_ptr,
-		bonobo_std_moniker_factory, NULL);
-	
-        object_ref = bonobo_object_corba_objref (BONOBO_OBJECT (f));
-
-        if (object_ref == CORBA_OBJECT_NIL 
-            || ev->_major != CORBA_NO_EXCEPTION) {
-                printf ("Server cannot get objref\n");
-                return CORBA_OBJECT_NIL;
-        }
-	
-        return CORBA_Object_duplicate (object_ref, ev);
-}
-
-static const OAFPluginObject std_plugin_list[] = {
-        {
-                "OAFIID:Bonobo_Moniker_stdFactory",
-                make_std_factory
-        },
-        {
-                NULL
-  	}
-};
-
-
-const OAFPlugin OAF_Plugin_info = {
-        std_plugin_list,
-        "bonobo standard moniker"
-};
+BONOBO_OAF_SHLIB_FACTORY_MULTI ("OAFIID:Bonobo_Moniker_stdFactory",
+				"bonobo standard moniker",
+				bonobo_std_moniker_factory,
+				NULL);
 
 
