@@ -234,7 +234,8 @@ fs_destroy (BonoboObject *object)
 {
 	BonoboStreamFS *stream_fs = BONOBO_STREAM_FS (object);
 	
-	if (close (stream_fs->fd)) 
+	if (stream_fs->fd >= 0 &&
+	    close (stream_fs->fd))
 		g_warning ("Close failed");
 	stream_fs->fd = -1;
 
