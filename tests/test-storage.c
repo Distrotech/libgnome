@@ -1,6 +1,12 @@
 #include <config.h>
 #include <gnome.h>
+
+#if USING_OAF
+#include <liboaf/liboaf.h>
+#else
 #include <libgnorba/gnorba.h>
+#endif
+
 #include <gdk/gdkprivate.h>
 #include <gdk/gdkx.h>
 #include <bonobo/bonobo.h>
@@ -25,8 +31,15 @@ main (int argc, char *argv [])
 	
 	CORBA_exception_init (&ev);
 	
+#if USING_OAF
+        gnome_init_with_popt_table("MyShell", "1.0",
+				   argc, argv,
+				   oaf_popt_options, 0, NULL); 
+	orb = oaf_init (argc, argv);
+#else
 	gnome_CORBA_init ("MyShell", "1.0", &argc, argv, 0, &ev);
 	orb = gnome_CORBA_ORB ();
+#endif
 	
 	if (bonobo_init (orb, NULL, NULL) == FALSE)
 		g_error (_("Can not bonobo_init\n"));
