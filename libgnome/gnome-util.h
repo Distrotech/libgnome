@@ -30,11 +30,9 @@ enum {
 	G_FILE_TEST_ISLINK=1<<1,
 	G_FILE_TEST_ISDIR=1<<2
 };
-/*simple testing routine for files*/
-int g_file_test(const char *filename, int test);
-/*for compatibility reasons etc*/
-/* TRUE if the file exists */
-#define g_file_exists(x) (g_file_test(x,G_FILE_TEST_EXISTS))
+
+int g_file_test   (const char *filename, int test);
+int g_file_exists (const char *filename);
 
 /* Concatenates any number of strings; last arg should be NULL */
 char *g_copy_strings (const char *first, ...); 

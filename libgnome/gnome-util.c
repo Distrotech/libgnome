@@ -70,8 +70,15 @@ gnome_dirrelative_file (const char *base, const char *sub, const char *filename,
 	return NULL;
 }
 
-/* DOC: gnome_libdir_file (char *filename)
+/**
+ * gnome_libdir_file:
+ * @filename: filename to locate in libdir
+ *
+ * Locates a shared file either in the GNOMEDIR tree, the GNOME
+ * installation directory or in the current directory
+ *
  * Returns a newly allocated pathname pointing to a file in the gnome libdir
+ * or NULL if the file does not exist.
  */
 char *
 gnome_libdir_file (const char *filename)
@@ -79,8 +86,15 @@ gnome_libdir_file (const char *filename)
 	return (gnome_dirrelative_file (GNOMELIBDIR, "lib", filename, FALSE));
 }
 
-/* DOC: gnome_sharedir_file (char *filename)
+/**
+ * gnome_sharedir_file:
+ * @filename: shared filename to locate
+ *
+ * Locates a shared file either in the GNOMEDIR tree, the GNOME
+ * installation directory or in the current directory
+ *
  * Returns a newly allocated pathname pointing to a file in the gnome sharedir
+ * or NULL if the file does not exist.
  */
 char *
 gnome_datadir_file (const char *filename)
@@ -88,12 +102,29 @@ gnome_datadir_file (const char *filename)
 	return (gnome_dirrelative_file (GNOMEDATADIR, "share", filename, FALSE));
 }
 
+/**
+ * gnome_sound_file:
+ * @filename: sound filename to locate.
+ *
+ * Locates a sound file either in the GNOMEDIR tree, the GNOME
+ * installation directory or in the current directory
+ *
+ * Returns a newly allocated pathname pointing to a file in the gnome sound directory
+ * or NULL if the file does not exist.
+ */
 char *
 gnome_sound_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMEDATADIR "/sounds", "share/sounds", filename, FALSE));
 }
 
+/**
+ * gnome_unconditional_sound_file:
+ * @filename: sound filename
+ *
+ * Returns a newly allocated filename from the GNOMEDIR tree or from the
+ * GNOME installation directory
+ */
 char *
 gnome_unconditional_sound_file (const char *filename)
 {
@@ -106,27 +137,57 @@ gnome_pixmap_file (const char *filename)
 	return (gnome_dirrelative_file (GNOMEDATADIR "/pixmaps", "share/pixmaps", filename, FALSE));
 }
 
+/**
+ * gnome_unconditional_pixmap_file:
+ * @filename: pixmap filename
+ *
+ * Returns a newly allocated filename from the GNOMEDIR tree or from the
+ * GNOME installation directory for the pixmap directory ($prefix/share/pixmaps)
+ */
 char *
 gnome_unconditional_pixmap_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMEDATADIR "/pixmaps", "share/pixmaps", filename, TRUE));
 }
 
+/**
+ * gnome_config_file:
+ * @filename: config filename
+ *
+ * Locates a configuration file ($prefix/etc) in the GNOMEDIR tree, the
+ * GNOME installation direcory or the current directory.
+ *
+ * Returns a newly allocated filename from the GNOMEDIR tree or from the
+ * GNOME installation directory
+ */
 char *
 gnome_config_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMESYSCONFDIR, "etc", filename, FALSE));
 }
 
+/**
+ * gnome_unconditional_config_file:
+ * @filename: configuration filename
+ *
+ * Returns a newly allocated filename pointing to a (possibly
+ * non-existent) file from the GNOMEDIR tree or from the GNOME
+ * installation directory for the configuration directory
+ * ($prefix/etc).
+ */
 char *
 gnome_unconditional_config_file (const char *filename)
 {
 	return (gnome_dirrelative_file (GNOMESYSCONFDIR, "etc", filename, TRUE));
 }
 
-/* DOC: gnome_unconditional_libdir_file (char *filename)
+/**
+ * gnome_unconditional_libdir_file:
+ * @filename: library filename
+ *
  * Returns a newly allocated pathname pointing to a (possibly
- * non-existent) file in the gnome libdir
+ * non-existent) file from the GNOMEDIR tree or from the GNOME
+ * installation directory
  */
 char *
 gnome_unconditional_libdir_file (const char *filename)
@@ -134,9 +195,13 @@ gnome_unconditional_libdir_file (const char *filename)
 	return (gnome_dirrelative_file (GNOMELIBDIR, "lib", filename, TRUE));
 }
 
-/* DOC: gnome_unconditional_datadir_file (char *filename)
+/**
+ * gnome_unconditional_datadir_file:
+ * @filename: datadir filename
+ *
  * Returns a newly allocated pathname pointing to a (possibly
- * non-existent) file in the gnome libdir
+ * non-existent) file from the GNOMEDIR tree or from the GNOME
+ * installation directory
  */
 char *
 gnome_unconditional_datadir_file (const char *filename)
@@ -144,9 +209,19 @@ gnome_unconditional_datadir_file (const char *filename)
 	return (gnome_dirrelative_file (GNOMEDATADIR, "share", filename, TRUE));
 }
 
-/* DOC: g_file_test (const char *filename, int test)
+/**
+ * g_file_test:
+ * @filename:  filename to test
+ * @test:      test to perform on the file
+ *
+ * test is one of:
+ *  G_FILE_TEST_ISFILE, to check if the pathname is a file
+ *  G_FILE_TEST_ISLINK, to check if the pathname is a symlink
+ *  G_FILE_TEST_ISDIR,  to check if the pathname is a directory
+ *
  * Returns true if filename passes the specified test (an or expression of
- * tests) */
+ * tests)
+ */
 int
 g_file_test (const char *filename, int test)
 {
@@ -162,11 +237,13 @@ g_file_test (const char *filename, int test)
 	return TRUE;
 }
 
-/* DOC: g_file_exists (const char *filename)
+/**
+ * g_file_exists
+ * @filename: pathname to test for existance.
+ *
  * Returns true if filename exists
  * left in for binary compatibility for a while FIXME: remove
  */
-#undef g_file_exists
 int
 g_file_exists (const char *filename)
 {
@@ -176,8 +253,12 @@ g_file_exists (const char *filename)
 }
 
 
-/* DOC: g_copy_strings (const char *first,...)
- * returns a new allocated char * with the concatenation of its arguments
+/**
+ * g_copy_strings:
+ * @first: first string
+ *
+ * returns a new allocated char * with the concatenation of its arguments,
+ * the list of strings is terminated by a NULL pointer.
  */
 char *
 g_copy_strings (const char *first, ...)
@@ -208,8 +289,12 @@ g_copy_strings (const char *first, ...)
 	return result;
 }
 
-/* DOC: g_unix_error_string (int error_num)
- * Returns a pointer to a static location with a description of the errno
+/**
+ * g_unix_error_string:
+ * @error_num: The errno number.
+ *
+ * Returns a pointer to a static buffer containing the description of
+ * the error reported by the errno.
  */
 const gchar *
 g_unix_error_string (int error_num)
@@ -223,7 +308,11 @@ g_unix_error_string (int error_num)
   return buffer->str;
 }
 
-/* DOC: g_concat_dir_and_file (const char *dir, const char *file)
+/**
+ * g_concat_dir_and_file:
+ * @dir:  directory name
+ * @file: filename.
+ *
  * returns a new allocated string that is the concatenation of dir and file,
  * takes care of the exact details for concatenating them.
  */
@@ -238,7 +327,9 @@ g_concat_dir_and_file (const char *dir, const char *file)
 		return g_copy_strings (dir, file, NULL);
 }
 
-/* DOC: gnome_util_user_shell ()
+/**
+ * gnome_util_user_shell:
+ *
  * Returns a newly allocated string that is the path to the user's
  * preferred shell.
  */
@@ -274,81 +365,96 @@ gnome_util_user_shell ()
 	return NULL;
 }
 
-
-
-int g_filename_index (const char * path)
+/**
+ * g_filename_index:
+ * @path: Pathname
+ *
+ */
+int
+g_filename_index (const char * path)
 {
-  int last_path_sep;
+	int last_path_sep;
+	
+	g_return_val_if_fail(path != NULL, 0);
 
-  g_return_val_if_fail(path != NULL, 0);
+	/* Note that the last character
+	 * is skipped; if it's a /, we
+	 * don't want to see it
+	 * anyway.
+	 */
+	last_path_sep = strlen (path) - 2;
+	
+	while (last_path_sep >= 0){
+		if (path [last_path_sep] == PATH_SEP)
+			break;
+		--last_path_sep;
+	}
 
-  last_path_sep = strlen(path) - 2;  /* Note that the last character
-					is skipped; if it's a /, we
-					don't want to see it
-					anyway. */
+	 /* This is 0 if -1 was reached, i.e. no path separators were found. */
+	return last_path_sep + 1;
 
-  while ( last_path_sep >= 0 ) {
-    if ( path[last_path_sep] == PATH_SEP ) break;
-    --last_path_sep; 
-  }
-
-  return last_path_sep + 1; /* This is 0 if -1 was reached, i.e. no
-			       path separators were found. */
-
-  /* FIXME when I wrote this I didn't know about strrchr; perhaps
-     return (g_filename_pointer(path) - path); would work? */
+	/*
+	 * FIXME when I wrote this I didn't know about strrchr; perhaps
+	 * return (g_filename_pointer(path) - path); would work?
+	 */
 }
 
-const char * g_filename_pointer (const gchar * path)
+
+const char *
+g_filename_pointer (const gchar * path)
 {
-  char * s;
-
-  g_return_val_if_fail(path != NULL, NULL);
-  
-  s = strrchr(path, PATH_SEP);
-
-  if ( s == NULL ) return path; /* There is no directory part. */
-  else {
-    ++s; /* skip path separator */
-    return s;
-  }
+	char * s;
+	
+	g_return_val_if_fail (path != NULL, NULL);
+	
+	s = strrchr (path, PATH_SEP);
+	
+	if (s == NULL)
+		return path; /* There is no directory part. */
+	else {
+		++s; /* skip path separator */
+		return s;
+	}
 }
 
 /* Code from gdk_imlib */
-const char * g_extension_pointer (const char * path)
+const char *
+g_extension_pointer (const char * path)
 {
-  char * s; 
-
-  g_return_val_if_fail(path != NULL, NULL);
-  
-  s = strrchr(path, '.');
-
-  if ( s == NULL ) return ""; /* There is no extension. */
-  else {
-    ++s;      /* pass the . */
-    return s;
-  }
+	char * s; 
+	
+	g_return_val_if_fail(path != NULL, NULL);
+	
+	s = strrchr(path, '.');
+	
+	if (s == NULL)
+		return ""; /* There is no extension. */
+	else {
+		++s;      /* pass the . */
+		return s;
+	}
 }
 
-char ** g_copy_vector (char ** vec)
+char **
+g_copy_vector (char **vec)
 {
-  char ** new_vec;
-  int size = 0;
-
-  while ( vec[size] != NULL ) {
-    ++size;
-  }
-
-  new_vec = g_malloc( sizeof(char *) * (size + 1) );
-
-  size = 0;
-  while ( vec[size] ) {
-    new_vec[size] = g_strdup(vec[size]);
-    ++size;
-  }
-  new_vec[size] = NULL;
-
-  return new_vec;
+	char ** new_vec;
+	int size = 0;
+	
+	while (vec [size] != NULL){
+		++size;
+	}
+	
+	new_vec = g_malloc (sizeof(char *) * (size + 1));
+	
+	size = 0;
+	while (vec [size]){
+		new_vec [size] = g_strdup (vec [size]);
+		++size;
+	}
+	new_vec [size] = NULL;
+	
+	return new_vec;
 }
 
 /* should be in order of decreasing frequency, since
@@ -365,22 +471,27 @@ static const char * const image_extensions[] = {
   NULL
 };
 
-int   g_is_image_filename(const char * path)
+/*
+ * Extra lame way of figuring if a filename is an image file
+ */
+int
+g_is_image_filename (const char * path)
 {
-  const char * s;
-  int i = 0;
-  
-  g_return_val_if_fail(path != NULL, FALSE);
-
-  s = g_extension_pointer(path);
-
-  while (image_extensions[i]) {
-    if ( strcasecmp(image_extensions[i], s) == 0 ) {
-      return TRUE;
-    }
-    ++i;
-  }
-  return FALSE;
+	const char * s;
+	int i = 0;
+	
+	g_return_val_if_fail (path != NULL, FALSE);
+	
+	s = g_extension_pointer (path);
+	
+	while (image_extensions [i]) {
+		if ( strcasecmp (image_extensions[i], s) == 0 ) {
+			return TRUE;
+		}
+		++i;
+	}
+	return FALSE;
 }
+
 
 
