@@ -36,5 +36,107 @@
       </locale>
     </schema>
     
+   <schema>   
+     <key>/schemas/desktop/gnome/url-handlers/ghelp/enabled</key>
+     <applyto>/desktop/gnome/url-handlers/ghelp/enabled</applyto>
+     <owner>gnome</owner>
+     <type>bool</type>
+     <default>true</default>
+     <locale name="C">
+       <short>How to handle ghelp URLs</short>
+       <long>Set to true to have a program specified in programs/ghelp handle ghelp URLs</long>
+     </locale>
+   </schema>
+   <schema>
+     <key>/schemas/desktop/gnome/url-handlers/ghelp/command</key>
+     <applyto>/desktop/gnome/url-handlers/ghelp/command</applyto>
+     <owner>gnome</owner>
+     <type>string</type>
+     <default>gnome-help "%s"</default>
+     <locale name="C">
+       <short>URL handler for ghelp pages</short>
+       <long>URL handler for ghelp pages</long>
+     </locale>
+   </schema>
+   <schema>
+     <key>/schemas/desktop/gnome/url-handlers/ghelp/need-terminal</key>
+     <applyto>/desktop/gnome/url-handlers/ghelp/need-terminal</applyto>
+     <owner>gnome</owner>
+     <type>bool</type>
+     <default>false</default>
+     <locale name="C">
+       <short>Run program in terminal</short>
+       <long>True if the program to handle this URL should be run in a terminal</long>
+     </locale>
+   </schema>
+
+   <schema>   
+     <key>/schemas/desktop/gnome/url-handlers/info/enabled</key>
+     <applyto>/desktop/gnome/url-handlers/info/enabled</applyto>
+     <owner>gnome</owner>
+     <type>bool</type>
+     <default>true</default>
+     <locale name="C">
+       <short>How to handle info URLs</short>
+       <long>Set to true to have a program specified in programs/info handle info URLs</long>
+     </locale>
+   </schema>
+   <schema>
+     <key>/schemas/desktop/gnome/url-handlers/info/command</key>
+     <applyto>/desktop/gnome/url-handlers/info/command</applyto>
+     <owner>gnome</owner>
+     <type>string</type>
+     <default>gnome-help "%s"</default>
+     <locale name="C">
+       <short>URL handler for info pages</short>
+       <long>URL handler for info pages</long>
+     </locale>
+   </schema>
+   <schema>
+     <key>/schemas/desktop/gnome/url-handlers/info/need-terminal</key>
+     <applyto>/desktop/gnome/url-handlers/info/need-terminal</applyto>
+     <owner>gnome</owner>
+     <type>bool</type>
+     <default>false</default>
+     <locale name="C">
+       <short>Run program in terminal</short>
+       <long>True if the program to handle this URL should be run in a terminal</long>
+     </locale>
+   </schema>
+
+   <schema>   
+     <key>/schemas/desktop/gnome/url-handlers/man/enabled</key>
+     <applyto>/desktop/gnome/url-handlers/man/enabled</applyto>
+     <owner>gnome</owner>
+     <type>bool</type>
+     <default>true</default>
+     <locale name="C">
+       <short>How to handle man URLs</short>
+       <long>Set to true to have a program specified in programs/man handle man URLs</long>
+     </locale>
+   </schema>
+   <schema>
+     <key>/schemas/desktop/gnome/url-handlers/man/command</key>
+     <applyto>/desktop/gnome/url-handlers/man/command</applyto>
+     <owner>gnome</owner>
+     <type>string</type>
+     <default>gnome-help "%s"</default>
+     <locale name="C">
+       <short>URL handler for man pages</short>
+       <long>URL handler for man pages</long>
+     </locale>
+   </schema>
+   <schema>
+     <key>/schemas/desktop/gnome/url-handlers/man/need-terminal</key>
+     <applyto>/desktop/gnome/url-handlers/man/need-terminal</applyto>
+     <owner>gnome</owner>
+     <type>bool</type>
+     <default>false</default>
+     <locale name="C">
+       <short>Run program in terminal</short>
+       <long>True if the program to handle this URL should be run in a terminal</long>
+     </locale>
+   </schema>
+
   </schemalist>
 </gconfschemafile>
