@@ -276,28 +276,6 @@ bonobo_stream_fs_construct (BonoboStreamFS *stream,
 	return BONOBO_STREAM (stream);
 }
 
-static Bonobo_Stream
-create_bonobo_stream_fs (BonoboObject *object)
-{
-	POA_Bonobo_Stream *servant;
-	CORBA_Environment ev;
-
-	servant = (POA_Bonobo_Stream *) g_new0 (BonoboObjectServant, 1);
-	servant->vepv = &bonobo_stream_vepv;
-
-	CORBA_exception_init (&ev);
-
-	POA_Bonobo_Stream__init ((PortableServer_Servant) servant, &ev);
-	if (ev._major != CORBA_NO_EXCEPTION){
-                g_free (servant);
-		CORBA_exception_free (&ev);
-                return CORBA_OBJECT_NIL;
-        }
-
-	CORBA_exception_free (&ev);
-	return (Bonobo_Stream) bonobo_object_activate_servant (object, servant);
-}
-
 static BonoboStream *
 bonobo_stream_create (int fd)
 {
@@ -310,7 +288,7 @@ bonobo_stream_create (int fd)
 	
 	stream_fs->fd = fd;
 	
-	corba_stream = create_bonobo_stream_fs (
+	corba_stream = bonobo_stream_corba_object_create (
 		BONOBO_OBJECT (stream_fs));
 
 	if (corba_stream == CORBA_OBJECT_NIL){

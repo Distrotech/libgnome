@@ -52,27 +52,6 @@ fs_open_stream (BonoboStorage *storage, const CORBA_char *path,
 	return stream;
 }
 
-static Bonobo_Storage
-create_bonobo_storage_vfs (BonoboObject *object)
-{
-	POA_Bonobo_Storage *servant;
-	CORBA_Environment ev;
-
-	servant = (POA_Bonobo_Storage *) g_new0 (BonoboObjectServant, 1);
-	servant->vepv = &bonobo_storage_vepv;
-
-	CORBA_exception_init (&ev);
-	POA_Bonobo_Storage__init ((PortableServer_Servant) servant, &ev);
-	if (ev._major != CORBA_NO_EXCEPTION){
-                g_free (servant);
-		CORBA_exception_free (&ev);
-		return CORBA_OBJECT_NIL;
-        }
-	CORBA_exception_free (&ev);
-
-	return (Bonobo_Storage) bonobo_object_activate_servant (object, servant);
-}
-
 /*
  * Creates the Gtk object and the corba server bound to it
  */
@@ -85,7 +64,7 @@ do_bonobo_storage_vfs_create (const char *path)
 	storage_vfs = gtk_type_new (bonobo_storage_vfs_get_type ());
 	storage_vfs->path = g_strdup (path);
 	
-	corba_storage = create_bonobo_storage_vfs (
+	corba_storage = bonobo_storage_corba_object_create (
 		BONOBO_OBJECT (storage_vfs));
 	if (corba_storage == CORBA_OBJECT_NIL) {
 		gtk_object_destroy (GTK_OBJECT (storage_vfs));
