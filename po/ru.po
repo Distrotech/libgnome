@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-06-18 20:19+0400\n"
-"PO-Revision-Date: 2003-06-18 20:19+0400\n"
+"POT-Creation-Date: 2003-06-27 10:40+0400\n"
+"PO-Revision-Date: 2003-06-27 10:43+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -368,6 +368,11 @@ msgstr "Исходная команда не поддержтвает этот �
 msgid "Unknown error code: %d"
 msgstr "Неизвестный код ошибки: %d"
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr "Ошибка отображения url: %s\n"
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "фабрика компонента Extra Moniker"
@@ -447,7 +452,7 @@ msgstr ""
 "входе в сеанс среды Гном"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
-msgid "Startup Assistive Technology Apps"
+msgid "Startup Assistive Technology Applications"
 msgstr "Запускаемые при входе приложения со специальными возможностями"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
@@ -713,7 +718,9 @@ msgid "Toolbar Style"
 msgstr "Размер панели инструментов"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Стиль панели инструментов. Возможные значения \"both\", \"both_horiz\", "
 "\"icon\", \"text\""
@@ -743,26 +750,24 @@ msgid "Whether menus should have a tearoff"
 msgstr "Следует ли меню иметь линию разрыва"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-"Может ли пользователь динамически вводить новый ускоритель, когда меню "
-"появляется"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "Следует ли мигать курсору"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Может ли пользователь отцеплять меню и передвигать их по экрану"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 "Может ли пользователь отцеплять панели инструментов и передвигать их по "
 "экрану"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr "Может ли пользователь динамически вводить новый ускоритель, когда меню появляется"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -781,7 +786,7 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Имя файла клавиатурного гудка"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "возможные значения: \"on\", \"off\" и \"custom\""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -806,9 +811,9 @@ msgstr "Тема курсора"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Тема курсора. Используется только серверами системы  Xservers, которые "
 "поддерживают расширение Xcursor, такими как XFree86 4.3 и более поздними. "
@@ -839,14 +844,10 @@ msgstr "Порог начала переноса"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
-msgstr ""
-"Шрифт курсора. Если не установлено, исходный шрифт будет использован. Это "
-"значение передаётся системе X только при начале сеанса, так что изменения, "
-"внесённые в середине сеанса, не будут иметь эффекта до следующего входа в "
-"сеанс."
+msgstr "Шрифт курсора. Если не установлено, будет использован исходный шрифт. Это значение передаётся системе X только при начале сеанса, так что изменения, внесённые в середине сеанса, не будут иметь эффекта до следующего входа в сеанс."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -909,6 +910,16 @@ msgstr "Звуки для событий"
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
 msgstr "Следует ли подавать звуки при наступлении событий"
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle ghelp URLs"
@@ -978,81 +989,3 @@ msgstr "Обработчик ссылок (URL) для страниц систе
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Обработчик ссылок (URL) для страниц мусорной корзины"
-
-#~ msgid "Default URL show handler"
-#~ msgstr "Исходный обработчик ссылок (URL)"
-
-#~ msgid "How to handle applications URLs"
-#~ msgstr "Как обрабатывать ссылки (URL) приложений"
-
-#~ msgid "How to handle preferences URLs"
-#~ msgstr "Как обрабатывать ссылки (URL) настроек"
-
-#~ msgid "How to handle server-settings URLs"
-#~ msgstr "Как обрабатывать ссылки (URL) установок сервера"
-
-#~ msgid "How to handle start-here URLs"
-#~ msgstr "Как обрабатывать ссылки (URL) типа start-here"
-
-#~ msgid "How to handle system-settings URLs"
-#~ msgstr "Как обрабатывать ссылки (URL) установок системы"
-
-#~ msgid "How to handle unknown URLs"
-#~ msgstr "Как обрабатывать ссылки (URL) нераспознанного типа"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in applications/command handle "
-#~ "applications URLs"
-#~ msgstr ""
-#~ "Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
-#~ "типа applications/command ссылок (URL) на приложения"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in preferences/command handle "
-#~ "preferences URLs"
-#~ msgstr ""
-#~ "Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
-#~ "типа preferences/command  ссылок (URL) на настройки"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/unknown handle "
-#~ "unknown URLs"
-#~ msgstr ""
-#~ "Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
-#~ "типа programs/unknown ссылок (URL) неизвестного типа"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in server-settings/command handle "
-#~ "server-settings URLs"
-#~ msgstr ""
-#~ "Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
-#~ "типа server-settings/command ссылок (URL) установок сервера"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in start-here/command handle "
-#~ "start-here URLs"
-#~ msgstr ""
-#~ "Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
-#~ "типа start-here/command ссылок (URL) типа start-here"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in system-settings/command handle "
-#~ "system-settings URLs"
-#~ msgstr ""
-#~ "Установить в ИСТИННО, чтобы иметь программу, определённую в обработчике "
-#~ "типа system-settings/command ссылок (URL) установок системы"
-
-#~ msgid "URL handler for applications pages"
-#~ msgstr "Обработчик ссылок (URL) для страниц приложений"
-
-#~ msgid "URL handler for preferences pages"
-#~ msgstr "Обработчик ссылок (URL) для страниц настроек"
-
-#~ msgid "URL handler for server-settings pages"
-#~ msgstr "Обработчик ссылок (URL) для страниц установок сервера"
-
-#~ msgid "URL handler for start-here pages"
-#~ msgstr "Обработчик ссылок (URL) для страниц типа start-here"
-
-#~ msgid "URL handler for system-settings pages"
-#~ msgstr "Обработчик ссылок (URL) для страниц установок системы"
