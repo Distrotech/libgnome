@@ -31,7 +31,7 @@ gnome_dirrelative_file (const char *base, const char *sub, const char *filename,
 	
 	if (gnomedir) {
 		t = g_concat_dir_and_file (gnomedir, sub);
-		u = g_copy_strings (t, "/", filename, NULL);
+		u = g_strconcat (t, "/", filename, NULL);
 		g_free (t); t = NULL;
 		
 		if (g_file_exists (u)) {
@@ -39,7 +39,7 @@ gnome_dirrelative_file (const char *base, const char *sub, const char *filename,
 		}
 
 		t = g_concat_dir_and_file (gnome_util_user_home (), sub);
-		v = g_copy_strings (t, "/", filename, NULL);
+		v = g_strconcat (t, "/", filename, NULL);
 		g_free (t); t = NULL;
 
 		if (g_file_exists (v)){
@@ -332,9 +332,9 @@ g_concat_dir_and_file (const char *dir, const char *file)
         /* If the directory name doesn't have a / on the end, we need
 	   to add one so we get a proper path to the file */
 	if (dir [strlen(dir) - 1] != PATH_SEP)
-		return g_copy_strings (dir, PATH_SEP_STR, file, NULL);
+		return g_strconcat (dir, PATH_SEP_STR, file, NULL);
 	else
-		return g_copy_strings (dir, file, NULL);
+		return g_strconcat (dir, file, NULL);
 }
 
 /**

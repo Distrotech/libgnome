@@ -103,7 +103,7 @@ void gnome_url_show(const gchar *url) {
     protocol[pos - url] = '\0';
     g_strdown(protocol);
 
-    path = g_copy_strings("/Gnome/URL Handlers/", protocol, "-show", NULL);
+    path = g_strconcat("/Gnome/URL Handlers/", protocol, "-show", NULL);
     template = gnome_config_get_string_with_default(path, &def);
     g_free(path);
     if (def)

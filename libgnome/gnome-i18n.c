@@ -174,7 +174,7 @@ gnome_i18n_init (void)
 #else
 #ifdef HAVE_PUTENV
 	  /* It is not safe to free the value passed to putenv.  */
-	  putenv (g_copy_strings ("LC_ALL=", val, NULL));
+	  putenv (g_strconcat ("LC_ALL=", val, NULL));
 #endif
 #endif
       }
