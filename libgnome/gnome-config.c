@@ -653,6 +653,7 @@ _gnome_config_sync_file (char *path, int priv)
 			break;
 		dump_profile (p,TRUE);
 		gnome_config_drop_file(path);
+		break;
 	}
 	release_path (pp);
 }
