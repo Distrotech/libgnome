@@ -31,7 +31,6 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <regex.h>
-#include <gtk/gtk.h>
 #include "libgnomeP.h"
 #include "gnome-mime.h"
 #include <string.h>

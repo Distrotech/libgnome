@@ -1,3 +1,12 @@
+Thu Aug 24 01:45:11 2000  George Lebl <jirka@5z.com>
+
+	* gnome-mime.c: remove include of gtk/gtk.h
+
+	* libgnome.h: remove gnome-dentry.h as it's in libcompat now
+
+	* gnome-init2.c, gnome-ditem.c: whoops, it's g_path_get_basename not
+	  g_path_basename
+
 2000-08-07  Martin Baulig  <baulig@suse.de>
 
 	Moved all deprecated files (i.e the ones that were linked into
