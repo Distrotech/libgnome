@@ -5,6 +5,7 @@
 #include "libgnome/gnome-config.h"
 #include "libgnome/gnome-dentry.h"
 #include "libgnome/gnome-dl.h"
+#include "libgnome/gnome-exec.h"
 #include "libgnome/gnome-hook.h"
 #include "libgnome/gnome-i18n.h"
 #include "libgnome/gnome-parse.h"

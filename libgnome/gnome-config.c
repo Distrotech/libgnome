@@ -987,7 +987,11 @@ _gnome_config_get_vector_with_default (const char *path, int *argcp,
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
 			   def);
 
-	g_return_if_fail(r != NULL);
+	if (r == NULL) {
+		*argvp = NULL;
+		*argcp = 0;
+		return;
+	}
 
 	/* Figure out how large to make return vector.  Start at 1
 	   because we want to make NULL-terminated array.  */

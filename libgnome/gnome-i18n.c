@@ -2,9 +2,8 @@
 #include "libgnome.h"
 #include "gnome-i18n.h"
 
-/* Name of config key we use when looking up preferred language.
-   FIXME this name sucks.  */
-#define LANGKEY "/_Gnome/i18n/LANG"
+/* Name of config key we use when looking up preferred language.   */
+#define LANGKEY "/Gnome/i18n/LANG"
 
 const char *
 gnome_i18n_get_language(void)

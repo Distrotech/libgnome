@@ -5,7 +5,8 @@
 #include <limits.h>
 #include <ctype.h>
 
-gchar **gnome_string_split(gchar *string, gchar *delim, gint max_tokens)
+gchar **
+gnome_string_split (gchar *string, gchar *delim, gint max_tokens)
 {
 	gchar **retval = NULL;
 	GList *items = NULL, *anode;
@@ -17,8 +18,6 @@ gchar **gnome_string_split(gchar *string, gchar *delim, gint max_tokens)
 
 	if(max_tokens < 0)
 		max_tokens = INT_MAX;
-
-	if(delim == NULL) delim = " ";
 
 	dlen = strlen(delim);
 	nxt = strstr(string, delim);

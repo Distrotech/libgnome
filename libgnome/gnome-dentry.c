@@ -18,6 +18,7 @@
 #include "gnome-config.h"
 #include "gnome-dentry.h"
 #include "gnome-string.h"
+#include "gnome-exec.h"
 
 /* g_free already checks if x is NULL */
 #define free_if_empty(x) g_free (x)
@@ -49,7 +50,9 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	GnomeDesktopEntry *newitem;
 	char *prefix;
 	char *name, *type;
-	char *exec_file, *try_file;
+	char *try_file;
+	char **exec_vector;
+	int exec_length;
 	char *icon_base;
 	char *p;
 	
@@ -73,16 +76,16 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	 */
 
 	type      = gnome_config_get_string ("Type");
-	exec_file = gnome_config_get_string ("Exec");
+	gnome_config_get_vector ("Exec", &exec_length, &exec_vector);
 	try_file  = gnome_config_get_string ("TryExec");
 	p = 0;
-	
+
 	if (!type || (strcmp (type, "Directory") != 0)){
-		if(!exec_file || (try_file && !(p = gnome_is_program_in_path(try_file)))){
+		if(!exec_vector || (try_file && !(p = gnome_is_program_in_path(try_file)))){
 			free_if_empty (p);
 			free_if_empty (name);
 			free_if_empty (type);
-			free_if_empty (exec_file);
+			gnome_string_array_free (exec_vector);
 			free_if_empty (try_file);
 			
 			gnome_config_pop_prefix ();
@@ -96,7 +99,8 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 
 	newitem->name          = gnome_config_get_translated_string ("Name");
 	newitem->comment       = gnome_config_get_translated_string ("Comment");
-	newitem->exec          = exec_file;
+	newitem->exec_length   = exec_length;
+	newitem->exec          = exec_vector;
 	newitem->tryexec       = try_file;
 	newitem->docpath       = gnome_config_get_string ("DocPath");
 	newitem->terminal      = gnome_config_get_bool   ("Terminal=0");
@@ -156,7 +160,8 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 		gnome_config_set_translated_string ("Comment", dentry->comment);
 
 	if (dentry->exec)
-		gnome_config_set_string ("Exec", dentry->exec);
+		gnome_config_set_vector ("Exec", dentry->exec_length,
+					 (const char * const *) dentry->exec);
 
 	if (dentry->tryexec)
 		gnome_config_set_string ("TryExec", dentry->tryexec);
@@ -187,6 +192,7 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
     {
       free_if_empty (item->name);
       free_if_empty (item->comment);
+      gnome_string_array_free (item->exec);
       free_if_empty (item->exec);
       free_if_empty (item->icon);
       free_if_empty (item->docpath);
@@ -197,20 +203,48 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
     }
 }
 
-/* TODO this needs redoing properly (we need to write a
-   gnome_fork_and_execlp() probably) */
 void
 gnome_desktop_entry_launch (GnomeDesktopEntry *item)
 {
-	char *command;
+	char **argv;
+	int i, argc;
 
 	g_assert (item != NULL);
 
-	if (item->terminal)
-	  command = g_copy_strings ("(xterm -e \"", item->exec, "\") &", NULL);
-	else
-	  command = g_copy_strings ("(true;", item->exec, ") &", NULL);
+	if (item->terminal) {
+		char **term_argv;
+		int term_argc;
+		char *xterm_argv[2];
 
-	system (command);
-	g_free (command);
+		gnome_config_get_vector ("/Gnome/Applications/Terminal",
+					 &term_argc, &term_argv);
+		if (term_argv == NULL) {
+			term_argc = 2;
+			term_argv = xterm_argv;
+			xterm_argv[0] = "xterm";
+			xterm_argv[1] = "-e";
+		}
+
+		argc = term_argc + item->exec_length;
+		argv = (char **) malloc ((argc + 1) * sizeof (char *));
+
+		for (i = 0; i < term_argc; ++i)
+			argv[i] = term_argv[i];
+		if (term_argv != xterm_argv)
+			gnome_string_array_free (term_argv);
+
+		for (i = 0; i < item->exec_length; ++i)
+			argv[term_argc + i] = item->exec[i];
+
+		argv[argc] = NULL;
+	} else {
+		argc = item->exec_length;
+		argv = item->exec;
+	}
+
+	/* FIXME: do something if there's an error.  */
+	gnome_execute_async (NULL, argc, argv);
+
+	if (argv != item->exec)
+		g_free ((char *) argv);
 }

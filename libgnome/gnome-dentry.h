@@ -6,7 +6,10 @@ BEGIN_GNOME_DECLS
 typedef struct {
 	char *name;		/* These contain the translated name/comment */
 	char *comment;
-	char *exec;		/* Program to execute */
+	int exec_length;	/* Length of `exec' vector.  Does not
+				   include the NULL terminator.  */
+	char **exec;		/* Command to execute.  Must be NULL
+				   terminated.  */
 	char *tryexec;		/* Test program to execute */
 	char *icon;		/* Icon name */
 	char *docpath;		/* Path to the documentation */
