@@ -23,7 +23,7 @@ typedef  unsigned   int     unit;
 typedef  unsigned   long    longunit;
 typedef  unsigned   short   shortunit;
 
-typedef  unsigned   char    N_char;
+typedef             char    N_char;
 typedef  unsigned   int     N_int;
 typedef  unsigned   long    N_long;
 typedef  unsigned   short   N_short;

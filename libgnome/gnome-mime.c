@@ -11,6 +11,10 @@
 #include <string.h>
 #include <ctype.h>
 
+#ifdef HAVE_ALLOCA_H
+#include <alloca.h>
+#endif
+
 static void mime_fill_from_file (gchar * filename);
 static void mcap_fill_from_file (gchar * filename);
 

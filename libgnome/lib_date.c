@@ -68,13 +68,13 @@ const N_int   month_length[2][13] =
         { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
     };
 
-const N_char  day_name[8][16] =
+const N_char  *day_name[8] =
     {
         N_("Error"), N_("Monday"), N_("Tuesday"), N_("Wednesday"),
         N_("Thursday"), N_("Friday"), N_("Saturday"), N_("Sunday")
     };
 
-const N_char  month_name[13][16] =
+const N_char  *month_name[13] =
     {
         N_("Error"), N_("January"), N_("February"), N_("March"), N_("April"), N_("May"), N_("June"),
         N_("July"), N_("August"), N_("September"), N_("October"), N_("November"), N_("December")

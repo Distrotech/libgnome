@@ -18,6 +18,10 @@
 #include "gnome-defs.h"
 #include "libgnomeP.h"
 
+#ifdef HAVE_ALLOCA_H
+#include <alloca.h>
+#endif
+
 static GArray *opt_tables = NULL;
 
 void gnomelib_register_popt_table(const struct poptOption *options,
@@ -25,8 +29,9 @@ void gnomelib_register_popt_table(const struct poptOption *options,
 {
   int i;
   struct poptOption includer = {NULL, '\0', POPT_ARG_INCLUDE_TABLE,
-				(struct poptOption *)options,
-				0, (char *)description, NULL};
+				NULL, 0, NULL, NULL};
+  includer.arg = (struct poptOption *)options;
+  includer.descrip = (char *)description;
 
   if(opt_tables == NULL)
     opt_tables = g_array_new(TRUE, TRUE, sizeof(struct poptOption));

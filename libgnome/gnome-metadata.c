@@ -30,6 +30,10 @@
 #include <ctype.h>
 #include <errno.h>
 
+#ifdef HAVE_ALLOCA_H
+#include <alloca.h>
+#endif
+
 #ifdef HAVE_DB_185_H
 # include <db_185.h>
 #else

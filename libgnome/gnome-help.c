@@ -1,3 +1,7 @@
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <stdio.h>
@@ -6,6 +10,10 @@
 #include <errno.h>
 #include <string.h>
 #include <sys/wait.h>
+
+#ifdef HAVE_ALLOCA_H
+#include <alloca.h>
+#endif
 
 #include "gnome-defs.h"
 #include "gnome-help.h"
