@@ -1,3 +1,14 @@
+2002-01-12  Rodrigo Moya <rodrigo@gnome-db.org>
+
+	* monikers/bonobo-config-bag.c (impl_BonoboPropertyBag_getValue):
+	return a BONOBO_ARG_NULL if we can't resolve the GConf type
+	(impl_BonoboPropertyBag_getValues): implemented
+	(impl_BonoboPropertyBag_setValue): if the type is BONOBO_ARG_NULL,
+	unset the key in the configuration database
+
+	* monikers/GNOME_Moniker_std.server.in.in: the GNOME std monikers
+	are in libmoniker_extra_2.so, not libmoniker_std_2.so
+
 2002-01-12 Hasbullah Bin Pit <sebol@ikhlas.com>
 	
 	* Added Malay (ms) Translation in configure.in

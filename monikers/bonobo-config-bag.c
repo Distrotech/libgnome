@@ -68,6 +68,7 @@ impl_Bonobo_PropertyBag_getKeys (PortableServer_Servant  servant,
 	/* create CORBA sequence */
 	length = g_slist_length (slist);
 	retval = Bonobo_KeyList__alloc ();
+	retval->_length = length;
 	CORBA_sequence_set_release (retval, TRUE);
 	retval->_buffer = Bonobo_KeyList_allocbuf (length);
 
@@ -168,7 +169,7 @@ impl_Bonobo_PropertyBag_getValue (PortableServer_Servant  servant,
 	case GCONF_VALUE_BOOL :
 		return bonobo_arg_new_from (BONOBO_ARG_BOOLEAN, &value->d.bool_data);
 	default :
-		/* FIXME */
+		return bonobo_arg_new (BONOBO_ARG_NULL);
 	}
 
 	return CORBA_OBJECT_NIL;
@@ -207,6 +208,9 @@ impl_Bonobo_PropertyBag_setValue (PortableServer_Servant  servant,
 		gconf_client_set_bool (cb->conf_client, path,
 				       BONOBO_ARG_GET_BOOLEAN (value), &err);
 	}
+	else if (bonobo_arg_type_is_equal (value->_type, BONOBO_ARG_NULL, ev)) {
+		gconf_client_unset (cb->conf_client, path, &err);
+	}
 	else {
 		g_free (path);
 		bonobo_exception_general_error_set (ev, NULL, _("Unknown type"));
@@ -226,9 +230,13 @@ impl_Bonobo_PropertyBag_getValues (PortableServer_Servant servant,
 				   const CORBA_char       *filter,
 				   CORBA_Environment      *ev)
 {
-	BonoboConfigBag    *cb = GET_BAG_FROM_SERVANT (servant);
-	char               *path;
+	BonoboConfigBag *cb = GET_BAG_FROM_SERVANT (servant);
+	char *path;
 	Bonobo_PropertySet *retval;
+	GSList *slist, *sl;
+	GError *err;
+	int length;
+	int n;
 
 	if (strchr (filter, '/')) {
 		bonobo_exception_set (ev, ex_Bonobo_PropertyBag_NotFound);
@@ -237,9 +245,52 @@ impl_Bonobo_PropertyBag_getValues (PortableServer_Servant servant,
 
 	path = g_strconcat (cb->path, "/", filter, NULL);
 
-	/* TODO: get values from GConf database */
-
+	/* get keys from GConf */
+	slist = gconf_client_all_entries (cb->conf_client, path, &err);
 	g_free (path);
+	if (err) {
+		bonobo_exception_general_error_set (ev, NULL, err->message);
+		g_error_free (err);
+		return CORBA_OBJECT_NIL;
+	}
+
+	/* create CORBA sequence */
+	length = g_slist_length (slist);
+	retval = Bonobo_PropertySet__alloc ();
+	retval->_length = length;
+	CORBA_sequence_set_release (retval, TRUE);
+	retval->_buffer = CORBA_sequence_Bonobo_Pair_allocbuf (length);
+
+	for (sl = slist, n = 0; n < length; sl = sl->next, n++) {
+		GConfEntry *entry = (GConfEntry *) sl->data;
+		BonoboArg *arg;
+
+		retval->_buffer[n].name = CORBA_string_dup (gconf_entry_get_key (entry));
+		switch (entry->value->type) {
+		case GCONF_VALUE_STRING :
+			arg = bonobo_arg_new_from (BONOBO_ARG_STRING,
+						   gconf_value_get_string (entry->value));
+			break;
+		case GCONF_VALUE_INT :
+			arg = bonobo_arg_new_from (BONOBO_ARG_LONG,
+						   &entry->value->d.int_data);
+			break;
+		case GCONF_VALUE_FLOAT :
+			arg = bonobo_arg_new_from (BONOBO_ARG_DOUBLE,
+						   &entry->value->d.float_data);
+			break;
+		case GCONF_VALUE_BOOL :
+			arg = bonobo_arg_new_from (BONOBO_ARG_BOOLEAN,
+						   &entry->value->d.bool_data);
+			break;
+		default :
+			arg = bonobo_arg_new (BONOBO_ARG_NULL);
+		}
+
+		retval->_buffer[n].value = *arg;
+	}
+
+	g_slist_free (slist);
 
 	return retval;
 }
