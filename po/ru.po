@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-07-04 10:50+0200\n"
-"PO-Revision-Date: 2003-06-27 10:43+0400\n"
+"POT-Creation-Date: 2003-07-12 19:21+0400\n"
+"PO-Revision-Date: 2003-07-12 19:24+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -14,48 +14,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
-msgid "Error Messages"
-msgstr "Сообщения об ошибках"
+msgid "Error message"
+msgstr "Сообщение об ошибке"
 
 #: gnome-data/gnome-2.soundlist.in.h:2
-msgid "GNOME system events"
-msgstr "Системные события среды Гном"
+msgid "Informational message"
+msgstr "Информационное сообщение"
 
 #: gnome-data/gnome-2.soundlist.in.h:3
-msgid "Informational Messages"
-msgstr "Информационные сообщения"
-
-#: gnome-data/gnome-2.soundlist.in.h:4
-msgid "Login"
+msgid "Log in"
 msgstr "Вход в сеанс"
 
-#: gnome-data/gnome-2.soundlist.in.h:5
-msgid "Logout"
+#: gnome-data/gnome-2.soundlist.in.h:4
+msgid "Log out"
 msgstr "Выход из сеанса"
 
-#: gnome-data/gnome-2.soundlist.in.h:6
-msgid "Miscellaneous Messages"
+#: gnome-data/gnome-2.soundlist.in.h:5
+msgid "Miscellaneous message"
 msgstr "Разные сообщения"
 
-#: gnome-data/gnome-2.soundlist.in.h:7
-msgid "Question Dialogs"
+#: gnome-data/gnome-2.soundlist.in.h:6
+msgid "Question dialog"
 msgstr "Диалоги вопроса"
 
+#: gnome-data/gnome-2.soundlist.in.h:7
+msgid "System events"
+msgstr "Системные события"
+
 #: gnome-data/gnome-2.soundlist.in.h:8
-msgid "Warning Messages"
+msgid "Warning message"
 msgstr "Предупреждающие сообщения"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:1
-msgid "Action button click"
-msgstr "Нажатие на кнопку"
+msgid "Choose menu item"
+msgstr "Выбор элемента меню"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:2
-msgid "Check box toggled"
-msgstr "Переключение кнопки"
+msgid "Click on command button"
+msgstr "Щелчок по управляющей кнопке"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:3
-msgid "Menu item activation"
-msgstr "Выбор пункта меню"
+msgid "Select check box"
+msgstr "Выбор поля для отметки"
 
 #: gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
@@ -686,38 +686,47 @@ msgid "Menus Have Tearoff"
 msgstr "В меню есть разделители"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:17
+msgid "Monospace font"
+msgstr "Моноширинный шрифт"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:18
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr "Название моноширинного (как у пиш.машинки) шрифта используемого в приложениях вроде терминала."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Имя метода ввода \"Стиль предправки\" пакета GTK+"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Имя метода ввода \"Стиль состояния\" пакета GTK+"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.h:21
 msgid "Name of the default font used by gtk+."
 msgstr "Имя исходного шрифта пакета GTK+"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Status Bar on Right"
 msgstr "Строка состояния справа"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Значение размера значков в панели инструментов"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Toolbar Detachable"
 msgstr "Отцепляемые панели инструментов"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Toolbar Icon Size"
 msgstr "Размер значков панели инструментов"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Toolbar Style"
 msgstr "Размер панели инструментов"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.h:27
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
@@ -725,15 +734,15 @@ msgstr ""
 "Стиль панели инструментов. Возможные значения \"both\", \"both_horiz\", "
 "\"icon\", \"text\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Use Custom Font"
 msgstr "Использовать другой шрифт"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether Applications should have accessibility support"
 msgstr "Следует ли приложениям использовать специальные возможности"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -741,29 +750,29 @@ msgstr ""
 "Следует ли отображать анимацию. Замечание: это глобальный ключ, его "
 "изменение окажет влияние на поведение оконного менеджера, панели и т.д.."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Следует ли отображать значки в элементах меню"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether menus should have a tearoff"
 msgstr "Следует ли меню иметь линию разрыва"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the cursor should blink"
 msgstr "Следует ли мигать курсору"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Может ли пользователь отцеплять меню и передвигать их по экрану"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 "Может ли пользователь отцеплять панели инструментов и передвигать их по "
 "экрану"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -771,11 +780,11 @@ msgstr ""
 "Может ли пользователь динамически вводить новый ускоритель, когда меню "
 "появляется"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether to display a status bar meter on the right"
 msgstr "Следует ли отображать строку состояния справа"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Использовать ли другой шрифт в приложениях"
 
@@ -949,11 +958,11 @@ msgstr ""
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
-msgstr ""
+msgstr "Разрешается ли блокирование клавиатуры"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr ""
+msgstr "Разрешается ли блокирование клавиатуры."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
