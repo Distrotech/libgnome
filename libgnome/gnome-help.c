@@ -29,10 +29,15 @@ gchar *gnome_help_file_path(gchar *app, gchar *path)
 
 void gnome_help_display(void *ignore, GnomeHelpMenuEntry *ref)
 {
-    gchar *file;
+    gchar *file, *url;
 
     file = gnome_help_file_path(ref->name, ref->path);
-    gnome_help_goto(ignore, file);
+    if (!file)
+	    return;
+    url = alloca(strlen(file)+10);
+    strcpy(url,"file:");
+    strcat(url, file);
+    gnome_help_goto(ignore, url);
     g_free(file);
 }
 
