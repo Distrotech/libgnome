@@ -41,6 +41,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <gmodule.h>
+#include <locale.h>
 #include <gconf/gconf.h>
 #include <gconf/gconf-value.h>
 #include <gconf/gconf-client.h>
