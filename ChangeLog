@@ -1,3 +1,11 @@
+2002-03-06  Paolo Maggi  <maggi@athena.polito.it>
+
+	* libgnome/gnome-url.c (gnome_url_default_handler):
+	use gnome-help as handler for ghelp: info: man: uris
+	and mozilla as default url handler
+	(gnome_url_show): fix mem leak, use the rigth handler
+	also the first time it runs
+
 2002-03-06  Christian Meyer  <chrisime@gnome.org>
 
 	* configure.in: Added 'de' to ALL_LINGUAS.

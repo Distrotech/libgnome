@@ -44,10 +44,8 @@
 
 #include <popt.h>
 
-#define DEFAULT_HANDLER "mozilla \"%s\""
-#define INFO_HANDLER  "gnome-help-browser \"%s\""
-#define MAN_HANDLER   "gnome-help-browser \"%s\""
-#define GHELP_HANDLER "gnome-help-browser \"%s\""
+#define DEFAULT_HANDLER "mozilla"
+#define HELP_URIS_HANDLER "gnome-help"
 
 static gchar *
 gnome_url_default_handler (void)
@@ -70,15 +68,14 @@ gnome_url_default_handler (void)
 		} else {
 			/* It's the first time gnome_url_show is run, so up some useful defaults */
 
-			/* FIXME: Should we remove gnome-help-browser here? */
-			app = g_find_program_in_path ("nautilus");
+			app = g_find_program_in_path (HELP_URIS_HANDLER);
 			if (app) {
 				g_free (app);
-				app = "nautilus \"%s\"";
+				app = HELP_URIS_HANDLER " \"%s\"";
 			} else
-				app = "gnome-help-browser \"%s\"";
+				app = DEFAULT_HANDLER " \"%s\"";
 
-			default_handler = DEFAULT_HANDLER;
+			default_handler = DEFAULT_HANDLER " \"%s\"";
 			gconf_client_set_string (client, "/desktop/gnome/url-handlers/default-show",
 						 default_handler, NULL);
 
@@ -93,6 +90,8 @@ gnome_url_default_handler (void)
 			if (gconf_client_dir_exists (client, "/desktop/gnome/url-handlers/ghelp-show", NULL) == FALSE) {
 				gconf_client_set_string (client, "/desktop/gnome/url-handlers/ghelp-show", app, NULL);
 			}
+
+			gconf_client_suggest_sync (client, NULL);
 		}
 
 		g_object_unref (G_OBJECT (client));
@@ -160,9 +159,21 @@ gnome_url_show (const gchar *url, GError **error)
 		template = gconf_client_get_string (client, path, NULL);
 
 		if (template == NULL) {
-			template = gnome_url_default_handler ();
-		}
+			gchar* template_temp;
+			
+			template_temp = gnome_url_default_handler ();
+						
+			/* Retry to get the right url handler */
+			template = gconf_client_get_string (client, path, NULL);
 
+			if (template == NULL) 
+				template = template_temp;
+			else
+				g_free (template_temp);
+
+		}
+		
+		g_free (path);
 		g_free (protocol);
 
 		g_object_unref (G_OBJECT (client));
