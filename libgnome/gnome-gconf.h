@@ -1,4 +1,5 @@
- /* GNOME GUI Library - gnome-gconf.h
+/*  -*- Mode: C; c-set-style: linux; indent-tabs-mode: nil; c-basic-offset: 8 -*- */
+/* GNOME GUI Library - gnome-gconf.h
  * Copyright (C) 2000  Red Hat Inc.,
  *
  * Author: Jonathan Blandford  <jrb@redhat.com>
@@ -18,15 +19,17 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Cambridge, MA 02139, USA.
  */
 
-#ifndef _GNOME_GCONF_H
-#define _GNOME_GCONF_H
+#ifndef GNOME_GCONF_H
+#define GNOME_GCONF_H
 
 #include <gconf/gconf-value.h>
+#include <gconf/gconf-client.h>
 #include <gtk/gtkentry.h>
 #include <gtk/gtkrange.h>
 #include <gtk/gtkspinbutton.h>
 #include <gtk/gtktogglebutton.h>
 #include <gtk/gtkradiobutton.h>
+#include <libgnome/gnomelib-init2.h>
 #include "gnome-color-picker.h"
 #include "gnome-entry.h"
 #include "gnome-file-entry.h"
@@ -78,7 +81,18 @@ void        gnome_gconf_gnome_pixmap_entry_set (GnomePixmapEntry *pixmap_entry,
 						GConfValue       *value);
 
 
+/* GNOME GConf module; basically what this does is
+   create a global GConfClient for a GNOME application; it's used
+   by libgnomeui, and applications can either use it or create
+   their own. However note that signals will be emitted for
+   libgnomeui settings and errors! Also the module inits
+   GConf
+*/
 
+GConfClient *gnome_gconf_client_get (void);
+
+extern GnomeModuleInfo gnome_gconf_module_info;
+#define GNOME_GCONF_INIT GNOME_PARAM_MODULE,&gnome_gconf_module_info
 
 #endif
 

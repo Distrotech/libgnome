@@ -1,4 +1,5 @@
- /* GNOME GUI Library - gnome-gconf.h
+/*  -*- Mode: C; c-set-style: linux; indent-tabs-mode: nil; c-basic-offset: 8 -*- */
+/* GNOME GUI Library - gnome-gconf.h
  * Copyright (C) 2000  Red Hat Inc.,
  *
  * Author: Jonathan Blandford  <jrb@redhat.com>
@@ -18,8 +19,12 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Cambridge, MA 02139, USA.
  */
 
-#include "gnome-gconf.h"
+#include <libgnome/gnome-defs.h>
 #include <stdlib.h>
+#include <liboaf/liboaf.h>
+#include <libgnome/gnome-i18nP.h>
+#include "oafgnome.h"
+#include "gnome-gconf.h"
 
 GConfValue *
 gnome_gconf_gtk_entry_get (GtkEntry       *entry,
@@ -412,3 +417,49 @@ gnome_gconf_gnome_pixmap_entry_set (GnomePixmapEntry *pixmap_entry,
 	entry = gnome_pixmap_entry_gtk_entry (pixmap_entry);
 	gnome_gconf_gtk_entry_set (GTK_ENTRY (entry), value);
 }
+
+
+/*
+ * Our global GConfClient, and module stuff
+ */
+
+static GConfClient* global_client = NULL;
+
+GConfClient*
+gnome_gconf_client_get (void)
+{
+        g_return_val_if_fail(global_client != NULL, NULL);
+        
+        return global_client;
+}
+
+static void
+gnome_gconf_pre_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
+{
+        gconf_preinit(app, (GnomeModuleInfo*)mod_info);
+
+}
+
+static void
+gnome_gconf_post_args_parse(GnomeProgram *app, const GnomeModuleInfo *mod_info)
+{
+        gconf_postinit(app, (GnomeModuleInfo*)mod_info);
+
+        global_client = gconf_client_new();
+}
+
+extern GnomeModuleInfo gtk_module_info;
+
+static GnomeModuleRequirement gnome_gconf_requirements[] = {
+  { "1.2.5", &gtk_module_info },
+  { liboaf_version, &liboafgnome_module_info },
+  { NULL, NULL }
+};
+
+GnomeModuleInfo gnome_gconf_module_info = {
+  "gnome-gconf", VERSION, N_("GNOME GConf Support"),
+  gnome_gconf_requirements,
+  gnome_gconf_pre_args_parse, gnome_gconf_post_args_parse,
+  gconf_options
+};
+
