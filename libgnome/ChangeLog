@@ -1,3 +1,10 @@
+1999-08-29  Tom Tromey  <tromey@cygnus.com>
+
+	* gnome-mime.c (mime_mutex): New global.
+	(gnome_mime_type_or_default): Lock mutex.
+	(gnome_mime_type_of_file): Removed redundant call to
+	gnome_mime_type_from_magic.
+
 1999-08-28  Tom Tromey  <tromey@cygnus.com>
 
 	* gnome-metadata.c (metadata_list_nolock): New function.

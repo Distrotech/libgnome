@@ -38,6 +38,15 @@ typedef struct {
 static mime_dir_source_t gnome_mime_dir, user_mime_dir;
 static time_t last_checked;
 
+#ifdef G_THREADS_ENABLED
+
+/* We lock this mutex whenever we modify global state in this module.  */
+G_LOCK_DEFINE_STATIC (mime_mutex);
+
+#endif /* G_LOCK_DEFINE_STATIC */
+
+
+
 static char *
 get_priority (char *def, int *priority)
 {
@@ -307,9 +316,12 @@ gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 {
 	const gchar *ext;
 	int priority;
+	const gchar *result = defaultv;
+
+	G_LOCK (mime_mutex);
 
 	if (!filename)
-		return defaultv;
+		goto done;
 	ext = strrchr (filename, '.');
 	if (ext)
 		++ext;
@@ -325,19 +337,25 @@ gnome_mime_type_or_default (const gchar *filename, const gchar *defaultv)
 
 		if (ext){
 			res = g_hash_table_lookup (mime_extensions [priority], ext);
-			if (res)
-				return res;
+			if (res) {
+				result = res;
+				goto done;
+			}
 		}
 
 		for (l = mime_regexs [priority]; l; l = l->next){
 			RegexMimePair *mp = l->data;
 
-			if (regexec (&mp->regex, filename, 0, 0, 0) == 0)
-				return mp->mime_type;
+			if (regexec (&mp->regex, filename, 0, 0, 0) == 0) {
+				result = mp->mime_type;
+				goto done;
+			}
 		}
 	}
 
-	return defaultv;
+ done:
+	G_UNLOCK (mime_mutex);
+	return result;
 }
 
 /**
@@ -392,12 +410,6 @@ gnome_mime_type_or_default_of_file (const char *existing_filename,
 const char *
 gnome_mime_type_of_file (const char *existing_filename)
 {
-	char *mime_type;
-
-	mime_type = (char *)gnome_mime_type_from_magic (existing_filename);
-	if (mime_type)
-		return mime_type;
-
 	return gnome_mime_type_or_default_of_file (existing_filename, "text/plain");
 }
 
