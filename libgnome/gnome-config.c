@@ -1506,6 +1506,14 @@ _gnome_config_get_translated_string_with_default (const char *path,
 		language_list = language_list->next;
 	}
 
+	if (!value){
+		value = _gnome_config_get_string_with_default (path, def, priv);
+
+		if (!value || *value == '\0'){
+			g_free (value);
+			value = NULL;
+		}
+	}
 	return value;
 }
 
