@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include <libgnome/gnome-defs.h>
 #include <libgnome/gnome-util.h>
-#include <bonobo/gnome-storage-fs.h>
+#include <storage-modules/gnome-storage-fs.h>
 #include <bonobo/gnome-stream-fs.h>
 
 static GnomeStorageClass *gnome_storage_fs_parent_class;
@@ -34,7 +34,7 @@ fs_create_stream (GnomeStorage *storage, const CORBA_char *path, CORBA_Environme
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = gnome_stream_fs_create (storage_fs, path);
+	stream = gnome_stream_fs_create (full);
 	g_free (full);
 
 	return stream;
@@ -48,7 +48,7 @@ fs_open_stream (GnomeStorage *storage, const CORBA_char *path, GNOME_Storage_Ope
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = gnome_stream_fs_open (GNOME_STORAGE_FS (storage), path, mode);
+	stream = gnome_stream_fs_open (full, mode);
 	g_free (full);
 
 	return stream;
