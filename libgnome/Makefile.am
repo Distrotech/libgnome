@@ -67,7 +67,6 @@ libgnome_src = \
 	gnome-fileconvert.c	\
 	gnome-i18n.c		\
 	gnome-regex.c		\
-	gnome-score.c		\
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-paper.c		\
@@ -90,7 +89,6 @@ libgnome_headers = \
 	gnome-ditem.h		\
 	gnome-exec.h		\
 	gnome-regex.h		\
-	gnome-score.h		\
 	gnome-triggers.h 	\
 	gnome-url.h		\
 	gnome-util.h   		\

@@ -1,5 +1,8 @@
 2001-06-10  Martin Baulig  <baulig@suse.de>
 
+	* gnome-scores.[ch]: Moved to libcompat. This belongs into some games library, but not
+	into libgnome.
+
 	* gnome-remote.[ch]: Don't compile this for the moment.
 	(FIXME: What should we do with this code ? Since this was only a wrapper around
 	gnome_config calls we don't really need to have this in libgnome. However, IMO it'd be
