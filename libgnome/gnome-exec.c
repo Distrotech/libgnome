@@ -55,6 +55,14 @@ char *alloca ();
 extern int errno;
 #endif
 
+static void
+set_cloexec (gint fd)
+{
+  int flags = fcntl (fd, F_GETFD, 0);
+  if (flags >= 0)
+    fcntl (fd, F_SETFD, flags | FD_CLOEXEC);
+}
+
 /**
  * gnome_execute_async_with_env_fds:
  * @dir: Directory in which child should be execd, or NULL for current
@@ -108,8 +116,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
     case 0:                 /* START PROCESS 2: child of child */
       /* pre-exec setup */
-      fcntl(comm_pipes[1], F_SETFD, FD_CLOEXEC); /* Make the FD close if
-					   executing the program succeeds */
+      set_cloexec (comm_pipes[1]);
 
       child_pid = getpid();
       write(comm_pipes[1], &child_pid, sizeof(child_pid));
@@ -125,23 +132,25 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
       memcpy(cpargv, argv, argc * sizeof(char *));
       cpargv[argc] = NULL;
 
-      if(close_fds) {
-	int stdinfd;
-	/* Close all file descriptors but stdin stdout and stderr */
-	open_max = sysconf (_SC_OPEN_MAX);
-	for (i = 3; i < open_max; i++){
-	  fcntl(i, F_SETFD, FD_CLOEXEC);
+      if(close_fds)
+	{
+	  int stdinfd;
+	  /* Close all file descriptors but stdin stdout and stderr */
+	  open_max = sysconf (_SC_OPEN_MAX);
+	  for (i = 3; i < open_max; i++)
+	    set_cloexec (i);
+
+	  close(0);
+	  /* Open stdin as being nothingness, so that if someone tries to
+	     read from this they don't hang up the whole GNOME session. BUGFIX #1548 */
+	  stdinfd = open("/dev/null", O_RDONLY);
+	  g_assert(stdinfd >= 0);
+	  if(stdinfd != 0)
+	    {
+	      dup2(stdinfd, 0);
+	      close(stdinfd);
+	    }
 	}
-	close(0);
-	/* Open stdin as being nothingness, so that if someone tries to
-	   read from this they don't hang up the whole GNOME session. BUGFIX #1548 */
-	stdinfd = open("/dev/null", O_RDONLY);
-	g_assert(stdinfd >= 0);
-	if(stdinfd != 0) {
-		dup2(stdinfd, 0);
-		close(stdinfd);
-	}
-      }
       signal (SIGPIPE, SIG_DFL);
       /* doit */
       execvp(cpargv[0], cpargv);
@@ -160,11 +169,16 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
   close(comm_pipes[1]);
 
-  if(read(comm_pipes[0], &child_pid, sizeof(child_pid)) != sizeof(child_pid))
-    return -1; /* really weird things happened */
-  if(read(comm_pipes[0], &child_errno, sizeof(child_errno))
-     == sizeof(child_errno))
-    errno = child_errno;
+  if (read (comm_pipes[0], &child_pid, sizeof(child_pid)) != sizeof(child_pid))
+    {
+      child_pid = -1; /* really weird things happened */
+    }
+  else if (read (comm_pipes[0], &child_errno, sizeof(child_errno))
+	  == sizeof(child_errno))
+    {
+      errno = child_errno;
+      child_pid = -1;
+    }
 
   /* do this after the read's in case some OS's handle blocking on pipe writes
      differently */

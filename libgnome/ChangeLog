@@ -1,3 +1,8 @@
+1999-09-19  Owen Taylor  <otaylor@redhat.com>
+
+	* gnome-exec.c (gnome_execute_async_with_env_fds): Return
+	  -1 in case of failure. Also, some code cleanups.
+
 1999-09-17  Anders Carlsson  <anders.carlsson@tordata.se>
 
 	* gnome-i18n.c (gnome_i18n_init): Set LC_CTYPE to en_US if it isn't
