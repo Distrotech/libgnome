@@ -1,4 +1,4 @@
-/* GNOME GUI Library - gnome-gconf.h
+ /* GNOME GUI Library - gnome-gconf.h
  * Copyright (C) 2000  Red Hat Inc.,
  *
  * Author: Jonathan Blandford  <jrb@redhat.com>
@@ -23,11 +23,39 @@
 
 #include <gconf/gconf-value.h>
 #include <gtk/gtkentry.h>
+#include <gtk/gtkrange.h>
+#include <gtk/gtktogglebutton.h>
+#include <gtk/gtkradiobutton.h>
+#include "gnome-color-picker.h"
+/* GTK Widgets */
+GConfValue *gnome_gconf_gtk_entry_get          (GtkEntry         *entry,
+						GConfValueType    type);
+void        gnome_gconf_gtk_entry_set          (GtkEntry         *entry,
+						GConfValue       *value);
+GConfValue *gnome_gconf_gtk_radio_button_get   (GtkRadioButton   *radio,
+						GConfValueType    type);
+void        gnome_gconf_gtk_radio_button_set   (GtkRadioButton   *radio,
+						GConfValue       *value);
+GConfValue *gnome_gconf_gtk_range_get          (GtkRange         *range,
+						GConfValueType    type);
+void        gnome_gconf_gtk_range_set          (GtkRange         *range,
+						GConfValue       *value);
+GConfValue *gnome_gconf_gtk_toggle_button_get  (GtkToggleButton  *toggle,
+						GConfValueType    type);
+void        gnome_gconf_gtk_toggle_button_set  (GtkToggleButton  *toggle,
+						GConfValue       *value);
 
-GConfValue *gnome_gconf_entry_get (GtkEntry       *entry,
-				   GConfValueType  type);
-void        gnome_gconf_entry_set (GtkEntry       *entry,
-				   GConfValue     *value);
+
+/* GNOME Widgets */
+GConfValue *gnome_gconf_gnome_color_picker_get (GnomeColorPicker *picker,
+						GConfValueType    type);
+void        gnome_gconf_gnome_color_picker_set (GnomeColorPicker *picker,
+						GConfValue       *value);
+
+
 
 
 #endif
+
+
+
