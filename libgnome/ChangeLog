@@ -1,3 +1,16 @@
+1999-08-27  Tom Tromey  <tromey@cygnus.com>
+
+	* gnome-metadata.c (database_mu): New global.
+	(init): Lock and unlock mutex.
+	(lock): Likewise.  Added `thread' argument.  Updated all callers.
+	(unlock): Likewise.
+	(TLOCK): New macro.
+	(TUNLOCK): Likewise.
+	(try_app_regexs): Likewise.
+	(app_get_by_type): Likewise.
+	(try_regexs): Likewise.  Also, increment `p' inside the loop.
+	(run_file): Enable code.
+
 Fri Aug 27 15:40:57 1999  George Lebl  <jirka@5z.com>
 
 	* gnome-dentry.[ch]: add functions for getting the i18n lists,

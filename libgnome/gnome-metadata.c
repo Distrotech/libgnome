@@ -130,6 +130,24 @@ static char *lock_directory;
 #define LIST "list"
 #define LISTLEN 4
 
+/* This mutex is used whenever we are locking the database.  This
+   includes initialization.  We use a recursive mutex because we can
+   do recursive locking ourselves.  */
+#ifdef G_THREADS_ENABLED
+static GStaticRecMutex database_mu = G_STATIC_REC_MUTEX_INIT;
+
+#define TLOCK(Mutex)  \
+  do { if (g_thread_supported ()) g_static_rec_mutex_lock (Mutex); } while (0)
+#define TUNLOCK(Mutex)  \
+  do { if (g_thread_supported ()) g_static_rec_mutex_unlock (Mutex); } while (0)
+
+#else /* G_THREADS_ENABLED */
+
+#define TLOCK(Mutex)
+#define TUNLOCK(Mutex)
+
+#endif /* G_THREADS_ENABLED */
+
 
 
 /* Initialize the database.  Returns 0 on success.  */
@@ -138,25 +156,39 @@ init (void)
 {
 	char *filename;
 
-	/* assert (! database); */
-	if (gnome_metadata_db_file_name)
-		filename = gnome_metadata_db_file_name;
-	else
-		filename = gnome_util_home_file ("metadata.db");
-	database = dbopen (filename, O_CREAT | O_RDWR, 0700, DB_HASH, NULL);
-	if (filename != gnome_metadata_db_file_name)
-		g_free (filename);
-	lock_directory = gnome_util_home_file ("metadata.lock");
+	TLOCK (&database_mu);
+
+	/* Each invocation checks `database' (for performance), but
+	   there is a race condition if we don't check again.  */
+	if (! database) {
+		if (gnome_metadata_db_file_name)
+			filename = gnome_metadata_db_file_name;
+		else
+			filename = gnome_util_home_file ("metadata.db");
+		database = dbopen (filename, O_CREAT | O_RDWR, 0700,
+				   DB_HASH, NULL);
+		if (filename != gnome_metadata_db_file_name)
+			g_free (filename);
+		lock_directory = gnome_util_home_file ("metadata.lock");
+	}
+
+	TUNLOCK (&database_mu);
 
 	return database == NULL;
 }
 
-/* Lock the database.  */
+/* Lock the database.  If THREAD is zero, then we are acquiring
+   a lock to prevent other processes from using the database.  If
+   THREAD is nonzero, then we are also locking out other threads in
+   this process.  */
 static void
-lock (void)
+lock (int thread)
 {
 	struct stat time1, time2;
 	
+	/* Note that in any case we must lock the mutex while doing
+	   other things.  */
+	TLOCK (&database_mu);
 	if (! lock_count++) {
 		int attempts;
 		
@@ -168,8 +200,9 @@ lock (void)
 		while (mkdir (lock_directory, 0)) {
 			attempts++;
 			if (errno != EEXIST) {
-				/* Don't know what to do here.  */
-				return;
+				/* Don't know what to do here.
+				   Pretend that we have the lock.  */
+				goto done;
 			}
 			/* The utter lameness of this is without
 			   question.  FIXME: at least use usleep to
@@ -187,12 +220,18 @@ lock (void)
 			}
 		}
 	}
+ done:
+	if (! thread)
+		TUNLOCK (&database_mu);
 }
 
 /* Unlock the database.  */
 static void
-unlock (void)
+unlock (int thread)
 {
+	/* We must always lock the database before doing
+	   modifications.  */
+	TLOCK (&database_mu);
 	if (! --lock_count) {
 		if (!database)
 			init ();
@@ -200,6 +239,12 @@ unlock (void)
 			database->sync (database, 0);
 		rmdir (lock_directory);
 	}
+	TUNLOCK (&database_mu);
+	/* If doing a "thread" unlock, then we release the mutex a
+	   second time, to account for the mutex acquisition in
+	   lock().  */
+	if (thread)
+		TUNLOCK (&database_mu);
 }
 
 /**
@@ -209,11 +254,13 @@ unlock (void)
  * many metadata operations to speed up metadata access.
  */
 void
-gnome_metadata_lock ()
+gnome_metadata_lock (void)
 {
 	if (! database)
 		init ();
-	lock ();
+	/* An explicit lock only locks out other processes.  The
+	   per-thread locking is internal to this module.  */
+	lock (0);
 }
 
 /**
@@ -223,9 +270,9 @@ gnome_metadata_lock ()
  * many metadata operations to speed up metadata access.
  */
 void
-gnome_metadata_unlock ()
+gnome_metadata_unlock (void)
 {
-	unlock ();
+	unlock (0);
 }
 
 /* Set a piece of metadata.  */
@@ -260,15 +307,15 @@ metadata_set (const char *space, const char *object, const char *key,
 	value.data = (void *) data;
 	value.size = size;
 
-	lock ();
+	lock (1);
 	if (database->put (database, &dkey, &value, 0)) {
-		unlock ();
+		unlock (1);
 		return GNOME_METADATA_IO_ERROR;
 	}
 
 	/* We don't have a special item for `type' entries.  */
 	if (! strcmp (space, "type")) {
-		unlock ();
+		unlock (1);
 		return 0;
 	} else if (! strcmp (space, "regex")) {
 		xobj = (char *) key;
@@ -319,7 +366,7 @@ metadata_set (const char *space, const char *object, const char *key,
 		database->put (database, &dkey, &value, 0);
 	}
 
-	unlock ();
+	unlock (1);
 	return 0;
 }
 
@@ -347,15 +394,15 @@ metadata_remove (const char *space, const char *object, const char *key)
 	dkey.data = dbkey;
 	dkey.size = key_size;
 
-	lock ();
+	lock (1);
 	if (database->del (database, &dkey, 0)) {
-		unlock ();
+		unlock (1);
 		return GNOME_METADATA_IO_ERROR;
 	}
 
 	/* We don't have a special item for `type' entries.  */
 	if (! strcmp (space, "type")) {
-		unlock ();
+		unlock (1);
 		return 0;
 	} else if (! strcmp (space, "regex")) {
 		xobj = (char *) key;
@@ -414,7 +461,7 @@ metadata_remove (const char *space, const char *object, const char *key)
 		}
 	}
 
-	unlock ();
+	unlock (1);
 	return 0;
 }
 
@@ -440,9 +487,9 @@ metadata_get_list (const char *space, const char *object, DBT *value)
 	key.data = dbkey;
 	key.size = key_size;
 
-	lock ();
+	lock (1);
 	r = database->get (database, &key, value, 0);
-	unlock ();
+	unlock (1);
 	return r ? GNOME_METADATA_IO_ERROR : 0;
 }
 
@@ -473,9 +520,9 @@ metadata_get_no_dup (const char *space, const char *object, const char *key,
 
 	/* If we fail we want *BUFFER to be NULL.  */
 	*buffer = NULL;
-	lock ();
+	lock (1);
 	r = database->get (database, &dkey, &value, 0);
-	unlock ();
+	unlock (1);
 	if (r)
 		return GNOME_METADATA_IO_ERROR;
 
@@ -580,7 +627,8 @@ add_hash_entry (GHashTable *hash, char *hashkey, char *key, char *value)
 
 /* This is called once per file in the application directory.  It
    reads the file and puts the information into the global
-   structures.  */
+   structures.  This function assumes it is called single-threaded, so
+   acquire the lock before calling.  */
 static int
 scan_app_file (const struct dirent *ent)
 {
@@ -712,7 +760,8 @@ free_hash_entry (gpointer key, gpointer value, gpointer user_data)
 }
 
 /* If the application install directory has changed, throw away our
-   current application data and rescan.  */
+   current application data and rescan.  This function assumes it is
+   called single-threaded, so acquire the lock before calling.  */
 static void
 maybe_scan_app_dir (void)
 {
@@ -765,7 +814,8 @@ static int type_desired;
 
 /* This is called for each hash table entry.  If the regular
    expression match succeeds, we search for the desired key.  If that
-   succeeds, we set SHORT_CIRCUIT to the value.  */
+   succeeds, we set SHORT_CIRCUIT to the value.  This function assumes
+   it is called single-threaded, so acquire the lock before calling.  */
 static void
 try_one_app_regex (gpointer key, gpointer value, gpointer user_data)
 {
@@ -786,15 +836,14 @@ try_one_app_regex (gpointer key, gpointer value, gpointer user_data)
 		app_rx_cache = gnome_regex_cache_new ();
 
 	rx = gnome_regex_cache_compile (app_rx_cache, rx_text, REG_EXTENDED);
-	if (! rx || regexec (rx, filename, 0, 0, 0))
-		return;
-
-	ent = (struct app_ent *) value;
-	for (list = ent->mappings; list; list = list->next) {
-		struct kv *pair = (struct kv *) list->data;
-		if (! strcmp (pair->key, desired_key)) {
-			short_circuit = pair->value;
-			return;
+	if (rx && ! regexec (rx, filename, 0, 0, 0)) {
+		ent = (struct app_ent *) value;
+		for (list = ent->mappings; list; list = list->next) {
+			struct kv *pair = (struct kv *) list->data;
+			if (! strcmp (pair->key, desired_key)) {
+				short_circuit = pair->value;
+				return;
+			}
 		}
 	}
 }
@@ -808,6 +857,10 @@ try_one_app_regex (gpointer key, gpointer value, gpointer user_data)
 static int
 try_app_regexs (const char *file, const char *key, int *size, char **buffer)
 {
+	int r;
+
+	TLOCK (&database_mu);
+
 	maybe_scan_app_dir ();
 
 	short_circuit = NULL;
@@ -818,12 +871,17 @@ try_app_regexs (const char *file, const char *key, int *size, char **buffer)
 		g_hash_table_foreach (app_rx_hash, try_one_app_regex,
 				      (gpointer) file);
 
-	if (! short_circuit)
-		return GNOME_METADATA_NOT_FOUND;
+	if (! short_circuit) {
+		r = GNOME_METADATA_NOT_FOUND;
+	} else {
+		*size = strlen (short_circuit) + 1;
+		*buffer = g_strdup (short_circuit);
+		r = 0;
+	}
 
-	*size = strlen (short_circuit) + 1;
-	*buffer = g_strdup (short_circuit);
-	return 0;
+	TUNLOCK (&database_mu);
+
+	return r;
 }
 
 /* See if there is some data associated with TYPE and KEY in the
@@ -833,26 +891,36 @@ app_get_by_type (const char *type, const char *key, int *size, char **buffer)
 {
 	struct app_ent *ent;
 	GSList *list;
+	int r = GNOME_METADATA_NOT_FOUND;
+
+	TLOCK (&database_mu);
 
 	maybe_scan_app_dir ();
 
-	if (!app_type_hash)
-		return GNOME_METADATA_NOT_FOUND;
-	
-	ent = (struct app_ent *) g_hash_table_lookup (app_type_hash, type);
-	if (! ent)
-		return GNOME_METADATA_NOT_FOUND;
-
-	for (list = ent->mappings; list != NULL; list = list->next) {
-		struct kv *pair = (struct kv *) list->data;
-		if (! strcmp (pair->key, key)) {
-			*size = strlen (pair->value) + 1;
-			*buffer = g_strdup (pair->value);
-			return 0;
+	if (!app_type_hash) {
+		r = GNOME_METADATA_NOT_FOUND;
+	} else {
+		ent = (struct app_ent *) g_hash_table_lookup (app_type_hash,
+							      type);
+		if (! ent)
+			r = GNOME_METADATA_NOT_FOUND;
+		else {
+			for (list = ent->mappings; list != NULL;
+			     list = list->next) {
+				struct kv *pair = (struct kv *) list->data;
+				if (! strcmp (pair->key, key)) {
+					*size = strlen (pair->value) + 1;
+					*buffer = g_strdup (pair->value);
+					r = 0;
+					break;
+				}
+			}
 		}
 	}
 
-	return GNOME_METADATA_NOT_FOUND;
+	TUNLOCK (&database_mu);
+
+	return r;
 }
 
 
@@ -945,27 +1013,37 @@ try_regexs (const char *file, const char *key, int *size, char **buffer)
 {
 	DBT value;
 	char *p, *end;
+	int r = GNOME_METADATA_NOT_FOUND;
+
+	/* Lock because we modify global state.  */
+	TLOCK (&database_mu);
 
 	ZERO (value);
 
 	if (metadata_get_list ("regex", key, &value))
-		return GNOME_METADATA_NOT_FOUND;
+		r = GNOME_METADATA_NOT_FOUND;
+	else {
+		if (! rxcache)
+			rxcache = gnome_regex_cache_new ();
 
-	if (! rxcache)
-		rxcache = gnome_regex_cache_new ();
-
-	p = value.data;
-	end = (char *) value.data + value.size;
-	while (p < end) {
-		regex_t *buf;
-		buf = gnome_regex_cache_compile (rxcache, p, REG_EXTENDED);
-		if (buf && ! regexec (buf, file, 0, 0, 0)) {
-			return metadata_get ("regex", p, key, size, buffer);
+		p = value.data;
+		end = (char *) value.data + value.size;
+		while (p < end) {
+			regex_t *buf;
+			buf = gnome_regex_cache_compile (rxcache, p,
+							 REG_EXTENDED);
+			if (buf && ! regexec (buf, file, 0, 0, 0)) {
+				r = metadata_get ("regex", p, key,
+						  size, buffer);
+				break;
+			}
+			p += strlen (p) + 1;
 		}
-		p += strlen (p) + 1;
 	}
 
-	return GNOME_METADATA_NOT_FOUND;
+	TUNLOCK (&database_mu);
+
+	return r;
 }
 
 /* Run the `file' command and use its output to determine the file's
@@ -973,14 +1051,10 @@ try_regexs (const char *file, const char *key, int *size, char **buffer)
 static char *
 run_file (const char *file)
 {
-#if 0
-  /* This is what the code will look like once the magic functions are
-     ready.  */
+	/* This is what the code will look like once the magic
+	   functions are ready.  */
 	const char *type = gnome_mime_type_from_magic (file);
 	return type ? g_strdup (type) : NULL;
-#else
-	return NULL;
-#endif
 }
 
 /* Do all the work for _get and _get_fast.  */
@@ -1084,9 +1158,9 @@ gnome_metadata_get (const char *file, const char *name,
 		    int *size, char **buffer)
 {
 	int r;
-	lock ();
+	lock (1);
 	r = get_worker (file, name, size, buffer, 0);
-	unlock ();
+	unlock (1);
 	return r;
 }
 
@@ -1108,9 +1182,9 @@ gnome_metadata_get_fast (const char *file, const char *name,
 			 int *size, char **buffer)
 {
 	int r;
-	lock ();
+	lock (1);
 	r = get_worker (file, name, size, buffer, 1);
-	unlock ();
+	unlock (1);
 	return r;
 }
 
@@ -1128,14 +1202,14 @@ worker (const char *from, const char *to, int op)
 	int i;
 	int ret = 0;
 
-	lock ();
+	lock (1);
 
 	/* Could use metadata_get_list here.  That would be more
 	   efficient, but perhaps messier.  */
 
 	keys = gnome_metadata_list (from);
 	if (! keys){
-		unlock ();
+		unlock (1);
 		return 0;
 	}
 
@@ -1163,7 +1237,7 @@ worker (const char *from, const char *to, int op)
 		}
 	}
 
-	unlock ();
+	unlock (1);
 
 	g_strfreev (keys);
 
