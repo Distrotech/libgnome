@@ -147,7 +147,7 @@ static const struct poptOption gnomelib_options[] = {
 static void
 gnomelib_register_options(void)
 {
-	gnomelib_register_popt_table(gnomelib_options, N_("GNOME Options"));
+	gnomelib_register_popt_table(gnomelib_options, N_("GNOME options"));
 }
 
 /**
