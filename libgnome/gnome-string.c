@@ -108,7 +108,7 @@ gnome_chomp_string(gchar *astring, gboolean in_place)
 	if (!i)
 		return retval;
 
-	*end = retval + i - 1;
+	end = retval + i - 1;
  	for (; end >= retval && isspace (*end); end--)
 		*end = '\0';
 
