@@ -23,20 +23,22 @@
 
 BEGIN_GNOME_DECLS
 
-const char *gnome_mime_get_value				(const char *mime_type, char *key);
-GList      *gnome_mime_get_keys					(const char *mime_type);
+const char *gnome_mime_get_value		(const char *mime_type,
+						 char *key);
+GList      *gnome_mime_get_keys			(const char *mime_type);
 
-const char *gnome_mime_program					(const char* mime_type);
-const char *gnome_mime_description				(const char* mime_type);
-const char *gnome_mime_nametemplate				(const char* mime_type);
-const char *gnome_mime_test						(const char* mime_type);
-const char *gnome_mime_composetyped				(const char* mime_type);
-gboolean    gnome_mime_copiousoutput			(const char* mime_type, char *key);
-gboolean    gnome_mime_needsterminal			(const char* mime_type, char *key);
+const char *gnome_mime_program			(const char* mime_type);
+const char *gnome_mime_description		(const char* mime_type);
+const char *gnome_mime_test			(const char* mime_type);
+const char *gnome_mime_composetyped		(const char* mime_type);
+gboolean    gnome_mime_copiousoutput		(const char* mime_type,
+						 char *key);
+gboolean    gnome_mime_needsterminal		(const char* mime_type,
+						 char *key);
 
-GList      *gnome_mime_program_list				(GList *mime_list);
-gchar      *gnome_mime_program_name				(const char *program_name);
-GList      *gnome_mime_program_name_list		(GList *name_list);
+GList      *gnome_mime_program_list		(GList *mime_list);
+gchar      *gnome_mime_program_name		(const char *program_name);
+GList      *gnome_mime_program_name_list	(GList *name_list);
 void        gnome_mime_program_name_list_free	(GList *name_list);
 
 END_GNOME_DECLS
