@@ -45,9 +45,9 @@ void gnome_help_display(gpointer ignore, const GnomeHelpMenuEntry *ref);
 void gnome_help_pbox_display (gpointer ignore, gint page_num,
 			      const GnomeHelpMenuEntry *ref);
 
-void gnome_help_pbox_goto (gpointer ignore, int ignore2, GnomeHelpMenuEntry *ref);
+void gnome_help_pbox_goto (gpointer ignore, int ignore2, const GnomeHelpMenuEntry *ref);
 
-void gnome_help_goto(gpointer ignore, gchar *file);
+void gnome_help_goto(gpointer ignore, const gchar *file);
 
 END_GNOME_DECLS
 
