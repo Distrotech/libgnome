@@ -16,3 +16,5 @@
 #undef HAVE_SETFSGID
 #undef HAVE_SYS_FSUID_H
 #undef HAVE_ALLOCA_H
+#undef GETTEXT_PACKAGE
+

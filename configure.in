@@ -1,7 +1,7 @@
 AC_INIT(libgnome)
 
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(libgnome2, 1.104.0)
+AM_INIT_AUTOMAKE(libgnome, 1.104.0)
 
 AM_MAINTAINER_MODE
 
@@ -9,7 +9,7 @@ dnl
 dnl Due to the sed scripts being split on 90 line
 dnl blocks, this macro needs to be right at the beggining.
 dnl
-AM_PROG_XML_I18N_TOOLS
+AC_PROG_INTLTOOL
 
 GNOME_PLUGIN_SERIAL=3
 AC_DEFINE_UNQUOTED(GNOME_PLUGIN_SERIAL, $GNOME_PLUGIN_SERIAL, [Serial number, incremented each time we do a binary incompatible change])
@@ -27,8 +27,12 @@ AC_PATH_PROGS(PATH_TO_XRDB, "xrdb")
 AC_CHECK_FUNCS([setenv unsetenv clearenv setfsgid])
 AC_CHECK_HEADERS(sys/fsuid.h)
 
+GETTEXT_PACKAGE=libgnome-2.0
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE")
+
 ALL_LINGUAS="az es fr it nn no ru sk sv ta tr wa zh_TW"
-AM_GNOME2_GETTEXT
+AM_GLIB_GNU_GETTEXT
 gnomelocaledir='${prefix}/${DATADIRNAME}/locale'
 AC_SUBST(gnomelocaledir)
 

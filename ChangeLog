@@ -1,3 +1,12 @@
+2001-10-29  jacob berkman  <jacob@ximian.com>
+
+	* Makefile.am (EXTRA_DIST): add intltool stuff
+
+	* configure.in: drop the 2 from the package name, use intltool,
+	define GETTEXT_PACKAGE, use and AM_GLIB_GNU_GETTEXT
+
+	* acconfig.h: add GETTEXT_PACKAGE
+
 2001-10-24  jacob berkman  <jacob@ximian.com>
 
 	* configure.in: don't fail if esound / audiofile aren't found (and

@@ -346,11 +346,11 @@ libgnome_post_args_parse (GnomeProgram *program,
 
 	setlocale (LC_ALL, "");
 	/* XXX todo - handle multiple installation dirs */
-	bindtextdomain (PACKAGE, LIBGNOME_LOCALEDIR);
+	bindtextdomain (GETTEXT_PACKAGE, LIBGNOME_LOCALEDIR);
 }
 
 static struct poptOption gnomelib_options [] = {
-	{ NULL, '\0', POPT_ARG_INTL_DOMAIN, PACKAGE, 0, NULL, NULL},
+	{ NULL, '\0', POPT_ARG_INTL_DOMAIN, GETTEXT_PACKAGE, 0, NULL, NULL},
 
 	{ NULL, '\0', POPT_ARG_CALLBACK, (void *) libgnome_option_cb, 0, NULL, NULL},
 
