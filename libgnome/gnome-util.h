@@ -73,6 +73,14 @@ char ** g_copy_vector    (const char ** vec);
 /* Find the name of the user's shell.  */
 char *gnome_util_user_shell (void);
 
+/* Portable versions of setenv/unsetenv */
+
+/* Note: setenv will leak on some systems (those without setenv) so
+ * do NOT use inside a loop.  Semantics are the same as those in glibc */
+int	gnome_setenv (const char *name, const char *value, gboolean overwrite);
+void	gnome_unsetenv (const char *name);
+void	gnome_clearenv (void);
+
 G_END_DECLS
 
 #endif

@@ -191,20 +191,112 @@ g_copy_vector (const char **vec)
 char *
 gnome_is_program_in_path (const gchar *program)
 {
-	static gchar **paths = NULL;
+	gchar **paths = NULL;
 	gchar **p;
 	gchar *f;
 	
-	if (!paths)
-	  paths = g_strsplit(g_getenv("PATH"), ":", -1);
+	paths = g_strsplit (g_getenv ("PATH"), ":", -1);
 
-	p = paths;
-	while (*p){
-		f = g_strconcat (*p,"/",program, NULL);
-		if (g_file_test (f, G_FILE_TEST_EXISTS))
+	for (p = paths; *p != NULL; p++) {
+		f = g_strconcat (*p,"/", program, NULL);
+		if (access (f, X_OK) == 0) {
+			g_strfreev (paths);
 			return f;
+		}
 		g_free (f);
-		p++;
 	}
-	return 0;
+
+	g_strfreev (paths);
+	return NULL;
+}
+
+/**
+ * gnome_setenv:
+ * 
+ * Description: Adds "@name=@value" to the environment
+ * Note that on systems without setenv, this leaks memory
+ * so please do not use inside a loop or anything like that.
+ * semantics are the same as the glibc setenv.  The @overwrite
+ * flag says that existing @name in the environment should be
+ * overwritten.
+ *
+ * Returns: 0 on success -1 on error
+ * 
+ **/
+int
+gnome_setenv (const char *name, const char *value, gboolean overwrite)
+{
+#if defined (HAVE_SETENV)
+	return setenv (name, value, overwrite);
+#else
+	char *string;
+	
+	if (! overwrite && g_getenv (name) != NULL) {
+		return 0;
+	}
+	
+	/* This results in a leak when you overwrite existing
+	 * settings. It would be fairly easy to fix this by keeping
+	 * our own parallel array or hash table.
+	 */
+	string = g_strconcat (name, "=", value, NULL);
+	return putenv (string);
+#endif
+}
+
+/**
+ * gnome_unsetenv:
+ * @name: 
+ * 
+ * Description: Removes @name from the environment.
+ * In case there is no native implementation of unsetenv,
+ * this could cause leaks depending on the implementation of
+ * enviroment.
+ * 
+ **/
+void
+gnome_unsetenv (const char *name)
+{
+#if defined (HAVE_SETENV)
+	unsetenv (name);
+#else
+	extern char **environ;
+	int i, len;
+
+	len = strlen (name);
+	
+	/* Mess directly with the environ array.
+	 * This seems to be the only portable way to do this.
+	 */
+	for (i = 0; environ[i] != NULL; i++) {
+		if (strncmp (environ[i], name, len) == 0
+		    && environ[i][len + 1] == '=') {
+			break;
+		}
+	}
+	while (environ[i] != NULL) {
+		environ[i] = environ[i + 1];
+		i++;
+	}
+#endif
+}
+
+/**
+ * gnome_clearenv:
+ * 
+ * Description: Clears out the environment completely.
+ * In case there is no native implementation of clearenv,
+ * this could cause leaks depending on the implementation
+ * of enviroment.
+ * 
+ **/
+void
+gnome_clearenv (void)
+{
+#ifdef HAVE_CLEARENV
+	clearenv ();
+#else
+	extern char **environ;
+	environ[0] = NULL;
+#endif
 }

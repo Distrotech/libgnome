@@ -1,3 +1,20 @@
+Fri Aug 24 09:59:14 2001  George Lebl <jirka@5z.com>
+
+	* acconfig.h, configure.in, libgnome/gnome-utils.[ch]:  Add portable
+	  setenv, unsetenv, clearenv implementations since they still didn't
+	  get into glib.  If they get there these can be easily replaced
+	  by macros or just punted.  They are simple yet very useful to
+	  have to write portable code
+
+	* libgnome/gnome-utils.c:  make gnome_is_program_in_path use 'access'
+	  with X_OK to check only for actually executable files and it also
+	  regets the PATH every time so that it follows the current PATH
+	  setting.  Note that this cannot possibly be the bottleneck in this
+	  function and the "access" is.
+
+	* configure.in: get rid of this elitist evil CERTIFIED_GNOMIE
+	  bullshit
+
 2001-08-14  Michael Meeks  <michael@ximian.com>
 
 	* configure.in: add a bonobo-config dependency.
