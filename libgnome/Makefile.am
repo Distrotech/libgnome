@@ -33,8 +33,10 @@ libgnome_la_SOURCES = \
 	gnome-parse.c		\
 	gnome-score.c		\
 	gnome-string.c		\
-	gnome-triggers.c
-
+	gnome-triggers.c	\
+	lib_date.c		\
+	lib_date.h		\
+	lib_defs.h
 
 libgnomeinclude_HEADERS = \
         gnome-config.h 		\
@@ -54,6 +56,7 @@ libgnomeinclude_HEADERS = \
 	gnome-string.h		\
 	libgnome.h
 
+EXTRA_DIST = lib_date.README
 
 libgnome_la_LDFLAGS = -version-info 0:0:0 -rpath $(libdir)
 libgnome_la_LIBADD = -lglib -lm $(DL_LIB)

@@ -1,0 +1,117 @@
+                    ======================================
+                        Library "lib_date" Version 3.2
+                    ======================================
+
+
+            Copyright (c) 1995, 1996, 1997, 1998 by Steffen Beyer.
+                             All rights reserved.
+
+
+Legal issues:
+-------------
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+Library General Public License for more details.
+
+You should have received a copy of the GNU Library General Public
+License along with this library (see the file "LICENSE" in this
+distribution); if not, write to the Free Software Foundation,
+Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+
+
+Prerequisites:
+--------------
+
+An "ANSI C" compiler.
+
+
+Installation:
+-------------
+
+Use a command similar to "gcc -ansi -o lib_date lib_date.c"
+to compile this library.
+
+Then link your application with the resulting library file
+("lib_date.o").
+
+
+Documentation:
+--------------
+
+See the file
+
+    http://www.engelschall.com/u/sb/download/pkg/DateCalc-3.2.tar.gz
+or
+    http://www.perl.com/CPAN/authors/id/STBEY/DateCalc-3.2.tar.gz
+
+for a more complete documentation.
+
+
+Original distribution:
+----------------------
+
+The original distribution file can be found at
+
+    http://www.engelschall.com/u/sb/download/pkg/lib_date_3.2.tar.gz
+
+
+What does it do:
+----------------
+
+This package constitutes a C library which offers a wide variety of date
+calculations based on the Gregorian calendar (the one used in all western
+countries today), complying with the ISO/R 2015-1971 and DIN 1355 standards
+which specify things as what leap years are, when they occur, how the week
+numbers are defined, what's the first day of the week, how many weeks (52
+or 53) a given year has, and so on.
+
+(See http://www.engelschall.com/u/sb/download/Date-DateCalc/DIN1355/ for
+a scan of the relevant document - in german only, however!)
+
+Although the Gregorian calendar was only adopted 1582 by most (not all)
+European countries (some countries continued to use the Julian calendar
+until as late as the beginning of the 20th century!), this package allows
+you to extrapolate the Gregorian calendar back until the year 1.
+
+BEWARE that due to this, whenever you input "98" instead of "1998" for a
+year number, for instance, you'll probably get a different result than what
+you might expect - the "Year 2000" problem is not so much a software problem
+as rather a problem of bad thinking habits and wrong use of software - the
+fact that the software is "Year 2000 Compliant" won't protect you from such
+an error!
+
+This module is not intended to be the most comfortable approach to every
+date calculation problem there is, but instead it's meant to be a *minimal*
+and *complete* (in the sense of computation theory) set of tools to solve
+any date calculation problem you might ever encounter.
+
+Therefore, the interfaces of these routines are designed for a maximum of
+flexibility and a minimum of overhead. Just like the UNIX commands "cat",
+"grep" and so on which do very simple tasks but can do many useful jobs
+when combined in a clever way, the routines in this package are intended
+to be *elementary*, i.e., indivisible basic functions.
+
+
+Contact author:
+---------------
+
+If you have any questions, suggestions or need any assistance, please
+let me know!
+
+Send e-mail to <sb@sdm.de> or write to Steffen Beyer, Ainmillerstr. 5,
+App. 513, D-80801 Muenchen, Germany.
+
+I hope you will find this library beneficial!
+
+Regards,
+--
+    Steffen Beyer <sb@sdm.de> http://www.engelschall.com/u/sb/
+     "There is enough for the need of everyone in this world,
+      but not for the greed of everyone." - Mahatma Gandhi
