@@ -73,6 +73,7 @@ typedef struct TSecHeader {
 
 typedef struct TProfile {
 	char *filename;
+	time_t last_checked;
 	time_t mtime;
 	int written_to;
 	int to_be_deleted;
@@ -116,13 +117,18 @@ is_loaded (const char *filename, TSecHeader **section)
 	TProfile *lastp = NULL;
 	struct stat st;
 	
-	/*if the last one we accessed was this one we don't want to
-	  search*/
-	if(Current && strcasecmp (filename, Current->filename) == 0){
-		if (stat (filename, &st) == -1)
-			st.st_mtime = 0;
-		if (Current->mtime != st.st_mtime)
-			return 0;
+	/*
+	 * if the last one we accessed was this one we don't want to
+	 * search
+	 */
+	if (Current && strcasecmp (filename, Current->filename) == 0){
+		if (Current->last_checked != time (NULL)){
+			if (stat (filename, &st) == -1)
+				st.st_mtime = 0;
+			Current->last_checked = time (NULL);
+			if (Current->mtime != st.st_mtime)
+				return 0;
+		}
 		*section = Current->section;
 		return 1;
 	}
@@ -139,10 +145,13 @@ is_loaded (const char *filename, TSecHeader **section)
 			g_free(p);
 			p = next;
 		} else if (strcasecmp (filename, p->filename) == 0){
-			if (stat (filename, &st) == -1)
-				st.st_mtime = 0;
-			if (p->mtime != st.st_mtime)
-				return 0;
+			if (p->last_checked != time (NULL)){
+				if (stat (filename, &st) == -1)
+					st.st_mtime = 0;
+				p->last_checked = time (NULL);
+				if (p->mtime != st.st_mtime)
+					return 0;
+			}
 			Current = p;
 			*section = p->section;
 			return 1;
@@ -351,7 +360,9 @@ access_config (access_type mode, const char *section_name,
 		*def_used = FALSE;
 	if (!is_loaded (filename, &section)){
 		struct stat st;
-		if (stat (filename, &st) == -1) st.st_mtime = 0;
+		
+		if (stat (filename, &st) == -1)
+			st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
@@ -360,6 +371,7 @@ access_config (access_type mode, const char *section_name,
 		New->mtime = st.st_mtime;
 		New->written_to = FALSE;
 		New->to_be_deleted = FALSE;
+		New->last_checked = time (NULL);
 		Base = New;
 		section = New->section;
 		Current = New;
@@ -794,13 +806,17 @@ _gnome_config_init_iterator (const char *path, gint priv)
 	
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
-		if (stat (pp->file, &st) == -1) st.st_mtime = 0;
+		
+		if (stat (pp->file, &st) == -1){
+			st.st_mtime = 0;
+		}
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
 		New->filename = g_strdup (pp->file);
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
+		New->last_checked = time (NULL);
 		New->written_to = FALSE;
 		New->to_be_deleted = FALSE;
 		Base = New;
@@ -859,13 +875,16 @@ _gnome_config_init_iterator_sections (const char *path, gint priv)
 	
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
-		if (stat (pp->file, &st) == -1) st.st_mtime = 0;
+		
+		if (stat (pp->file, &st) == -1)
+			st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
 		New->filename = g_strdup (pp->file);
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
+		New->last_checked = time (NULL);
 		New->written_to = FALSE;
 		New->to_be_deleted = FALSE;
 		Base = New;
@@ -968,13 +987,16 @@ _gnome_config_clean_section (const char *path, gint priv)
 	
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
-		if (stat (pp->file, &st) == -1) st.st_mtime = 0;
+
+		if (stat (pp->file, &st) == -1)
+			st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
 		New->filename = g_strdup (pp->file);
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
+		New->last_checked = time (NULL);
 		New->written_to = FALSE;
 		New->to_be_deleted = FALSE;
 		Base = New;
@@ -1023,7 +1045,9 @@ _gnome_config_clean_key (const char *path, gint priv)
 	
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
-		if (stat (pp->file, &st) == -1) st.st_mtime = 0;
+		
+		if (stat (pp->file, &st) == -1)
+			st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
@@ -1031,6 +1055,7 @@ _gnome_config_clean_key (const char *path, gint priv)
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
 		New->written_to = FALSE;
+		New->last_checked = time (NULL);
 		New->to_be_deleted = FALSE;
 		Base = New;
 		section = New->section;
@@ -1082,7 +1107,9 @@ _gnome_config_has_section (const char *path, gint priv)
 	
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
-		if (stat (pp->file, &st) == -1) st.st_mtime = 0;
+		
+		if (stat (pp->file, &st) == -1)
+			st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
 		New->link = Base;
@@ -1090,6 +1117,7 @@ _gnome_config_has_section (const char *path, gint priv)
 		New->section = load (pp->file);
 		New->mtime = st.st_mtime;
 		New->written_to = FALSE;
+		New->last_checked = time (NULL);
 		New->to_be_deleted = FALSE;
 		Base = New;
 		section = New->section;
