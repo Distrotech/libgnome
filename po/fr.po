@@ -6,9 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.3.0\n"
-"POT-Creation-Date: 2003-07-04 10:50+0200\n"
-"PO-Revision-Date: 2003-05-04 18:51+0200\n"
+"Project-Id-Version: libgnome 2.3.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-07-06 12:46+0200\n"
+"PO-Revision-Date: 2003-07-06 12:05+0200\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -367,7 +368,7 @@ msgstr "Code d'erreur inconnu : %d"
 #: libgnome/gnome-open.c:35
 #, c-format
 msgid "Error showing url: %s\n"
-msgstr ""
+msgstr "Erreur à l'affichage de l'URL : %s\n"
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -448,10 +449,12 @@ msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
 msgstr ""
+"Liste des applications d'aides techniques à démarrer lorsque vous vous "
+"connectez au bureau GNOME"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
-msgstr ""
+msgstr "Démarrage des applications d'aides techniques"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -727,7 +730,6 @@ msgid "Toolbar Style"
 msgstr "Style de barre d'outils"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-#, fuzzy
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
 "\"text\""
@@ -773,7 +775,6 @@ msgid "Whether the user can detach toolbars and move them around"
 msgstr "Si l'utilisateur peut détacher les barres d'outils et les déplacer"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:34
-#, fuzzy
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -799,7 +800,6 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Nom de fichier du bip de clavier personnalisé"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-#, fuzzy
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "les valeurs possibles sont « on », « off », et « custom »."
 
@@ -824,7 +824,6 @@ msgid "Cursor theme"
 msgstr "Thème du curseur"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later. This value is only propagated to the X server at the "
@@ -832,10 +831,10 @@ msgid ""
 "the next time you log in."
 msgstr ""
 "Nom du thème du curseur. Utilisé uniquement par les serveurs X qui "
-"supportent l'extension Xcursor (XFree86 >= 4.3 par exemple). Cette valeur "
-"est transmise au serveur X lors du début de chaque session, donc toute "
-"modification de cette valeur ne prendra effet que la prochaine fois que vous "
-"débutez une session."
+"supportent l'extension Xcursor tel que XFree86 4.3 et ultérieur. Cette "
+"valeur est transmise au serveur X lors du début de chaque session, donc "
+"toute modification de cette valeur ne prendra effet que la prochaine fois "
+"que vous vous connecterez"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -859,16 +858,15 @@ msgid "Drag Threshold"
 msgstr "Seuil du glisser"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-#, fuzzy
 msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Nom de la police du curseur. Si non défini, la police par défaut sera "
-"utilisé. Cette valeur n'est propagé qu'au serveur X au démarrage de chaque "
-"session, aussi, changer cette valeur en cours de session n'au ra aucun effet "
-"tant que vous vous ne serez pas reconnecter."
+"utilisée. Cette valeur n'est propagée au serveur X qu'au démarrage de chaque "
+"session, aussi, modifier cette valeur en cours de session n'aura aucun effet "
+"tant que vous ne serez pas reconnecter."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -934,45 +932,47 @@ msgstr "Si il faut jouer des sons sur les événements utilisateur"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
-msgstr ""
+msgstr "Désactiver tous les programme de vignetage externe"
 
 #: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
+"Définir à vrai pour désactiver tous les programmes de vignetage externe, "
+"qu'ils soient indépendemment activé ou désactivé."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
-msgstr ""
+msgstr "Autoriser le report des pauses"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:2
 msgid "Break time"
-msgstr ""
+msgstr "Durée de la pause"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:3
 msgid "Number of minutes of typing time before break mode starts."
-msgstr ""
+msgstr "Nombre de minutes de saisie avant que la pause commence."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:4
 msgid "Number of minutes that the typing break should last."
-msgstr ""
+msgstr "Nombre de minutes avant que la pause se termine."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:5
 msgid "Type time"
-msgstr ""
+msgstr "Durée de saisie"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
-msgstr ""
+msgstr "Indique si le verrouillage du clavier est activé ou non"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr ""
+msgstr "Indique si le verrouillage du clavier est activé ou non."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr ""
+msgstr "Indique si l'écran de pause peut être reporté ou non."
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle ghelp URLs"
