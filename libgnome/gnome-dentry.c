@@ -530,10 +530,18 @@ gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc, cha
 			gnome_config_get_vector ("/Gnome/Applications/Terminal",
 						 &term_argc, &term_argv);
 			if (term_argv == NULL) {
+				char *check;
+				check = gnome_is_program_in_path("gnome-terminal");
 				term_argc = 2;
-				term_argv = xterm_argv;
-				xterm_argv[0] = "xterm";
-				xterm_argv[1] = "-e";
+				if(!check) {
+					term_argv = xterm_argv;
+					xterm_argv[0] = "xterm";
+					xterm_argv[1] = "-e";
+				} else {
+					term_argv = g_new0(char *,3);
+					term_argv[0] = check;
+					term_argv[1] = g_strdup("-x");
+				}
 			}
 		}
 		
