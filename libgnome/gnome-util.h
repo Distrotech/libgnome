@@ -17,7 +17,7 @@ BEGIN_GNOME_DECLS
 
 /* Returns the full path to a file in the specified "domain", possibly returning NULL if 'only_if_exists' is TRUE and
    the file is not found. Also see LIBGNOME_PARAM_FILE_LOCATOR and GnomeFileLocatorFunc in gnomelib-init.h */
-char *gnome_file_locate (const char *domain, const char *filename, gboolean only_if_exists);
+char *gnome_file_locate (const char *domain, const char *filename, gboolean only_if_exists, GSList **ret_locations);
 
 extern const char gnome_file_domain_libdir[];
 extern const char gnome_file_domain_datadir[];
@@ -26,19 +26,19 @@ extern const char gnome_file_domain_pixmap[];
 extern const char gnome_file_domain_config[];
 extern const char gnome_file_domain_help[];
 
-#define gnome_libdir_file(filename) gnome_file_locate(gnome_file_domain_libdir, (filename), TRUE)
-#define gnome_datadir_file(filename) gnome_file_locate(gnome_file_domain_datadir, (filename), TRUE)
-#define gnome_sound_file(filename) gnome_file_locate(gnome_file_domain_sound, (filename), TRUE)
-#define gnome_pixmap_file(filename) gnome_file_locate(gnome_file_domain_pixmap, (filename), TRUE)
-#define gnome_config_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), TRUE)
-#define gnome_help_file(filename) gnome_file_locate(gnome_file_domain_help, (filename), TRUE)
-#define gnome_app_help_file(filename) gnome_file_locate(gnome_file_domain_help, (filename), TRUE)
-#define gnome_unconditional_libdir_file(filename) gnome_file_locate(gnome_file_domain_libdir, (filename), FALSE)
-#define gnome_unconditional_datadir_file(filename) gnome_file_locate(gnome_file_domain_datadir, (filename), FALSE)
-#define gnome_unconditional_sound_file(filename) gnome_file_locate(gnome_file_domain_sound, (filename), FALSE)
-#define gnome_unconditional_pixmap_file(filename) gnome_file_locate(gnome_file_domain_pixmap, (filename), FALSE)
-#define gnome_unconditional_config_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), FALSE)
-#define gnome_unconditional_help_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), FALSE)
+#define gnome_libdir_file(filename) gnome_file_locate(gnome_file_domain_libdir, (filename), TRUE, NULL)
+#define gnome_datadir_file(filename) gnome_file_locate(gnome_file_domain_datadir, (filename), TRUE, NULL)
+#define gnome_sound_file(filename) gnome_file_locate(gnome_file_domain_sound, (filename), TRUE, NULL)
+#define gnome_pixmap_file(filename) gnome_file_locate(gnome_file_domain_pixmap, (filename), TRUE, NULL)
+#define gnome_config_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), TRUE, NULL)
+#define gnome_help_file(filename) gnome_file_locate(gnome_file_domain_help, (filename), TRUE, NULL)
+#define gnome_app_help_file(filename) gnome_file_locate(gnome_file_domain_help, (filename), TRUE, NULL)
+#define gnome_unconditional_libdir_file(filename) gnome_file_locate(gnome_file_domain_libdir, (filename), FALSE, NULL)
+#define gnome_unconditional_datadir_file(filename) gnome_file_locate(gnome_file_domain_datadir, (filename), FALSE, NULL)
+#define gnome_unconditional_sound_file(filename) gnome_file_locate(gnome_file_domain_sound, (filename), FALSE, NULL)
+#define gnome_unconditional_pixmap_file(filename) gnome_file_locate(gnome_file_domain_pixmap, (filename), FALSE, NULL)
+#define gnome_unconditional_config_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), FALSE, NULL)
+#define gnome_unconditional_help_file(filename) gnome_file_locate(gnome_file_domain_config, (filename), FALSE, NULL)
 
 enum {
 	G_FILE_TEST_ISFILE=1<<0,

@@ -42,24 +42,36 @@ const char gnome_file_domain_app_help[]="help";
  * @domain: A 
  * @filename: A file name or path inside the 'domain' to find.
  * @only_if_exists: Only return a full pathname if the specified file actually exists
+ * @ret_locations: If this is not NULL, a list of all the possible locations of the file will be returned.
  *
  * This function finds the full path to a file located in the specified "domain". A domain
  * is a name for a collection of related files. For example, common domains are "libdir", "pixmap",
  * and "config".
  *
- * Returns: The full path to the file, if it exists or only_if_exists is FALSE, or 
+ * The ret_locations list and its contents should be freed by the caller.
+ *
+ * Returns: The full path to the file (if it exists or only_if_exists is FALSE) or NULL.
  */
 char *
-gnome_file_locate (const char *domain, const char *filename, gboolean only_if_exists)
+gnome_file_locate (const char *domain, const char *filename, gboolean only_if_exists, GSList **ret_locations)
 {
-  char *retval = NULL, *dir = NULL, *prefix_rel = NULL, *envvar, *attr_name, *attr_rel;
+  char *retval = NULL, *lastval, *dir = NULL, *prefix_rel = NULL, *envvar, *attr_name, *attr_rel;
   char fnbuf[PATH_MAX];
 
   g_return_val_if_fail(domain, NULL);
   g_return_val_if_fail(filename, NULL);
 
+#define ADD_FILENAME(x) { \
+lastval = (x); \
+if(lastval) { if(ret_locations) *ret_locations = g_slist_append(*ret_locations, lastval); \
+if(!retval) retval = lastval; } \
+}
+
   if(filename[0] == '/')
-    return g_strdup(filename);
+    {
+      ADD_FILENAME(g_strdup(filename));
+      return retval;
+    }
 
   /* First, check our hardcoded defaults */
   switch(domain[0])
@@ -119,9 +131,9 @@ gnome_file_locate (const char *domain, const char *filename, gboolean only_if_ex
       g_snprintf(fnbuf, sizeof(fnbuf), "%s/%s", dir, filename);
 
       if (!only_if_exists || g_file_exists (fnbuf))
-	retval = g_strdup(fnbuf);
+	ADD_FILENAME(g_strdup(fnbuf));
     }
-  if (retval)
+  if (retval && !ret_locations)
     goto out;
 
   /* Now try $GNOMEDIR */
@@ -142,7 +154,7 @@ gnome_file_locate (const char *domain, const char *filename, gboolean only_if_ex
 
       g_strfreev(dirs);
     }
-  if (retval)
+  if (retval && !ret_locations)
     goto out;
 
   {
@@ -152,10 +164,10 @@ gnome_file_locate (const char *domain, const char *filename, gboolean only_if_ex
 
     if (lfunc)
       {
-	retval = lfunc(domain, filename, only_if_exists);
+	ADD_FILENAME(lfunc(domain, filename, only_if_exists));
       }
   }
-  if (retval)
+  if (retval && !ret_locations)
     goto out;
 
   if (prefix_rel) {
@@ -178,7 +190,7 @@ gnome_file_locate (const char *domain, const char *filename, gboolean only_if_ex
       }
 
     if (!only_if_exists || g_file_exists (fnbuf))
-      retval = g_strdup(fnbuf);
+      ADD_FILENAME(g_strdup(fnbuf));
   }
 
  out:
