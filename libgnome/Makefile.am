@@ -56,6 +56,7 @@ libgnome_src = \
 	libgnometypebuiltins.c	\
 	gnome-program.c		\
 	gnome-selector.c	\
+	gnome-file-selector.c	\
 	gnome-config.c		\
 	gnome-ditem.c		\
 	gnome-exec.c		\
@@ -96,6 +97,7 @@ libgnome_headers = \
 	gnome-preferences.h	\
 	gnome-marshal.h		\
 	gnome-selector.h	\
+	gnome-file-selector.h	\
 	libgnome-init.h		\
 	libgnome.h
 

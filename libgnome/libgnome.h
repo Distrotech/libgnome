@@ -46,6 +46,7 @@
 
 #include <libgnome/Gnome.h>
 #include <libgnome/gnome-selector.h>
+#include <libgnome/gnome-file-selector.h>
 
 #include <libgnome/libgnome-init.h>
 

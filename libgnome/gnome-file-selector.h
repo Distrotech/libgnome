@@ -33,9 +33,7 @@
 #define GNOME_FILE_SELECTOR_H
 
 
-#include <gtk/gtkvbox.h>
-
-#include "gnome-entry.h"
+#include <libgnome/gnome-selector.h>
 
 #include <libgnomevfs/gnome-vfs-types.h>
 #include <libgnomevfs/gnome-vfs-directory-filter.h>
@@ -45,11 +43,10 @@ G_BEGIN_DECLS
 
 
 #define GNOME_TYPE_FILE_SELECTOR            (gnome_file_selector_get_type ())
-#define GNOME_FILE_SELECTOR(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_FILE_SELECTOR, GnomeFileSelector))
-#define GNOME_FILE_SELECTOR_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_FILE_SELECTOR, GnomeFileSelectorClass))
-#define GNOME_IS_FILE_SELECTOR(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_FILE_SELECTOR))
-#define GNOME_IS_FILE_SELECTOR_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_FILE_SELECTOR))
-#define GNOME_FILE_SELECTOR_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_FILE_SELECTOR, GnomeFileSelectorClass))
+#define GNOME_FILE_SELECTOR(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_FILE_SELECTOR, GnomeFileSelector))
+#define GNOME_FILE_SELECTOR_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_FILE_SELECTOR, GnomeFileSelectorClass))
+#define GNOME_IS_FILE_SELECTOR(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_FILE_SELECTOR))
+#define GNOME_IS_FILE_SELECTOR_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_FILE_SELECTOR))
 
 
 typedef struct _GnomeFileSelector         GnomeFileSelector;
@@ -57,21 +54,18 @@ typedef struct _GnomeFileSelectorPrivate  GnomeFileSelectorPrivate;
 typedef struct _GnomeFileSelectorClass    GnomeFileSelectorClass;
 
 struct _GnomeFileSelector {
-        GnomeEntry entry;
+    GnomeSelector selector;
         
-        /*< private >*/
-        GnomeFileSelectorPrivate *_priv;
+    /*< private >*/
+    GnomeFileSelectorPrivate *_priv;
 };
 
 struct _GnomeFileSelectorClass {
-        GnomeEntryClass parent_class;
+    GnomeSelectorClass parent_class;
 };
 
 
-guint      gnome_file_selector_get_type      (void) G_GNUC_CONST;
-
-GtkWidget *gnome_file_selector_new           (const gchar *history_id,
-                                              const gchar *dialog_title);
+GType      gnome_file_selector_get_type      (void) G_GNUC_CONST;
 
 void       gnome_file_selector_set_filter    (GnomeFileSelector *fselector,
                                               GnomeVFSDirectoryFilter *filter);

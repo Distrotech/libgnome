@@ -33,19 +33,17 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <gtk/gtkfilesel.h>
-#include <gtk/gtklist.h>
-#include <gtk/gtklistitem.h>
-#include <gtk/gtksignal.h>
-#include "gnome-macros.h"
+#include <gobject/gvaluetypes.h>
 #include <libgnome/gnome-i18n.h>
-#include "gnome-file-selector.h"
+#include <libgnome/gnome-file-selector.h>
 #include "gnome-selectorP.h"
-#include "gnome-entry.h"
 
 #include <libgnomevfs/gnome-vfs.h>
 
 #undef DEBUG_ASYNC_STUFF
+
+#define PARENT_TYPE gnome_selector_get_type()
+GnomeSelectorClass *gnome_file_selector_parent_class = NULL;
 
 typedef struct _GnomeFileSelectorAsyncData      GnomeFileSelectorAsyncData;
 typedef struct _GnomeFileSelectorSubAsyncData   GnomeFileSelectorSubAsyncData;
@@ -75,14 +73,11 @@ struct _GnomeFileSelectorSubAsyncData {
 struct _GnomeFileSelectorPrivate {
     GnomeVFSDirectoryFilter *filter;
     GnomeVFSFileInfoOptions file_info_options;
-
-    GtkWidget *browse_dialog;
 };
 
 
 static void gnome_file_selector_class_init  (GnomeFileSelectorClass *class);
 static void gnome_file_selector_init        (GnomeFileSelector      *fselector);
-static void gnome_file_selector_destroy     (GtkObject              *object);
 static void gnome_file_selector_finalize    (GObject                *object);
 
 static void      add_uri_handler                (GnomeSelector            *selector,
@@ -111,39 +106,19 @@ static void      check_directory_handler        (GnomeSelector            *selec
 
 static void      activate_entry_handler         (GnomeSelector   *selector);
 
-static void      do_construct_handler           (GnomeSelector   *selector);
-
-
-static GObject*
-gnome_file_selector_constructor (GType                  type,
-				 guint                  n_construct_properties,
-				 GObjectConstructParam *construct_properties);
-
-
-/**
- * gnome_file_selector_get_type
- *
- * Returns the type assigned to the GnomeFileSelector widget.
- **/
-/* The following defines the get_type */
-GNOME_CLASS_BOILERPLATE (GnomeFileSelector, gnome_file_selector,
-			 GnomeEntry, gnome_entry)
 
 static void
 gnome_file_selector_class_init (GnomeFileSelectorClass *class)
 {
     GnomeSelectorClass *selector_class;
-    GtkObjectClass *object_class;
-    GObjectClass *gobject_class;
+    GObjectClass *object_class;
+
+    gnome_file_selector_parent_class = g_type_class_peek_parent (class);
 
     selector_class = (GnomeSelectorClass *) class;
-    object_class = (GtkObjectClass *) class;
-    gobject_class = (GObjectClass *) class;
+    object_class = (GObjectClass *) class;
 
-    object_class->destroy = gnome_file_selector_destroy;
-    gobject_class->finalize = gnome_file_selector_finalize;
-
-    gobject_class->constructor = gnome_file_selector_constructor;
+    object_class->finalize = gnome_file_selector_finalize;
 
     selector_class->add_uri = add_uri_handler;
 
@@ -155,8 +130,6 @@ gnome_file_selector_class_init (GnomeFileSelectorClass *class)
 
     selector_class->check_filename = check_filename_handler;
     selector_class->check_directory = check_directory_handler;
-
-    selector_class->do_construct = do_construct_handler;
 }
 
 static void
@@ -171,7 +144,7 @@ free_the_async_data (gpointer data)
     fselector = async_data->fselector;
 
     /* free the async data. */
-    gtk_object_unref (GTK_OBJECT (async_data->fselector));
+    g_object_unref (G_OBJECT (async_data->fselector));
     _gnome_selector_deep_free_slist (async_data->uri_list);
     if (async_data->uri)
 	gnome_vfs_uri_unref (async_data->uri);
@@ -203,10 +176,11 @@ add_uri_async_done_cb (GnomeFileSelectorAsyncData *async_data)
 
     path = gnome_vfs_uri_to_string (async_data->uri,
 				    GNOME_VFS_URI_HIDE_NONE);
-    GNOME_CALL_PARENT_HANDLER (GNOME_SELECTOR_CLASS, add_uri,
-			       (GNOME_SELECTOR (async_data->fselector), path,
-				async_data->position, async_data->list_id,
-				async_handle));
+    if (gnome_file_selector_parent_class->add_uri)
+	gnome_file_selector_parent_class->add_uri
+	    (GNOME_SELECTOR (async_data->fselector), path,
+	     async_data->position, async_data->list_id,
+	     async_handle);
 
 #ifdef DEBUG_ASYNC_STUFF
     g_message (G_STRLOC ": %p - async reading completed (%s).",
@@ -367,7 +341,7 @@ add_uri_handler (GnomeSelector *selector, const gchar *uri, gint position,
     async_data->list_id = list_id;
 
     gnome_vfs_uri_ref (async_data->uri);
-    gtk_object_ref (GTK_OBJECT (async_data->fselector));
+    g_object_ref (G_OBJECT (async_data->fselector));
 
     fake_list.data = async_data->uri;
     fake_list.prev = NULL;
@@ -400,10 +374,11 @@ add_uri_list_async_done_cb (GnomeFileSelectorAsyncData *async_data)
 
     async_handle = async_data->async_handle;
 
-    GNOME_CALL_PARENT_HANDLER (GNOME_SELECTOR_CLASS, add_uri_list,
-			       (GNOME_SELECTOR (async_data->fselector),
-				async_data->uri_list, async_data->position,
-				async_data->list_id, async_handle));
+    if (gnome_file_selector_parent_class->add_uri_list)
+	gnome_file_selector_parent_class->add_uri_list
+	    (GNOME_SELECTOR (async_data->fselector),
+	     async_data->uri_list, async_data->position,
+	     async_data->list_id, async_handle);
 
     _gnome_selector_async_handle_remove (async_handle, async_data);
 }
@@ -456,7 +431,7 @@ add_uri_list_handler (GnomeSelector *selector, GSList *list,
     async_data->uri_list = _gnome_selector_deep_copy_slist (list);
     async_data->list_id = list_id;
 
-    gtk_object_ref (GTK_OBJECT (async_data->fselector));
+    g_object_ref (G_OBJECT (async_data->fselector));
 
     _gnome_selector_async_handle_add (async_handle, async_data,
 				      free_the_async_data);
@@ -501,10 +476,11 @@ add_directory_async_done_cb (GnomeFileSelectorAsyncData *async_data)
 
     path = gnome_vfs_uri_to_string (async_data->uri,
 				    GNOME_VFS_URI_HIDE_NONE);
-    GNOME_CALL_PARENT_HANDLER (GNOME_SELECTOR_CLASS, add_directory,
-			       (GNOME_SELECTOR (async_data->fselector), path,
-				async_data->position, async_data->list_id,
-				async_handle));
+    if (gnome_file_selector_parent_class->add_directory)
+	gnome_file_selector_parent_class->add_directory
+	    (GNOME_SELECTOR (async_data->fselector), path,
+	     async_data->position, async_data->list_id,
+	     async_handle);
 
     g_free (path);
 
@@ -636,7 +612,7 @@ add_directory_handler (GnomeSelector *selector, const gchar *uri,
     async_data->async_handle = async_handle;
 
     gnome_vfs_uri_ref (async_data->uri);
-    gtk_object_ref (GTK_OBJECT (async_data->fselector));
+    g_object_ref (G_OBJECT (async_data->fselector));
 
     _gnome_selector_async_handle_add (async_handle, async_data,
 				      free_the_async_data);
@@ -700,8 +676,8 @@ activate_entry_handler (GnomeSelector *selector)
 
     fselector = GNOME_FILE_SELECTOR (selector);
 
-    GNOME_CALL_PARENT_HANDLER (GNOME_SELECTOR_CLASS, activate_entry,
-			       (selector));
+    if (gnome_file_selector_parent_class->activate_entry)
+	gnome_file_selector_parent_class->activate_entry (selector);
 
 #ifdef FIXME
     text = gnome_selector_get_entry_text (selector);
@@ -714,44 +690,6 @@ static void
 gnome_file_selector_init (GnomeFileSelector *fselector)
 {
     fselector->_priv = g_new0 (GnomeFileSelectorPrivate, 1);
-}
-
-static void
-browse_dialog_cancel (GtkWidget *widget, gpointer data)
-{
-    GnomeFileSelector *fselector;
-    GtkFileSelection *fs;
-
-    g_assert (GNOME_IS_FILE_SELECTOR (data));
-
-    fselector = GNOME_FILE_SELECTOR (data);
-    fs = GTK_FILE_SELECTION (fselector->_priv->browse_dialog);
-
-    if (GTK_WIDGET (fs)->window)
-	gdk_window_lower (GTK_WIDGET (fs)->window);
-    gtk_widget_hide (GTK_WIDGET (fs));
-}
-
-static void
-browse_dialog_ok (GtkWidget *widget, gpointer data)
-{
-    GnomeFileSelector *fselector;
-    GtkFileSelection *fs;
-    const gchar *filename;
-
-    g_assert (GNOME_IS_FILE_SELECTOR (data));
-
-    fselector = GNOME_FILE_SELECTOR (data);
-
-    fs = GTK_FILE_SELECTION (fselector->_priv->browse_dialog);
-    filename = gtk_file_selection_get_filename (fs);
-
-    gnome_selector_set_uri (GNOME_SELECTOR (fselector), NULL, filename,
-			    NULL, NULL);
-
-    if (GTK_WIDGET (fs)->window)
-	gdk_window_lower (GTK_WIDGET (fs)->window);
-    gtk_widget_hide (GTK_WIDGET (fs));
 }
 
 static void
@@ -828,7 +766,7 @@ check_uri_handler (GnomeSelector *selector, const gchar *uri,
     async_data->uri = gnome_vfs_uri_new (uri);
 
     gnome_vfs_uri_ref (async_data->uri);
-    gtk_object_ref (GTK_OBJECT (async_data->fselector));
+    g_object_ref (G_OBJECT (async_data->fselector));
 
     fake_list.data = async_data->uri;
     fake_list.prev = NULL;
@@ -868,147 +806,6 @@ check_directory_handler (GnomeSelector *selector, const gchar *directory,
     check_uri_handler (selector, directory, GNOME_SELECTOR_ASYNC_TYPE_CHECK_DIRECTORY, async_handle);
 }
 
-static gboolean
-get_value_boolean (GnomeFileSelector *fselector, const gchar *prop_name)
-{
-    GValue value = { 0, };
-    gboolean retval;
-
-    g_value_init (&value, G_TYPE_BOOLEAN);
-    g_object_get_property (G_OBJECT (fselector), prop_name, &value);
-    retval = g_value_get_boolean (&value);
-    g_value_unset (&value);
-
-    return retval;
-}
-
-static gboolean
-has_value_widget (GnomeFileSelector *fselector, const gchar *prop_name)
-{
-	GValue value = { 0, };
-	gboolean retval;
-
-	g_value_init (&value, GTK_TYPE_WIDGET);
-	g_object_get_property (G_OBJECT (fselector), prop_name, &value);
-	retval = g_value_get_object (&value) != NULL;
-	g_value_unset (&value);
-
-	return retval;
-}
-
-static void
-do_construct_handler (GnomeSelector *selector)
-{
-    GnomeFileSelector *fselector;
-
-    g_return_if_fail (selector != NULL);
-    g_return_if_fail (GNOME_IS_FILE_SELECTOR (selector));
-
-    fselector = GNOME_FILE_SELECTOR (selector);
-
-    if (get_value_boolean (fselector, "want_default_behaviour")) {
-	g_object_set (G_OBJECT (fselector),
-		      "want_default_behaviour", FALSE,
-		      "use_default_entry_widget", TRUE,
-		      "use_default_selector_widget", TRUE,
-		      "use_default_browse_dialog", TRUE,
-		      "want_browse_button", TRUE,
-		      "want_clear_button", FALSE,
-		      "want_default_button", FALSE,
-		      NULL);
-    }
-
-    /* Create the default browser dialog if requested. */
-    if (get_value_boolean (fselector, "use_default_browse_dialog") &&
-	!has_value_widget (fselector, "browse_dialog")) {
-	GtkWidget *filesel_widget;
-	GtkFileSelection *filesel;
-	GValue value = { 0, };
-
-	g_value_init (&value, G_TYPE_STRING);
-	g_object_get_property (G_OBJECT (fselector), "dialog_title", &value);
-
-	filesel_widget = gtk_file_selection_new (g_value_get_string (&value));
-	filesel = GTK_FILE_SELECTION (filesel_widget);
-
-	g_value_unset (&value);
-
-	gtk_signal_connect (GTK_OBJECT (filesel->cancel_button),
-			    "clicked", GTK_SIGNAL_FUNC (browse_dialog_cancel),
-			    fselector);
-	gtk_signal_connect (GTK_OBJECT (filesel->ok_button),
-			    "clicked", GTK_SIGNAL_FUNC (browse_dialog_ok),
-			    fselector);
-
-	fselector->_priv->browse_dialog = GTK_WIDGET (filesel);
-
-	g_value_init (&value, GTK_TYPE_WIDGET);
-	g_value_set_object (&value, G_OBJECT (filesel));
-	g_object_set_property (G_OBJECT (fselector), "browse_dialog", &value);
-	g_value_unset (&value);
-    }
-
-    GNOME_CALL_PARENT_HANDLER (GNOME_SELECTOR_CLASS, do_construct, (selector));
-}
-
-
-static GObject*
-gnome_file_selector_constructor (GType                  type,
-				 guint                  n_construct_properties,
-				 GObjectConstructParam *construct_properties)
-{
-    GObject *object = G_OBJECT_CLASS (parent_class)->constructor (type,
-								  n_construct_properties,
-								  construct_properties);
-    GnomeFileSelector *fselector = GNOME_FILE_SELECTOR (object);
-
-    g_message (G_STRLOC ": %d - %d", type, GNOME_TYPE_FILE_SELECTOR);
-
-    if (type == GNOME_TYPE_FILE_SELECTOR)
-	gnome_selector_do_construct (GNOME_SELECTOR (fselector));
-
-    return object;
-}
-
-/**
- * gnome_file_selector_new
- * @history_id: If not %NULL, the text id under which history data is stored
- *
- * Description: Creates a new GnomeFileSelector widget.  If  @history_id
- * is not %NULL, then the history list will be saved and restored between
- * uses under the given id.
- *
- * Returns: Newly-created GnomeFileSelector widget.
- */
-GtkWidget *
-gnome_file_selector_new (const gchar *history_id,
-			 const gchar *dialog_title)
-{
-    GnomeFileSelector *fselector;
-
-    fselector = g_object_new (gnome_file_selector_get_type (),
-			      "history_id", history_id,
-			      "dialog_title", dialog_title,
-			       NULL);
-
-    return GTK_WIDGET (fselector);
-}
-
-static void
-gnome_file_selector_destroy (GtkObject *object)
-{
-    GnomeFileSelector *fselector;
-
-    /* remember, destroy can be run multiple times! */
-
-    g_return_if_fail (object != NULL);
-    g_return_if_fail (GNOME_IS_SELECTOR (object));
-
-    fselector = GNOME_FILE_SELECTOR (object);
-
-    GNOME_CALL_PARENT_HANDLER (GTK_OBJECT_CLASS, destroy, (object));
-}
-
 static void
 gnome_file_selector_finalize (GObject *object)
 {
@@ -1022,5 +819,7 @@ gnome_file_selector_finalize (GObject *object)
     g_free (fselector->_priv);
     fselector->_priv = NULL;
 
-    GNOME_CALL_PARENT_HANDLER (G_OBJECT_CLASS, finalize, (object));
+    G_OBJECT_CLASS (gnome_file_selector_parent_class)->finalize (object);
 }
+
+BONOBO_TYPE_FUNC (GnomeFileSelector, PARENT_TYPE, gnome_file_selector);
