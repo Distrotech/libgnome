@@ -98,7 +98,13 @@ void gnome_help_goto(void *ignore, gchar *file)
 #endif
 
     if (!(pid = fork())) {
-	execlp(HELP_PROG, HELP_PROG, file, NULL);
-	g_error("gnome_help_goto: exec failed: %s\n", g_strerror(errno));
+	setsid();
+	if (!(pid = fork())) {
+	    execlp(HELP_PROG, HELP_PROG, file, NULL);
+	    g_error("gnome_help_goto: exec failed: %s\n", g_strerror(errno));
+	}
+	_exit(0);
     }
+
+    waitpid(pid, NULL, 0);
 }
