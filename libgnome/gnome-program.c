@@ -1727,12 +1727,14 @@ gnome_program_initv (GType type,
 	const char *ctmp;
 	const GnomeModuleInfo *libgnome_module;
 
-	program_module_list = g_ptr_array_new ();
-	program_modules = g_ptr_array_new ();
-
-	/* keep array NULL terminated */
-	g_ptr_array_add (program_modules, NULL);
-
+	if (!program_module_list)
+	    program_module_list = g_ptr_array_new ();
+	
+	if (!program_modules) {
+	    program_modules = g_ptr_array_new ();
+	      /* keep array NULL terminated */
+	    g_ptr_array_add (program_modules, NULL);
+	}
 	/* Register the requested modules. */
 	gnome_program_module_register (module_info);
 

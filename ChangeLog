@@ -1,3 +1,11 @@
+2003-07-23  Gustavo J. A. M. Carneiro  <gustavo@users.sourceforge.net>
+
+	* libgnome/gnome-program.c (gnome_program_initv): Don't create new
+	pointer arrays for program_module_list and program_modules if such
+	arrays already exist, which may happen if
+	gnome_program_module_register() has been called directly by the
+	programmer.
+
 2003-07-10  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* NEWS: Update.
