@@ -22,37 +22,7 @@
 /* g_free already checks if x is NULL */
 #define free_if_empty(x) g_free (x)
 
-/**
- * gnome_is_program_in_path:
- * @program: a program name.
- *
- * Looks for program in the PATH, if it is found, a g_strduped
- * string with the full path name is returned.
- *
- * Returns NULL if program is not on the path or a string 
- * allocated with g_malloc with the full path name of the program
- * found
- */
-char *
-gnome_is_program_in_path (const char *program)
-{
-	static char **paths = NULL;
-	char **p;
-	char *f;
-	
-	if (!paths)
-	  paths = g_strsplit(getenv("PATH"), ":", -1);
 
-	p = paths;
-	while (*p){
-		g_strconcat3_a(f,*p,"/",program);
-		if (g_file_exists(f))
-			return g_strdup(f);
-		p++;
-	}
-	return 0;
-}
-	      
 /**
  * gnome_desktop_entry_load_flags:
  * @file: a file name that contains a desktop entry.

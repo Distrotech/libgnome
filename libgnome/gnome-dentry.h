@@ -34,8 +34,6 @@ void gnome_desktop_entry_launch_with_args (GnomeDesktopEntry *item, int the_argc
 
 GnomeDesktopEntry *gnome_desktop_entry_copy (GnomeDesktopEntry * source);
 
-char *gnome_is_program_in_path (const char *progname);
-
 END_GNOME_DECLS
 
 #endif

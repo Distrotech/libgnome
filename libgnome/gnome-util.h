@@ -2,6 +2,7 @@
 #define __GNOME_UTIL_H__
 
 #include <stdlib.h>
+#include <glib.h>
 
 BEGIN_GNOME_DECLS
 
@@ -33,6 +34,9 @@ enum {
 
 int g_file_test   (const char *filename, int test);
 int g_file_exists (const char *filename);
+
+/* locate a program in $PATH, or return NULL if not found */
+gchar *gnome_is_program_in_path (const gchar *program);
 
 /* g_copy_strings superceded by GLib's g_strconcat */
 #define g_copy_strings g_strconcat

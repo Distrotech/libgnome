@@ -516,3 +516,34 @@ g_is_image_filename (const char * path)
 
 
 
+/**
+ * gnome_is_program_in_path:
+ * @program: a program name.
+ *
+ * Looks for program in the PATH, if it is found, a g_strduped
+ * string with the full path name is returned.
+ *
+ * Returns NULL if program is not on the path or a string 
+ * allocated with g_malloc with the full path name of the program
+ * found
+ */
+gchar *
+gnome_is_program_in_path (const gchar *program)
+{
+	static gchar **paths = NULL;
+	gchar **p;
+	gchar *f;
+	
+	if (!paths)
+	  paths = g_strsplit(getenv("PATH"), ":", -1);
+
+	p = paths;
+	while (*p){
+		g_strconcat3_a(f,*p,"/",program);
+		if (g_file_exists(f))
+			return g_strdup(f);
+		p++;
+	}
+	return 0;
+}
+
