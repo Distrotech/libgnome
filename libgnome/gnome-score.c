@@ -103,7 +103,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 
    game_score_file = gnome_get_score_file_name (progname, level);
 
-   infile = fopen (game_score_file, "r");
+   infile = fopen (game_score_file, "rt");
    if (infile)
      {
        while(fgets(buf, sizeof(buf), infile))
@@ -162,7 +162,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
    
    /* we dont create the file; it must already exist */
    truncate (game_score_file, 0);
-   outfile = fopen (game_score_file, "r+");
+   outfile = fopen (game_score_file, "r+t");
    
    if (outfile)
      {
@@ -380,7 +380,7 @@ gnome_score_get_notable (gchar * gamename,
    
    infile_name = gnome_get_score_file_name (realname, level);
    
-   infile = fopen (infile_name, "r");
+   infile = fopen (infile_name, "rt");
    g_free (infile_name);
    
    if (infile)
