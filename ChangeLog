@@ -1,3 +1,9 @@
+2002-04-11  Mark McLoughlin  <mark@skynet.ie>
+
+	* libgnome/gnome-exec.c: (safe_read): impl to handle EINTR
+	and EAGAIN.
+	(gnome_execute_async_with_env_fds): use it.
+
 2002-04-11  jacob berkman  <jacob@ximian.com>
 
 	* libgnome/gnome-url.c (gnome_url_show): pass G_SPAWN_SEARCH_PATH

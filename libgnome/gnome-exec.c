@@ -55,6 +55,16 @@ set_cloexec (gint fd)
   fcntl (fd, F_SETFD, FD_CLOEXEC);
 }
 
+static ssize_t
+safe_read (int fd, void *buf, size_t count)
+{
+  ssize_t n;
+
+  while ((n = read (fd, buf, count)) < 0 && (errno == EINTR || errno == EAGAIN));
+
+  return n;
+}
+
 /**
  * gnome_execute_async_with_env_fds:
  * @dir: Directory in which child should be executed, or %NULL for current
@@ -116,7 +126,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 	char buf[16];
 	
 	close(child_comm_pipes[1]);
-	while((res = read(child_comm_pipes[0], buf, sizeof(buf))) > 0)
+	while((res = safe_read(child_comm_pipes[0], buf, sizeof(buf))) > 0)
 	  write(parent_comm_pipes[1], buf, res);
 	close(child_comm_pipes[0]);
 	_exit(0); /* END PROCESS 1: monkey in the middle dies */
@@ -182,14 +192,14 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
   close(parent_comm_pipes[1]);
 
-  res = read (parent_comm_pipes[0], &child_pid, sizeof(child_pid));
+  res = safe_read (parent_comm_pipes[0], &child_pid, sizeof(child_pid));
   if (res != sizeof(child_pid))
     {
       g_message("res is %ld instead of %d",
 		(long)res, (int)sizeof(child_pid));
       child_pid = -1; /* really weird things happened */
     }
-  else if (read (parent_comm_pipes[0], &child_errno, sizeof(child_errno))
+  else if (safe_read (parent_comm_pipes[0], &child_errno, sizeof(child_errno))
 	  == sizeof(child_errno))
     {
       errno = child_errno;
