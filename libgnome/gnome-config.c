@@ -185,12 +185,12 @@ is_loaded (const char *filename, TSecHeader **section)
 			if (stat (filename, &st) == -1)
 				st.st_mtime = 0;
 			if (Current->mtime != st.st_mtime) {
-				Current = NULL;
 				free_sections (Current->section);
 				Current->section = NULL;
 				Current->filename[0] = '\0';
 				Current->written_to = TRUE;
 				Current->to_be_deleted = FALSE;
+				Current = NULL;
 				return 0;
 			}
 			Current->last_checked = time (NULL);

@@ -1,3 +1,10 @@
+1999-03-30  Owen Taylor  <otaylor@redhat.com>
+
+	* gnome-config.c (is_loaded): Fix logic when a
+	config file is changed under us so it at least
+	doesn't segfault. Without locking I wouldn't
+	bet anything about correctness.
+
 1999-03-26  Nuno Ferreira  <nmrf@rnl.ist.utl.pt>
 
 	* gnome-dentry.c (gnome_desktop_entry_launch_with_args): free
