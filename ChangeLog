@@ -1,3 +1,11 @@
+2002-04-08  Anders Carlsson  <andersca@gnu.org>
+
+	* libgnome/gnome-url.h: #include <glib/gerror.h>.
+
+	* libgnome/gnome-macros.h: Move #include into the #ifndef so the
+	file gets to be properly guarded. Fixes #71406 reported by
+	Morten Welinder.
+
 2002-04-07  Philip Langdale  <philipl@mail.utexas.edu>
 
 	* help-converters/info/html.c: Uncommented code that generated

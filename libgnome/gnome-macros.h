@@ -25,10 +25,10 @@
   @NOTATION@
 */
 
-#include <bonobo/bonobo-macros.h>
-
 #ifndef GNOME_MACROS_H
 #define GNOME_MACROS_H
+
+#include <bonobo/bonobo-macros.h>
 
 /* Macros for defining classes.  Ideas taken from Nautilus and GOB. */
 

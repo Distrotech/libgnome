@@ -133,8 +133,6 @@ gnome_url_show (const gchar *url, GError **error)
 
 	g_object_unref (G_OBJECT (client));
 
-	/* We use a popt function as it does exactly what we want to do and
-	   gnome already uses popt */
 	if (!g_shell_parse_argv (template,
 				 &argc,
 				 &argv,
