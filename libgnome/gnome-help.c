@@ -23,7 +23,6 @@ char *alloca ();
 #endif
 
 #include <glib.h>
-#include <gtk/gtk.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
