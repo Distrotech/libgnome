@@ -26,6 +26,7 @@ INCLUDES = \
 	$(GCONF_CFLAGS)				\
 	$(LIBXML_CFLAGS)			\
 	$(GNOME_VFS_CFLAGS)			\
+	$(LIBBONOBO_CFLAGS)			\
 	-DGNOMEPREFIX=\""$(prefix)"\"		\
 	-DGNOMELIBDIR=\""$(libdir)"\"		\
 	-DGNOMEDATADIR=\""$(datadir)"\"		\
@@ -134,6 +135,7 @@ libgnome_2_la_LIBADD =		\
 	$(GCONF_LIBS)		\
 	$(LIBXML_LIBS)		\
 	$(GNOME_VFS_LIBS)	\
+	$(LIBBONOBO_LIBS)	\
 	$(GLIB_LIBS)
 
 noinst_PROGRAMS = \

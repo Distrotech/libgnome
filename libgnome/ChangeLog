@@ -1,3 +1,18 @@
+2001-04-14  Martin Baulig  <baulig@suse.de>
+
+	* gnome-program.h (GNOME_PARAM_GCONF_CLIENT): New GnomeProgram property.
+	(gnome_program_get_gconf_client): New convenience function to return the
+	GnomeProgram's GNOME_PARAM_GCONF_CLIENT property.
+
+	* gnome-program.c (gnome_program_get_property): Fixed a typo to make this
+	actually work.
+
+	* libgnome-init.c (gnome_gconf_constructor): New constructor function to
+	install the GnomeProgram's GNOME_PARAM_GCONF_CLIENT property.
+	(gnome_gconf_get_property, gnome_gconf_post_args_parse): Implement that
+	property; when creating a new GnomeProgram instance we set its
+	GNOME_PARAM_GCONF_CLIENT property to gnome_conf_client_get_default().
+
 2001-04-13  Martin Baulig  <baulig@suse.de>
 
 	* libgnome-init.c (gnome_oaf_module_info, gnome_gconf_module_info):

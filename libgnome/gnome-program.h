@@ -34,8 +34,9 @@
 #include <popt.h>
 #include <stdarg.h>
 
-#include "gnome-defs.h"
 #include <gobject/gobject.h>
+#include <libgnome/gnome-defs.h>
+#include <gconf/gconf-client.h>
 
 BEGIN_GNOME_DECLS
 
@@ -113,6 +114,7 @@ gnome_program_locate_file               (GnomeProgram    *program,
 #define GNOME_PARAM_APP_LIBDIR          "app-libdir"
 #define GNOME_PARAM_HUMAN_READABLE_NAME "human-readable-name"
 #define GNOME_PARAM_GNOME_PATH          "gnome-path"
+#define GNOME_PARAM_GCONF_CLIENT	"gconf-client"
 
 /***** application modules (aka libraries :) ******/
 #define GNOME_TYPE_MODULE_INFO          (gnome_module_info_get_type ())
@@ -171,6 +173,9 @@ gnome_program_install_property (GnomeProgramClass *pclass,
 				GObjectGetPropertyFunc get_fn,
 				GObjectSetPropertyFunc set_fn,
 				GParamSpec *pspec);
+
+GConfClient *
+gnome_program_get_gconf_client (GnomeProgram *program);
 
 /*
  * If the application writer wishes to use getopt()-style arg

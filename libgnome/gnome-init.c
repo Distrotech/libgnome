@@ -43,6 +43,7 @@ extern struct poptOption gconf_options[];
 #include <errno.h>
 
 #include <gobject/gobject.h>
+#include <gobject/gparamspecs.h>
 #include <gobject/gvaluetypes.h>
 
 #include <liboaf/liboaf.h>
@@ -81,6 +82,14 @@ GnomeModuleInfo gnome_oaf_module_info = {
 /*****************************************************************************
  * gconf
  *****************************************************************************/
+
+typedef struct {
+    guint gconf_client_id;
+} GnomeProgramClass_gnome_gconf;
+
+typedef struct {
+    GConfClient *client;
+} GnomeProgramPrivate_gnome_gconf;
 
 static gchar *
 gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
@@ -124,38 +133,107 @@ gnome_gconf_get_app_settings_relative (const gchar *subkey)
     return key;
 }
 
-static GConfClient* global_client = NULL;
+static GQuark quark_gnome_program_private_gnome_gconf = 0;
+static GQuark quark_gnome_program_class_gnome_gconf = 0;
 
-static GConfClient * G_GNUC_UNUSED
-gnome_get_gconf_client (void)
+static void
+gnome_gconf_get_property (GObject *object, guint param_id, GValue *value,
+			  GParamSpec *pspec)
 {
-    g_return_val_if_fail (global_client != NULL, NULL);
-        
-    return global_client;
+    GnomeProgramClass_gnome_gconf *cdata;
+    GnomeProgramPrivate_gnome_gconf *priv;
+    GnomeProgram *program;
+
+    g_return_if_fail (object != NULL);
+    g_return_if_fail (GNOME_IS_PROGRAM (object));
+
+    program = GNOME_PROGRAM (object);
+
+    cdata = g_type_get_qdata (G_OBJECT_TYPE (program), quark_gnome_program_class_gnome_gconf);
+    priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_gnome_gconf);
+
+    if (param_id == cdata->gconf_client_id)
+	g_value_set_object (value, (GObject *) priv->client);
+    else
+	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
+}
+
+static void
+gnome_gconf_set_property (GObject *object, guint param_id,
+			  const GValue *value, GParamSpec *pspec)
+{
+    GnomeProgramClass_gnome_gconf *cdata;
+    GnomeProgramPrivate_gnome_gconf *priv;
+    GnomeProgram *program;
+
+    g_return_if_fail (object != NULL);
+    g_return_if_fail (GNOME_IS_PROGRAM (object));
+
+    program = GNOME_PROGRAM (object);
+
+    cdata = g_type_get_qdata (G_OBJECT_TYPE (program), quark_gnome_program_class_gnome_gconf);
+    priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_gnome_gconf);
+
+    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, param_id, pspec);
+}
+
+static void
+gnome_gconf_constructor (GType type, guint n_construct_properties,
+			 GObjectConstructParam *construct_properties,
+			 const GnomeModuleInfo *mod_info)
+{
+    GnomeProgramClass_gnome_gconf *cdata = g_new0 (GnomeProgramClass_gnome_gconf, 1);
+    GnomeProgramClass *pclass;
+
+    if (!quark_gnome_program_private_gnome_gconf)
+	quark_gnome_program_private_gnome_gconf = g_quark_from_static_string
+	    ("gnome-program-private:gnome-gconf");
+
+    if (!quark_gnome_program_class_gnome_gconf)
+	quark_gnome_program_class_gnome_gconf = g_quark_from_static_string
+	    ("gnome-program-class:gnome-gconf");
+
+    pclass = GNOME_PROGRAM_CLASS (g_type_class_peek (type));
+
+    g_type_set_qdata (G_OBJECT_CLASS_TYPE (pclass), quark_gnome_program_class_gnome_gconf, cdata);
+
+    cdata->gconf_client_id = gnome_program_install_property
+	(pclass, gnome_gconf_get_property, gnome_gconf_set_property,
+	 g_param_spec_object (GNOME_PARAM_GCONF_CLIENT, NULL, NULL,
+			      GCONF_TYPE_CLIENT,
+			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
+			       G_PARAM_CONSTRUCT_ONLY)));
 }
 
 static void
 gnome_gconf_pre_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
+    GnomeProgramPrivate_gnome_gconf *priv = g_new0 (GnomeProgramPrivate_gnome_gconf, 1);
+
+    g_object_set_qdata (G_OBJECT (program), quark_gnome_program_private_gnome_gconf, priv);
+
     gconf_preinit (program, mod_info);
 }
 
 static void
 gnome_gconf_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
+    GnomeProgramPrivate_gnome_gconf *priv;
     gchar *settings_dir;
 
     gconf_postinit (program, mod_info);
 
-    global_client = gconf_client_get_default();
+    priv = g_object_get_qdata (G_OBJECT (program), quark_gnome_program_private_gnome_gconf);
 
-    gconf_client_add_dir (global_client,
+    priv->client = gconf_client_get_default ();
+
+    gconf_client_add_dir (priv->client,
 			  "/desktop/gnome",
 			  GCONF_CLIENT_PRELOAD_NONE, NULL);
 
     settings_dir = gnome_gconf_get_gnome_libs_settings_relative ("");
 
-    gconf_client_add_dir (global_client,
+    gconf_client_add_dir (priv->client,
 			  settings_dir,
 			  /* Possibly we should turn preload on for this */
 			  GCONF_CLIENT_PRELOAD_NONE,
@@ -172,7 +250,9 @@ GnomeModuleInfo gnome_gconf_module_info = {
     "gnome-gconf", VERSION, N_("GNOME GConf Support"),
     gnome_gconf_requirements,
     gnome_gconf_pre_args_parse, gnome_gconf_post_args_parse,
-    gconf_options
+    gconf_options,
+    NULL, gnome_gconf_constructor,
+    NULL, NULL
 };
 
 /*****************************************************************************

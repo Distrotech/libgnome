@@ -256,7 +256,7 @@ gnome_program_get_property (GObject *object, guint param_id, GValue *value,
     default: {
 	    GObjectSetPropertyFunc get_func;
 
-	    get_func = g_param_spec_get_qdata (pspec, quark_set_prop);
+	    get_func = g_param_spec_get_qdata (pspec, quark_get_prop);
 	    if (get_func)
 		get_func (object, param_id, value, pspec);
 	    else
@@ -744,6 +744,23 @@ gnome_program_install_property (GnomeProgramClass *pclass,
 				     last_property_id, pspec);
 
     return last_property_id++;
+}
+
+GConfClient *
+gnome_program_get_gconf_client (GnomeProgram *program)
+{
+    GValue value = { 0, };
+    GConfClient *retval = NULL;
+
+    g_return_val_if_fail (program != NULL, NULL);
+    g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
+
+    g_value_init (&value, GCONF_TYPE_CLIENT);
+    g_object_get_property (G_OBJECT (program), GNOME_PARAM_GCONF_CLIENT, &value);
+    retval = (GConfClient *) g_value_dup_object (&value);
+    g_value_unset (&value);
+
+    return retval;
 }
 
 /**
