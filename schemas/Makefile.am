@@ -1,5 +1,6 @@
 schemadir   = $(GCONF_SCHEMA_FILE_DIR)
 schema_DATA = \
+	desktop_gnome_accessibility_keyboard.schemas		\
 	desktop_gnome_applications_browser.schemas		\
 	desktop_gnome_applications_editor.schemas		\
 	desktop_gnome_applications_help_viewer.schemas		\
