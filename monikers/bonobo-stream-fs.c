@@ -305,7 +305,8 @@ bonobo_stream_create (int fd)
  * @path.  
  */
 BonoboStream *
-bonobo_stream_fs_open (const char *path, gint flags, gint mode)
+bonobo_stream_fs_open (const char *path, gint flags, gint mode,
+		       CORBA_Environment *ev)
 {
 	struct stat s;
 	int v, fd;
@@ -324,33 +325,5 @@ bonobo_stream_fs_open (const char *path, gint flags, gint mode)
  
 	if ((fd = open (path, nflags, mode)) == -1) return NULL;
 	    	
-	return bonobo_stream_create (fd);
-}
-
-/**
- * bonobo_stream_fs_create:
- * @path: The path to the file to be opened.
- *
- * Creates a new BonoboStreamFS object which is bound to the file
- * specified by @path.
- *
- * When data is read out of or written into the returned BonoboStream
- * object, the read() and write() operations are mapped to the
- * corresponding operations on the specified file.
- *
- * Returns: the constructed BonoboStream object which is bound to the specified file.
- */
-BonoboStream *
-bonobo_stream_fs_create (const CORBA_char *path)
-{
-	int fd;
-
-	g_return_val_if_fail (path != NULL, NULL);
-	
-	fd = open (path, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-	
-	if (fd == -1)
-		return NULL;
-
 	return bonobo_stream_create (fd);
 }

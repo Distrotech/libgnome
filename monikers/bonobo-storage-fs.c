@@ -57,7 +57,7 @@ fs_open_stream (BonoboStorage *storage, const CORBA_char *path,
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	stream = bonobo_stream_fs_open (full, mode, 0644);
+	stream = bonobo_stream_fs_open (full, mode, 0644, ev);
 	g_free (full);
 
 	return stream;
@@ -72,7 +72,7 @@ fs_open_storage (BonoboStorage *storage, const CORBA_char *path,
 	char *full;
 
 	full = g_concat_dir_and_file (storage_fs->path, path);
-	new_storage = bonobo_storage_fs_open (full, mode, 0644);
+	new_storage = bonobo_storage_fs_open (full, mode, 0644, ev);
 	g_free (full);
 
 	return new_storage;
@@ -212,7 +212,8 @@ do_bonobo_storage_fs_create (const char *path)
  * Returns a BonoboStorage object that represents the storage at @path
  */
 BonoboStorage *
-bonobo_storage_fs_open (const char *path, gint flags, gint mode)
+bonobo_storage_fs_open (const char *path, gint flags, gint mode,
+			CORBA_Environment *ev)
 {
 	struct stat s;
 	int v;
