@@ -231,6 +231,7 @@ main(int argc, char *argv[])
 	gchar *progname;
 	gchar *level;
 	gboolean ordering;
+	uid_t games_uid;
 
 #ifdef DEBUG
 	int i;
@@ -245,13 +246,16 @@ main(int argc, char *argv[])
 	}
 
 	setlocale(LC_ALL, "");
-	
+
+	games_uid = geteuid();
+	setuid(getuid());
 	progname = gnome_get_program_name(getppid());
 	if(progname == NULL)
 		return 0;
+	setuid(games_uid);
 
 	realfloat = atof(argv[1]);
-	ordering= atoi(argv[3]);
+	ordering = atoi(argv[3]);
 	pwent = getpwuid(getuid());
 	if(!pwent)
 		return 0;
