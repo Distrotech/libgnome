@@ -25,6 +25,9 @@
 #include <fcntl.h>
 #include <limits.h>
 #include <string.h>
+#include <unistd.h>
+#include <dirent.h>
+#include <ctype.h>
 
 #ifdef HAVE_DB_185_H
 # include <db_185.h>
@@ -85,11 +88,15 @@ static DB *database;
 static GnomeRegexCache *rxcache;
 
 /* The name of the database file.  This should only be set for testing
-   or debugging.  It should not be mentioned in any header file.  */
+   or debugging.  It should not be mentioned in any header file.
+   However, it must not be `static'.  */
 char *gnome_metadata_db_file_name;
 
 /* This is used to allow recursive locking.  */
 static int lock_count;
+
+/* Name of directory to create when locking.  */
+static char *lock_directory;
 
 /* The string and length used for `list' entries.  */
 #define LIST "list"
@@ -112,6 +119,7 @@ init (void)
 	database = dbopen (filename, O_CREAT | O_RDWR, 0700, DB_HASH, NULL);
 	if (filename != gnome_metadata_db_file_name)
 		g_free (filename);
+	lock_directory = gnome_util_home_file ("metadata.lock");
 
 	return database == NULL;
 }
@@ -121,13 +129,20 @@ static void
 lock (void)
 {
 	if (! lock_count++) {
-		int fd = database->fd (database);
-		/* flock (fd, LOCK_EX); */
-		struct flock lbuf;
-		lbuf.l_type = F_WRLCK;
-		lbuf.l_whence = SEEK_SET;
-		lbuf.l_start = lbuf.l_len = 0L; /* Lock the whole file.  */
-		fcntl (fd, F_SETLKW, &lbuf);
+		/* We use a lock directory and not flock/fcntl because
+		   we want this to work when the database is on an NFS
+		   filesystem.  Sigh.  */
+		while (mkdir (lock_directory, 0)) {
+			if (errno != EEXIST) {
+				/* Don't know what to do here.  */
+				return;
+			}
+			/* The utter lameness of this is without
+			   question.  FIXME: at least use usleep to
+			   try to sleep less than a whole second.
+			   Typical db access times will be small.  */
+			sleep (1);
+		}
 	}
 }
 
@@ -136,15 +151,7 @@ static void
 unlock (void)
 {
 	if (! --lock_count) {
-		int fd;
-		struct flock lbuf;
-		database->sync (database, 0);
-		fd = database->fd (database);
-		/* flock (fd, LOCK_UN); */
-		lbuf.l_type = F_UNLCK;
-		lbuf.l_whence = SEEK_SET;
-		lbuf.l_start = lbuf.l_len = 0L; /* Unlock the whole file.  */
-		fcntl (fd, F_SETLKW, &lbuf);
+		rmdir (lock_directory);
 	}
 }
 
@@ -403,6 +410,350 @@ metadata_get (const char *space, const char *object, const char *key,
 
 
 
+/*
+ * This section deals with reading the files that the application
+ * installs.
+ */
+
+/* Last time that application directory was modified.  If 0, then
+   assume directory has never been read.  */
+static time_t app_dir_mtime;
+
+/* Name of directory holding application-installed metadata.  This
+   should never be set except when debugging or testing.  However, it
+   must not be static, and it must never be mentioned in any header.  */
+char *gnome_metadata_app_dir;
+
+/* A key/value pair.  */
+struct kv
+{
+	char *key;
+	char *value;
+};
+
+/* A structure of this type is used as the value in the regular
+   expression hash.  This is also used as the value in the type hash,
+   but in that case the `type_set' entry has no meaning.  */
+struct app_ent
+{
+	gboolean type_set;	/* True if `type' key is in our key
+				   list.  */
+	GSList *mappings;	/* List of key/value pairs.  */
+};
+
+/* This hash table is used to map regular expressions onto key/value
+   lists.  */
+static GHashTable *app_rx_hash;
+
+/* This hash table is used to map type names onto key/value lists.  */
+static GHashTable *app_type_hash;
+
+/* Add a new key/value pair to a hash table.  */
+static void
+add_hash_entry (GHashTable *hash, char *hashkey, char *key, char *value)
+{
+	struct app_ent *ent;
+	GSList *list;
+	struct kv *newpair;
+
+	ent = (struct app_ent *) g_hash_table_lookup (hash, hashkey);
+	if (! ent) {
+		ent = malloc (sizeof (struct app_ent));
+		ent->type_set = 0;
+		ent->mappings = NULL;
+		g_hash_table_insert (hash, hashkey, ent);
+	}
+
+	for (list = ent->mappings; list; list = list->next) {
+		struct kv *pair = (struct kv *) list->data;
+		if (! strcmp (pair->key, key)) {
+			free (pair->value);
+			pair->value = strdup (value);
+			return;
+		}
+	}
+
+	newpair = (struct kv *) malloc (sizeof (struct kv));
+	newpair->key = strdup (key);
+	newpair->value = strdup (value);
+	ent->mappings = g_slist_prepend (ent->mappings, newpair);
+
+	if (! strcmp (key, "type"))
+		ent->type_set = 1;
+}
+
+/* Keys for headers in app files.  */
+#define TYPE "type:"
+#define TYPE_LEN 5
+#define REGEX "regex:"
+#define REGEX_LEN 6
+
+/* This is called once per file in the application directory.  It
+   reads the file and puts the information into the global
+   structures.  */
+static int
+scan_app_file (const struct dirent *ent)
+{
+	FILE *f;
+	int c, comment, column, was_space, skipping, equals;
+	static GString *line;
+	GHashTable *current_hash = NULL;
+	char *current_key = NULL;
+	char *filename;
+
+	if (! strcmp (ent->d_name, ".") || ! strcmp (ent->d_name, ".."))
+		return 0;
+
+	filename = g_concat_dir_and_file (gnome_metadata_app_dir,
+					  ent->d_name);
+	f = fopen (filename, "r");
+	free (filename);
+	/* We just don't care about errors.  */
+	if (! f)
+		return 0;
+
+	if (! line)
+		line = g_string_sized_new (100);
+	equals = comment = column = was_space = skipping = 0;
+	while ((c = getc (f)) != EOF) {
+		if (c == '\r')
+			continue;
+
+		if (c == '\n') {
+			if (comment) {
+				goto reset;
+			}
+
+			if (was_space) {
+				/* Had a key=value entry.  */
+				if (! current_hash || ! current_key
+				    || ! equals) {
+					/* FIXME: print an error
+					   here.  */
+				} else {
+					line->str[equals] = '\0';
+					add_hash_entry (current_hash,
+							current_key,
+							line->str,
+							&line->str[equals+1]);
+				}
+			} else {
+				/* Had start of new block.  */
+				int start;
+				GHashTable *save = current_hash;
+				if (! strncmp (line->str, TYPE, TYPE_LEN)) {
+					current_hash = app_type_hash;
+					start = TYPE_LEN;
+				} else if (! strncmp (line->str, REGEX,
+						      REGEX_LEN)) {
+					current_hash = app_rx_hash;
+					start = REGEX_LEN;
+				} else {
+					/* FIXME: print error here.  */
+					goto reset;
+				}
+
+				while (line->str[start]
+				       && isspace (line->str[start])) {
+					++start;
+				}
+
+				if (line->str[start]) {
+					/* This isn't a leak: the keys
+					   are kept by the hash.  */
+					current_key
+						= strdup (&line->str[start]);
+				} else {
+					current_hash = save;
+				}
+			}
+
+		reset:
+			g_string_truncate (line, 0);
+			equals = comment = column = was_space = skipping = 0;
+
+		} else if (! comment) {
+			if (isspace (c)) {
+				if (column == 0) {
+					was_space = 1;
+					skipping = 1;
+					continue;
+				} else if (skipping) {
+					continue;
+				}
+			}
+			if (column == 0 && c == '#') {
+				comment = 1;
+			} else {
+				if (c == '=' && ! equals) {
+					equals = column;
+				}
+				skipping = 0;
+				line = g_string_append_c (line, c);
+			}
+			++column;
+		}
+	}
+
+	fclose (f);
+
+	return 0;
+}
+
+/* This is called to free a key/value pair.  */
+static void
+free_mapping (gpointer data, gpointer user_data)
+{
+	struct kv *m = (struct kv *) data;
+	free (m->key);
+	free (m->value);
+	free (m);
+}
+
+/* This is called to free a hash entry.  */
+static void
+free_hash_entry (gpointer key, gpointer value, gpointer user_data)
+{
+	struct app_ent *ent = (struct app_ent *) value;
+	g_slist_foreach (ent->mappings, free_mapping, NULL);
+	g_slist_free (ent->mappings);
+	free (ent);
+	free (key);
+}
+
+/* If the application install directory has changed, throw away our
+   current application data and rescan.  */
+static void
+maybe_scan_app_dir (void)
+{
+	struct stat sb;
+	struct dirent **list;
+
+	if (! gnome_metadata_app_dir)
+		gnome_metadata_app_dir
+			= gnome_unconditional_datadir_file ("metadata");
+
+	/* If the stat fails, or if we've read the directory at some
+	   point in the past, just return.  */
+	if (stat (gnome_metadata_app_dir, &sb)
+	    || (app_dir_mtime && sb.st_mtime <= app_dir_mtime)) {
+		return;
+	}
+	app_dir_mtime = sb.st_mtime;
+
+	if (app_rx_hash) {
+		g_hash_table_foreach (app_rx_hash, free_hash_entry, NULL);
+		g_hash_table_destroy (app_rx_hash);
+	}
+	app_rx_hash = g_hash_table_new (g_str_hash, g_str_equal);
+
+	if (app_type_hash) {
+		g_hash_table_foreach (app_type_hash, free_hash_entry, NULL);
+		g_hash_table_destroy (app_type_hash);
+	}
+	app_type_hash = g_hash_table_new (g_str_hash, g_str_equal);
+
+	if (scandir (gnome_metadata_app_dir, &list,
+		     scan_app_file, alphasort) != -1)
+		free (list);
+}
+
+/* This is set if we've already found a suitable regex match.  It lets
+   us short-circuit further attempts.  This variable is evil, but not
+   as evil as the alternative, which is longjmp.  */
+static char *short_circuit = NULL;
+
+/* Another evil global: the name of the key we're searching for.  We
+   can only conveniently pass in one variable to the hash foreach
+   function.  */
+static char *desired_key;
+
+/* This is called for each hash table entry.  If the regular
+   expression match succeeds, we search for the desired key.  If that
+   succeeds, we set SHORT_CIRCUIT to the value.  */
+static void
+try_one_app_regex (gpointer key, gpointer value, gpointer user_data)
+{
+	char *rx_text = (char *) key;
+	char *filename = (char *) user_data;
+	regex_t *rx;
+	GSList *list;
+	struct app_ent *ent;
+
+	static GnomeRegexCache *app_rx_cache = NULL;
+
+	/* Already found the answer, just marking time now.  */
+	if (short_circuit)
+		return;
+
+	if (! app_rx_cache)
+		app_rx_cache = gnome_regex_cache_new ();
+
+	rx = gnome_regex_cache_compile (app_rx_cache, rx_text, REG_EXTENDED);
+	if (! rx || regexec (rx, filename, 0, 0, 0))
+		return;
+
+	ent = (struct app_ent *) value;
+	for (list = ent->mappings; list; list = list->next) {
+		struct kv *pair = (struct kv *) list->data;
+		if (! strcmp (pair->key, desired_key)) {
+			short_circuit = pair->value;
+			return;
+		}
+	}
+}
+
+/* Run all application-specified regular expressions associated with
+   KEY.  Return 0 on success.  */
+/* FIXME: if we were smarter, we would cache some of the results from
+   this call, since the regexps that match might be reused if we have
+   to fall back on the type.  We could do this by adding some calls to
+   let us manipulate how the regex cache works.  */
+static int
+try_app_regexs (const char *file, const char *key, int *size, char **buffer)
+{
+	maybe_scan_app_dir ();
+
+	short_circuit = NULL;
+	desired_key = (char *) key;
+	g_hash_table_foreach (app_rx_hash, try_one_app_regex,
+			      (gpointer) file);
+	if (! short_circuit)
+		return 1;
+
+	*size = strlen (short_circuit) + 1;
+	*buffer = strdup (short_circuit);
+	return 0;
+}
+
+/* See if there is some data associated with TYPE and KEY in the
+   application database.  */
+static int
+app_get_by_type (const char *type, const char *key, int *size, char **buffer)
+{
+	struct app_ent *ent;
+	GSList *list;
+
+	maybe_scan_app_dir ();
+
+	ent = (struct app_ent *) g_hash_table_lookup (app_type_hash, type);
+	if (! ent)
+		return 1;
+
+	for (list = ent->mappings; list != NULL; list = list->next) {
+		struct kv *pair = (struct kv *) list->data;
+		if (! strcmp (pair->key, key)) {
+			*size = strlen (pair->value) + 1;
+			*buffer = strdup (pair->value);
+			return 0;
+		}
+	}
+
+	return 1;
+}
+
+
+
 /* Set metadata associated with FILE.  Returns 0 on success, or an
    error code.  */
 int
@@ -512,7 +863,12 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 	if (! try_regexs (file, name, size, buffer))
 		return 0;
 
-	/* Phase 3: see if `type' is set.  */
+	/* Phase 3: try a regular expression as installed by some
+	   application.  */
+	if (! try_app_regexs (file, name, size, buffer))
+		return 0;
+
+	/* Phase 4: see if `type' is set.  */
 	if (! metadata_get ("file", file, "type", &type_size, &type)) {
 		/* Found the type.  */
 		goto got_type;
@@ -530,6 +886,11 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 		goto got_type;
 	}
 
+	/* Try application-installed information.  */
+	if (! try_app_regexs (file, "type", &type_size, &type)) {
+		goto got_type;
+	}
+
 	/* If slow, try `file' command.  Otherwise, we've failed to
 	   find the info.  */
 	if (! is_fast)
@@ -540,6 +901,11 @@ get_worker (const char *file, const char *name, int *size, char **buffer,
 got_type:
 	/* Return lookup based on discovered type.  */
 	r = metadata_get ("type", type, name, size, buffer);
+	if (r) {
+		/* Finally, see if there is application-installed data
+		   associated with the type.  */
+		r = app_get_by_type (type, name, size, buffer);
+	}
 	free (type);
 	return r;
 }
