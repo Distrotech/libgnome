@@ -8,7 +8,7 @@ typedef struct {
 	char *comment;
 	char *exec;		/* Program to execute */
 	char *tryexec;		/* Test program to execute */
-	char *icon_base;	/* Icon name */
+	char *icon;		/* Icon name */
 	char *docpath;		/* Path to the documentation */
 	int   terminal;		/* flag: requires a terminal to run */
 	char *type;		/* type of this dentry */
@@ -16,10 +16,6 @@ typedef struct {
 	char *geometry;		/* geometry for this icon */
 	
 	/* These are computed from icon_base */
-	char *small_icon;
-	char *transparent_icon;
-	char *opaque_icon;
-	unsigned int need_arg:1;
 	unsigned int multiple_args:1;
 } GnomeDesktopEntry;
 

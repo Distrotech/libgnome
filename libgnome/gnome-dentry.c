@@ -109,7 +109,8 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	char *prefix;
 	char *name, *type;
 	char *exec_file, *try_file, *dot;
-
+	char *icon_base;
+	
 	g_assert (file != NULL);
 
 	prefix = g_copy_strings ("=", file, "=/Desktop Entry/", NULL);
@@ -162,47 +163,22 @@ gnome_desktop_entry_load_flags (char *file, int clean_from_memory)
 	newitem->comment       = get_translated_string ("Comment");
 	newitem->exec          = exec_file;
 	newitem->tryexec       = try_file;
-	newitem->icon_base     = gnome_config_get_string ("Icon");
 	newitem->docpath       = gnome_config_get_string ("DocPath");
 	newitem->terminal      = gnome_config_get_bool   ("Terminal=0");
 	newitem->type          = gnome_config_get_string ("Type");
 	newitem->geometry      = gnome_config_get_string ("Geometry");
-	newitem->need_arg      = gnome_config_get_bool   ("NeedArg=0");
 	newitem->multiple_args = gnome_config_get_bool ("MultipleArgs=0");
 	newitem->location      = g_strdup (file);
+	icon_base	       = gnome_config_get_string ("Icon");
 	
-	if (newitem->icon_base && *newitem->icon_base) {
-		dot = strstr (newitem->icon_base, ".xpm");
-
-		if (dot) {
-			*dot = 0;
-
-			newitem->small_icon = g_copy_strings (newitem->icon_base,
-					      "-small.xpm", NULL);
-			newitem->transparent_icon = g_copy_strings (newitem->icon_base,
-					      "-transparent.xpm", NULL);
-			newitem->opaque_icon = g_copy_strings (newitem->icon_base,
-					      ".xpm", NULL);
-			*dot = '.';
-		}
-
+	if (icon_base && *icon_base) {
 		/* Sigh, now we need to make them local to the gnome install */
-		if (*newitem->icon_base != '/') {
-			char *s = newitem->small_icon;
-			char *t = newitem->transparent_icon;
-			char *o = newitem->opaque_icon;
-
-			newitem->small_icon = gnome_pixmap_file (s);
-			newitem->transparent_icon = gnome_pixmap_file (t);
-			newitem->opaque_icon = gnome_pixmap_file (o);
-			g_free (s);
-			g_free (t);
-			g_free (o);
-		}
-	} else {
-		newitem->small_icon = newitem->transparent_icon =
-			newitem->opaque_icon = 0;
-	}
+		if (*icon_base != '/') {
+			newitem->icon = gnome_pixmap_file (icon_base);
+			g_free (icon_base);
+		} else
+			newitem->icon = icon_base;
+	} 
 	gnome_config_pop_prefix ();
 	
 	if (clean_from_memory){
@@ -248,8 +224,8 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	if (dentry->tryexec)
 		gnome_config_set_string ("TryExec", dentry->tryexec);
 
-	if (dentry->icon_base)
-		gnome_config_set_string ("Icon", dentry->icon_base);
+	if (dentry->icon)
+		gnome_config_set_string ("Icon", dentry->icon);
 
 	if (dentry->docpath)
 		gnome_config_set_string ("DocPath", dentry->docpath);
@@ -271,12 +247,9 @@ gnome_desktop_entry_free (GnomeDesktopEntry *item)
 	free_if_empty (item->name);
 	free_if_empty (item->comment);
 	free_if_empty (item->exec);
-	free_if_empty (item->icon_base);
+	free_if_empty (item->icon);
 	free_if_empty (item->docpath);
 	free_if_empty (item->type);
-	free_if_empty (item->small_icon);
-	free_if_empty (item->transparent_icon);
-	free_if_empty (item->opaque_icon);
 	free_if_empty (item->location);
 
 	g_free (item);
