@@ -148,6 +148,7 @@ gnome_desktop_entry_load_unconditional (const char *file)
 	return gnome_desktop_entry_load_flags_conditional (file, 1, TRUE);
 }
 
+/*XXX:this should have same clean_from_memory logic as above maybe???*/
 void
 gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 {
@@ -156,11 +157,8 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 	g_assert (dentry != NULL);
 	g_assert (dentry->location != NULL);
 
-	prefix = g_copy_strings ("=", dentry->location, "=/Desktop Entry", NULL);
-
+	prefix = g_copy_strings ("=", dentry->location, "=/Desktop Entry/", NULL);
 	gnome_config_clean_section (prefix);
-
-	prefix = g_copy_strings (prefix, "/", NULL);
 	gnome_config_push_prefix (prefix);
 	g_free (prefix);
 
@@ -194,6 +192,9 @@ gnome_desktop_entry_save (GnomeDesktopEntry *dentry)
 
 	gnome_config_pop_prefix ();
 	gnome_config_sync ();
+	prefix = g_copy_strings ("=", dentry->location, "=", NULL);
+	gnome_config_drop_file(prefix);
+	g_free(prefix);
 }
 
 void
