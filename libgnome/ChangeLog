@@ -1,5 +1,27 @@
 2001-06-10  Martin Baulig  <baulig@suse.de>
 
+	* gnome-ditem.c: Rewrote this to use bonobo-config with the new ditem moniker.
+	(the old version of this file is at CVS revision 1.40).
+
+	* gnome-ditem.h (GnomeDesktopItemLoadFlags): Removed
+	GNOME_DESKTOP_ITEM_LOAD_NO_DROP and GNOME_DESKTOP_ITEM_LOAD_NO_OTHER_SECTIONS.
+	(gnome_desktop_item_get_type): Changed return value to GNOME_DesktopEntryType.
+	(gnome_desktop_item_get_command): Now returns a `gchar *' which you need to g_free.
+	(gnome_desktop_item_get_icon_path): Likewise.
+	(gnome_desktop_item_get_name): Likewise.
+	(gnome_desktop_item_get_comment): Likewise.
+	(gnome_desktop_item_get_local_name): Likewise.
+	(gnome_desktop_item_get_local_comment): Likewise.
+	(gnome_desktop_item_get_attribute): New returns a `BonoboArg *' (which you need
+	to bonobo_arg_release).
+	(gnome_desktop_item_set_attributes): Takes a `const BonoboArg *' as argument.
+	(gnome_desktop_item_get_local_attributes): Removed.
+	(gnome_desktop_order_get_order): Now returns a `GSList *', you need to g_free the
+	strings in that list.
+	(gnome_desktop_order_set_type): Takes a GNOME_DesktopEntryType.
+
+2001-06-10  Martin Baulig  <baulig@suse.de>
+
 	* gnome-desktop.xmldb: Moved to ../monikers.
 
 2001-06-05  Martin Baulig  <baulig@suse.de>
