@@ -887,7 +887,9 @@ _gnome_config_get_int_with_default (const char *path, gboolean *def, gint priv)
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
 			   def);
 
-	g_return_val_if_fail(r != NULL, 0);
+	/* It isn't an error if the key is not found.  */
+	if (r != NULL)
+		return 0;
 
 	v = atoi (r);
 	release_path (pp);
@@ -905,7 +907,9 @@ _gnome_config_get_float_with_default (const char *path, gboolean *def, gint priv
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
 			   def);
 
-	g_return_val_if_fail(r != NULL, 0);
+	/* It isn't an error if the key is not found.  */
+	if (r != NULL)
+		return 0;
 
 	v = strtod(r, NULL);
 	release_path (pp);
@@ -930,26 +934,6 @@ _gnome_config_get_translated_string_with_default (const char *path,
 			value = _gnome_config_get_string_with_default (path, def, priv);
 			if (value)
 				return value;
-			else {
-				/* FIXME: this "else" block should go away in some time.
-				 * We use it to handle the old broken files that were
-				 * written by the old buggy set_translated_string
-				 * function, which *did* append the "[C]" suffix.
-				 */
-
-				gchar *tkey;
-
-				tkey = g_copy_strings (path, "[C]", NULL);
-				value = _gnome_config_get_string_with_default (tkey, def, priv);
-				g_free (tkey);
-
-				if (!value || *value == '\0') {
-					g_free (value);
-					value = NULL;
-				}
-
-				return value;
-			}
 		} else {
 			gchar *tkey;
 
@@ -1017,7 +1001,9 @@ _gnome_config_get_bool_with_default (const char *path, gboolean *def,
 	r = access_config (LOOKUP, pp->section, pp->key, pp->def, pp->file,
 			   def);
 
-	g_return_val_if_fail(r != NULL, 0);
+	/* It isn't an error if the key is not found.  */
+	if (r != NULL)
+		return 0;
 
 	if (!strcasecmp (r, "true")){
 		v = 1;
@@ -1242,7 +1228,7 @@ gnome_config_set_set_handler(void (*func)(void *),void *data)
 	set_handler = func;
 	set_handler_data = data;
 }
-	
+
 void
 gnome_config_set_sync_handler(void (*func)(void *),void *data)
 {
