@@ -89,9 +89,11 @@ struct _GnomeProgramPrivate {
     /* valid-while: state == APP_PREINIT_DONE */
     poptContext arg_context;
 
+    /* FIXME: unused! */
     /* valid-while: state == APP_PREINIT_DONE */
     struct poptOptions *app_options;
 
+    /* FIXME: unused! */
     /* valid-while: state == APP_PREINIT_DONE */
     int app_popt_flags;
 
@@ -621,25 +623,62 @@ gnome_program_instance_init (GnomeProgram *program)
 static void
 gnome_program_finalize (GObject* object)
 {
-    GnomeProgram *program = GNOME_PROGRAM (object);
+	GnomeProgram *self = GNOME_PROGRAM (object);
 
-    /* FIXME! free everything, but perhaps this is
-     * useless, we never get finalized */
+	g_boxed_free (GNOME_TYPE_MODULE_INFO, self->_priv->prop_module_info);
+	self->_priv->prop_module_info = NULL;
 
-    g_free (program->_priv);
-    program->_priv = NULL;
-  
-    if (G_OBJECT_CLASS (parent_class)->finalize)
-	(* G_OBJECT_CLASS (parent_class)->finalize) (object);
+	g_free (self->_priv->prop_module_list);
+	self->_priv->prop_module_list = NULL;
+
+	/* no free */
+	self->_priv->prop_popt_table = NULL;
+
+	g_free (self->_priv->prop_human_readable_name);
+	self->_priv->prop_human_readable_name = NULL;
+	g_free (self->_priv->prop_gnome_prefix);
+	self->_priv->prop_gnome_prefix = NULL;
+	g_free (self->_priv->prop_gnome_libdir);
+	self->_priv->prop_gnome_libdir = NULL;
+	g_free (self->_priv->prop_gnome_sysconfdir);
+	self->_priv->prop_gnome_sysconfdir = NULL;
+	g_free (self->_priv->prop_gnome_datadir);
+	self->_priv->prop_gnome_datadir = NULL;
+	g_free (self->_priv->prop_app_prefix);
+	self->_priv->prop_app_prefix = NULL;
+	g_free (self->_priv->prop_app_libdir);
+	self->_priv->prop_app_libdir = NULL;
+	g_free (self->_priv->prop_app_sysconfdir);
+	self->_priv->prop_app_sysconfdir = NULL;
+	g_free (self->_priv->prop_app_datadir);
+	self->_priv->prop_app_datadir = NULL;
+	g_free (self->_priv->prop_espeaker);
+	self->_priv->prop_espeaker = NULL;
+
+	g_strfreev (self->_priv->gnome_path);
+	self->_priv->gnome_path = NULL;
+
+	g_free (self->_priv->app_id);
+	self->_priv->app_id = NULL;
+	g_free (self->_priv->app_version);
+	self->_priv->app_version = NULL;
+
+	g_strfreev (self->_priv->argv);
+	self->_priv->argv = NULL;
+
+	if (self->_priv->arg_context != NULL)
+		poptFreeContext (self->_priv->arg_context);
+	self->_priv->arg_context = NULL;
+
+	if (self->_priv->top_options_table != NULL)
+		g_array_free (self->_priv->top_options_table, TRUE);
+	self->_priv->top_options_table = NULL;
+
+	g_free (self->_priv);
+	self->_priv = NULL;
+
+	GNOME_CALL_PARENT_HANDLER (G_OBJECT_CLASS, finalize, (object));
 }
-
-/* UNUSED
-static gpointer
-gnome_module_info_init (void)
-{
-    return g_new0 (GnomeModuleInfo, 1);
-}
-*/
 
 static gpointer
 gnome_module_info_copy (gpointer boxed)
@@ -1188,13 +1227,14 @@ gnome_program_preinit (GnomeProgram *program,
 
     g_return_val_if_fail (program != NULL, NULL);
     g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
+    g_return_val_if_fail (argv != NULL, NULL);
 
     if (program->_priv->state != APP_CREATE_DONE)
 	return NULL;
 
     /* On non-glibc systems, this is not set up for us.  */
     if (!program_invocation_name) {
-	program_invocation_name = argv[0];
+	program_invocation_name = g_strdup (argv[0]);
 	program_invocation_short_name = g_path_get_basename (program_invocation_name);
     }
 
@@ -1207,7 +1247,14 @@ gnome_program_preinit (GnomeProgram *program,
 	g_free (program->_priv->app_version);
     program->_priv->app_version = g_strdup (app_version);
     program->_priv->argc = argc;
-    program->_priv->argv = argv;
+
+    /* Make a copy of argv, the thing is that while we know the
+     * original argv will live until the end of the program,
+     * there are those evil people out there that modify it.
+     * Also, this may be some other argv, think 'fake argv' here */
+    program->_priv->argv = g_new (char *, argc + 1);
+    memcpy (program->_priv->argv, argv, sizeof (char *) * argc);
+    program->_priv->argv[argc] = NULL;
 
     if (!program_modules) {
 	program_modules = g_ptr_array_new();
@@ -1501,7 +1548,8 @@ gnome_program_initv (GType type,
 		    add_to_module_list (program_module_list, argv[i+1]);
 	    }
 
-	    if ((ctmp = g_getenv ("GNOME_MODULES")))
+	    ctmp = g_getenv ("GNOME_MODULES");
+	    if (ctmp != NULL)
 	        add_to_module_list (program_module_list, ctmp);
 	}
 
