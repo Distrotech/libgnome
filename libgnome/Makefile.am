@@ -178,7 +178,8 @@ $(srcdir)/gnome-marshal.h $(srcdir)/gnome-marshal.c: stamp-gnome-marshal.h
 	&& rm -f xgen-gmc xgen-gmc~
 
 EXTRA_DIST = \
-	libgnome-2.0.pc.in
+	libgnome-2.0.pc.in		\
+	gnome-marshal.list
 
 BUILT_SOURCES = \
 	libgnometypebuiltins.h		\
