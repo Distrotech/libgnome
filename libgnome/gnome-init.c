@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <pwd.h>
 #include <sys/stat.h>
 
 /* debugging hack */
@@ -134,8 +135,30 @@ gnomelib_init (const char *app_id,
 	gnome_app_version = (char *)app_version;
 
 	gnome_user_home_dir = getenv ("HOME");
-	/* never freed - gnome_config currently uses this, and it's better
-	   to figure it out once than to repeatedly get it */
+
+	if (!gnome_user_home_dir){
+		char *user;
+		struct passwd *pw;
+		
+		user = getenv ("USER");
+		if (user)
+			pw = getpwnam (user);
+		else 
+			pw = getpwuid (getuid ());
+
+		if (pw)
+			gnome_user_home_dir = g_strdup (pw->pw_dir);
+
+		endpwent ();
+	}
+
+	if (gnome_user_home_dir == 0)
+		gnome_user_home_dir = "/";
+			
+	/*
+	 * never freed - gnome_config currently uses this, and it's better
+	 * to figure it out once than to repeatedly get it
+	 */
 	gnome_user_dir = g_concat_dir_and_file (gnome_user_home_dir, ".gnome");
 	gnome_user_private_dir = g_concat_dir_and_file (gnome_user_home_dir,
 							".gnome_private");
