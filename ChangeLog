@@ -1,5 +1,18 @@
 2002-05-16  jacob berkman  <jacob@ximian.com>
 
+	* schemas/desktop_gnome_peripherals_keyboard.schemas: remove bell
+	volume, as it's not used, and default to a nicer pitch.  fix for
+	#78016
+	
+	* schemas/desktop_gnome_applications_browser.schemas: remove http,
+	ftp handlers and just default to the default
+	
+	* schemas/desktop_gnome_applications_editor.schemas:
+	* schemas/Makefile.am (schema_DATA): remove default editors
+	schemas
+
+	fixes #78037
+
 	* schemas/desktop_gnome_background.schemas: set the default
 	wallpaper image to "".  fixes #76693
 
