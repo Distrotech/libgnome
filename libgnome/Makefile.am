@@ -11,9 +11,7 @@ lib_LTLIBRARIES = libgnome-2.la
 
 LINK = $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-libincludedir = $(includedir)/gnome/2
-
-libgnomeincludedir = $(includedir)/gnome/2/libgnome
+libgnomeincludedir = $(includedir)/gnome-2.0/libgnome
 
 INCLUDES = \
 	-I..							\
@@ -51,9 +49,6 @@ libgnome_2_la_SOURCES = \
 	gnome-marshal-main.c	\
 	gnome-init.c
 
-libinclude_HEADERS = \
-	libgnome.h
-
 libgnome_headers = \
 	gnome-config.h		\
 	gnome-sound.h		\
@@ -68,7 +63,8 @@ libgnome_headers = \
 	gnome-preferences.h	\
 	gnome-marshal.h		\
 	gnome-score.h		\
-	gnome-init.h
+	gnome-init.h		\
+	libgnome.h
 
 libgnomeinclude_HEADERS = \
 	libgnometypebuiltins.h	\
