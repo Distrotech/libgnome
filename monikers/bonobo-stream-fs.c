@@ -343,20 +343,20 @@ bonobo_stream_fs_open (const CORBA_char *path, Bonobo_Storage_OpenMode mode)
 	
 	v = stat (full, &s);
 
-	if (v == -1){
+	if (v == -1 || S_ISDIR (s.st_mode)) {
 		g_free (full);
 		return NULL;
 	}
 	
-	if (mode == Bonobo_Storage_READ){
+	if (mode == Bonobo_Storage_READ) {
 		fd = open (full, O_RDONLY);
-		if (fd == -1){
+		if (fd == -1) {
 			g_free (full);
 			return NULL;
 		}
-	} else if (mode == Bonobo_Storage_WRITE){
+	} else if (mode == Bonobo_Storage_WRITE) {
 		fd = open (full, O_RDWR);
-		if (fd == -1){
+		if (fd == -1) {
 			g_free (full);
 			return NULL;
 		}
@@ -397,6 +397,3 @@ bonobo_stream_fs_create (const CORBA_char *path)
 
 	return bonobo_stream_create (fd);
 }
-
-
-
