@@ -31,7 +31,7 @@ INCLUDES = \
 	-DGNOMEVFSVERSION=\"$(GNOME_VFS_VERSION)\"		\
 	-DG_LOG_DOMAIN=\"Gnome\"
 
-libgnome_src = \
+libgnome_2_la_SOURCES = \
 	libgnometypebuiltins.h	\
 	libgnometypebuiltins.c	\
 	gnome-config.c		\
@@ -50,9 +50,6 @@ libgnome_src = \
 	gnome-score.c		\
 	gnome-marshal-main.c	\
 	gnome-init.c
-
-libgnome_2_la_SOURCES = \
-	$(libgnome_src)		
 
 libinclude_HEADERS = \
 	libgnome.h
