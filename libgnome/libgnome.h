@@ -33,8 +33,12 @@
 
 #include <libgnome/gnome-gconf.h>
 
+#include <libgnome/gnome-help.h>
+
 #include <libgnome/gnome-triggers.h>
 #include <libgnome/gnome-sound.h>
+
+#include <libgnome/gnome-score.h>
 
 #include <libgnome/gnome-exec.h>
 
