@@ -60,7 +60,7 @@ gboolean gnome_help_display_desktop     (GnomeProgram  *program,
 gboolean gnome_help_display_uri         (const char    *help_uri,
 					 GError       **error);
 
-
+ 
 G_END_DECLS
 
 #endif /* GNOME_HELP_H */

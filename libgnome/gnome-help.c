@@ -125,7 +125,6 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
 	gchar *local_help_path;
 	gchar *global_help_path;
 	gchar *file;
-	gboolean absolute_uri;
 	struct stat local_help_st;
 	struct stat global_help_st;
 	gchar *uri;
@@ -166,7 +165,6 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
 
 	stat (local_help_path, &local_help_st);
 	stat (global_help_path, &global_help_st);
-	g_free (global_help_path);
 
 	if (! S_ISDIR (local_help_st.st_mode)) {
 		g_set_error (error,
@@ -178,13 +176,19 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
 		return FALSE;
 	}
 
-	if (local_help_st.st_ino == global_help_st.st_ino)
-		absolute_uri = FALSE;
-	else
-		absolute_uri = TRUE;
-
 	file = locate_help_file (local_help_path, file_name);
 	g_free (local_help_path);
+
+	if (file == NULL) {
+		if (local_help_st.st_ino != global_help_st.st_ino) {
+			/* Couldn't find it in local path, so we'll look in *
+			 * the global path                                  */
+			file = locate_help_file (local_help_path, file_name);
+			return FALSE;
+		} 
+	}
+	
+	g_free (global_help_path);
 
 	if (file == NULL) {
 		g_set_error (error,
@@ -196,18 +200,12 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
 		return FALSE;
 	}
 
-	if (absolute_uri) {
-		if (link_id)
-			uri = g_strconcat ("ghelp://", file, "?", link_id, NULL);
-		else
-			uri = g_strconcat ("ghelp://", file, NULL);
+	if (link_id) {
+		uri = g_strconcat ("ghelp://", file, "?", link_id, NULL);
 	} else {
-		if (link_id)
-			uri = g_strconcat ("ghelp://", doc_id, "/", file_name, "?", link_id, NULL);
-		else
-			uri = g_strconcat ("ghelp://", doc_id, "/", file_name, NULL);
+		uri = g_strconcat ("ghelp://", file, NULL);
 	}
-
+	
 	retval = gnome_help_display_uri (uri, error);
 
 	g_free (file);
@@ -295,10 +293,11 @@ gnome_help_display_desktop (GnomeProgram  *program,
 	}
 	g_free (file);
 
-	if (link_id != NULL)
-		url = g_strdup_printf ("ghelp://%s/%s?%s", doc_id, file_name, link_id);
-	else
-		url = g_strdup_printf ("ghelp://%s/%s", doc_id, file_name);
+	if (link_id != NULL) {
+		url = g_strconcat ("ghelp://", file, "?", link_id, NULL); 
+	} else {
+		url = g_strconcat ("ghelp://", file, NULL);
+	}
 
 	retval = gnome_help_display_uri (url, error);
 
@@ -348,7 +347,7 @@ gnome_help_error_quark (void)
 	static GQuark error_quark = 0;
 
 	if (error_quark == 0)
-		error_quark =
+		error_quark =	
 			g_quark_from_static_string ("gnome-help-error-quark");
 
 	return error_quark;
