@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.2.0\n"
-"POT-Creation-Date: 2003-01-23 12:10+0100\n"
+"POT-Creation-Date: 2003-03-26 19:08+0100\n"
 "PO-Revision-Date: 2003-01-24 14:38+0900\n"
 "Last-Translator: Nam SungHyun <namsh@kldp.org>\n"
 "Language-Team: Korean <gnome-kr-translation@lists.sourceforge.net>\n"
@@ -356,8 +356,7 @@ msgstr "두개의 키가 동시에 눌려졌을 때 사용안함."
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr ""
-"@delay 밀리초동안 눌려져 있지 않은 경우 키를 받아들이지 않습니다"
+msgstr "@delay 밀리초동안 눌려져 있지 않은 경우 키를 받아들이지 않습니다"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
@@ -366,8 +365,7 @@ msgstr "0에서 최대 속도로 가는 데 걸릴 밀리초"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr ""
-"마우스 이동 키가 동작하기 전에 기다릴 밀리초"
+msgstr "마우스 이동 키가 동작하기 전에 기다릴 밀리초"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -437,8 +435,7 @@ msgstr "기본 도움말 뷰어가 터미널에서 실행되어야 하는 지의
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr ""
-"'exec' 키로 정의된 터미널에서 실행되는 프로그램에 대한 인자"
+msgstr "'exec' 키로 정의된 터미널에서 실행되는 프로그램에 대한 인자"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -492,9 +489,10 @@ msgstr "색상 변화 형식"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr "wallpaper_filename에 의해 설정된 그림을 어떻게 표현할 것인 지를 "
-"결정하세요. 가능한 값들은 \"none\", \"wallpaper\", \"centered\", \"scaled\", "
-"\"stretched\"입니다."
+msgstr ""
+"wallpaper_filename에 의해 설정된 그림을 어떻게 표현할 것인 지를 결정하세요. "
+"가능한 값들은 \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
+"\"입니다."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -513,8 +511,8 @@ msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"배경 색상을 어떻게 변화시킬 것인 지 결정하세요. 가능한 값들은 "
-"\"horizontal-gradient\", \"vertical-gradient\"와 \"solid\"입니다."
+"배경 색상을 어떻게 변화시킬 것인 지 결정하세요. 가능한 값들은 \"horizontal-"
+"gradient\", \"vertical-gradient\"와 \"solid\"입니다."
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -669,8 +667,8 @@ msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
-"에니메이션이 표시되어야 하는 지의 여부. 주의: 이것은 전역 키입니다, 즉 "
-"창 관리자, 패널등의 동작을 바꿀 수 있습니다."
+"에니메이션이 표시되어야 하는 지의 여부. 주의: 이것은 전역 키입니다, 즉 창 관"
+"리자, 패널등의 동작을 바꿀 수 있습니다."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Whether menus may display an icon next to a menu entry"
@@ -684,8 +682,7 @@ msgstr "메뉴가 절취선을 가져야 할 지의 여부"
 msgid ""
 "Whether the User can dynamically type a new accelerator when a menu is "
 "popped up"
-msgstr ""
-"메뉴가 떴을 때 사용자가 새 accelerator를 입력할 수 있는 지의 여부"
+msgstr "메뉴가 떴을 때 사용자가 새 accelerator를 입력할 수 있는 지의 여부"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
@@ -723,8 +720,7 @@ msgstr "가능할 값들은 on, off와 custom입니다."
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr ""
-"마우스 동작에 대한 가속 배율. 시스템 기본 값은 -1입니다."
+msgstr "마우스 동작에 대한 가속 배율. 시스템 기본 값은 -1입니다."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -745,9 +741,9 @@ msgid ""
 "of each session, so changing it mid-session won't have an effect until the "
 "next time you log in."
 msgstr ""
-"커서 테마 이름. Xcursor를 지원하는 XFree86 4.3과 그 이상 버전의 X 서버에서만"
-" 사용됩니다. 이 값은 X 서버가 매 세션을 시작할 때 적용되므로 세션이 실행 "
-"중에는 바뀌지 않으며, 다음 번 로그인할 때 적용됩니다."
+"커서 테마 이름. Xcursor를 지원하는 XFree86 4.3과 그 이상 버전의 X 서버에서만 "
+"사용됩니다. 이 값은 X 서버가 매 세션을 시작할 때 적용되므로 세션이 실행 중에"
+"는 바뀌지 않으며, 다음 번 로그인할 때 적용됩니다."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -758,8 +754,8 @@ msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
-"마우스 동작이 사용되기 위한 포인터의 픽셀 단위의 이동 거리. "
-"시스템 기본 값은 -1입니다."
+"마우스 동작이 사용되기 위한 포인터의 픽셀 단위의 이동 거리. 시스템 기본 값은 "
+"-1입니다."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -775,16 +771,15 @@ msgid ""
 "is only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"커서의 글꼴 이름. 설정되지 않으면 기본 글꼴이 사용됩니다. 이 값은 "
-"X 서버가 매 세션을 시작할 때 적용됩니다. 그러므로 세션 중간에 "
-"바꿀 경우 다음 번 로그인 할 때까지는 적용되지 않습니다."
+"커서의 글꼴 이름. 설정되지 않으면 기본 글꼴이 사용됩니다. 이 값은 X 서버가 "
+"매 세션을 시작할 때 적용됩니다. 그러므로 세션 중간에 바꿀 경우 다음 번 로그"
+"인 할 때까지는 적용되지 않습니다."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
-msgstr ""
-"Control 키가 눌렀다 뗄 때 포인터의 현재 위치를 표시"
+msgstr "Control 키가 눌렀다 뗄 때 포인터의 현재 위치를 표시"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
@@ -816,8 +811,8 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
-"커서테마에 의해 사용되는 커서 크기. 이 값은 X 서버가 매 세션을 시작할 때 "
-"적용됩니다. 그러므로, 세션시 실행중일 경우 다음 로그인할 때 적용됩니다."
+"커서테마에 의해 사용되는 커서 크기. 이 값은 X 서버가 매 세션을 시작할 때 적용"
+"됩니다. 그러므로, 세션시 실행중일 경우 다음 로그인할 때 적용됩니다."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -892,16 +887,15 @@ msgid ""
 "Set to true to have a program specified in applications/command handle "
 "applications URLs"
 msgstr ""
-"응용프로그램 URL을 처리할 프로그램이 응용프로그램/명령에서 명시된 경우 "
-"true로 설정"
+"응용프로그램 URL을 처리할 프로그램이 응용프로그램/명령에서 명시된 경우 true"
+"로 설정"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid ""
 "Set to true to have a program specified in preferences/command handle "
 "preferences URLs"
 msgstr ""
-"등록정보 URL을 처리할 프로그램이 등록정보/명령에서 명시된 경우 "
-"true로 설정"
+"등록정보 URL을 처리할 프로그램이 등록정보/명령에서 명시된 경우 true로 설정"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:15
 msgid ""
@@ -912,8 +906,7 @@ msgstr ""
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:16
 msgid ""
 "Set to true to have a program specified in programs/info handle info URLs"
-msgstr ""
-"info URL을 처리할 프로그램이 프로그램/info에서 명시된 경우 true로 설정"
+msgstr "info URL을 처리할 프로그램이 프로그램/info에서 명시된 경우 true로 설정"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:17
 msgid "Set to true to have a program specified in programs/man handle man URLs"
@@ -938,23 +931,22 @@ msgid ""
 "Set to true to have a program specified in start-here/command handle start-"
 "here URLs"
 msgstr ""
-"여기에서-시작 URL을 처리할 프로그램이 여기에서-시작/명령에서 명시된 경우 "
-"true로 설정"
+"여기에서-시작 URL을 처리할 프로그램이 여기에서-시작/명령에서 명시된 경우 true"
+"로 설정"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:21
 msgid ""
 "Set to true to have a program specified in system-settings/command handle "
 "system-settings URLs"
 msgstr ""
-"시스템설정 URL을 처리할 프로그램이 시스템설정/명령에서 명시된 경우 "
-"true로 설정"
+"시스템설정 URL을 처리할 프로그램이 시스템설정/명령에서 명시된 경우 true로 설"
+"정"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:22
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
-"쓰레기통 URL을 처리할 프로그램이 쓰레기통/명령에서 명시된 경우 "
-"true로 설정"
+"쓰레기통 URL을 처리할 프로그램이 쓰레기통/명령에서 명시된 경우 true로 설정"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:23
 msgid "True if the program to handle this URL should be run in a terminal"
