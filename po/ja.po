@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-05-05 11:22+0900\n"
 "Last-Translator: KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>\n"
 "Language-Team: Japanese <translation@gnome.gr.jp>\n"
@@ -362,6 +362,11 @@ msgstr "デフォルトのアクションはこのプロトコルをサポート
 msgid "Unknown error code: %d"
 msgstr "不明なエラーコード: %d"
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "エクストラ モニカ ファクトリ"
@@ -428,6 +433,16 @@ msgstr "最小の間隔 (ミリ秒単位)"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "ピクセル/秒"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -691,7 +706,10 @@ msgid "Toolbar Style"
 msgstr "ツールバーの形式"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "ツールバーの形式を設定します。有効な値は、both, both_horiz, icon そして text "
 "です"
@@ -721,24 +739,25 @@ msgid "Whether menus should have a tearoff"
 msgstr "メニューに可動メニューを持たせるか否か"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
+msgid "Whether the cursor should blink"
+msgstr "カーソルを点滅させるか否か"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:32
+msgid "Whether the user can detach menubars and move them around"
+msgstr "メニューバーを取り外しして移動できるようにするか否か"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:33
+msgid "Whether the user can detach toolbars and move them around"
+msgstr "ツールバーを取り外しして移動できるようにするか否か"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
 msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
+"Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "メニューがポップアップした時に新しいアクセラレータキーを動的にタイプできるか"
 "否か"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
-msgid "Whether the cursor should blink"
-msgstr "カーソルを点滅させるか否か"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:33
-msgid "Whether the user can detach menubars and move them around"
-msgstr "メニューバーを取り外しして移動できるようにするか否か"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:34
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "ツールバーを取り外しして移動できるようにするか否か"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -757,7 +776,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "キーボードベルカスタムファイル名"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "設定できる値は、on, off と custom です。"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -780,11 +800,12 @@ msgid "Cursor theme"
 msgstr "カーソルのテーマ"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "カーソルのテーマ名を設定します。この値は、XFree86 4.3やそれ以降の版といったよ"
 "うな Xcursor をサポートする Xserver によってのみ利用されます。この値は各セッ"
@@ -812,9 +833,10 @@ msgid "Drag Threshold"
 msgstr "ドラッグの閾値"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "カーソルのファイル名を設定します。ファイル名が指定されない場合、デフォルトの"
@@ -883,28 +905,114 @@ msgstr "イベントでサウンドを鳴らす"
 msgid "Whether to play sounds on user events."
 msgstr "ユーザイベントでサウンドを鳴らすか否か"
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "ghelp ページの URL の扱い方"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "info ページの URL の扱い方"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "man ページの URL の扱い方"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "ゴミ箱 URL の扱い方"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "ターミナル内で実行"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"プログラム/ghelp に指定したプログラムに ghelp ページの URL を扱わせる場合は "
+"true を設定します"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"プログラム/info に指定したプログラムに info ページの URL を扱わせる場合は "
+"true を設定します"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"プログラム/man に指定したプログラムに man ページの URL を扱わせる場合は true "
+"を設定します"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "ゴミ箱/コマンド に指定したプログラムにゴミ箱の URL を扱わせる場合は true を設"
 "定します"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "この URL を扱うプログラムを端末で実行しなければならない場合は true を設定しま"
 "す"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "ghelp ページの URL ハンドラ"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "info ページの URL ハンドラ"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "man ページの URL ハンドラ"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "ゴミ箱の URL ハンドラ"
 
@@ -913,15 +1021,6 @@ msgstr "ゴミ箱の URL ハンドラ"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "アプリケーションの URL の扱い方"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "ghelp ページの URL の扱い方"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "info ページの URL の扱い方"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "man ページの URL の扱い方"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "設定 URL の扱い方"
@@ -953,25 +1052,6 @@ msgstr "ゴミ箱の URL ハンドラ"
 #~ "します"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "プログラム/ghelp に指定したプログラムに ghelp ページの URL を扱わせる場合"
-#~ "は true を設定します"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "プログラム/info に指定したプログラムに info ページの URL を扱わせる場合は "
-#~ "true を設定します"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "プログラム/man に指定したプログラムに man ページの URL を扱わせる場合は "
-#~ "true を設定します"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -1001,15 +1081,6 @@ msgstr "ゴミ箱の URL ハンドラ"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "アプリケーションページの URL ハンドラ"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "ghelp ページの URL ハンドラ"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "info ページの URL ハンドラ"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "man ページの URL ハンドラ"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "設定ページの URL ハンドラ"

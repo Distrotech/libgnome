@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.3.0\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-05-04 18:51+0200\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -364,6 +364,11 @@ msgstr "La commande d'action par défaut ne supporte pas ce protocole."
 msgid "Unknown error code: %d"
 msgstr "Code d'erreur inconnu : %d"
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Fabrique de monikers additionnels"
@@ -437,6 +442,16 @@ msgstr "intervalle minimum en millisecondes"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "pixels par seconde"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -712,7 +727,10 @@ msgid "Toolbar Style"
 msgstr "Style de barre d'outils"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Style de barre d'outils. Les valeurs valides sont « both », « both_horiz », "
 "« icon » et « text »"
@@ -743,24 +761,25 @@ msgid "Whether menus should have a tearoff"
 msgstr "Si les menu doivent avoir un séparateur"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
+msgid "Whether the cursor should blink"
+msgstr "Si le curseur doit clignoter"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:32
+msgid "Whether the user can detach menubars and move them around"
+msgstr "Si l'utilisateur peut détacher les barres de menus et les déplacer"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:33
+msgid "Whether the user can detach toolbars and move them around"
+msgstr "Si l'utilisateur peut détacher les barres d'outils et les déplacer"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
 msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
+"Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "Si l'utilisateur peut saisir dynamiquement un nouvel accélérateur quand un "
 "menu est déroulé"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
-msgid "Whether the cursor should blink"
-msgstr "Si le curseur doit clignoter"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:33
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Si l'utilisateur peut détacher les barres de menus et les déplacer"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:34
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "Si l'utilisateur peut détacher les barres d'outils et les déplacer"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -780,7 +799,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Nom de fichier du bip de clavier personnalisé"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "les valeurs possibles sont « on », « off », et « custom »."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -804,11 +824,12 @@ msgid "Cursor theme"
 msgstr "Thème du curseur"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Nom du thème du curseur. Utilisé uniquement par les serveurs X qui "
 "supportent l'extension Xcursor (XFree86 >= 4.3 par exemple). Cette valeur "
@@ -838,9 +859,10 @@ msgid "Drag Threshold"
 msgstr "Seuil du glisser"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Nom de la police du curseur. Si non défini, la police par défaut sera "
@@ -910,27 +932,113 @@ msgstr "Sons pour les événements"
 msgid "Whether to play sounds on user events."
 msgstr "Si il faut jouer des sons sur les événements utilisateur"
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Comment gérer les URLs « ghelp »"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Comment gérer les URLs « info »"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Comment gérer les URLs « man »"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Comment gérer les URLs « trash »"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Lancer le programme dans un terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Définir à vrai pour que le programme spécifié dans ghelp/command gère les "
+"URLs « ghelp »"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Définir à vrai pour que le programme spécifié dans info/command gère les "
+"URLs « info »"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Définir à vrai pour que le programme spécifié dans man/command gère les URLs "
+"« man »"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Définir à vrai pour que le programme spécifié dans trash/command gère les "
 "URLs « trash »"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Vrai si le programme qui gère cette URL doit être lancé dans un terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "Gestionnaire d'URL pour les pages « ghelp »"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "Gestionnaire d'URL pour les pages « info »"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "Gestionnaire d'URL pour les pages « man »"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Gestionnaire d'URL pour les pages « trash »"
 
@@ -939,15 +1047,6 @@ msgstr "Gestionnaire d'URL pour les pages « trash »"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Comment gérer les URLs « applications »"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Comment gérer les URLs « ghelp »"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Comment gérer les URLs « info »"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Comment gérer les URLs « man »"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Comment gérer les URLs « preferences »"
@@ -979,25 +1078,6 @@ msgstr "Gestionnaire d'URL pour les pages « trash »"
 #~ "gère les URLs « preferences »"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Définir à vrai pour que le programme spécifié dans ghelp/command gère les "
-#~ "URLs « ghelp »"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Définir à vrai pour que le programme spécifié dans info/command gère les "
-#~ "URLs « info »"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Définir à vrai pour que le programme spécifié dans man/command gère les "
-#~ "URLs « man »"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -1027,15 +1107,6 @@ msgstr "Gestionnaire d'URL pour les pages « trash »"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "Gestionnaire d'URL pour les pages « applications »"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Gestionnaire d'URL pour les pages « ghelp »"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Gestionnaire d'URL pour les pages « info »"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Gestionnaire d'URL pour les pages « man »"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "Gestionnaire d'URL pour les pages « preferences »"

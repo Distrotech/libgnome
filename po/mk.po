@@ -12,14 +12,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.mk\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-06-13 20:51+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-06-16 02:52+0000\n"
 "Last-Translator: Jovan Kostovski <chombium@freemail.com.mk>\n"
 "Language-Team: Macedonian <lug@lists.linux.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.0.1\n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
@@ -73,8 +73,8 @@ msgstr "Настани за корисничкиот интерфејс"
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
-"Не може да го пронајде терминалот користејќи xterm, иако може да не "
-" функционира"
+"Не може да го пронајде терминалот користејќи xterm, иако може да не  "
+"функционира"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
@@ -93,7 +93,8 @@ msgstr "Неможам да го најдам GNOME_FILE_DOMAIN_HELP домен�
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr "Неможам да покажам помош како %s не е директориум.  Провери ја инсталацијата."
+msgstr ""
+"Неможам да покажам помош како %s не е директориум.  Провери ја инсталацијата."
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, c-format
@@ -130,7 +131,8 @@ msgstr "Bonobo поддршка за активирање"
 #: libgnome/gnome-init.c:305 libgnome/gnome-init.c:319
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Неможам да создадам по-корисник gnome конфигурациски дирекотриуми `%s': %s\n"
+msgstr ""
+"Неможам да создадам по-корисник gnome конфигурациски дирекотриуми `%s': %s\n"
 
 #: libgnome/gnome-init.c:328
 #, c-format
@@ -138,8 +140,8 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Неможам да подесам режим 0700 на приватен по-корисник gnome конфигурациски директориум `%"
-"s': %s\n"
+"Неможам да подесам режим 0700 на приватен по-корисник gnome конфигурациски "
+"директориум `%s': %s\n"
 
 #: libgnome/gnome-init.c:335
 #, c-format
@@ -343,16 +345,16 @@ msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr ""
-"Се појави грешка при парсирање на стандардната команда за дејство "
-"проврзана со оваа локација."
+"Се појави грешка при парсирање на стандардната команда за дејство проврзана "
+"со оваа локација."
 
 #: libgnome/gnome-url.c:103
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr ""
-"Се појави грешка при извршување на стандардната команда за дејство "
-"проврзана со оваа локација."
+"Се појави грешка при извршување на стандардната команда за дејство проврзана "
+"со оваа локација."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
@@ -366,6 +368,11 @@ msgstr "Стандардното дејство не го подржува ов�
 #, c-format
 msgid "Unknown error code: %d"
 msgstr "Непознат код на грешка: %d"
+
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
 
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -397,7 +404,8 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Оневозможи ако се стиснат две копчиња одеднаш"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
 "Не регистрирај притискање на копчиња освен ако копчињата не се држат "
 "притснати @delay милисекунди"
@@ -407,10 +415,11 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Колку милисекунди се потребни од 0 до максималната брзина"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
-"Колкаво е времето на чекање во милисекунди пред да се вклучат "
-"копчињата за движење на глушецот"
+"Колкаво е времето на чекање во милисекунди пред да се вклучат копчињата за "
+"движење на глушецот"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -418,7 +427,8 @@ msgstr "Колку пиксели во секунда да биде помест
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "Игнорај ги повеќекратните притискања на исто копче за @delay милисекунди"
+msgstr ""
+"Игнорај ги повеќекратните притискања на исто копче за @delay милисекунди"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -435,6 +445,16 @@ msgstr "минимален интервал во милисекунди"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "пиксели во секунда"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -478,10 +498,11 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "Дали стандардниот прегледувачот на помош користи терминал за да работи"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
-"Аргумент кој се користи за подигање на програмата во терминал, дефиниран "
-"од exec "
+"Аргумент кој се користи за подигање на програмата во терминал, дефиниран од "
+"exec "
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -538,8 +559,9 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
-"Одредува како сликата подесена од wallpaper_filename  ќе се рендерира. "
-"Можни вредности се \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+"Одредува како сликата подесена од wallpaper_filename  ќе се рендерира. Можни "
+"вредности се \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
+"\"."
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -558,8 +580,8 @@ msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"Како да се затемни бојата за позадината. Можни вредности се "
-"\"horizontal-gradient\", \"vertical-gradient\", и \"solid\""
+"Како да се затемни бојата за позадината. Можни вредности се \"horizontal-"
+"gradient\", \"vertical-gradient\", и \"solid\""
 
 #: schemas/desktop_gnome_background.schemas.in.h:7
 #, fuzzy
@@ -589,7 +611,8 @@ msgstr "Примарна Боја"
 #: schemas/desktop_gnome_background.schemas.in.h:13
 #, fuzzy
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "Десна или долна боја при цртање на градиенти, не се користи за полна боја"
+msgstr ""
+"Десна или долна боја при цртање на градиенти, не се користи за полна боја"
 
 #: schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -700,8 +723,13 @@ msgid "Toolbar Style"
 msgstr "Стил на лентата со алатки"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
-msgstr "Стил на лентата со алатки. Валидни вредности се both, both_horiz, icon, и text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
+msgstr ""
+"Стил на лентата со алатки. Валидни вредности се both, both_horiz, icon, и "
+"text"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Use Custom Font"
@@ -728,22 +756,24 @@ msgid "Whether menus should have a tearoff"
 msgstr "Дали менијата можат да се откачат"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr "Дали корисникот може динамички да внесе нов забрзувач кога ќе скокне менито."
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "Дали покажувачот треба да трепка"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Дали корисникот може да ги откачува и движи менијата"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Дали корисникот може да ги откачува и движи лентите со алатки"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"Дали корисникот може динамички да внесе нов забрзувач кога ќе скокне менито."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -762,14 +792,16 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Име на датотеката со сопствено ѕвонче за тастатурата"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "можни вредности се вклучи, исклучи и сопствено."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr "Множител за забрзување на покажувачот. Вредноста -1 е системски стандард."
+msgstr ""
+"Множител за забрзување на покажувачот. Вредноста -1 е системски стандард."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -784,11 +816,12 @@ msgid "Cursor theme"
 msgstr "Тема на покажувачот"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Тема на покажувачот. Користена само од Х северите што подржуваат Xcursor "
 "како  XFree86 4.3 или понов. Оваа вредност е пренесува на Х серверот на ж "
@@ -804,43 +837,44 @@ msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
-"Растојание во пиксели кое покажувачот на глушецот мора да го помине пред "
-"да почне да се движи. Стандардната системска вредност е -1."
+"Растојание во пиксели кое покажувачот на глушецот мора да го помине пред да "
+"почне да се движи. Стандардната системска вредност е -1."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
 msgstr ""
-"Временско растојание помеѓу два клика на глушецот за кое се "
-"смета дека е направено двоен клик."
+"Временско растојание помеѓу два клика на глушецот за кое се смета дека е "
+"направено двоен клик."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
 msgstr "Праг на влечење"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Име на фонтот за покажувачот. Ако не е поставено, се користи стандардниот "
-"фонт. Оваа вредност е пренесува на Х серверот на ж "
-"подигање на секоја сесија така што менувањето за време на сесијата нема да "
-"се одрази се до следното најавување."
+"фонт. Оваа вредност е пренесува на Х серверот на ж подигање на секоја сесија "
+"така што менувањето за време на сесијата нема да се одрази се до следното "
+"најавување."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr ""
-"Означи ја тековната локација на покажувачот кога Control копчето е притиснато "
-"и отпуштено."
+"Означи ја тековната локација на покажувачот кога Control копчето е "
+"притиснато и отпуштено."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
 msgstr ""
-"Временско растојание помеѓу два клика на глушецот за кое се "
-"смета дека е направено двоен клик."
+"Временско растојание помеѓу два клика на глушецот за кое се смета дека е "
+"направено двоен клик."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -868,13 +902,14 @@ msgid ""
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
 msgstr ""
-"Големина на покажувачот одредена со cursor_theme. Оваа вредност е пренесува на Х серверот на ж "
-"подигање на секоја сесија така што менувањето за време на сесијата нема да "
-"се одрази се до следното најавување."
+"Големина на покажувачот одредена со cursor_theme. Оваа вредност е пренесува "
+"на Х серверот на ж подигање на секоја сесија така што менувањето за време на "
+"сесијата нема да се одрази се до следното најавување."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "Смени ги левото десното копче на глушецот, за глушецот да го користи левак"
+msgstr ""
+"Смени ги левото десното копче на глушецот, за глушецот да го користи левак"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Enable ESD"
@@ -891,6 +926,48 @@ msgstr "Звуци за настани"
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
 msgstr "Дали да се пуштаат звуци за корисничките настани."
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle ghelp URLs"
@@ -913,28 +990,31 @@ msgid "Run program in terminal"
 msgstr "Стартувај ја програмата во терминал"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:6
-msgid "Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
 msgstr ""
-"Поставете го на точно за да имате одредена програма во programs/help "
-"да се справува со ghelp URL"
+"Поставете го на точно за да имате одредена програма во programs/help да се "
+"справува со ghelp URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:7
-msgid "Set to true to have a program specified in programs/info handle info URLs"
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
 msgstr ""
-"Поставете го на точно за да имате одредена програма во programs/info "
-"да се справува со info URL"
+"Поставете го на точно за да имате одредена програма во programs/info да се "
+"справува со info URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:8
 msgid "Set to true to have a program specified in programs/man handle man URLs"
 msgstr ""
-"Поставете го на точно за да имате одредена програма во programs/man "
-"да се справува со man URL"
+"Поставете го на точно за да имате одредена програма во programs/man да се "
+"справува со man URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:9
-msgid "Set to true to have a program specified in trash/command handle trash URLs"
+msgid ""
+"Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
-"Поставете го на точно за да имате одредена програма во trash/command "
-"да се справува со trash URL"
+"Поставете го на точно за да имате одредена програма во trash/command да се "
+"справува со trash URL"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
@@ -958,4 +1038,3 @@ msgstr "Справувач со URL man страници"
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Справувач со URL trash страници"
-

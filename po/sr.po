@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.2\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-05-02 12:24+0200\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
@@ -367,6 +367,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Фабрика додатних надимака"
@@ -438,6 +443,16 @@ msgstr "најмањи период у милисекундама"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "тачака по секунди"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -709,7 +724,10 @@ msgid "Toolbar Style"
 msgstr "Стил алатки"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Стил алатки. Дозвољене вредности су „both“, „both_horiz“, „icon“ и „text“"
 
@@ -738,23 +756,24 @@ msgid "Whether menus should have a tearoff"
 msgstr "Да ли је меније могуће откинути"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-"Да ли корисник може динамички да постави нову пречицу када је мени приказан"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "Да ли курсор треба да трепери"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Да ли корисник може да одвоји основне меније и да их помера наоколо"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Да ли корисник може да одвоји алатке и да их помера наоколо"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"Да ли корисник може динамички да постави нову пречицу када је мени приказан"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -773,7 +792,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Избор датотеке за звук звона тастатуре"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "дозвољене вредности су „on“, „off“ и „custom“."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -795,11 +815,12 @@ msgid "Cursor theme"
 msgstr "Тема курсора"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Име теме за курсор. Користе само Икс сервери који подржавају ИксКурсор, као "
 "што је ИксФри86 4.3 и новији. Ова вредност са шаље Икс серверу само на "
@@ -827,9 +848,10 @@ msgid "Drag Threshold"
 msgstr "Праг превлачења"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Име писма за курсор. Уколико није постављено, користи се уобичајено писмо. "
@@ -898,24 +920,104 @@ msgstr "Звуци за догађаје"
 msgid "Whether to play sounds on user events."
 msgstr "Да ли да пусти звук при корисниковим догађајима."
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Како баратати адресама за помоћ (ghelp)"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Како баратати адресама за помоћ (info)"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Како баратати адресама за помоћ (man)"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Како баратати адресама за смеће (trash)"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Покрени програм у терминалу"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr "Поставите како би наведени програм баратао адресама за помоћ (ghelp)"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr "Поставите како би наведени програм баратао адресама за помоћ (info)"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr "Поставите како би наведени програм баратао адресама за помоћ (man)"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr "Поставите како би наведени програм баратао смећем"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "Поставите ако програм за ову адресу треба да ради у терминалу"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "Програм за помоћне странице (ghelp)"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "Програм за помоћне странице (info)"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "Програм за помоћне странице (man)"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Програм за странице са смећем"
 
@@ -924,15 +1026,6 @@ msgstr "Програм за странице са смећем"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Како баратати адресама програма"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Како баратати адресама за помоћ (ghelp)"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Како баратати адресама за помоћ (info)"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Како баратати адресама за помоћ (man)"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Како баратати адресама за подешавања (preferences)"
@@ -962,20 +1055,6 @@ msgstr "Програм за странице са смећем"
 #~ "(preferences)"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Поставите како би наведени програм баратао адресама за помоћ (ghelp)"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr "Поставите како би наведени програм баратао адресама за помоћ (info)"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr "Поставите како би наведени програм баратао адресама за помоћ (man)"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr "Поставите како би наведени програм баратао непознатим адресама"
@@ -997,15 +1076,6 @@ msgstr "Програм за странице са смећем"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "Програм за странице са програмима"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Програм за помоћне странице (ghelp)"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Програм за помоћне странице (info)"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Програм за помоћне странице (man)"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "Програм за странице са подешавањима"

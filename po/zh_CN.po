@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-01-22 22:39+0800\n"
 "Last-Translator: Xiong Jiang <jxiong@offtopic.org>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
@@ -365,6 +365,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 # SUN CHANGED MESSAGE
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
@@ -432,6 +437,16 @@ msgstr "最小间隔毫秒数"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "每秒像素点"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -693,7 +708,10 @@ msgid "Toolbar Style"
 msgstr "工具栏风格"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr "工具栏风格。有效的值是 both, both_horiz, icon, 和 text"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
@@ -721,22 +739,23 @@ msgid "Whether menus should have a tearoff"
 msgstr "菜单是否应该有分离条"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr "当菜单弹出后，用户是否能动态地输入新的加速键"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "光标是否应该闪烁"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "用户是否能分离菜单栏并四处移动它们"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "用户是否能分离工具栏并四处移动它们"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr "当菜单弹出后，用户是否能动态地输入新的加速键"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -755,7 +774,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "自定义键盘铃声文件名"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "可用的值是 on, off, 和 custom。"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -782,9 +802,9 @@ msgstr "光标字体"
 #, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "光标字体的名称。如果未设置，则使用默认的字体。此设置只有在每次会话开始前传送"
 "给 X 服务器，因此在会话当中改变它不会有用，要等到您下次登录后才会起作用。"
@@ -808,9 +828,10 @@ msgid "Drag Threshold"
 msgstr "拖放阈值"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "光标字体的名称。如果未设置，则使用默认的字体。此设置只有在每次会话开始前传送"
@@ -876,24 +897,104 @@ msgstr "事件的声音"
 msgid "Whether to play sounds on user events."
 msgstr "是否在用户事件发生时播放声音。"
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "如何处理 ghelp URL"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "如何处理 info URL"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "如何处理 man URL"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "如何处理 回收站 URL"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "在终端中运行程序"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr "设置为“真”可以用在 程序/ghelp 中指定的程序来处理 ghelp URL"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr "设置为“真”可以用在 程序/info 中指定的程序来处理 info URL"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr "设置为“真”可以用在 程序/man 中指定的程序来处理 man URL"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr "设置为“真”可以用在 回收站/命令 中指定的程序来处理 回收站 URL"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "如果处理此 URL 的程序需要在终端中运行则设置为“真”"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "ghelp 页的 URL 处理程序"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "info 页的 URL 处理程序"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "man 页的 URL 处理程序"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "回收站页的 URL 处理程序"
 
@@ -902,15 +1003,6 @@ msgstr "回收站页的 URL 处理程序"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "如何处理“应用程序”URL"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "如何处理 ghelp URL"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "如何处理 info URL"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "如何处理 man URL"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "如何处理 首选项 URL"
@@ -938,19 +1030,6 @@ msgstr "回收站页的 URL 处理程序"
 #~ msgstr "设置为“真”可以用在 首选项/命令 中指定的程序来处理 首选项 URL"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr "设置为“真”可以用在 程序/ghelp 中指定的程序来处理 ghelp URL"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr "设置为“真”可以用在 程序/info 中指定的程序来处理 info URL"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr "设置为“真”可以用在 程序/man 中指定的程序来处理 man URL"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr "设置为“真”可以用在 程序/未知 中指定的程序来处理未知的 URL"
@@ -974,15 +1053,6 @@ msgstr "回收站页的 URL 处理程序"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "应用程序页的 URL 处理程序"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "ghelp 页的 URL 处理程序"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "info 页的 URL 处理程序"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "man 页的 URL 处理程序"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "首选项页的 URL 处理程序"

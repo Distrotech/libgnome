@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-02-07 14:43+0200\n"
 "Last-Translator: Arman Aksoy (Armish) <armish@linux-sevenler.de>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -357,6 +357,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Daha fazla rumuz fabrikası"
@@ -426,6 +431,16 @@ msgstr "Milisaniye cinsinden en düşük aralık"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "piksel/saniye"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -694,7 +709,10 @@ msgid "Toolbar Style"
 msgstr "Araç Çubuğu Stili"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Araç çubuğu Stili: Kullanılabilir değerşer ikiside, yanyana, simge ve metin"
 
@@ -723,24 +741,25 @@ msgid "Whether menus should have a tearoff"
 msgstr "Menülerde ayıraçlar olsun"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
+msgid "Whether the cursor should blink"
+msgstr "İmleç yanıp sönsün"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:32
+msgid "Whether the user can detach menubars and move them around"
+msgstr "Kullanıcı menüleri ayırıp ekranda taşıyabilsin"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:33
+msgid "Whether the user can detach toolbars and move them around"
+msgstr "Kullanıcı araç çubukarını ayırabilsin ve ekranda taşıyabilsin."
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
 msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
+"Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "Bir menü açıldığında kullanıcı dinamiksel olarak yeni bir belirtici "
 "girebilsin"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
-msgid "Whether the cursor should blink"
-msgstr "İmleç yanıp sönsün"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:33
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Kullanıcı menüleri ayırıp ekranda taşıyabilsin"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:34
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "Kullanıcı araç çubukarını ayırabilsin ve ekranda taşıyabilsin."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -759,7 +778,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Klavye Zili Özel Dosya adı"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "kullanılabilecek değerler açık, kapalı ve özel"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -783,11 +803,12 @@ msgid "Cursor theme"
 msgstr "İmleç teması"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "İmleç temasının adı. XFree86 4.3 ve sonrasındaki Xcursor desteği olan X "
 "sunucuları içindir. Bu değer sadece X oturumu açıldığında kullanılır bu "
@@ -814,9 +835,10 @@ msgid "Drag Threshold"
 msgstr "Taşıma Başlangıcı"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "İmlecin yazı tipi. Eğer \"atama\" seçilmişse öntanımlı yazı tipi kullanılır. "
@@ -883,28 +905,114 @@ msgstr "Olaylar için sesler"
 msgid "Whether to play sounds on user events."
 msgstr "Kullanıcı olaylarında ses çalınır."
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Ghelp URL'leri nasıl kullanılır"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "İnfo URL'leri nasıl kullanılır"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Man URL'leri nasıl kullanılır"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Çöp URL'leri nasıl kullanılır"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Programı uçbirimde çalıştır"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Uygulamalar/ghelp içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Uygulamalar/bilgi içinde belirtilen bir programın URL'leri kullanması için "
+"bu değere doğru atayın"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Uygulamalar/man içinde belirtilen bir programın URL'leri kullanması için bu "
+"değere doğru atayın"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Çöp/komut içinde belirtilen bir programın URL'leri kullanması için bu değere "
 "doğru atayın"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Eğer URL'i kullanacak programın uçbirimde çalışmasını istiyorsanız bu değere "
 "doğru atayın"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "Ghelp sayfaları için URL algılayıcısı"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "Bilgi sayfaları için URL algılayıcısı"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "Man sayfaları için URL algılayıcısı"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Çöp sayfaları için URL algılayıcısı"
 
@@ -913,15 +1021,6 @@ msgstr "Çöp sayfaları için URL algılayıcısı"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Uygulama URL'leri nasıl kullanılır"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Ghelp URL'leri nasıl kullanılır"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "İnfo URL'leri nasıl kullanılır"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Man URL'leri nasıl kullanılır"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Tercihler URL'leri nasıl kullanılır"
@@ -950,25 +1049,6 @@ msgstr "Çöp sayfaları için URL algılayıcısı"
 #~ "preferences URLs"
 #~ msgstr ""
 #~ "Tercihler/komut içinde belirtilen bir programın URL'leri kullanması için "
-#~ "bu değere doğru atayın"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Uygulamalar/ghelp içinde belirtilen bir programın URL'leri kullanması "
-#~ "için bu değere doğru atayın"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Uygulamalar/bilgi içinde belirtilen bir programın URL'leri kullanması "
-#~ "için bu değere doğru atayın"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Uygulamalar/man içinde belirtilen bir programın URL'leri kullanması için "
 #~ "bu değere doğru atayın"
 
 #~ msgid ""
@@ -1001,15 +1081,6 @@ msgstr "Çöp sayfaları için URL algılayıcısı"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "Uygulama sayfaları için URL algılayıcısı"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Ghelp sayfaları için URL algılayıcısı"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Bilgi sayfaları için URL algılayıcısı"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Man sayfaları için URL algılayıcısı"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "Tercihler sayfaları için URL algılayıcısı"

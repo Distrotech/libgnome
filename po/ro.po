@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.2\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-01-22 21:22+0300\n"
 "Last-Translator: Marius Andreiana <marius galuna.ro>\n"
 "Language-Team: Română <ro@li.org>\n"
@@ -357,6 +357,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Extra factory Moniker"
@@ -426,6 +431,16 @@ msgstr "intervalul minim în milisecunde"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "pixeli pe secundă"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -697,7 +712,10 @@ msgid "Toolbar Style"
 msgstr "Stilul bării de unelte"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Stilul bării de unelte. Valori posibile sunt both, both_horiz, icon, şi text"
 
@@ -726,22 +744,23 @@ msgid "Whether menus should have a tearoff"
 msgstr "Dacă meniurile pot fi detaşabile"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr "Dacă utilizatorul poate tasta un accelerator când meniul este activat"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "Dacă cursorul să clipească"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Dacă utilizatorul poate detaşa şi muta barele de meniuri"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Dacă utilizatorul poate detaşa şi muta barele de unelte"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr "Dacă utilizatorul poate tasta un accelerator când meniul este activat"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -760,7 +779,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Fişier personalizat pentru clopoţel tastatură"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "valori posibile sunt on, off, şi custom."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -784,11 +804,12 @@ msgid "Cursor theme"
 msgstr "Temă cursor"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr "Numele temei pentru cursor."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
@@ -812,9 +833,10 @@ msgid "Drag Threshold"
 msgstr "Prag tragere fişiere"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr "Numele fontului pentru cursor."
 
@@ -877,26 +899,107 @@ msgstr "Sunete pentru evenimente"
 msgid "Whether to play sounds on user events."
 msgstr "Dacă să redau un sunet la evenimentele utilizator."
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Cum să mă ocup de URL-uri ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Cum să mă ocup de URL-uri info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Cum să mă ocup de URL-uri man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Cum să mă ocup de URL-uri gunoi"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Rulează programul în terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Setează pentru a specifica un program care să se ocupe de URL-uri ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr "Setează pentru a specifica un program care să se ocupe de URL-uri info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr "Setează pentru a specifica un program care să se ocupe de URL-uri man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Setează pentru a specifica un program care să se ocupe de URL-uri gunoi"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Setează dacă programul care se ocupă de acest URL ar trebui rulat în terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "Cine se ocupă de pagini ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "Cine se ocupă de pagini info"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "Cine se ocupă de pagini man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Cine se ocupă de pagini gunoi"
 
@@ -905,15 +1008,6 @@ msgstr "Cine se ocupă de pagini gunoi"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Cine se ocupă cu URL-urile aplicaţiilor"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Cum să mă ocup de URL-uri ghelp"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Cum să mă ocup de URL-uri info"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Cum să mă ocup de URL-uri man"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Cum să mă ocup de URL-uri preferinţe"
@@ -945,22 +1039,6 @@ msgstr "Cine se ocupă de pagini gunoi"
 #~ "preferinţe"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Setează pentru a specifica un program care să se ocupe de URL-uri ghelp"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Setează pentru a specifica un program care să se ocupe de URL-uri info"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Setează pentru a specifica un program care să se ocupe de URL-uri man"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -990,15 +1068,6 @@ msgstr "Cine se ocupă de pagini gunoi"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "Cine se ocupă de pagini ale aplicaţiilor"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Cine se ocupă de pagini ghelp"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Cine se ocupă de pagini info"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Cine se ocupă de pagini man"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "Cine se ocupă de pagini preferinţe"

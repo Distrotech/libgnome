@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Tamil-libgnome2 2.0\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-04-18 20:20+0600\n"
 "Last-Translator: Dinesh Nadarajah <n_dinesh@yahoo.com>\n"
 "Language-Team: Tamil <tamilgnome@yahoogroups.com>\n"
@@ -64,7 +64,8 @@ msgstr "பயனர் இடைமுகம் நிகழ்வுகள்"
 
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "முனையம் ஒன்றைக் கண்டுபிடிக்க முடியவில்லை, இயக்க முடியாவிட்டாலும், xterm பயன்படுத்தும்"
+msgstr ""
+"முனையம் ஒன்றைக் கண்டுபிடிக்க முடியவில்லை, இயக்க முடியாவிட்டாலும், xterm பயன்படுத்தும்"
 
 #: libgnome/gnome-gconf.c:174
 msgid "GNOME GConf Support"
@@ -83,7 +84,8 @@ msgstr "GNOME_FILE_DOMAIN_HELP களம் கண்டுபிடிக்க
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr "%s ஓர் அடைவு இல்லாததால், உதவி காண்பிக்க முடியவில்லை. உங்கள் நிறுவலை சரிபார்க்கவும்"
+msgstr ""
+"%s ஓர் அடைவு இல்லாததால், உதவி காண்பிக்க முடியவில்லை. உங்கள் நிறுவலை சரிபார்க்கவும்"
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, fuzzy, c-format
@@ -91,7 +93,8 @@ msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"உதவிக் கோப்புகளை %s இல் அல்லது %s இல் கண்டுபிடிக்க முடியவில்லை. உங்கள் நிறுவலை சரிபார்க்கவும்"
+"உதவிக் கோப்புகளை %s இல் அல்லது %s இல் கண்டுபிடிக்க முடியவில்லை. உங்கள் நிறுவலை "
+"சரிபார்க்கவும்"
 
 #: libgnome/gnome-help.c:339
 #, c-format
@@ -105,7 +108,8 @@ msgstr "%s/%s உதவி ஆவணம் காணவில்லை"
 
 #: libgnome/gnome-i18n.c:86
 msgid "Too many alias levels for a locale, may indicate a loop"
-msgstr "ஒரு வடிவிடத்திற்கு அதிகம் கூடுதலான  மாற்றுப் பெயர் கட்டங்கள், கண்ணியைக் குறிப்பிடலாம்"
+msgstr ""
+"ஒரு வடிவிடத்திற்கு அதிகம் கூடுதலான  மாற்றுப் பெயர் கட்டங்கள், கண்ணியைக் குறிப்பிடலாம்"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -127,7 +131,8 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"தலா-பயனர்ப்படி குனோம் அமை-வடிவ அடைவின் முறைமையை 0700 ஆக அமைக்க முடியவில்லை `%s': %s\n"
+"தலா-பயனர்ப்படி குனோம் அமை-வடிவ அடைவின் முறைமையை 0700 ஆக அமைக்க முடியவில்லை `%s': %"
+"s\n"
 
 #: libgnome/gnome-init.c:335
 #, c-format
@@ -351,6 +356,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "இதர Moniker தொழிட்சாலை"
@@ -383,7 +393,8 @@ msgstr "ஒரே நேரத்தில் இரண்டு விசைக
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "@தாமதம் மில்லிநொடிகளுக்கு அழுத்தப்படும் வரை, விசை அழுத்தப்பட்டதாக ஏற்றுக்கொள்ள வேண்டாம்"
+msgstr ""
+"@தாமதம் மில்லிநொடிகளுக்கு அழுத்தப்படும் வரை, விசை அழுத்தப்பட்டதாக ஏற்றுக்கொள்ள வேண்டாம்"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
@@ -417,6 +428,16 @@ msgstr "மில்லிநொடிகளில் ஆகக்குறை�
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "நொடியில் எத்தனை பிக்செல்கள்"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -674,7 +695,9 @@ msgid "Toolbar Style"
 msgstr "கருவிப் பட்டை பாணி"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
@@ -700,21 +723,21 @@ msgid "Whether menus should have a tearoff"
 msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "லை காட்டி சிமிட்ட வேண்டுமா"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
+msgstr ""
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
 msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
@@ -734,7 +757,7 @@ msgid "Keyboard Bell Custom Filename"
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -758,9 +781,9 @@ msgstr "நிலை காட்டி தோற்றம்"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
@@ -783,8 +806,8 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 
@@ -845,26 +868,112 @@ msgstr "நிகழ்வுகளுக்கான ஒலி"
 msgid "Whether to play sounds on user events."
 msgstr "ஒலிகளை பயனர் நிகழ்வின்போது விளையாடுவதா இல்லையா"
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "gஉதவி (பக்கங்களின்) URLகளை எப்படி கையாளுவது"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "info(உதவி பக்கங்களின்) URLகளை எப்படி கையாளுவது"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "man(உதவி பக்கங்களின்) URLகளை எப்படி கையாளுவது"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "கழிவு URLகளை எப்படி கையாளுவது"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "நிரலினை முனையத்தில் ஓட்டவும்"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"gஉதவி (பக்கங்களின்) URLகளை கையாள நிரல்/gஉதவி இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு நிரலி "
+"னை உண்மை என அமைக்கவும்"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"info(உதவி பக்கங்களின்) URLகளை கையாள நிரல்/info இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு "
+"நிரலி னை உண்மை என அமைக்கவும்"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"man(உதவி பக்கங்களின்) URLகளை கையாள நிரல்/man இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு நிரலி "
+"னை உண்மை என அமைக்கவும்"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "கழிவு URLகளை கையாள கழிவு/ஆணை இல்  தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு நிரலினை உண்மை என  "
 "அமைக்கவும்"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "இந்த URL க்  கையாளும் நிரல் முனையத்தில் ஓட்ட வேண்டுவதாயின் உண்மை"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "gஉதவிப் பக்கங்களின் URL கையாளர்"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "info(உதவி)  பக்கங்களின் URL கையாளர்"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "man(உதவி) பக்கங்களின் URL கையாளர்"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "கழிவுப் பக்கங்களின் URL கையாளர்"
 
@@ -873,15 +982,6 @@ msgstr "கழிவுப் பக்கங்களின் URL கையா
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "பயன்பாட்டு URLகளை எப்படி கையாளுவது"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "gஉதவி (பக்கங்களின்) URLகளை எப்படி கையாளுவது"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "info(உதவி பக்கங்களின்) URLகளை எப்படி கையாளுவது"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "man(உதவி பக்கங்களின்) URLகளை எப்படி கையாளுவது"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "விருப்ப URLகளை எப்படி கையாளுவது"
@@ -909,27 +1009,8 @@ msgstr "கழிவுப் பக்கங்களின் URL கையா
 #~ "Set to true to have a program specified in preferences/command handle  "
 #~ "preferences URLs"
 #~ msgstr ""
-#~ "விருப்பங்கள் URLகளை கையாள விருப்பங்கள்/ஆணை இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு நிரலினை "
-#~ "உண்மை  என அமைக்கவும்"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "gஉதவி (பக்கங்களின்) URLகளை கையாள நிரல்/gஉதவி இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு நிரல"
-#~ "ி னை உண்மை என அமைக்கவும்"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "info(உதவி பக்கங்களின்) URLகளை கையாள நிரல்/info இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு நி"
-#~ "ரலி னை உண்மை என அமைக்கவும்"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "man(உதவி பக்கங்களின்) URLகளை கையாள நிரல்/man இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு நிரல"
-#~ "ி னை உண்மை என அமைக்கவும்"
+#~ "விருப்பங்கள் URLகளை கையாள விருப்பங்கள்/ஆணை இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு "
+#~ "நிரலினை உண்மை  என அமைக்கவும்"
 
 #~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
@@ -942,34 +1023,25 @@ msgstr "கழிவுப் பக்கங்களின் URL கையா
 #~ "Set to true to have a program specified in server-settings/command "
 #~ "handle  server-settings URLs"
 #~ msgstr ""
-#~ "சேவையக-அமைவு URLகளை கையாள சேவையக-அமைவு/ஆணை இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு நிரல"
-#~ "ி னை உண்மை என அமைக்கவும்"
+#~ "சேவையக-அமைவு URLகளை கையாள சேவையக-அமைவு/ஆணை இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு "
+#~ "நிரலி னை உண்மை என அமைக்கவும்"
 
 #~ msgid ""
 #~ "Set to true to have a program specified in start-here/command handle "
 #~ "start- here URLs"
 #~ msgstr ""
-#~ "இங்கு-தொடங்கல் URLகளை கையாள இங்கு-தொடங்கல்/ஆணை இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு நிரல"
-#~ "ி னை உண்மை என அமைக்கவும்"
+#~ "இங்கு-தொடங்கல் URLகளை கையாள இங்கு-தொடங்கல்/ஆணை இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு "
+#~ "நிரலி னை உண்மை என அமைக்கவும்"
 
 #~ msgid ""
 #~ "Set to true to have a program specified in system-settings/command "
 #~ "handle  system-settings URLs"
 #~ msgstr ""
-#~ "அமைப்பு-அமைவு URLகளை கையாள அமைப்பு-அமைவு/ஆணை இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு நிரலி"
-#~ "னை  உண்மை என அமைக்கவும்"
+#~ "அமைப்பு-அமைவு URLகளை கையாள அமைப்பு-அமைவு/ஆணை இல் தீர்மானமாகக் குறிப்பிடப்பட்ட ஒரு "
+#~ "நிரலினை  உண்மை என அமைக்கவும்"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "பயன்பாட்டுப் பக்கங்களின் URL கையாளர்"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "gஉதவிப் பக்கங்களின் URL கையாளர்"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "info(உதவி)  பக்கங்களின் URL கையாளர்"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "man(உதவி) பக்கங்களின் URL கையாளர்"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "விருப்பப் பக்கங்களின் URL கையாளர்"

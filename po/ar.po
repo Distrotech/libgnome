@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-05-20 14:24+0200\n"
 "Last-Translator: Arafat Medini <lumina@silverpen.de>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -355,6 +355,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "معاين مونِكر الإضافي"
@@ -421,6 +426,16 @@ msgstr "الفترة الدنيا بالمليثواني"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "بكسلات كل ثانية"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -682,7 +697,10 @@ msgid "Toolbar Style"
 msgstr "نمط عمود الأدوات"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr "نمط عمود الأدوات. القيم الممكنة: كلاهما، كلاهما أفقيا، الأيقونة، النص"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
@@ -708,22 +726,22 @@ msgid "Whether menus should have a tearoff"
 msgstr "ما إذا وجب أن يكون للقوائم شارات"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "ما إذا يجب للمؤشر الوميض"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "ما إذا يمكن للمستعمل قلع أعمدة القوائم و نقلها"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "ما إذا يمكن للمستخدم قلع أعمدة الأدوات و نقلها"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -742,7 +760,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "اسم ملف رنة لوحة المفاتيح المخصّص"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "القيم الممكنة هي يعمل، لا يعمل، و خاص"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -764,11 +783,12 @@ msgid "Cursor theme"
 msgstr "تيمة المؤشر"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "اسم تيمة المؤشر. مستعمل فقط من طرف نوادل X التي تدعم Xcursor، مثل XFree86 "
 "4.3 و الإصدارة التي أتت بعده. هذه القيمة لا تنقل إلى نادل X إلا عند بداية كل "
@@ -793,9 +813,10 @@ msgid "Drag Threshold"
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "اسم خط المؤشر. إذا لم يضبط، فسيستعمل الخط الإفتراضي. لا تمرر هذه القيمة "
@@ -859,26 +880,106 @@ msgstr "صوت للأحداث"
 msgid "Whether to play sounds on user events."
 msgstr "ما أذا يجب عزف أصوات عند حصول أحداث من طرف المستعمل."
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "كيفية معالجة عناوين ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "كيفية معالجة معلومات العناوينة"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "كيفية معالجة عناوين man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "كيفية معالجة عناوين سلة المهملات"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "تشغيل برنامج في الشاشة الطرفية"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr "ضبط كصحيح للحصول على برنامج مخصص في برامج/ghelp يعالج عناوين ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr "p"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr "ضبط كصحيح للحصول على برنامج مخصص في برامج/man يعالج عناوين man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "ضبط كصحيح للحصول على برنامج مخصص في سلة المهملاتجأمرل يعالجلعناوينسلة "
 "المهملاتة"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "صحيح أذا وجب تشغيل برنامج معالجة هذا العنوان في شاشة طرفية"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "معالج العناوين لصفحات ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "معالج العناوين لصفحات المعلومات"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "معالج العناوين لصفحات man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "معالج العناوين لصفحات سلة المهملات"
 
@@ -887,15 +988,6 @@ msgstr "معالج العناوين لصفحات سلة المهملات"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "كيفية التعامل مع عناوين التطبيقات"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "كيفية معالجة عناوين ghelp"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "كيفية معالجة معلومات العناوينة"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "كيفية معالجة عناوين man"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "كيفية معالجة خيارات العناوين"
@@ -925,19 +1017,6 @@ msgstr "معالج العناوين لصفحات سلة المهملات"
 #~ "ضبط كصحيح للحصول على برنامج مخصص في تطبيقات/أمر يعالج تفضيلات العناوين"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr "ضبط كصحيح للحصول على برنامج مخصص في برامج/ghelp يعالج عناوين ghelp"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr "p"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr "ضبط كصحيح للحصول على برنامج مخصص في برامج/man يعالج عناوين man"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -965,15 +1044,6 @@ msgstr "معالج العناوين لصفحات سلة المهملات"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "معالج العناوين لصفحات التطبيقات"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "معالج العناوين لصفحات ghelp"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "معالج العناوين لصفحات المعلومات"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "معالج العناوين لصفحات man"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "معالج العناوين لتفضيلات الصفحات"

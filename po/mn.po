@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.mn\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-01-27 01:15+0100\n"
 "Last-Translator: Sanlig Badral <badral@chinggis.com>\n"
 "Language-Team: Mongolian <mn@li.org>\n"
@@ -361,6 +361,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Moniker-ийн нэмэлт фабрикууд"
@@ -435,6 +440,16 @@ msgstr "хамгийн бага хоорондын интервал миллис
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "нэг секундэд ногдох цэг"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -711,7 +726,10 @@ msgid "Toolbar Style"
 msgstr "Багажийн самбарын хэлбэр"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Багажийн самбарын хэлбэр. Боломжит хэлбэрүүд нь »both«, »both_horiz«, »icon« "
 "ба »text«"
@@ -741,24 +759,25 @@ msgid "Whether menus should have a tearoff"
 msgstr "Цэснүүдэд тэмдэглэлийн цаас бэхлэх эсэх"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
+msgid "Whether the cursor should blink"
+msgstr "Заагуур анивчх эсэх"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:32
+msgid "Whether the user can detach menubars and move them around"
+msgstr "Хэрэглэгч цэсний самбарыг салган зөөж болох эсэх"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:33
+msgid "Whether the user can detach toolbars and move them around"
+msgstr "Хэрэглэгч багажийн самбарыг салган зөөж болох эсэх"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
 msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
+"Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "Хэрэглэгч цэсний оруулгад зориулан товчлуурын комбинацыг(үзүүлсэн тохиолдолд)"
 "динамик байдлаар тохируулах эсэх"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
-msgid "Whether the cursor should blink"
-msgstr "Заагуур анивчх эсэх"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:33
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Хэрэглэгч цэсний самбарыг салган зөөж болох эсэх"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:34
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "Хэрэглэгч багажийн самбарыг салган зөөж болох эсэх"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -779,7 +798,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Гарны товчлуурын хонхны дууны файлын нэр"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr ""
 "Боломжит утгууд нь »on« (асаах), »off« (салгах) мөн»custom« (хэрэглэгчийн "
 "тохиргоогоор)"
@@ -803,11 +823,12 @@ msgid "Cursor theme"
 msgstr "Түүчээний хэлбэр"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Түүчээний хэлбэрийн нэр. Зөвхөн Xcursor дэмжигдсэн XFree86 4.3 ба хойшхи гэх "
 "мэт X-Server -т хэрэглэгдэнэ.Энэ утга зөвхөн суулт бүрийн хувьд X-Server "
@@ -835,9 +856,10 @@ msgid "Drag Threshold"
 msgstr "Чирэх хурдын хязгаар"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Заагуурын бичгийн хэлбэр. Түүнийг тодорхойлж өгөөгүй тохиолдолд стандарт "
@@ -906,26 +928,112 @@ msgstr "Үйлдлүүдийн гаргах дуу"
 msgid "Whether to play sounds on user events."
 msgstr "Хэрэглэгчийн хийх үйлдэлд хамааруулан дуу гаргах эсэх"
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "ghelp-URL-үүдтэй хэрхэн харьцах"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Инфо-URL-үүдтэй хэрхэн харьцах"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "man-URL-үүдтэй хэрхэн харьцах"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "хогийн савны URL-үүдтэй хэрхэн харьцах"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Терминалд программ ажиллуулахProgramm im Terminal ausführen"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"programs/ghelp -ийн дотор орших бөгөөд хэрэглээний GNOME HELP URL-үүдтэй "
+"харьцдаг программыг авах үйлдэл"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"programs/info -ийн дотор орших бөгөөд хэрэглээний URL-үүдтэй харьцдаг "
+"программыг авах үйлдэл"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"programs/man -ийн дотор орших бөгөөд хэрэглээний URL-үүдтэй харьцдаг "
+"программыг авах үйлдэл"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "trash/command -ийн дотор орших бөгөөд хогийн савтай холбоотой URL-үүдтэй "
 "харьцдаг программыг авах үйлдэл"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "Энэ URL-тэй харьцдаг терминалд ажиллах программыг авах үйлдэл"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "URL-ийн ghelp-хуудастай харьцах"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "URL-ийн инфо-хуудастай харьцах"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "URL-ийн ghelp-хуудастай харьцах"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "URL-ийн хогийн сав -хуудастай харьцах"
 
@@ -934,15 +1042,6 @@ msgstr "URL-ийн хогийн сав -хуудастай харьцах"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Программын URL-үүдтэй хэрхэн харьцах"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "ghelp-URL-үүдтэй хэрхэн харьцах"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Инфо-URL-үүдтэй хэрхэн харьцах"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "man-URL-үүдтэй хэрхэн харьцах"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "preferences-URL-үүдтэй хэрхэн харьцах"
@@ -974,25 +1073,6 @@ msgstr "URL-ийн хогийн сав -хуудастай харьцах"
 #~ "харьцдаг программыг авах үйлдэл"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "programs/ghelp -ийн дотор орших бөгөөд хэрэглээний GNOME HELP URL-үүдтэй "
-#~ "харьцдаг программыг авах үйлдэл"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "programs/info -ийн дотор орших бөгөөд хэрэглээний URL-үүдтэй харьцдаг "
-#~ "программыг авах үйлдэл"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "programs/man -ийн дотор орших бөгөөд хэрэглээний URL-үүдтэй харьцдаг "
-#~ "программыг авах үйлдэл"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -1022,15 +1102,6 @@ msgstr "URL-ийн хогийн сав -хуудастай харьцах"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "URL-ийн программын хуудастай харьцах"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "URL-ийн ghelp-хуудастай харьцах"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "URL-ийн инфо-хуудастай харьцах"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "URL-ийн ghelp-хуудастай харьцах"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "URL-ийн тохируулгын-хуудастай харьцах"

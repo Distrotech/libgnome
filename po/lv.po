@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-01-21 10:39+0200\n"
 "Last-Translator: Artis Trops <hornet@navigator.lv>\n"
 "Language-Team: Latvian <ll10nt@os.lv>\n"
@@ -354,6 +354,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Papildus Moniker rūpnīca"
@@ -426,6 +431,16 @@ msgstr "minimālais intervāls milisekundēs"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "pikseļi sekundēs"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -696,7 +711,10 @@ msgid "Toolbar Style"
 msgstr "Rīkjoslas Stils"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr "Rīkjoslas Stils. Derīgas vērtības ir both, both_horiz, icon un text"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
@@ -724,24 +742,25 @@ msgid "Whether menus should have a tearoff"
 msgstr "Vai izvēlnēm būtu jābūt pārceļamām"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
+msgid "Whether the cursor should blink"
+msgstr "Vai kursoram būtu jāmirgo"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:32
+msgid "Whether the user can detach menubars and move them around"
+msgstr "Vai lietotājs var atdalīt izvēļņjoslas un pārvietot tās apkārt"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:33
+msgid "Whether the user can detach toolbars and move them around"
+msgstr "Vai lietotājs var atdalīt rīkjoslas un pārvietot tās apkārt"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
 msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
+"Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "Vai Lietotājs var dinamiski ierakstīt jaunu paātrinātāju, kad izvēlne ir "
 "uznirusi"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
-msgid "Whether the cursor should blink"
-msgstr "Vai kursoram būtu jāmirgo"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:33
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Vai lietotājs var atdalīt izvēļņjoslas un pārvietot tās apkārt"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:34
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "Vai lietotājs var atdalīt rīkjoslas un pārvietot tās apkārt"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -760,7 +779,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Tastatūras Zvana Pašizvēles Faila nosaukums"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "iespējamās vērtības ir on, off, un custom."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -783,11 +803,12 @@ msgid "Cursor theme"
 msgstr "Kursora tēma"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Kursora tēmas nosaukums. Tiek lietots Xserveros, kas atbalsta Xcursor, tādos "
 "kā XFree86 4.3 un vēlākos. Šī vērtība tiek piespēlēta X serverim tikai "
@@ -815,9 +836,10 @@ msgid "Drag Threshold"
 msgstr "Vilkšanas Slieksnis"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Kursora fonta nosaukums. Ja nieiestatīts, tiek lietots noklusētais fonts. Šī "
@@ -886,27 +908,113 @@ msgstr "Skaņas notikumiem"
 msgid "Whether to play sounds on user events."
 msgstr "Vai atskaņot skaņas pie lietotāja notikumiem."
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Kā apieties ar ghelp URLiem"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Kā apieties ar info URLiem"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Kā apieties ar man URLiem"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Kā apieties ar atkritumkastes URLiem"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Palais programmu terminālī"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš programms/ghelp, "
+"apieties ar ghelp URLiem"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš programms/info, "
+"apieties ar info URLiem"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Iestatiet uz true, lai liktu programmai, norādītai iekš programms/man, "
+"apieties ar man URLiem"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Iestatiet uz true, lai liktu programmai, norādītai iekš trash/command, "
 "apieties ar atkritumkastes URLiem"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "True, ja programmai, lai apietos ar URL, nepieciešams palaisties terminālī"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "URL noteicējs ghelp lapām"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "URL noteicējs info lapām"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "URL noteicējs man lapām"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "URL noteicējs atkritumkastes lapām"
 
@@ -915,15 +1023,6 @@ msgstr "URL noteicējs atkritumkastes lapām"
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Kā apieties ar aplikāciju URLiem"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Kā apieties ar ghelp URLiem"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Kā apieties ar info URLiem"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Kā apieties ar man URLiem"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Kā apieties ar preferenču URLiem"
@@ -955,25 +1054,6 @@ msgstr "URL noteicējs atkritumkastes lapām"
 #~ "command, apieties ar preferenču URLiem"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Iestatiet uz true, lai liktu programmai, norādītai iekš programms/ghelp, "
-#~ "apieties ar ghelp URLiem"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Iestatiet uz true, lai liktu programmai, norādītai iekš programms/info, "
-#~ "apieties ar info URLiem"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Iestatiet uz true, lai liktu programmai, norādītai iekš programms/man, "
-#~ "apieties ar man URLiem"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -1003,15 +1083,6 @@ msgstr "URL noteicējs atkritumkastes lapām"
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "URL noteicējs aplikāciju lapām"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "URL noteicējs ghelp lapām"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "URL noteicējs info lapām"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "URL noteicējs man lapām"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "URL noteicējs preferenču lapām"

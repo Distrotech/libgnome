@@ -15,7 +15,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.0.5\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-01-28 13:25+0200\n"
 "Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -380,6 +380,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Εργοστάσιο για Επιπλέον Απλουστευμένο Όνομα"
@@ -459,6 +464,16 @@ msgstr "ελάχιστο χρονικό μεσοδιάστημα σε χιλιο
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "εικονοστοιχεία ανά δευτερόλεπτο"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -740,7 +755,10 @@ msgid "Toolbar Style"
 msgstr "Στύλ εργαλειοθήκης"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Στύλ εργαλειοθήκης. Οι έγκυρες τιμές είναι both, both_horiz, icon, and text"
 
@@ -769,26 +787,27 @@ msgid "Whether menus should have a tearoff"
 msgstr "Αν οι στηλοθέτες θα πρέπει να έχουν tearoff"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-"Αν ο χρήστης θα μπορεί να εισάγει δυναμικά μια νέα συντόμευση όταν το μενού "
-"αναδύεται."
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "Αν θα πάλλεται ο δρομέας"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Αν ο χρήστης θα  μπορεί να αποσπά τα μενού και να τα μετακινεί τριγύρω"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 "Αν ο χρήστης θα  μπορεί να αποσπά τις εργαλειθήκες και να τις μετακινεί "
 "τριγύρω"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"Αν ο χρήστης θα μπορεί να εισάγει δυναμικά μια νέα συντόμευση όταν το μενού "
+"αναδύεται."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -808,7 +827,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Όνομα αρχείου προσαρμοσμένης καμπάνας πληκτρολογίου"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "πιθανές τιμές είναι ενεργό, ανενεργό και προσαρμοσμένο."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -832,11 +852,12 @@ msgid "Cursor theme"
 msgstr "Θέμα δρομέα"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Όνομα θέματος του δρομέα. Χρησιμοποιείται μόνο από εξυπηρετητές Χ που "
 "υποστηρίζουν Xcursor, όπως το XFree86 4.3 και νεώτερο. Αυτή η τιμή "
@@ -866,9 +887,10 @@ msgid "Drag Threshold"
 msgstr "Σύρσιμο αφετηρίας"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Όνομα γραμματοσειράς του δρομέα. Αν δεν ορισθεί χρησιμοποιείται η εξ ορισμού "
@@ -940,27 +962,113 @@ msgstr "Ήχοι για συμβάντα"
 msgid "Whether to play sounds on user events."
 msgstr "Αν θα αναπαράγονται ήχοι στα γεγονότα χρήστη."
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "Πώς θα γίνεται ο χειρισμός των URLs ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "Πώς θα γίνεται ο χειρισμός των URLs πληροφοριών"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "Πώς θα γίνεται ο χειρισμός των URLs man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "Πώς θα γίνεται ο χειρισμός των URLs των απορριμάτων"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Εκτέλεση προγράμματος σε τερματικό"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/εντολή για να "
+"χειρίζεται τα  URLs ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/πληροφορίες "
+"για να χειρίζεται τα  URLs πληροφοριών"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/man για να "
+"χειρίζεται τα  URLs man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο Απορρίματα/εντολή για να "
 "χειρίζεται τα  URLs των Απορριμάτων"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "True αν το πρόγραμμα που χειρίζεται τα URL πρέπει να εκτελείται σε τερματικό"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "Χειριστής URL για τις σελίδες ghelp"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "Χειριστής URL για τις σελίδες πληροφοριών"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "Χειριστής URL για τις σελίδες man"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Χειριστής URL για τις σελίδες απορριμάτων"
 
@@ -969,15 +1077,6 @@ msgstr "Χειριστής URL για τις σελίδες απορριμάτω
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs εφαρμογών"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs ghelp"
-
-#~ msgid "How to handle info URLs"
-#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs πληροφοριών"
-
-#~ msgid "How to handle man URLs"
-#~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs man"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Πώς θα γίνεται ο χειρισμός των URLs προτιμήσεων"
@@ -1009,25 +1108,6 @@ msgstr "Χειριστής URL για τις σελίδες απορριμάτω
 #~ "να χειρίζεται τα  URLs προτιμήσεων"
 
 #~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/εντολή για "
-#~ "να χειρίζεται τα  URLs ghelp"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/πληροφορίες "
-#~ "για να χειρίζεται τα  URLs πληροφοριών"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Ορισμός σε true ώστε να ορισθεί ένα πρόγραμμα στο προγράμματα/man για να "
-#~ "χειρίζεται τα  URLs man"
-
-#~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
@@ -1057,15 +1137,6 @@ msgstr "Χειριστής URL για τις σελίδες απορριμάτω
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "Χειριστής URL για τις σελίδες εφαρμογών"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Χειριστής URL για τις σελίδες ghelp"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "Χειριστής URL για τις σελίδες πληροφοριών"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "Χειριστής URL για τις σελίδες man"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "Χειριστής URL για τις σελίδες προτιμήσεων"

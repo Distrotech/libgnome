@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-05-01 04:41+0800\n"
 "Last-Translator: Hasbullah Bin Pit <sebol@ikhlas.com>\n"
 "Language-Team: Malay <gabai-penyumbang@lists.sourceforge.net>\n"
@@ -363,6 +363,11 @@ msgstr "Aksi default tidak menyokong protokol ini."
 msgid "Unknown error code: %d"
 msgstr "Kod ralat tak diketahui: %d"
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Kilang Moniker ekstra"
@@ -433,6 +438,16 @@ msgstr "Selangmasa minimum dalam saat"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "piksel per saat"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -701,7 +716,10 @@ msgid "Toolbar Style"
 msgstr "Gaya Toolbar"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr "Gaya Toolbar. Nilai sah adalan both, both_horiz, ikon dan text"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:26
@@ -727,24 +745,25 @@ msgid "Whether menus should have a tearoff"
 msgstr "Samada menu patut mempunyai pengoyak"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-"Samada Pengguna boleh menaip pemecut baru bila meni dipopup secara dinamik"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "Samada kursor patut berkelip"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Samada pengguna boleh melerai bar menu dan mengerakkan ke sekeliling"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 "Samada pengguna boleh meleraikan toolbar dan menggerakkannya sekeliling"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"Samada Pengguna boleh menaip pemecut baru bila meni dipopup secara dinamik"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -763,7 +782,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Namafail Loceng tersendiri Papankekunci"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "nilai yang boleh adalah on, off dan custom."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -788,9 +808,9 @@ msgstr "Tema kursor"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
@@ -815,8 +835,8 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 
@@ -879,26 +899,121 @@ msgstr "Bunyi bagi acara"
 msgid "Whether to play sounds on user events."
 msgstr "Samada memainkan bunyi pada acara pengguna."
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-msgid "How to handle trash URLs"
+#, fuzzy
+msgid "How to handle ghelp URLs"
 msgstr "Bagaimana mengendali URL Sampah"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#, fuzzy
+msgid "How to handle info URLs"
+msgstr "Bagaimana mengendali URL Sampah"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#, fuzzy
+msgid "How to handle man URLs"
+msgstr "Bagaimana mengendali URL Sampah"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+msgid "How to handle trash URLs"
+msgstr "Bagaimana mengendali URL Sampah"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Laksana program pada terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+#, fuzzy
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"Tetapkan kepada Benar supaya program dinyatakan pada sampah/arahan "
+"mengendali URL sampah"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+#, fuzzy
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"Tetapkan kepada Benar supaya program dinyatakan pada sampah/arahan "
+"mengendali URL sampah"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+#, fuzzy
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"Tetapkan kepada Benar supaya program dinyatakan pada sampah/arahan "
+"mengendali URL sampah"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
 "Tetapkan kepada Benar supaya program dinyatakan pada sampah/arahan "
 "mengendali URL sampah"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Benar jika program yang mendendali URL ini patut dilaksanakan pada terminal"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+#, fuzzy
+msgid "URL handler for ghelp pages"
+msgstr "Pengendali URL bagi halaman sampah"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#, fuzzy
+msgid "URL handler for info pages"
+msgstr "Pengendali URL bagi halaman sampah"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+#, fuzzy
+msgid "URL handler for man pages"
+msgstr "Pengendali URL bagi halaman sampah"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "Pengendali URL bagi halaman sampah"

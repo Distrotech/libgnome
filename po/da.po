@@ -12,14 +12,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-libs 2.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-06-18 18:51+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-06-18 18:52+0200\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error Messages"
@@ -364,6 +364,11 @@ msgstr "Den forvalgte handling understøtter ikke denne protokol."
 msgid "Unknown error code: %d"
 msgstr "Ukendt fejlkode: %d"
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Ekstra protokolhåndtering-fabrik"
@@ -442,7 +447,8 @@ msgid ""
 msgstr "List af assisterende teknologier som skal startes når der logges ind"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
-msgid "Startup Assistive Technology Apps"
+#, fuzzy
+msgid "Startup Assistive Technology Applications"
 msgstr "Assisterende teknologier ved start"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
@@ -715,7 +721,10 @@ msgid "Toolbar Style"
 msgstr "Stil for værktøjslinjer"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Stil for værktøjslinjer. Gyldige værdier er \"both\", \"both_horiz\", \"icon"
 "\" og \"text\""
@@ -745,22 +754,23 @@ msgid "Whether menus should have a tearoff"
 msgstr "Om menuer skal kunne afrives"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr "Om brugeren dynamisk kan indtaste en ny genvej når en menu vises"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "Om markøren skal blinke"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Om brugeren kan frigøre menulinjer og flytte dem omkring"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Om brugeren kan frigøre værktøjslinjer og flytte dem omkring"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr "Om brugeren dynamisk kan indtaste en ny genvej når en menu vises"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -779,7 +789,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Brugerdefineret filnavn til tastaturklokke"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "Mulige værdier er 'on', 'off' og 'custom'."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -802,11 +813,12 @@ msgid "Cursor theme"
 msgstr "Markørtema"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Markørtemanavn. Benyttes kun af X-servere der understøtter Xcursor, såsom "
 "XFree86 4.3 og senere. Denne værdi bliver kun sendt til X-serveren ved "
@@ -834,9 +846,10 @@ msgid "Drag Threshold"
 msgstr "Trækketærskel"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Skrifttypenavn for markøren. Hvis ikke sat, benyttes standardskrifttypen. "
@@ -904,6 +917,48 @@ msgstr "Lyde for hændelser"
 #: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
 msgstr "Om der skal afspilles lyde ved brugerhændelser."
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
 msgid "How to handle ghelp URLs"

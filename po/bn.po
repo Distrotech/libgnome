@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.2\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-02-21 05:09+0600\n"
 "Last-Translator: Khandakar Mujahidul Islam <suzan229@yahoo.com>\n"
 "Language-Team:Bengali <gnome-translation@bengalinux.org>\n"
@@ -423,6 +423,11 @@ msgstr ""
 msgid "Unknown error code: %d"
 msgstr ""
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "অতিরিক্ত Moniker কারখানা"
@@ -497,6 +502,16 @@ msgstr "মিলিসেকেন্ডে সর্বনিম্ন বি�
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "পিকসেল, প্রতি সেকেন্ডে"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 # msgstr "পিক্সেল, প্রতি সেকেন্ডে"
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
@@ -796,7 +811,10 @@ msgstr "টুলবার শৈলী"
 
 # msgstr "টুলবার রীতি"
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr "টুলবার শৈলী।সঠিক মানগুলো হলো উভয়, উভয়ানুভূমিক, প্রতীক এবং লেখা"
 
 # msgstr "টুলবার শৈলী।সঠিক মানগুলো হলো উভয়, উভয়ানুভূমিক, প্রতীক এবং টেকসট"
@@ -829,26 +847,27 @@ msgid "Whether menus should have a tearoff"
 msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
-msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr ""
-"যেকোনো ক্ষেত্রে ব্যবহারকারী সক্রিয়ভাবে একটি নতুন গতিবর্ধক ত্বরান্বিতকরতে পারে যখন "
-"একটি মেনু ভেসে উঠে"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the cursor should blink"
 msgstr "যেকোনো ক্ষেত্রে কার্সারের পিট পিট করা উচিত"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Whether the user can detach menubars and move them around"
 msgstr "যেকোনো ব্যবহারকারী মেনুবারকে বিচ্ছিন্ন করতে পারে এবং তাদের চারদিকে নাড়ায়"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 "যেকোনো ব্যবহারকারী টুলবারকে বিচ্ছিন্ন করতে পারে এবং তাদেরচারদিকে স্থান পরিবর্তন "
 "করায়"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
+msgid ""
+"Whether the user can dynamically type a new accelerator when a menu is "
+"popped up"
+msgstr ""
+"যেকোনো ক্ষেত্রে ব্যবহারকারী সক্রিয়ভাবে একটি নতুন গতিবর্ধক ত্বরান্বিতকরতে পারে যখন "
+"একটি মেনু ভেসে উঠে"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -867,7 +886,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "কি-বোর্ড ঘন্টা ধ্বনি কাস্টম ফাইলের নাম"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "সম্ভাব্য মানগুলো চালু, বন্ধ এবং বিবিধ।"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
@@ -890,11 +910,12 @@ msgstr "কার্সার থিম"
 
 # msgstr "কার্সার বিষয়বস্তু"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "কার্সার থিমের নাম। শুধুমাত্র X কার্সর কে সহায়তাকারীX সার্ভার দ্বারা ব্যবহৃত, যেমন "
 "XFree86 4.3 এবং তার পরেরগুলো। এই মান শুধুমাত্র প্রতিটি সেশনে X সার্ভার চালু হওয়ার "
@@ -925,9 +946,10 @@ msgid "Drag Threshold"
 msgstr "অনুসরণ আরম্ভ"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "কার্সার ফন্টের নাম। যদি নির্দিষ্ট করা না থাকে তাহলেডিফল্ট ফন্ট ব্যবহৃত হয়। এটি "
@@ -1002,15 +1024,95 @@ msgstr "বিভিন্ন ইভেন্টের শব্দ"
 msgid "Whether to play sounds on user events."
 msgstr "যেকোনো ক্ষেত্রে ব্যবহারকারীর ইভেন্টস চালু হওয়ার শব্দ"
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
+msgid "How to handle ghelp URLs"
+msgstr "জিহেল্প ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
+
+# msgstr "ghelp ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+msgid "How to handle info URLs"
+msgstr "তথ্য ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
+
+# msgstr "ইনফো ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+msgid "How to handle man URLs"
+msgstr "ম্যান  ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
 msgid "How to handle trash URLs"
 msgstr "ট্র্যাশ ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "টার্মিনালে প্রোগ্রাম চালু"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+# preference = প্রেফারেন্স  বা অগ্রাভিরুচী
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr ""
+"একটি প্রোগ্রামকে প্রোগ্রামে বা জিহেল্প পরিচালনাকারীজিহেল্প ইউ.আর.এলগুলোতে স্থাপন করে "
+"সত্য রূপেনির্দিষ্ট করুন"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr ""
+"একটি প্রোগ্রামকে প্রোগ্রাম বা তথ্য পরিচালনাকারীতথ্য ইউ.আর.এলগুলোতে স্থাপন করে সত্য "
+"রূপেনির্দিষ্ট করুন"
+
+# msgstr "একটি প্রোগ্রামকে প্রোগ্রাম বা ইনফো পরিচালনাকারী"
+# "ইনফো ইউ.আর.এলগুলোতে স্থাপন করে সত্য রূপে"
+# "নির্দিষ্ট করুন"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr ""
+"একটি প্রোগ্রামকে প্রোগ্রাম বা ম্যান পরিচালনাকারীম্যান ইউ.আর.এলগুলোতে স্থাপন করে সত্য "
+"রূপেনির্দিষ্ট করুন"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr ""
@@ -1020,11 +1122,24 @@ msgstr ""
 # msgstr "একটি প্রোগ্রামকে ডাস্টবিন বা আদেশ পরিচালনাকারী"
 # "ডাস্টবিন ইউ-আর-এলগুলোতে স্থাপন করে সত্য রূপে"
 # "নির্দিষ্ট করুন"
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr "সত্য, যদি প্রোগ্রাম চালনা করা এই ইউ.আর.এল কোন টার্মিনালে চলতে থাকে"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+msgid "URL handler for ghelp pages"
+msgstr "সাহায্যকারী পাতাগুলোর জন্য ইউ.আর.এল  প্রক্রিয়াকারী"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+msgid "URL handler for info pages"
+msgstr "তথ্য পাতাগুলোর জন্য ইউ.আর.এল প্রক্রিয়াকারী"
+
+# msgstr "ইনফো পাতাগুলোর জন্য ইউ.আর.এল প্রক্রিয়াকারী"
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+msgid "URL handler for man pages"
+msgstr "ম্যান পাতাগুলোর জন্য ইউ.আর.এল প্রক্রিয়াকারী"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "ট্র্যাশ পাতাগুলোর জন্য ইউ.আর.এল প্রক্রিয়াকারী"
 
@@ -1034,17 +1149,6 @@ msgstr "ট্র্যাশ পাতাগুলোর জন্য ইউ.�
 
 #~ msgid "How to handle applications URLs"
 #~ msgstr "এপ্লিকেশন ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
-
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "জিহেল্প ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
-
-# msgstr "ghelp ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
-#~ msgid "How to handle info URLs"
-#~ msgstr "তথ্য ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
-
-# msgstr "ইনফো ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
-#~ msgid "How to handle man URLs"
-#~ msgstr "ম্যান  ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
 
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "প্রেফারেন্স ইউ.আর.এল গুলো পরিচালনা করার পদ্ধতি"
@@ -1075,29 +1179,6 @@ msgstr "ট্র্যাশ পাতাগুলোর জন্য ইউ.�
 #~ msgstr ""
 #~ "একটি প্রোগ্রামকে  আদেশ পরিচালনাকারী প্রেফারেন্স ইউ.আর.এলগুলোতে স্থাপন করে সত্য "
 #~ "রূপে নির্দিষ্ট করুন"
-
-# preference = প্রেফারেন্স  বা অগ্রাভিরুচী
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "একটি প্রোগ্রামকে প্রোগ্রামে বা জিহেল্প পরিচালনাকারীজিহেল্প ইউ.আর.এলগুলোতে স্থাপন "
-#~ "করে সত্য রূপেনির্দিষ্ট করুন"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "একটি প্রোগ্রামকে প্রোগ্রাম বা তথ্য পরিচালনাকারীতথ্য ইউ.আর.এলগুলোতে স্থাপন করে সত্য "
-#~ "রূপেনির্দিষ্ট করুন"
-
-# msgstr "একটি প্রোগ্রামকে প্রোগ্রাম বা ইনফো পরিচালনাকারী"
-# "ইনফো ইউ.আর.এলগুলোতে স্থাপন করে সত্য রূপে"
-# "নির্দিষ্ট করুন"
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "একটি প্রোগ্রামকে প্রোগ্রাম বা ম্যান পরিচালনাকারীম্যান ইউ.আর.এলগুলোতে স্থাপন করে "
-#~ "সত্য রূপেনির্দিষ্ট করুন"
 
 # msgstr "একটি প্রোগ্রামকে প্রোগ্রাম বা man পরিচালনাকারী"
 # "man ইউ.আর.এলগুলোতে স্থাপন করে সত্য রূপে"
@@ -1132,16 +1213,6 @@ msgstr "ট্র্যাশ পাতাগুলোর জন্য ইউ.�
 
 #~ msgid "URL handler for applications pages"
 #~ msgstr "এপ্লিকেশনের পাতাগুলোর জন্য ইউ.আর.এল  প্রক্রিয়াকারী"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "সাহায্যকারী পাতাগুলোর জন্য ইউ.আর.এল  প্রক্রিয়াকারী"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "তথ্য পাতাগুলোর জন্য ইউ.আর.এল প্রক্রিয়াকারী"
-
-# msgstr "ইনফো পাতাগুলোর জন্য ইউ.আর.এল প্রক্রিয়াকারী"
-#~ msgid "URL handler for man pages"
-#~ msgstr "ম্যান পাতাগুলোর জন্য ইউ.আর.এল প্রক্রিয়াকারী"
 
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "প্রেফারেন্স পাতাগুলোর জন্য ইউ.আর.এল প্রক্রিয়াকারী"

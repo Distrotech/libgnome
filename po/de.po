@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.4.x\n"
-"POT-Creation-Date: 2003-06-04 08:26+0200\n"
+"POT-Creation-Date: 2003-07-04 10:50+0200\n"
 "PO-Revision-Date: 2003-05-05 21:44+0100\n"
 "Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -366,6 +366,11 @@ msgstr "Die Vorgabeaktion unterstützt dieses Protokoll nicht"
 msgid "Unknown error code: %d"
 msgstr "Unbekannte Fehlerkennung: %d"
 
+#: libgnome/gnome-open.c:35
+#, c-format
+msgid "Error showing url: %s\n"
+msgstr ""
+
 #: monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Zusätzliche Moniker-Fabrik"
@@ -443,6 +448,16 @@ msgstr "Minimales Intervall in Millisekunden"
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "pixels per seconds"
 msgstr "Pixel pro Sekunde"
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop"
+msgstr ""
+
+#: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr ""
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -720,7 +735,10 @@ msgid "Toolbar Style"
 msgstr "Werkzeugleisten-Stil"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:25
-msgid "Toolbar Style. Valid values are both, both_horiz, icon, and text"
+#, fuzzy
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both_horiz\", \"icon\", and "
+"\"text\""
 msgstr ""
 "Der Stil der Werkzeugleiste. Mögliche Werte sind »both«, »both_horiz«, "
 "»icon« und »text«"
@@ -750,24 +768,25 @@ msgid "Whether menus should have a tearoff"
 msgstr "Soll in Menüs ein Abreißer angezeigt werden?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:31
+msgid "Whether the cursor should blink"
+msgstr "Soll der Cursor blinken?"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:32
+msgid "Whether the user can detach menubars and move them around"
+msgstr "Soll der Benutzer Menüleisten abnehmen und verschieben können?"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:33
+msgid "Whether the user can detach toolbars and move them around"
+msgstr "Soll der Benutzer Werkzeugleisten abnehmen und verschieben können?"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:34
+#, fuzzy
 msgid ""
-"Whether the User can dynamically type a new accelerator when a menu is "
+"Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "Soll der Benutzer dynamisch eine Tastenkombination für Menüeiträge festlegen "
 "können, wenn diese angezeigt werden?"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:32
-msgid "Whether the cursor should blink"
-msgstr "Soll der Cursor blinken?"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:33
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Soll der Benutzer Menüleisten abnehmen und verschieben können?"
-
-#: schemas/desktop_gnome_interface.schemas.in.h:34
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "Soll der Benutzer Werkzeugleisten abnehmen und verschieben können?"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether to display a status bar meter on the right"
@@ -789,7 +808,8 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Benutzerdefinierter Dateiname für Tastaturglocke"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-msgid "possible values are on, off, and custom."
+#, fuzzy
+msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr ""
 "Mögliche Werte sind »on« (aktivieren), »off« (deaktivieren) und "
 "»custom« (benutzerdefiniert)"
@@ -815,11 +835,12 @@ msgid "Cursor theme"
 msgstr "Cursor-Thema"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server start "
-"of each session, so changing it mid-session won't have an effect until the "
-"next time you log in."
+"XFree86 4.3 and later. This value is only propagated to the X server at the "
+"start of each session, so changing it mid-session won't have an effect until "
+"the next time you log in."
 msgstr ""
 "Name des Cursor-Themas. Wird nur durch XServer wie XFree86 4.3 unterstützt. "
 "Dieser Wert wird dem X-Server lediglich am Anfang jeder Sitzung mitgeteilt, "
@@ -847,9 +868,10 @@ msgid "Drag Threshold"
 msgstr "Ziehen Schwellwert"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+#, fuzzy
 msgid ""
-"Font name of the cursor. If unset set, the default font is used. This value "
-"is only propagated to the X server start of each session, so changing it mid-"
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Schriftname des Cursors. Falls dieser Schlüssel nicht gesetzt wird, wird die "
@@ -921,24 +943,113 @@ msgstr "Klänge bei Ereignissen"
 msgid "Whether to play sounds on user events."
 msgstr "Sollen bei Benutzer-Ereignissen Klänge abgespielt werden?"
 
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr ""
+
+#: schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr ""
+
+#: schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr ""
+
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:1
-msgid "How to handle trash URLs"
+#, fuzzy
+msgid "How to handle ghelp URLs"
 msgstr "Wie trash-URLs gehandhabt werden"
 
 #: schemas/desktop_gnome_url_handlers.schemas.in.h:2
+#, fuzzy
+msgid "How to handle info URLs"
+msgstr "Wie trash-URLs gehandhabt werden"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#, fuzzy
+msgid "How to handle man URLs"
+msgstr "Wie trash-URLs gehandhabt werden"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+msgid "How to handle trash URLs"
+msgstr "Wie trash-URLs gehandhabt werden"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
 msgid "Run program in terminal"
 msgstr "Programm im Terminal ausführen"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:3
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:6
+#, fuzzy
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr "Soll das unter trash/command angegebene Programm Müll-URLs handhaben?"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:7
+#, fuzzy
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr "Soll das unter trash/command angegebene Programm Müll-URLs handhaben?"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:8
+#, fuzzy
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr "Soll das unter trash/command angegebene Programm Müll-URLs handhaben?"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:9
 msgid ""
 "Set to true to have a program specified in trash/command handle trash URLs"
 msgstr "Soll das unter trash/command angegebene Programm Müll-URLs handhaben?"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:4
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:10
 msgid "True if the program to handle this URL should be run in a terminal"
 msgstr ""
 "Soll das Programm, das diese URL handhabt, im Terminal ausgeführt werden?"
 
-#: schemas/desktop_gnome_url_handlers.schemas.in.h:5
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:11
+#, fuzzy
+msgid "URL handler for ghelp pages"
+msgstr "URL-Handler für Müll-Seiten"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:12
+#, fuzzy
+msgid "URL handler for info pages"
+msgstr "URL-Handler für Müll-Seiten"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:13
+#, fuzzy
+msgid "URL handler for man pages"
+msgstr "URL-Handler für Müll-Seiten"
+
+#: schemas/desktop_gnome_url_handlers.schemas.in.h:14
 msgid "URL handler for trash pages"
 msgstr "URL-Handler für Müll-Seiten"
