@@ -16,6 +16,7 @@ libgnomeincludedir = $(includedir)/gnome/$(GNOME_INTERFACE_VERSION)/libgnome
 INCLUDES = -I.. -I$(srcdir)/.. \
 	$(SUPPORTINCS) \
 	$(GLIB_CFLAGS) $(GDK_IMLIB_CFLAGS)  \
+	$(GNOME_VFS_CFLAGS) \
 	-DGNOMELIBDIR=\""$(libdir)"\" \
 	-DGNOMEDATADIR=\""$(datadir)"\" \
 	-DGNOMEBINDIR=\""$(bindir)"\" \
@@ -23,6 +24,7 @@ INCLUDES = -I.. -I$(srcdir)/.. \
 	-DGNOMELOCALEDIR=\""$(gnomelocaledir)"\" \
 	-DGNOMESYSCONFDIR=\""$(sysconfdir)"\" \
 	-DVERSION=\""$(VERSION)"\" \
+	-DGNOMEVFSVERSION=\""$(GNOME_VFS_VERSION)"\" \
 	-DG_LOG_DOMAIN=\"Gnome\"
 
 libgnome_2_la_SOURCES = \
