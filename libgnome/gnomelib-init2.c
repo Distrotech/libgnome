@@ -82,8 +82,8 @@ gnome_program_get(void)
       gnome_app->attributes = g_hash_table_new(g_str_hash, g_str_equal);
 
       gnome_app->arg_context_val.type = GNOME_ATTRIBUTE_NONE;
-      gnome_app->arg_options_val.type = GNOME_ATTRIBUTE_NONE;
-      gnome_app->arg_popt_flags_val.type = GNOME_ATTRIBUTE_NONE;
+      gnome_app->app_options_val.type = GNOME_ATTRIBUTE_NONE;
+      gnome_app->app_popt_flags_val.type = GNOME_ATTRIBUTE_NONE;
 
       gnome_app->argv = NULL;
       gnome_app->argc = 0;
@@ -626,7 +626,7 @@ gnome_program_version_check(const char *required_version,
  */
 void
 gnome_program_module_register(GnomeProgram *app,
-			 GnomeModuleInfo *module_info)
+			      const GnomeModuleInfo *module_info)
 {
   int i;
 
@@ -1087,7 +1087,7 @@ gnome_program_parse_args(GnomeProgram *app)
 	   poptBadOption(ctx, 0),
 	   poptStrerror(nextopt),
 	   app->argv[0]);
-    exit(EXIT_FAILURE);
+    exit(1);
   }
 }
 
