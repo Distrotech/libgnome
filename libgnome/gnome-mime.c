@@ -87,7 +87,6 @@ add_to_key (char *mime_type, char *def)
 			return;
 		}
 		mp->mime_type = mime_type;
-		printf ("Adding: [%s]\n", def);
 		mime_regexs [priority] = g_list_prepend (mime_regexs [priority], mp);
 	}
 }
