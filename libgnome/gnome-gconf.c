@@ -32,6 +32,8 @@
 #include <gconf/gconf-client.h>
 extern struct poptOption gconf_options[];
 
+#include "gnome-i18nP.h"
+
 #include <libgnome/libgnome.h>
 #include "gnome-gconf.h"
 

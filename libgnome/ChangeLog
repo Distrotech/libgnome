@@ -1,3 +1,12 @@
+Mon Aug 27 00:32:57 2001  George Lebl <jirka@5z.com>
+
+	* gnome-gconf.c: include gnome-i18nP.h
+
+	* gnome-init.[ch], gnome-program.[ch]: Fix include stuff foo, 
+	  declare the externs in the header file, initialize triggers again,
+	  and put back the sound stuff so that we're at 1.0 level on that.
+	  Also added a few descriptions of GnomeProgram properties.
+
 Sun Aug 26 22:54:57 2001  George Lebl <jirka@5z.com>
 
 	* libgnome.h, Makefile.am, gnome-gconf.c: Getting confused a bit,
