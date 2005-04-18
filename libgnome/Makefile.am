@@ -21,7 +21,6 @@ INCLUDES = \
 	-DLIBGNOME_PREFIX=\""$(prefix)"\"			\
 	-DLIBGNOME_LIBDIR=\""$(libdir)"\"			\
 	-DLIBGNOME_DATADIR=\""$(datadir)"\"			\
-	-DLIBGNOME_BINDIR=\""$(bindir)"\"			\
 	-DLIBGNOME_LOCALSTATEDIR=\""$(localstatedir)"\"		\
 	-DLIBGNOME_SYSCONFDIR=\""$(sysconfdir)"\"		\
 	-DVERSION=\""$(VERSION)"\"				\

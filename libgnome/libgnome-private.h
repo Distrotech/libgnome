@@ -24,33 +24,30 @@
 
 #ifdef G_OS_WIN32
 
+const char *_gnome_get_prefix (void) G_GNUC_CONST;
+const char *_gnome_get_localedir (void) G_GNUC_CONST;
+const char *_gnome_get_libdir (void) G_GNUC_CONST;
+const char *_gnome_get_datadir (void) G_GNUC_CONST;
+const char *_gnome_get_localstatedir (void) G_GNUC_CONST;
+const char *_gnome_get_sysconfdir (void) G_GNUC_CONST;
+
 #undef LIBGNOME_PREFIX
-extern const char *_libgnome_prefix;
-#define LIBGNOME_PREFIX _libgnome_prefix
-
-#undef LIBGNOME_LIBDIR
-extern const char *_libgnome_libdir;
-#define LIBGNOME_LIBDIR _libgnome_libdir
-
-#undef LIBGNOME_DATADIR
-extern const char *_libgnome_datadir;
-#define LIBGNOME_DATADIR _libgnome_datadir
-
-#undef LIBGNOME_BINDIR
-extern const char *_libgnome_bindir;
-#define LIBGNOME_BINDIR _libgnome_bindir
-
-#undef LIBGNOME_LOCALSTATEDIR
-extern const char *_libgnome_localstatedir;
-#define LIBGNOME_LOCALSTATEDIR _libgnome_localstatedir
-
-#undef LIBGNOME_SYSCONFDIR
-extern const char *_libgnome_sysconfdir;
-#define LIBGNOME_SYSCONFDIR _libgnome_sysconfdir
+#define LIBGNOME_PREFIX _gnome_get_prefix ()
 
 #undef LIBGNOME_LOCALEDIR
-extern const char *_libgnome_localedir;
-#define LIBGNOME_LOCALEDIR _libgnome_localedir
+#define LIBGNOME_LOCALEDIR _gnome_get_localedir ()
+
+#undef LIBGNOME_LIBDIR
+#define LIBGNOME_LIBDIR _gnome_get_libdir ()
+
+#undef LIBGNOME_DATADIR
+#define LIBGNOME_DATADIR _gnome_get_datadir ()
+
+#undef LIBGNOME_LOCALSTATEDIR
+#define LIBGNOME_LOCALSTATEDIR _gnome_get_localstatedir ()
+
+#undef LIBGNOME_SYSCONFDIR
+#define LIBGNOME_SYSCONFDIR _gnome_get_sysconfdir ()
 
 #endif
 

@@ -1,3 +1,4 @@
+/* -*- Mode: C; tab-width: 8; c-basic-offset: 8; indent-tabs-mode: nil -*- */
 /* dllmain.c: DLL entry point for libgnome on Win32
  * Copyright (C) 2005 Novell, Inc
  *
@@ -23,80 +24,183 @@
 #include <mbstring.h>
 #include <glib.h>
 
-const char *_libgnome_prefix;
-const char *_libgnome_libdir;
-const char *_libgnome_datadir;
-const char *_libgnome_bindir;
-const char *_libgnome_localstatedir;
-const char *_libgnome_sysconfdir;
-const char *_libgnome_localedir;
+#include "gnome-init.h"
 
-static char *
-_libgnome_replace_prefix (const char *configure_time_path)
-{
-  if (strncmp (configure_time_path, LIBGNOME_PREFIX "/", strlen (LIBGNOME_PREFIX) + 1) == 0)
-    {
-      return g_strconcat (_libgnome_prefix,
-			  configure_time_path + strlen (LIBGNOME_PREFIX),
-			  NULL);
-    }
-  else
-    return g_strdup (configure_time_path);
-}
-
-/* DllMain function needed to fetch the DLL name and deduce the
- * installation directory from that, and then form the pathnames for
- * various directories relative to the installation directory.
+/* localedir uses system codepage as it is passed to the non-UTF8ified
+ * gettext library
  */
+static const char *localedir = NULL;
+
+/* The others are in UTF-8 */
+static char *prefix;
+static const char *libdir;
+static const char *datadir;
+static const char *localstatedir;
+static const char *sysconfdir;
+
+static HMODULE hmodule;
+G_LOCK_DEFINE_STATIC (mutex);
+
+/* Silence gcc with prototype. Yes, this is silly. */
+BOOL WINAPI DllMain (HINSTANCE hinstDLL,
+		     DWORD     fdwReason,
+		     LPVOID    lpvReserved);
+
+/* DllMain used to tuck away the libgnome DLL's HMODULE */
 BOOL WINAPI
 DllMain (HINSTANCE hinstDLL,
 	 DWORD     fdwReason,
 	 LPVOID    lpvReserved)
 {
-  wchar_t wcbfr[1000];
-  char cpbfr[1000];
-  char *dll_name = NULL;
-  
-  switch (fdwReason) {
-  case DLL_PROCESS_ATTACH:
-    /* GLib 2.6 uses UTF-8 file names */
-    if (GetVersion () < 0x80000000) {
-      /* NT-based Windows has wide char API */
-      if (GetModuleFileNameW ((HMODULE) hinstDLL,
-			      wcbfr, G_N_ELEMENTS (wcbfr)))
-	dll_name = g_utf16_to_utf8 (wcbfr, -1,
-				    NULL, NULL, NULL);
-    } else {
-      /* Win9x, yecch */
-      if (GetModuleFileNameA ((HMODULE) hinstDLL,
-			      cpbfr, G_N_ELEMENTS (cpbfr)))
-	dll_name = g_locale_to_utf8 (cpbfr, -1,
-				     NULL, NULL, NULL);
-    }
-
-    if (dll_name) {
-      gchar *p = strrchr (dll_name, '\\');
-      
-      if (p != NULL)
-	*p = '\0';
-      
-      p = strrchr (dll_name, '\\');
-      if (p && (g_ascii_strcasecmp (p + 1, "bin") == 0))
-	*p = '\0';
-      
-      _libgnome_prefix = dll_name;
-    } else {
-      _libgnome_prefix = g_strdup ("");
-    }
-
-    _libgnome_libdir = _libgnome_replace_prefix (LIBGNOME_LIBDIR);
-    _libgnome_datadir = _libgnome_replace_prefix (LIBGNOME_DATADIR);
-    _libgnome_bindir = _libgnome_replace_prefix (LIBGNOME_BINDIR);
-    _libgnome_localstatedir = _libgnome_replace_prefix (LIBGNOME_LOCALSTATEDIR);
-    _libgnome_sysconfdir = _libgnome_replace_prefix (LIBGNOME_SYSCONFDIR);
-    _libgnome_localedir = _libgnome_replace_prefix (LIBGNOME_LOCALEDIR);
-    break;
-  }
-
-  return TRUE;
+        switch (fdwReason) {
+        case DLL_PROCESS_ATTACH:
+                hmodule = hinstDLL;
+                break;
+        }
+        return TRUE;
 }
+
+static char *
+replace_prefix (const char *runtime_prefix,
+                            const char *configure_time_path)
+{
+        if (runtime_prefix &&
+            strncmp (configure_time_path, LIBGNOME_PREFIX "/",
+                     strlen (LIBGNOME_PREFIX) + 1) == 0)
+                return g_strconcat (runtime_prefix,
+                                    configure_time_path + strlen (LIBGNOME_PREFIX),
+                                    NULL);
+        else
+                return g_strdup (configure_time_path);
+}
+
+/**
+ * gnome_win32_get_prefixes:
+ * @hmodule: The handle to a DLL (a HMODULE).
+ * @full_prefix: Where the full UTF-8 path to the DLL's installation folder
+ *               will be returned.
+ * @cp_prefix: Where a system codepage version of
+ *             the installation folder will be returned.
+ *
+ * This function looks up the full path to the DLL with handle
+ * @hmodule. The full path using long filenames and in UTF-8 form is
+ * returned in @full_prefix. The path using short file names (if
+ * present in the file system) and in the system codepage is returned
+ * in @cp_prefix.
+ *
+ * If either can't be obtained, %NULL is stored. The caller should be
+ * prepared to handle that.
+ *
+ * The returned character pointers are newly allocated and should be
+ * freed with g_free when not longer needed.
+ */
+void
+gnome_win32_get_prefixes (gpointer  hmodule,
+                          char    **full_prefix,
+                          char    **cp_prefix)
+{
+        g_return_if_fail (full_prefix != NULL);
+        g_return_if_fail (cp_prefix != NULL);
+
+        *full_prefix = NULL;
+        *cp_prefix = NULL;
+
+        if (G_WIN32_HAVE_WIDECHAR_API ()) {
+                /* NT-based Windows has wide char API */
+                wchar_t wcbfr[1000];
+                if (GetModuleFileNameW ((HMODULE) hmodule, wcbfr, G_N_ELEMENTS (wcbfr))) {
+                        *full_prefix = g_utf16_to_utf8 (wcbfr, -1,
+                                                        NULL, NULL, NULL);
+                        if (GetShortPathNameW (wcbfr, wcbfr,
+                                               G_N_ELEMENTS (wcbfr)))
+                                *cp_prefix = g_utf16_to_utf8 (wcbfr, -1,
+                                                              NULL, NULL, NULL);
+                        else if (*full_prefix)
+                                *cp_prefix = g_strdup (*full_prefix);
+                }
+        } else {
+                /* Win9x */
+                char cpbfr[1000];
+                if (GetModuleFileNameA ((HMODULE) hmodule, cpbfr, G_N_ELEMENTS (cpbfr))) {
+                        *full_prefix = g_locale_to_utf8 (cpbfr, -1,
+                                                         NULL, NULL, NULL);
+                        if (*full_prefix)
+                                *cp_prefix = g_strdup (*full_prefix);
+                }
+        }
+
+        if (*full_prefix != NULL) {
+                gchar *p = strrchr (*full_prefix, '\\');
+                if (p != NULL)
+                        *p = '\0';
+      
+                p = strrchr (*full_prefix, '\\');
+                if (p && (g_ascii_strcasecmp (p + 1, "bin") == 0))
+                        *p = '\0';
+        }
+
+        if (*cp_prefix != NULL) {
+                gchar *p = strrchr (*cp_prefix, '\\');
+                if (p != NULL)
+                        *p = '\0';
+      
+                p = strrchr (*cp_prefix, '\\');
+                if (p && (g_ascii_strcasecmp (p + 1, "bin") == 0))
+                        *p = '\0';
+
+                /* In case we couldn't get the short file name, or the
+                 * short file name isn't in the system codepage after
+                 * all, conversion to locale charset (system codepage)
+                 * might fail. The called should be ready for a
+                 * returned NULL.
+                 */
+                p = g_locale_from_utf8 (*cp_prefix, -1, NULL, NULL, NULL);
+                g_free (*cp_prefix);
+                *cp_prefix = p;
+        }
+}
+
+static void
+setup (void)
+{
+	char *cp_prefix; 
+
+        G_LOCK (mutex);
+        if (localedir != NULL) {
+                G_UNLOCK (mutex);
+                return;
+        }
+
+        gnome_win32_get_prefixes (hmodule, &prefix, &cp_prefix);
+
+        localedir = replace_prefix (cp_prefix, LIBGNOME_LOCALEDIR);
+        g_free (cp_prefix);
+
+        libdir = replace_prefix (prefix, LIBGNOME_LIBDIR);
+        datadir = replace_prefix (prefix, LIBGNOME_DATADIR);
+        localstatedir = replace_prefix (prefix, LIBGNOME_LOCALSTATEDIR);
+        sysconfdir = replace_prefix (prefix, LIBGNOME_SYSCONFDIR);
+
+        G_UNLOCK (mutex);
+}
+
+/* Include libgnome-private.h now to get prototypes for the getter
+ * functions, to silence gcc. Can't include earlier as we need the
+ * definitions of the LIBGNOME_*DIR macros from the Makefile above.
+ */
+#include "libgnome-private.h"
+
+#define GETTER(varbl)                           \
+const char *                                    \
+_gnome_get_##varbl (void)                       \
+{                                               \
+        setup ();                               \
+        return varbl;                           \
+}
+
+GETTER (prefix)
+GETTER (localedir)
+GETTER (libdir)
+GETTER (datadir)
+GETTER (localstatedir)
+GETTER (sysconfdir)

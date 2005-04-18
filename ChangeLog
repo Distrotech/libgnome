@@ -1,3 +1,30 @@
+2005-04-18  Tor Lillqvist  <tml@novell.com>
+
+	* libgnome/Makefile.am: Remove unused LIBGNOME_BINDIR.
+
+	Rework the Win32 run-time path lookup system once more. Use
+	functions instead of global variables. Make DllMain() minimalistic
+	as is recommended.
+
+	* libgnome/dllmain.c (DllMain): Now very minimal, as is the
+	recommended practise. Just store the DLL handle. Don't call GLib
+	functions.
+	(gnome_win32_get_prefixes): New public function to be used by
+	other GNOME libraries, too. Takes a HMODULE and returns the
+	installation prefix both in a full UTF-8 form and in a system
+	codepage form. This should probably be in GLib, but GNOME's
+	release schedule isn't synchronized with GLib's.
+	(setup): Helper function that uses gnome_win32_get_prefixes().
+	(_gnome_get_prefix, _gnome_get_localedir, _gnome_get_libdir,
+	_gnome_get_datadir, _gnome_get_localstatedir,
+	_gnome_get_sysconfdir): Private functions for libgnome, return the
+	run-time paths.
+
+	* libgnme/gnome-init.h: Declare gnome_win32_get_prefixes ().
+
+	* libgnome/libgnome-private.h: Declare the Win32 private
+	functions.
+
 2005-03-30  Steve Murphy  <murf@e-tools.com>
 
         * configure.in: Added "rw" to ALL_LINGUAS.
