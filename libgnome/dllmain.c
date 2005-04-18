@@ -62,7 +62,7 @@ DllMain (HINSTANCE hinstDLL,
 
 static char *
 replace_prefix (const char *runtime_prefix,
-                            const char *configure_time_path)
+                const char *configure_time_path)
 {
         if (runtime_prefix &&
             strncmp (configure_time_path, LIBGNOME_PREFIX "/",
