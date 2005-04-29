@@ -292,6 +292,7 @@ gnome_clearenv (void)
  * Return value: The converted filename, or %NULL on conversion
  * failure and lack of short names.
  */
+#undef gnome_win32_locale_filename_from_utf8
 gchar *
 gnome_win32_locale_filename_from_utf8 (const gchar *utf8filename)
 {
