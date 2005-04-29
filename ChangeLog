@@ -1,3 +1,14 @@
+2005-04-29  Tor Lillqvist  <tml@novell.com>
+
+	* libgnome/gnome-util.c (gnome_win32_locale_filename_from_utf8):
+	New function. Lifted from HEAD GLib. If GLib 2.8 is released
+	before libgnome gets more widely deployed on Windows, this can be
+	dropped and use g_win32_locale_filename_from_utf8() directly
+	instead.
+
+	* libgnome/gnome-util.h: Declare it. On GLib 2.7 and later,
+	just redirect to g_win32_locale_filename_from_utf8().
+
 2005-04-18  Tor Lillqvist  <tml@novell.com>
 
 	* libgnome/Makefile.am: Remove unused LIBGNOME_BINDIR.
