@@ -439,7 +439,7 @@ impl_Bonobo_PropertyBag_getFlags (PortableServer_Servant  servant,
 }
 
 
-void
+static void
 notify_cb (BonoboListener    *listener,
 	   const char        *event_name, 
 	   const CORBA_any   *any,

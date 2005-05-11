@@ -1,5 +1,10 @@
 2005-05-11  Kjartan Maraas  <kmaraas@gnome.org>
 
+	* libgnome/gnome-config.c: Add #include <strings.h>
+	* monikers/bonobo-config-bag.c: Make a function static
+
+2005-05-11  Kjartan Maraas  <kmaraas@gnome.org>
+
 	* libgnome/gnome-program.c:
 	Pass the GNOME_PARAM_HUMAN_READABLE_NAME property
 	to g_set_application_name(). Fixes bug #109238.
