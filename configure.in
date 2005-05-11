@@ -97,17 +97,6 @@ dnl Checks for Apple Darwin
 
 AC_CHECK_FUNC(_NSGetEnviron, have_ns_getenviron=yes)
 if test x$have_ns_getenviron = xyes; then
-  AC_DEFINE([HAVE_NSGETENVIRON], 1, [whether we have _NSGetEnviron])
-fi
-AC_CHECK_HEADER(crt_externs.h, have_crt_externs=yes)
-if test x$have_crt_externs = xyes; then
-  AC_DEFINE([HAVE_CRT_EXTERNS_H], 1, [whether we have crt_externs.h])
-fi
-
-dnl Checks for Apple Darwin
-
-AC_CHECK_FUNC(_NSGetEnviron, have_ns_getenviron=yes)
-if test x$have_ns_getenviron = xyes; then
   AC_DEFINE(HAVE_NSGETENVIRON, 1, [whether we have _NSGetEnviron])
 fi
 AC_CHECK_HEADER(crt_externs.h, have_crt_externs=yes)

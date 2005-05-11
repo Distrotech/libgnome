@@ -53,11 +53,6 @@
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-util.h>
 
-#if defined(__APPLE__) && defined(HAVE_NSGETENVIRON) && defined(HAVE_CRT_EXTERNS_H)
-# include <crt_externs.h>
-# define environ (*_NSGetEnviron())
-#endif
-
 #ifdef G_OS_WIN32
 #include <windows.h>
 #endif
