@@ -31,6 +31,8 @@
 #define GCONF_ENABLE_INTERNALS
 #include <gconf/gconf.h>
 #include <gconf/gconf-client.h>
+#include <popt.h>
+
 extern struct poptOption gconf_options[];
 
 #include "gnome-i18nP.h"
