@@ -22,7 +22,7 @@ m4_define([gconf_required_version],     [1.1.11])
 m4_define([glib_required_version],      [2.6.0])
 m4_define([gnome_vfs_required_version], [2.5.3])
 m4_define([libbonobo_required_version], [2.0.0])
-
+m4_define([gobject_required_version], [2.0.0])
 
 dnl libtool versioning from libgnome
 m4_define([libgnome_current], [m4_eval(100 * libgnome_minor_version + libgnome_micro_version - libgnome_interface_age)])
@@ -155,6 +155,7 @@ PKG_CHECK_MODULES(SOUND_TEST, [$SOUND_MODULES],
 
 PKG_CHECK_MODULES(LIBGNOME, dnl
  [glib-2.0 >= glib_required_version dnl
+  gobject-2.0 >= gobject_required_version dnl
   gmodule-2.0 >= glib_required_version dnl
   gobject-2.0 >= glib_required_version dnl
   $GNOME_VFS_MODULES dnl
