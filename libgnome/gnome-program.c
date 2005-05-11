@@ -36,6 +36,7 @@
 #include <config.h>
 #include "gnome-macros.h"
 
+#include <sys/param.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -165,6 +166,7 @@ gnome_program_set_property (GObject *object, guint param_id,
     case PROP_HUMAN_READABLE_NAME:
 	g_free (program->_priv->prop_human_readable_name);
 	program->_priv->prop_human_readable_name = g_value_dup_string (value);
+	g_set_application_name (program->_priv->prop_human_readable_name);
 	break;
     case PROP_GNOME_PATH:
 	if (program->_priv->gnome_path) {

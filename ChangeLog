@@ -1,3 +1,10 @@
+2005-05-11  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-program.c:
+	Pass the GNOME_PARAM_HUMAN_READABLE_NAME property
+	to g_set_application_name(). Fixes bug #109238.
+	Patch from Muktha Narayan <muktha narayan at wipro com>
+
 2005-04-29  Tor Lillqvist  <tml@novell.com>
 
 	* libgnome/gnome-util.c (gnome_win32_locale_filename_from_utf8):
