@@ -30,26 +30,48 @@
 
 #include "gnome-i18nP.h"
 
-/* Doing it this way since this is declared in bonobo-activation-private.h */
-extern const GList * bonobo_activation_i18n_get_language_list (const gchar *category_name);
 
 /**
  * gnome_i18n_get_language_list:
- * @category_name: Name of category to look up, e.g. %"LC_MESSAGES".
+ * @ignored: Ignored, pass NULL.
+ * 
+ * This function is deprecated. You should be using g_get_language_names() instead.
  * 
  * This computes a list of language strings that the user wants.  It searches in
  * the standard environment variables to find the list, which is sorted in order
  * from most desirable to least desirable.  The `C' locale is appended to the
  * list if it does not already appear (other routines depend on this
- * behaviour). If @category_name is %NULL, then %LC_ALL is assumed.
+ * behaviour).
+ *
+ * The @ignored argument used to be the category name to use, but this was
+ * removed since there is only one useful thing to pass here. For further
+ * details, see http://bugzilla.gnome.org/show_bug.cgi?id=168948
  * 
  * Return value: the list of languages, this list should not be freed as it is
  * owned by gnome-i18n.
  **/
 const GList *
-gnome_i18n_get_language_list (const gchar *category_name)
+gnome_i18n_get_language_list (const gchar *ignored)
 {
-  return bonobo_activation_i18n_get_language_list (category_name);
+  static GStaticRecMutex lang_list_lock = G_STATIC_REC_MUTEX_INIT;
+  static GList *list = NULL;
+  const char * const* langs;
+  int i;
+
+  g_static_rec_mutex_lock (&lang_list_lock);
+
+  if (list == NULL) {
+    langs = g_get_language_names ();
+    for (i = 0; langs[i] != NULL; i++) {
+      list = g_list_prepend (list, g_strdup(langs[i]));
+    }
+
+    list = g_list_reverse (list);
+  }
+  
+  g_static_rec_mutex_unlock (&lang_list_lock);
+
+  return list;
 }
 
 static int numeric_c_locale_depth = 0;

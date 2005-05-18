@@ -40,12 +40,12 @@
 static char *
 locate_help_file (const char *path, const char *doc_name)
 {
-	int i;
+	int i, j;
 	char *exts[] = { "", ".xml", ".docbook", ".sgml", ".html", NULL };
-	const GList *lang_list = gnome_i18n_get_language_list ("LC_MESSAGES");
+	const char * const * lang_list = g_get_language_names ();
 
-	for (;lang_list != NULL; lang_list = lang_list->next) {
-		const char *lang = lang_list->data;
+	for (j = 0;lang_list[j] != NULL; j++) {
+		const char *lang = lang_list[j];
 
 		/* This has to be a valid language AND a language with
 		 * no encoding postfix.  The language will come up without

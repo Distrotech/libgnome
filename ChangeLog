@@ -1,3 +1,15 @@
+2005-05-18  Alexander Larsson  <alexl@redhat.com>
+
+	* libgnome/gnome-config.c:
+	* libgnome/gnome-help.c:
+	Use g_get_language_names() instead of gnome_i18n_get_language_list.
+	
+	* libgnome/gnome-i18n.c:
+	Implement gnome_i18n_get_language_list using g_get_language_names
+	instead of bonobo_activation_get_language_list.
+	Mention in docs that you should use g_get_language_list, and that
+	the category field now is ignored.
+
 2004-10-20  Vinay M R  <vinay.mandyakoppal@wipro.com>
 
 	* libgnome/gnome-util.h: Fix the problem of

@@ -1589,17 +1589,19 @@ gnome_config_get_translated_string_with_default_ (const char *path,
 						  gboolean priv)
 {
 	ParsedPath *pp;
-	const GList *language_list;
+	const char * const *language_list;
 	gboolean local_def = FALSE;
+	int i;
 
 	char *value= NULL;
 
-	language_list = gnome_i18n_get_language_list ("LC_MESSAGES");
+	language_list = g_get_language_names ();
 
 	pp = parse_path (path, priv);
 
-	while (!value && language_list) {
-		const char *lang= language_list->data;
+	i = 0;
+	while (!value && language_list[i] != NULL) {
+		const char *lang = language_list[i];
 
 		value = get_string_with_default_from_pp_with_lang
 			(pp, lang, &local_def, priv);
@@ -1625,7 +1627,7 @@ gnome_config_get_translated_string_with_default_ (const char *path,
 				}
 			}
 		}
-		language_list = language_list->next;
+		i++;
 	}
 
 	if (def != NULL) {
@@ -1936,13 +1938,12 @@ void
 gnome_config_set_translated_string_ (const char *path, const char *value,
 				     gboolean priv)
 {
-	const GList *language_list;
+	const char * const *language_list;
 	const char *lang;
 	char *tkey;
 
-	language_list = gnome_i18n_get_language_list("LC_MESSAGES");
-
-	lang= language_list ? language_list->data : NULL;
+	language_list = g_get_language_names ();
+	lang = language_list[0];
 
 	if (lang && (strcmp (lang, "C") != 0)) {
 		tkey = g_strconcat (path, "[", lang, "]", NULL);
