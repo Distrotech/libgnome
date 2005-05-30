@@ -101,7 +101,7 @@ gnome_sound_sample_load_wav(const char *file)
   f = fopen (file, "r");
   if (!f)
     return NULL;
-  s = g_malloc (sizeof (GnomeSoundSample));
+  s = g_try_malloc (sizeof (GnomeSoundSample));
   if (!s)
     {
       fclose (f);
@@ -236,7 +236,7 @@ gnome_sound_sample_load_wav(const char *file)
 	    fseek (f, len, SEEK_CUR);
 	  else
 	    {
-	      s->data = g_malloc (len);
+	      s->data = g_try_malloc (len);
 	      if (!s->data)
 		{
 		  fclose (f);
@@ -377,9 +377,15 @@ gnome_sound_sample_load_audiofile(const char *file)
   s->rate = out_rate;
   s->format = out_format;
   s->samples = frame_count;
-  s->data = g_malloc(frame_count * in_channels * bytes_per_frame);
+  s->data = g_try_malloc(frame_count * in_channels * bytes_per_frame);
   s->id = 0;
 
+  if (!s->data) {
+    g_free (s);
+    s = NULL;
+    goto error_case;
+  }
+  
   frames_read = afReadFrames(in_file, AF_DEFAULT_TRACK, s->data,
 			     frame_count * in_channels);
 
