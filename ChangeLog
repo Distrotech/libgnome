@@ -1,3 +1,9 @@
+2005-06-09  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-program.c: Revert fix for bug #109238
+	since it creates glib-WARNINGS when g_set_application_name()
+	is called elsewhere first.
+
 2005-05-30  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* Merge fix for bug #305464 from stable.
