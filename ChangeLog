@@ -1,3 +1,8 @@
+2005-06-11  Tor Lillqvist  <tml@novell.com>
+
+	* libgnome/dllmain.c (gnome_win32_get_prefixes): Actually put
+	locale charset, not UTF-8, into cp_prefix in two of the cases.
+
 2005-06-09  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-program.c: Revert fix for bug #109238

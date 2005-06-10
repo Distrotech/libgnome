@@ -116,7 +116,8 @@ gnome_win32_get_prefixes (gpointer  hmodule,
                                 *cp_prefix = g_utf16_to_utf8 (wcbfr, -1,
                                                               NULL, NULL, NULL);
                         else if (*full_prefix)
-                                *cp_prefix = g_strdup (*full_prefix);
+                                *cp_prefix = g_locale_from_utf8 (*full_prefix, -1,
+                                                                 NULL, NULL, NULL);
                 }
         } else {
                 /* Win9x */
@@ -124,8 +125,7 @@ gnome_win32_get_prefixes (gpointer  hmodule,
                 if (GetModuleFileNameA ((HMODULE) hmodule, cpbfr, G_N_ELEMENTS (cpbfr))) {
                         *full_prefix = g_locale_to_utf8 (cpbfr, -1,
                                                          NULL, NULL, NULL);
-                        if (*full_prefix)
-                                *cp_prefix = g_strdup (*full_prefix);
+                        *cp_prefix = g_strdup (cpbfr);
                 }
         }
 
