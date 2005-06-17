@@ -49,8 +49,6 @@ const char *gnome_user_private_dir_get (void) G_GNUC_CONST;
 const char *gnome_user_accels_dir_get (void) G_GNUC_CONST;
 
 #ifdef G_OS_WIN32
-/* This is for the use of GNOME libraries, not application code.
- */
 void gnome_win32_get_prefixes   (gpointer    hmodule,
 			         char      **full_prefix,
 			         char      **cp_prefix);

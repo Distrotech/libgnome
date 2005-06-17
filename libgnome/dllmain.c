@@ -82,11 +82,14 @@ replace_prefix (const char *runtime_prefix,
  * @cp_prefix: Where a system codepage version of
  *             the installation folder will be returned.
  *
- * This function looks up the full path to the DLL with handle
- * @hmodule. The full path using long filenames and in UTF-8 form is
- * returned in @full_prefix. The path using short file names (if
- * present in the file system) and in the system codepage is returned
- * in @cp_prefix.
+ * This function looks up the installation prefix of the DLL (or EXE)
+ * with handle @hmodule. The prefix using long filenames and in UTF-8
+ * form is returned in @full_prefix. The prefix using short file names
+ * (if present in the file system) and in the system codepage is
+ * returned in @cp_prefix. To determine the installation prefix, the
+ * full path to the DLL or EXE is first fetched. If the last folder
+ * component in that path is called "bin", its parent folder is used,
+ * otherwise the folder itself.
  *
  * If either can't be obtained, %NULL is stored. The caller should be
  * prepared to handle that.
