@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-02 16:06+0900\n"
-"PO-Revision-Date: 2005-07-02 16:05+0900\n"
+"POT-Creation-Date: 2005-07-02 18:14+0900\n"
+"PO-Revision-Date: 2005-07-02 18:13+0900\n"
 "Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -388,37 +388,37 @@ msgstr "キー %s が設定されていません"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
-msgstr "修飾キーを押下したらビープ音を鳴らす"
+msgstr "修飾キーが押されたらビープ音を鳴らします。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
-msgstr "同時に二つのキーを押下したら無効にする"
+msgstr "同時に二つのキーを押下したら無効にします。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "@deley ミリ秒間押下し続けていないキーを無視する"
+msgstr "@deley ミリ秒間押下し続けていないキーを無視します。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "速さが 0 から最大値になるまでどれくらい遅延するか (ミリ秒単位)"
+msgstr "速さが 0 から最大値になるまでどれくらい遅延するかです (ミリ秒単位)。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "マウスを移動させるまでどれくらい遅延するか (ミリ秒単位)"
+msgstr "マウスを移動させるまでどれくらい遅延するかです (ミリ秒単位)。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
-msgstr "速さが最大の時にどれくらい移動させるか (ピクセル/秒)"
+msgstr "速さが最大の時にどれくらい移動させるかです (ピクセル/秒)。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "@delay ミリ秒内に _同じ_ キーが押されても無視する"
+msgstr "@delay ミリ秒内に _同じ_ キーが押されても無視します。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
-msgstr "加速するまでにどれくらい遅延するか (ミリ秒単位)"
+msgstr "加速するまでにどれくらい遅延するかです (ミリ秒単位)。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "initial delay in milliseconds"
@@ -438,7 +438,7 @@ msgid ""
 "GNOME desktop"
 msgstr ""
 "GNOME デスクトップにログインした際に起動する支援技術 (Assistive Technology) "
-"アプリケーションのリスト"
+"アプリケーションの並びです。"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -459,15 +459,15 @@ msgstr "デフォルトのブラウザ"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
 msgid "Default browser for all URLs"
-msgstr "全ての URL で利用するデフォルトのブラウザ"
+msgstr "全ての URL で利用するデフォルトのブラウザです。"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr "デフォルトのブラウザの実行に端末が必要かどうか"
+msgstr "デフォルトのブラウザの実行に端末が必要かどうかです。"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
-msgstr "デフォルトのブラウザは netscape 形式のリモートを理解するか"
+msgstr "デフォルトのブラウザが Netscape リモートを理解するかどうかです。"
 
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
@@ -479,11 +479,11 @@ msgstr "ヘルプ・ブラウザの実行に端末が必要"
 
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
-msgstr "デフォルトのヘルプ・ブラウザで URL を受け付けるかどうか"
+msgstr "デフォルトのヘルプ・ブラウザで URL を受け付けるかどうかです。"
 
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
-msgstr "デフォルトのヘルプ・ブラウザの実行に端末が必要かどうか"
+msgstr "デフォルトのヘルプ・ブラウザの実行に端末が必要かどうかです。"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -504,7 +504,7 @@ msgstr "端末が必要なアプリケーションの起動時に利用される
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
-msgstr "ウィンドウマネージャの最初のワークスペースの名前のリスト"
+msgstr "ウィンドウマネージャの最初のワークスペースの名前のリストです。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager"
@@ -514,7 +514,7 @@ msgstr "代替のウィンドウ・マネージャ"
 msgid "Fallback window manager if user window manager can't be found"
 msgstr ""
 "指定したウィンドウ・マネージャが見つからなかった場合の代替のウィンドウマネー"
-"ジャ"
+"ジャです。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -526,7 +526,7 @@ msgstr "ワークスペースの数"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
 msgid "The number of workspaces the window manager should use"
-msgstr "ウィンドウ・マネージャが使用するワークスペースの数"
+msgstr "ウィンドウ・マネージャが使用するワークスペースの数です。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager"
@@ -534,7 +534,7 @@ msgstr "ユーザのウィンドウ・マネージャ"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid "Window manager to try first"
-msgstr "最初に試すウィンドウ・マネージャ"
+msgstr "最初に試すウィンドウ・マネージャです。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -554,11 +554,11 @@ msgstr "デスクトップの背景を描画する"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:4
 msgid "File to use for the background image"
-msgstr "背景画像に使用するファイル"
+msgstr "背景画像に使用するファイルです。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:5
 msgid "Have GNOME draw the desktop background"
-msgstr "GNOME にデスクトップの背景を管理させる"
+msgstr "GNOME にデスクトップの背景を管理させるかどうかです。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:6
 msgid ""
@@ -574,7 +574,7 @@ msgstr "グラデーション時の左側もしくは上側の色、あるいは
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
-msgstr "背景の画像を設定する時の透明度"
+msgstr "背景の画像を設定する時の透明度です。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:9
 msgid "Picture Filename"
@@ -594,7 +594,7 @@ msgstr "一番目の色"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "グラデーション時の右側もしくは下側の色、あるいは単色時の色"
+msgstr "グラデーション時の右側もしくは下側の色、あるいは単色時の色です。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -606,7 +606,7 @@ msgstr "ファイル・アイコンのテーマ"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons"
-msgstr "ファイル・アイコンを表示する際に使用するテーマ"
+msgstr "ファイル・アイコンを表示する際に使用するテーマです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -658,19 +658,19 @@ msgstr "アイコンのテーマ"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
-msgstr "パネルや Nautilus などで使用するアイコンのテーマです"
+msgstr "パネルや Nautilus などで使用するアイコンのテーマです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
-msgstr "メニューバーを開くキーボード・ショートカットです"
+msgstr "メニューバーを開くキーボード・ショートカットです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "カーソルが点滅する間隔です (ミリ秒単位)"
+msgstr "カーソルが点滅する間隔です (ミリ秒単位)。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menubar Detachable"
-msgstr "メニューバーを取り外せるようにします"
+msgstr "メニューバーを取り外せるようにする"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Menubar accelerator"
@@ -703,23 +703,23 @@ msgstr "等幅フォント"
 #: ../schemas/desktop_gnome_interface.schemas.in.h:23
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr "端末などで使用する等幅 (固定幅) フォントの名前です"
+msgstr "端末などで使用する等幅 (固定幅) フォントの名前です。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr "GTK+ が使用する GTK+ IM プレエディット形式の名前です"
+msgstr "GTK+ が使用する GTK+ IM プレエディット形式の名前です。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "GTK+ が使用する GTK+ IM ステータス形式の名前です"
+msgstr "GTK+ が使用する GTK+ IM ステータス形式の名前です。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Name of the default font used by gtk+."
-msgstr "GTK+ が使用するデフォルトのフォント名です"
+msgstr "GTK+ が使用するデフォルトのフォント名です。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Name of the default font used for reading documents"
-msgstr "読み込んだドキュメントで使用するデフォルトのフォント名です"
+msgstr "読み込んだドキュメントで使用するデフォルトのフォント名です。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Status Bar on Right"
@@ -727,7 +727,7 @@ msgstr "ステータス・バーを右側に表示する"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "This specifies the size of icons displayed in toolbars"
-msgstr "ツールバーに表示するアイコンのサイズを指定します"
+msgstr "ツールバーに表示するアイコンのサイズを指定します。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Toolbar Detachable"
@@ -755,7 +755,7 @@ msgstr "カスタム・フォントを使用する"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:35
 msgid "Whether Applications should have accessibility support"
-msgstr "アプリケーションにアクセシビリティをサポートさせるかどうか"
+msgstr "アプリケーションにアクセシビリティをサポートさせるかどうかです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:36
 msgid ""
@@ -767,23 +767,23 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr "メニュー名の隣にアイコンを表示するかどうか"
+msgstr "メニュー名の隣にアイコンを表示するかどうかです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether menus should have a tearoff"
-msgstr "メニューに可動メニューを持たせるかどうか"
+msgstr "メニューに可動メニューを持たせるかどうかです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether the cursor should blink"
-msgstr "カーソルを点滅させるかどうか"
+msgstr "カーソルを点滅させるかどうかです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether the user can detach menubars and move them around"
-msgstr "メニューバーを取り外しして移動できるようにするかどうか"
+msgstr "メニューバーを取り外して移動できるようにするかどうかです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:41
 msgid "Whether the user can detach toolbars and move them around"
-msgstr "ツールバーを取り外しして移動できるようにするかどうか"
+msgstr "ツールバーを取り外して移動できるようにするかどうかです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:42
 msgid ""
@@ -791,15 +791,15 @@ msgid ""
 "popped up"
 msgstr ""
 "メニューをポップアップした際に新しいアクセラレータキーを動的に入力できるかど"
-"うか"
+"うかです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether to display a status bar meter on the right"
-msgstr "ステータス・バーのメータを右側に表示するかどうか"
+msgstr "ステータス・バーのメータを右側に表示するかどうかです。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "GTK+ アプリケーションでカスタム・フォントを使用するかどうか"
+msgstr "GTK+ アプリケーションでカスタム・フォントを使用するかどうかです。"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
@@ -896,7 +896,7 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
-msgstr "ドラッグが始まるまでの距離"
+msgstr "ドラッグが始まるまでの距離です。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
@@ -928,11 +928,12 @@ msgstr ""
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
-msgstr "[Ctrl] キーを押下して離した時にポインタの現在位置をハイライト表示する"
+msgstr ""
+"[Ctrl] キーを押下して離した時にポインタの現在位置をハイライト表示します。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
-msgstr "ダブル・クリックの長さ"
+msgstr "ダブル・クリックの長さです。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -952,7 +953,7 @@ msgstr "シングル・クリック"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
-msgstr "シングル・クリックでアイコンを開く"
+msgstr "シングル・クリックでアイコンを開きます。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid ""
@@ -966,7 +967,7 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "左利き用のマウスのために、マウスの左ボタンと右ボタンを入れ替える"
+msgstr "左利き用のマウスのために、マウスの左ボタンと右ボタンを入れ替えます。"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Enable ESD"
@@ -1018,12 +1019,12 @@ msgstr "一休み前のキーボード入力時間"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
-msgstr "キーボードのロックを有効にするかどうか"
+msgstr "キーボードのロックを有効にするかどうかです。"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr "キーボードのロックを有効にするかどうかを設定します。"
+msgstr "キーボードのロックを有効にするかどうかです。"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr "一休みする時間を延長できるかどうかを指定します。"
+msgstr "一休みする時間を延長できるかどうかです。"
