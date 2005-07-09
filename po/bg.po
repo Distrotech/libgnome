@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-15 16:48+0300\n"
-"PO-Revision-Date: 2005-05-15 16:48+0300\n"
+"POT-Creation-Date: 2005-07-09 15:49+0300\n"
+"PO-Revision-Date: 2005-07-08 22:41+0300\n"
 "Last-Translator: Vladimir Petkov <vpetkov@i-space.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,11 +35,11 @@ msgstr "Излизане от системата"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:5
 msgid "Miscellaneous message"
-msgstr "Други съобщения"
+msgstr "Друго съобщение"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:6
 msgid "Question dialog"
-msgstr "Запитващи диалогови прозорци"
+msgstr "Запитващ диалогов прозорец"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:7
 msgid "System events"
@@ -68,7 +68,7 @@ msgstr "Събития на потребителския интерфейс"
 #: ../libgnome/gnome-exec.c:455
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
-"Не може да бъде открит терминал, ще се използва xterm дори и ако не работи"
+"Не може да бъде открит терминал, ще се използва xterm, дори и ако не работи"
 
 #: ../libgnome/gnome-gconf.c:180
 msgid "GNOME GConf Support"
@@ -76,11 +76,11 @@ msgstr "Поддръжка на GNOME GConf"
 
 #: ../libgnome/gnome-help.c:159
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr "Домейнът GNOME_FILE_DOMAIN_APP_HELP не е открит"
+msgstr "Областта GNOME_FILE_DOMAIN_APP_HELP не е открит"
 
 #: ../libgnome/gnome-help.c:172
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "Не успях да открия домейна NOME_FILE_DOMAIN_HELP"
+msgstr "Неуспех при намирането на областта GNOME_FILE_DOMAIN_HELP"
 
 #: ../libgnome/gnome-help.c:185 ../libgnome/gnome-help.c:200
 #, c-format
@@ -117,14 +117,14 @@ msgstr "Поддръжка на Bonobo"
 
 #: ../libgnome/gnome-init.c:144
 msgid "Bonobo activation Support"
-msgstr "Поддръжка на Bonobo активиране"
+msgstr "Поддръжка на активиране на Bonobo"
 
 #: ../libgnome/gnome-init.c:330 ../libgnome/gnome-init.c:344
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Неуспех при създаването на конфигурационна директория на GNOME за всеки "
-"потребител \"%s\": %s\n"
+"Неуспех при създаването на конфигурационна папка на GNOME за всеки "
+"потребител „%s“: %s\n"
 
 #: ../libgnome/gnome-init.c:353
 #, c-format
@@ -133,12 +133,12 @@ msgid ""
 "s': %s\n"
 msgstr ""
 "Неуспех при установяването на права за достъп 0700 на тайната "
-"конфигурационна директория на GNOME за всеки потребител \"%s\": %s\n"
+"конфигурационна папка на GNOME за всеки потребител „%s“: %s\n"
 
 #: ../libgnome/gnome-init.c:360
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Неуспех при създаването на папка с ускорители за GNOME \"%s\": %s\n"
+msgstr "Неуспех при създаването на папка с ускорители за GNOME „%s“: %s\n"
 
 #: ../libgnome/gnome-init.c:409
 msgid "Disable sound server usage"
@@ -164,163 +164,163 @@ msgstr "Виртуална файлова система на GNOME"
 msgid "GNOME Library"
 msgstr "Библиотека на GNOME"
 
-#: ../libgnome/gnome-program.c:438
+#: ../libgnome/gnome-program.c:437
 msgid "Popt Table"
-msgstr "Popt таблица"
+msgstr "Таблица на popt"
 
-#: ../libgnome/gnome-program.c:439
+#: ../libgnome/gnome-program.c:438
 msgid "The table of options for popt"
 msgstr "Таблица с настройките на popt"
 
-#: ../libgnome/gnome-program.c:446
+#: ../libgnome/gnome-program.c:445
 msgid "Popt Flags"
 msgstr "Флаговете на popt"
 
-#: ../libgnome/gnome-program.c:447
+#: ../libgnome/gnome-program.c:446
 msgid "The flags to use for popt"
 msgstr "Флагове, които да се ползват с popt"
 
-#: ../libgnome/gnome-program.c:455
+#: ../libgnome/gnome-program.c:454
 msgid "Popt Context"
 msgstr "Контекст на popt"
 
-#: ../libgnome/gnome-program.c:456
+#: ../libgnome/gnome-program.c:455
 msgid "The popt context pointer that GnomeProgram is using"
-msgstr "Указателят към popt контекст, който GNOME програмата използва"
+msgstr "Указателят към контекст на popt, който GNOME програмата използва"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:463
 msgid "Human readable name"
 msgstr "Наименование на програмата"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:464
 msgid "Human readable name of this application"
 msgstr "Наименование на програмата, което се разбира от хората"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:473
 msgid "GNOME path"
 msgstr "Път на GNOME"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:474
 msgid "Path in which to look for installed files"
 msgstr "Път, в който да се търсят инсталираните файлове"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:483
 msgid "App ID"
-msgstr "Прог. ID"
+msgstr "Прогр. ID"
 
-#: ../libgnome/gnome-program.c:485
+#: ../libgnome/gnome-program.c:484
 msgid "ID string to use for this application"
-msgstr "ID низ, който да се ползва за тази програма"
+msgstr "ID, който да се ползва за тази програма"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:491
 msgid "App version"
 msgstr "Прил. версия"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:492
 msgid "Version of this application"
 msgstr "Версията на тази програма"
 
-#: ../libgnome/gnome-program.c:500
+#: ../libgnome/gnome-program.c:499
 msgid "GNOME Prefix"
 msgstr "Представка на GNOME"
 
-#: ../libgnome/gnome-program.c:501
+#: ../libgnome/gnome-program.c:500
 msgid "Prefix where GNOME was installed"
 msgstr "Пътят, където е инсталиран GNOME"
 
-#: ../libgnome/gnome-program.c:510
+#: ../libgnome/gnome-program.c:509
 msgid "GNOME Libdir"
 msgstr "GNOME библ."
 
-#: ../libgnome/gnome-program.c:511
+#: ../libgnome/gnome-program.c:510
 msgid "Library prefix where GNOME was installed"
 msgstr "Пътят, където са инсталирани библиотеките на GNOME"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:519
 msgid "GNOME Datadir"
 msgstr "Данни на GNOME"
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:520
 msgid "Data prefix where GNOME was installed"
 msgstr "Пътят, където са инсталирани файловете с данни на GNOME"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:529
 msgid "GNOME Sysconfdir"
 msgstr "GNOME сист. настр."
 
-#: ../libgnome/gnome-program.c:531
+#: ../libgnome/gnome-program.c:530
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Пътят, където са инсталирани системните настройки на GNOME"
 
-#: ../libgnome/gnome-program.c:541
+#: ../libgnome/gnome-program.c:540
 msgid "GNOME App Prefix"
-msgstr "GNOME прог."
+msgstr "GNOME прогр."
 
-#: ../libgnome/gnome-program.c:542
+#: ../libgnome/gnome-program.c:541
 msgid "Prefix where this application was installed"
 msgstr "Пътят, където е инсталирана тази програма"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:549
 msgid "GNOME App Libdir"
-msgstr "GNOME прог. библ."
+msgstr "GNOME прогр. библ."
 
-#: ../libgnome/gnome-program.c:551
+#: ../libgnome/gnome-program.c:550
 msgid "Library prefix where this application was installed"
 msgstr "Пътят, където са инсталирани библиотеките на тази програма"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:559
 msgid "GNOME App Datadir"
-msgstr "GNOME прог. данни"
+msgstr "GNOME прогр. данни"
 
-#: ../libgnome/gnome-program.c:561
+#: ../libgnome/gnome-program.c:560
 msgid "Data prefix where this application was installed"
 msgstr "Пътят, където са инсталирани данните за тази програма"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Sysconfdir"
-msgstr "GNOME прог сист. настр."
+msgstr "GNOME прогр. сист. настр."
 
-#: ../libgnome/gnome-program.c:571
+#: ../libgnome/gnome-program.c:570
 msgid "Configuration prefix where this application was installed"
 msgstr "Пътят, където са инсталирани системните настройки на тази програма"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:579
 msgid "Create Directories"
-msgstr "Създаване на директории"
+msgstr "Създаване на папки"
 
-#: ../libgnome/gnome-program.c:581
+#: ../libgnome/gnome-program.c:580
 msgid "Create standard GNOME directories on startup"
-msgstr "Създаване на стандартните GNOME директории при стартиране"
+msgstr "Създаване на стандартните папки за GNOME при стартиране"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:589
 msgid "Enable Sound"
 msgstr "Включване на звука"
 
-#: ../libgnome/gnome-program.c:591
+#: ../libgnome/gnome-program.c:590
 msgid "Enable sound on startup"
 msgstr "Включване на звука при стартиране"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:598
 msgid "Espeaker"
 msgstr "Еспийкър"
 
-#: ../libgnome/gnome-program.c:600
+#: ../libgnome/gnome-program.c:599
 msgid "How to connect to esd"
-msgstr "Как да се свържа към esd"
+msgstr "Как се свързва към esd"
 
-#: ../libgnome/gnome-program.c:1366
+#: ../libgnome/gnome-program.c:1365
 msgid "Help options"
 msgstr "Настройки на помощта"
 
-#: ../libgnome/gnome-program.c:1371
+#: ../libgnome/gnome-program.c:1370
 msgid "Application options"
 msgstr "Настройки на програмата"
 
-#: ../libgnome/gnome-program.c:1387
+#: ../libgnome/gnome-program.c:1386
 msgid "Dynamic modules to load"
 msgstr "Динамични модули, които да се заредят"
 
-#: ../libgnome/gnome-program.c:1388
+#: ../libgnome/gnome-program.c:1387
 msgid "MODULE1,MODULE2,..."
 msgstr "МОДУЛ1,МОДУЛ2,..."
 
@@ -398,8 +398,7 @@ msgstr "Изключване, ако два клавиша са натиснат
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr ""
-"Не приемай клавиш за натиснат, ако не е задържан поне @delay милисекунди"
+msgstr "Клавиш не е натиснат, ако не е задържан поне @delay милисекунди"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
@@ -443,8 +442,8 @@ msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
 msgstr ""
-"Списък с програмите за помощ, които да се стартират при в началото на GNOME "
-"сесия"
+"Списък с програмите за помощ, които да се стартират в началото на сесия на "
+"GNOME"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -496,7 +495,7 @@ msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Аргумент, с който се изпълнява командата в терминала, дефиниран чрез ключа "
-"\"exec\"."
+"„exec“."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -508,7 +507,7 @@ msgstr "Терминална програма"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one"
-msgstr "Коя терминална програма да използват нуждаещите се програми"
+msgstr "Коя терминална програма да използват се ползва от програмите"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces."
@@ -520,7 +519,7 @@ msgstr "Резервен мениджър на прозорци"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid "Fallback window manager if user window manager can't be found"
-msgstr "Резервен мениджър на прозорци в случай, че потребителския не е открит"
+msgstr "Резервен мениджър на прозорци в случай, че потребителският не е открит"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces"
@@ -551,9 +550,8 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
-"Указване как изображението указано от wallpaper_filename да се изобразява. "
-"Възможни стойности са \"none\", \"wallpaper\", \"centered\", \"scaled\", "
-"\"stretched\"."
+"Указване как да се изобразява изображението указано от wallpaper_filename. "
+"Възможни стойности са „none“, „wallpaper“, „centered“, „scaled“, „stretched“."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -572,12 +570,12 @@ msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"Как да се нюансира цвета за фона. Възможни стойности са \"horizontal-gradient"
-"\", \"vertical-gradient\", и \"solid\""
+"Как да се нюансира цветът за фона. Възможни стойности са „horizontal-"
+"gradient“, „vertical-gradient“, и „solid“"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr "Ляв или горен цвят при преливки или солидният цвят."
+msgstr "Ляв или горен цвят при преливки или единствен цвят."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
@@ -597,11 +595,11 @@ msgstr "Настройки на изображението"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:12
 msgid "Primary Color"
-msgstr "Основен цвят"
+msgstr "Първи цвят"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "Десен или долен цвят при преливки, не се използва при солиден цвят."
+msgstr "Десен или долен цвят при преливки, не се използва при единствен цвят."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -657,7 +655,7 @@ msgstr "Стил на състоянието на GTK IM"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:11
 msgid "Gtk+ Theme"
-msgstr "Gtk+ тема"
+msgstr "Тема на gtk+"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon Theme"
@@ -701,27 +699,27 @@ msgid ""
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 "Модул, който да се използва като модел на файловата система за графичния "
-"обект GtkFileChooser. Възможните стойности са: \"gnome-vfs\" и \"gtk+\"."
+"обект GtkFileChooser. Възможните стойности са: „gnome-vfs“ и „gtk+“."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Monospace font"
-msgstr "Шрифт Monospace"
+msgstr "Едноразреден шрифт"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:23
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
-"Име на monospaced (с точна ширина) шрифт, който да се използва на места като "
-"конзолата."
+"Име на едноразреден шрифт, който да се използва на места като конзолата."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr ""
-"Име на GTK+ метода за вход с предварителна редакция, който се ползва от gtk+."
+"Име на метода за вход на gtk+ с предварителна редакция, който се ползва от "
+"gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "Име на GTK+ метода за вход за състояние, който се ползва от gtk+."
+msgstr "Име на метода за вход на gtk+ за състояние, който се ползва от gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Name of the default font used by gtk+."
@@ -729,7 +727,7 @@ msgstr "Име на шрифта по подразбиране, който се 
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Name of the default font used for reading documents"
-msgstr "Стандартния шрифт за четене на документи"
+msgstr "Стандартният шрифт за четене на документи"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Status Bar on Right"
@@ -756,8 +754,8 @@ msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr ""
-"Стил на лентите за инструменти. Валидни стойности са \"both\", \"both_horiz"
-"\", \"icons\", и \"text\""
+"Стил на лентите за инструменти. Валидни стойности са „both“, „both_horiz“, "
+"„icons“, и „text“"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Use Custom Font"
@@ -790,14 +788,14 @@ msgstr "Дали показалецът да премигва"
 #: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
-"Дали потребителят може да откъсва менютата и да ги позиционира произволно на "
+"Дали потребителят може да откъсва менютата и да ги поставя произволно по "
 "екрана"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:41
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 "Дали потребителят може да откъсва лентите с инструменти и да ги поставя "
-"произволно на екрана"
+"произволно по екрана"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:42
 msgid ""
@@ -813,7 +811,7 @@ msgstr "Дали индикаторът на лентата за състоян�
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "Дали да се ползва друг шрифт в gtk+ програмите."
+msgstr "Дали да се ползва друг шрифт в програмите на gtk+."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
@@ -821,11 +819,11 @@ msgstr "Изключване на командния интерпретатор"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable print setup"
-msgstr "Изключване на настройките на печатането"
+msgstr "Изключване на настройките на печата"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable printing"
-msgstr "Забраняване на печатането"
+msgstr "Забраняване на печата"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable saving files to disk"
@@ -837,34 +835,35 @@ msgid ""
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
 msgstr ""
-"Ограничаване на потребителя от достъп до терминала или определя команден "
-"ред, който да бъде изпълнен. Например, това ще забрани достъпа до "
-"\"Стартиране на програма\" в панела."
+"Ограничаване на потребителя от достъп до терминала или определяне на "
+"команден ред, който да бъде изпълнен. Например, това ще забрани достъпа до "
+"„Стартиране на програма...“ в панела."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
-"Ограничаване на потребителя от промяна на настройките за печат. Например,"
-"това може да спре достъпа до диалоговите прозорци \"Настройки на принтера"
-"\"на всички програми."
+"Ограничаване на потребителя от промяна на настройките за печат. Например, "
+"това ще спре достъпа до всички диалогови прозорци „Настройки на печат“ в "
+"програмите.\""
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
 msgstr ""
-"Ограничава потребителя от възможността за печатане. Например, това ще спре "
-"достъпа до всички диалогови прозорци \"Разпечатване\" в програмите."
+"Ограничаване на потребителя от възможността за печат. Например, това ще спре "
+"достъпа до всички диалогови прозорци „Печат...“ в програмите."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
-"Ограничава потребителя от записване на файлове. Например, това ще забрани "
-"достъп на всички програми до прозореца \"Запазване като...\""
+"Ограничаване на потребителя от записване на файлове. Например, това ще "
+"забрани достъпа до всички диалогови прозорци „Запазване като...“ в "
+"програмите."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -876,7 +875,7 @@ msgstr "Име на файла за специален клавиатурен з
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "възможни стойности са \"on\", \"off\", и \"custom\"."
+msgstr "възможни стойности са „on“, „off“, и „custom“."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -918,7 +917,7 @@ msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
-"Разстояние в пиксели, което показалецът трябва да измине преди включване не "
+"Разстояние в пиксели, което показалецът трябва да измине, преди включване не "
 "ускоряването. -1 е системната стойност по подразбиране."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
@@ -935,7 +934,7 @@ msgid ""
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"Име на шрифта на курсора. Ако не е зададено се използва това по "
+"Име на шрифта на курсора. Ако не е зададено, се използва това по "
 "подразбиране. Стойността се дава в началото на X сесията, така че промяната "
 "няма да се използва до следващото влизане в X."
 
@@ -991,7 +990,7 @@ msgstr "Включване на ESD"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:2
 msgid "Enable sound server startup."
-msgstr "Започване на употреба на звуковия сървър."
+msgstr "Включване на употреба на звуковия сървър."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Sounds for events"
@@ -1011,7 +1010,7 @@ msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
-"Укажете истина, за да се изключат всички външни програми за създаване на "
+"Укажете „истина“, за да се изключат всички външни програми за създаване на "
 "смалени изображения, независимо дали поотделно са включени или не."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
@@ -1044,4 +1043,4 @@ msgstr "Дали заключването на клавиатурата е вк�
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr "Дали може или не почивката да бъде отложена."
+msgstr "Дали може или не може да се отлага почивката."
