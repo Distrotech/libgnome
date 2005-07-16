@@ -266,7 +266,7 @@ gnome_score_child (int infileno,
 
    while (read (infileno, &cmd, sizeof cmd) == sizeof(cmd)) {
 	level = g_new (char, cmd.level);
-	if (read (outfileno, level, cmd.level) != cmd.level) {
+	if (read (infileno, level, cmd.level) != cmd.level) {
 	  g_free (realname);
 	  return EXIT_FAILURE;
 	}
