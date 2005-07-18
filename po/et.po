@@ -1,5 +1,5 @@
-# libgnome eesti keele tõlge
-# Estonian translation of libgnome
+# libgnome eesti keele tõlge.
+# Estonian translation of libgnome.
 #
 # Copyright (C) 1999, 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgnome package.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libgnome Gnome 2.10\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-01-15 12:31+0100\n"
-"PO-Revision-Date: 2005-03-30 10:28+0300\n"
+"PO-Revision-Date: 2005-07-18 16:31+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee> \n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -70,7 +70,8 @@ msgstr "Kasutajaliidese sündmused"
 
 #: libgnome/gnome-exec.c:441
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "Ei leia terminali, kasutan xterm'i. Ka siis, kui ei ei tööta."
+msgstr ""
+"Terminali pole võimalik leida, kasutan xterm'i. Ka siis, kui see ei tööta."
 
 #: libgnome/gnome-gconf.c:177
 msgid "GNOME GConf Support"
@@ -78,11 +79,11 @@ msgstr "GNOME GConf'i tugi"
 
 #: libgnome/gnome-help.c:159
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr ""
+msgstr "GNOME_FILE_DOMAIN_APP_HELP domeeni pole võimalik leida"
 
 #: libgnome/gnome-help.c:172
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr ""
+msgstr "GNOME_FILE_DOMAIN_HELP domeeni pole võimalik leida"
 
 #: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
 #, c-format
@@ -90,6 +91,8 @@ msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
+"Abiteavet pole võimalik näidata kuna %s pole kataloog. Palun kontrolli GNOME "
+"paigaldust."
 
 #: libgnome/gnome-help.c:209 libgnome/gnome-help.c:225
 #, c-format
@@ -97,16 +100,18 @@ msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
+"Abiteavet pole võimalik näidata ei %s ega %s asukohast. Palun kontrolli "
+"GNOME paigaldust."
 
 #: libgnome/gnome-help.c:339
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr ""
+msgstr "doc_id %s pole võimalik abiteabe rajalt leida"
 
 #: libgnome/gnome-help.c:360
 #, c-format
 msgid "Help document %s/%s not found"
-msgstr "Ei leia abiinfo dokumenti %s/%s"
+msgstr "Abiteabe dokumenti %s/%s pole võimalik leida"
 
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:88
@@ -120,7 +125,8 @@ msgstr "Bonobo aktiveerimise tugi"
 #: libgnome/gnome-init.c:324 libgnome/gnome-init.c:338
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Kasutajapõhist gnome seadistuste kataloogi `%s' ei saa luua: %s\n"
+msgstr ""
+"Kasutajapõhiste gnome seadistuste kataloogi `%s' pole võimalik luua: %s\n"
 
 #: libgnome/gnome-init.c:347
 #, c-format
@@ -128,13 +134,13 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Gnome kasutajapõhisele privaatsele seadistustekataloogile `%s' ei saa "
+"Gnome kasutajapõhisele privaatsele seadistustekataloogile `%s' pole võimalik "
 "määrata 0700 õiguseid: %s\n"
 
 #: libgnome/gnome-init.c:354
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Gnome kiirendite kataloogi `%s' ei saa luua: %s\n"
+msgstr "Gnome kiirendite kataloogi `%s' pole võimalik luua: %s\n"
 
 #: libgnome/gnome-init.c:403
 msgid "Disable sound server usage"
@@ -333,12 +339,14 @@ msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr ""
+"Selle asukohaga seotud vaikimisi tegevuse käsu analüüsimisel tekkis viga."
 
 #: libgnome/gnome-url.c:103
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr ""
+"Selle asukohaga seotud vaikimisi tegevuse käsu käivitamisel tekkis viga."
 
 #: libgnome/gnome-url.c:111
 msgid "There is no default action associated with this location."
@@ -538,7 +546,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
-msgstr ""
+msgstr "Töölaua tausta joonistamine"
 
 #: schemas/desktop_gnome_background.schemas.in.h:4
 msgid "File to use for the background image"
@@ -546,7 +554,7 @@ msgstr "Taustapildi jaoks kasutatav fail"
 
 #: schemas/desktop_gnome_background.schemas.in.h:5
 msgid "Have GNOME draw the desktop background"
-msgstr ""
+msgstr "Kas GNOME joonistab töölaua tausta"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
 msgid ""
@@ -644,7 +652,7 @@ msgstr "Ikoonide teema, mida kasutatakse paneelil, nautiluses jne."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr ""
+msgstr "Kursori vilkumistsükli pikkus millisekundites"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Menubar Detachable"
@@ -687,7 +695,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_interface.schemas.in.h:23
 msgid "Name of the default font used by gtk+."
-msgstr ""
+msgstr "GTK+ poolt vaikimisi kasutatava kirjatüübi nimi."
 
 #: schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Status Bar on Right"
@@ -806,7 +814,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
-msgstr ""
+msgstr "Kellahelina helifaili nimi"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -844,13 +852,15 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
-msgstr ""
+msgstr "Vahemaa, millest alates lohistamine aset leiab"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
+"Pikslites määratud vahemaa, mille kursor peab läbima enne, kui hiireklahvi "
+"vajutus aktiveeritakse. Väärtus -1 tähendab süsteemset vaikesätet."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -868,13 +878,14 @@ msgid ""
 msgstr ""
 "Kursori kirjatüübi nimi. Kui see on määramata, siis kasutatakse vaikimisi "
 "kirjatüüpi. Seda väärtust edastatakse X'i serverile ainult seansi alguses, "
-"seega ei saa selle muutmisel rakendada seda enne järgmise seansi algust."
+"seega pole selle muutmist võimalik rakendada seda enne järgmise seansi algust."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr ""
+"Kursori asukoha rõhutamine Control klahvi vajutamise ja lahtilaskmise peale"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
@@ -882,7 +893,7 @@ msgstr "Topeltklõpsu kestus"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
-msgstr ""
+msgstr "Kursori asukoha tuvastamine"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
@@ -894,11 +905,11 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
-msgstr ""
+msgstr "Üksikklõps"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
-msgstr ""
+msgstr "Ikoonide avamiseks kasutatakse üksikklõpsu"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid ""
@@ -959,11 +970,11 @@ msgstr ""
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
-msgstr ""
+msgstr "Kas klaviatuuri lukustamine on lubatud või mitte"
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr ""
+msgstr "Kas klaviatuuri lukustamine on lubatud või mitte."
 
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
