@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-06 17:33+0200\n"
-"PO-Revision-Date: 2005-07-06 17:36+0200\n"
+"POT-Creation-Date: 2005-07-21 22:01+0200\n"
+"PO-Revision-Date: 2005-07-21 22:05+0200\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -523,38 +523,43 @@ msgstr ""
 "necesiten uno"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
-msgid "A list with names of the first window manager workspaces."
-msgstr "Una lista con nombres de los áreas de trabajo del gestor de ventanas."
+msgid ""
+"A list with names of the first window manager workspaces. This key has been "
+"deprecated since GNOME 2.12."
+msgstr "Una lista con nombres de las áreas de trabajo del primer gestor de ventanas. Esta clave se ha hecho obsoleta desde Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
-msgid "Fallback window manager"
-msgstr "Gestor de ventanas auxiliar"
+msgid "Fallback window manager (deprecated)"
+msgstr "Gestor de ventanas auxiliar (obsoleto)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
-msgid "Fallback window manager if user window manager can't be found"
-msgstr ""
-"Gestor de ventanas auxiliar si el gestor de ventanas del usuario no puede "
-"encontrarse"
+msgid ""
+"Fallback window manager if user window manager can't be found. This key has "
+"been deprecated since GNOME 2.12."
+msgstr "Gestor de ventanas auxiliar si el gestor de ventanas del usuario no puede encontrarse. Esta clave es obsoleta desde Gnome 2.12"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
-msgid "Names of the workspaces"
-msgstr "Nombres de las áreas de trabajo"
+msgid "Names of the workspaces (deprecated)"
+msgstr "Nombres de las áreas de trabajo (obsoleta)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
-msgid "The number of workspaces"
-msgstr "El número de áreas de trabajo"
+msgid "The number of workspaces (deprecated)"
+msgstr "El número de áreas de trabajo (obsoleto)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
-msgid "The number of workspaces the window manager should use"
-msgstr "El número de áreas de trabajo que el gestor de ventanas debe usar"
+msgid ""
+"The number of workspaces the window manager should use This key has been "
+"deprecated since GNOME 2.12."
+msgstr "El número de áreas de trabajo que el gestor de ventanas debe usar. Esta entrada es obsoleta desde Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
-msgid "User window manager"
-msgstr "Gestor de ventanas del usuario"
+msgid "User window manager (deprecated)"
+msgstr "Gestor de ventanas del usuario (obsoleto)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first"
-msgstr "Gestor de ventanas que se probará primero"
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr "Gestor de ventanas que se probará primero. Esta clave es obsoleta desde Gnome 2.12."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -739,7 +744,8 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "Nombre del «Estilo de estado» del método de entrada GTK+ que usará gtk+."
+msgstr ""
+"Nombre del «Estilo de estado» del método de entrada GTK+ que usará gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Name of the default font used by gtk+."
@@ -747,7 +753,8 @@ msgstr "Nombre de la tipografía predeterminada que usará GTK+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Name of the default font used for reading documents"
-msgstr "Nombre de la tipografía predeterminada que se usará para leer documentos"
+msgstr ""
+"Nombre de la tipografía predeterminada que se usará para leer documentos"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Status Bar on Right"
@@ -775,7 +782,9 @@ msgstr "Estilo de la barra de herramientas"
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
-msgstr "Estilo de la barra de herramientas. Los valores válidos son \"both\", \"both-horiz\", \"icons\", y \"text\""
+msgstr ""
+"Estilo de la barra de herramientas. Los valores válidos son \"both\", \"both-"
+"horiz\", \"icons\", y \"text\""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Use Custom Font"
@@ -1074,3 +1083,6 @@ msgstr "Indica si el bloqueo del teclado está activado."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Indica si la pantalla de descanso de tecleo puede o no ser pospuesta."
+
+#~ msgid "Window manager to try first"
+#~ msgstr "Gestor de ventanas que se probará primero"
