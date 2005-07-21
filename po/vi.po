@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-08 06:28+0000\n"
-"PO-Revision-Date: 2005-07-08 16:07+0700\n"
+"POT-Creation-Date: 2005-07-21 06:39+0000\n"
+"PO-Revision-Date: 2004-09-13 19:48+0700\n"
 "Last-Translator: pclouds <pclouds@vnlinux.org>\n"
 "Language-Team: GnomeVI <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -149,7 +149,7 @@ msgstr "Host:port mà máy chủ âm thanh định dùng đã bị sử dụng"
 
 #: ../libgnome/gnome-init.c:417
 msgid "HOSTNAME:PORT"
-msgstr "TÊN MÁY:CỔNG"
+msgstr "HOSTNAME:PORT"
 
 #: ../libgnome/gnome-init.c:439
 msgid "GNOME Virtual Filesystem"
@@ -497,38 +497,52 @@ msgid "Terminal program to use when starting applications that require one"
 msgstr "Chương trình terminal cần dùng để khởi động ứng dụng có yêu cầu"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
-msgid "A list with names of the first window manager workspaces."
+#, fuzzy
+msgid ""
+"A list with names of the first window manager workspaces. This key has been "
+"deprecated since GNOME 2.12."
 msgstr "Danh sách kèm tên workspace trình quản lý cửa sổ đầu tiên."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
-msgid "Fallback window manager"
+#, fuzzy
+msgid "Fallback window manager (deprecated)"
 msgstr "Trình quản lý cửa sổ dự phòng"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
-msgid "Fallback window manager if user window manager can't be found"
+#, fuzzy
+msgid ""
+"Fallback window manager if user window manager can't be found. This key has "
+"been deprecated since GNOME 2.12."
 msgstr ""
 "Trình quản lý cửa sổ dự phòng trong trường hợp không tìm thấy trình quản lý "
 "cửa sổ của người dùng"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
-msgid "Names of the workspaces"
+#, fuzzy
+msgid "Names of the workspaces (deprecated)"
 msgstr "Tên workspace"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
-msgid "The number of workspaces"
+#, fuzzy
+msgid "The number of workspaces (deprecated)"
 msgstr "Số workspace"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
-msgid "The number of workspaces the window manager should use"
+#, fuzzy
+msgid ""
+"The number of workspaces the window manager should use This key has been "
+"deprecated since GNOME 2.12."
 msgstr "Số workspace trình quản lý cửa sổ nên dùng"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
-msgid "User window manager"
+#, fuzzy
+msgid "User window manager (deprecated)"
 msgstr "Trình quản lý cửa sổ người dùng"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first"
-msgstr "Trình quản lý cửa sổ cần thử đầu tiên"
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr ""
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -623,6 +637,7 @@ msgid "Default font"
 msgstr "Phông mặc định"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:6
+#, fuzzy
 msgid "Document font"
 msgstr "Phông mặc định"
 
@@ -667,8 +682,9 @@ msgid "Menubar Detachable"
 msgstr "Có thể tháo thanh menu"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:17
+#, fuzzy
 msgid "Menubar accelerator"
-msgstr "Phím tắt thanh menu"
+msgstr "Có thể tháo thanh menu"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Menus Have Icons"
@@ -713,8 +729,9 @@ msgid "Name of the default font used by gtk+."
 msgstr "Tên phông mặc định dùng bởi GTK+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:27
+#, fuzzy
 msgid "Name of the default font used for reading documents"
-msgstr "Tên phông mặc định dùng để đọc tài liệu"
+msgstr "Tên phông mặc định dùng bởi GTK+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Status Bar on Right"
@@ -737,10 +754,13 @@ msgid "Toolbar Style"
 msgstr "Kiểu thanh công cụ"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#, fuzzy
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
-msgstr "Kiểu thanh công cụ. Giá trị hợp lệ là \"both\", \"both-horiz\", \"icon\", và \"text\""
+msgstr ""
+"Kiểu thanh công cụ. Giá trị hợp lệ là \"both\", \"both_horiz\", \"icon\", và "
+"\"text\""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Use Custom Font"
@@ -1018,174 +1038,172 @@ msgstr "Có khoá bàn phím hay không"
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Có cho phép hoãn thư giãn nhập liệu hay không"
 
-#~ msgid "Too many alias levels for a locale, may indicate a loop"
-#~ msgstr "Có quá nhiều bí danh cho locale, có thể do bị lặp"
+msgid "Window manager to try first"
+msgstr "Trình quản lý cửa sổ cần thử đầu tiên"
 
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "Cách xử lý URL ghelp"
+msgid "Too many alias levels for a locale, may indicate a loop"
+msgstr "Có quá nhiều bí danh cho locale, có thể do bị lặp"
 
-#~ msgid "How to handle http URLs"
-#~ msgstr "Cách xử lý URL http"
+msgid "How to handle ghelp URLs"
+msgstr "Cách xử lý URL ghelp"
 
-#~ msgid "How to handle https URLs"
-#~ msgstr "Cách xử lý URL https"
+msgid "How to handle http URLs"
+msgstr "Cách xử lý URL http"
 
-#~ msgid "How to handle info URLs"
-#~ msgstr "Cách xử lý URL info"
+msgid "How to handle https URLs"
+msgstr "Cách xử lý URL https"
 
-#~ msgid "How to handle man URLs"
-#~ msgstr "Cách xử lý URL man"
+msgid "How to handle info URLs"
+msgstr "Cách xử lý URL info"
 
-#~ msgid "How to handle trash URLs"
-#~ msgstr "Cách xử lý URL trash"
+msgid "How to handle man URLs"
+msgstr "Cách xử lý URL man"
 
-#~ msgid "Run program in terminal"
-#~ msgstr "Chạy chương trình trong terminal"
+msgid "How to handle trash URLs"
+msgstr "Cách xử lý URL trash"
 
-#~ msgid "Set to true to have a program specified in command handle http URLs"
-#~ msgstr "Đặt true để chương trình xác định lệnh xử lý URL Rác"
+msgid "Run program in terminal"
+msgstr "Chạy chương trình trong terminal"
 
-#~ msgid "Set to true to have a program specified in command handle https URLs"
-#~ msgstr "Đặt true để chương trình xác định lệnh xử lý URL https"
+msgid "Set to true to have a program specified in command handle http URLs"
+msgstr "Đặt true để chương trình xác định lệnh xử lý URL Rác"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Đặt true để chương trình xác định trong programs/ghelp xử lý URL ghelp"
+msgid "Set to true to have a program specified in command handle https URLs"
+msgstr "Đặt true để chương trình xác định lệnh xử lý URL https"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Đặt true để chương trình xác định trong programs/info xử lý URL Info"
+msgid ""
+"Set to true to have a program specified in programs/ghelp handle ghelp URLs"
+msgstr "Đặt true để chương trình xác định trong programs/ghelp xử lý URL ghelp"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr "Đặt true để chương trình xác định trong programs/man xử lý URL Man"
+msgid ""
+"Set to true to have a program specified in programs/info handle info URLs"
+msgstr "Đặt true để chương trình xác định trong programs/info xử lý URL Info"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in trash/command handle trash URLs"
-#~ msgstr "Đặt true để chương trình xác định trong trash/command xử lý URL Rác"
+msgid "Set to true to have a program specified in programs/man handle man URLs"
+msgstr "Đặt true để chương trình xác định trong programs/man xử lý URL Man"
 
-#~ msgid "True if the program to handle this URL should be run in a terminal"
-#~ msgstr "True nếu chương trình xử lý URL này cần chạy trong terminal"
+msgid ""
+"Set to true to have a program specified in trash/command handle trash URLs"
+msgstr "Đặt true để chương trình xác định trong trash/command xử lý URL Rác"
 
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "Bộ xử lý URL cho trang ghelp"
+msgid "True if the program to handle this URL should be run in a terminal"
+msgstr "True nếu chương trình xử lý URL này cần chạy trong terminal"
 
-#~ msgid "URL handler for http uris"
-#~ msgstr "Bộ xử lý URL cho cho URI http"
+msgid "URL handler for ghelp pages"
+msgstr "Bộ xử lý URL cho trang ghelp"
 
-#~ msgid "URL handler for https uris"
-#~ msgstr "Bộ xử lý URL cho URI https"
+msgid "URL handler for http uris"
+msgstr "Bộ xử lý URL cho cho URI http"
 
-#~ msgid "URL handler for info pages"
-#~ msgstr "Bộ xử lý URL cho trang info"
+msgid "URL handler for https uris"
+msgstr "Bộ xử lý URL cho URI https"
 
-#~ msgid "URL handler for man pages"
-#~ msgstr "Bộ xử lý URL cho trang man"
+msgid "URL handler for info pages"
+msgstr "Bộ xử lý URL cho trang info"
 
-#~ msgid "URL handler for trash pages"
-#~ msgstr "Bộ xử lý URL cho các trang rác"
+msgid "URL handler for man pages"
+msgstr "Bộ xử lý URL cho trang man"
 
-#~ msgid "Action button click"
-#~ msgstr "Hành động nhấn nút"
+msgid "URL handler for trash pages"
+msgstr "Bộ xử lý URL cho các trang rác"
 
-#~ msgid "Check box toggled"
-#~ msgstr "Đã đánh dấu hộp kiểm"
+msgid "Action button click"
+msgstr "Hành động nhấn nút"
 
-#~ msgid "Menu item activation"
-#~ msgstr "Kích hoạt menu"
+msgid "Check box toggled"
+msgstr "Đã đánh dấu hộp kiểm"
 
-#~ msgid "Default URL show handler"
-#~ msgstr "Bộ xử lý hiện URL mặc định"
+msgid "Menu item activation"
+msgstr "Kích hoạt menu"
 
-#~ msgid "How to handle applications URLs"
-#~ msgstr "Xử lý URL ứng dụng như thế nào"
+msgid "Default URL show handler"
+msgstr "Bộ xử lý hiện URL mặc định"
 
-#~ msgid "How to handle preferences URLs"
-#~ msgstr "Xử lý URL Thông số như thế nào"
+msgid "How to handle applications URLs"
+msgstr "Xử lý URL ứng dụng như thế nào"
 
-#~ msgid "How to handle server-settings URLs"
-#~ msgstr "Xử lý URL Thiết lập server như thế nào"
+msgid "How to handle preferences URLs"
+msgstr "Xử lý URL Thông số như thế nào"
 
-#~ msgid "How to handle start-here URLs"
-#~ msgstr "Xử lý URL Start-Here như thế nào"
+msgid "How to handle server-settings URLs"
+msgstr "Xử lý URL Thiết lập server như thế nào"
 
-#~ msgid "How to handle system-settings URLs"
-#~ msgstr "Xử lý URL Thiết lập hệ thống như thế nào"
+msgid "How to handle start-here URLs"
+msgstr "Xử lý URL Start-Here như thế nào"
 
-#~ msgid "How to handle unknown URLs"
-#~ msgstr "Xử lý URL Không biết như thế nào"
+msgid "How to handle system-settings URLs"
+msgstr "Xử lý URL Thiết lập hệ thống như thế nào"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in applications/command handle "
-#~ "applications URLs"
-#~ msgstr ""
-#~ "Đặt true để ứng dụng xác định trong application/command xử lý URL ứng dụng"
+msgid "How to handle unknown URLs"
+msgstr "Xử lý URL Không biết như thế nào"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in preferences/command handle "
-#~ "preferences URLs"
-#~ msgstr ""
-#~ "Đặt true để chương trình xác định trong preferences/command xử lý URL "
-#~ "thông số"
+msgid ""
+"Set to true to have a program specified in applications/command handle "
+"applications URLs"
+msgstr ""
+"Đặt true để ứng dụng xác định trong application/command xử lý URL ứng dụng"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/unknown handle "
-#~ "unknown URLs"
-#~ msgstr ""
-#~ "Đặt true để chương trình xác định trong programs/unknown xử lý URL Không "
-#~ "biết"
+msgid ""
+"Set to true to have a program specified in preferences/command handle "
+"preferences URLs"
+msgstr ""
+"Đặt true để chương trình xác định trong preferences/command xử lý URL thông "
+"số"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in server-settings/command handle "
-#~ "server-settings URLs"
-#~ msgstr ""
-#~ "Đặt true để chương trình xác định trong server-settings/command xử lý URL "
-#~ "Thiết lập Server"
+msgid ""
+"Set to true to have a program specified in programs/unknown handle unknown "
+"URLs"
+msgstr ""
+"Đặt true để chương trình xác định trong programs/unknown xử lý URL Không biết"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in start-here/command handle "
-#~ "start-here URLs"
-#~ msgstr ""
-#~ "Đặt true để chương trình xác định trong start-here/command xử lý URL "
-#~ "start-here"
+msgid ""
+"Set to true to have a program specified in server-settings/command handle "
+"server-settings URLs"
+msgstr ""
+"Đặt true để chương trình xác định trong server-settings/command xử lý URL "
+"Thiết lập Server"
 
-#~ msgid ""
-#~ "Set to true to have a program specified in system-settings/command handle "
-#~ "system-settings URLs"
-#~ msgstr ""
-#~ "Đặt true để chương trình xác định trong system-settings/command xử lý URL "
-#~ "Thiết lập Hệ thống"
+msgid ""
+"Set to true to have a program specified in start-here/command handle start-"
+"here URLs"
+msgstr ""
+"Đặt true để chương trình xác định trong start-here/command xử lý URL start-"
+"here"
 
-#~ msgid "URL handler for applications pages"
-#~ msgstr "Bộ xử lý URL cho trang ứng dụng"
+msgid ""
+"Set to true to have a program specified in system-settings/command handle "
+"system-settings URLs"
+msgstr ""
+"Đặt true để chương trình xác định trong system-settings/command xử lý URL "
+"Thiết lập Hệ thống"
 
-#~ msgid "URL handler for preferences pages"
-#~ msgstr "Bộ xử lý URL cho trang thông số"
+msgid "URL handler for applications pages"
+msgstr "Bộ xử lý URL cho trang ứng dụng"
 
-#~ msgid "URL handler for server-settings pages"
-#~ msgstr "Bộ xử lý URL cho trang thiết lập hệ thống"
+msgid "URL handler for preferences pages"
+msgstr "Bộ xử lý URL cho trang thông số"
 
-#~ msgid "URL handler for start-here pages"
-#~ msgstr "Bộ xử lý URL cho trang start-here"
+msgid "URL handler for server-settings pages"
+msgstr "Bộ xử lý URL cho trang thiết lập hệ thống"
 
-#~ msgid "URL handler for system-settings pages"
-#~ msgstr "Bộ xử lý URL cho các trang Thiết lập hệ thống"
+msgid "URL handler for start-here pages"
+msgstr "Bộ xử lý URL cho trang start-here"
 
-#~ msgid "Test option."
-#~ msgstr "Kiểm tra tuỳ chọn."
+msgid "URL handler for system-settings pages"
+msgstr "Bộ xử lý URL cho các trang Thiết lập hệ thống"
 
-#~ msgid "The Application Name"
-#~ msgstr "Tên ứng dụng"
+msgid "Test option."
+msgstr "Kiểm tra tuỳ chọn."
 
-#~ msgid ""
-#~ "Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that "
-#~ "gnome-libs was compiled incorrectly."
-#~ msgstr ""
-#~ "Không thể tìm thấy vùng GNOME_FILE_DOMAIN_HELP. Có lẽ gnomelibs được biên "
-#~ "dịch sai."
+msgid "The Application Name"
+msgstr "Tên ứng dụng"
 
-#~ msgid "Help document %s for %s not found"
-#~ msgstr "Không tìm thấy tài liệu trợ giúp %s cho %s."
+msgid ""
+"Unable to find the GNOME_FILE_DOMAIN_HELP domain.  This implies that gnome-"
+"libs was compiled incorrectly."
+msgstr ""
+"Không thể tìm thấy vùng GNOME_FILE_DOMAIN_HELP. Có lẽ gnomelibs được biên "
+"dịch sai."
+
+msgid "Help document %s for %s not found"
+msgstr "Không tìm thấy tài liệu trợ giúp %s cho %s."
