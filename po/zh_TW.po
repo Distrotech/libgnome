@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.7.92\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-01 21:33+0800\n"
-"PO-Revision-Date: 2005-07-01 21:37+0800\n"
+"POT-Creation-Date: 2005-07-20 22:37+0000\n"
+"PO-Revision-Date: 2005-07-21 11:06+0800\n"
 "Last-Translator: Abel Cheung <abel@oaka.org>\n"
 "Language-Team: Chinese (traditional) <community@linuxhall.org>\n"
 "MIME-Version: 1.0\n"
@@ -487,36 +487,45 @@ msgid "Terminal program to use when starting applications that require one"
 msgstr "當啟動的程式需要終端機時，使用哪個終端機程式"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
-msgid "A list with names of the first window manager workspaces."
-msgstr "一系列視窗總管預設使用的工作區名稱。"
+msgid ""
+"A list with names of the first window manager workspaces. This key has been "
+"deprecated since GNOME 2.12."
+msgstr "一系列視窗總管預設使用的工作區名稱。這設定鍵自 GNOME 2.12 已不鼓勵再使用。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
-msgid "Fallback window manager"
-msgstr "後備視窗總管"
+msgid "Fallback window manager (deprecated)"
+msgstr "後備視窗總管（不鼓勵再使用）"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
-msgid "Fallback window manager if user window manager can't be found"
-msgstr "當找不到用戶首選的視窗總管時，執行這裡指定的後備視窗總管"
+msgid ""
+"Fallback window manager if user window manager can't be found. This key has "
+"been deprecated since GNOME 2.12."
+msgstr ""
+"當找不到用戶首選的視窗總管時，執行這裡指定的後備視窗總管。這設定鍵自 GNOME 2.12 已不鼓勵再使用。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
-msgid "Names of the workspaces"
-msgstr "工作區名稱"
+msgid "Names of the workspaces (deprecated)"
+msgstr "工作區名稱（不鼓勵再使用）"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
-msgid "The number of workspaces"
-msgstr "工作區數目"
+msgid "The number of workspaces (deprecated)"
+msgstr "工作區數目（不鼓勵再使用）"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
-msgid "The number of workspaces the window manager should use"
-msgstr "視窗總管應開啟的工作區數目"
+msgid ""
+"The number of workspaces the window manager should use This key has been "
+"deprecated since GNOME 2.12."
+msgstr "視窗總管應開啟的工作區數目，這設定鍵自 GNOME 2.12 已不鼓勵再使用。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
-msgid "User window manager"
-msgstr "用戶首選的視窗總管"
+msgid "User window manager (deprecated)"
+msgstr "用戶首選的視窗總管（不鼓勵再使用）"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first"
-msgstr "最先嘗試執行的視窗總管"
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr ""
+"首選的視窗總管。這設定鍵自 GNOME 2.12 已不鼓勵再使用。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -727,8 +736,7 @@ msgstr "工具列樣式"
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
-msgstr ""
-"工具列樣式。有效的值為“both”、“both_horiz”、“icon”及“text”"
+msgstr "工具列樣式。有效的值為“both”、“both_horiz”、“icon”及“text”"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Use Custom Font"
@@ -999,3 +1007,5 @@ msgstr "是否鎖定鍵盤"
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "可否暫時放棄進入休息畫面。"
 
+#~ msgid "Window manager to try first"
+#~ msgstr "最先嘗試執行的視窗總管"
