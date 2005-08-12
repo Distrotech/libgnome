@@ -148,7 +148,7 @@ gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
 
 	local_help_path = gnome_program_locate_file (program,
 						     GNOME_FILE_DOMAIN_APP_HELP,
-						     "",
+						     doc_id,
 						     FALSE /* only_if_exists */,
 						     NULL /* ret_locations */);
 
@@ -162,7 +162,7 @@ gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
 
 	global_help_path = gnome_program_locate_file (program,
 						      GNOME_FILE_DOMAIN_HELP,
-						      "",
+						      doc_id,
 						      FALSE /* only_if_exists */,
 						      NULL /* ret_locations */);
 	if (global_help_path == NULL) {

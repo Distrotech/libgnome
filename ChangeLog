@@ -1,5 +1,11 @@
 2005-08-12  Kjartan Maraas  <kmaraas@gnome.org>
 
+	* libgnome/gnome-help.c: (gnome_help_display_with_doc_id_and_env):
+	Actually use the doc_id arg that's being passed in here. Reported
+	by Damon Chaplin. Patch by Muktha Narayan. Closes bug #84148.
+
+2005-08-12  Kjartan Maraas  <kmaraas@gnome.org>
+
 	* gnome-data/Makefile.am: Hook it up in the build
 	* gnome-data/gnome-options.7: New man page from Sebastien
 	Bacher. Closes bug #125120.
