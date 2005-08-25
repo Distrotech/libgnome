@@ -54,7 +54,7 @@ msgstr "Selecció d'un element del menú"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Click on command button"
-msgstr "Cliqueu a un botó d'ordre"
+msgstr "Feu click a un botó d'ordre"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Select check box"
@@ -67,7 +67,7 @@ msgstr "Esdeveniments de la interfície d'usuari"
 #: ../libgnome/gnome-exec.c:455
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
-"No es pot trobar una terminal. Es fara servir xterm, tot i que potser no funcioni"
+"No es pot trobar un terminal. Es fara servir xterm, tot i que potser no funcioni"
 
 #: ../libgnome/gnome-gconf.c:180
 msgid "GNOME GConf Support"
@@ -221,12 +221,12 @@ msgstr "Nom intel·ligible d'aquesta aplicació"
 # libgnome/gnome-program.c:462
 #: ../libgnome/gnome-program.c:474
 msgid "GNOME path"
-msgstr "Ruta del GNOME"
+msgstr "Camí del GNOME"
 
 # libgnome/gnome-program.c:463
 #: ../libgnome/gnome-program.c:475
 msgid "Path in which to look for installed files"
-msgstr "Ruta en la qual cercar fitxers instal·lats"
+msgstr "Camí en la qual cercar fitxers instal·lats"
 
 # libgnome/gnome-program.c:472
 #: ../libgnome/gnome-program.c:484
@@ -336,7 +336,7 @@ msgstr "Crear directoris"
 # libgnome/gnome-program.c:569
 #: ../libgnome/gnome-program.c:581
 msgid "Create standard GNOME directories on startup"
-msgstr "Crear els directoris estàndard del GNOME en iniciar"
+msgstr "Crear els directoris estàndard del GNOME al començar"
 
 # libgnome/gnome-program.c:578
 #: ../libgnome/gnome-program.c:590
@@ -346,7 +346,7 @@ msgstr "Habilita so"
 # libgnome/gnome-program.c:579
 #: ../libgnome/gnome-program.c:591
 msgid "Enable sound on startup"
-msgstr "Habilita el so en iniciar"
+msgstr "Habilita el so en començar"
 
 # libgnome/gnome-program.c:588
 #: ../libgnome/gnome-program.c:599
@@ -458,7 +458,7 @@ msgstr "Inhabilita si es pressionen dues tecles a la vegada."
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
-"Accepta només les telces pressionades almenys durant @deñay mil·lisegons"
+"Accepta només les tecles pressionades almenys durant @delay mil·lisegons"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
@@ -478,7 +478,7 @@ msgstr "Quants píxels per segon es mouen a la velocitat màxima"
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
 msgstr ""
-"Descarta múltiples pressions de la mateixa tecla en @delay milisegons"
+"Descarta múltiples pressions de la mateixa tecla en @delay mil·lisegons"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -510,7 +510,7 @@ msgstr "Aplicacions de tecnologia assistiva d'inici"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
-msgstr "El navegador necessita una terminal"
+msgstr "El navegador necessita un terminal"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
@@ -527,7 +527,7 @@ msgstr "Navegador predeterminat per a totes les URL"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr "Si el navegador predeterminat necessita una terminal per a executar-se"
+msgstr "Si el navegador predeterminat necessita un terminal per a executar-se"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
@@ -539,7 +539,7 @@ msgstr "Visualitzador d'ajuda predeterminat"
 
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
 msgid "Help viewer needs terminal"
-msgstr "El visualitzador d'ajuda necessita una terminal"
+msgstr "El visualitzador d'ajuda necessita un terminal"
 
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
@@ -548,7 +548,7 @@ msgstr "Si el visualitzador d'ajuda predeterminat accepta URLs"
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
 msgstr ""
-"Si el visualitzador d'ajuda predeterminat necessita una terminal per a executar-se"
+"Si el visualitzador d'ajuda predeterminat necessita un terminal per a executar-se"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -715,6 +715,7 @@ msgstr "Habilita l'accessibilitat"
 msgid "Enable Animations"
 msgstr "Habilita les animacions"
 
+# IM = Input Method. jm
 #: ../schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Preedit Style"
 msgstr "Estil de preedició del mètode d'entrada de GTK"
@@ -755,9 +756,10 @@ msgstr "Accelerador de la barra de menú"
 msgid "Menus Have Icons"
 msgstr "Els menús tenen icones"
 
+# FIXME Tearoff? jm
 #: ../schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Menus Have Tearoff"
-msgstr "Els menús es poden desprendre"
+msgstr "Els menús es poden separar"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Module for GtkFileChooser"
@@ -768,7 +770,7 @@ msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
-"Mòdul a usar com a model de sistema de fitxers per al giny GtkFileChooser. "
+"Mòdul a usar com a model de sistema de fitxers per a l'element d'interfície GtkFileChooser. "
 "Els valors possibles són «gnome-vfs» i «gtk+»."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:22
@@ -808,7 +810,7 @@ msgstr "Això especifica la mida de les icones mostrades a les barres d'eines"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Toolbar Detachable"
-msgstr "Les barres d'eines es poden desprendre"
+msgstr "Les barres d'eines es poden separar"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "Toolbar Icon Size"
@@ -839,12 +841,12 @@ msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
-"Si s'han de mostrar animacions. Atenció: aquesta clau és global, canvia el "
+"Si s'han de mostrar animacions. Nota: aquesta clau és global, canvia el "
 "comportament del gestor de finestres, quadre, etc."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr "Si els menús han de mostrar una icona al costat de la entrada del menú"
+msgstr "Si els menús han de mostrar una icona al costat de l'entrada del menú"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:38
 msgid "Whether menus should have a tearoff"
@@ -857,11 +859,11 @@ msgstr "Si el cursor ha de parpellejar"
 # FIXME tearoff
 #: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether the user can detach menubars and move them around"
-msgstr "Si l'usuari pot desprendre barres de menú i moure-les"
+msgstr "Si l'usuari pot separar barres de menú i moure-les"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:41
 msgid "Whether the user can detach toolbars and move them around"
-msgstr "Si l'usuari pot desprendre barres d'eines i moure-les"
+msgstr "Si l'usuari pot separar barres d'eines i moure-les"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:42
 msgid ""
