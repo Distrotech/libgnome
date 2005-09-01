@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.hi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-07 06:23+0000\n"
-"PO-Revision-Date: 2005-07-07 16:16+0530\n"
+"POT-Creation-Date: 2005-09-01 08:55+0000\n"
+"PO-Revision-Date: 2005-09-01 18:51+0530\n"
 "Last-Translator: Rajesh Ranjan <rranjan@redhat.com>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -555,36 +556,42 @@ msgstr ""
 "प्रोग्राम आवश्यक होता है"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
-msgid "A list with names of the first window manager workspaces."
-msgstr "प्रथम विंडो प्रबंधक कार्यस्थानों के नाम सहित सूची."
+msgid ""
+"A list with names of the first window manager workspaces. This key has been "
+"deprecated since GNOME 2.12."
+msgstr "प्रथम विंडो प्रबंधक कार्यस्थानों के नाम सहित सूची. इस कुंजी को GNOME 2.12 के बाद पदावनत किया जा रहा है."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
-msgid "Fallback window manager"
-msgstr "फालबैक विंडो प्रबंधक"
+msgid "Fallback window manager (deprecated)"
+msgstr "फालबैक विंडो प्रबंधक (पदावनत)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
-msgid "Fallback window manager if user window manager can't be found"
-msgstr "यदि उपयोगकर्ता विंडो प्रबंधक नहीं मिलेगा तो फ़ालबैक विंडो प्रबंधक"
+msgid ""
+"Fallback window manager if user window manager can't be found. This key has "
+"been deprecated since GNOME 2.12."
+msgstr "यदि उपयोगकर्ता विंडो प्रबंधक नहीं मिलेगा तो फ़ालबैक विंडो प्रबंधक पाया नहीं जा सकता. इस कुंजी को GNOME 2.12 के बाद पदावनत किया जा रहा है."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
-msgid "Names of the workspaces"
-msgstr "कार्यस्थानों के नाम"
+msgid "Names of the workspaces (deprecated)"
+msgstr "कार्यस्थानों के नाम (पदावनत)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
-msgid "The number of workspaces"
-msgstr "कार्यस्थानों की संख्या"
+msgid "The number of workspaces (deprecated)"
+msgstr "कार्यस्थानों की संख्या (पदावनत)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
-msgid "The number of workspaces the window manager should use"
-msgstr "कार्यस्थानों की संख्या जिसका उपयोग विंडो प्रबंधक करेगा"
+msgid ""
+"The number of workspaces the window manager should use This key has been "
+"deprecated since GNOME 2.12."
+msgstr "कार्यस्थानों की संख्या जिसका उपयोग विंडो प्रबंधक प्रयोग करेगा. इस कुंजी को GNOME 2.12 के बाद पदावनत किया जा रहा है."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
-msgid "User window manager"
-msgstr "उपयोगकर्ता विंडो प्रबंधक"
+msgid "User window manager (deprecated)"
+msgstr "उपयोगकर्ता विंडो प्रबंधक (पदावनत)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first"
-msgstr "विंडो प्रबंधक जिसे पहले आजमाना है"
+msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr "विंडो प्रबंधक को पहले कोशिश करनी चाहिये. इस कुंजी को GNOME 2.12 के बाद पदावनत किया गया है."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -594,7 +601,9 @@ msgstr "रंग आभा प्रकार"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr "निश्चित करें कि कैसे wallpaper_filename के द्वारा विंब ठीक होते हैं. \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\" संभावित मान हैं."
+msgstr ""
+"निश्चित करें कि कैसे wallpaper_filename के द्वारा विंब ठीक होते हैं. \"none\", "
+"\"wallpaper\", \"centered\", \"scaled\", \"stretched\" संभावित मान हैं."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -613,8 +622,8 @@ msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"पृष्ठभूमि रंग को कैसे शेड करें. \"horizontal-gradient"
-"\", \"vertical-gradient\", और \"solid\" संभावित मान हैं"
+"पृष्ठभूमि रंग को कैसे शेड करें. \"horizontal-gradient\", \"vertical-gradient\", और "
+"\"solid\" संभावित मान हैं"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -742,8 +751,8 @@ msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
-"GtkFileChooser विजेट के लिये फाइल सिस्टम मोड के रूप में प्रयोग के लिये मौड्यूल. "
-"\"gnome-vfs\" औऱ \"gtk+\" संभावित मान हैं."
+"GtkFileChooser विजेट के लिये फाइल सिस्टम मोड के रूप में प्रयोग के लिये मौड्यूल. \"gnome-"
+"vfs\" औऱ \"gtk+\" संभावित मान हैं."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:22
 msgid "Monospace font"
@@ -931,8 +940,10 @@ msgid ""
 "start of each session, so changing it mid-session won't have an effect until "
 "the next time you log in."
 msgstr ""
-"कर्सर थीम नाम. Xservers द्वारा सिर्फ प्रयुक्त जो Xcursor का समर्थन करती है, जैसे कि"
-"XFree86 4.3 और उसके बाद के. इस मान को X सर्वर के लिये हर सत्र के आरंभ में फैलाना चाहिये, ताकि सत्र के बीच में इसे बदलना तब कोई प्ऱबाव नहीं देगा जबतक कि आप दूसरी दफे आप लॉगिन होते हैं."
+"कर्सर थीम नाम. Xservers द्वारा सिर्फ प्रयुक्त जो Xcursor का समर्थन करती है, जैसे "
+"किXFree86 4.3 और उसके बाद के. इस मान को X सर्वर के लिये हर सत्र के आरंभ में फैलाना "
+"चाहिये, ताकि सत्र के बीच में इसे बदलना तब कोई प्ऱबाव नहीं देगा जबतक कि आप दूसरी दफे आप "
+"लॉगिन होते हैं."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -942,7 +953,9 @@ msgstr "ड्रैग के प्रारंभ होने से पह�
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
-msgstr "पिक्सेल में दूरी संकेतक को त्वरित माउस गति के शुरू बोने के पहले बढना चाहिये.-1 मान सिस्टम मूलभूत है."
+msgstr ""
+"पिक्सेल में दूरी संकेतक को त्वरित माउस गति के शुरू बोने के पहले बढना चाहिये.-1 मान सिस्टम "
+"मूलभूत है."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -957,7 +970,10 @@ msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
-msgstr "कर्सर का फंट नाम. अगर सेट नहीं है तो मूलभूत फंट प्रयोग किया जाता है. यह मान हर सत्र के सिर्फ X सर्वर में भेजा जाता है, ताकि इसे बदलना कोई प्रभाव नहीं लाये जब कि आप अगली बार लॉगिन नहीं करते."
+msgstr ""
+"कर्सर का फंट नाम. अगर सेट नहीं है तो मूलभूत फंट प्रयोग किया जाता है. यह मान हर सत्र के "
+"सिर्फ X सर्वर में भेजा जाता है, ताकि इसे बदलना कोई प्रभाव नहीं लाये जब कि आप अगली बार "
+"लॉगिन नहीं करते."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -994,7 +1010,10 @@ msgid ""
 "Size of the cursor referenced by cursor_theme. This value is only propagated "
 "to the X server start of each session, so changing it mid-session won't have "
 "an effect until the next time you log in."
-msgstr "cursor_theme के द्वारा संदर्भित कर्सर का आकार. यह मान सिर्फ X सर्वर को कहा जाता है हर सत्र के आरंभ में ताकि बीच सत्र में इसे बदलना कोई प्रभाव नहीं लायेगा जबतक कि अगली बार आप लॉगिन नहीं करते."
+msgstr ""
+"cursor_theme के द्वारा संदर्भित कर्सर का आकार. यह मान सिर्फ X सर्वर को कहा जाता है "
+"हर सत्र के आरंभ में ताकि बीच सत्र में इसे बदलना कोई प्रभाव नहीं लायेगा जबतक कि अगली बार "
+"आप लॉगिन नहीं करते."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
