@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-09 11:24+0200\n"
-"PO-Revision-Date: 2005-07-09 11:38+0200\n"
+"POT-Creation-Date: 2005-09-03 21:04+0200\n"
+"PO-Revision-Date: 2005-09-03 21:05+0200\n"
 "Last-Translator: Danilo Šegan <danilo@gnome.org>.\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
@@ -124,14 +124,17 @@ msgstr "Podrška za Bonobo aktivaciju"
 #: ../libgnome/gnome-init.c:330 ../libgnome/gnome-init.c:344
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Ne može da napravi direktorijum „%s“ za korisnikova podešavanja Gnoma: %s\n"
+msgstr ""
+"Ne može da napravi direktorijum „%s“ za korisnikova podešavanja Gnoma: %s\n"
 
 #: ../libgnome/gnome-init.c:353
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
-msgstr "Ne može da postavi ovlašćenja 0700 na direktorijum „%s“ za korisnikova podešavanja Gnoma: %s\n"
+msgstr ""
+"Ne može da postavi ovlašćenja 0700 na direktorijum „%s“ za korisnikova "
+"podešavanja Gnoma: %s\n"
 
 #: ../libgnome/gnome-init.c:360
 #, c-format
@@ -518,37 +521,44 @@ msgstr ""
 "potreban"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
-msgid "A list with names of the first window manager workspaces."
-msgstr "Spisak imena prvih radnih površina upravnika prozora."
+msgid ""
+"A list with names of the first window manager workspaces. This key has been "
+"deprecated since GNOME 2.12."
+msgstr "Spisak imena prvih radnih površina upravnika prozora. Ovaj ključ je zastareo počevši od Gnoma 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
-msgid "Fallback window manager"
-msgstr "Rezervni upravnik prozora"
+msgid "Fallback window manager (deprecated)"
+msgstr "Rezervni upravnik prozora (zastarelo)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
-msgid "Fallback window manager if user window manager can't be found"
-msgstr ""
-"Rezervni upravnik prozora ukoliko ne može da pronađe korisnikov upravnik"
+msgid ""
+"Fallback window manager if user window manager can't be found. This key has "
+"been deprecated since GNOME 2.12."
+msgstr "Rezervni upravnik prozora ukoliko ne može da pronađe korisnikov upravnik. Ovaj ključ je zastareo počevši od Gnoma 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
-msgid "Names of the workspaces"
-msgstr "Imena radnih površina"
+msgid "Names of the workspaces (deprecated)"
+msgstr "Imena radnih površina (zastarelo)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
-msgid "The number of workspaces"
-msgstr "Broj radnih površina"
+msgid "The number of workspaces (deprecated)"
+msgstr "Broj radnih površina (zastarelo)"
 
+# bug: missing "." after "should use"
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
-msgid "The number of workspaces the window manager should use"
-msgstr "Broj radnih površina koje koristi upravnik prozora"
+msgid ""
+"The number of workspaces the window manager should use This key has been "
+"deprecated since GNOME 2.12."
+msgstr "Broj radnih površina koje koristi upravnik prozora. Ovaj ključ je zastareo počevši od Gnoma 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
-msgid "User window manager"
-msgstr "Korisnikov upravnik prozora"
+msgid "User window manager (deprecated)"
+msgstr "Korisnikov upravnik prozora (zastarelo)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first"
-msgstr "Upravnik prozora koji prvo treba probati"
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr "Prvi upravnik prozora koji probati. Ovaj ključ je zastareo počevši od Gnoma 2.12."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -1046,6 +1056,9 @@ msgstr "Da li je ili nije uključeno zaključavanje tastature."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Da li se može odložiti ekran za odmor od kucanja."
+
+#~ msgid "Window manager to try first"
+#~ msgstr "Upravnik prozora koji prvo treba probati"
 
 #~ msgid "Too many alias levels for a locale, may indicate a loop"
 #~ msgstr ""
