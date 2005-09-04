@@ -1,4 +1,5 @@
-# translation of libgnome.gnome-2-10.gl.po to 
+# translation of gl.po to Galego
+# translation of libgnome.gnome-2-10.gl.po to
 # translation of libgnome.gnome-2-10.gl.po to
 # translation of libgnome.gnome-2-10.gl.po to
 # translation of libgnome.gnome-2-10.po to Galego
@@ -14,16 +15,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome.gnome-2-10.gl\n"
+"Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-19 22:33+0200\n"
-"PO-Revision-Date: 2005-05-25 12:28+0200\n"
-"Last-Translator: \n"
-"Language-Team:  <es@li.org>\n"
+"POT-Creation-Date: 2005-09-04 20:23+0200\n"
+"PO-Revision-Date: 2005-09-04 20:23+0200\n"
+"Last-Translator: Ignacio Casal Quinteiro <nacho.resa@gmail.com>\n"
+"Language-Team: Galego\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.10.2\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -526,38 +527,51 @@ msgstr ""
 "un"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
-msgid "A list with names of the first window manager workspaces."
-msgstr "Unha lista con nomes das áreas de traballo do xestor de fiestras."
+msgid ""
+"A list with names of the first window manager workspaces. This key has been "
+"deprecated since GNOME 2.12."
+msgstr ""
+"Unha lista con nomes das áreas de traballo do xestor de fiestras. Esta clave "
+"fíxose obsoleta desde Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
-msgid "Fallback window manager"
-msgstr "Xestor de fiestras auxiliar"
+msgid "Fallback window manager (deprecated)"
+msgstr "Xestor de fiestras auxiliar (obsoleto)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
-msgid "Fallback window manager if user window manager can't be found"
+msgid ""
+"Fallback window manager if user window manager can't be found. This key has "
+"been deprecated since GNOME 2.12."
 msgstr ""
 "Xestor de fiestras auxiliar se o xestor de fiestras do usuario non pode "
-"atoparse"
+"atoparse. Esta clave é obsoleta desde Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
-msgid "Names of the workspaces"
-msgstr "Nomes das áreas de traballo"
+msgid "Names of the workspaces (deprecated)"
+msgstr "Nomes das áreas de traballo (obsoleto)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
-msgid "The number of workspaces"
-msgstr "O número de áreas de traballo"
+msgid "The number of workspaces (deprecated)"
+msgstr "O número de áreas de traballo (obsoleto)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
-msgid "The number of workspaces the window manager should use"
-msgstr "O número de áreas de traballo que o xestor de fiestras debe usar"
+msgid ""
+"The number of workspaces the window manager should use This key has been "
+"deprecated since GNOME 2.12."
+msgstr ""
+"O número de áreas de traballo que o xestor de fiestras debe usar. Esta clave "
+"é obsoleta desde Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
-msgid "User window manager"
-msgstr "Xestor de fiestras do usuario"
+msgid "User window manager (deprecated)"
+msgstr "Xestor de fiestras do usuario (obsoleta)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first"
-msgstr "Xestor de fiestras que se probará primeiro"
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr ""
+"Xestor de fiestras que se probará primeiro. Esta clave é obsoleta desde "
+"Gnome 2.12."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -656,9 +670,8 @@ msgid "Default font"
 msgstr "Fonte predeterminada"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:6
-#, fuzzy
 msgid "Document font"
-msgstr "Fonte predeterminada"
+msgstr "Fonte de documento"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:7
 msgid "Enable Accessibility"
@@ -690,7 +703,7 @@ msgstr "Tema de iconas que se vai usar para o panel, nautilus etc."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
-msgstr ""
+msgstr "Combinación de teclas para abrir as barras de menú."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
@@ -701,9 +714,8 @@ msgid "Menubar Detachable"
 msgstr "Barra de menú desprendible"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:17
-#, fuzzy
 msgid "Menubar accelerator"
-msgstr "Barra de menú desprendible"
+msgstr "Acelerador da barra de menú"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Menus Have Icons"
@@ -748,9 +760,8 @@ msgid "Name of the default font used by gtk+."
 msgstr "Nome da fonte predeterminada usada por gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:27
-#, fuzzy
 msgid "Name of the default font used for reading documents"
-msgstr "Nome da fonte predeterminada usada por gtk+."
+msgstr "Nome da fonte predeterminada usada para ler documentos"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Status Bar on Right"
@@ -774,13 +785,12 @@ msgid "Toolbar Style"
 msgstr "Estilo da barra de ferramentas"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:33
-#, fuzzy
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr ""
 "Estilo da barra de ferramentas. Os valores válidos son \"both\", \"both_horiz"
-"\", \"icon\", e \"text\""
+"\", \"icons\", e \"text\""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Use Custom Font"
