@@ -13,12 +13,10 @@
 
 	* libgnome/Makefile.am (gnome_open_LDADD): Link with LIBGNOME_LIBS.
 
-	* libgnome/gnome-util.c: Drop gnome_win32_locale_filename_from_utf8(), 
-	GNOME software on Win32 uses GLib 2.8 and can use its
-	g_win32_locale_filename_from_utf8().
-
-	* libgnome/gnome-util.h: No need to check for GLib version, GNOME
-	libs on Win32 de facto require GLib 2.8.
+	* libgnome/gnome-util.c
+	* libgnome/gnome-util.h: Drop
+	gnome_win32_locale_filename_from_utf8(), GNOME software on Win32
+	uses GLib 2.8 and can use its g_win32_locale_filename_from_utf8().
 
 	* monikers/Makefile.am: On Win32, use relative path from the
 	servers directory to the moniker shlib in the server file.

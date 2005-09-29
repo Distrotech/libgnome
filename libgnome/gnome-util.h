@@ -62,10 +62,6 @@ int	gnome_setenv (const char *name, const char *value, gboolean overwrite);
 void	gnome_unsetenv (const char *name);
 void	gnome_clearenv (void);
 
-#ifdef G_OS_WIN32
-#define gnome_win32_locale_filename_from_utf8(x) g_win32_locale_filename_from_utf8 (x)
-#endif
-
 /* Some deprecated functions macroed to their new equivalents */
 #ifndef GNOME_DISABLE_DEPRECATED
 
