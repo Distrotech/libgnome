@@ -179,7 +179,7 @@ gnome_program_set_property (GObject *object, guint param_id,
 	}
 	if (g_value_get_string (value))
 	    program->_priv->gnome_path = g_strsplit
-		(g_value_get_string (value), ":", -1);
+		(g_value_get_string (value), G_SEARCHPATH_SEPARATOR_S, -1);
 	break;
     case PROP_GNOME_PREFIX:
 	g_free (program->_priv->prop_gnome_prefix);
@@ -266,7 +266,7 @@ gnome_program_get_property (GObject *object, guint param_id, GValue *value,
 	break;
     case PROP_GNOME_PATH:
 	if (program->_priv->gnome_path)
-	    g_value_take_string (value, g_strjoinv (":", program->_priv->gnome_path));
+	    g_value_take_string (value, g_strjoinv (G_SEARCHPATH_SEPARATOR_S, program->_priv->gnome_path));
 	else
 	    g_value_set_string (value, NULL);
 	break;

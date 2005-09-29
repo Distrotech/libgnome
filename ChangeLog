@@ -1,3 +1,9 @@
+2005-09-30  Tor Lillqvist  <tml@novell.com>
+
+	* libgnome/gnome-program.c (gnome_program_get_property,
+	gnome_program_set_property): Use G_SEARCHPATH_SEPARATOR_S instead
+	of hardcoded ":".
+
 2005-09-29  Christian Persch  <chpe@cvs.gnome.org>
 
 	* configure.in: Bump version to 2.13.0, and require libbonobo 2.13.0
