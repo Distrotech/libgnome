@@ -73,21 +73,14 @@ AC_MSG_CHECKING([for Win32])
 case "$host" in
   *-*-mingw*)
     os_win32=yes
-    dnl Try to manage without GnomeVFS on Win32, at least for now
-    GNOME_VFS_MODULE=''
-    GNOME_VFS_MODULES=''
     ;;
   *)
     os_win32=no
-    GNOME_VFS_MODULE='gnome-vfs-2.0'
-    GNOME_VFS_MODULES='gnome-vfs-2.0 >= gnome_vfs_required_version'
     ;;
 esac
 AC_MSG_RESULT([$os_win32])
 
 AM_CONDITIONAL(OS_WIN32, [test $os_win32 = yes])
-
-AC_SUBST(GNOME_VFS_MODULE)
 
 AC_CHECK_FUNCS([setenv unsetenv clearenv setfsgid])
 AC_CHECK_HEADERS(sys/fsuid.h)
@@ -158,7 +151,7 @@ PKG_CHECK_MODULES(LIBGNOME, dnl
   gobject-2.0 >= gobject_required_version dnl
   gmodule-2.0 >= glib_required_version dnl
   gobject-2.0 >= glib_required_version dnl
-  $GNOME_VFS_MODULES dnl
+  gnome-vfs-2.0 >= gnome_vfs_required_version dnl
   libbonobo-2.0 >= libbonobo_required_version dnl
   gconf-2.0 >= gconf_required_version dnl
   $SOUND_MODULES])

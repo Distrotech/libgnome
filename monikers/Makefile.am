@@ -5,7 +5,7 @@ INCLUDES = \
 	-DVERSION=\"$(VERSION)\"
 
 GNOME_Moniker_std.server.in: GNOME_Moniker_std.server.in.in
-	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir)|" $< > $@
+	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir_in_server_file)|" $< > $@
 
 CLEANFILES = GNOME_Moniker_std.server GNOME_Moniker_std.server.in
 
@@ -15,6 +15,13 @@ server_DATA = GNOME_Moniker_std.server
 @INTLTOOL_SERVER_RULE@
 
 monikerdir = $(libdir)/bonobo/monikers
+
+if OS_WIN32
+monikerdir_in_server_file = ../monikers
+else
+monikerdir_in_server_file = $(monikerdir)
+endif
+
 moniker_LTLIBRARIES = libmoniker_extra_2.la
 
 libmoniker_extra_2_la_SOURCES =			\

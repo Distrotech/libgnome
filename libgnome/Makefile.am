@@ -78,7 +78,8 @@ gnome_open_SOURCES = \
 	gnome-open.c
 
 gnome_open_LDADD = \
-	libgnome-2.la
+	libgnome-2.la	\
+	$(LIBGNOME_LIBS)
 
 libgnometypebuiltins.h: stamp-libgnometypebuiltins.h
 	@true
