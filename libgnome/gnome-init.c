@@ -36,6 +36,7 @@
 #include <sys/stat.h>
 
 #include <glib.h>
+#include <glib/goption.h>
 #include <glib/gstdio.h>
 #include "gnome-i18nP.h"
 
@@ -144,6 +145,9 @@ gnome_bonobo_activation_module_info_get (void)
 		bonobo_activation_pre_args_parse, bonobo_activation_post_args_parse,
 		bonobo_activation_popt_options
 	};
+
+	module_info.expansion1 = (gpointer) bonobo_activation_get_goption_group ();
+
 	if (module_info.version == NULL) {
 		module_info.version = g_strdup_printf
 			("%d.%d.%d",
@@ -259,6 +263,56 @@ libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
 		/* do nothing */
 		break;
 	}
+}
+
+static gboolean
+libgnome_goption_epeaker (const gchar *option_name,
+			  const gchar *value,
+			  gpointer data,
+			  GError **error)
+{
+	g_object_set (G_OBJECT (gnome_program_get ()),
+		      GNOME_PARAM_ESPEAKER, value, NULL);
+
+	return TRUE;
+}
+
+static gboolean
+libgnome_goption_disable_sound (const gchar *option_name,
+				const gchar *value,
+				gpointer data,
+				GError **error)
+{
+	g_object_set (G_OBJECT (gnome_program_get ()),
+		      GNOME_PARAM_ENABLE_SOUND, FALSE, NULL);
+
+	return TRUE;
+}
+
+static gboolean
+libgnome_goption_enable_sound (const gchar *option_name,
+			       const gchar *value,
+			       gpointer data,
+			       GError **error)
+{
+	g_object_set (G_OBJECT (gnome_program_get ()),
+		      GNOME_PARAM_ENABLE_SOUND, TRUE, NULL);
+
+	return TRUE;
+}
+
+static void 
+libgnome_goption_version (void)
+{
+	GnomeProgram *program;
+
+	program = gnome_program_get ();
+
+	g_print ("Gnome %s %s\n",
+		 gnome_program_get_app_id (program),
+		 gnome_program_get_app_version (program));
+	
+	exit (0);
 }
 
 static int
@@ -421,6 +475,24 @@ static struct poptOption gnomelib_options [] = {
 	  NULL, 0 , NULL, NULL}
 };
 
+static const GOptionEntry gnomelib_goptions [] = {
+	{ "disable-sound", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,                                 
+	  libgnome_goption_disable_sound, N_("Disable sound server usage"), NULL },     
+
+	{ "enable-sound", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,                                  
+	  libgnome_goption_enable_sound, N_("Enable sound server usage"), NULL },       
+
+	{ "espeaker", '\0',0, G_OPTION_ARG_CALLBACK,                                    
+	  libgnome_goption_epeaker,
+	  N_("Host:port on which the sound server to use is running"),
+	  N_("HOSTNAME:PORT") },                                                 
+
+	{ "version", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,
+	  (GOptionArgFunc) libgnome_goption_version, VERSION, NULL },
+
+	{ NULL }
+};
+
 static void
 gnome_vfs_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
@@ -461,6 +533,15 @@ libgnome_module_info_get (void)
 		NULL, NULL, NULL, NULL
 	};
 	int i = 0;
+	
+	GOptionGroup *option_group;
+	option_group = g_option_group_new ("gnome",
+					   N_("GNOME Library"),
+					   N_("Show GNOME options"),
+					   NULL, NULL);
+	g_option_group_set_translation_domain (option_group, GETTEXT_PACKAGE);
+	g_option_group_add_entries (option_group, gnomelib_goptions);
+	module_info.expansion1 = (gpointer) option_group;
 
 	if (module_info.requirements == NULL) {
 		static GnomeModuleRequirement req[4];

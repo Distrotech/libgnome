@@ -1,3 +1,22 @@
+2005-09-29  Christian Persch  <chpe@cvs.gnome.org>
+
+	* configure.in: Bump version to 2.13.0, and require libbonobo 2.13.0
+	and glib 2.8.0.
+	* libgnome/gnome-init.c: (gnome_bonobo_activation_module_info_get),
+	(libgnome_goption_epeaker), (libgnome_goption_disable_sound),
+	(libgnome_goption_enable_sound), (libgnome_goption_version),
+	(libgnome_module_info_get):
+	* libgnome/gnome-program.c: (gnome_program_set_property),
+	(gnome_program_get_property), (gnome_program_class_init),
+	(gnome_program_finalize), (gnome_program_preinit),
+	(gnome_program_parse_args):
+	* libgnome/gnome-program.h: Add GOption argument parsing to
+	gnome_program_init.
+	Patch by Pawel Sliwowski <open.list@gmail.com>, bug #307312.
+	* doc/reference/libgnome-sections.txt:
+	* doc/reference/tmpl/gnome-program.sgml: Document
+	GNOME_PARAM_GOPTION_CONTEXT.
+
 2005-09-29  Tor Lillqvist  <tml@novell.com>
 
 	* configure.in

@@ -81,7 +81,8 @@ required modules are initialized (although they might be).
 @class_init: A function to call to initialise this module prior to creating any
 instances (can be %NULL).
 @opt_prefix: Unused.
-@expansion1: Unused.
+@expansion1: A #GOptionGroup for the special arguments this module supports when
+parsing options with GOption (can be %NULL).
 
 <!-- ##### STRUCT GnomeModuleRequirement ##### -->
 <para>
@@ -312,7 +313,8 @@ int main(int argc, char **argv) {
 <!-- ##### MACRO GNOME_PARAM_POPT_TABLE ##### -->
 <para>
 This parameter contains the table of options to be passed to popt (write on
-init only).
+init only). Mutually exclusive with using #GNOME_PARAM_GOPTION_CONTEXT
+parameter.
 </para>
 
 
@@ -330,6 +332,17 @@ This parameter contains the context pointer that #GnomeProgram is using for
 popt parsing (readable).
 </para>
 
+
+
+<!-- ##### MACRO GNOME_PARAM_GOPTION_CONTEXT ##### -->
+<para>
+This parameter contains the GOptionContext pointer that #GnomeProgram is using for
+GOption parsing (write on init only). The #GnomeProgram will assume ownership of the
+passed #GOptionContext.
+Mutually exclusive with using the #GNOME_PARAM_POPT_TABLE parameter.
+</para>
+
+@Since: 2.14
 
 
 <!-- ##### MACRO GNOME_PARAM_CREATE_DIRECTORIES ##### -->

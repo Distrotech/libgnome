@@ -96,8 +96,9 @@ struct _GnomeProgramPrivate {
     char **argv;
     int argc;
 
-    /* valid-while: state == APP_PREINIT_DONE */
+    /* valid-while: state >= APP_PREINIT_DONE */
     poptContext arg_context;
+    GOptionContext *goption_context;
 
     /* valid-while: state == APP_PREINIT_DONE */
     GArray *top_options_table;
@@ -124,6 +125,7 @@ enum {
     PROP_POPT_TABLE,
     PROP_POPT_FLAGS,
     PROP_POPT_CONTEXT,
+    PROP_GOPTION_CONTEXT,
     PROP_LAST
 };
 
@@ -157,6 +159,9 @@ gnome_program_set_property (GObject *object, guint param_id,
     program = GNOME_PROGRAM (object);
 
     switch (param_id) {
+    case PROP_GOPTION_CONTEXT:
+	program->_priv->goption_context = g_value_get_pointer (value);
+	break;
     case PROP_POPT_TABLE:
 	program->_priv->prop_popt_table = g_value_peek_pointer (value);
 	break;
@@ -255,6 +260,9 @@ gnome_program_get_property (GObject *object, guint param_id, GValue *value,
 	break;
     case PROP_POPT_CONTEXT:
 	g_value_set_pointer (value, program->_priv->arg_context);
+	break;
+    case PROP_GOPTION_CONTEXT:
+	g_value_set_pointer (value, program->_priv->goption_context);
 	break;
     case PROP_GNOME_PATH:
 	if (program->_priv->gnome_path)
@@ -455,6 +463,15 @@ gnome_program_class_init (GnomeProgramClass *class)
 			      _("The popt context pointer that GnomeProgram "
 				"is using"),
 			       (G_PARAM_READABLE)));
+
+    g_object_class_install_property
+	(object_class,
+	 PROP_GOPTION_CONTEXT,
+	 g_param_spec_pointer (GNOME_PARAM_GOPTION_CONTEXT,
+			       _("GOption Context"), 
+			       _("The goption context pointer that GnomeProgram "
+				 "is using"),
+			       (G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY)));
 
     g_object_class_install_property
 	(object_class,
@@ -661,7 +678,7 @@ gnome_program_finalize (GObject* object)
 	self->_priv->prop_app_datadir = NULL;
 	g_free (self->_priv->prop_espeaker);
 	self->_priv->prop_espeaker = NULL;
-
+	
 	g_strfreev (self->_priv->gnome_path);
 	self->_priv->gnome_path = NULL;
 
@@ -676,8 +693,13 @@ gnome_program_finalize (GObject* object)
 	if (self->_priv->arg_context != NULL) {
 		poptFreeContext (self->_priv->arg_context);
 		g_dataset_destroy (self->_priv->arg_context);
+		self->_priv->arg_context = NULL;
 	}
-	self->_priv->arg_context = NULL;
+
+	if (self->_priv->goption_context != NULL) {
+		g_option_context_free (self->_priv->goption_context);
+		self->_priv->goption_context = NULL;
+	}
 
 	if (self->_priv->top_options_table != NULL)
 		g_array_free (self->_priv->top_options_table, TRUE);
@@ -1267,7 +1289,8 @@ set_context_data (poptContext con,
  * needs to be done prior to command line argument parsing. The poptContext
  * returned can be used for getopt()-style option processing.
  *
- * Returns: A poptContext representing the argument parsing state.
+ * Returns: A poptContext representing the argument parsing state,
+ * or %NULL if using GOption argument parsing.
  */
 poptContext
 gnome_program_preinit (GnomeProgram *program,
@@ -1275,9 +1298,9 @@ gnome_program_preinit (GnomeProgram *program,
 		       int argc, char **argv)
 {
     GnomeModuleInfo *a_module;
-    poptContext argctx;
+    poptContext argctx = NULL;
     int i;
-
+    
     g_return_val_if_fail (program != NULL, NULL);
     g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
     g_return_val_if_fail (argv != NULL, NULL);
@@ -1318,7 +1341,8 @@ gnome_program_preinit (GnomeProgram *program,
        2. Order the module list for dependencies
        3. Call the preinit functions for the modules
        4. Process other attributes 
-       5. Create a top-level 'struct poptOption *' for use in arg-parsing.
+       5a. Add the modules' GOptionGroup:s to our context, or
+       5b. Create a top-level 'struct poptOption *' for use in arg-parsing.
        6. Create a poptContext
        7. Cleanup/return
     */
@@ -1340,8 +1364,20 @@ gnome_program_preinit (GnomeProgram *program,
 	}
     }
 
-    /* 5. Create a top-level 'struct poptOption *' for use in arg-parsing. */
-    {
+    if (program->_priv->goption_context) {
+        /* 5a. Add the modules' GOptionGroup:s to our context */
+
+	for (i = 0; (a_module = g_ptr_array_index (program_modules, i)); i++) {
+		GOptionGroup *group = (GOptionGroup *) a_module->expansion1;
+		if (group) {
+			g_option_context_add_group (program->_priv->goption_context,
+						    group);
+		}
+	}
+
+    } else {
+        /* 5b. Create a top-level 'struct poptOption for use in arg-parsing. */
+
 	struct poptOption includer = {NULL, '\0', POPT_ARG_INCLUDE_TABLE,
 				      NULL, 0, NULL, NULL};
 	struct poptOption callback =
@@ -1386,16 +1422,15 @@ gnome_program_preinit (GnomeProgram *program,
 	includer.descrip = _("Dynamic modules to load");
 	includer.argDescrip = _("MODULE1,MODULE2,...");
 	g_array_append_val (program->_priv->top_options_table, includer);
-    }
 
-    argctx = program->_priv->arg_context = poptGetContext
-	(program->_priv->app_id, argc, (const char **) argv,
-	 (struct poptOption *) program->_priv->top_options_table->data,
-	 program->_priv->prop_popt_flags);
-  
+    	argctx = program->_priv->arg_context = poptGetContext
+		(program->_priv->app_id, argc, (const char **) argv,
+		 (struct poptOption *) program->_priv->top_options_table->data,
+		 program->_priv->prop_popt_flags);
+    }
     /* 7. Cleanup/return */
     program->_priv->state = APP_PREINIT_DONE;
-
+    
     return argctx;
 }
 
@@ -1449,30 +1484,50 @@ gnome_program_module_load (const char *mod_name)
 void
 gnome_program_parse_args (GnomeProgram *program)
 {
-    int nextopt;
-    poptContext ctx;
+	GnomeProgramPrivate *priv;
 
-    g_return_if_fail (program != NULL);
-    g_return_if_fail (GNOME_IS_PROGRAM (program));
+	g_return_if_fail (program != NULL);
+	g_return_if_fail (GNOME_IS_PROGRAM (program));
 
-    if (program->_priv->state != APP_PREINIT_DONE)
-	return;
+	if (program->_priv->state != APP_PREINIT_DONE)
+		return;
 
-    /* translate popt output by default */
+	priv = program->_priv;
+	g_return_if_fail ((priv->arg_context != NULL && priv->goption_context == NULL) ||
+			  (priv->arg_context == NULL && priv->goption_context != NULL));
+	
+	if (priv->goption_context) {
+		GError *error = NULL;
+
+		if (!g_option_context_parse (priv->goption_context,
+		     			     &priv->argc, &priv->argv,
+					     &error)) {
+			/* Translators: the first %s is the error message, 2nd %s the program name */
+			g_print(_("%s\nRun '%s --help' to see a full list of available command line options.\n"),
+				error->message, program->_priv->argv[0]);
+			g_error_free (error);
+			exit (1);
+		}
+	} else {
+		/* translate popt output by default */
+		int nextopt;
+		poptContext ctx;
 #ifdef ENABLE_NLS
-    setlocale (LC_ALL, "");
+		setlocale (LC_ALL, "");
 #endif
-    ctx = program->_priv->arg_context;
-    while ((nextopt = poptGetNextOpt (ctx)) > 0 || nextopt == POPT_ERROR_BADOPT)
-	/* do nothing */ ;
+		ctx = program->_priv->arg_context;
+		while ((nextopt = poptGetNextOpt (ctx)) > 0 || nextopt == POPT_ERROR_BADOPT)
+			/* do nothing */ ;
 
-    if (nextopt != -1) {
-	g_print ("Error on option %s: %s.\nRun '%s --help' to see a full list of available command line options.\n",
-		 poptBadOption (ctx, 0),
-		 poptStrerror (nextopt),
-		 program->_priv->argv[0]);
-	exit (1);
-    }
+		if (nextopt != -1) {
+			g_print ("Error on option %s: %s.\nRun '%s --help' to see a full list of available command line options.\n",
+			poptBadOption (ctx, 0),
+			poptStrerror (nextopt),
+			program->_priv->argv[0]);
+			exit (1);
+		}
+	
+	}
 }
 
 static char *

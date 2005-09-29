@@ -113,6 +113,7 @@ gnome_program_locate_file               (GnomeProgram    *program,
 #define GNOME_PARAM_POPT_TABLE          "popt-table"
 #define GNOME_PARAM_POPT_FLAGS          "popt-flags"
 #define GNOME_PARAM_POPT_CONTEXT        "popt-context"
+#define GNOME_PARAM_GOPTION_CONTEXT     "goption-context"
 #define GNOME_PARAM_CREATE_DIRECTORIES  "create-directories"
 #define GNOME_PARAM_ENABLE_SOUND        "enable-sound"
 #define GNOME_PARAM_ESPEAKER            "espeaker"
