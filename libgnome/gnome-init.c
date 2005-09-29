@@ -49,9 +49,7 @@
 #include <bonobo-activation/bonobo-activation-version.h>
 #include <libbonobo.h>
 
-#ifndef G_OS_WIN32
 #include <libgnomevfs/gnome-vfs-init.h>
-#endif
 
 #include "libgnome-private.h"
 
@@ -423,8 +421,6 @@ static struct poptOption gnomelib_options [] = {
 	  NULL, 0 , NULL, NULL}
 };
 
-#ifndef G_OS_WIN32
-
 static void
 gnome_vfs_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
 {
@@ -445,8 +441,6 @@ gnome_vfs_module_info_get (void)
 	};
 	return &module_info;
 }
-
-#endif /* !G_OS_WIN32 */
 
 /**
 * libgnome_module_info_get:
@@ -479,11 +473,10 @@ libgnome_module_info_get (void)
 		req[i].module_info = gnome_bonobo_activation_module_info_get ();
 		i++;
 
-#ifndef G_OS_WIN32
 		req[i].required_version = "0.3.0";
 		req[i].module_info = gnome_vfs_module_info_get ();
 		i++;
-#endif
+
 		req[i].required_version = "1.1.1";
 		req[i].module_info = gnome_gconf_module_info_get ();
 		i++;

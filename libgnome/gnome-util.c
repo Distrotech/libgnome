@@ -258,69 +258,6 @@ gnome_clearenv (void)
 #endif
 }
 
-#ifdef G_OS_WIN32
-
-/* Lifted from HEAD GLib 2005-04-30. I can't say yet whether libgnome
- * on Win32, when evetually getting deployed more widely, will require
- * GLib 2.8, so let's keep this here at least for now. But if GLib 2.8
- * is released by then, this can be dropped. --tml@novell.com
- */
-
-/**
- * gnome_win32_locale_filename_from_utf8:
- *
- * @utf8filename: a UTF-8 encoded filename.
- *
- * Convertes a filename from UTF-8 to the system codepage.
- *
- * On NT-based Windows, on NTFS file systems, file names are in
- * Unicode. It is quite possible that Unicode file names contain
- * characters not representable in the system codepage. (For instance,
- * Greek or Cyrillic characters on Western European or US Windows
- * installations, or various less common CJK characters on CJK Windows
- * installations.)
- *
- * In such a case, and if the filename refers to an existing file, and
- * the file system stores alternate short (8.3) names for directory
- * entries, the short form of the filename is returned. Note that the
- * "short" name might in fact be longer than the Unicode name. If no
- * system codepage name for the file is possible, NULL is returned.
- *
- * The return value is dynamically allocated and should be freed when
- * no longer used.
- *
- * Return value: The converted filename, or %NULL on conversion
- * failure and lack of short names.
- */
-#undef gnome_win32_locale_filename_from_utf8
-gchar *
-gnome_win32_locale_filename_from_utf8 (const gchar *utf8filename)
-{
-  gchar *retval = g_locale_from_utf8 (utf8filename, -1, NULL, NULL, NULL);
-
-  if (retval == NULL && G_WIN32_HAVE_WIDECHAR_API ())
-    {
-      /* Conversion failed, so convert to wide chars, check if there
-       * is a 8.3 version, and use that.
-       */
-      wchar_t *wname = g_utf8_to_utf16 (utf8filename, -1, NULL, NULL, NULL);
-      if (wname != NULL)
-	{
-	  wchar_t wshortname[MAX_PATH + 1];
-	  if (GetShortPathNameW (wname, wshortname, G_N_ELEMENTS (wshortname)))
-	    {
-	      gchar *tem = g_utf16_to_utf8 (wshortname, -1, NULL, NULL, NULL);
-	      retval = g_locale_from_utf8 (tem, -1, NULL, NULL, NULL);
-	      g_free (tem);
-	    }
-	  g_free (wname);
-	}
-    }
-  return retval;
-}
-#endif
-
-
 /* Deprecated: */
 /**
  * gnome_is_program_in_path:

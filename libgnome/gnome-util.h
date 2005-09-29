@@ -63,11 +63,7 @@ void	gnome_unsetenv (const char *name);
 void	gnome_clearenv (void);
 
 #ifdef G_OS_WIN32
-#if !GLIB_CHECK_VERSION (2, 7, 0)
-gchar*  gnome_win32_locale_filename_from_utf8 (const gchar *utf8filename);
-#else
 #define gnome_win32_locale_filename_from_utf8(x) g_win32_locale_filename_from_utf8 (x)
-#endif
 #endif
 
 /* Some deprecated functions macroed to their new equivalents */
