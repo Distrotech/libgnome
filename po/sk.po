@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-20 19:42+0200\n"
-"PO-Revision-Date: 2005-07-20 19:48+0200\n"
+"POT-Creation-Date: 2005-10-17 06:32+0200\n"
+"PO-Revision-Date: 2005-10-17 06:34+0200\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -109,20 +109,20 @@ msgid "Help document %s/%s not found"
 msgstr "Dokument pomocníka %s/%s nebol nájdený"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:90
+#: ../libgnome/gnome-init.c:89
 msgid "Bonobo Support"
 msgstr "Podpora Bonobo"
 
-#: ../libgnome/gnome-init.c:144
+#: ../libgnome/gnome-init.c:143
 msgid "Bonobo activation Support"
 msgstr "Podpora Bonobo aktivácie"
 
-#: ../libgnome/gnome-init.c:330 ../libgnome/gnome-init.c:344
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Nemôžem vytvoriť používateľský konfiguračný adresár gnome \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:353
+#: ../libgnome/gnome-init.c:405
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -131,194 +131,217 @@ msgstr ""
 "Nemôžem nastaviť mód 0700 na súkromnom používateľskom konfiguračnom adresári "
 "gnome \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:360
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Nemôžem vytvoriť adresár akcelerátorov gnome \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:409
+#: ../libgnome/gnome-init.c:461 ../libgnome/gnome-init.c:480
 msgid "Disable sound server usage"
 msgstr "Zakázať použitie zvukového servera"
 
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:464 ../libgnome/gnome-init.c:483
 msgid "Enable sound server usage"
 msgstr "Povoliť použitie zvukového servera"
 
-#: ../libgnome/gnome-init.c:415
+#: ../libgnome/gnome-init.c:467 ../libgnome/gnome-init.c:487
 msgid "Host:port on which the sound server to use is running"
 msgstr "Hostiteľ:port, na ktorom beží zvukový server, ktorý chcete použiť"
 
-#: ../libgnome/gnome-init.c:417
+#: ../libgnome/gnome-init.c:469 ../libgnome/gnome-init.c:488
 msgid "HOSTNAME:PORT"
 msgstr "HOSTITEĽ:PORT"
 
-#: ../libgnome/gnome-init.c:439
+#: ../libgnome/gnome-init.c:507
 msgid "GNOME Virtual Filesystem"
 msgstr "Virtuálny súborový systém GNOME"
 
-#: ../libgnome/gnome-init.c:463
+#: ../libgnome/gnome-init.c:529 ../libgnome/gnome-init.c:539
 msgid "GNOME Library"
 msgstr "Knižnica GNOME"
 
-#: ../libgnome/gnome-program.c:437
+#: ../libgnome/gnome-init.c:540
+msgid "Show GNOME options"
+msgstr "Zobraziť voľby GNOME"
+
+#: ../libgnome/gnome-program.c:445
 msgid "Popt Table"
 msgstr "Tabuľka popt"
 
-#: ../libgnome/gnome-program.c:438
+#: ../libgnome/gnome-program.c:446
 msgid "The table of options for popt"
 msgstr "Tabuľka volieb pre popt"
 
-#: ../libgnome/gnome-program.c:445
+#: ../libgnome/gnome-program.c:453
 msgid "Popt Flags"
 msgstr "Príznaky popt"
 
-#: ../libgnome/gnome-program.c:446
+#: ../libgnome/gnome-program.c:454
 msgid "The flags to use for popt"
 msgstr "Príznaky použiteľné s popt"
 
-#: ../libgnome/gnome-program.c:454
+#: ../libgnome/gnome-program.c:462
 msgid "Popt Context"
 msgstr "Kontext popt"
 
-#: ../libgnome/gnome-program.c:455
+#: ../libgnome/gnome-program.c:463
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "Ukazovateľ popt kontextu, ktorý používa GnomeProgram"
 
-#: ../libgnome/gnome-program.c:463
+#: ../libgnome/gnome-program.c:471
+msgid "GOption Context"
+msgstr "Kontext GOption"
+
+#: ../libgnome/gnome-program.c:472
+msgid "The goption context pointer that GnomeProgram is using"
+msgstr "Ukazovateľ goption kontextu, ktorý používa GnomeProgram"
+
+#: ../libgnome/gnome-program.c:480
 msgid "Human readable name"
 msgstr "Názov čitateľný pre ľudí"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:481
 msgid "Human readable name of this application"
 msgstr "Názov tejto aplikácie čitateľný pre ľudí"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:490
 msgid "GNOME path"
 msgstr "Cesta GNOME"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:491
 msgid "Path in which to look for installed files"
 msgstr "Cesta, na ktorej mám hľadať nainštalované súbory"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:500
 msgid "App ID"
 msgstr "ID aplikácie"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:501
 msgid "ID string to use for this application"
 msgstr "Identifikačný reťazec použitý pre túto aplikáciu"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:508
 msgid "App version"
 msgstr "Verzia aplikácie"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:509
 msgid "Version of this application"
 msgstr "Verzia tejto aplikácie"
 
-#: ../libgnome/gnome-program.c:499
+#: ../libgnome/gnome-program.c:516
 msgid "GNOME Prefix"
 msgstr "Predpona GNOME"
 
-#: ../libgnome/gnome-program.c:500
+#: ../libgnome/gnome-program.c:517
 msgid "Prefix where GNOME was installed"
 msgstr "Adresár, kde je nainštalované GNOME"
 
-#: ../libgnome/gnome-program.c:509
+#: ../libgnome/gnome-program.c:526
 msgid "GNOME Libdir"
 msgstr "Adresár knižníc GNOME"
 
-#: ../libgnome/gnome-program.c:510
+#: ../libgnome/gnome-program.c:527
 msgid "Library prefix where GNOME was installed"
 msgstr "Adresár knižníc, kde je nainštalované GNOME"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:536
 msgid "GNOME Datadir"
 msgstr "Dátový adresár GNOME"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:537
 msgid "Data prefix where GNOME was installed"
 msgstr "Dátový adresár, kde je nainštalované GNOME"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:546
 msgid "GNOME Sysconfdir"
 msgstr "Adresár konfigurácie GNOME"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:547
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Adresár konfigurácie, kde je nainštalované GNOME"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:557
 msgid "GNOME App Prefix"
 msgstr "Adresár aplikácie GNOME"
 
-#: ../libgnome/gnome-program.c:541
+#: ../libgnome/gnome-program.c:558
 msgid "Prefix where this application was installed"
 msgstr "Adresár, kde bola nainštalovaná táto aplikácia"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:566
 msgid "GNOME App Libdir"
 msgstr "Adresár knižníc aplikácie GNOME"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:567
 msgid "Library prefix where this application was installed"
 msgstr "Adresár knižníc, kde bola nainštalovaná táto aplikácia"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:576
 msgid "GNOME App Datadir"
 msgstr "Dátový adresár aplikácie GNOME"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:577
 msgid "Data prefix where this application was installed"
 msgstr "Dátový adresár, kde bola nainštalovaná táto aplikácia"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:586
 msgid "GNOME App Sysconfdir"
 msgstr "Adresár konfigurácie aplikácie GNOME"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:587
 msgid "Configuration prefix where this application was installed"
 msgstr "Adresár konfigurácie, kde bola nainštalovaná táto aplikácia"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:596
 msgid "Create Directories"
 msgstr "Vytvoriť adresáre"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:597
 msgid "Create standard GNOME directories on startup"
 msgstr "Vytvoriť štandardné adresáre GNOME pri štarte"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:606
 msgid "Enable Sound"
 msgstr "Povoliť zvuk"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:607
 msgid "Enable sound on startup"
 msgstr "Povoliť zvuk pri štarte"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:615
 msgid "Espeaker"
 msgstr "Ereproduktor"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:616
 msgid "How to connect to esd"
 msgstr "Ako sa pripojiť k esd"
 
-#: ../libgnome/gnome-program.c:1365
+#: ../libgnome/gnome-program.c:1401
 msgid "Help options"
 msgstr "Voľby pomocníka"
 
-#: ../libgnome/gnome-program.c:1370
+#: ../libgnome/gnome-program.c:1406
 msgid "Application options"
 msgstr "Voľby aplikácie"
 
-#: ../libgnome/gnome-program.c:1386
+#: ../libgnome/gnome-program.c:1422
 msgid "Dynamic modules to load"
 msgstr "Nahrať dynamické moduly"
 
-#: ../libgnome/gnome-program.c:1387
+#: ../libgnome/gnome-program.c:1423
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
+
+#. Translators: the first %s is the error message, 2nd %s the program name
+#: ../libgnome/gnome-program.c:1506
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"%s\n"
+"Spustite '%s --help', aby ste videli úplný zoznam dostupných volieb "
+"príkazového riadku.\n"
 
 #: ../libgnome/gnome-url.c:84
 msgid "Unknown internal error while displaying this location."
@@ -357,7 +380,7 @@ msgstr "Štandardná akcia nepodporuje tento protokol."
 msgid "Unknown error code: %d"
 msgstr "Kód neznámej chyby: %d"
 
-#: ../libgnome/gnome-open.c:40 ../libgnome/gnome-open.c:49
+#: ../libgnome/gnome-open.c:34
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Chyba pri zobrazovaní url: %s\n"
@@ -521,8 +544,8 @@ msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
 msgstr ""
-"Predvolený správca okien, ak správca okien zvolený používateľom nebol nájdený. "
-"Tento kľúč je zastaralý od GNOME 2.12."
+"Predvolený správca okien, ak správca okien zvolený používateľom nebol "
+"nájdený. Tento kľúč je zastaralý od GNOME 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
