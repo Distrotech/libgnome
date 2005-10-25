@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-23 06:40+0000\n"
-"PO-Revision-Date: 2005-07-23 15:00+0800\n"
+"POT-Creation-Date: 2005-10-25 14:05+0200\n"
+"PO-Revision-Date: 2005-10-25 21:28+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -109,214 +109,236 @@ msgid "Help document %s/%s not found"
 msgstr "找不到帮助文件 %s/%s"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:90
+#: ../libgnome/gnome-init.c:89
 msgid "Bonobo Support"
 msgstr "Bonobo 支持"
 
-#: ../libgnome/gnome-init.c:144
+#: ../libgnome/gnome-init.c:143
 msgid "Bonobo activation Support"
 msgstr "Bonobo 激活支持"
 
-#: ../libgnome/gnome-init.c:330 ../libgnome/gnome-init.c:344
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "无法创建每用户的 gnome 配置目录“%s”：%s\n"
 
-#: ../libgnome/gnome-init.c:353
+#: ../libgnome/gnome-init.c:405
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr "无法将用户私有的 gnome 配置目录“%s”的权限设置为 0700：%s\n"
 
-#: ../libgnome/gnome-init.c:360
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "无法创建 gnome 加速目录“%s”：%s\n"
 
-#: ../libgnome/gnome-init.c:409
+#: ../libgnome/gnome-init.c:461 ../libgnome/gnome-init.c:480
 msgid "Disable sound server usage"
 msgstr "禁用声音服务器"
 
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:464 ../libgnome/gnome-init.c:483
 msgid "Enable sound server usage"
 msgstr "启用声音服务器"
 
-#: ../libgnome/gnome-init.c:415
+#: ../libgnome/gnome-init.c:467 ../libgnome/gnome-init.c:487
 msgid "Host:port on which the sound server to use is running"
 msgstr "要使用的声音服务器所运行的主机:端口"
 
-#: ../libgnome/gnome-init.c:417
+#: ../libgnome/gnome-init.c:469 ../libgnome/gnome-init.c:488
 msgid "HOSTNAME:PORT"
 msgstr "主机名:端口"
 
-#: ../libgnome/gnome-init.c:439
+#: ../libgnome/gnome-init.c:507
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME 虚拟文件系统"
 
-#: ../libgnome/gnome-init.c:463
+#: ../libgnome/gnome-init.c:529 ../libgnome/gnome-init.c:539
 msgid "GNOME Library"
 msgstr "GNOME 库"
 
-#: ../libgnome/gnome-program.c:437
+#: ../libgnome/gnome-init.c:540
+msgid "Show GNOME options"
+msgstr "显示 GNOME 选项"
+
+#: ../libgnome/gnome-program.c:445
 msgid "Popt Table"
 msgstr "Popt 表"
 
-#: ../libgnome/gnome-program.c:438
+#: ../libgnome/gnome-program.c:446
 msgid "The table of options for popt"
 msgstr "popt 的选项表"
 
-#: ../libgnome/gnome-program.c:445
+#: ../libgnome/gnome-program.c:453
 msgid "Popt Flags"
 msgstr "Popt 标志"
 
-#: ../libgnome/gnome-program.c:446
+#: ../libgnome/gnome-program.c:454
 msgid "The flags to use for popt"
 msgstr "用于 popt 的标志"
 
-#: ../libgnome/gnome-program.c:454
+#: ../libgnome/gnome-program.c:462
 msgid "Popt Context"
 msgstr "Popt 上下文"
 
-#: ../libgnome/gnome-program.c:455
+#: ../libgnome/gnome-program.c:463
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "GnomeProgram 使用的 popt 上下文指针"
 
-#: ../libgnome/gnome-program.c:463
+#: ../libgnome/gnome-program.c:471
+msgid "GOption Context"
+msgstr "GOption 上下文"
+
+#: ../libgnome/gnome-program.c:472
+msgid "The goption context pointer that GnomeProgram is using"
+msgstr "GnomeProgram 使用的 goptions 上下文指针"
+
+#: ../libgnome/gnome-program.c:480
 msgid "Human readable name"
 msgstr "人可识别的名字"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:481
 msgid "Human readable name of this application"
 msgstr "该程序的人可识别的名字"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:490
 msgid "GNOME path"
 msgstr "GNOME 路径"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:491
 msgid "Path in which to look for installed files"
 msgstr "搜索安装的文件的路径"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:500
 msgid "App ID"
 msgstr "程序ID"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:501
 msgid "ID string to use for this application"
 msgstr "用于该程序的ID字符串"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:508
 msgid "App version"
 msgstr "程序版本"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:509
 msgid "Version of this application"
 msgstr "该程序的版本"
 
-#: ../libgnome/gnome-program.c:499
+#: ../libgnome/gnome-program.c:516
 msgid "GNOME Prefix"
 msgstr "GNOME 前缀"
 
-#: ../libgnome/gnome-program.c:500
+#: ../libgnome/gnome-program.c:517
 msgid "Prefix where GNOME was installed"
 msgstr "GNOME 安装位置的前缀"
 
-#: ../libgnome/gnome-program.c:509
+#: ../libgnome/gnome-program.c:526
 msgid "GNOME Libdir"
 msgstr "GNOME 库目录"
 
-#: ../libgnome/gnome-program.c:510
+#: ../libgnome/gnome-program.c:527
 msgid "Library prefix where GNOME was installed"
 msgstr "GNOME 安装位置的库目录前缀"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:536
 msgid "GNOME Datadir"
 msgstr "GNOME 数据目录"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:537
 msgid "Data prefix where GNOME was installed"
 msgstr "GNOME 安装位置的数据目录前缀"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:546
 msgid "GNOME Sysconfdir"
 msgstr "GNOME 系统配置目录"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:547
 msgid "Configuration prefix where GNOME was installed"
 msgstr "配置 GNOME 安装的目录前缀"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:557
 msgid "GNOME App Prefix"
 msgstr "GNOME 程序前缀"
 
-#: ../libgnome/gnome-program.c:541
+#: ../libgnome/gnome-program.c:558
 msgid "Prefix where this application was installed"
 msgstr "本程序安装的目录前缀"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:566
 msgid "GNOME App Libdir"
 msgstr "GNOME 程序库前缀"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:567
 msgid "Library prefix where this application was installed"
 msgstr "本程序安装的库目录前缀"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:576
 msgid "GNOME App Datadir"
 msgstr "GNOME 程序数据目录"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:577
 msgid "Data prefix where this application was installed"
 msgstr "本程序安装的数据目录前缀"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:586
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME 程序系统配置目录"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:587
 msgid "Configuration prefix where this application was installed"
 msgstr "本程序安装的配置目录前缀"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:596
 msgid "Create Directories"
 msgstr "创建目录"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:597
 msgid "Create standard GNOME directories on startup"
 msgstr "在启动时创建标准 GNOME 目录"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:606
 msgid "Enable Sound"
 msgstr "启用声效"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:607
 msgid "Enable sound on startup"
 msgstr "启动时启用声效"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:615
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:616
 msgid "How to connect to esd"
 msgstr "如何连接 esd"
 
-#: ../libgnome/gnome-program.c:1365
+#: ../libgnome/gnome-program.c:1401
 msgid "Help options"
 msgstr "帮助选项"
 
-#: ../libgnome/gnome-program.c:1370
+#: ../libgnome/gnome-program.c:1406
 msgid "Application options"
 msgstr "程序选项"
 
-#: ../libgnome/gnome-program.c:1386
+#: ../libgnome/gnome-program.c:1422
 msgid "Dynamic modules to load"
 msgstr "要载入的动态模块"
 
-#: ../libgnome/gnome-program.c:1387
+#: ../libgnome/gnome-program.c:1423
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2，..."
+
+#. Translators: the first %s is the error message, 2nd %s the program name
+#: ../libgnome/gnome-program.c:1506
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"%s\n"
+"运行“%s --help”可查看可用的命令行选项的全部列表。\n"
 
 #: ../libgnome/gnome-url.c:84
 msgid "Unknown internal error while displaying this location."
@@ -351,7 +373,7 @@ msgstr "默认操作不支持此协议。"
 msgid "Unknown error code: %d"
 msgstr "未知的错误代码：%d"
 
-#: ../libgnome/gnome-open.c:40 ../libgnome/gnome-open.c:49
+#: ../libgnome/gnome-open.c:34
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "显示 URL 出错：%s\n"
@@ -506,7 +528,9 @@ msgstr "默认窗口管理器(不推荐)"
 msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
-msgstr "用户窗口管理器无法找到时使用的默认窗口管理器。此键自 GNOME 2.12 之后不再推荐使用。"
+msgstr ""
+"用户窗口管理器无法找到时使用的默认窗口管理器。此键自 GNOME 2.12 之后不再推荐"
+"使用。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -1006,8 +1030,3 @@ msgstr "是否允许键盘锁定。"
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "是否可推迟打字间断屏幕。"
 
-#~ msgid "Window manager to try first"
-#~ msgstr "首先要尝试的窗口管理器"
-
-#~ msgid "Too many alias levels for a locale, may indicate a loop"
-#~ msgstr "区域设置有太多的别名级别，可能是循环"
