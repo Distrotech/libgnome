@@ -1,3 +1,10 @@
+2005-10-28  Christian Neumair  <chris@gnome-de.org>
+
+	* libgnome/gnome-url.c: (gnome_url_show_with_env):
+	* libgnome/gnome-url.h:
+	Add GNOME_URL_ERROR_CANCELLED and return it in gnome_url_show_with_env
+	when the GnomeVFS request fails with GNOME_VFS_ERROR_CANCELLED.
+
 2005-09-30  Tor Lillqvist  <tml@novell.com>
 
 	* libgnome/gnome-program.c (gnome_program_get_property,

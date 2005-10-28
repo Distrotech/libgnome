@@ -120,7 +120,14 @@ gnome_url_show_with_env (const char  *url,
 			     GNOME_URL_ERROR_NOT_SUPPORTED,
 			     _("The default action does not support this protocol."));
 		break;
-			     
+
+	case GNOME_VFS_ERROR_CANCELLED:
+		g_set_error (error,
+		             GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_CANCELLED,
+			     _("The request was cancelled."));
+		break;
+
 	default:
 		g_set_error (error,
 			     GNOME_URL_ERROR,
