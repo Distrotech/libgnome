@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-04 20:23+0200\n"
-"PO-Revision-Date: 2005-09-04 20:23+0200\n"
+"POT-Creation-Date: 2005-10-31 11:26+0100\n"
+"PO-Revision-Date: 2005-10-31 11:28+0100\n"
 "Last-Translator: Ignacio Casal Quinteiro <nacho.resa@gmail.com>\n"
 "Language-Team: Galego\n"
 "MIME-Version: 1.0\n"
@@ -119,22 +119,22 @@ msgid "Help document %s/%s not found"
 msgstr "Documento de axuda %s/%s non atopado"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:90
+#: ../libgnome/gnome-init.c:89
 msgid "Bonobo Support"
 msgstr "Soporte de Bonobo"
 
-#: ../libgnome/gnome-init.c:144
+#: ../libgnome/gnome-init.c:143
 msgid "Bonobo activation Support"
 msgstr "Soporte de activación de Bonobo"
 
-#: ../libgnome/gnome-init.c:330 ../libgnome/gnome-init.c:344
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Non foi posible crear o directorio do usuario de configuración de gnome `%"
 "s': %s\n"
 
-#: ../libgnome/gnome-init.c:353
+#: ../libgnome/gnome-init.c:405
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -143,196 +143,216 @@ msgstr ""
 "Non foi posible establecer o modo 0700 no directorio privado do usuario de "
 "configuración de gnome `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:360
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Non foi posible crear o directorio de atallos de gnome `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:409
+#: ../libgnome/gnome-init.c:461 ../libgnome/gnome-init.c:480
 msgid "Disable sound server usage"
 msgstr "Deshabilitar o uso do servidor de son"
 
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:464 ../libgnome/gnome-init.c:483
 msgid "Enable sound server usage"
 msgstr "Habilitar o uso do servidor de son"
 
-#: ../libgnome/gnome-init.c:415
+#: ../libgnome/gnome-init.c:467 ../libgnome/gnome-init.c:487
 msgid "Host:port on which the sound server to use is running"
 msgstr "Máquina:porto onde se atopa o servidor de son utilizado"
 
-#: ../libgnome/gnome-init.c:417
+#: ../libgnome/gnome-init.c:469 ../libgnome/gnome-init.c:488
 msgid "HOSTNAME:PORT"
 msgstr "MÁQUINA:PORTO"
 
-#: ../libgnome/gnome-init.c:439
+#: ../libgnome/gnome-init.c:507
 msgid "GNOME Virtual Filesystem"
 msgstr "Sistema de ficheiros virtual de GNOME"
 
-#: ../libgnome/gnome-init.c:463
+#: ../libgnome/gnome-init.c:529 ../libgnome/gnome-init.c:539
 msgid "GNOME Library"
 msgstr "Biblioteca de GNOME"
 
-#: ../libgnome/gnome-program.c:437
+#: ../libgnome/gnome-init.c:540
+msgid "Show GNOME options"
+msgstr "Amosar opcións de Gnome"
+
+#: ../libgnome/gnome-program.c:445
 msgid "Popt Table"
 msgstr "Táboa popt"
 
-#: ../libgnome/gnome-program.c:438
+#: ../libgnome/gnome-program.c:446
 msgid "The table of options for popt"
 msgstr "A táboa de opcións para popt"
 
-#: ../libgnome/gnome-program.c:445
+#: ../libgnome/gnome-program.c:453
 msgid "Popt Flags"
 msgstr "Flags do popt"
 
-#: ../libgnome/gnome-program.c:446
+#: ../libgnome/gnome-program.c:454
 msgid "The flags to use for popt"
 msgstr "As flags usadas para o popt"
 
-#: ../libgnome/gnome-program.c:454
+#: ../libgnome/gnome-program.c:462
 msgid "Popt Context"
 msgstr "Contexto do popt"
 
-#: ../libgnome/gnome-program.c:455
+#: ../libgnome/gnome-program.c:463
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "O apuntador de contexto do popt que está a usar GnomeProgram"
 
-#: ../libgnome/gnome-program.c:463
+#: ../libgnome/gnome-program.c:471
+msgid "GOption Context"
+msgstr "Contexto GOption"
+
+#: ../libgnome/gnome-program.c:472
+msgid "The goption context pointer that GnomeProgram is using"
+msgstr "O punteiro do contexto GOption que o está empregando GnomeProgram"
+
+#: ../libgnome/gnome-program.c:480
 msgid "Human readable name"
 msgstr "Nome lexible para humanos"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:481
 msgid "Human readable name of this application"
 msgstr "Nome lexible para humanos desta aplicación"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:490
 msgid "GNOME path"
 msgstr "Camiño de GNOME"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:491
 msgid "Path in which to look for installed files"
 msgstr "Camiño onde buscar os ficheiros instalados"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:500
 msgid "App ID"
 msgstr "ID de aplicación"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:501
 msgid "ID string to use for this application"
 msgstr "Cadea de ID usada nesta aplicación"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:508
 msgid "App version"
 msgstr "Versión da aplicación"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:509
 msgid "Version of this application"
 msgstr "Versión desta aplicación"
 
-#: ../libgnome/gnome-program.c:499
+#: ../libgnome/gnome-program.c:516
 msgid "GNOME Prefix"
 msgstr "Prefixo de GNOME"
 
-#: ../libgnome/gnome-program.c:500
+#: ../libgnome/gnome-program.c:517
 msgid "Prefix where GNOME was installed"
 msgstr "Prefixo onde foi instalado GNOME"
 
-#: ../libgnome/gnome-program.c:509
+#: ../libgnome/gnome-program.c:526
 msgid "GNOME Libdir"
 msgstr "Libdir de GNOME"
 
-#: ../libgnome/gnome-program.c:510
+#: ../libgnome/gnome-program.c:527
 msgid "Library prefix where GNOME was installed"
 msgstr "Prefixo do directorio de bibliotecas onde foi instalado GNOME"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:536
 msgid "GNOME Datadir"
 msgstr "Datadir de GNOME"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:537
 msgid "Data prefix where GNOME was installed"
 msgstr "Prefixo do directorio de datos onde foi instalado GNOME"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:546
 msgid "GNOME Sysconfdir"
 msgstr "Sysconfdir de GNOME"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:547
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Prefixo do directorio de configuración onde foi instalado GNOME"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:557
 msgid "GNOME App Prefix"
 msgstr "Prefixo da aplic de GNOME"
 
-#: ../libgnome/gnome-program.c:541
+#: ../libgnome/gnome-program.c:558
 msgid "Prefix where this application was installed"
 msgstr "Prefixo onde foi instalada esta aplicación"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:566
 msgid "GNOME App Libdir"
 msgstr "Libdir da aplic de GNOME"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:567
 msgid "Library prefix where this application was installed"
-msgstr ""
-"Prefixo do directorio de bibliotecas onde foi instalada esta aplicación"
+msgstr "Prefixo do directorio de bibliotecas onde foi instalada esta aplicación"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:576
 msgid "GNOME App Datadir"
 msgstr "Datadir da aplic de GNOME"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:577
 msgid "Data prefix where this application was installed"
 msgstr "Prefixo do directorio de datos onde foi instalada esta aplicación"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:586
 msgid "GNOME App Sysconfdir"
 msgstr "Sysconfdir da aplic de GNOME"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:587
 msgid "Configuration prefix where this application was installed"
-msgstr ""
-"Prefixo do directorio de configuración onde foi instalada esta aplicación"
+msgstr "Prefixo do directorio de configuración onde foi instalada esta aplicación"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:596
 msgid "Create Directories"
 msgstr "Crear directorios"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:597
 msgid "Create standard GNOME directories on startup"
 msgstr "Crear os directorios estándar de GNOME ao iniciar"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:606
 msgid "Enable Sound"
 msgstr "Habilitar o son"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:607
 msgid "Enable sound on startup"
 msgstr "Habilitar o son no inicio"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:615
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:616
 msgid "How to connect to esd"
 msgstr "Xeito de conectar co esd"
 
-#: ../libgnome/gnome-program.c:1365
+#: ../libgnome/gnome-program.c:1401
 msgid "Help options"
 msgstr "Opcións da axuda"
 
-#: ../libgnome/gnome-program.c:1370
+#: ../libgnome/gnome-program.c:1406
 msgid "Application options"
 msgstr "Opcións da aplicación"
 
-#: ../libgnome/gnome-program.c:1386
+#: ../libgnome/gnome-program.c:1422
 msgid "Dynamic modules to load"
 msgstr "Módulos dinámicos para cargar"
 
-#: ../libgnome/gnome-program.c:1387
+#: ../libgnome/gnome-program.c:1423
 msgid "MODULE1,MODULE2,..."
 msgstr "MÓDULO1,MÓDULO2,..."
+
+#. Translators: the first %s is the error message, 2nd %s the program name
+#: ../libgnome/gnome-program.c:1506
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"%s\n"
+"Execute '%s --help' para ver unha lista completa das opcións de liña de comandos.\n"
 
 #: ../libgnome/gnome-url.c:84
 msgid "Unknown internal error while displaying this location."
@@ -350,7 +370,7 @@ msgstr ""
 "Houbo un erro ao analizar o comando de acción predeterminado con esta "
 "ubicación."
 
-#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:139
+#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:146
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -367,11 +387,15 @@ msgid "The default action does not support this protocol."
 msgstr "A acción predeterminada non soporta este protocolo."
 
 #: ../libgnome/gnome-url.c:128
+msgid "The request was cancelled."
+msgstr "A solicitude foi cancelada."
+
+#: ../libgnome/gnome-url.c:135
 #, c-format
 msgid "Unknown error code: %d"
 msgstr "Código de erro descoñecido: %d"
 
-#: ../libgnome/gnome-open.c:40 ../libgnome/gnome-open.c:49
+#: ../libgnome/gnome-open.c:34
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Erro ao mostrar a url: %s\n"
@@ -406,8 +430,7 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Desactivar se se premen dous teclas á vez."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
 "Non aceptar unha tecla como pulsada a non ser que se manteña premida durante "
 "@delay milisegundos."
@@ -417,8 +440,7 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Tempo en milisegundos que leva ir dende 0 hata a velocidade máxima"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Tempo en milisegundos a esperar ante que as teclas de movemento do rato "
 "empecen a funcionar"
@@ -429,8 +451,7 @@ msgstr "Cantidade de píxeles por segundo para mover á velocidade máxima"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr ""
-"Ignorar múltiples pulsacións da _mesma_ tecla durante @delay milisegundos"
+msgstr "Ignorar múltiples pulsacións da _mesma_ tecla durante @delay milisegundos"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -479,13 +500,11 @@ msgstr "Examinador predeterminado para todas as URLs"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr ""
-"Indica se o examinador predeterminado necesita unha terminal para executarse"
+msgstr "Indica se o examinador predeterminado necesita unha terminal para executarse"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
-msgstr ""
-"Indica se o examinador predeterminado implementa o espacio da rede remota"
+msgstr "Indica se o examinador predeterminado implementa o espacio da rede remota"
 
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
@@ -506,8 +525,7 @@ msgstr ""
 "executarse"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Argumento utilizado para executar programas na terminal definida pola clave "
 "'exec'."
@@ -567,8 +585,7 @@ msgid "User window manager (deprecated)"
 msgstr "Xestor de fiestras do usuario (obsoleta)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid ""
-"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
 "Xestor de fiestras que se probará primeiro. Esta clave é obsoleta desde "
 "Gnome 2.12."
@@ -608,8 +625,7 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr ""
-"Cor superior ou esquerdo cando se debuxan os degradados, ou a cor sólida."
+msgstr "Cor superior ou esquerdo cando se debuxan os degradados, ou a cor sólida."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
@@ -742,10 +758,8 @@ msgid "Monospace font"
 msgstr "Fonte monoespaciada"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:23
-msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr ""
-"Nome da fonte monoespaciada (ancho fixo) para usar en sitios como terminais."
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr "Nome da fonte monoespaciada (ancho fixo) para usar en sitios como terminais."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -769,8 +783,7 @@ msgstr "Barra de estado á dereita"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "This specifies the size of icons displayed in toolbars"
-msgstr ""
-"Isto especifica o tamaño das iconas mostradas nas barras de ferramentas"
+msgstr "Isto especifica o tamaño das iconas mostradas nas barras de ferramentas"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Toolbar Detachable"
@@ -818,13 +831,11 @@ msgstr "Indica se os menús deben ter un tirador"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether the cursor should blink"
-msgstr ""
-"Indica se o usuario pode desprender as barras de menús e movelas a outro lado"
+msgstr "Indica se o usuario pode desprender as barras de menús e movelas a outro lado"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether the user can detach menubars and move them around"
-msgstr ""
-"Indica se o usuario pode desprender as barras de menús e movelas a outro lado"
+msgstr "Indica se o usuario pode desprender as barras de menús e movelas a outro lado"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:41
 msgid "Whether the user can detach toolbars and move them around"
@@ -1086,3 +1097,4 @@ msgstr "Indica se o bloqueo do teclado está activado."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Indica se a pantalla de descanso de tecleo pode ou non ser  posposta."
+
