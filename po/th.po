@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-23 10:58+0700\n"
-"PO-Revision-Date: 2005-07-23 11:03+0700\n"
+"POT-Creation-Date: 2005-11-06 21:00+0700\n"
+"PO-Revision-Date: 2005-11-06 21:03+0700\n"
 "Last-Translator: Paisa Seeluangsawat <paisa@users.sf.net>\n"
 "Language-Team: Thai <L10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -107,214 +107,236 @@ msgid "Help document %s/%s not found"
 msgstr "ไม่พบเอกสารวิธีใช้ %s/%s"
 
 #. FIXME: get this from bonobo
-#: libgnome/gnome-init.c:90
+#: libgnome/gnome-init.c:89
 msgid "Bonobo Support"
 msgstr "การสนับสนุน Bonobo"
 
-#: libgnome/gnome-init.c:144
+#: libgnome/gnome-init.c:143
 msgid "Bonobo activation Support"
 msgstr "การสนับสนุน Bonobo activation"
 
-#: libgnome/gnome-init.c:330 libgnome/gnome-init.c:344
+#: libgnome/gnome-init.c:382 libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "ไม่สามารถสร้างโฟลเดอร์เก็บค่าปรับ gnome ส่วนตัวที่ '%s': %s\n"
 
-#: libgnome/gnome-init.c:353
+#: libgnome/gnome-init.c:405
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr "ไม่สามารถตั้งโหมด 0700 บนโฟลเดอร์เก็บค่าปรับ gnome ส่วนตัวที่ '%s': %s\n"
 
-#: libgnome/gnome-init.c:360
+#: libgnome/gnome-init.c:412
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "สร้างโฟลเดอร์ปุ่มเร่งของ gnome '%s': %s\n"
 
-#: libgnome/gnome-init.c:409
+#: libgnome/gnome-init.c:461 libgnome/gnome-init.c:480
 msgid "Disable sound server usage"
 msgstr "ปิดระบบเสียง"
 
-#: libgnome/gnome-init.c:412
+#: libgnome/gnome-init.c:464 libgnome/gnome-init.c:483
 msgid "Enable sound server usage"
 msgstr "เปิดระบบเสียง"
 
-#: libgnome/gnome-init.c:415
+#: libgnome/gnome-init.c:467 libgnome/gnome-init.c:487
 msgid "Host:port on which the sound server to use is running"
 msgstr "Host:port ที่เซิร์ฟเวอร์เสียงที่จะใช้ทำงานอยู่"
 
-#: libgnome/gnome-init.c:417
+#: libgnome/gnome-init.c:469 libgnome/gnome-init.c:488
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: libgnome/gnome-init.c:439
+#: libgnome/gnome-init.c:507
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Virtual Filesystem"
 
-#: libgnome/gnome-init.c:463
+#: libgnome/gnome-init.c:529 libgnome/gnome-init.c:539
 msgid "GNOME Library"
 msgstr "GNOME Library"
 
-#: libgnome/gnome-program.c:437
+#: libgnome/gnome-init.c:540
+msgid "Show GNOME options"
+msgstr "แสดงตัวเลือกของ GNOME"
+
+#: libgnome/gnome-program.c:445
 msgid "Popt Table"
 msgstr "ตาราง Popt"
 
-#: libgnome/gnome-program.c:438
+#: libgnome/gnome-program.c:446
 msgid "The table of options for popt"
 msgstr "ตารางตัวเลือกสำหรับ popt"
 
-#: libgnome/gnome-program.c:445
+#: libgnome/gnome-program.c:453
 msgid "Popt Flags"
 msgstr "แฟล็ก Popt"
 
-#: libgnome/gnome-program.c:446
+#: libgnome/gnome-program.c:454
 msgid "The flags to use for popt"
 msgstr "แฟล็กที่จะใช้สำหรับ popt"
 
-#: libgnome/gnome-program.c:454
+#: libgnome/gnome-program.c:462
 msgid "Popt Context"
 msgstr "Popt Context"
 
-#: libgnome/gnome-program.c:455
+#: libgnome/gnome-program.c:463
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "พอยน์เตอร์ไปยัง popt context ที่ GnomeProgram ใช้"
 
-#: libgnome/gnome-program.c:463
+#: libgnome/gnome-program.c:471
+msgid "GOption Context"
+msgstr "GOption Context"
+
+#: libgnome/gnome-program.c:472
+msgid "The goption context pointer that GnomeProgram is using"
+msgstr "พอยน์เตอร์ไปยัง goption context ที่ GnomeProgram ใช้"
+
+#: libgnome/gnome-program.c:480
 msgid "Human readable name"
 msgstr "ชื่อให้คนอ่าน"
 
-#: libgnome/gnome-program.c:464
+#: libgnome/gnome-program.c:481
 msgid "Human readable name of this application"
 msgstr "ชื่อให้คนอ่านสำหรับโปรแกรมนี้"
 
-#: libgnome/gnome-program.c:473
+#: libgnome/gnome-program.c:490
 msgid "GNOME path"
 msgstr "GNOME path"
 
-#: libgnome/gnome-program.c:474
+#: libgnome/gnome-program.c:491
 msgid "Path in which to look for installed files"
 msgstr "path ที่ใช้หาแฟ้มที่ติดตั้งใว้"
 
-#: libgnome/gnome-program.c:483
+#: libgnome/gnome-program.c:500
 msgid "App ID"
 msgstr "App ID"
 
-#: libgnome/gnome-program.c:484
+#: libgnome/gnome-program.c:501
 msgid "ID string to use for this application"
 msgstr "เลข ID สำหรับโปรแกรมนี้"
 
-#: libgnome/gnome-program.c:491
+#: libgnome/gnome-program.c:508
 msgid "App version"
 msgstr "รุ่นของโปรแกรม"
 
-#: libgnome/gnome-program.c:492
+#: libgnome/gnome-program.c:509
 msgid "Version of this application"
 msgstr "รุ่นของโปรแกรมนี้"
 
-#: libgnome/gnome-program.c:499
+#: libgnome/gnome-program.c:516
 msgid "GNOME Prefix"
 msgstr "GNOME Prefix"
 
-#: libgnome/gnome-program.c:500
+#: libgnome/gnome-program.c:517
 msgid "Prefix where GNOME was installed"
 msgstr "prefix ที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:509
+#: libgnome/gnome-program.c:526
 msgid "GNOME Libdir"
 msgstr "GNOME Libdir"
 
-#: libgnome/gnome-program.c:510
+#: libgnome/gnome-program.c:527
 msgid "Library prefix where GNOME was installed"
 msgstr "library prefix ที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:519
+#: libgnome/gnome-program.c:536
 msgid "GNOME Datadir"
 msgstr "GNOME Datadir"
 
-#: libgnome/gnome-program.c:520
+#: libgnome/gnome-program.c:537
 msgid "Data prefix where GNOME was installed"
 msgstr "data prefix ที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:529
+#: libgnome/gnome-program.c:546
 msgid "GNOME Sysconfdir"
 msgstr "GNOME Sysconfdir"
 
-#: libgnome/gnome-program.c:530
+#: libgnome/gnome-program.c:547
 msgid "Configuration prefix where GNOME was installed"
 msgstr "configuration prefix ที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:540
+#: libgnome/gnome-program.c:557
 msgid "GNOME App Prefix"
 msgstr "GNOME App Prefix"
 
-#: libgnome/gnome-program.c:541
+#: libgnome/gnome-program.c:558
 msgid "Prefix where this application was installed"
 msgstr "prefix ที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:549
+#: libgnome/gnome-program.c:566
 msgid "GNOME App Libdir"
 msgstr "GNOME App Libdir"
 
-#: libgnome/gnome-program.c:550
+#: libgnome/gnome-program.c:567
 msgid "Library prefix where this application was installed"
 msgstr "library prefix ที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:559
+#: libgnome/gnome-program.c:576
 msgid "GNOME App Datadir"
 msgstr "GNOME App Datadir"
 
-#: libgnome/gnome-program.c:560
+#: libgnome/gnome-program.c:577
 msgid "Data prefix where this application was installed"
 msgstr "data prefix ที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:569
+#: libgnome/gnome-program.c:586
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME App Sysconfdir"
 
-#: libgnome/gnome-program.c:570
+#: libgnome/gnome-program.c:587
 msgid "Configuration prefix where this application was installed"
 msgstr "configuration prefix ที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:579
+#: libgnome/gnome-program.c:596
 msgid "Create Directories"
 msgstr "สร้างโฟลเดอร์"
 
-#: libgnome/gnome-program.c:580
+#: libgnome/gnome-program.c:597
 msgid "Create standard GNOME directories on startup"
 msgstr "สร้างโฟลเดอร์มาตรฐานของ GNOME เมื่อเริ่มทำงาน"
 
-#: libgnome/gnome-program.c:589
+#: libgnome/gnome-program.c:606
 msgid "Enable Sound"
 msgstr "เปิดเสียง"
 
-#: libgnome/gnome-program.c:590
+#: libgnome/gnome-program.c:607
 msgid "Enable sound on startup"
 msgstr "เปิดการใช้งานเสียงเมื่อเริ่มทำงาน"
 
-#: libgnome/gnome-program.c:598
+#: libgnome/gnome-program.c:615
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: libgnome/gnome-program.c:599
+#: libgnome/gnome-program.c:616
 msgid "How to connect to esd"
 msgstr "ติดต่อ esd อย่างไร"
 
-#: libgnome/gnome-program.c:1365
+#: libgnome/gnome-program.c:1401
 msgid "Help options"
 msgstr "ตัวเลือกของวิธีใช้"
 
-#: libgnome/gnome-program.c:1370
+#: libgnome/gnome-program.c:1406
 msgid "Application options"
 msgstr "ตัวเลือกของโปรแกรม"
 
-#: libgnome/gnome-program.c:1386
+#: libgnome/gnome-program.c:1422
 msgid "Dynamic modules to load"
 msgstr "รายการมอดูลที่จะโหลด"
 
-#: libgnome/gnome-program.c:1387
+#: libgnome/gnome-program.c:1423
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
+
+#. Translators: the first %s is the error message, 2nd %s the program name
+#: libgnome/gnome-program.c:1506
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"%s\n"
+"เรียก '%s --help' เพื่อดูรายการตัวเลือกทั้งหมดสำหรับบรรทัดคำสั่ง\n"
 
 #: libgnome/gnome-url.c:84
 msgid "Unknown internal error while displaying this location."
@@ -330,7 +352,7 @@ msgid ""
 "location."
 msgstr "เกิดข้อผิดพลาดขณะแจงคำสั่งปริยายสำหรับตำแหน่งนี้"
 
-#: libgnome/gnome-url.c:106 libgnome/gnome-url.c:139
+#: libgnome/gnome-url.c:106 libgnome/gnome-url.c:146
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -345,11 +367,15 @@ msgid "The default action does not support this protocol."
 msgstr "คำสั่งปริยายไม่รู้จักโปรโตคอลนี้"
 
 #: libgnome/gnome-url.c:128
+msgid "The request was cancelled."
+msgstr "การร้องขอถูกยกเลิก"
+
+#: libgnome/gnome-url.c:135
 #, c-format
 msgid "Unknown error code: %d"
 msgstr "สัญญาณผิดพลาดที่ไม่รู้จัก: %d"
 
-#: libgnome/gnome-open.c:40 libgnome/gnome-open.c:49
+#: libgnome/gnome-open.c:34
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "ผิดพลาดขณะแสดง URL: %s\n"
@@ -493,9 +519,7 @@ msgstr "โปรแกรมเทอร์มินัลสำหรับโ
 msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
-msgstr ""
-"รายชื่อพื้นที่ทำงานของตัวจัดการหน้าต่างแรก  "
-"คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
+msgstr "รายชื่อพื้นที่ทำงานของตัวจัดการหน้าต่างแรก  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
@@ -506,8 +530,8 @@ msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
 msgstr ""
-"ตัวจัดการหน้าต่างที่ใช้เมื่อหาตัวจัดการหน้าต่างที่ผู้ใช้เลือกไม่พบ  "
-"คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
+"ตัวจัดการหน้าต่างที่ใช้เมื่อหาตัวจัดการหน้าต่างที่ผู้ใช้เลือกไม่พบ  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 "
+"เป็นต้นไป"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -521,9 +545,7 @@ msgstr "จำนวนพื้นที่ทำงาน (เลิกใช�
 msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
-msgstr ""
-"จำนวนพื้นที่ทำงานที่ตัวจัดการหน้าต่างควรจะใช้  "
-"คียนี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
+msgstr "จำนวนพื้นที่ทำงานที่ตัวจัดการหน้าต่างควรจะใช้  คียนี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
@@ -532,8 +554,7 @@ msgstr "ตัวจัดการหน้าต่างของผู้ใ
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid ""
 "Window manager to try first. This key has been deprecated since GNOME 2.12."
-msgstr ""
-"ตัวจัดการหน้าต่างที่จะลองใช้ก่อน  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
+msgstr "ตัวจัดการหน้าต่างที่จะลองใช้ก่อน  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
