@@ -260,5 +260,29 @@
 	<long>Keyboard shortcut to open the menu bars.</long>
       </locale>
     </schema>
+    <schema>
+      <key>/schemas/desktop/gnome/interface/show_input_method_menu</key>
+      <applyto>/desktop/gnome/interface/show_input_method_menu</applyto>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+	<short>Show the 'Input Methods' menu</short>
+	<long>Whether the context menus of entries and text views 
+        should offer to change the input method</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/gnome/interface/show_unicode_menu</key>
+      <applyto>/desktop/gnome/interface/show_unicode_menu</applyto>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+	<short>Show the 'Unicode Control Character' menu</short>
+	<long>Whether the context menus of entries and text views 
+        should offer to insert control characters</long>
+      </locale>
+    </schema>
   </schemalist>
 </gconfschemafile>
