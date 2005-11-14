@@ -1,3 +1,20 @@
+libgnome 2.13.2
+---------------
+
+What's new since 2.12.0
+
+* Features
+	- New show_input_method_menu gconf key (Matthias Clasen)
+        - Update of the cursors descriptions for the new GTK (Sebastien Bacher)
+        - New remember_numlock_state gconf key (Jürg Billeter)
+        - Add GNOME_URL_ERROR_CANCELLED and return it 
+          in gnome_url_show_with_env (Christian Neumair)
+
+* Bug fixes
+        - Use G_SEARCHPATH_SEPARATOR_S instead of hardcoded ":"(Tor Lillqvist)
+        - Add GOption argument parsing to gnome_program_init (Christian Persch)
+        - Do use gnome-vfs on Win32, too (Tor Lillqvist)
+
 libgnome 2.12.0
 ---------------
 
