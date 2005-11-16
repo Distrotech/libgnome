@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-06 17:51+0100\n"
-"PO-Revision-Date: 2005-11-06 17:51+0100\n"
+"POT-Creation-Date: 2005-11-16 06:40+0100\n"
+"PO-Revision-Date: 2005-11-16 06:45+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -767,26 +767,34 @@ msgid "Name of the default font used for reading documents"
 msgstr "Názov predvoleného písma používaného pre čítanie dokumentov"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
+msgid "Show the 'Input Methods' menu"
+msgstr "Zobraziť menu 'Metódy vstupu'"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+msgid "Show the 'Unicode Control Character' menu"
+msgstr "Zobraziť menu 'Riadiace znaky Unicode'"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
 msgstr "Stavová lišta vpravo"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Toto určuje veľkosť ikon zobrazených v lištách nástrojov"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Toolbar Detachable"
 msgstr "Odpojiteľná lišta nástrojov"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "Veľkosť ikon v lište nástrojov"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Toolbar Style"
 msgstr "Štýl lišty nástrojov"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
@@ -794,15 +802,15 @@ msgstr ""
 "Štýl lišty nástrojov. Platné hodnoty sú \"both\", \"both-horiz\", \"icons\" "
 "a \"text\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Use Custom Font"
 msgstr "Použiť používateľské písmo"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "Či aplikácie majú mať podporu pre postihnutých"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -810,38 +818,52 @@ msgstr ""
 "Či majú byť zobrazované animácie. Poznámka: Toto je globálne nastavenie a "
 "zmení správanie správcu okien, panelu atď."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Či sa v menu môžu zobrazovať ikony vedľa položiek menu"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "Či by menu mali mať odtrhovátko"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method"
+msgstr ""
+"Či majú kontextové menu vstupov a textových pohľadov ponúkať zmenu metódy vstupu"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters"
+msgstr ""
+"Či majú kontextové menu vstupov a textových pohľadov ponúkať vloženie riadiacich znakov"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "Či by mal kurzor blikať"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Či používateľ môže odpojiť lišty menu a pohybovať nimi"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Či používateľ može odpojiť lišty nástrojov a pohybovať nimi"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "Či môže používateľ dynamicky zadať nový akcelerátor keď je menu zobrazené"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "Či zobraziť merač stavového riadku vpravo"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Či použiť používateľské písmo v gtk+ aplikáciách."
 
@@ -905,6 +927,17 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Názov súboru používateľského zvukového návestia klávesnice"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
+msgid "Remember NumLock state"
+msgstr "Zapamätať stav Numlock"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+msgstr ""
+"Ak je nastavené na true, GNOME si zapamätá stav NumLock LED medzi sedeniami."
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "možné hodnoty sú: \"on\", \"off\" a \"custom\"."
 
@@ -931,14 +964,10 @@ msgstr "Téma kurzora"
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server at the "
-"start of each session, so changing it mid-session won't have an effect until "
-"the next time you log in."
+"XFree86 4.3 and later."
 msgstr ""
-"Názov témy kurzora. Použité len Xservermi, ktoré podporujú Xcursor, ako "
-"napríklad XFree86 4.3 a novšie. Táto hodnota je len odovzdaná X serveru pri "
-"štarte každého sedenia. Jej zmena počas sedenia sa prejaví až pri vašom "
-"ďalšom prihlásení."
+"Názov témy kurzora. Použité len Xservermi, ktoré podporujú Xcursor, ako sú "
+"XFree86 4.3 a novšie."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -1002,14 +1031,8 @@ msgid "Single click to open icons"
 msgstr "Jednoduché kliknutie na otvorenie ikon"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid ""
-"Size of the cursor referenced by cursor_theme. This value is only propagated "
-"to the X server start of each session, so changing it mid-session won't have "
-"an effect until the next time you log in."
-msgstr ""
-"Veľkosť kurzora odkazovaného v cursor_theme. Táto hodnota je len odovzdaná X "
-"serveru pri štarte každého sedenia. Jej zmena počas sedenia sa prejaví až "
-"pri vašom ďalšom prihlásení."
+msgid "Size of the cursor referenced by cursor_theme."
+msgstr "Veľkosť kurzora odkazovaného v cursor_theme."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
