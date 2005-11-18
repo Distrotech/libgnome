@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-01 12:57-0500\n"
+"POT-Creation-Date: 2005-11-17 21:38-0500\n"
 "PO-Revision-Date: 2005-07-20 14:58-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -762,26 +762,34 @@ msgid "Name of the default font used for reading documents"
 msgstr "Name of the default font used for reading documents"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:28
+msgid "Show the 'Input Methods' menu"
+msgstr "Show the 'Input Methods' menu"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:29
+msgid "Show the 'Unicode Control Character' menu"
+msgstr "Show the 'Unicode Control Character' menu"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
 msgstr "Status Bar on Right"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "This specifies the size of icons displayed in toolbars"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Toolbar Detachable"
 msgstr "Toolbar Detachable"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "Toolbar Icon Size"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Toolbar Style"
 msgstr "Toolbar Style"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
@@ -789,15 +797,15 @@ msgstr ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Use Custom Font"
 msgstr "Use Custom Font"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "Whether Applications should have accessibility support"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -805,27 +813,43 @@ msgstr ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 
-#: schemas/desktop_gnome_interface.schemas.in.h:37
+#: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Whether menus may display an icon next to a menu entry"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:38
+#: schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "Whether menus should have a tearoff"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:39
+#: schemas/desktop_gnome_interface.schemas.in.h:41
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method"
+msgstr ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:42
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters"
+msgstr ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters"
+
+#: schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "Whether the cursor should blink"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:40
+#: schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Whether the user can detach menubars and move them around"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:41
+#: schemas/desktop_gnome_interface.schemas.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Whether the user can detach toolbars and move them around"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:42
+#: schemas/desktop_gnome_interface.schemas.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -833,11 +857,11 @@ msgstr ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:43
+#: schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "Whether to display a status bar meter on the right"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:44
+#: schemas/desktop_gnome_interface.schemas.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Whether to use a custom font in gtk+ applications."
 
@@ -900,6 +924,18 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Keyboard Bell Custom Filename"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
+msgid "Remember NumLock state"
+msgstr "Remember NumLock state"
+
+#: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+msgstr ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+
+#: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "possible values are \"on\", \"off\", and \"custom\"."
 
@@ -926,14 +962,10 @@ msgstr "Cursor theme"
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server at the "
-"start of each session, so changing it mid-session won't have an effect until "
-"the next time you log in."
+"XFree86 4.3 and later."
 msgstr ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server at the "
-"start of each session, so changing it mid-session will not have an effect "
-"until the next time you log in."
+"XFree86 4.3 and later."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -998,14 +1030,8 @@ msgid "Single click to open icons"
 msgstr "Single click to open icons"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid ""
-"Size of the cursor referenced by cursor_theme. This value is only propagated "
-"to the X server start of each session, so changing it mid-session won't have "
-"an effect until the next time you log in."
-msgstr ""
-"Size of the cursor referenced by cursor_theme. This value is only propagated "
-"to the X server start of each session, so changing it mid-session will not "
-"have an effect until the next time you log in."
+msgid "Size of the cursor referenced by cursor_theme."
+msgstr "Size of the cursor referenced by cursor_theme."
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
