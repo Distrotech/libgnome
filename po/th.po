@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-11-20 15:13+0700\n"
-"PO-Revision-Date: 2005-11-20 16:01+0700\n"
+"PO-Revision-Date: 2005-11-26 18:23+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <L10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -77,11 +77,11 @@ msgstr "การสนับสนุน GConf ของ GNOME"
 
 #: libgnome/gnome-help.c:159
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr "ไม่เจอโดเมน GNOME_FILE_DOMAIN_APP_HELP"
+msgstr "หาโดเมน GNOME_FILE_DOMAIN_APP_HELP ไม่พบ"
 
 #: libgnome/gnome-help.c:172
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "ไม่เจอโดเมน GNOME_FILE_DOMAIN_HELP"
+msgstr "หาโดเมน GNOME_FILE_DOMAIN_HELP ไม่พบ"
 
 #: libgnome/gnome-help.c:185 libgnome/gnome-help.c:200
 #, c-format
@@ -119,19 +119,19 @@ msgstr "การสนับสนุน Bonobo activation"
 #: libgnome/gnome-init.c:382 libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "ไม่สามารถสร้างโฟลเดอร์เก็บค่าปรับ gnome ส่วนตัวที่ '%s': %s\n"
+msgstr "ไม่สามารถสร้างโฟลเดอร์เก็บค่าตั้ง gnome ส่วนตัวที่ '%s': %s\n"
 
 #: libgnome/gnome-init.c:405
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
-msgstr "ไม่สามารถตั้งโหมด 0700 บนโฟลเดอร์เก็บค่าปรับ gnome ส่วนตัวที่ '%s': %s\n"
+msgstr "ไม่สามารถตั้งโหมด 0700 ให้กับโฟลเดอร์เก็บค่าตั้ง gnome ส่วนตัวที่ '%s': %s\n"
 
 #: libgnome/gnome-init.c:412
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "สร้างโฟลเดอร์ปุ่มเร่งของ gnome '%s': %s\n"
+msgstr "ไม่สามารถสร้างโฟลเดอร์คีย์ด่วนของ gnome ที่ '%s': %s\n"
 
 #: libgnome/gnome-init.c:461 libgnome/gnome-init.c:480
 msgid "Disable sound server usage"
@@ -195,19 +195,19 @@ msgstr "พอยน์เตอร์ไปยัง goption context ที่ 
 
 #: libgnome/gnome-program.c:480
 msgid "Human readable name"
-msgstr "ชื่อให้คนอ่าน"
+msgstr "ชื่อสำหรับแสดงผล"
 
 #: libgnome/gnome-program.c:481
 msgid "Human readable name of this application"
-msgstr "ชื่อให้คนอ่านสำหรับโปรแกรมนี้"
+msgstr "ชื่อสำหรับแสดงผลของโปรแกรมนี้"
 
 #: libgnome/gnome-program.c:490
 msgid "GNOME path"
-msgstr "GNOME path"
+msgstr "พาธของ GNOME"
 
 #: libgnome/gnome-program.c:491
 msgid "Path in which to look for installed files"
-msgstr "path ที่ใช้หาแฟ้มที่ติดตั้งใว้"
+msgstr "พาธสำหรับหาแฟ้มที่ติดตั้งใว้"
 
 #: libgnome/gnome-program.c:500
 msgid "App ID"
@@ -227,67 +227,67 @@ msgstr "รุ่นของโปรแกรมนี้"
 
 #: libgnome/gnome-program.c:516
 msgid "GNOME Prefix"
-msgstr "GNOME Prefix"
+msgstr "พรีฟิกซ์ของ GNOME"
 
 #: libgnome/gnome-program.c:517
 msgid "Prefix where GNOME was installed"
-msgstr "prefix ที่ GNOME ถูกติดตั้งไว้"
+msgstr "พรีฟิกซ์ที่ GNOME ถูกติดตั้งไว้"
 
 #: libgnome/gnome-program.c:526
 msgid "GNOME Libdir"
-msgstr "GNOME Libdir"
+msgstr "Libdir ของ GNOME"
 
 #: libgnome/gnome-program.c:527
 msgid "Library prefix where GNOME was installed"
-msgstr "library prefix ที่ GNOME ถูกติดตั้งไว้"
+msgstr "พรีฟิกซ์ของที่เก็บไลบรารีที่ GNOME ถูกติดตั้งไว้"
 
 #: libgnome/gnome-program.c:536
 msgid "GNOME Datadir"
-msgstr "GNOME Datadir"
+msgstr "Datadir ของ GNOME"
 
 #: libgnome/gnome-program.c:537
 msgid "Data prefix where GNOME was installed"
-msgstr "data prefix ที่ GNOME ถูกติดตั้งไว้"
+msgstr "พรีฟิกซ์ของที่เก็บข้อมูลที่ GNOME ถูกติดตั้งไว้"
 
 #: libgnome/gnome-program.c:546
 msgid "GNOME Sysconfdir"
-msgstr "GNOME Sysconfdir"
+msgstr "Sysconfdir ของ GNOME"
 
 #: libgnome/gnome-program.c:547
 msgid "Configuration prefix where GNOME was installed"
-msgstr "configuration prefix ที่ GNOME ถูกติดตั้งไว้"
+msgstr "พรีฟิกซ์ของที่เก็บค่าตั้งที่ GNOME ถูกติดตั้งไว้"
 
 #: libgnome/gnome-program.c:557
 msgid "GNOME App Prefix"
-msgstr "GNOME App Prefix"
+msgstr "App Prefix ของ GNOME"
 
 #: libgnome/gnome-program.c:558
 msgid "Prefix where this application was installed"
-msgstr "prefix ที่โปรแกรมนี้ถูกติดตั้งไว้"
+msgstr "พรีฟิกซ์ที่โปรแกรมนี้ถูกติดตั้งไว้"
 
 #: libgnome/gnome-program.c:566
 msgid "GNOME App Libdir"
-msgstr "GNOME App Libdir"
+msgstr "App Libdir ของ GNOME"
 
 #: libgnome/gnome-program.c:567
 msgid "Library prefix where this application was installed"
-msgstr "library prefix ที่โปรแกรมนี้ถูกติดตั้งไว้"
+msgstr "พรีฟิกซ์ของที่เก็บไลบรารีที่โปรแกรมนี้ถูกติดตั้งไว้"
 
 #: libgnome/gnome-program.c:576
 msgid "GNOME App Datadir"
-msgstr "GNOME App Datadir"
+msgstr "App Datadir ของ GNOME"
 
 #: libgnome/gnome-program.c:577
 msgid "Data prefix where this application was installed"
-msgstr "data prefix ที่โปรแกรมนี้ถูกติดตั้งไว้"
+msgstr "พรีฟิกซ์ของที่เก็บข้อมูลที่โปรแกรมนี้ถูกติดตั้งไว้"
 
 #: libgnome/gnome-program.c:586
 msgid "GNOME App Sysconfdir"
-msgstr "GNOME App Sysconfdir"
+msgstr "App Sysconfdir ของ GNOME"
 
 #: libgnome/gnome-program.c:587
 msgid "Configuration prefix where this application was installed"
-msgstr "configuration prefix ที่โปรแกรมนี้ถูกติดตั้งไว้"
+msgstr "พรีฟิกซ์ของที่เก็บค่าตั้งที่โปรแกรมนี้ถูกติดตั้งไว้"
 
 #: libgnome/gnome-program.c:596
 msgid "Create Directories"
@@ -311,7 +311,7 @@ msgstr "Espeaker"
 
 #: libgnome/gnome-program.c:616
 msgid "How to connect to esd"
-msgstr "ติดต่อ esd อย่างไร"
+msgstr "วิธีติดต่อ esd"
 
 #: libgnome/gnome-program.c:1401
 msgid "Help options"
@@ -365,7 +365,7 @@ msgstr "ไม่มีคำสั่งปริยายสำหรับต
 
 #: libgnome/gnome-url.c:121
 msgid "The default action does not support this protocol."
-msgstr "คำสั่งปริยายไม่รู้จักโปรโตคอลนี้"
+msgstr "คำสั่งปริยายไม่รู้จักโพรโทคอลนี้"
 
 #: libgnome/gnome-url.c:128
 msgid "The request was cancelled."
@@ -400,7 +400,7 @@ msgstr "ไม่ทราบชนิด"
 #: monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr "ไม่พบปุ่ม %s ในค่าตั้ง"
+msgstr "ไม่พบคีย์ %s ในค่าตั้ง"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
@@ -413,7 +413,7 @@ msgstr "เลิกใช้ถ้าสองปุ่มถูกกดพร
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "รับสัญญานการกดปุ่มต่อเมื่อปุ่มถูกกดค้างไว้ @delay มิลลิวีนาที"
+msgstr "รับสัญญาณการกดปุ่มต่อเมื่อปุ่มถูกกดค้างไว้ @delay มิลลิวินาที"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
@@ -485,19 +485,19 @@ msgstr "กำหนดว่าเบราว์เซอร์เข้าใ
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
-msgstr "ตัวแสดงวิธิใช้ปริยาย"
+msgstr "โปรแกรมแสดงวิธีใช้ปริยาย"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
 msgid "Help viewer needs terminal"
-msgstr "ตัวแสดงวิธิใช้ต้องใช้ terminal"
+msgstr "โปรแกรมแสดงวิธีใช้ต้องใช้ terminal"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
 msgid "Whether the default help viewer accepts URLs"
-msgstr "ตัวแสดงวิธีใช้ปริยายรับ URL หรือไม่"
+msgstr "โปรแกรมแสดงวิธีใช้ปริยายรับ URL หรือไม่"
 
 #: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
-msgstr "ตัวแสดงวิธีใช้ปริยายต้องใช้เทอร์มินัลหรือไม่"
+msgstr "โปรแกรมแสดงวิธีใช้ปริยายต้องใช้เทอร์มินัลหรือไม่"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -520,18 +520,18 @@ msgstr "โปรแกรมเทอร์มินัลสำหรับโ
 msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
-msgstr "รายชื่อพื้นที่ทำงานของตัวจัดการหน้าต่างแรก  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
+msgstr "รายชื่อพื้นที่ทำงานของโปรแกรมจัดการหน้าต่างแรก  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
-msgstr "ตัวจัดการหน้าต่างสำรอง (เลิกใช้แล้ว)"
+msgstr "โปรแกรมจัดการหน้าต่างสำรอง (เลิกใช้แล้ว)"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
 msgstr ""
-"ตัวจัดการหน้าต่างที่ใช้เมื่อหาตัวจัดการหน้าต่างที่ผู้ใช้เลือกไม่พบ  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 "
+"โปรแกรมจัดการหน้าต่างที่ใช้เมื่อหาโปรแกรมจัดการหน้าต่างที่ผู้ใช้เลือกไม่พบ  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 "
 "เป็นต้นไป"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
@@ -546,16 +546,16 @@ msgstr "จำนวนพื้นที่ทำงาน (เลิกใช�
 msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
-msgstr "จำนวนพื้นที่ทำงานที่ตัวจัดการหน้าต่างควรจะใช้  คียนี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
+msgstr "จำนวนพื้นที่ทำงานที่โปรแกรมจัดการหน้าต่างควรจะใช้  คียนี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
-msgstr "ตัวจัดการหน้าต่างของผู้ใช้ (เลิกใช้แล้ว)"
+msgstr "โปรแกรมจัดการหน้าต่างของผู้ใช้ (เลิกใช้แล้ว)"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid ""
 "Window manager to try first. This key has been deprecated since GNOME 2.12."
-msgstr "ตัวจัดการหน้าต่างที่จะลองใช้ก่อน  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
+msgstr "โปรแกรมจัดการหน้าต่างที่จะลองใช้ก่อน  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
 
 #: schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -579,7 +579,7 @@ msgstr "แฟ้มที่จะใช้เป็นรูปพื้นห
 
 #: schemas/desktop_gnome_background.schemas.in.h:5
 msgid "Have GNOME draw the desktop background"
-msgstr "ให้ GNOME เป็นตัววาดพื้นหลังของพื้นโต๊ะ"
+msgstr "ให้ GNOME เป็นผู้วาดพื้นหลังของพื้นโต๊ะ"
 
 #: schemas/desktop_gnome_background.schemas.in.h:6
 msgid ""
@@ -635,7 +635,7 @@ msgstr "ชื่อของชุดตกแต่งปริยายที
 
 #: schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
-msgstr "เปลี่ยนตัวเร่งไม่สำเร็จ"
+msgstr "สามารถเปลี่ยนคีย์ด่วนได้"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:3
 msgid "Cursor Blink"
@@ -675,7 +675,7 @@ msgstr "ชุดตกแต่ง Gtk+"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon Theme"
-msgstr "ชุดตกแต่งสัญลักษณ์"
+msgstr "ชุดตกแต่งไอคอน"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
@@ -791,7 +791,7 @@ msgid ""
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
 "ควรจะแสดงภาพเคลื่อนไหวหรือไม่  หมายเหตุ: นี่เป็นคีย์ส่วนกลางที่ใช้ร่วมสำหรับ พาเนล "
-"ตัวจัดการหน้าต่าง ฯลฯ"
+"โปรแกรมจัดการหน้าต่าง ฯลฯ"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
@@ -799,7 +799,7 @@ msgstr "เมนูควรจะแสดงไอคอนข้างๆ �
 
 #: schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether menus should have a tearoff"
-msgstr "เมนูสามารถถูกดึงออกมาได้หรือไม่"
+msgstr "เมนูสามารถดึงออกมาได้หรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:41
 msgid ""
@@ -821,11 +821,11 @@ msgstr "ตัวชี้ควรจะกระพริบหรือไม
 
 #: schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether the user can detach menubars and move them around"
-msgstr "ผู้ใช้สามารถดึง แถบเมนูออกมาใช้ ข้างนอกหน้าต่าง ได้หรือไม่"
+msgstr "ผู้ใช้สามารถดึงแถบเมนูออกมาใช้ข้างนอกหน้าต่างได้หรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
-msgstr "ผู้ใช้สามารถดึง แถบเครื่องมือออกมาใช้ ข้างนอกหน้าต่าง ได้หรือไม่"
+msgstr "ผู้ใช้สามารถดึงแถบเครื่องมือออกมาใช้ข้างนอกหน้าต่างได้หรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.h:46
 msgid ""
@@ -843,7 +843,7 @@ msgstr "จะใช้แบบอักษรตั้งเองในโป
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
-msgstr "ปิดใช้ command line"
+msgstr "ปิดใช้บรรทัดคำสั่ง"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable print setup"
@@ -863,7 +863,7 @@ msgid ""
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
 msgstr ""
-"ป้องกันไม่ให้ผู้ใช้เรียกใช้เทอร์มินัล หรือเรียกใช้คำสั่งจาก command line ผลคือ หน้าต่าง "
+"ป้องกันไม่ให้ผู้ใช้เรียกใช้เทอร์มินัล หรือเรียกใช้คำสั่งจากบรรทัดคำสั่ง ผลคือ หน้าต่าง "
 "\"เรียกโปรแกรม\" ในพาเนลจะหายไป เป็นต้น"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:6
@@ -909,7 +909,7 @@ msgstr ""
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "สามารถตั้งเป็น \"on\" \"off\" หรือ \"custom\""
+msgstr "สามารถตั้งเป็น \"on\", \"off\" หรือ \"custom\""
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -947,7 +947,8 @@ msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
-"ระยะทางในพิกเซล ที่ตัวชี้ต้องขยับ ก่อนที่จะเมาส์จะวิ่งอย่างเร็จ ถ้าตั้งเป็น -1 จะใช้ค่าปริยายของระบบ"
+"ระยะทางเป็นพิกเซล ที่ตัวชี้ต้องขยับ ก่อนที่จะเมาส์จะวิ่งอย่างเร็ว "
+"ถ้าตั้งเป็น -1 จะใช้ค่าปริยายของระบบ"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
