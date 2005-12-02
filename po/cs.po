@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-02 14:33+0100\n"
-"PO-Revision-Date: 2005-11-02 23:26+0100\n"
+"POT-Creation-Date: 2005-12-02 15:00+0100\n"
+"PO-Revision-Date: 2005-12-02 20:28+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -340,7 +340,8 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "%s\n"
-"Spusťte '%s --help' pro zobrazení úplného seznamu přepínačů příkazového řádku.\n"
+"Spusťte '%s --help' pro zobrazení úplného seznamu přepínačů příkazového "
+"řádku.\n"
 
 #: ../libgnome/gnome-url.c:84
 msgid "Unknown internal error while displaying this location."
@@ -764,26 +765,34 @@ msgid "Name of the default font used for reading documents"
 msgstr "Jméno implicitního písma používaného pro čtení dokumentů"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
+msgid "Show the 'Input Methods' menu"
+msgstr "Zobrazovat menu 'Vstupní metody'"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+msgid "Show the 'Unicode Control Character' menu"
+msgstr "Zobrazovat menu 'Řídící znak Unicode'"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
 msgstr "Stavová lišta vpravo"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Toto určuje velikost ikon zobrazovaných v lištách nástrojů"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Toolbar Detachable"
 msgstr "Lišta nástrojů odpojitelná"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "Velikost ikon lišty nástrojů"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Toolbar Style"
 msgstr "Styl lišty nástrojů"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
@@ -791,15 +800,15 @@ msgstr ""
 "Styl lišty nástrojů. Platné hodnoty jsou \"both\", \"both-horiz\", \"icons\" "
 "a \"text\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Use Custom Font"
 msgstr "Použít vlastní písmo"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "Jestli by měly aplikace mít podporu pro zpřístupnění"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -807,27 +816,39 @@ msgstr ""
 "Jestli mají být zobrazovány animace. Poznámka: toto je globální klíč, změní "
 "chování manažera oken, panelu atd."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Jestli mohou menu zobrazovat ikonu vedle položky menu"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "Jestli mají menu mít úchyt"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method"
+msgstr "Jestli kontextová menu vstupních polí a textových polí mají nabízet změnu vstupní metody"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters"
+msgstr "Jestli kontextová menu vstupních polí a textových polí mají nabízet změnu vložení řídicích znaků"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "Jestli má kurzor blikat"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Jestli uživatel může odpojit menu a posouvat je"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Jestli uživatel může odpojit lišty nástrojů a posouvat je"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -835,11 +856,11 @@ msgstr ""
 "Jestli může uživatel dynamicky stisknout novou klávesovou zkratku, když je "
 "zobrazeno menu"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "Jestli zobrazovat ukazatel na liště nástrojů vpravo"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Jestli použít vlastní písmo v aplikacích gtk+."
 
@@ -901,6 +922,16 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Vlastní jméno souboru klávesového zvonku"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
+msgid "Remember NumLock state"
+msgstr "Pamatovat si stav NumLock"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+msgstr "Je-li nastaveno na true, GNOME si bude mezi sezeními pamatovat stav LED NumLock."
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "možné hodnoty jsou \"on\", \"off\" a \"custom\"."
 
@@ -925,14 +956,8 @@ msgstr "Téma kurzoru"
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server at the "
-"start of each session, so changing it mid-session won't have an effect until "
-"the next time you log in."
-msgstr ""
-"Název tématu kurzoru. Je použit pouze X serverem podporujícím Xcursor, "
-"například XFree86 4.3 nebo pozdější. Tato hodnota je předána X serveru pouze "
-"při startu každého sezení, takže její změna uprostřed sezení nebude mít vliv "
-"do příštího přihlášení."
+"XFree86 4.3 and later."
+msgstr "Název tématu kurzoru. Používáno jen Xservery, které podporují Xcursor, například XFree86 4.3 a pozdější."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -997,14 +1022,8 @@ msgid "Single click to open icons"
 msgstr "Jednoduché kliknutí otevírá ikony"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid ""
-"Size of the cursor referenced by cursor_theme. This value is only propagated "
-"to the X server start of each session, so changing it mid-session won't have "
-"an effect until the next time you log in."
-msgstr ""
-"Velikost kurzoru odkazovaného přes cursor_theme. Tato hodnota je předána X "
-"serveru pouze při startu každého sezení, takže její změna uprostřed sezení "
-"nebude mít vliv do příštího přihlášení."
+msgid "Size of the cursor referenced by cursor_theme."
+msgstr "Velikost kurzoru, na který se odkazuje cursor_theme."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -1069,6 +1088,26 @@ msgstr "Jestli je povoleno zamknutí klávesnice."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Jestli může být obrazovka přestávky ve psaní odložena."
+
+#~ msgid ""
+#~ "Cursor theme name. Used only by Xservers that support Xcursor, such as "
+#~ "XFree86 4.3 and later. This value is only propagated to the X server at "
+#~ "the start of each session, so changing it mid-session won't have an "
+#~ "effect until the next time you log in."
+#~ msgstr ""
+#~ "Název tématu kurzoru. Je použit pouze X serverem podporujícím Xcursor, "
+#~ "například XFree86 4.3 nebo pozdější. Tato hodnota je předána X serveru "
+#~ "pouze při startu každého sezení, takže její změna uprostřed sezení nebude "
+#~ "mít vliv do příštího přihlášení."
+
+#~ msgid ""
+#~ "Size of the cursor referenced by cursor_theme. This value is only "
+#~ "propagated to the X server start of each session, so changing it mid-"
+#~ "session won't have an effect until the next time you log in."
+#~ msgstr ""
+#~ "Velikost kurzoru odkazovaného přes cursor_theme. Tato hodnota je předána "
+#~ "X serveru pouze při startu každého sezení, takže její změna uprostřed "
+#~ "sezení nebude mít vliv do příštího přihlášení."
 
 #~ msgid "Window manager to try first"
 #~ msgstr "Manažer oken, který zkusit nejdříve"
