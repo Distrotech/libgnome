@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-25 14:05+0200\n"
-"PO-Revision-Date: 2005-10-25 21:28+0800\n"
+"POT-Creation-Date: 2005-12-03 23:20+0100\n"
+"PO-Revision-Date: 2005-12-04 12:38+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -354,7 +354,7 @@ msgid ""
 "location."
 msgstr "处理与此位置关联的默认操作命令时出错。"
 
-#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:139
+#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:146
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -369,6 +369,10 @@ msgid "The default action does not support this protocol."
 msgstr "默认操作不支持此协议。"
 
 #: ../libgnome/gnome-url.c:128
+msgid "The request was cancelled."
+msgstr "请求已取消。"
+
+#: ../libgnome/gnome-url.c:135
 #, c-format
 msgid "Unknown error code: %d"
 msgstr "未知的错误代码：%d"
@@ -741,40 +745,48 @@ msgid "Name of the default font used for reading documents"
 msgstr "读取文档所使用的默认字体的名称"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
+msgid "Show the 'Input Methods' menu"
+msgstr "显示“输入法”菜单"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+msgid "Show the 'Unicode Control Character' menu"
+msgstr "显示“Unicode 控制字符”菜单"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
 msgstr "状态栏位于右边"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "用来指定工具栏上显示的图标的大小"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Toolbar Detachable"
 msgstr "工具栏可分离"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "工具栏图标大小"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Toolbar Style"
 msgstr "工具栏风格"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr "工具栏风格。有效的值是“both”，“both_horiz”，“icon”和“text”"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Use Custom Font"
 msgstr "使用自定义字体"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "应用程序是否应该有辅助访问支持"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -782,37 +794,51 @@ msgstr ""
 "是否应该显示动画。注意：这是一个全局的设置，它将改变窗口管理器、面板等的行"
 "为。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "是否在菜单上菜单项的旁边显示图标"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "菜单是否应该有分离条"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method"
+msgstr ""
+"输入框和文本视图中的快捷菜单是否应提供更改输入法的选项"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters"
+msgstr ""
+"输入框和文本视图中的快捷菜单是否应提供插入控制字符的选项"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "光标是否应该闪烁"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "用户是否能分离菜单栏并四处移动它们"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "用户是否能分离工具栏并四处移动它们"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr "当菜单弹出后，用户是否能动态地输入新的加速键"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "是否在右边显示状态栏指示"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "是否在 gtk+ 程序中使用自定义字体。"
 
@@ -870,6 +896,17 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "自定义键盘铃声文件名"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
+msgid "Remember NumLock state"
+msgstr "记住 NumLock 状态"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+msgstr ""
+"设定为 true 时，GNOME 将在不同会话间记住 NumLock 灯的状态。"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "可用的值是“on”，“off”和“custom”。"
 
@@ -894,13 +931,9 @@ msgstr "光标主题"
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server at the "
-"start of each session, so changing it mid-session won't have an effect until "
-"the next time you log in."
+"XFree86 4.3 and later."
 msgstr ""
-"光标主体的名称。仅对支持 Xcursor 的 Xserver 而言，例如 XFree86 4.3 或更新版"
-"本。此设置只有在每次会话开始前传送给 X 服务器，因此在会话当中改变它不会有用，"
-"要等到您下次登录后才会起作用。"
+"光标主题名称。仅适用于支持 Xcursor 的 Xserver，比如 XFree86 4.3 或更新版本。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -960,13 +993,8 @@ msgid "Single click to open icons"
 msgstr "单击可打开图标"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid ""
-"Size of the cursor referenced by cursor_theme. This value is only propagated "
-"to the X server start of each session, so changing it mid-session won't have "
-"an effect until the next time you log in."
-msgstr ""
-"光标主题引用的光标大小。此设置只在每次会话开始前传送给 X 服务器，因此在会话当"
-"中改变它不会有用，要等到您下次登录后才会起作用。"
+msgid "Size of the cursor referenced by cursor_theme."
+msgstr "cursor_theme 引用的光标大小。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
