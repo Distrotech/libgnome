@@ -67,6 +67,7 @@ gnome_url_show_with_env (const char  *url,
 {
 #ifndef G_OS_WIN32
 	GnomeVFSResult result;
+	GnomeVFSURI *vfs_uri;
 
 	g_return_val_if_fail (url != NULL, FALSE);
 
@@ -75,7 +76,6 @@ gnome_url_show_with_env (const char  *url,
 	switch (result) {
 	case GNOME_VFS_OK:
 		return TRUE;
-		break;
 		
 	case GNOME_VFS_ERROR_INTERNAL:
 		g_set_error (error,
@@ -128,11 +128,30 @@ gnome_url_show_with_env (const char  *url,
 			     _("The request was cancelled."));
 		break;
 
+	case GNOME_VFS_ERROR_HOST_NOT_FOUND:
+		{
+			vfs_uri = gnome_vfs_uri_new (url);
+			if (gnome_vfs_uri_get_host_name (vfs_uri) != NULL) {
+				g_set_error (error,
+					     GNOME_URL_ERROR,
+					     GNOME_URL_ERROR_VFS,
+					     _("The host \"%s\" could not be found."),
+					     gnome_vfs_uri_get_host_name (vfs_uri));
+			} else {
+				g_set_error (error,
+					     GNOME_URL_ERROR,
+					     GNOME_URL_ERROR_VFS,
+					     _("The host could not be found."));
+			}
+			gnome_vfs_uri_unref (vfs_uri);
+		}
+		break;
+
 	default:
 		g_set_error (error,
 			     GNOME_URL_ERROR,
 			     GNOME_URL_ERROR_VFS,
-			     _("Unknown error code: %d"), result);
+			     _("Unknown error code: %u"), result);
 	}
 
 	return FALSE;
