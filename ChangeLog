@@ -1,3 +1,13 @@
+2005-12-12  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* .cvsignore: Shh
+	* doc/reference/.cvsignore: Shh
+	* doc/reference/tmpl/gnome-url.sgml: This changed somehow
+	* libgnome/gnome-program.c: (gnome_program_init_paramv):
+	Check for nparams > 0 not >= 0.
+	* monikers/bonobo-moniker-extra.c: Remove extra semicolon.
+	* po/.cvsignore: Shh
+
 2005-12-11  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-url (gnome_url_show_with_env): Give some

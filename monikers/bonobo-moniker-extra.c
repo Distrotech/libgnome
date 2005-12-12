@@ -27,4 +27,4 @@ bonobo_extra_moniker_factory (BonoboGenericFactory *this,
 
 BONOBO_ACTIVATION_SHLIB_FACTORY ("OAFIID:GNOME_Moniker_std_Factory",
                                  "Extra bonobo moniker",
-                                 bonobo_extra_moniker_factory, NULL);
+                                 bonobo_extra_moniker_factory, NULL)
