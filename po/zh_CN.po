@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-03 23:20+0100\n"
-"PO-Revision-Date: 2005-12-04 12:38+0800\n"
+"POT-Creation-Date: 2005-12-24 22:58+0100\n"
+"PO-Revision-Date: 2005-12-25 11:22+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -354,7 +354,7 @@ msgid ""
 "location."
 msgstr "处理与此位置关联的默认操作命令时出错。"
 
-#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:146
+#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:165
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -372,10 +372,19 @@ msgstr "默认操作不支持此协议。"
 msgid "The request was cancelled."
 msgstr "请求已取消。"
 
-#: ../libgnome/gnome-url.c:135
+#: ../libgnome/gnome-url.c:138
 #, c-format
-msgid "Unknown error code: %d"
-msgstr "未知的错误代码：%d"
+msgid "The host \"%s\" could not be found."
+msgstr "找不到主机“%s”。"
+
+#: ../libgnome/gnome-url.c:144
+msgid "The host could not be found."
+msgstr "找不到主机。"
+
+#: ../libgnome/gnome-url.c:154
+#, c-format
+msgid "Unknown error code: %u"
+msgstr "未知的错误代码：%u"
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -806,15 +815,13 @@ msgstr "菜单是否应该有分离条"
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
-"输入框和文本视图中的快捷菜单是否应提供更改输入法的选项"
+msgstr "输入框和文本视图中的快捷菜单是否应提供更改输入法的选项"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:42
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
-msgstr ""
-"输入框和文本视图中的快捷菜单是否应提供插入控制字符的选项"
+msgstr "输入框和文本视图中的快捷菜单是否应提供插入控制字符的选项"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
@@ -903,8 +910,7 @@ msgstr "记住 NumLock 状态"
 msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
-msgstr ""
-"设定为 true 时，GNOME 将在不同会话间记住 NumLock 灯的状态。"
+msgstr "设定为 true 时，GNOME 将在不同会话间记住 NumLock 灯的状态。"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -1057,4 +1063,3 @@ msgstr "是否允许键盘锁定。"
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "是否可推迟打字间断屏幕。"
-
