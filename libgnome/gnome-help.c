@@ -97,7 +97,7 @@ gnome_help_display (const char    *file_name,
 /**
  * gnome_help_display_with_doc_id_and_env:
  * @program: The current application object, or %NULL for the default one.
- * @doc_id: The document identifier, or %NULL to default to the application ID
+ * @doc_id: The document identifier, or %NULL to default to empty string.
  * (app_id) of the specified @program.
  * @file_name: The name of the help document to display.
  * @link_id: Can be %NULL. If set, refers to an anchor or section id within the
@@ -142,7 +142,7 @@ gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
 		program = gnome_program_get ();
 
 	if (doc_id == NULL)
-		doc_id = gnome_program_get_app_id (program);
+		doc_id = "";
 
 	/* Compute the local and global help paths */
 
