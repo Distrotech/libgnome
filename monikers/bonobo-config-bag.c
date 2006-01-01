@@ -438,7 +438,7 @@ impl_Bonobo_PropertyBag_getFlags (PortableServer_Servant  servant,
 	return retval;
 }
 
-
+#if 0
 static void
 notify_cb (BonoboListener    *listener,
 	   const char        *event_name, 
@@ -457,6 +457,7 @@ notify_cb (BonoboListener    *listener,
 
 	g_free (ename);
 }
+#endif
 
 BonoboConfigBag *
 bonobo_config_bag_new (const gchar *path)

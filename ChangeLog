@@ -1,3 +1,11 @@
+2005-12-17  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-program.c: (gnome_program_postinit):
+	Remove call to g_blow_chunks(). GMemChunks are deprecated
+	now and this shouldn't produce much of an ill effect hopefully?
+	* monikers/bonobo-config-bag.c: #if 0 out a function that
+	is only referenced in a commented out line.
+
 2005-12-13  Gustavo J. A. M. Carneiro  <gjc@inescporto.pt>
 
 	* libgnome/gnome-program.c (gnome_program_init_paramv): Allow

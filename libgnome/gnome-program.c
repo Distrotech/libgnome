@@ -1707,13 +1707,6 @@ gnome_program_postinit (GnomeProgram *program)
     /* Accessibility magic */
     accessibility_init (program);
 
-    /* Free up stuff we don't need to keep around for the lifetime of the app */
-
-    /* Note! we cannot kill the program_modules array as that
-     * may be needed later */
-
-    g_blow_chunks(); /* Try to compact memory usage a bit */
-
     program->_priv->state = APP_POSTINIT_DONE;
 }
 
