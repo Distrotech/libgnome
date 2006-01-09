@@ -1,3 +1,13 @@
+2006-01-09  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* configure.in: Up version.
+	* libgnome/.cvsignore: Add a missing file
+	* libgnome/gnome-init.c: (gnome_bonobo_activation_module_info_get),
+	(libgnome_module_get_goption_group), (libgnome_module_info_get):
+	* libgnome/gnome-program.c: (gnome_program_preinit):
+	* libgnome/libgnometypes.c: Fix leaks introduced by the move to
+	GOption. (Christian Perch). Closes bug #326237.
+
 2006-01-03  Mark McLoughlin  <mark@skynet.ie>
 
 	* configure.in: remove comment which refers to

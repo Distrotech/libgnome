@@ -129,6 +129,8 @@ enum {
     PROP_LAST
 };
 
+typedef GOptionGroup * (* GetGOptionGroupFunc) (void);
+
 static void gnome_program_finalize      (GObject           *object);
 
 static GQuark quark_get_prop = 0;
@@ -1368,10 +1370,13 @@ gnome_program_preinit (GnomeProgram *program,
         /* 5a. Add the modules' GOptionGroup:s to our context */
 
 	for (i = 0; (a_module = g_ptr_array_index (program_modules, i)); i++) {
-		GOptionGroup *group = (GOptionGroup *) a_module->expansion1;
-		if (group) {
+		GetGOptionGroupFunc get_goption_group = (GetGOptionGroupFunc) a_module->expansion1;
+
+		if (get_goption_group) {
+			GOptionGroup *option_group = get_goption_group ();
+
 			g_option_context_add_group (program->_priv->goption_context,
-						    group);
+						    option_group);
 		}
 	}
 

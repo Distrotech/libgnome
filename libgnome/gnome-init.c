@@ -146,7 +146,7 @@ gnome_bonobo_activation_module_info_get (void)
 		bonobo_activation_popt_options
 	};
 
-	module_info.expansion1 = (gpointer) bonobo_activation_get_goption_group ();
+	module_info.expansion1 = bonobo_activation_get_goption_group;
 
 	if (module_info.version == NULL) {
 		module_info.version = g_strdup_printf
@@ -514,6 +514,21 @@ gnome_vfs_module_info_get (void)
 	return &module_info;
 }
 
+static GOptionGroup *
+libgnome_module_get_goption_group (void)
+{
+	GOptionGroup *option_group;
+
+	option_group = g_option_group_new ("gnome",
+					   N_("GNOME Library"),
+					   N_("Show GNOME options"),
+					   NULL, NULL);
+	g_option_group_set_translation_domain (option_group, GETTEXT_PACKAGE);
+	g_option_group_add_entries (option_group, gnomelib_goptions);
+
+	return option_group;
+}
+
 /**
 * libgnome_module_info_get:
 * 
@@ -534,14 +549,7 @@ libgnome_module_info_get (void)
 	};
 	int i = 0;
 	
-	GOptionGroup *option_group;
-	option_group = g_option_group_new ("gnome",
-					   N_("GNOME Library"),
-					   N_("Show GNOME options"),
-					   NULL, NULL);
-	g_option_group_set_translation_domain (option_group, GETTEXT_PACKAGE);
-	g_option_group_add_entries (option_group, gnomelib_goptions);
-	module_info.expansion1 = (gpointer) option_group;
+	module_info.expansion1 = libgnome_module_get_goption_group;
 
 	if (module_info.requirements == NULL) {
 		static GnomeModuleRequirement req[4];
