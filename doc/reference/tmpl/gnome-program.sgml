@@ -152,13 +152,13 @@ using a popt table that is defined elsewhere (in other words, this is how to
 remove the use of the deprecated gnome_init_with_popt_table() from code).
 </para>
 <example>
-<title>Initializing a GNOME application</title>
+<title>Initializing a GNOME application (deprecated, using popt)</title>
 <programlisting>
 int main(int argc, char **argv) {
 	GnomeProgram *my_app;
 	
-	/* We assume PACKAGE and VERSION are set the program name and version
-	 * number respectively. Also, assume the 'options' is a global array of
+	/* We assume PACKAGE and VERSION are set to the program name and version
+	 * number respectively. Also, assume that 'options' is a global array of
 	 * poptOptions.
 	 */
 	my_app = gnome_program_init(PACKAGE, VERSION, LIBGNOMEUI_MODULE,
@@ -168,6 +168,68 @@ int main(int argc, char **argv) {
 }
 </programlisting>
 </example>
+<para>
+Even though many applications still use popt for command-line option parsing,
+it has been deprecated in Gnome-2.14 and its use is discouraged for
+newly-written code. GNOME applications should aim to use the new
+#GOption API. Here an example that shows how one might initialize a typical
+program using a GOptionEntry table (see the GLib documentation for a more
+elaborate example of an option entry table):
+<example>
+<title>Initializing a GNOME application (new, using GOption)</title>
+<programlisting>
+int main(int argc, char **argv) {
+	gchar **remaining_args = NULL;
+	GOptionEntry option_entries[] = {
+		/* ... your application&apos;s command line options go here ... */
+		/* last but not least a special option that collects filenames */
+		{ G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY,
+		  &amp;remaining_args,
+		  "Special option that collects any remaining arguments for us" },
+		{ NULL }
+	};
+
+	GOptionContext *option_context;
+	GnomeProgram *my_app;
+
+	option_context = g_option_context_new ("my-app");
+
+	/* if you are using any libraries that have command line options
+	 * of their own and provide a GOptionGroup with them, you can
+	 * add them here as well using g_option_context_add_group()
+	 */
+
+	/* now add our own application&apos;s command-line options. If you
+	 * are using gettext for translations, you should be using
+	 * GETTEXT_PACKAGE here instead of NULL
+	 */
+	g_option_context_add_main_entries (option_context, option_entries, NULL);
+
+	/* We assume PACKAGE and VERSION are set to the program name and version
+	 * number respectively. Also, assume that 'option_entries' is a global
+	 * array of GOptionEntry structures.
+	 */
+	my_app = gnome_program_init(PACKAGE, VERSION,
+	                            LIBGNOMEUI_MODULE, argc, argv,
+	                            GNOME_PARAM_GOPTION_CONTEXT, option_context,
+	                            GNOME_PARAM_NONE);
+
+	/* parse remaining command-line arguments that are not
+	 * options (e.g. filenames or URIs or whatever), if any
+	 */
+	if (remaining_args != NULL) {
+	    gint i, num_args;
+
+		num_args = g_strv_length (remaining_args);
+		for (i = 0; i &lt; num_args; ++i) {
+			/* process remaining_args[i] here */
+		}
+		g_strfreev (remaining_args);
+		remaining_args = NULL;
+	}
+</programlisting>
+</example>
+</para>
 
 @app_id: 
 @app_version: 
