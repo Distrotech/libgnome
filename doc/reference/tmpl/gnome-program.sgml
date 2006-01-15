@@ -81,8 +81,9 @@ required modules are initialized (although they might be).
 @class_init: A function to call to initialise this module prior to creating any
 instances (can be %NULL).
 @opt_prefix: Unused.
-@expansion1: A #GOptionGroup for the special arguments this module supports when
-parsing options with GOption (can be %NULL).
+@expansion1: A function pointer to a function of type GOptionGroup* (*func)(void) to
+get the GOption group for parsing options for this module with GOption, or %NULL if
+this module does not support GOption option parsing.
 
 <!-- ##### STRUCT GnomeModuleRequirement ##### -->
 <para>
@@ -148,21 +149,24 @@ gnome_program_preinit(), gnome_program_parse_args() and
 gnome_program_postinit().
 </para>
 <para>The following example shows how one might initialise a typical program
-using a popt table that is defined elsewhere (in other words, this is how to
-remove the use of the deprecated gnome_init_with_popt_table() from code).
+using a goption table that is defined elsewhere.
 </para>
 <example>
 <title>Initializing a GNOME application (deprecated, using popt)</title>
 <programlisting>
 int main(int argc, char **argv) {
 	GnomeProgram *my_app;
+	GOptionContext *option_context;
 	
 	/* We assume PACKAGE and VERSION are set to the program name and version
 	 * number respectively. Also, assume that 'options' is a global array of
 	 * poptOptions.
 	 */
+	option_context = g_option_context_new (PACKAGE);
+	g_option_context_add_main_entries (option_context, options, NULL);
 	my_app = gnome_program_init(PACKAGE, VERSION, LIBGNOMEUI_MODULE,
-	                            argc, argv, GNOME_PARAM_POPT_TABLE, options,
+	                            argc, argv,
+				    GNOME_PARAM_OPTION_CONTEXT, option_context,
 				    GNOME_PARAM_NONE);
 	/* Now process any extra args, etc ... */
 }
@@ -379,6 +383,8 @@ init only). Mutually exclusive with using #GNOME_PARAM_GOPTION_CONTEXT
 parameter.
 </para>
 
+@Deprecated: 2.14. Use GOption argument parsing instead,
+with #GNOME_PARAM_GOPTION_CONTEXT.
 
 
 <!-- ##### MACRO GNOME_PARAM_POPT_FLAGS ##### -->
@@ -386,6 +392,7 @@ parameter.
 This parameter contains the flags to use for popt (write on init only).
 </para>
 
+@Deprecated: 2.14. Use GOption argument parsing instead.
 
 
 <!-- ##### MACRO GNOME_PARAM_POPT_CONTEXT ##### -->
@@ -394,6 +401,7 @@ This parameter contains the context pointer that #GnomeProgram is using for
 popt parsing (readable).
 </para>
 
+@Deprecated: 2.14. Use GOption argument parsing instead.
 
 
 <!-- ##### MACRO GNOME_PARAM_GOPTION_CONTEXT ##### -->
