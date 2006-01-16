@@ -37,9 +37,7 @@
 
 #include <glib-object.h>
 
-#ifndef GNOME_DISABLE_DEPRECATED
 #include <popt.h>
-#endif
 
 G_BEGIN_DECLS
 
