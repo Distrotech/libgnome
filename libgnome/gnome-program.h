@@ -32,12 +32,14 @@
 #define GNOME_PROGRAM_H
 
 #include <glib.h>
-#include <popt.h>
 #include <stdarg.h>
 #include <errno.h>
 
 #include <glib-object.h>
 
+#ifndef GNOME_DISABLE_DEPRECATED
+#include <popt.h>
+#endif
 
 G_BEGIN_DECLS
 
@@ -110,9 +112,6 @@ gnome_program_locate_file               (GnomeProgram    *program,
 					 GSList         **ret_locations);
 
 #define GNOME_PARAM_NONE                NULL
-#define GNOME_PARAM_POPT_TABLE          "popt-table"
-#define GNOME_PARAM_POPT_FLAGS          "popt-flags"
-#define GNOME_PARAM_POPT_CONTEXT        "popt-context"
 #define GNOME_PARAM_GOPTION_CONTEXT     "goption-context"
 #define GNOME_PARAM_CREATE_DIRECTORIES  "create-directories"
 #define GNOME_PARAM_ENABLE_SOUND        "enable-sound"
@@ -129,6 +128,12 @@ gnome_program_locate_file               (GnomeProgram    *program,
 #define GNOME_PARAM_APP_LIBDIR          "app-libdir"
 #define GNOME_PARAM_HUMAN_READABLE_NAME "human-readable-name"
 #define GNOME_PARAM_GNOME_PATH          "gnome-path"
+
+#ifndef GNOME_DISABLE_DEPRECATED
+#define GNOME_PARAM_POPT_TABLE          "popt-table"
+#define GNOME_PARAM_POPT_FLAGS          "popt-flags"
+#define GNOME_PARAM_POPT_CONTEXT        "popt-context"
+#endif
 
 /***** application modules (aka libraries :) ******/
 #define GNOME_TYPE_MODULE_INFO          (gnome_module_info_get_type ())
@@ -149,6 +154,7 @@ typedef void (*GnomeModuleClassInitHook) (GnomeProgramClass *klass,
 					  const GnomeModuleInfo *mod_info);
 typedef void (*GnomeModuleHook) (GnomeProgram *program,
 				 GnomeModuleInfo *mod_info);
+typedef GOptionGroup* (*GnomeModuleGetGOptionGroupFunc) (void);
 
 struct _GnomeModuleInfo {
     const char *name;
@@ -159,14 +165,18 @@ struct _GnomeModuleInfo {
     GnomeModuleHook instance_init;
     GnomeModuleHook pre_args_parse, post_args_parse;
 
+#ifdef GNOME_DISABLE_DEPRECATED
+    struct poptOption *_options;
+#else
     struct poptOption *options;
+#endif
 
     GnomeModuleInitHook init_pass;
 
     GnomeModuleClassInitHook class_init;
 
     const char *opt_prefix;
-    gpointer    expansion1;
+    GnomeModuleGetGOptionGroupFunc get_goption_group_func;
 };
 
 /* This function should be called before gnomelib_preinit() - it's an

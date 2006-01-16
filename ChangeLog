@@ -1,3 +1,12 @@
+2006-01-16  Emmanuele Bassi  <ebassi@cvs.gnome.org>
+
+	* libgnome/gnome-init.c: (gnome_bonobo_activation_module_info_get),
+	(libgnome_module_info_get):
+	* libgnome/gnome-program.c: (gnome_program_preinit):
+	* libgnome/gnome-program.h: apply patch from Christian Persch to mark
+	popt as deprecated and rename the GnomeModuleInfo struct member
+	for using GOption for argument parsing.  Closes bug #326846.
+
 2006-01-15  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* doc/reference/tmpl/gnome-program.sgml: Add deprecation notices

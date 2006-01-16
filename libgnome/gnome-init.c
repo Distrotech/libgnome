@@ -146,7 +146,7 @@ gnome_bonobo_activation_module_info_get (void)
 		bonobo_activation_popt_options
 	};
 
-	module_info.expansion1 = bonobo_activation_get_goption_group;
+	module_info.get_goption_group_func = bonobo_activation_get_goption_group;
 
 	if (module_info.version == NULL) {
 		module_info.version = g_strdup_printf
@@ -549,7 +549,7 @@ libgnome_module_info_get (void)
 	};
 	int i = 0;
 	
-	module_info.expansion1 = libgnome_module_get_goption_group;
+	module_info.get_goption_group_func = libgnome_module_get_goption_group;
 
 	if (module_info.requirements == NULL) {
 		static GnomeModuleRequirement req[4];

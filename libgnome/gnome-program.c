@@ -1370,13 +1370,9 @@ gnome_program_preinit (GnomeProgram *program,
         /* 5a. Add the modules' GOptionGroup:s to our context */
 
 	for (i = 0; (a_module = g_ptr_array_index (program_modules, i)); i++) {
-		GetGOptionGroupFunc get_goption_group = (GetGOptionGroupFunc) a_module->expansion1;
-
-		if (get_goption_group) {
-			GOptionGroup *option_group = get_goption_group ();
-
+		if (a_module->get_goption_group_func) {
 			g_option_context_add_group (program->_priv->goption_context,
-						    option_group);
+						    a_module->get_goption_group_func ());
 		}
 	}
 
