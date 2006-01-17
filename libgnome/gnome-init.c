@@ -89,7 +89,7 @@ gnome_bonobo_module_info_get (void)
 		N_("Bonobo Support"),
 		NULL, NULL,
 		NULL, bonobo_post_args_parse,
-		NULL, NULL, NULL, NULL
+		NULL, NULL, NULL, NULL, NULL
 	};
 
 	if (module_info.requirements == NULL) {
@@ -143,10 +143,9 @@ gnome_bonobo_activation_module_info_get (void)
 		"bonobo-activation", NULL, N_("Bonobo activation Support"),
 		NULL, NULL,
 		bonobo_activation_pre_args_parse, bonobo_activation_post_args_parse,
-		bonobo_activation_popt_options
+		bonobo_activation_popt_options, NULL, NULL, NULL,
+		bonobo_activation_get_goption_group
 	};
-
-	module_info.get_goption_group_func = bonobo_activation_get_goption_group;
 
 	if (module_info.version == NULL) {
 		module_info.version = g_strdup_printf
@@ -509,6 +508,8 @@ gnome_vfs_module_info_get (void)
 		NULL, gnome_vfs_post_args_parse,
 		NULL,
 		NULL,
+		NULL,
+		NULL,
 		NULL
 	};
 	return &module_info;
@@ -545,12 +546,11 @@ libgnome_module_info_get (void)
 		NULL, NULL,
 		NULL, libgnome_post_args_parse,
 		gnomelib_options,
-		NULL, NULL, NULL, NULL
+		NULL, NULL, NULL,
+		libgnome_module_get_goption_group
 	};
 	int i = 0;
 	
-	module_info.get_goption_group_func = libgnome_module_get_goption_group;
-
 	if (module_info.requirements == NULL) {
 		static GnomeModuleRequirement req[4];
 

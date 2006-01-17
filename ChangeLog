@@ -1,3 +1,10 @@
+2006-01-17  Christian Persch  <chpe@cvs.gnome.org>
+
+	* libgnome/gnome-init.c: (gnome_bonobo_module_info_get),
+	(gnome_bonobo_activation_module_info_get),
+	(gnome_vfs_module_info_get), (libgnome_module_info_get):
+	Initialise all members of the GnomeModuleInfo structs.
+
 2006-01-16  Emmanuele Bassi  <ebassi@cvs.gnome.org>
 
 	* configure.in, NEWS: release 2.13.7.
