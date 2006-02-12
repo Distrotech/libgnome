@@ -147,6 +147,13 @@ gnome_url_show_with_env (const char  *url,
 		}
 		break;
 
+	case GNOME_VFS_ERROR_INVALID_URI:
+		g_set_error (error,
+		             GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_VFS,
+			     _("The location or file could not be found."));
+		break;
+
 	default:
 		g_set_error (error,
 			     GNOME_URL_ERROR,
