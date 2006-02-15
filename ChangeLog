@@ -1,3 +1,10 @@
+2006-02-15  Christian Persch  <chpe@cvs.gnome.org>
+
+        * libgnome/gnome-program.c: (gnome_program_preinit): revert to only
+	using GOption if explicitly requested, since otherwise the popt
+	context isn't created, which breaks ABI in case anyone tries to use
+	it.
+		
 2006-02-12  Claudio Saavedra  <csaavedra@alumnos.utalca.cl>
 
 	* libgnome/gnome-url.c: (gnome_url_show_with_env): Add handling of 

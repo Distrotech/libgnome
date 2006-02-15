@@ -1366,13 +1366,6 @@ gnome_program_preinit (GnomeProgram *program,
 	}
     }
 
-    /* If there's no GOption context nor 'struct poptOption *' given by the
-     * program, use GOption */
-    if (!program->_priv->prop_popt_table &&
-	!program->_priv->goption_context) {
-	    program->_priv->goption_context = g_option_context_new ("");
-    }
-
     if (program->_priv->goption_context) {
         /* 5a. Add the modules' GOptionGroup:s to our context */
 
