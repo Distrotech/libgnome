@@ -1,22 +1,22 @@
 # translation of eu.po to Basque
 # translation of libgnome.HEAD.po to basque
-# Copyright (C) 1999, 2004 Free Software Foundation, Inc.
+# Copyright (C) 1999, 2004, 2006 Free Software Foundation, Inc.
 # Joseba Bidaurrazaga van Dierdonck <jbv@euskalnet.net>, 1999-2001.
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004.
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2004, 2005.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2004, 2005, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-05 20:48+0200\n"
-"PO-Revision-Date: 2004-07-29 22:40+0200\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
+"POT-Creation-Date: 2006-02-21 14:21+0100\n"
+"PO-Revision-Date: 2006-02-21 14:33+0100\n"
+"Last-Translator: Iñaki Larrañaga <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0.2\n"
+"X-Generator: KBabel 1.10.2\n"
 
 #
 #: ../gnome-data/gnome-2.soundlist.in.h:1
@@ -76,8 +76,7 @@ msgstr "Erabiltzailearen interfazearen gertaerak"
 
 #: ../libgnome/gnome-exec.c:455
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr ""
-"Ezin da terminala aurkitu; xterm erabiliko da, nahiz eta agian funtzionatu ez"
+msgstr "Ezin da terminala aurkitu; xterm erabiliko da, nahiz eta agian funtzionatu ez"
 
 #: ../libgnome/gnome-gconf.c:180
 msgid "GNOME GConf Support"
@@ -96,8 +95,7 @@ msgstr "Ezin izan da GNOME_FILE_DOMAIN_HELP domeinua aurkitu."
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr ""
-"Ezin da laguntza erakutsi, %s direktorioa ez delako. Egiaztatu instalazioa."
+msgstr "Ezin da laguntza erakutsi, %s direktorioa ez delako. Egiaztatu instalazioa."
 
 #: ../libgnome/gnome-help.c:209 ../libgnome/gnome-help.c:225
 #, c-format
@@ -119,22 +117,22 @@ msgid "Help document %s/%s not found"
 msgstr "%s/%s laguntza-dokumentua ez da aurkitu"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:90
+#: ../libgnome/gnome-init.c:89
 msgid "Bonobo Support"
 msgstr "Bonobo-rako euskarria"
 
-#: ../libgnome/gnome-init.c:144
+#: ../libgnome/gnome-init.c:143
 msgid "Bonobo activation Support"
 msgstr "Bonobo aktibatzeko euskarria"
 
-#: ../libgnome/gnome-init.c:330 ../libgnome/gnome-init.c:344
+#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Ezin izan da erabiltzaileko gnome-ren `%s' konfigurazio-direktorio bat "
 "aurkitu: %s \n"
 
-#: ../libgnome/gnome-init.c:353
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -143,202 +141,225 @@ msgstr ""
 "Ezin izan da 0700 modua ezarri erabiltzaileko gnome-ren `%s'konfigurazio-"
 "direktorio pribatuan: %s\n"
 
-#: ../libgnome/gnome-init.c:360
+#: ../libgnome/gnome-init.c:411
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Ezin izan da gnome-ren bizkortzaileen `%s' direktorioa sortu: %s\n"
 
-#: ../libgnome/gnome-init.c:409
+#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
 msgid "Disable sound server usage"
 msgstr "Desgaitu soinu-zerbitzariaren erabilera"
 
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
 msgid "Enable sound server usage"
 msgstr "Gaitu soinu-zerbitzariaren erabilera"
 
-#: ../libgnome/gnome-init.c:415
+#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
 msgid "Host:port on which the sound server to use is running"
 msgstr "Erabili beharreko soinu-zerbitzaria dagoen ostalaria:ataka"
 
-#: ../libgnome/gnome-init.c:417
+#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
 msgid "HOSTNAME:PORT"
 msgstr "OSTALARIA:ATAKA"
 
-#: ../libgnome/gnome-init.c:439
+#: ../libgnome/gnome-init.c:506
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOMEren fitxategi-sistema birtuala"
 
-#: ../libgnome/gnome-init.c:463
+#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
 msgid "GNOME Library"
 msgstr "GNOMEren liburutegia"
 
-#: ../libgnome/gnome-program.c:437
+#: ../libgnome/gnome-init.c:525
+msgid "Show GNOME options"
+msgstr "Erakutsi GNOMEko aukerak"
+
+#: ../libgnome/gnome-program.c:447
 msgid "Popt Table"
 msgstr "Popt taula"
 
-#: ../libgnome/gnome-program.c:438
+#: ../libgnome/gnome-program.c:448
 msgid "The table of options for popt"
 msgstr "popt-erako aukeren taula"
 
-#: ../libgnome/gnome-program.c:445
+#: ../libgnome/gnome-program.c:455
 msgid "Popt Flags"
 msgstr "Popt-en banderak"
 
-#: ../libgnome/gnome-program.c:446
+#: ../libgnome/gnome-program.c:456
 msgid "The flags to use for popt"
 msgstr "popt-en erabiltzeko banderak"
 
-#: ../libgnome/gnome-program.c:454
+#: ../libgnome/gnome-program.c:464
 msgid "Popt Context"
 msgstr "Popt-en testuingurua"
 
-#: ../libgnome/gnome-program.c:455
+#: ../libgnome/gnome-program.c:465
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "Gnome programa erabiltzen ari den popt-en testuinguruaren erakuslea"
 
-#: ../libgnome/gnome-program.c:463
+#: ../libgnome/gnome-program.c:473
+msgid "GOption Context"
+msgstr "GOption-en testuingurua"
+
+#: ../libgnome/gnome-program.c:474
+msgid "The goption context pointer that GnomeProgram is using"
+msgstr "Gnome programa erabiltzen ari den goption-en testuinguruaren erakuslea"
+
+#: ../libgnome/gnome-program.c:482
 msgid "Human readable name"
 msgstr "Gizakiek irakurtzeko moduko izena"
 
 #
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:483
 msgid "Human readable name of this application"
 msgstr "Aplikazio honen gizakiek irakurtzeko moduko izena"
 
 #
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:492
 msgid "GNOME path"
 msgstr "GNOMEren bide-izena"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:493
 msgid "Path in which to look for installed files"
 msgstr "Instalatutako fitxategiak bilatu behar diren bide-izena"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:502
 msgid "App ID"
 msgstr "Apl. IDa"
 
 #
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:503
 msgid "ID string to use for this application"
 msgstr "Aplikazio honetan erabiltzeko ID katea"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:510
 msgid "App version"
 msgstr "Aplikazioaren bertsioa"
 
 #
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:511
 msgid "Version of this application"
 msgstr "Aplikazio honen bertsioa"
 
-#: ../libgnome/gnome-program.c:499
+#: ../libgnome/gnome-program.c:518
 msgid "GNOME Prefix"
 msgstr "GNOMEren aurrizkia"
 
-#: ../libgnome/gnome-program.c:500
+#: ../libgnome/gnome-program.c:519
 msgid "Prefix where GNOME was installed"
 msgstr "GNOME instalatuta zegoen aurrizkia"
 
-#: ../libgnome/gnome-program.c:509
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Libdir"
 msgstr "GNOMEren liburutegiaren direktorioa"
 
-#: ../libgnome/gnome-program.c:510
+#: ../libgnome/gnome-program.c:529
 msgid "Library prefix where GNOME was installed"
 msgstr "GNOME instalatuta zegoen liburutegiaren aurrizkia"
 
 #
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Datadir"
 msgstr "GNOMEren datuen direktorioa"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:539
 msgid "Data prefix where GNOME was installed"
 msgstr "GNOME instalatuta zegoen lekuko datuen aurrizkia"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Sysconfdir"
 msgstr "GNOMEren sistema konfiguratzeko direktorioa"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:549
 msgid "Configuration prefix where GNOME was installed"
 msgstr "GNOME instalatutako lekuaren konfigurazio-aurrizkia"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:559
 msgid "GNOME App Prefix"
 msgstr "GNOMEren aplikazioen aurrizkia"
 
-#: ../libgnome/gnome-program.c:541
+#: ../libgnome/gnome-program.c:560
 msgid "Prefix where this application was installed"
 msgstr "Aplikazio hau instalatuta dagoen lekuko aurrizkia"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:568
 msgid "GNOME App Libdir"
 msgstr "GNOMEren aplikazioen liburutegien direktorioa"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:569
 msgid "Library prefix where this application was installed"
 msgstr "Aplikazio hau instalatuta zegoen lekuko liburutegiaren aurrizkia"
 
 #
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Datadir"
 msgstr "GNOMEren aplikazioen datuen direktorioa"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:579
 msgid "Data prefix where this application was installed"
 msgstr "Aplikazio hau instalatuta zegoen lekuko datuen aurrizkia"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Sysconfdir"
 msgstr "GNOMEren aplikazioen sistema konfiguratzeko direktorioa"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:589
 msgid "Configuration prefix where this application was installed"
 msgstr "Aplikazio hau instalatuta zegoen lekuko aurrizkiaren konfigurazioa"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:598
 msgid "Create Directories"
 msgstr "Sortu direktorioak"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:599
 msgid "Create standard GNOME directories on startup"
 msgstr "Sortu GNOMEren direktorio estandarrak abioan"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:608
 msgid "Enable Sound"
 msgstr "Gaitu soinua"
 
 #
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:609
 msgid "Enable sound on startup"
 msgstr "Gaitu soinua abioan"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:617
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:618
 msgid "How to connect to esd"
 msgstr "Nola konektatu esd-era"
 
 #
-#: ../libgnome/gnome-program.c:1365
+#: ../libgnome/gnome-program.c:1402
 msgid "Help options"
 msgstr "Laguntza-aukerak"
 
-#: ../libgnome/gnome-program.c:1370
+#: ../libgnome/gnome-program.c:1407
 msgid "Application options"
 msgstr "Aplikazio-aukerak"
 
-#: ../libgnome/gnome-program.c:1386
+#: ../libgnome/gnome-program.c:1423
 msgid "Dynamic modules to load"
 msgstr "Kargatzeko modulu dinamikoak"
 
-#: ../libgnome/gnome-program.c:1387
+#: ../libgnome/gnome-program.c:1424
 msgid "MODULE1,MODULE2,..."
 msgstr "1MODULUA,2MODULUA,..."
+
+#. Translators: the first %s is the error message, 2nd %s the program name
+#: ../libgnome/gnome-program.c:1507
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"%s.\n"
+"Exekutatu '%s --help' komando-lerroko aukera erabilgarrien zerrenda "
+"ikusteko.\n"
 
 #: ../libgnome/gnome-url.c:84
 msgid "Unknown internal error while displaying this location."
@@ -356,7 +377,7 @@ msgstr ""
 "Errorea gertatu da helbidearekin lotutako ekintza-komando lehenetsia "
 "analizatzean."
 
-#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:139
+#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:172
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -373,11 +394,28 @@ msgid "The default action does not support this protocol."
 msgstr "Ekintza lehenetsiak ez du protokolo hau onartzen."
 
 #: ../libgnome/gnome-url.c:128
-#, c-format
-msgid "Unknown error code: %d"
-msgstr "Errore-kode ezezaguna: %d "
+msgid "The request was cancelled."
+msgstr "Eskaera bertan behera utzi da."
 
-#: ../libgnome/gnome-open.c:40 ../libgnome/gnome-open.c:49
+#: ../libgnome/gnome-url.c:138
+#, c-format
+msgid "The host \"%s\" could not be found."
+msgstr "Ezin izan da \"%s\" ostalaria aurkitu."
+
+#: ../libgnome/gnome-url.c:144
+msgid "The host could not be found."
+msgstr "Ezin izan da ostalaria aurkitu."
+
+#: ../libgnome/gnome-url.c:154
+msgid "The location or file could not be found."
+msgstr "Ezin izan da kokalekua edo fitxategia aurkitu."
+
+#: ../libgnome/gnome-url.c:161
+#, c-format
+msgid "Unknown error code: %u"
+msgstr "Errore-kode ezezaguna: %u"
+
+#: ../libgnome/gnome-open.c:34
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Errorea url-a erakustean: %s\n"
@@ -414,18 +452,15 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Desgaitu bi tekla aldi berean sakatzen direnean."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr ""
-"Ez onartu tekla bat sakatutzat @delay milisegundoz sakatuta edukitzen ez bada"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr "Ez onartu tekla bat sakatutzat @delay milisegundoz sakatuta edukitzen ez bada"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "0tik gehienezko abiadurara iristeko behar duen denbora milisegundotan"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Sagua mugitzeko tresnak funtzionatzen hasi baino lehen itxaron behar den "
 "denbora milisegundotan"
@@ -493,8 +528,7 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
-msgstr ""
-"Arakatzaile lehenetsiak urruneko netscape ulertzen duen ala ez adierazten du"
+msgstr "Arakatzaile lehenetsiak urruneko netscape ulertzen duen ala ez adierazten du"
 
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
@@ -515,8 +549,7 @@ msgstr ""
 "adierazten du"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "'exec' teklak definitutako terminalean programak exekurtatzeko erabilitako "
 "argumentua."
@@ -541,8 +574,8 @@ msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
 msgstr ""
-"Leiho-kudeatzailearen lehen laneko areak biltzen dituen zerrenda. "
-"Gako hau zaharkitua gelditu da GNOME 2.12 bertsiotik."
+"Leiho-kudeatzailearen lehen laneko areak biltzen dituen zerrenda. Gako hau "
+"zaharkitua gelditu da GNOME 2.12 bertsiotik."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
@@ -554,8 +587,7 @@ msgid ""
 "been deprecated since GNOME 2.12."
 msgstr ""
 "Laguntzako leiho-kudeatzailea erabiltzailearen leiho-kudeatzailea aurkitu "
-"ezin bada. "
-"Gako hau zaharkitua gelditu da GNOME 2.12 bertsiotik."
+"ezin bada. Gako hau zaharkitua gelditu da GNOME 2.12 bertsiotik."
 
 #
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
@@ -570,19 +602,19 @@ msgstr "Laneko area-kopurua (zaharkitua)"
 msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
-msgstr "Leiho-kudeatzaileak erabili behar duen laneko area-kopurua. "
-"Gako hau zaharkitua gelditu da GNOME 2.12 bertsiotik."
+msgstr ""
+"Leiho-kudeatzaileak erabili behar duen laneko area-kopurua. Gako hau "
+"zaharkitua gelditu da GNOME 2.12 bertsiotik."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
 msgstr "Erabiltzailearen leiho-kudeatzailea (zaharkitua)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid ""
-"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
-"Leiho-kudeatzailea aurrenik saiatzeko. "
-"Gako hau zaharkitua gelditu da GNOME 2.12 bertsiotik."
+"Leiho-kudeatzailea aurrenik saiatzeko. Gako hau zaharkitua gelditu da GNOME "
+"2.12 bertsiotik."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -756,21 +788,18 @@ msgid "Monospace font"
 msgstr "Tarte bakarreko letra-tipoa"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:23
-msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Helbideetan, adibidez terminaletan, erabiltzeko tarte bakarreko (zabalera "
 "finkoko) letra-tipoaren izena."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
-"Gtk+-ek erabiltzen duen GTK+-en Preedit estiloko sarrerako metodoaren izena."
+msgstr "Gtk+-ek erabiltzen duen GTK+-en Preedit estiloko sarrerako metodoaren izena."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
-"Gtk+-ek erabiltzen duen GTK+-en egoera-estiloko sarrerako metodoaren izena."
+msgstr "Gtk+-ek erabiltzen duen GTK+-en egoera-estiloko sarrerako metodoaren izena."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Name of the default font used by gtk+."
@@ -781,42 +810,50 @@ msgid "Name of the default font used for reading documents"
 msgstr "Dokumentuak irakurtzeko erabiltzen den letra-tipo lehenetsiaren izena."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
+msgid "Show the 'Input Methods' menu"
+msgstr "Erakutsi 'Sarrerako metodak' menua"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+msgid "Show the 'Unicode Control Character' menu"
+msgstr "Erakutsi 'Unicode karaktere-kontrola' menua"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
 msgstr "Egoera-barra eskuinean"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Horrek tresna-barretan bistaratzen diren ikonoen tamaina zehazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Toolbar Detachable"
 msgstr "Tresna-barra bereizgarria"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "Tresna-barrako ikonoen tamaina"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Toolbar Style"
 msgstr "Tresna-barraren estiloa"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr ""
-"Tresna-barraren estiloa. Balio hauek onartzen dira: \"both\", \"both_horiz\",  eta \"text\""
+"Tresna-barraren estiloa. Balio hauek onartzen dira: \"both\", \"both_horiz"
+"\",  eta \"text\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Use Custom Font"
 msgstr "Erabili letra-tipo pertsonalizatua"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether Applications should have accessibility support"
-msgstr ""
-"Aplikazioek erabilerraztasun-euskarria eduki behar duten ala ez adierazten du"
+msgstr "Aplikazioek erabilerraztasun-euskarria eduki behar duten ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -825,32 +862,45 @@ msgstr ""
 "gako orokorra da, leiho-kudeatzailearen, panelaren eta abarraren portaera "
 "aldatzen du."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
-"Menuek menu-sarreren ondoan ikonoa bistaratu behar duten ala ez adierazten du"
+msgstr "Menuek menu-sarreren ondoan ikonoa bistaratu behar duten ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "Menuak askagarriak izan behar duten ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method"
+msgstr "Sarrerako eta testuen ikuspegiko testuinguruko menuak sarrerako metodoa aldatzea utzi behar duen edo ez."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters"
+msgstr ""
+"Sarrerako eta testuen ikuspegiko testuinguruko menuak kontroleko karaktereak txertatzea "
+"utzi behar duen edo ez."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "Kurtsoreak keinu egin behar duen ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
 "Erabiltzaileak menu-barrak bereizi eta lekuz alda ditzakeen ala ez "
 "adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 "Erabiltzaileak tresna-barrak bereizi eta lekuz alda ditzakeen ala ez "
 "adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
@@ -858,15 +908,13 @@ msgstr ""
 "Erabiltzaileak menua aktibatuta dagoenean bizkortzaile berri bat dinamikoki "
 "idatz dezakeen ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
-msgstr ""
-"Egoera-barraren neurgailua eskuinean bistaratu behar den ala ez adierazten du"
+msgstr "Egoera-barraren neurgailua eskuinean bistaratu behar den ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr ""
-"gtk+ aplikazioetan letra-tipo lehenetsia erabiliko den ala ez adierazten du."
+msgstr "gtk+ aplikazioetan letra-tipo lehenetsia erabiliko den ala ez adierazten du."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
@@ -929,6 +977,18 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Teklatuaren kanpaiaren fitxategi-izen pertsonalizatua"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
+msgid "Remember NumLock state"
+msgstr "Gogoratu blok.zenb.-ren egoera"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+msgstr ""
+"Egia balioarekin ezartzean GNOMEk blokeo numerikoaren LED argiaren egoera saioen artean "
+"gogoratuko du."
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "hauek dira balio posibleak: \"on\", \"off\", eta \"custom\"."
 
@@ -956,14 +1016,8 @@ msgstr "Kurtsorearen gaia"
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server at the "
-"start of each session, so changing it mid-session won't have an effect until "
-"the next time you log in."
-msgstr ""
-"Kurtsorearen gaiaren izena. Xkurtsorea onartzen duten Xzerbitzariek bakarrik "
-"erabiltzen dute, adibidez XFree86 4.3 edo berriagoak. Balioa X zerbitzariari "
-"bakarrik zabaltzen dio saio bakoitzaren hasieran; beraz, saio erdian "
-"aldatzen bada ez du eraginik izango beste saio bat hasi arte."
+"XFree86 4.3 and later."
+msgstr "Kurtsore-gaiaren izena. X kurtsorea onartzen duten X zerbitzarietan soilik erabilgarri (XFree86 4.3 bertiosa edo garatuagoa)."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -1029,14 +1083,8 @@ msgid "Single click to open icons"
 msgstr "Ikonoak irekitzeko klik bakarra"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid ""
-"Size of the cursor referenced by cursor_theme. This value is only propagated "
-"to the X server start of each session, so changing it mid-session won't have "
-"an effect until the next time you log in."
-msgstr ""
-"Kurtsore-gaiak definitutako kurtsorearen tamaina. Balio hori X zerbitzarira "
-"bakarrik hedatzen da saio bakoitzaren hasieran; beraz, saio erdian aldatzen "
-"bada, ez du eraginik izango beste saio bat hasi arte."
+msgid "Size of the cursor referenced by cursor_theme."
+msgstr "Tamaina (kurtsore-gaiak zehazten duen kurtsorearena)."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -1059,8 +1107,7 @@ msgstr "Gertaeren soinuak"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Whether to play sounds on user events."
-msgstr ""
-"Erabiltzailearen gertaeretan soinuak erreproduzitu ala ez adierazten du."
+msgstr "Erabiltzailearen gertaeretan soinuak erreproduzitu ala ez adierazten du."
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
@@ -1104,1265 +1151,5 @@ msgstr "Teklatuaren blokeoa gaituta dagoen ala ez adierazten du."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr ""
-"Idazteko atsedenaldiaren pantaila atzeratu daitekeen ala ez adierazten du."
+msgstr "Idazteko atsedenaldiaren pantaila atzeratu daitekeen ala ez adierazten du."
 
-#~ msgid "Window manager to try first"
-#~ msgstr "Lehenengo probatzeko leiho-kudeatzailea"
-
-#~ msgid "Too many alias levels for a locale, may indicate a loop"
-#~ msgstr "Aliasen maila gehiegi locale baterako, begizta egon daiteke"
-
-#
-#~ msgid "How to handle ghelp URLs"
-#~ msgstr "ghelp-en URLak nola kudeatu"
-
-#
-#~ msgid "How to handle http URLs"
-#~ msgstr "http URLak nola kudeatu"
-
-#
-#~ msgid "How to handle https URLs"
-#~ msgstr "https URLak nola kudeatu"
-
-#
-#~ msgid "How to handle info URLs"
-#~ msgstr "info URLak nola kudeatu"
-
-#
-#~ msgid "How to handle man URLs"
-#~ msgstr "man URLak nola kudeatu"
-
-#~ msgid "How to handle trash URLs"
-#~ msgstr "trash URLak nola kudeatu"
-
-#
-#~ msgid "Run program in terminal"
-#~ msgstr "Exekutatu programa terminalean"
-
-#~ msgid "Set to true to have a program specified in command handle http URLs"
-#~ msgstr "Ezarri egia komandoan zehaztutako programak http URLak kudea ditzan"
-
-#~ msgid "Set to true to have a program specified in command handle https URLs"
-#~ msgstr ""
-#~ "Ezarri egia komandoan zehaztutako programak https URLak kudea ditzan"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/ghelp handle ghelp "
-#~ "URLs"
-#~ msgstr ""
-#~ "Ezarri egia programetan/ghelp-en zehaztutako programak ghelp URLak kudea "
-#~ "ditzan"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/info handle info URLs"
-#~ msgstr ""
-#~ "Ezarri egia programetan/info-n zehaztutako programak info URLak kudea "
-#~ "ditzan"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in programs/man handle man URLs"
-#~ msgstr ""
-#~ "Ezarri egia programetan/man-en zehaztutako programak man URLak kudea "
-#~ "ditzan"
-
-#~ msgid ""
-#~ "Set to true to have a program specified in trash/command handle trash URLs"
-#~ msgstr ""
-#~ "Ezarri egia trash-en/komandoan zehaztutako programak trash URLak kudea "
-#~ "ditzan"
-
-#~ msgid "True if the program to handle this URL should be run in a terminal"
-#~ msgstr ""
-#~ "Egia URL hau kudeatzeko programa terminal batean exekutatu behar bada"
-
-#~ msgid "URL handler for ghelp pages"
-#~ msgstr "URL kudeatzailea ghelp-en orrialdeetarako"
-
-#~ msgid "URL handler for http uris"
-#~ msgstr "URL kudeatzailea http URIetarako"
-
-#~ msgid "URL handler for https uris"
-#~ msgstr "URL kudeatzailea https URIetarako"
-
-#~ msgid "URL handler for info pages"
-#~ msgstr "URL kudeatzailea info orrialdeetarako"
-
-#~ msgid "URL handler for man pages"
-#~ msgstr "URL kudeatzailea man orrialdeetarako"
-
-#~ msgid "URL handler for trash pages"
-#~ msgstr "URL kudeatzailea trash orrialdeetarako"
-
-#
-#~ msgid "Menu item activation"
-#~ msgstr "Azken ekintza desegiten du"
-
-#~ msgid "get"
-#~ msgstr "hartu"
-
-#~ msgid "Get config entry"
-#~ msgstr "Hartu konfigurazio-sarrera"
-
-#~ msgid "CONFIG-PATH"
-#~ msgstr "CONFIG-PATH"
-
-#~ msgid "set"
-#~ msgstr "ezarri"
-
-#~ msgid "Set config entry"
-#~ msgstr "Ezarri konfigurazio-sarrera"
-
-#~ msgid "Feet"
-#~ msgstr "oina"
-
-#~ msgid "Meter"
-#~ msgstr "metroa"
-
-#~ msgid "Decimeter"
-#~ msgstr "dezimetroa"
-
-#~ msgid "Millimeter"
-#~ msgstr "milimetroa"
-
-#~ msgid "Centimeter"
-#~ msgstr "zentimetroa"
-
-#~ msgid "Inch"
-#~ msgstr "hazbetea"
-
-#~ msgid ""
-#~ "Error on option %s: %s.\n"
-#~ "Run '%s --help' to see a full list of available command line options.\n"
-#~ msgstr ""
-#~ "Errorea %s aukeran: %s.\n"
-#~ "Exekutatu '%s --help' komando-lerroko aukera erabilgarrien zerrenda "
-#~ "ikusteko.\n"
-
-#~ msgid "Author:"
-#~ msgstr "Egilea:"
-
-#~ msgid "Authors:"
-#~ msgstr "Egileak:"
-
-#~ msgid "Authors: "
-#~ msgstr "Egileak: "
-
-#~ msgid "About"
-#~ msgstr "Honi buruz"
-
-#~ msgid "_File"
-#~ msgstr "_Fitxategia"
-
-#~ msgid "_File/"
-#~ msgstr "_Fitxategia/"
-
-#~ msgid "_Edit"
-#~ msgstr "_Edizioa"
-
-#~ msgid "_Edit/"
-#~ msgstr "_Edizioa/"
-
-#~ msgid "_View"
-#~ msgstr "_Ikusi"
-
-#~ msgid "_View/"
-#~ msgstr "_Ikusi/"
-
-#~ msgid "_Settings"
-#~ msgstr "E_zarpenak"
-
-#~ msgid "_Settings/"
-#~ msgstr "E_zarpenak/"
-
-#~ msgid "_New"
-#~ msgstr "_Berria"
-
-#~ msgid "_New/"
-#~ msgstr "_Berria/"
-
-#~ msgid "Fi_les"
-#~ msgstr "Fitxa_tegiak"
-
-#~ msgid "Fi_les/"
-#~ msgstr "Fitxa_tegiak/"
-
-#~ msgid "_Windows"
-#~ msgstr "_Leihoak"
-
-#~ msgid "_Game"
-#~ msgstr "_Jokoa"
-
-#~ msgid "_Help"
-#~ msgstr "L_aguntza"
-
-#~ msgid "_Windows/"
-#~ msgstr "_Leihoak/"
-
-#~ msgid "File"
-#~ msgstr "Fitxategia"
-
-#~ msgid "File/"
-#~ msgstr "Fitxategia/"
-
-#~ msgid "Edit"
-#~ msgstr "Edizioa"
-
-#~ msgid "Edit/"
-#~ msgstr "Edizioa/"
-
-#~ msgid "View"
-#~ msgstr "Ikusi"
-
-#~ msgid "View/"
-#~ msgstr "Ikusi/"
-
-#~ msgid "Settings"
-#~ msgstr "Ezarpenak"
-
-#~ msgid "Settings/"
-#~ msgstr "Ezarpenak/"
-
-#~ msgid "New"
-#~ msgstr "Berria"
-
-#~ msgid "New/"
-#~ msgstr "Berria/"
-
-#~ msgid "Files"
-#~ msgstr "Fitxategiak"
-
-#~ msgid "Files/"
-#~ msgstr "Fitxategiak/"
-
-#~ msgid "Windows"
-#~ msgstr "Leihoak"
-
-#~ msgid "Game"
-#~ msgstr "Jokoa"
-
-#~ msgid "Help"
-#~ msgstr "Laguntza"
-
-#~ msgid "Windows/"
-#~ msgstr "Leihoak/"
-
-#~ msgid "_Open..."
-#~ msgstr "_Ireki..."
-
-#~ msgid "Open a file"
-#~ msgstr "Fitxategi bat irekitzen du"
-
-#~ msgid "_Save"
-#~ msgstr "_Gorde"
-
-#~ msgid "Save the current file"
-#~ msgstr "Uneko fitxategia gordetzen du"
-
-#~ msgid "Save _As..."
-#~ msgstr "Gorde _honela..."
-
-#~ msgid "Save the current file with a different name"
-#~ msgstr "Uneko fitxategia beste izen batekin gordetzen du"
-
-#~ msgid "_Revert"
-#~ msgstr "It_zuli"
-
-#~ msgid "Revert to a saved version of the file"
-#~ msgstr "Fitxategiaren gordetako bertsio batera itzultzen da"
-
-#~ msgid "_Print"
-#~ msgstr "I_nprimatu"
-
-#~ msgid "Print the current file"
-#~ msgstr "Uneko fitxategia inprimatzen du"
-
-#~ msgid "Print S_etup..."
-#~ msgstr "_Prestatu inprimaketa..."
-
-#~ msgid "Setup the page settings for your current printer"
-#~ msgstr "Orrialde-ezarpenak konfiguratzen ditu uneko inprimagailuarentzat"
-
-#~ msgid "_Close"
-#~ msgstr "It_xi"
-
-#~ msgid "Close the current file"
-#~ msgstr "Uneko fitxategia ixten du"
-
-#~ msgid "E_xit"
-#~ msgstr "I_rten"
-
-#~ msgid "Exit the program"
-#~ msgstr "Programatik irteten da"
-
-#~ msgid "C_ut"
-#~ msgstr "E_baki"
-
-#~ msgid "Cut the selection"
-#~ msgstr "Hautapena ebakitzen du"
-
-#~ msgid "_Copy"
-#~ msgstr "K_opiatu"
-
-#~ msgid "Copy the selection"
-#~ msgstr "Hautapena kopiatzen du"
-
-#~ msgid "_Paste"
-#~ msgstr "_Itsatsi"
-
-#~ msgid "Paste the clipboard"
-#~ msgstr "Arbelaren edukia itsasten du"
-
-#~ msgid "C_lear"
-#~ msgstr "G_arbitu"
-
-#~ msgid "Clear the selection"
-#~ msgstr "Hautapena garbitzen du"
-
-#~ msgid "_Undo"
-#~ msgstr "_Desegin"
-
-#~ msgid "_Redo"
-#~ msgstr "B_erregin"
-
-#~ msgid "Redo the undone action"
-#~ msgstr "Desegindako ekintza berregiten du"
-
-#~ msgid "_Find..."
-#~ msgstr "Bila_tu..."
-
-#~ msgid "Search for a string"
-#~ msgstr "Kate bat bilatzen du"
-
-#~ msgid "Find _Again"
-#~ msgstr "Bilat_u berriro"
-
-#~ msgid "Search again for the same string"
-#~ msgstr "Kate bera berriro bilatzen du"
-
-#~ msgid "_Replace..."
-#~ msgstr "Orde_ztu..."
-
-#~ msgid "Replace a string"
-#~ msgstr "Kate bat ordezten du"
-
-#~ msgid "_Properties..."
-#~ msgstr "_Propietateak..."
-
-#~ msgid "Modify the file's properties"
-#~ msgstr "Fitxategiaren propietateak aldatzen ditu"
-
-#~ msgid "_Preferences..."
-#~ msgstr "_Hobespenak..."
-
-#~ msgid "_About..."
-#~ msgstr "H_oni buruz..."
-
-#~ msgid "_Select All"
-#~ msgstr "Hautatu _dena"
-
-#~ msgid "Select everything"
-#~ msgstr "Dena hautatzen du"
-
-#~ msgid "Create New _Window"
-#~ msgstr "Sortu lei_ho berria"
-
-#~ msgid "Create a new window"
-#~ msgstr "Leiho berria sortzen du"
-
-#~ msgid "_Close This Window"
-#~ msgstr "It_xi leiho hau"
-
-#~ msgid "Close the current window"
-#~ msgstr "Uneko leihoa ixten du"
-
-#~ msgid "_New game"
-#~ msgstr "_Joko berria"
-
-#~ msgid "Start a new game"
-#~ msgstr "Beste joko bat hasten du"
-
-#~ msgid "_Pause game"
-#~ msgstr "_Pausatu jokoa"
-
-#~ msgid "_Restart game"
-#~ msgstr "_Berrabiarazi jokoa"
-
-#~ msgid "Restart the game"
-#~ msgstr "Jokoa berrabiarazten du"
-
-#~ msgid "_Undo move"
-#~ msgstr "_Desegin mugimendua"
-
-#~ msgid "Undo the last move"
-#~ msgstr "Azken mugimendua desegiten du"
-
-#~ msgid "_Redo move"
-#~ msgstr "_Berregin mugimendua"
-
-#~ msgid "Redo the undone move"
-#~ msgstr "Desegindako mugimendua berregiten du"
-
-#~ msgid "_Hint"
-#~ msgstr "_Aholkua"
-
-#~ msgid "Get a hint for your next move"
-#~ msgstr "Hurrengo mugimendua egiteko aholkua"
-
-#~ msgid "_Scores..."
-#~ msgstr "_Puntuazioak..."
-
-#~ msgid "View the scores"
-#~ msgstr "Puntuazioak erakusten ditu"
-
-#~ msgid "_End game"
-#~ msgstr "_Amaitu jokoa"
-
-#~ msgid "End the current game"
-#~ msgstr "Uneko jokoa amaitzen du"
-
-#~ msgid " (press return)"
-#~ msgstr "(sakatu SARTU)"
-
-#~ msgid "ERROR: "
-#~ msgstr "ERROREA: "
-
-#~ msgid "y"
-#~ msgstr "b"
-
-#~ msgid "yes"
-#~ msgstr "bai"
-
-#~ msgid "n"
-#~ msgstr "e"
-
-#~ msgid "no"
-#~ msgstr "ez"
-
-#~ msgid " (yes or no)"
-#~ msgstr "(bai edo ez)"
-
-#~ msgid "  - OK? (yes or no)"
-#~ msgstr " - Ados? (bai edo ez)"
-
-#~ msgid "Progress"
-#~ msgstr "Lanean"
-
-#~ msgid "DEG"
-#~ msgstr "DEG"
-
-#~ msgid "RAD"
-#~ msgstr "RAD"
-
-#~ msgid "GRAD"
-#~ msgstr "GRAD"
-
-#~ msgid "1/x"
-#~ msgstr "1/x"
-
-#~ msgid "x^2"
-#~ msgstr "x^2"
-
-#~ msgid "SQRT"
-#~ msgstr "SQRT"
-
-#~ msgid "CE/C"
-#~ msgstr "CE/C"
-
-#~ msgid "AC"
-#~ msgstr "AC"
-
-#~ msgid "sin"
-#~ msgstr "sin"
-
-#~ msgid "cos"
-#~ msgstr "cos"
-
-#~ msgid "tan"
-#~ msgstr "tan"
-
-#~ msgid "e"
-#~ msgstr "e"
-
-#~ msgid "EE"
-#~ msgstr "EE"
-
-#~ msgid "log"
-#~ msgstr "log"
-
-#~ msgid "ln"
-#~ msgstr "ln"
-
-#~ msgid "x^y"
-#~ msgstr "x^y"
-
-#~ msgid "PI"
-#~ msgstr "PI"
-
-#~ msgid "x!"
-#~ msgstr "x!"
-
-#~ msgid "("
-#~ msgstr "("
-
-#~ msgid ")"
-#~ msgstr ")"
-
-#~ msgid "/"
-#~ msgstr "/"
-
-#~ msgid "STO"
-#~ msgstr "STO"
-
-#~ msgid "7"
-#~ msgstr "7"
-
-#~ msgid "8"
-#~ msgstr "8"
-
-#~ msgid "9"
-#~ msgstr "9"
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid "RCL"
-#~ msgstr "RCL"
-
-#~ msgid "4"
-#~ msgstr "4"
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#~ msgid "6"
-#~ msgstr "6"
-
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "SUM"
-#~ msgstr "SUM"
-
-#~ msgid "1"
-#~ msgstr "1"
-
-#~ msgid "2"
-#~ msgstr "2"
-
-#~ msgid "3"
-#~ msgstr "3"
-
-#~ msgid "+"
-#~ msgstr "+"
-
-#~ msgid "EXC"
-#~ msgstr "EXC"
-
-#~ msgid "0"
-#~ msgstr "0"
-
-#~ msgid "."
-#~ msgstr "."
-
-#~ msgid "+/-"
-#~ msgstr "+/-"
-
-#~ msgid "="
-#~ msgstr "="
-
-#~ msgid "INV"
-#~ msgstr "INV"
-
-#~ msgid "Specify session management ID"
-#~ msgstr "Zehaztu saio-kudeaketaren IDa"
-
-#~ msgid "ID"
-#~ msgstr "IDa"
-
-#~ msgid "PREFIX"
-#~ msgstr "AURRIZKIA"
-
-#~ msgid "Disable connection to session manager"
-#~ msgstr "Desgaitu saio-kudeatzailearekiko konexioa"
-
-#~ msgid "Session management options"
-#~ msgstr "Saio-kudeaketaren aukerak"
-
-#~ msgid "Calendar"
-#~ msgstr "Egutegia"
-
-#~ msgid "Name:"
-#~ msgstr "Izena:"
-
-#~ msgid "Comment:"
-#~ msgstr "Iruzkina:"
-
-#~ msgid "Command:"
-#~ msgstr "Komandoa:"
-
-#~ msgid "Type:"
-#~ msgstr "Mota:"
-
-#~ msgid "Icon:"
-#~ msgstr "Ikonoa:"
-
-#~ msgid "Try this before using:"
-#~ msgstr "Probatu hau erabili aurretik:"
-
-#~ msgid "Name/Comment translations:"
-#~ msgstr "Izenaren/Iruzkinaren itzulpena:"
-
-#~ msgid "Language"
-#~ msgstr "Hizkuntza"
-
-#~ msgid "Name"
-#~ msgstr "Izena"
-
-#~ msgid "Comment"
-#~ msgstr "Iruzkina"
-
-#~ msgid "Add/Set"
-#~ msgstr "Gehitu/Ezarri"
-
-#~ msgid "Remove"
-#~ msgstr "Kendu"
-
-#~ msgid "Basic"
-#~ msgstr "Oinarrizkoa"
-
-#~ msgid "Advanced"
-#~ msgstr "Aurreratua"
-
-#~ msgid "Back"
-#~ msgstr "Atzera"
-
-#~ msgid "Finish"
-#~ msgstr "Amaitu"
-
-#~ msgid "Select file"
-#~ msgstr "Hautatu fitxategia"
-
-#~ msgid "Browse..."
-#~ msgstr "Arakatu..."
-
-#~ msgid "Pick a Font"
-#~ msgstr "Aukeratu letra-tipoa"
-
-#~ msgid "Font"
-#~ msgstr "Letra-tipoa"
-
-#~ msgid "No Icon"
-#~ msgstr "Ikonorik ez"
-
-#~ msgid "Can't find an hbox, using a normal file selection"
-#~ msgstr ""
-#~ "Ezin da hbox-a aurkitu, fitxategi-hautapen normala erabiltzen ari da"
-
-#~ msgid "Preview"
-#~ msgstr "Aurrebista"
-
-#~ msgid "Loading Icons..."
-#~ msgstr "Ikonoak kargatzen..."
-
-#~ msgid "Gdk debugging flags to set"
-#~ msgstr "ezarri beharreko Gdk arazketa-banderak"
-
-#~ msgid "FLAGS"
-#~ msgstr "FLAGS"
-
-#~ msgid "Gdk debugging flags to unset"
-#~ msgstr "desezarri beharreko Gdk arazketa-banderak"
-
-#~ msgid "X display to use"
-#~ msgstr "Erabili beharreko X bistaratzea"
-
-#~ msgid "DISPLAY"
-#~ msgstr "BISTARATZEA"
-
-#~ msgid "Make X calls synchronous"
-#~ msgstr "Egin X deiak sinkroniko"
-
-#~ msgid "Don't use X shared memory extension"
-#~ msgstr "Ez erabili X memoria-hedapen konpartitua"
-
-#~ msgid "Program name as used by the window manager"
-#~ msgstr "Leiho-kudeatzaileak erabilitako programa-izena"
-
-#~ msgid "NAME"
-#~ msgstr "IZENA"
-
-#~ msgid "Program class as used by the window manager"
-#~ msgstr "Leiho-kudeatzaileak erabilitako programa-klasea"
-
-#~ msgid "CLASS"
-#~ msgstr "KLASEA"
-
-#~ msgid "HOST"
-#~ msgstr "OSTALARIA"
-
-#~ msgid "PORT"
-#~ msgstr "ATAKA"
-
-#~ msgid "STYLE"
-#~ msgstr "ESTILOA"
-
-#~ msgid "Gtk+ debugging flags to set"
-#~ msgstr "ezarri beharreko Gtk+ arazketa-banderak"
-
-#~ msgid "Gtk+ debugging flags to unset"
-#~ msgstr "desezarri beharreko Gtk+ arazketa-banderak"
-
-#~ msgid "Make all warnings fatal"
-#~ msgstr "Egin abisu guztiak ezinbesteko"
-
-#~ msgid "Load an additional Gtk module"
-#~ msgstr "Kargatu Gtk modulu gehigarria"
-
-#~ msgid "MODULE"
-#~ msgstr "MODULUA"
-
-#~ msgid "GTK options"
-#~ msgstr "GTK aukerak"
-
-#~ msgid "GNOME GUI options"
-#~ msgstr "GNOME GUI aukerak"
-
-#~ msgid "Multiple segmentation faults occurred; can't display error dialog\n"
-#~ msgstr ""
-#~ "Segmentazio-hutsegite asko izan dira; ezin da errore-elkarrizketa "
-#~ "bistaratu\n"
-
-#~ msgid "Warning"
-#~ msgstr "Abisua"
-
-#~ msgid "Error"
-#~ msgstr "Errorea"
-
-#~ msgid "Calculator"
-#~ msgstr "Kalkulagailua"
-
-#~ msgid "Calculator..."
-#~ msgstr "Kalkulagailua..."
-
-#~ msgid "Paper:"
-#~ msgstr "Papera:"
-
-#~ msgid "Width:"
-#~ msgstr "Zabalera:"
-
-#~ msgid "Height:"
-#~ msgstr "Altuera:"
-
-#~ msgid "Set System Paper Size"
-#~ msgstr "Ezarri sistemaren paper-tamaina"
-
-#~ msgid ""
-#~ "Set the papersize to the value found in $PAPERCONF. If this variable "
-#~ "isn't set, look into the file specified by $PAPERSIZE. If this fails, "
-#~ "too, look into the default file /etc/paperconf else fallback to the "
-#~ "builtin value"
-#~ msgstr ""
-#~ "$PAPERCONFen dagoen  balioa ezartzen dio paper-tamainari. Aldagai hori "
-#~ "ezarri gabe badago, $PAPERSIZEn zehaztutako fitxategian begiratzen du. "
-#~ "Horrek ere huts egiten badu, /etc/paperconf fitxategi lehenetsian "
-#~ "begiratzen du, bestela balio inkorporatua hartzen du "
-
-#~ msgid "No Image"
-#~ msgstr "Ez dago irudirik"
-
-#~ msgid "_Help with this"
-#~ msgstr "_Lagundu honekin"
-
-#~ msgid "Cu_t"
-#~ msgstr "Ebak_i"
-
-#~ msgid "Select"
-#~ msgstr "Hautatu"
-
-#~ msgid "Top Ten"
-#~ msgstr "Hamar onenak"
-
-#~ msgid "User"
-#~ msgstr "Erabiltzailea"
-
-#~ msgid "Score"
-#~ msgstr "Puntuazioa"
-
-#~ msgid "Date"
-#~ msgstr "Data"
-
-#~ msgid "%a %b %d %T %Y"
-#~ msgstr "%a %Y %b %d %T"
-
-#~ msgid "Select dictionary"
-#~ msgstr "Hautatu hiztegia"
-
-#~ msgid ""
-#~ "The word `%s'\n"
-#~ "is not in the dictionary.\n"
-#~ "Proceed anyway?"
-#~ msgstr ""
-#~ "`%s' hitza\n"
-#~ "ez dago hiztegian.\n"
-#~ "Hala ere jarraitu nahi duzu?"
-
-#~ msgid "OK"
-#~ msgstr "Ados"
-
-#~ msgid "Cancel"
-#~ msgstr "Utzi"
-
-#~ msgid "Word:"
-#~ msgstr "Hitza:"
-
-#~ msgid "Alternatives:"
-#~ msgstr "Alternatibak:"
-
-#~ msgid "Accept"
-#~ msgstr "Onartu"
-
-#~ msgid ""
-#~ "Accept the word for\n"
-#~ "this session only"
-#~ msgstr ""
-#~ "Onartu hitza saio \n"
-#~ "honetarako soilik"
-
-#~ msgid "Skip"
-#~ msgstr "Saltatu"
-
-#~ msgid ""
-#~ "Ignore this word\n"
-#~ "this time only"
-#~ msgstr ""
-#~ "Ezikusi egin hitz honi \n"
-#~ "oraingoan soilik"
-
-#~ msgid "Replace"
-#~ msgstr "Ordeztu"
-
-#~ msgid "Replace the word"
-#~ msgstr "Ordeztu hitz hau"
-
-#~ msgid "Insert"
-#~ msgstr "Txertatu"
-
-#~ msgid ""
-#~ "Insert the word\n"
-#~ "in your personal dictionary"
-#~ msgstr ""
-#~ "Gehitu hitza\n"
-#~ "zure hiztegi pertsonalean"
-
-#~ msgid "Insert with case"
-#~ msgstr "Txertatu maiuskula/minuskulaz"
-
-#~ msgid ""
-#~ "Insert the word\n"
-#~ "in your personal dictionary\n"
-#~ "(if mixed-case preserve\n"
-#~ "case-sensitivity)"
-#~ msgstr ""
-#~ "Gehitu hitza \n"
-#~ "zure hiztegi pertsonalean\n"
-#~ "(maiuskulak/minuskulak nahastuta\n"
-#~ "badaude, errespetatu)"
-
-#~ msgid "Ispell command:"
-#~ msgstr "Ispell komandoa:"
-
-#~ msgid "Main dictionary:"
-#~ msgstr "Hiztegi nagusia:"
-
-#~ msgid "Personal dictionary:"
-#~ msgstr "Hiztegi pertsonala:"
-
-#~ msgid "Valid chars in words:"
-#~ msgstr "Baliozko karaktereak hitzetan:"
-
-#~ msgid "Check words longer than:"
-#~ msgstr "Egiaztatu hau baino hitz luzeagoak:"
-
-#~ msgid "Sort by correctness"
-#~ msgstr "Ordenatu zuzentasunaren arabera"
-
-#~ msgid "Accept run-together words"
-#~ msgstr "Onartu hitz elkartuak"
-
-#~ msgid "Discard accepted words on kill"
-#~ msgstr "Baztertu onartutako hitzak amaitzean"
-
-#~ msgid "Kill ispell process"
-#~ msgstr "Hil ispell prozesua"
-
-#~ msgid "Spell"
-#~ msgstr "Ortografia"
-
-#~ msgid "Configure"
-#~ msgstr "Konfiguratu"
-
-#~ msgid "Add"
-#~ msgstr "Gehitu"
-
-#~ msgid "Clear"
-#~ msgstr "Garbitu"
-
-#~ msgid "Table Borders"
-#~ msgstr "Taularen ertzak"
-
-#~ msgid "Table Fill"
-#~ msgstr "Taularen betegarria"
-
-#~ msgid "Bulleted List"
-#~ msgstr "Buletdun zerrenda"
-
-#~ msgid "Numbered List"
-#~ msgstr "Zenbakidun zerrenda"
-
-#~ msgid "Indent"
-#~ msgstr "Koska"
-
-#~ msgid "Un-Indent"
-#~ msgstr "Koskarik gabe"
-
-#~ msgid "Apply"
-#~ msgstr "Aplikatu"
-
-#~ msgid "Close"
-#~ msgstr "Itxi"
-
-#~ msgid "Yes"
-#~ msgstr "Bai"
-
-#~ msgid "No"
-#~ msgstr "Ez"
-
-#~ msgid "Next"
-#~ msgstr "Hurrengoa"
-
-#~ msgid "Prev"
-#~ msgstr "Aurrekoa"
-
-#~ msgid "Up"
-#~ msgstr "Gora"
-
-#~ msgid "Down"
-#~ msgstr "Behera"
-
-#~ msgid "Global"
-#~ msgstr "Orokorra"
-
-#~ msgid "Menu Item"
-#~ msgstr "Menu-elementua"
-
-#~ msgid "Accelerator"
-#~ msgstr "Bizkortzailea"
-
-#~ msgid ""
-#~ "The GNOME Session Manager (process %ld) has crashed\n"
-#~ "due to a fatal error (%s).\n"
-#~ "When you close this dialog, all applications will close and your session "
-#~ "will exit.\n"
-#~ "Please save all your files before closing this dialog."
-#~ msgstr ""
-#~ "GNOMEren saio-kudeatzaileak (%ld prozesua) huts egin du\n"
-#~ "ezinbesteko errore baten (%s) ondorioz.\n"
-#~ "Elkarrizketa hau ixten duzunean, aplikazio guztiak itxiko dira eta saioa "
-#~ "amaituko da.\n"
-#~ "Gorde zure fitxategi guztiak elkarrizketa hau itxi baino lehen."
-
-#~ msgid ""
-#~ "Application \"%s\" (process %d) has crashed\n"
-#~ "due to a fatal error.\n"
-#~ "(%s)"
-#~ msgstr ""
-#~ "\"%s\" aplikazioak (%d prozesua) huts egin du\n"
-#~ "ezinbesteko errore baten ondorioz.\n"
-#~ "(%s)"
-
-#~ msgid "Usage: gnome_segv appname signum\n"
-#~ msgstr "Erabilera: gnome_segv appname signum\n"
-
-#~ msgid "Submit a bug report"
-#~ msgstr "Bidali programa-akatsaren berri-ematea"
-
-#~ msgid "Debug"
-#~ msgstr "Araztu"
-
-#~ msgid "http://www.gnome.org/application_crashed.shtml"
-#~ msgstr "http://www.gnome.org/application_crashed.shtml"
-
-#~ msgid "Please visit the GNOME Application Crash page for more information"
-#~ msgstr ""
-#~ "Bisitatu GNOMEren Aplikazioen hutsegiteen orria, informazio gehiago "
-#~ "lortzeko"
-
-#~ msgid "New..."
-#~ msgstr "Berria..."
-
-#~ msgid "Open..."
-#~ msgstr "Ireki..."
-
-#~ msgid "Save"
-#~ msgstr "Gorde"
-
-#~ msgid "Save as..."
-#~ msgstr "Gorde honela..."
-
-#~ msgid "Print..."
-#~ msgstr "Inprimatu..."
-
-#~ msgid "Setup Page..."
-#~ msgstr "Prestatu orrialdea..."
-
-#~ msgid "Quit"
-#~ msgstr "Irten"
-
-#~ msgid "Undo"
-#~ msgstr "Desegin"
-
-#~ msgid "Redo"
-#~ msgstr "Berregin"
-
-#~ msgid "Delete"
-#~ msgstr "Ezabatu"
-
-#~ msgid "Cut"
-#~ msgstr "Ebaki"
-
-#~ msgid "Copy"
-#~ msgstr "Kopiatu"
-
-#~ msgid "Paste"
-#~ msgstr "Itsatsi"
-
-#~ msgid "Properties..."
-#~ msgstr "Propietateak..."
-
-#~ msgid "Preferences..."
-#~ msgstr "Hobespenak..."
-
-#~ msgid "Scores..."
-#~ msgstr "Puntuazioak..."
-
-#~ msgid "wmhints-test"
-#~ msgstr "wmhints-testa"
-
-#~ msgid "winhints-test"
-#~ msgstr "winhints-testa"
-
-#~ msgid "Layer:"
-#~ msgstr "Geruza:"
-
-#~ msgid "Above Dock"
-#~ msgstr "Atrakatu gainean"
-
-#~ msgid "Dock"
-#~ msgstr "Atrakatu"
-
-#~ msgid "On Top"
-#~ msgstr "Goian"
-
-#~ msgid "Normal"
-#~ msgstr "Normala"
-
-#~ msgid "Below"
-#~ msgstr "Behean"
-
-#~ msgid "Desktop"
-#~ msgstr "Mahaigaina"
-
-#~ msgid "Set Layer"
-#~ msgstr "Ezarri geruza"
-
-#~ msgid "Workspaces:"
-#~ msgstr "Laneko areak:"
-
-#~ msgid "Sticky"
-#~ msgstr "Itsaskorra"
-
-#~ msgid "State Toggles:"
-#~ msgstr "Egoera-txandakatzeak:"
-
-#~ msgid "Minimized"
-#~ msgstr "Ikonotuta"
-
-#~ msgid "Maximized Vertical"
-#~ msgstr "Bertikalki maximizatuta"
-
-#~ msgid "Maximized Horizontal"
-#~ msgstr "Horizontalki maximizatuta"
-
-#~ msgid "Hidden"
-#~ msgstr "Ezkutatuta"
-
-#~ msgid "Shaded"
-#~ msgstr "Bilduta"
-
-#~ msgid "Fixed Position"
-#~ msgstr "Kokaleku finkoa"
-
-#~ msgid "Ignore on Arrange"
-#~ msgstr "Ezikusi egin Antolatzean"
-
-#~ msgid "Set State"
-#~ msgstr "Ezarri egoera"
-
-#~ msgid "Skip Toggles:"
-#~ msgstr "Saltatu txandakatzeak:"
-
-#~ msgid "Skip Focus"
-#~ msgstr "Saltatu fokua"
-
-#~ msgid "Skip Window Menu"
-#~ msgstr "Saltatu leiho-menua"
-
-#~ msgid "Skip Taskbar / WinList"
-#~ msgstr "Saltatu ataza-barra / WinList"
-
-#~ msgid "Set Skip"
-#~ msgstr "Ezarri Saltatzea"
-
-#~ msgid "WIN_HINTS Test"
-#~ msgstr "WIN_HINTS Testa"
-
-#~ msgid "Copyright (C) 1998"
-#~ msgstr "Copyright (c) 1998"
-
-#~ msgid ""
-#~ "Simple test app to check how the WIN_HINTS work.\n"
-#~ "And to test the gnome_win_hints_* functions for errors. :)"
-#~ msgstr ""
-#~ "Test-aplikazio soila WIN_HINTSek nola funtzionatzen duen ikusteko.\n"
-#~ "Eta gnome_win_hints_* funtzioak probatzeko, errorerik duten ikusteko. :)"
-
-#~ msgid "Creating '/GNOME' context %s %d"
-#~ msgstr "%s %d '/GNOME' testuingurua sortzen"
-
-#~ msgid "Creating '/GNOME/Servers' context %s %d"
-#~ msgstr "%s %d '/GNOME/Zerbitzariak' testuingurua sortzen"
-
-#~ msgid "GOAD ID of the server to activate"
-#~ msgstr "aktibatu beharreko zerbitzariaren GOAD IDa"
-
-#~ msgid "Repository ID of the server to activate"
-#~ msgstr "Aktibatu beharreko zerbitzariaren biltegi-IDa"
-
-#~ msgid "REPO-ID"
-#~ msgstr "REPO-ID"
-
-#~ msgid ""
-#~ "I couldn't find any installed services.  Either you don't have\n"
-#~ "any services installed or I don't know the path to find them.\n"
-#~ "In either case, please check your GNOME installation."
-#~ msgstr ""
-#~ "Ezin izan dut instalatutako zerbitzurik aurkitu.  Ez daukazu zerbitzurik\n"
-#~ "instalatuta edo ez dakit zein bide-izenetan begiratu.\n"
-#~ "Nolanahi ere, egiaztatu GNOMEren instalazioa."
-
-#~ msgid "(Internal use only) GOAD server ID to activate"
-#~ msgstr "(Barne-erabilera soilik) aktibatu beharreko GOAD zerbitzariaren IDa"
-
-#~ msgid "(Internal use only) GOAD file descriptor"
-#~ msgstr "(Barne-erabilera soilik) GOAD fitxategi-deskriptorea"
-
-#~ msgid "Gnome Object Activation Directory"
-#~ msgstr "Gnome-ren Objektuak aktibatzeko direktorioa"
-
-#~ msgid "ID under which GOAD knows this server"
-#~ msgstr "GOADek zerbitzari hau ezagutzeko IDa"
-
-#~ msgid "GOAD_ID"
-#~ msgstr "GOAD_ID"
-
-#~ msgid "Repository ID under which GOAD knows this server"
-#~ msgstr "GOADek zerbitzari hau ezagutzeko biltegi-IDa"
-
-#~ msgid "REPO_ID"
-#~ msgstr "REPO_ID"
-
-#~ msgid "Failed to get user details for UID %d (%s)\n"
-#~ msgstr "Huts egin du %d (%s) UIDaren xehetasunak hartzean\n"
-
-#~ msgid "Failed to open CORBA cookie file (%s) for writing: %s\n"
-#~ msgstr "Huts egin du CORBA cookie-fitxategia (%s) irekitzean idazteko: %s\n"
-
-#~ msgid "Failed to write CORBA cookie file (%s): %s\n"
-#~ msgstr "Huts egin du CORBA cookie-fitxategia (%s) idaztean: %s\n"
-
-#~ msgid "Failed to write CORBA cookie to `%s': %s\n"
-#~ msgstr "Huts egin du CORBA cookie-a `%s'(e)n idaztean: %s\n"
-
-#~ msgid "Failed to open CORBA cookie file `%s': %s\n"
-#~ msgstr "Huts egin du `%s' CORBA cookie-fitxategia irekitzean: %s\n"
-
-#~ msgid "Failed to read CORBA cookie file `%s': %s\n"
-#~ msgstr "Huts egin du `%s' CORBA cookie-fitxategia irakurtzean: %s\n"
-
-#~ msgid "Failed to obtain CORBA authentication cookie, exiting\n"
-#~ msgstr ""
-#~ "Huts egin du CORBAren autentifikazioko cookie-a eskuratzean, irteten\n"
-
-#~ msgid "Could not get name service!"
-#~ msgstr "Ezin izan da izen-zerbitzurik lortu!"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: `%s' aukera anbiguoa da\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: `--%s' aukerak ez du argumenturik onartzen\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: `%c%s' aukerak ez du argumenturik onartzen\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: `%s' aukerak argumentu bat behar du\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: `--%s' aukera ezezaguna\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: `%c%s' aukera ezezaguna\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: -- %c aukera ilegala\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: -- %c aukera baliogabea\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: aukerak --%c argumentu bat behar du\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: `-W %s' aukera anbiguoa da\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: `-W.%s' aukerak ez du argumenturik onartzen\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Erakutsi laguntza-mezu hau"
-
-#~ msgid "If you choose a font it will appear here"
-#~ msgstr "Letra-tipo bat aukeratzen baduzu hemen agertuko da"
-
-#~ msgid "Font Info"
-#~ msgstr "Letra-tipoen informazioa"
-
-#~ msgid "Use Font in button with size"
-#~ msgstr "Erabili botoiko letra-tipoa tamainarekin"
-
-#~ msgid "Show font size"
-#~ msgstr "Erakutsi letra-tamaina"
-
-#~ msgid "This is an hbox with pixmap and text"
-#~ msgstr "Hau pixmap-a eta testua dituen hbox-a da"
-
-#~ msgid "The user chose Yes/OK with data:\n"
-#~ msgstr "Erabiltzaileak Bai/Ados aukeratu zuen datu hauekin:\n"
-
-#~ msgid "The user chose No/Cancel with data:\n"
-#~ msgstr "Erabiltzaileak Ez/Utzi aukeratu zuen datu hauekin:\n"
-
-#~ msgid "Weird number in reply callback"
-#~ msgstr "Zenbaki bitxia erantzuneko atzeradeian"
