@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-23 15:28+0000\n"
+"POT-Creation-Date: 2006-03-02 08:44+0100\n"
 "PO-Revision-Date: 2005-08-23 21:18+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
@@ -91,9 +91,7 @@ msgstr "A GNOME_FILE_DOMAIN_HELP tartomány nem található."
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr ""
-"Nem lehet megjeleníteni a súgót, mivel %s nem könyvtár. Ellenőrizze a "
-"telepítését."
+msgstr "Nem jeleníthető meg a súgó, mivel %s nem könyvtár. Ellenőrizze a telepítését."
 
 #: ../libgnome/gnome-help.c:209 ../libgnome/gnome-help.c:225
 #, c-format
@@ -115,22 +113,20 @@ msgid "Help document %s/%s not found"
 msgstr "%s/%s súgódokumentum nem található"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:90
+#: ../libgnome/gnome-init.c:89
 msgid "Bonobo Support"
 msgstr "Bonobo-támogatás"
 
-#: ../libgnome/gnome-init.c:144
+#: ../libgnome/gnome-init.c:143
 msgid "Bonobo activation Support"
 msgstr "Bonobo-aktiválás támogatása"
 
-#: ../libgnome/gnome-init.c:330 ../libgnome/gnome-init.c:344
+#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr ""
-"Nem lehet létrehozni a(z) \"%s\" felhasználói gnome konfigurációs könyvtárat: %"
-"s\n"
+msgstr "Nem hozható létre a(z) \"%s\" felhasználói gnome konfigurációs könyvtár: %s\n"
 
-#: ../libgnome/gnome-init.c:353
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -139,194 +135,216 @@ msgstr ""
 "Nem lehet 0700-ra állítani a(z) \"%s\" felhasználói gnome konfigurációs "
 "könyvtár módját: %s\n"
 
-#: ../libgnome/gnome-init.c:360
+#: ../libgnome/gnome-init.c:411
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Nem lehet létrehozni a(z) \"%s\" gnome gyorsbillentyűk könyvtárat: %s\n"
+msgstr "Nem hozható létre a(z) \"%s\" gnome gyorsbillentyűk könyvtára: %s\n"
 
-#: ../libgnome/gnome-init.c:409
+#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
 msgid "Disable sound server usage"
 msgstr "Hangkiszolgáló használatának letiltása"
 
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
 msgid "Enable sound server usage"
 msgstr "Hangkiszolgáló használatának engedélyezése"
 
-#: ../libgnome/gnome-init.c:415
+#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
 msgid "Host:port on which the sound server to use is running"
 msgstr "Kiszolgáló:port, amelyen a használandó hangkiszolgáló fut"
 
-#: ../libgnome/gnome-init.c:417
+#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: ../libgnome/gnome-init.c:439
+#: ../libgnome/gnome-init.c:506
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Virtuális Fájlrendszer"
 
-#: ../libgnome/gnome-init.c:463
+#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
 msgid "GNOME Library"
 msgstr "GNOME Programkönyvtár"
 
-#: ../libgnome/gnome-program.c:437
+#: ../libgnome/gnome-init.c:525
+msgid "Show GNOME options"
+msgstr "A GNOME beállításainak megjelenítése"
+
+#: ../libgnome/gnome-program.c:447
 msgid "Popt Table"
 msgstr "Popt-táblázat"
 
-#: ../libgnome/gnome-program.c:438
+#: ../libgnome/gnome-program.c:448
 msgid "The table of options for popt"
 msgstr "A beállítások táblázata a popt-hoz"
 
-#: ../libgnome/gnome-program.c:445
+#: ../libgnome/gnome-program.c:455
 msgid "Popt Flags"
 msgstr "Popt flag-ek"
 
-#: ../libgnome/gnome-program.c:446
+#: ../libgnome/gnome-program.c:456
 msgid "The flags to use for popt"
 msgstr "A használandó flag-ek a popt-hoz"
 
-#: ../libgnome/gnome-program.c:454
+#: ../libgnome/gnome-program.c:464
 msgid "Popt Context"
 msgstr "Popt-környezet"
 
-#: ../libgnome/gnome-program.c:455
+#: ../libgnome/gnome-program.c:465
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "A popt környezetmutató, amit a GnomeProgram használ"
 
-#: ../libgnome/gnome-program.c:463
+#: ../libgnome/gnome-program.c:473
+msgid "GOption Context"
+msgstr "GOption környezet"
+
+#: ../libgnome/gnome-program.c:474
+msgid "The goption context pointer that GnomeProgram is using"
+msgstr "A goption környezetmutató, amit ez a GnomeProgram használ"
+
+#: ../libgnome/gnome-program.c:482
 msgid "Human readable name"
 msgstr "Emberek által olvasható név"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:483
 msgid "Human readable name of this application"
 msgstr "Az alkalmazás emberek által olvasható neve"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:492
 msgid "GNOME path"
 msgstr "GNOME útvonal"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:493
 msgid "Path in which to look for installed files"
 msgstr "Útvonal a telepített fájlok kereséséhez"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:502
 msgid "App ID"
 msgstr "Alk. azon."
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:503
 msgid "ID string to use for this application"
 msgstr "Az alkalmazáshoz használandó azonosító karakterlánc"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:510
 msgid "App version"
 msgstr "Alk. verzió"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:511
 msgid "Version of this application"
 msgstr "Az alkalmazás verziója"
 
-#: ../libgnome/gnome-program.c:499
+#: ../libgnome/gnome-program.c:518
 msgid "GNOME Prefix"
 msgstr "GNOME előtag"
 
-#: ../libgnome/gnome-program.c:500
+#: ../libgnome/gnome-program.c:519
 msgid "Prefix where GNOME was installed"
 msgstr "A GNOME telepítés előtagja"
 
-#: ../libgnome/gnome-program.c:509
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Libdir"
 msgstr "GNOME programkönyvtárak könyvtára"
 
-#: ../libgnome/gnome-program.c:510
+#: ../libgnome/gnome-program.c:529
 msgid "Library prefix where GNOME was installed"
 msgstr "A GNOME telepítés programkönyvtár-előtagja"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Datadir"
 msgstr "GNOME adatkönyvtár"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:539
 msgid "Data prefix where GNOME was installed"
 msgstr "A GNOME telepítés adat-előtagja"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Sysconfdir"
 msgstr "GNOME rendszerbeállítások könyvtára"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:549
 msgid "Configuration prefix where GNOME was installed"
 msgstr "A GNOME telepítés beállításainak előtagja"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:559
 msgid "GNOME App Prefix"
 msgstr "GNOME alkalmazás-előtag"
 
-#: ../libgnome/gnome-program.c:541
+#: ../libgnome/gnome-program.c:560
 msgid "Prefix where this application was installed"
 msgstr "Előtag, ahová ez az alkalmazás telepítve lett"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:568
 msgid "GNOME App Libdir"
 msgstr "GNOME alkalmazás programkönyvtára"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:569
 msgid "Library prefix where this application was installed"
 msgstr "Programkönyvtár-előtag, ahová ez az alkalmazás telepítve lett"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Datadir"
 msgstr "GNOME alkalmazás adatkönyvtára"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:579
 msgid "Data prefix where this application was installed"
 msgstr "Adat-előtag, ahová ez az alkalmazás telepítve lett"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME alkalmazás beállítás-könyvtára"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:589
 msgid "Configuration prefix where this application was installed"
 msgstr "Beállítás-előtag, ahová ez az alkalmazás telepítve lett"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:598
 msgid "Create Directories"
 msgstr "Könyvtárak létrehozása"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:599
 msgid "Create standard GNOME directories on startup"
 msgstr "Szabványos GNOME könyvtárak létrehozása induláskor"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:608
 msgid "Enable Sound"
 msgstr "Hang engedélyezése"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:609
 msgid "Enable sound on startup"
 msgstr "Hang engedélyezése induláskor"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:617
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:618
 msgid "How to connect to esd"
 msgstr "Hogyan kapcsolódik az esd-hez"
 
-#: ../libgnome/gnome-program.c:1365
+#: ../libgnome/gnome-program.c:1402
 msgid "Help options"
 msgstr "Súgó beállításai"
 
-#: ../libgnome/gnome-program.c:1370
+#: ../libgnome/gnome-program.c:1407
 msgid "Application options"
 msgstr "Alkalmazás beállításai"
 
-#: ../libgnome/gnome-program.c:1386
+#: ../libgnome/gnome-program.c:1423
 msgid "Dynamic modules to load"
 msgstr "Betöltendő dinamikus modulok"
 
-#: ../libgnome/gnome-program.c:1387
+#: ../libgnome/gnome-program.c:1424
 msgid "MODULE1,MODULE2,..."
 msgstr "1. MODUL,2. MODUL,..."
+
+#. Translators: the first %s is the error message, 2nd %s the program name
+#: ../libgnome/gnome-program.c:1507
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"%s\n"
+"Adja ki a(z) \"%s --help\" parancsot az elérhető parancssori kapcsolók teljes listájáért.\n"
 
 #: ../libgnome/gnome-url.c:84
 msgid "Unknown internal error while displaying this location."
@@ -344,7 +362,7 @@ msgstr ""
 "Hiba történt a helyhez hozzárendelt alapértelmezett műveletparancs "
 "feldolgozásakor."
 
-#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:139
+#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:172
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -361,11 +379,28 @@ msgid "The default action does not support this protocol."
 msgstr "Az alapértelmezett művelet nem támogatja ezt a protokollt."
 
 #: ../libgnome/gnome-url.c:128
-#, c-format
-msgid "Unknown error code: %d"
-msgstr "Ismeretlen hibakód: %d"
+msgid "The request was cancelled."
+msgstr "A kérés megszakítva."
 
-#: ../libgnome/gnome-open.c:40 ../libgnome/gnome-open.c:49
+#: ../libgnome/gnome-url.c:138
+#, c-format
+msgid "The host \"%s\" could not be found."
+msgstr "A(z) \"%s\" kiszolgáló nem található."
+
+#: ../libgnome/gnome-url.c:144
+msgid "The host could not be found."
+msgstr "A kiszolgáló nem található."
+
+#: ../libgnome/gnome-url.c:154
+msgid "The location or file could not be found."
+msgstr "A hely vagy a fájl nem található."
+
+#: ../libgnome/gnome-url.c:161
+#, c-format
+msgid "Unknown error code: %u"
+msgstr "Ismeretlen hibakód: %u"
+
+#: ../libgnome/gnome-open.c:34
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Hiba az URL megjelenítése közben: %s\n"
@@ -566,7 +601,7 @@ msgid ""
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
 "Meghatározza a wallpaper_filename kulcsban beállított képernyővédő "
-"megjelenését.Lehetséges értékek: \"none\" (nincs) \"wallpaper\" (mozaik), "
+"megjelenését. Lehetséges értékek: \"none\" (nincs) \"wallpaper\" (mozaik), "
 "\"centered\" (középre igazított),\"scaled\" (kifeszített), \"stretched"
 "\" (nyújtott)."
 
@@ -701,7 +736,7 @@ msgstr "Menüsor leválasztható"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Menubar accelerator"
-msgstr "Menüsor gyorsbillenyű"
+msgstr "Menüsor gyorsbillentyű"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Menus Have Icons"
@@ -750,26 +785,34 @@ msgid "Name of the default font used for reading documents"
 msgstr "A dokumentumok olvasásához használt alapértelmezett betűkészlet neve"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
+msgid "Show the 'Input Methods' menu"
+msgstr "A \"Bemeneti módszerek\" menü megjelenítése"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+msgid "Show the 'Unicode Control Character' menu"
+msgstr "Az \"Unicode vezérlőkarakter\" menü beszúrása"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
 msgstr "Állapotsor a jobb oldalon"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Ez megadja az eszköztárakon megjelenített ikonok méretét"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Toolbar Detachable"
 msgstr "Eszköztár leválasztható"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "Eszköztárikonok mérete"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Toolbar Style"
 msgstr "Eszköztár stílusa"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
@@ -777,15 +820,15 @@ msgstr ""
 "Eszköztár stílusa. Lehetséges értékek: \"both\" (mindkettő), \"both_horiz"
 "\" (mindkettő vízszintesen), \"icon\" (ikon), és \"text\" (szöveg)"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Use Custom Font"
 msgstr "Egyéni betűkészlet használata"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "Az alkalmazások támogassák-e a kisegítő lehetőségeket?"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -793,37 +836,49 @@ msgstr ""
 "Megjelenjenek-e az animációk. Megjegyzés: Ez egy globális kulcs, "
 "megváltoztatja az ablakkezelő, a panel, stb. viselkedését."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "A menükben megjelenjenek-e ikonok a menüelemek mellett"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "A menükben legyen-e leválasztó?"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method"
+msgstr "A beviteli mezők és szövegnézetek helyi menüi felajánlják-e a beviteli módszer megváltoztatását?"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters"
+msgstr "A beviteli mezők és szövegnézetek felajánlják-e vezérlőkarakterek beszúrását?"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "A kurzor villogjon-e"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "A felhasználó leválaszthatja és elmozdíthatja-e a menüsorokat"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "A felhasználó leválaszthatja és elmozdíthatja-e az eszköztárakat"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr "A felhasználó beüthet-e egy új gyorsbillentyűt egy menü felbukkanásakor?"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "Megjelenítsen-e egy állapotsort a jobb oldalon?"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Használjon-e egyéni betűkészletet a gtk+ alkalmazásokban."
 
@@ -888,6 +943,16 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Billentyűzetcsengő egyéni fájlneve"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
+msgid "Remember NumLock state"
+msgstr "A NumLock állapotának megjegyzése"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+msgstr "Ha be van állítva, a GNOME megjegyzi a NumLock LED állapotát a munkamenetek között."
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "lehetséges értékek: \"on\" (be), \"off\" (ki), és \"custom\" (egyéni)."
 
@@ -914,15 +979,8 @@ msgstr "Kurzortéma"
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server at the "
-"start of each session, so changing it mid-session won't have an effect until "
-"the next time you log in."
-msgstr ""
-"A kurzortéma neve. Csak az Xcursor-t támogató X-kiszolgálók használják, mint "
-"például az XFree86 4.3 és későbbi változatai. Ez az érték csak az egyes "
-"munkamenetek indításakor kerül átadásra az X-kiszolgálónak, így "
-"megváltoztatása egy munkamenet közepén semmilyen hatással sincs a következő "
-"bejelentkezésig."
+"XFree86 4.3 and later."
+msgstr "A Kurzortéma neve. Csak az Xcursort támogató X kiszolgálók használják, mint például az XFree86 4.3 és újabbak."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -988,15 +1046,8 @@ msgid "Single click to open icons"
 msgstr "Egyszeres kattintás az ikonok megnyitásához"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid ""
-"Size of the cursor referenced by cursor_theme. This value is only propagated "
-"to the X server start of each session, so changing it mid-session won't have "
-"an effect until the next time you log in."
-msgstr ""
-"A cursor_theme kulcs által hivatkozott kurzor mérete. Ez az érték csak az "
-"egyes munkamenetek indításakor kerül átadásra az X-kiszolgálónak, így "
-"megváltoztatása egy munkamenet közepén semmilyen hatással sincs a következő "
-"bejelentkezésig."
+msgid "Size of the cursor referenced by cursor_theme."
+msgstr "A cursor_theme kulcs által hivatkozott kurzor mérete."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
