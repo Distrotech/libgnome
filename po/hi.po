@@ -4,14 +4,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # G Karunakar <karunakar@freedomink.org>, 2003.
 # Ravishankar Shrivastava <raviratlami@yahoo.com>, 2004.
-# Rajesh Ranjan <rranjan@redhat.com>, 2005.
+# Rajesh Ranjan <rranjan@redhat.com>, 2005, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.hi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-01 08:55+0000\n"
-"PO-Revision-Date: 2005-09-01 18:51+0530\n"
+"POT-Creation-Date: 2006-03-09 23:06+0100\n"
+"PO-Revision-Date: 2006-03-10 13:11+0530\n"
 "Last-Translator: Rajesh Ranjan <rranjan@redhat.com>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
@@ -119,20 +120,20 @@ msgstr "मदद दस्तावेज़ %s/%s नहीं मिला"
 
 #  FIXME: get this from bonobo
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:90
+#: ../libgnome/gnome-init.c:89
 msgid "Bonobo Support"
 msgstr "बोनोबो समर्थन"
 
-#: ../libgnome/gnome-init.c:144
+#: ../libgnome/gnome-init.c:143
 msgid "Bonobo activation Support"
 msgstr "बोनोबो सक्रियण समर्थन"
 
-#: ../libgnome/gnome-init.c:330 ../libgnome/gnome-init.c:344
+#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "प्रति-उपयोगकर्ता गनोम कॉन्फ़िगरेशन डिरेक्ट्री `%s' बनाई नहीं  जा सकी: %s\n"
 
-#: ../libgnome/gnome-init.c:353
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -140,240 +141,264 @@ msgid ""
 msgstr "प्रति-उपयोगकर्ता गनोम कॉन्फ़िगरेशन डिरेक्ट्री पर मोड 0700 नियत नहीं कर सका `%s': %s\n"
 
 # libgnome/gnome-init.c:305
-#: ../libgnome/gnome-init.c:360
+#: ../libgnome/gnome-init.c:411
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "गनोम त्वरक डिरेक्ट्री `%s' बनाई नहीं जा सकी: %s\n"
 
 # libgnome/gnome-init.c:357
-#: ../libgnome/gnome-init.c:409
+#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
 msgid "Disable sound server usage"
 msgstr "ध्वनि सर्वर उपयोग अक्षम करें"
 
 # libgnome/gnome-init.c:360
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
 msgid "Enable sound server usage"
 msgstr "ध्वनि सर्वर उपयोग सक्षम करें"
 
 # libgnome/gnome-init.c:363
-#: ../libgnome/gnome-init.c:415
+#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
 msgid "Host:port on which the sound server to use is running"
 msgstr "होस्टःपोर्ट जिसका प्रयोग किया जाएगा जहाँ ध्वनि सर्वर चल रहा है"
 
 # libgnome/gnome-init.c:365
-#: ../libgnome/gnome-init.c:417
+#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
 msgid "HOSTNAME:PORT"
 msgstr "होस्ट नाम:पोर्ट"
 
 # libgnome/gnome-init.c:383
-#: ../libgnome/gnome-init.c:439
+#: ../libgnome/gnome-init.c:506
 msgid "GNOME Virtual Filesystem"
 msgstr "गनोम आभासी फ़ाइल-सिस्टम"
 
 # libgnome/gnome-init.c:404
-#: ../libgnome/gnome-init.c:463
+#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
 msgid "GNOME Library"
 msgstr "गनोम लायब्रेरी"
 
+#: ../libgnome/gnome-init.c:525
+msgid "Show GNOME options"
+msgstr "GNOME विकल्प दिखायें"
+
 # libgnome/gnome-program.c:426
-#: ../libgnome/gnome-program.c:437
+#: ../libgnome/gnome-program.c:447
 msgid "Popt Table"
 msgstr "Popt तालिका"
 
 # libgnome/gnome-program.c:427
-#: ../libgnome/gnome-program.c:438
+#: ../libgnome/gnome-program.c:448
 msgid "The table of options for popt"
 msgstr "Popt हेतु विकल्पों की तालिका"
 
 # libgnome/gnome-program.c:434
-#: ../libgnome/gnome-program.c:445
+#: ../libgnome/gnome-program.c:455
 msgid "Popt Flags"
 msgstr "Popt ध्वज"
 
 # libgnome/gnome-program.c:435
-#: ../libgnome/gnome-program.c:446
+#: ../libgnome/gnome-program.c:456
 msgid "The flags to use for popt"
 msgstr "Popt हेतु प्रयुक्त ध्वज"
 
 # libgnome/gnome-program.c:443
-#: ../libgnome/gnome-program.c:454
+#: ../libgnome/gnome-program.c:464
 msgid "Popt Context"
 msgstr "Popt संदर्भ"
 
 # libgnome/gnome-program.c:444
-#: ../libgnome/gnome-program.c:455
+#: ../libgnome/gnome-program.c:465
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "गनोम प्रोग्राम द्वारा प्रयुक्त popt संदर्भ सूचक"
 
+# libgnome/gnome-program.c:443
+#: ../libgnome/gnome-program.c:473
+msgid "GOption Context"
+msgstr "GOption संदर्भ"
+
+# libgnome/gnome-program.c:444
+#: ../libgnome/gnome-program.c:474
+msgid "The goption context pointer that GnomeProgram is using"
+msgstr "goption संदर्भ प्वाइंटर जो कि GnomeProgram प्रयोग कर रहा है"
+
 # libgnome/gnome-program.c:452
-#: ../libgnome/gnome-program.c:463
+#: ../libgnome/gnome-program.c:482
 msgid "Human readable name"
 msgstr "मनुष्य द्वारा पढ़ सकने योग्य नाम"
 
 # libgnome/gnome-program.c:453
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:483
 msgid "Human readable name of this application"
 msgstr "इस अनुप्रयोग का मनुष्य द्वारा पढ़ सकने योग्य नाम"
 
 # libgnome/gnome-program.c:462
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:492
 msgid "GNOME path"
 msgstr "गनोम पथ"
 
 # libgnome/gnome-program.c:463
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:493
 msgid "Path in which to look for installed files"
 msgstr "पथ जहाँ संस्थापित फ़ाइलें देखी जानी हैं"
 
 # libgnome/gnome-program.c:472
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:502
 msgid "App ID"
 msgstr "अनुप्रयोग आईडी"
 
 # libgnome/gnome-program.c:473
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:503
 msgid "ID string to use for this application"
 msgstr "इस अनुप्रयोग हेतु प्रयुक्त आईडी स्ट्रिंग"
 
 # libgnome/gnome-program.c:480
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:510
 msgid "App version"
 msgstr "अनुप्रयोग संस्करण"
 
 # libgnome/gnome-program.c:481
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:511
 msgid "Version of this application"
 msgstr "इस अनुप्रयोग का संस्करण"
 
 # libgnome/gnome-program.c:488
-#: ../libgnome/gnome-program.c:499
+#: ../libgnome/gnome-program.c:518
 msgid "GNOME Prefix"
 msgstr "गनोम प्रीफिक्स"
 
 # libgnome/gnome-program.c:489
-#: ../libgnome/gnome-program.c:500
+#: ../libgnome/gnome-program.c:519
 msgid "Prefix where GNOME was installed"
 msgstr "प्रीफिक्स जहां गनोम संस्थापित किया गया"
 
 # libgnome/gnome-program.c:498
-#: ../libgnome/gnome-program.c:509
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Libdir"
 msgstr "गनोम लायब्रेरी-डिरेक्ट्री"
 
 # libgnome/gnome-program.c:499
-#: ../libgnome/gnome-program.c:510
+#: ../libgnome/gnome-program.c:529
 msgid "Library prefix where GNOME was installed"
 msgstr "लायब्रेरी प्रीफिक्स जहां गनोम संस्थापित किया गया"
 
 # libgnome/gnome-program.c:508
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Datadir"
 msgstr "गनोम डेटा-डिरेक्ट्री"
 
 # libgnome/gnome-program.c:509
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:539
 msgid "Data prefix where GNOME was installed"
 msgstr "डेटा प्रीफिक्स जहां गनोम संस्थापित किया गया"
 
 # libgnome/gnome-program.c:518
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Sysconfdir"
 msgstr "गनोम सिस्टम-कॉन्फ़िग-डिरेक्ट्री"
 
 # libgnome/gnome-program.c:519
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:549
 msgid "Configuration prefix where GNOME was installed"
 msgstr "कॉन्फ़िगरेशन प्रीफिक्स जहां गनोम संस्थापित किया गया"
 
 # libgnome/gnome-program.c:529
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:559
 msgid "GNOME App Prefix"
 msgstr "गनोम अनुप्रयोग प्रीफिक्स"
 
 # libgnome/gnome-program.c:530
-#: ../libgnome/gnome-program.c:541
+#: ../libgnome/gnome-program.c:560
 msgid "Prefix where this application was installed"
 msgstr "प्रीफिक्स जहां यह अनुप्रयोग संस्थापित किया गया"
 
 # libgnome/gnome-program.c:538
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:568
 msgid "GNOME App Libdir"
 msgstr "गनोम अनुप्रयोग लायब्रेरी-डिरेक्ट्री"
 
 # libgnome/gnome-program.c:539
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:569
 msgid "Library prefix where this application was installed"
 msgstr "लायब्रेरी प्रीफिक्स जहां यह अनुप्रयोग संस्थापित किया गया"
 
 # libgnome/gnome-program.c:548
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Datadir"
 msgstr "गनोम अनुप्रयोग डेटा-डिरेक्ट्री"
 
 # libgnome/gnome-program.c:549
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:579
 msgid "Data prefix where this application was installed"
 msgstr "डेटा प्रीफिक्स जहां यह अनुप्रयोग संस्थापित किया गया"
 
 # libgnome/gnome-program.c:558
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Sysconfdir"
 msgstr "गनोम अनुप्रयोग सिस्कॉन्फ़-डिरेक्ट्री"
 
 # libgnome/gnome-program.c:559
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:589
 msgid "Configuration prefix where this application was installed"
 msgstr "कॉन्फ़िगरेशन प्रीफिक्स जहां यह अनुप्रयोग संस्थापित किया गया था"
 
 # libgnome/gnome-program.c:568
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:598
 msgid "Create Directories"
 msgstr "डिरेक्ट्रीज़ बनाएँ"
 
 # libgnome/gnome-program.c:569
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:599
 msgid "Create standard GNOME directories on startup"
 msgstr "प्रारंभ में मानक गनोम डिरेक्ट्रीज़ बनाएँ"
 
 # libgnome/gnome-program.c:578
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:608
 msgid "Enable Sound"
 msgstr "ध्वनि सक्षम करें"
 
 # libgnome/gnome-program.c:579
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:609
 msgid "Enable sound on startup"
 msgstr "प्रारंभ में ध्वनि सक्षम करें"
 
 # libgnome/gnome-program.c:588
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:617
 msgid "Espeaker"
 msgstr "ई-स्पीकर"
 
 # libgnome/gnome-program.c:589
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:618
 msgid "How to connect to esd"
 msgstr "ईएसडी से कैसे जुड़ें"
 
 # libgnome/gnome-program.c:1335
-#: ../libgnome/gnome-program.c:1365
+#: ../libgnome/gnome-program.c:1402
 msgid "Help options"
 msgstr "मदद विकल्प"
 
 # libgnome/gnome-program.c:1340
-#: ../libgnome/gnome-program.c:1370
+#: ../libgnome/gnome-program.c:1407
 msgid "Application options"
 msgstr "अनुप्रयोग विकल्प"
 
 # libgnome/gnome-program.c:1356
-#: ../libgnome/gnome-program.c:1386
+#: ../libgnome/gnome-program.c:1423
 msgid "Dynamic modules to load"
 msgstr "डायनामिक मॉड्यूल्स लोड करें"
 
 # libgnome/gnome-program.c:1357
-#: ../libgnome/gnome-program.c:1387
+#: ../libgnome/gnome-program.c:1424
 msgid "MODULE1,MODULE2,..."
 msgstr "मॉड्यूल1, मॉड्यूल2,..."
+
+#. Translators: the first %s is the error message, 2nd %s the program name
+#: ../libgnome/gnome-program.c:1507
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"%s\n"
+"'%s चलायें--help' उपलब्ध कमांड लाइन के पूरी सूची को देखने के लिये.\n"
 
 #: ../libgnome/gnome-url.c:84
 msgid "Unknown internal error while displaying this location."
@@ -389,7 +414,7 @@ msgid ""
 "location."
 msgstr "इस स्थान के साथ सम्बद्ध डिफ़ॉल्ट क्रिया कमांड पार्से करने में त्रुटि हुई."
 
-#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:139
+#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:172
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -404,11 +429,28 @@ msgid "The default action does not support this protocol."
 msgstr "डिफ़ॉल्ट क्रिया इस प्रोटोकॉल को समर्थित नहीं करता."
 
 #: ../libgnome/gnome-url.c:128
-#, c-format
-msgid "Unknown error code: %d"
-msgstr "अज्ञात त्रुटि कोड: %d"
+msgid "The request was cancelled."
+msgstr "आग्रह रद्द कर दिया गया."
 
-#: ../libgnome/gnome-open.c:40 ../libgnome/gnome-open.c:49
+#: ../libgnome/gnome-url.c:138
+#, c-format
+msgid "The host \"%s\" could not be found."
+msgstr "मेजबाननाम \"%s\" नहीं पाया जा सका."
+
+#: ../libgnome/gnome-url.c:144
+msgid "The host could not be found."
+msgstr "मेजबान नहीं पाया जा सका."
+
+#: ../libgnome/gnome-url.c:154
+msgid "The location or file could not be found."
+msgstr "स्थान या फाइल नहीं पाया जा सका."
+
+#: ../libgnome/gnome-url.c:161
+#, c-format
+msgid "Unknown error code: %u"
+msgstr "अज्ञात त्रुटि कोड: %u"
+
+#: ../libgnome/gnome-open.c:34
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "यूआरएल दिखाने में त्रुटि: %s\n"
@@ -559,7 +601,9 @@ msgstr ""
 msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
-msgstr "प्रथम विंडो प्रबंधक कार्यस्थानों के नाम सहित सूची. इस कुंजी को GNOME 2.12 के बाद पदावनत किया जा रहा है."
+msgstr ""
+"प्रथम विंडो प्रबंधक कार्यस्थानों के नाम सहित सूची. इस कुंजी को GNOME 2.12 के बाद पदावनत "
+"किया जा रहा है."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
@@ -569,7 +613,9 @@ msgstr "फालबैक विंडो प्रबंधक (पदाव�
 msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
-msgstr "यदि उपयोगकर्ता विंडो प्रबंधक नहीं मिलेगा तो फ़ालबैक विंडो प्रबंधक पाया नहीं जा सकता. इस कुंजी को GNOME 2.12 के बाद पदावनत किया जा रहा है."
+msgstr ""
+"यदि उपयोगकर्ता विंडो प्रबंधक नहीं मिलेगा तो फ़ालबैक विंडो प्रबंधक पाया नहीं जा सकता. इस "
+"कुंजी को GNOME 2.12 के बाद पदावनत किया जा रहा है."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -583,7 +629,9 @@ msgstr "कार्यस्थानों की संख्या (पद�
 msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
-msgstr "कार्यस्थानों की संख्या जिसका उपयोग विंडो प्रबंधक प्रयोग करेगा. इस कुंजी को GNOME 2.12 के बाद पदावनत किया जा रहा है."
+msgstr ""
+"कार्यस्थानों की संख्या जिसका उपयोग विंडो प्रबंधक प्रयोग करेगा. इस कुंजी को GNOME 2.12 के "
+"बाद पदावनत किया जा रहा है."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
@@ -591,7 +639,9 @@ msgstr "उपयोगकर्ता विंडो प्रबंधक (�
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
-msgstr "विंडो प्रबंधक को पहले कोशिश करनी चाहिये. इस कुंजी को GNOME 2.12 के बाद पदावनत किया गया है."
+msgstr ""
+"विंडो प्रबंधक को पहले कोशिश करनी चाहिये. इस कुंजी को GNOME 2.12 के बाद पदावनत किया "
+"गया है."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -779,40 +829,48 @@ msgid "Name of the default font used for reading documents"
 msgstr "दस्तावेज पढने के लिये प्रयुक्त डिफ़ॉल्ट फ़ॉन्ट का नाम"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
+msgid "Show the 'Input Methods' menu"
+msgstr "'इनपुट विधि' मेनू दिखायें"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+msgid "Show the 'Unicode Control Character' menu"
+msgstr "'यूनीकोड नियंत्रण संप्रतीक' मेनू दिखायें"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
 msgstr "स्थिति पट्टी दाएँ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "यह उपकरण-पट्टियों पर प्रदर्शित होने वाले चिह्नों के आकार को निर्दिष्ट करता है"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Toolbar Detachable"
 msgstr "पृथक करने योग्य उपकरण-पट्टी"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "उपकरण-पट्टी चिह्न आकार"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Toolbar Style"
 msgstr "उपकरण-पट्टी शैली"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr "उपकरणपट्टी शैली. वैध मूल्य हैं \"दोनों\", \"दोनों_आड़े\", \"चिह्न\", तथा \"पाठ\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Use Custom Font"
 msgstr "अनुकूलित फ़ॉन्ट उपयोग करें"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "क्या अनुप्रयोगों में एक्सेसिबिलिटी समर्थन हो"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -820,37 +878,49 @@ msgstr ""
 "क्या एनीमेशन्स प्रदर्शित किए जाएँ. टीपः यह एक वैश्विक कुंजी है, यह विंडो प्रबंधक, प़लक "
 "इत्यादि के व्यवहार को परिवर्तित करता है."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "क्या मेनू प्रविष्टि के बाजू से एक चिह्न प्रदर्शित किया जाए"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "क्या मेनू अलग करने योग्य हों"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method"
+msgstr ""
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters"
+msgstr ""
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "क्या संकेतक को टिमटिमाना है"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "क्या उपयोगकर्ता मेनूपट्टियों को अलग कर उन्हें आसपास खिसका सकता है"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "क्या उपयोगकर्ता उपकरणपट्टियों को अलग कर उन्हें आसपास खिसका सकता है"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr "क्या उपयोगकर्ता गतिशील रूप से एक नया त्वरक टाइप कर सकता है जब एक मेनू पॉप्डअप होता है"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "क्या स्थिति पट्टी मीटर दाएँ पर दिखाएँ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "क्या जीटीके+ में अनुकूलित फ़ॉन्ट उपयोग करना है"
 
@@ -912,6 +982,16 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "कुंजीपटल घंटी अनुकूलित फ़ाइलनाम"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
+msgid "Remember NumLock state"
+msgstr "NumLock स्थिति याद रखें"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+msgstr ""
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "संभावित मूल्य हैं \"चालू\", \"बन्द\", तथा \"अनुकूलित\"."
 
@@ -936,14 +1016,8 @@ msgstr "संकेतक प्रसंग"
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server at the "
-"start of each session, so changing it mid-session won't have an effect until "
-"the next time you log in."
+"XFree86 4.3 and later."
 msgstr ""
-"कर्सर थीम नाम. Xservers द्वारा सिर्फ प्रयुक्त जो Xcursor का समर्थन करती है, जैसे "
-"किXFree86 4.3 और उसके बाद के. इस मान को X सर्वर के लिये हर सत्र के आरंभ में फैलाना "
-"चाहिये, ताकि सत्र के बीच में इसे बदलना तब कोई प्ऱबाव नहीं देगा जबतक कि आप दूसरी दफे आप "
-"लॉगिन होते हैं."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -1006,14 +1080,8 @@ msgid "Single click to open icons"
 msgstr "चिह्नों को खोलने हेतु एकल क्लिक"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid ""
-"Size of the cursor referenced by cursor_theme. This value is only propagated "
-"to the X server start of each session, so changing it mid-session won't have "
-"an effect until the next time you log in."
+msgid "Size of the cursor referenced by cursor_theme."
 msgstr ""
-"cursor_theme के द्वारा संदर्भित कर्सर का आकार. यह मान सिर्फ X सर्वर को कहा जाता है "
-"हर सत्र के आरंभ में ताकि बीच सत्र में इसे बदलना कोई प्रभाव नहीं लायेगा जबतक कि अगली बार "
-"आप लॉगिन नहीं करते."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
