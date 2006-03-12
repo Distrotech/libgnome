@@ -3,14 +3,15 @@
 # Copyright (C) 2004, 2005, 2006 Miloslav Trmac <mitr@volny.cz>.
 # Miloslav Trmac <mitr@volny.cz>, 2002 - 2006.
 # Michal Bukovjan <bukm@centrum.cz>, 2003
+# Petr Tomeš <ptomes@gmail.com>, 2003
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-13 08:55+0100\n"
+"POT-Creation-Date: 2006-03-11 06:56+0100\n"
 "PO-Revision-Date: 2006-02-14 04:59+0100\n"
-"Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
+"Last-Translator: Petr Tomeš <ptomes@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +51,7 @@ msgstr "Varovná zpráva"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
-msgstr "Výběr položky menu"
+msgstr "Výběr položky nabídky"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Click on command button"
@@ -316,24 +317,24 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Jak se připojit k esd"
 
-#: ../libgnome/gnome-program.c:1409
+#: ../libgnome/gnome-program.c:1402
 msgid "Help options"
 msgstr "Volby nápovědy"
 
-#: ../libgnome/gnome-program.c:1414
+#: ../libgnome/gnome-program.c:1407
 msgid "Application options"
 msgstr "Volby aplikace"
 
-#: ../libgnome/gnome-program.c:1430
+#: ../libgnome/gnome-program.c:1423
 msgid "Dynamic modules to load"
 msgstr "Nahrát dynamické moduly"
 
-#: ../libgnome/gnome-program.c:1431
+#: ../libgnome/gnome-program.c:1424
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1514
+#: ../libgnome/gnome-program.c:1507
 #, c-format
 msgid ""
 "%s\n"
@@ -656,15 +657,15 @@ msgstr "Sekundární barva"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:1
 msgid "File Icon Theme"
-msgstr "Téma ikon souborů"
+msgstr "Motiv ikon souborů"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons"
-msgstr "Téma používané pro zobrazování ikon souborů"
+msgstr "Motiv používaný pro zobrazování ikon souborů"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr "Základní jméno implicitního tématu používaného v gtk+."
+msgstr "Základní jméno implicitního motivu používaného v gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
@@ -704,19 +705,19 @@ msgstr "Styl GTK IM Status"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:11
 msgid "Gtk+ Theme"
-msgstr "Téma Gtk+"
+msgstr "Motiv Gtk+"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon Theme"
-msgstr "Téma ikon"
+msgstr "Motiv ikon"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
-msgstr "Téma ikon, které použít pro panel, nautilus atd."
+msgstr "Motiv ikon, které použít pro panel, nautilus atd."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
-msgstr "Klávesová zkratka pro otevření lišt menu."
+msgstr "Klávesová zkratka pro otevření lišt nabídek."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
@@ -724,19 +725,19 @@ msgstr "Délka cyklu blikání kurzoru v milisekundách"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menubar Detachable"
-msgstr "Menu je odpojitelné"
+msgstr "Panel nabídek je odpojitelný"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:17
 msgid "Menubar accelerator"
-msgstr "Klávesová zkratka lišty menu"
+msgstr "Klávesová zkratka panelu nabídek"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Menus Have Icons"
-msgstr "Menu mají ikony"
+msgstr "Nabídky mají ikony"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:19
 msgid "Menus Have Tearoff"
-msgstr "Menu mají úchyt"
+msgstr "Nabídky mají úchyt"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:20
 msgid "Module for GtkFileChooser"
@@ -779,11 +780,11 @@ msgstr "Jméno implicitního písma používaného pro čtení dokumentů"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Show the 'Input Methods' menu"
-msgstr "Zobrazovat menu 'Vstupní metody'"
+msgstr "Zobrazovat nabídku 'Vstupní metody'"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:29
 msgid "Show the 'Unicode Control Character' menu"
-msgstr "Zobrazovat menu 'Řídící znak Unicode'"
+msgstr "Zobrazovat nabídku 'Řídící znak Unicode'"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
@@ -831,18 +832,18 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr "Jestli mohou menu zobrazovat ikonu vedle položky menu"
+msgstr "Jestli mohou nabídky zobrazovat ikonu vedle položky nabídky"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether menus should have a tearoff"
-msgstr "Jestli mají menu mít úchyt"
+msgstr "Jestli mají mít nabídky úchyt"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:41
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
 msgstr ""
-"Jestli kontextová menu vstupních polí a textových polí mají nabízet změnu "
+"Jestli kontextové nabídky vstupních polí a textových polí mají nabízet změnu "
 "vstupní metody"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:42
@@ -850,7 +851,7 @@ msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
 msgstr ""
-"Jestli kontextová menu vstupních polí a textových polí mají nabízet změnu "
+"Jestli kontextové nabídky vstupních polí a textových polí mají nabízet změnu "
 "vložení řídicích znaků"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:43
@@ -859,7 +860,7 @@ msgstr "Jestli má kurzor blikat"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether the user can detach menubars and move them around"
-msgstr "Jestli uživatel může odpojit menu a posouvat je"
+msgstr "Jestli uživatel může odpojit panely nabídek a posouvat je"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
@@ -970,14 +971,14 @@ msgstr "Velikost kurzoru"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
 msgid "Cursor theme"
-msgstr "Téma kurzoru"
+msgstr "Motiv kurzoru"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
 msgstr ""
-"Název tématu kurzoru. Používáno jen Xservery, které podporují Xcursor, "
+"Název motivu kurzoru. Používáno jen Xservery, které podporují Xcursor, "
 "například XFree86 4.3 a pozdější."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
@@ -1116,7 +1117,7 @@ msgstr "Jestli může být obrazovka přestávky ve psaní odložena."
 #~ "the start of each session, so changing it mid-session won't have an "
 #~ "effect until the next time you log in."
 #~ msgstr ""
-#~ "Název tématu kurzoru. Je použit pouze X serverem podporujícím Xcursor, "
+#~ "Název motivu kurzoru. Je použit pouze X serverem podporujícím Xcursor, "
 #~ "například XFree86 4.3 nebo pozdější. Tato hodnota je předána X serveru "
 #~ "pouze při startu každého sezení, takže její změna uprostřed sezení nebude "
 #~ "mít vliv do příštího přihlášení."
