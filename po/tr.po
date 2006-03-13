@@ -1,18 +1,18 @@
 # translation of libgnome.HEAD.tr.po to Turkish
 # Turkish translation of libgnome2.
-# Copyright (C) 2001-2003, 2004, 2005 Free Software Foundation, Inc.
+# Copyright (C) 2001-2003, 2004, 2005, 2006 Free Software Foundation, Inc.
 # Ozgur Dogan GUNES <ozgurdogan@programmer.net>
 # Ömer Fadıl USTA <omer_fad@hotmail.com>, 1999.
 # Görkem Çetin <gorkem@gelecek.com.tr>, 2002.
 # Arman Akssoy <armish@linux-sevenler.de>, 2003.
-# Baris Cicek <baris@teamforce.name.tr>, 2004, 2005.
+# Baris Cicek <baris@teamforce.name.tr>, 2004, 2005, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-05 22:13+0300\n"
-"PO-Revision-Date: 2005-09-05 22:10+0300\n"
+"POT-Creation-Date: 2006-03-14 00:04+0200\n"
+"PO-Revision-Date: 2006-03-14 00:00+0200\n"
 "Last-Translator: Baris Cicek <baris@teamforce.name.tr>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
-msgstr "Hata Mesajı"
+msgstr "Hata mesajı"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:2
 msgid "Informational message"
@@ -114,20 +114,20 @@ msgid "Help document %s/%s not found"
 msgstr "%s/%s yardım belgesi bulunamadı"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:90
+#: ../libgnome/gnome-init.c:89
 msgid "Bonobo Support"
 msgstr "Bonobo Desteği"
 
-#: ../libgnome/gnome-init.c:144
+#: ../libgnome/gnome-init.c:143
 msgid "Bonobo activation Support"
 msgstr "Bonobo activation Desteği"
 
-#: ../libgnome/gnome-init.c:330 ../libgnome/gnome-init.c:344
+#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Kullanıcı başına gnome ayar dizini `%s' yaratılamadı: %s\n"
 
-#: ../libgnome/gnome-init.c:353
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -136,194 +136,217 @@ msgstr ""
 "0700 chmod değeri kullanıcı başına gnome ayar dizinine uygulanamıyor `%s': %"
 "s\n"
 
-#: ../libgnome/gnome-init.c:360
+#: ../libgnome/gnome-init.c:411
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Gnome hızlandırıcı dizinler yaratılamıyor `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:409
+#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
 msgid "Disable sound server usage"
 msgstr "Ses sunucusunun kullanımını kapat"
 
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
 msgid "Enable sound server usage"
 msgstr "Ses sunucusunun kullanımını etkinleştir"
 
-#: ../libgnome/gnome-init.c:415
+#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
 msgid "Host:port on which the sound server to use is running"
 msgstr "Ses sunucusunun çalıştığı Makine:port"
 
-#: ../libgnome/gnome-init.c:417
+#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
 msgid "HOSTNAME:PORT"
 msgstr "MAKİNE:PORT"
 
-#: ../libgnome/gnome-init.c:439
+#: ../libgnome/gnome-init.c:506
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Sanal Dosya Sistemi"
 
-#: ../libgnome/gnome-init.c:463
+#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
 msgid "GNOME Library"
 msgstr "GNOME Kütüphanesi"
 
-#: ../libgnome/gnome-program.c:437
+#: ../libgnome/gnome-init.c:525
+msgid "Show GNOME options"
+msgstr "GNOME seçeneklerini göster"
+
+#: ../libgnome/gnome-program.c:447
 msgid "Popt Table"
 msgstr "Popt Tablosu"
 
-#: ../libgnome/gnome-program.c:438
+#: ../libgnome/gnome-program.c:448
 msgid "The table of options for popt"
 msgstr "Popt için seçenek tablosu"
 
-#: ../libgnome/gnome-program.c:445
+#: ../libgnome/gnome-program.c:455
 msgid "Popt Flags"
 msgstr "Popt İşaretleri"
 
-#: ../libgnome/gnome-program.c:446
+#: ../libgnome/gnome-program.c:456
 msgid "The flags to use for popt"
 msgstr "Popt için kullanılan işaretler"
 
-#: ../libgnome/gnome-program.c:454
+#: ../libgnome/gnome-program.c:464
 msgid "Popt Context"
 msgstr "Popt İçeriği"
 
-#: ../libgnome/gnome-program.c:455
+#: ../libgnome/gnome-program.c:465
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "GnomeProgram tarafından kullanılan popt içerik işaretleyicisi"
 
-#: ../libgnome/gnome-program.c:463
+#: ../libgnome/gnome-program.c:473
+msgid "GOption Context"
+msgstr "GOption içeriği"
+
+#: ../libgnome/gnome-program.c:474
+msgid "The goption context pointer that GnomeProgram is using"
+msgstr "GnomeProgram tarafından kullanılan goption içerik işaretleyicisi"
+
+#: ../libgnome/gnome-program.c:482
 msgid "Human readable name"
 msgstr "Okunabilir isim"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:483
 msgid "Human readable name of this application"
 msgstr "Bu uygulamanın okunabilir ismi"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:492
 msgid "GNOME path"
 msgstr "GNOME yolu"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:493
 msgid "Path in which to look for installed files"
 msgstr "Yüklenen dosyalara bakılacak konum"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:502
 msgid "App ID"
 msgstr "Uygulama No"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:503
 msgid "ID string to use for this application"
 msgstr "Bu uygulama için kullanılacak ID değeri"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:510
 msgid "App version"
 msgstr "Program sürümü"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:511
 msgid "Version of this application"
 msgstr "Bu uygulamanın sürümü"
 
-#: ../libgnome/gnome-program.c:499
+#: ../libgnome/gnome-program.c:518
 msgid "GNOME Prefix"
 msgstr "GNOME Öneki"
 
-#: ../libgnome/gnome-program.c:500
+#: ../libgnome/gnome-program.c:519
 msgid "Prefix where GNOME was installed"
 msgstr "GNOME'un kurulduğu yer"
 
-#: ../libgnome/gnome-program.c:509
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Libdir"
 msgstr "GNOME Kütüphane Dizini"
 
-#: ../libgnome/gnome-program.c:510
+#: ../libgnome/gnome-program.c:529
 msgid "Library prefix where GNOME was installed"
 msgstr "GNOME kütüphanesinin kurulduğu yer"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Datadir"
 msgstr "GNOME Veri Dizini"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:539
 msgid "Data prefix where GNOME was installed"
 msgstr "GNOME verilerinin kurulduğu yer"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Sysconfdir"
 msgstr "GNOME Sistem Yapılandırma Dizini"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:549
 msgid "Configuration prefix where GNOME was installed"
 msgstr "GNOME yapılandırma dosyalarının kurulduğu yer"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:559
 msgid "GNOME App Prefix"
 msgstr "GNOME Uygulama Öneki"
 
-#: ../libgnome/gnome-program.c:541
+#: ../libgnome/gnome-program.c:560
 msgid "Prefix where this application was installed"
 msgstr "Bu uygulamanın yüklendiği yer"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:568
 msgid "GNOME App Libdir"
 msgstr "GNOME Uygulama Kütüphane Dizini"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:569
 msgid "Library prefix where this application was installed"
 msgstr "Bu uygulamanın kütüphanelerinin yüklendiği yer"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Datadir"
 msgstr "GNOME Uygulama Veri Dizini"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:579
 msgid "Data prefix where this application was installed"
 msgstr "Bu uygulamanın verilerinin yüklendiği yer"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME Uygulama Sistem Yapılandırma Dizini"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:589
 msgid "Configuration prefix where this application was installed"
 msgstr "Bu uygulamanın yapılandırmasının yüklendiği yer"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:598
 msgid "Create Directories"
 msgstr "Dizinleri Oluştur"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:599
 msgid "Create standard GNOME directories on startup"
 msgstr "Başlangıçta standart GNOME dizinlerini oluştur"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:608
 msgid "Enable Sound"
 msgstr "Sesi Etkinleştir"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:609
 msgid "Enable sound on startup"
 msgstr "Başlangıçta sesi aç"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:617
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:618
 msgid "How to connect to esd"
 msgstr "Esd'ye nasıl bağlanılacağı"
 
-#: ../libgnome/gnome-program.c:1365
+#: ../libgnome/gnome-program.c:1402
 msgid "Help options"
 msgstr "Yardım seçenekleri"
 
-#: ../libgnome/gnome-program.c:1370
+#: ../libgnome/gnome-program.c:1407
 msgid "Application options"
 msgstr "Uygulama seçenekleri"
 
-#: ../libgnome/gnome-program.c:1386
+#: ../libgnome/gnome-program.c:1423
 msgid "Dynamic modules to load"
 msgstr "Yüklenecek dinamik modüller"
 
-#: ../libgnome/gnome-program.c:1387
+#: ../libgnome/gnome-program.c:1424
 msgid "MODULE1,MODULE2,..."
 msgstr "MODÜL1,MODÜL2,..."
+
+#. Translators: the first %s is the error message, 2nd %s the program name
+#: ../libgnome/gnome-program.c:1507
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"%s\n"
+"Mevcut olan komut satırı seçeneklerinin tam listesini görmek istiyor sanız '%"
+"s' --help'i çalıştırın.\n"
 
 #: ../libgnome/gnome-url.c:84
 msgid "Unknown internal error while displaying this location."
@@ -340,7 +363,7 @@ msgid ""
 msgstr ""
 "Bu konumla ilişkilendirilmiş varsayılan eylem ayrıştırılırken hata oluştu."
 
-#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:139
+#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:172
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -356,11 +379,28 @@ msgid "The default action does not support this protocol."
 msgstr "Öntanımlı eylem bu protokolü desteklemiyor."
 
 #: ../libgnome/gnome-url.c:128
-#, c-format
-msgid "Unknown error code: %d"
-msgstr "Bilinmeyen hata kodu: %d"
+msgid "The request was cancelled."
+msgstr "İstek iptal edildi."
 
-#: ../libgnome/gnome-open.c:40 ../libgnome/gnome-open.c:49
+#: ../libgnome/gnome-url.c:138
+#, c-format
+msgid "The host \"%s\" could not be found."
+msgstr "\"%s\" makinası bulunamadı."
+
+#: ../libgnome/gnome-url.c:144
+msgid "The host could not be found."
+msgstr "Makina bulunamadı."
+
+#: ../libgnome/gnome-url.c:154
+msgid "The location or file could not be found."
+msgstr "Konum ya da dosya bulunamadı."
+
+#: ../libgnome/gnome-url.c:161
+#, c-format
+msgid "Unknown error code: %u"
+msgstr "Bilinmeyen hata kodu: %u"
+
+#: ../libgnome/gnome-open.c:34
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "URL gösterimi sırasında hata: %s\n"
@@ -749,26 +789,34 @@ msgid "Name of the default font used for reading documents"
 msgstr "Belgeleri okumak için kullanılan öntanımlı yazıtipinin adı"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
+msgid "Show the 'Input Methods' menu"
+msgstr "\"Giriş Metodları\" menüsünü göster"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+msgid "Show the 'Unicode Control Character' menu"
+msgstr "\"Unikod Kontrol Karakteri\" menüsünü göster"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
 msgstr "Durum Çubuğu Sağda"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Bu araç çubuklarında görüntülenecek simgelerin boyutunu belirler"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Toolbar Detachable"
 msgstr "Araç Çubuğu Ayrılabilir"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "Araç Çubuğu Simge Boyutu"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Toolbar Style"
 msgstr "Araç Çubuğu Biçemi"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
@@ -776,15 +824,15 @@ msgstr ""
 "Araç çubuğu biçemi: Geçerli değerler  \"both\", \"both-horiz\", \"icon\", ve"
 "\"text\"dir"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Use Custom Font"
 msgstr "Özel Yazıtipi Kullan"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "Uygulamalarda erişebilirlik desteğinin olup olmayacağı"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -792,38 +840,54 @@ msgstr ""
 "Canlandırmaların gösterilip gösterilmeyeceği. Not: Bu genel bir anahtardır, "
 "ve pencere yöneticisi, panel vb. işleyişlerini değiştirir."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Menülerde girdilerin yanında simgelerin gösterilip gösterilmeyeceği"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "Menülerde ayıraçların olup olmayacağı"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method"
+msgstr ""
+"İçerik menüsü girişlerinin ve metin görünümlerinin giriş metodunu "
+"değiştirmeyi önermesi"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters"
+msgstr ""
+"İçerik menüleri girişlerinin ve metin görünümlerinin kontrol karakterleri "
+"eklenmesini önermesi"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "İmlecin yanıp sönmesi"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Kullanıcının menüleri ayırıp ekranda taşıyabilmesi"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Kullanıcının araç çubukarını ayırabilsi ve ekranda taşıyabilsi"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when a menu is "
 "popped up"
 msgstr ""
 "Bir menü açıldığında kullanıcının dinamik olarak yeni bir kısayol girebilsi"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "Sağda bir durum çubuğu ölçücü gösterilmesi"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Gtk+ uygulamalarında özel yazı tipi kullanılması."
 
@@ -885,6 +949,17 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "Klavye Zili Özel Dosya adı"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
+msgid "Remember NumLock state"
+msgstr "NumLock durumunu hatırla"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+msgstr ""
+"Eğer seçiliyse, GNOME oturumlar arasında, NumLock LED durumunu hatırlayacak."
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "geçerli değerler \"on\", \"off\", ve \"custom\"dır."
 
@@ -911,13 +986,10 @@ msgstr "İmleç teması"
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later. This value is only propagated to the X server at the "
-"start of each session, so changing it mid-session won't have an effect until "
-"the next time you log in."
+"XFree86 4.3 and later."
 msgstr ""
-"İmleç teması adı. XFree86 4.3 ve sonrasındaki gibi Xcursor desteği olan X "
-"sunucuları içindir. Bu değer sadece X oturumu başlangıcında atanır, "
-"birsonraki oturuma kadar bu değişiklik etkinolmaz."
+"İmleç tema ismi. Sadece XFree86 4.3 ve sonrası gibi Xcursor destekleyen "
+"Xservers'ları için kullanılır."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -981,14 +1053,8 @@ msgid "Single click to open icons"
 msgstr "Simgeleri açmak için bir kere tıklayın"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-msgid ""
-"Size of the cursor referenced by cursor_theme. This value is only propagated "
-"to the X server start of each session, so changing it mid-session won't have "
-"an effect until the next time you log in."
-msgstr ""
-"cursor_theme tarafından sağlanan imleç boyutu. Bu değer sadece X oturumu "
-"açıldığında kullanılır bu yüzden bu ayarın aktif olmasıiçin X sunucuyu "
-"yeniden başlatmanız gerekir."
+msgid "Size of the cursor referenced by cursor_theme."
+msgstr "cursor_theme tarafından belirtilen imlecin boyutu."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
