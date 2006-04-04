@@ -406,21 +406,24 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 	g_object_unref (G_OBJECT (client));
 	
 	if (terminal) {
+		gchar *command_line;
 		gchar *exec_flag;
 		exec_flag = gconf_client_get_string (client, "/desktop/gnome/applications/terminal/exec_arg", NULL);
 
-		if (exec_flag == NULL) {
-			term_argc = 1;
-			term_argv = g_new0 (char *, 2);
-			term_argv[0] = terminal;
-			term_argv[1] = NULL;
-		} else {
-			term_argc = 2;
-			term_argv = g_new0 (char *, 3);
-			term_argv[0] = terminal;
-			term_argv[1] = exec_flag;
-			term_argv[2] = NULL;
-		}
+		if (exec_flag == NULL)
+			command_line = g_strdup (terminal);
+		else
+			command_line = g_strdup_printf ("%s %s", terminal,
+							exec_flag);
+
+		g_shell_parse_argv (command_line,
+				    term_argc,
+				    term_argv,
+				    NULL /* error */);
+
+		g_free (command_line);
+		g_free (exec_flag);
+		g_free (terminal);
 #if 0
 	    poptParseArgvString (terminal, &term_argc, &temp_argv);
 	    term_argv = g_strdupv ((gchar **) temp_argv);
