@@ -229,7 +229,7 @@ libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
 		switch(opt->val) {
 		case ARG_ESPEAKER:
 			g_value_init (&value, G_TYPE_STRING);
-			g_value_set_string (&value, opt->arg);
+			g_value_set_string (&value, arg);
 			g_object_set_property (G_OBJECT (program),
 					       GNOME_PARAM_ESPEAKER, &value);
 			g_value_unset (&value);
