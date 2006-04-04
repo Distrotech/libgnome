@@ -904,7 +904,6 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
     gchar fnbuf [PATH_MAX], *retval = NULL, **ptr;
     gboolean search_path = TRUE;
     GValue value = { 0, };
-    int len;
 
     if (program == NULL)
 	program = gnome_program_get ();

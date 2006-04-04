@@ -417,8 +417,8 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 							exec_flag);
 
 		g_shell_parse_argv (command_line,
-				    term_argc,
-				    term_argv,
+				    &term_argc,
+				    &term_argv,
 				    NULL /* error */);
 
 		g_free (command_line);
