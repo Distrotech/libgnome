@@ -132,19 +132,29 @@ AC_SUBST(REBUILD)
 dnl
 dnl Start of pkg-config checks
 dnl
+
+PKG_PROG_PKG_CONFIG()
+
 dnl We first check for esound and audiofile (which has conditional
 dnl support built in)
 dnl
 
-SOUND_MODULES="esound >= esound_required_version dnl
- audiofile >= audiofile_required_version"
-PKG_CHECK_MODULES(SOUND_TEST, [$SOUND_MODULES],
-[
-  AC_DEFINE(HAVE_LIBAUDIOFILE,, [Compile with audiofile support])
-  AC_DEFINE(HAVE_ESD,, [Compile with esd support])
-],[
-  SOUND_MODULES=""
-])
+AC_MSG_CHECKING([whether ESounD support is requested])
+AC_ARG_ENABLE([esd],
+    AS_HELP_STRING([--enable-esd],[Enable ESounD (default=yes)]),
+    [enable_esd=$enableval],
+    [enable_esd=yes])
+AC_MSG_RESULT([$enable_esd])
+
+if test x$enable_esd = xyes; then
+	SOUND_MODULES="esound >= esound_required_version dnl
+		audiofile >= audiofile_required_version"
+	PKG_CHECK_MODULES(SOUND_TEST, [$SOUND_MODULES])
+	AC_DEFINE(HAVE_LIBAUDIOFILE,, [Compile with audiofile support])
+	AC_DEFINE(HAVE_ESD,, [Compile with esd support])
+else
+	SOUND_MODULES=""
+fi
 
 PKG_CHECK_MODULES(LIBGNOME, dnl
  [glib-2.0 >= glib_required_version dnl
