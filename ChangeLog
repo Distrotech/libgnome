@@ -1,3 +1,10 @@
+2006-04-04  Kjartan Maraas <kmaraas@gnome.org>
+
+	* libgnome/gnome-help.c: (gnome_help_display_with_doc_id_and_env):
+	* libgnome/gnome-program.c: (gnome_program_locate_file):
+	Fix gnome_help_display_with_doc_id() to behave as documented.
+	Patch from Christian Persch. Closes bug #333943.
+
 2006-04-01  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-program.c: (global_program_unref),
