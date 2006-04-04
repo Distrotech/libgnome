@@ -1,3 +1,8 @@
+2006-04-04  Christian Persch  <chpe@cvs.gnome.org>
+
+	* libgnome/gnome-help.c: (gnome_help_display_with_doc_id_and_env):
+	  Plug potential mem leak introduced by my previous patch.
+
 2006-04-04  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-exec.c: (gnome_prepend_terminal_to_vector):
@@ -28,7 +33,7 @@
 	* libgnome/gnome-help.c: (gnome_help_display_with_doc_id_and_env):
 	* libgnome/gnome-program.c: (gnome_program_locate_file):
 	Fix gnome_help_display_with_doc_id() to behave as documented.
-	Patch from Christian Persch. Closes bug #333943.
+	Patch from Stefan Kost and Christian Persch. Closes bug #333943.
 
 2006-04-01  Kjartan Maraas  <kmaraas@gnome.org>
 

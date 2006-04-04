@@ -127,6 +127,7 @@ gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
 	struct stat local_help_st;
 	struct stat global_help_st;
 	gchar *uri;
+	gchar *free_doc_id = NULL;
 	gboolean retval;
 
 	g_return_val_if_fail (file_name != NULL, FALSE);
@@ -143,8 +144,10 @@ gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
 
 	g_assert (program != NULL);
 
-	if (doc_id == NULL)
+	if (doc_id == NULL) {
 		g_object_get (program, GNOME_PARAM_APP_ID, &doc_id, NULL);
+		free_doc_id = doc_id;
+	}
 
 	if (doc_id == NULL)
 		doc_id = "";
@@ -245,6 +248,7 @@ gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
 
  out:
 
+	g_free (free_doc_id);
 	g_free (local_help_path);
 	g_free (global_help_path);
 	g_free (file);
