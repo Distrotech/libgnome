@@ -64,6 +64,8 @@
 #define getegid() getgid()
 #endif
 
+#define GNOME_PROGRAM_GET_PRIVATE(object)(G_TYPE_INSTANCE_GET_PRIVATE ((object), GNOME_TYPE_PROGRAM, GnomeProgramPrivate))
+
 struct _GnomeProgramPrivate {
     enum {
 	APP_UNINIT=0,
@@ -129,8 +131,6 @@ enum {
     PROP_LAST
 };
 
-typedef GOptionGroup * (* GetGOptionGroupFunc) (void);
-
 static void gnome_program_finalize      (GObject           *object);
 
 static GQuark quark_get_prop = 0;
@@ -148,6 +148,16 @@ static guint last_property_id = PROP_LAST;
 
 GNOME_CLASS_BOILERPLATE (GnomeProgram, gnome_program,
 			 GObject, G_TYPE_OBJECT)
+
+static void
+global_program_unref (void)
+{
+    if (global_program) {
+        g_object_unref (global_program);
+        global_program = NULL;
+        program_initialized = FALSE;
+    }
+}
 
 static void
 gnome_program_set_property (GObject *object, guint param_id,
@@ -332,7 +342,7 @@ add_to_module_list (GPtrArray *module_list, const gchar *module_name)
     for (i = 0; modnames && modnames[i]; i++) {
 	for (j = 0; j < module_list->len; j++)
 	    if (strcmp (modnames[i], (char *) g_ptr_array_index (module_list, j)) == 0)
-		return;
+		break;
 
 	g_ptr_array_add (module_list, g_strdup (modnames[i]));
     }
@@ -427,18 +437,19 @@ gnome_program_module_list_order (void)
 }
 
 static void
-gnome_program_class_init (GnomeProgramClass *class)
+gnome_program_class_init (GnomeProgramClass *klass)
 {
     GObjectClass *object_class;
 
-    object_class = (GObjectClass*) class;
-    parent_class = g_type_class_peek_parent (class);
+    object_class = (GObjectClass*) klass;
+    parent_class = g_type_class_peek_parent (klass);
 
     quark_set_prop = g_quark_from_static_string ("gnome-program-set-property");
     quark_get_prop = g_quark_from_static_string ("gnome-program-get-property");
 
     object_class->set_property = gnome_program_set_property;
     object_class->get_property = gnome_program_get_property;
+    object_class->finalize  = gnome_program_finalize;
 
     g_object_class_install_property
 	(object_class,
@@ -619,7 +630,7 @@ gnome_program_class_init (GnomeProgramClass *class)
 			      NULL,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE)));
 
-    object_class->finalize  = gnome_program_finalize;
+    g_type_class_add_private (klass, sizeof (GnomeProgramPrivate));
 }
 
 static void
@@ -627,7 +638,7 @@ gnome_program_instance_init (GnomeProgram *program)
 {
     guint i;
 
-    program->_priv = g_new0 (GnomeProgramPrivate, 1);
+    program->_priv = GNOME_PROGRAM_GET_PRIVATE (program);
 
     program->_priv->state = APP_CREATE_DONE;
 
@@ -706,9 +717,6 @@ gnome_program_finalize (GObject* object)
 	if (self->_priv->top_options_table != NULL)
 		g_array_free (self->_priv->top_options_table, TRUE);
 	self->_priv->top_options_table = NULL;
-
-	g_free (self->_priv);
-	self->_priv = NULL;
 
 	GNOME_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
 }
@@ -1003,7 +1011,7 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 	search_path = FALSE;
 	break;
     default:
-	g_warning (G_STRLOC ": unknown file domain %d", domain);
+	g_warning (G_STRLOC ": unknown file domain %u", domain);
 	return NULL;
     }
 
@@ -1499,16 +1507,26 @@ gnome_program_parse_args (GnomeProgram *program)
 	
 	if (priv->goption_context) {
 		GError *error = NULL;
+		char **arguments;
+
+		/* We need to free priv->argv in finalize, but g_option_context_parse
+		 * modifies the array. So we just pass it like this.
+		 */
+		arguments = g_memdup (priv->argv, priv->argc * sizeof (char *));
 
 		if (!g_option_context_parse (priv->goption_context,
-		     			     &priv->argc, &priv->argv,
+		     			     &priv->argc, &arguments,
 					     &error)) {
 			/* Translators: the first %s is the error message, 2nd %s the program name */
 			g_print(_("%s\nRun '%s --help' to see a full list of available command line options.\n"),
 				error->message, program->_priv->argv[0]);
 			g_error_free (error);
+			g_free (arguments);
+
 			exit (1);
 		}
+
+		g_free (arguments);
 	} else {
 		/* translate popt output by default */
 		int nextopt;
@@ -1917,6 +1935,8 @@ gnome_program_init_common (GType type,
 	g_object_ref (G_OBJECT (global_program));
 
 	program_initialized = TRUE;
+
+	g_atexit (global_program_unref);
     }
 
     gnome_program_preinit (program, app_id, app_version, argc, argv);
