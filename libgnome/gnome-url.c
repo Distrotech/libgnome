@@ -59,6 +59,8 @@
  *
  * Returns: %TRUE if everything went fine, %FALSE otherwise (in which case
  * @error will contain the actual error).
+ *
+ * Since: 2.2
  */
 gboolean
 gnome_url_show_with_env (const char  *url,

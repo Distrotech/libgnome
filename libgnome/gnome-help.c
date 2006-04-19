@@ -112,6 +112,8 @@ gnome_help_display (const char    *file_name,
  *
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
  * contain the actual error).
+ *
+ * Since: 2.2
  **/
 gboolean
 gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
@@ -314,6 +316,8 @@ gnome_help_display_with_doc_id (GnomeProgram  *program,
  *
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
  * contain the actual error).
+ *
+ * Since: 2.2
  */
 gboolean
 gnome_help_display_desktop_with_env (GnomeProgram  *program,
@@ -434,6 +438,8 @@ gnome_help_display_desktop (GnomeProgram  *program,
  *
  * Returns: %TRUE on success, %FALSE otherwise (in which case @error will
  * contain the actual error).
+ *
+ * Since: 2.2
  */
 gboolean
 gnome_help_display_uri_with_env (const char  *help_uri,

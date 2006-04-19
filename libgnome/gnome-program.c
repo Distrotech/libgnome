@@ -1985,6 +1985,8 @@ gnome_program_initv (GType type,
  * language bindings, mostly.
  *
  * Returns: A #GnomeProgram instance representing the current application.
+ *
+ * Since: 2.8
  */
 GnomeProgram*
 gnome_program_init_paramv (GType type,
