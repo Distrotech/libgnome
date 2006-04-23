@@ -1,13 +1,13 @@
 # Chinese (Taiwan) translation of libgnome.
-# Copyright (C) 2001, 02, 03, 04, 06 Free Software Foundation, Inc.
+# Copyright (C) 2001-2006 Free Software Foundation, Inc.
 # Abel Cheung <abel@oaka.org>, 2001-04, 06.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.13.5\n"
+"Project-Id-Version: libgnome 2.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-13 07:00+0800\n"
-"PO-Revision-Date: 2006-01-13 07:43+0800\n"
+"POT-Creation-Date: 2006-04-17 21:44+0200\n"
+"PO-Revision-Date: 2006-04-17 19:06+0800\n"
 "Last-Translator: Abel Cheung <abel@oaka.org>\n"
 "Language-Team: Chinese (Taiwan) <community@linuxhall.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgstr "點選核取方塊"
 msgid "User interface events"
 msgstr "有關用戶界面的事件"
 
-#: ../libgnome/gnome-exec.c:455
+#: ../libgnome/gnome-exec.c:458
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "找不到終端機，即使可能出問題也將會使用 xterm 代替"
 
@@ -70,34 +70,34 @@ msgstr "找不到終端機，即使可能出問題也將會使用 xterm 代替"
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf 支援"
 
-#: ../libgnome/gnome-help.c:159
+#: ../libgnome/gnome-help.c:167
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "找不到 GNOME_FILE_DOMAIN_APP_HELP 位置"
 
-#: ../libgnome/gnome-help.c:172
+#: ../libgnome/gnome-help.c:180
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "找不到 GNOME_FILE_DOMAIN_HELP 位置。"
 
-#: ../libgnome/gnome-help.c:185 ../libgnome/gnome-help.c:200
+#: ../libgnome/gnome-help.c:193 ../libgnome/gnome-help.c:208
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr "無法顯示說明文件，因為 %s 不是目錄。請檢查是否已正確安裝軟體。"
 
-#: ../libgnome/gnome-help.c:209 ../libgnome/gnome-help.c:225
+#: ../libgnome/gnome-help.c:217 ../libgnome/gnome-help.c:233
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr "在 %s 或 %s 中找不到說明文件。請檢查是否已正確安裝軟體。"
 
-#: ../libgnome/gnome-help.c:339
+#: ../libgnome/gnome-help.c:348
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "在說明文件目錄中找不到 doc_id %s"
 
-#: ../libgnome/gnome-help.c:360
+#: ../libgnome/gnome-help.c:369
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "找不到說明文件 %s/%s"
@@ -111,221 +111,221 @@ msgstr "Bonobo 支援"
 msgid "Bonobo activation Support"
 msgstr "Bonobo activation 支援"
 
-#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
+#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "無法新增個人的 GNOME 組態目錄「%s」：%s\n"
 
-#: ../libgnome/gnome-init.c:405
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr "無法將個人 GNOME 組態目錄「%s」的權限設為 0700：%s\n"
 
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:411
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "無法新增 GNOME 捷徑鍵目錄「%s」：%s\n"
 
-#: ../libgnome/gnome-init.c:461 ../libgnome/gnome-init.c:480
+#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
 msgid "Disable sound server usage"
 msgstr "不啟用音效伺服程式"
 
-#: ../libgnome/gnome-init.c:464 ../libgnome/gnome-init.c:483
+#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
 msgid "Enable sound server usage"
 msgstr "啟用音效伺服程式"
 
-#: ../libgnome/gnome-init.c:467 ../libgnome/gnome-init.c:487
+#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
 msgid "Host:port on which the sound server to use is running"
 msgstr "音效伺服程式執行時使用的主機及連接埠"
 
-#: ../libgnome/gnome-init.c:469 ../libgnome/gnome-init.c:488
+#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
 msgid "HOSTNAME:PORT"
 msgstr "主機：連接埠"
 
-#: ../libgnome/gnome-init.c:507
+#: ../libgnome/gnome-init.c:506
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME 虛擬檔案系統"
 
-#: ../libgnome/gnome-init.c:523 ../libgnome/gnome-init.c:544
+#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
 msgid "GNOME Library"
 msgstr "GNOME 函式庫"
 
-#: ../libgnome/gnome-init.c:524
+#: ../libgnome/gnome-init.c:525
 msgid "Show GNOME options"
 msgstr "顯示有關 GNOME 的選項"
 
-#: ../libgnome/gnome-program.c:447
+#: ../libgnome/gnome-program.c:458
 msgid "Popt Table"
 msgstr "Popt 選項清單"
 
-#: ../libgnome/gnome-program.c:448
+#: ../libgnome/gnome-program.c:459
 msgid "The table of options for popt"
 msgstr "和 popt 有關的選項清單"
 
-#: ../libgnome/gnome-program.c:455
+#: ../libgnome/gnome-program.c:466
 msgid "Popt Flags"
 msgstr "Popt 旗標"
 
-#: ../libgnome/gnome-program.c:456
+#: ../libgnome/gnome-program.c:467
 msgid "The flags to use for popt"
 msgstr "popt 所使用的旗標"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:475
 msgid "Popt Context"
 msgstr "Popt Context"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:476
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "GnomeProgram 所使用的 popt context pointer"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:484
 msgid "GOption Context"
 msgstr "GOption Context"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:485
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "GnomeProgram 所使用的 goption context pointer"
 
-#: ../libgnome/gnome-program.c:482
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name"
 msgstr "容易理解的名稱"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:494
 msgid "Human readable name of this application"
 msgstr "比較容易理解的應用程式名稱"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:503
 msgid "GNOME path"
 msgstr "GNOME 路徑"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:504
 msgid "Path in which to look for installed files"
 msgstr "搜尋系統檔案時會搜尋的路徑"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:513
 msgid "App ID"
 msgstr "程式識別碼"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:514
 msgid "ID string to use for this application"
 msgstr "本程式使用的識別碼"
 
-#: ../libgnome/gnome-program.c:510
+#: ../libgnome/gnome-program.c:521
 msgid "App version"
 msgstr "程式版本"
 
-#: ../libgnome/gnome-program.c:511
+#: ../libgnome/gnome-program.c:522
 msgid "Version of this application"
 msgstr "本程式的版本"
 
-#: ../libgnome/gnome-program.c:518
+#: ../libgnome/gnome-program.c:529
 msgid "GNOME Prefix"
 msgstr "GNOME 前置路徑"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:530
 msgid "Prefix where GNOME was installed"
 msgstr "安裝 GNOME 所用的路徑"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:539
 msgid "GNOME Libdir"
 msgstr "GNOME 函式庫路徑"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:540
 msgid "Library prefix where GNOME was installed"
 msgstr "安裝 GNOME 函式庫所用的路徑"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:549
 msgid "GNOME Datadir"
 msgstr "GNOME 資料檔路徑"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:550
 msgid "Data prefix where GNOME was installed"
 msgstr "安裝 GNOME 資料檔所用的路徑"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:559
 msgid "GNOME Sysconfdir"
 msgstr "GNOME 設定檔路徑"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:560
 msgid "Configuration prefix where GNOME was installed"
 msgstr "安裝 GNOME 設定檔所用的路徑"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:570
 msgid "GNOME App Prefix"
 msgstr "GNOME 程式前置路徑"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:571
 msgid "Prefix where this application was installed"
 msgstr "安裝本程式所用的前置路徑"
 
-#: ../libgnome/gnome-program.c:568
+#: ../libgnome/gnome-program.c:579
 msgid "GNOME App Libdir"
 msgstr "GNOME 程式函式庫路徑"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:580
 msgid "Library prefix where this application was installed"
 msgstr "安裝本程式所用的函式庫路徑"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:589
 msgid "GNOME App Datadir"
 msgstr "GNOME 程式資料路徑"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:590
 msgid "Data prefix where this application was installed"
 msgstr "安裝本程式所用的資料路徑"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:599
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME 程式組態檔路徑"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:600
 msgid "Configuration prefix where this application was installed"
 msgstr "安裝本程式所用的組態檔路徑"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:609
 msgid "Create Directories"
 msgstr "新增目錄"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:610
 msgid "Create standard GNOME directories on startup"
 msgstr "啟動 GNOME 時自動新增平常使用的 GNOME 目錄"
 
-#: ../libgnome/gnome-program.c:608
+#: ../libgnome/gnome-program.c:619
 msgid "Enable Sound"
 msgstr "啟用音效"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:620
 msgid "Enable sound on startup"
 msgstr "啟動 GNOME 時啟用音效"
 
-#: ../libgnome/gnome-program.c:617
+#: ../libgnome/gnome-program.c:628
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:629
 msgid "How to connect to esd"
 msgstr "如何連上 esd"
 
-#: ../libgnome/gnome-program.c:1406
+#: ../libgnome/gnome-program.c:1396
 msgid "Help options"
 msgstr "求助選項"
 
-#: ../libgnome/gnome-program.c:1411
+#: ../libgnome/gnome-program.c:1401
 msgid "Application options"
 msgstr "程式選項"
 
-#: ../libgnome/gnome-program.c:1427
+#: ../libgnome/gnome-program.c:1417
 msgid "Dynamic modules to load"
 msgstr "準備載入的模組"
 
-#: ../libgnome/gnome-program.c:1428
+#: ../libgnome/gnome-program.c:1418
 msgid "MODULE1,MODULE2,..."
 msgstr "模組 1、模組 2、..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1511
+#: ../libgnome/gnome-program.c:1507
 #, c-format
 msgid ""
 "%s\n"
@@ -348,7 +348,7 @@ msgid ""
 "location."
 msgstr "在讀取處理這個位置的預設指令時發生分析錯誤。"
 
-#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:165
+#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:172
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -376,6 +376,10 @@ msgid "The host could not be found."
 msgstr "找不到主機。"
 
 #: ../libgnome/gnome-url.c:154
+msgid "The location or file could not be found."
+msgstr "找不到位置或是檔案。"
+
+#: ../libgnome/gnome-url.c:161
 #, c-format
 msgid "Unknown error code: %u"
 msgstr "不明的錯誤碼：%u"
@@ -574,8 +578,8 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
-"決定 wallpaper_filename 中指定的圖像如何顯示。可使用的值"
-"為：「none」、「wallpaper」、「centered」、「scaled」、「stretched」。"
+"決定 wallpaper_filename 中指定的圖像如何顯示。可使用的值為：「none」、"
+"「wallpaper」、「centered」、「scaled」、「stretched」。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -594,7 +598,8 @@ msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"繪畫背景顏色的方式。可使用的值為「horizontal-gradient」、「vertical-gradient」及「solid」"
+"繪畫背景顏色的方式。可使用的值為「horizontal-gradient」、「vertical-"
+"gradient」及「solid」"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -811,15 +816,13 @@ msgstr "應否顯示可讓選單卸離選單列的元件"
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
-"文字輸入欄和文字顯示元件中的選單應否顯示輸入法選擇"
+msgstr "文字輸入欄和文字顯示元件中的選單應否顯示輸入法選擇"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:42
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
-msgstr ""
-"文字輸入欄和文字顯示元件中的選單應否顯示統一碼控制字元的選擇"
+msgstr "文字輸入欄和文字顯示元件中的選單應否顯示統一碼控制字元的選擇"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
@@ -910,8 +913,7 @@ msgstr "記憶 NumLock 狀態"
 msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
-msgstr ""
-"如設定為「true」，GNOME 會在下次進入桌面時回復上次的 NumLock 鍵狀態。"
+msgstr "如設定為「true」，GNOME 會在下次進入桌面時回復上次的 NumLock 鍵狀態。"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -940,8 +942,8 @@ msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
 msgstr ""
-"這個是鼠標主題名稱，只適用於支援 Xcursor 的 X 伺服程式，例如 XFree86 4.3 "
-"或以後的版本。"
+"這個是鼠標主題名稱，只適用於支援 Xcursor 的 X 伺服程式，例如 XFree86 4.3 或以"
+"後的版本。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -1034,8 +1036,8 @@ msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
-"如設定為「true」，會停止產生任何縮圖，而不理會各種製作縮圖的程式是否已經個別被啟"
-"用或者停止使用"
+"如設定為「true」，會停止產生任何縮圖，而不理會各種製作縮圖的程式是否已經個別"
+"被啟用或者停止使用"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
@@ -1068,4 +1070,3 @@ msgstr "是否鎖定鍵盤"
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "可否暫時延後進入休息畫面的時間。"
-
