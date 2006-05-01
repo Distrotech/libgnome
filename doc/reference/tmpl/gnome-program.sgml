@@ -76,7 +76,9 @@ module (can be %NULL).
 @class_init: A function to call to initialise this module prior to creating any
 instances (can be %NULL).
 @opt_prefix: Unused.
-@get_goption_group_func: 
+@get_goption_group_func: A function which must return a non-%NULL #GOptionGroup,
+which will be added to the #GnomeProgram s #GOptionContext during
+#gnome_program_init().
 
 <!-- ##### STRUCT GnomeModuleRequirement ##### -->
 <para>
@@ -120,6 +122,13 @@ phase).
 @mod_info: The current module's #GnomeModuleInfo structure.
 
 
+<!-- ##### USER_FUNCTION GnomeModuleGetGOptionGroupFunc ##### -->
+<para>
+A function that is called to get a GOptionGroup that contains options
+specific to this module.
+</para>
+
+
 <!-- ##### FUNCTION gnome_program_init ##### -->
 <para>
 Every GNOME application will need to call this function (or
@@ -159,7 +168,7 @@ int main(int argc, char **argv) {
 	g_option_context_add_main_entries (option_context, options, NULL);
 	my_app = gnome_program_init(PACKAGE, VERSION, LIBGNOMEUI_MODULE,
 	                            argc, argv,
-				    GNOME_PARAM_OPTION_CONTEXT, option_context,
+				    GNOME_PARAM_GOPTION_CONTEXT, option_context,
 				    GNOME_PARAM_NONE);
 	/* Now process any extra args, etc ... */
 }
