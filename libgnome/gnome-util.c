@@ -76,14 +76,14 @@ gnome_util_user_shell (void)
 	struct passwd *pw;
 	int i;
 	const char *shell;
-	static char *shells [] = {
+	const char shells [][14] = {
 		/* Note that on some systems shells can also
 		 * be installed in /usr/bin */
 		"/bin/bash", "/usr/bin/bash",
 		"/bin/zsh", "/usr/bin/zsh",
 		"/bin/tcsh", "/usr/bin/tcsh",
 		"/bin/ksh", "/usr/bin/ksh",
-		"/bin/csh", "/bin/sh", NULL
+		"/bin/csh", "/bin/sh"
 	};
 
 	if (geteuid () == getuid () &&
@@ -102,7 +102,7 @@ gnome_util_user_shell (void)
 		}
 	}
 
-	for (i = 0; shells [i]; i++) {
+	for (i = 0; i != G_N_ELEMENTS (shells); i++) {
 		if (access (shells [i], X_OK) == 0) {
 			return g_strdup (shells[i]);
 		}
