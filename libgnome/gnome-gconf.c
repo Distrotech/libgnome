@@ -31,9 +31,6 @@
 #define GCONF_ENABLE_INTERNALS
 #include <gconf/gconf.h>
 #include <gconf/gconf-client.h>
-#include <popt.h>
-
-extern struct poptOption gconf_options[];
 
 #include "gnome-i18nP.h"
 
@@ -171,7 +168,7 @@ _gnome_gconf_module_info_get (void)
 		NULL /* instance init */,
 		NULL /* pre_args_parse */,
 		NULL /* post_args_parse */,
-		gconf_options,
+		NULL /* options */,
 		NULL /* init_pass */,
 		NULL /* class_init */,
 		NULL, NULL /* expansions */

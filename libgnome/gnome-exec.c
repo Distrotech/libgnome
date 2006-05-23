@@ -403,7 +403,7 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 
 	client = gconf_client_get_default ();
 	terminal = gconf_client_get_string (client, "/desktop/gnome/applications/terminal/exec", NULL);
-	g_object_unref (G_OBJECT (client));
+	g_object_unref (client);
 	
 	if (terminal) {
 		gchar *command_line;

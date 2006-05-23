@@ -1,3 +1,13 @@
+2006-05-23  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-exec.c: (gnome_prepend_terminal_to_vector):
+	Remove unneeded cast.
+	* libgnome/gnome-gconf.c: (_gnome_gconf_module_info_get): Small
+	cleanup from Christian Persch. Closes bug #342304.
+	* monikers/bonobo-config-bag.c: (bonobo_config_bag_finalize):
+	* monikers/bonobo-moniker-conf-indirect.c:
+	(bonobo_moniker_conf_indirect_resolve): Remove unneeded cast.
+
 2006-05-16  Christian Persch  <chpe@cvs.gnome.org>
 
 	* configure.in: Update intltool requirement to 0.35.

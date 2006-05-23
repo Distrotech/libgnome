@@ -36,7 +36,7 @@ bonobo_moniker_conf_indirect_resolve (BonoboMoniker *moniker,
 
 	conf_client = gconf_client_get_default ();
 	oiid = gconf_client_get_string (conf_client, key, &err);
-	g_object_unref (G_OBJECT (conf_client));
+	g_object_unref (conf_client);
 
 	if (!oiid) {
 		bonobo_exception_general_error_set (

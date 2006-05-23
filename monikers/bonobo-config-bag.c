@@ -31,7 +31,7 @@ bonobo_config_bag_finalize (GObject *object)
 	BonoboConfigBag *cb = BONOBO_CONFIG_BAG (object);
 
 	g_free (cb->path);
-	g_object_unref (G_OBJECT (cb->conf_client));
+	g_object_unref (cb->conf_client);
 
 	parent_class->finalize (object);
 }
