@@ -183,7 +183,7 @@ is_loaded (const char *filename, TSecHeader **section)
 	 */
 	if (Current && strcasecmp (filename, Current->filename) == 0){
 		if (Current->last_checked != time (NULL)){
-			if (stat (filename, &st) == -1)
+			if (g_stat (filename, &st) == -1)
 				st.st_mtime = 0;
 			if (Current->mtime != st.st_mtime) {
 				free_sections (Current->section);
@@ -213,7 +213,7 @@ is_loaded (const char *filename, TSecHeader **section)
 			p = next;
 		} else if (strcasecmp (filename, p->filename) == 0){
 			if (p->last_checked != time (NULL)){
-				if (stat (filename, &st) == -1)
+				if (g_stat (filename, &st) == -1)
 					st.st_mtime = 0;
 				if (p->mtime != st.st_mtime) {
 					if(p == Current)
@@ -447,7 +447,7 @@ access_config (access_type mode, const char *section_name,
 	if (!is_loaded (filename, &section)){
 		struct stat st;
 		
-		if (stat (filename, &st) == -1)
+		if (g_stat (filename, &st) == -1)
 			st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
@@ -1007,7 +1007,7 @@ gnome_config_init_iterator_ (const char *path, gboolean priv)
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
 		
-		if (stat (pp->file, &st) == -1){
+		if (g_stat (pp->file, &st) == -1){
 			st.st_mtime = 0;
 		}
 
@@ -1076,7 +1076,7 @@ gnome_config_init_iterator_sections_ (const char *path, gboolean priv)
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
 		
-		if (stat (pp->file, &st) == -1)
+		if (g_stat (pp->file, &st) == -1)
 			st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
@@ -1192,7 +1192,7 @@ gnome_config_clean_section_ (const char *path, gboolean priv)
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
 
-		if (stat (pp->file, &st) == -1)
+		if (g_stat (pp->file, &st) == -1)
 			st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
@@ -1250,7 +1250,7 @@ gnome_config_clean_key_ (const char *path, gboolean priv)
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
 		
-		if (stat (pp->file, &st) == -1)
+		if (g_stat (pp->file, &st) == -1)
 			st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));
@@ -1312,7 +1312,7 @@ gnome_config_has_section_ (const char *path, gboolean priv)
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
 		
-		if (stat (pp->file, &st) == -1)
+		if (g_stat (pp->file, &st) == -1)
 			st.st_mtime = 0;
 
 		New = (TProfile *) g_malloc (sizeof (TProfile));

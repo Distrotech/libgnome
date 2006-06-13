@@ -1,3 +1,13 @@
+2006-06-13  Tor Lillqvist  <tml@novell.com>
+
+	* libgnome/gnome-config.c
+	* libgnome/gnome-help.c
+	* libgnome/gnome-init.c:
+	Use gstdio wrappers consistently. A couple of spots had slipped
+	through the cracks and still used the unwrapped C library
+	functions. We must use gstdio wrappers for all file name functions
+	for full Unicode file name support on Win32.
+
 2006-05-23  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-exec.c: (gnome_prepend_terminal_to_vector):
