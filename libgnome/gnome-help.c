@@ -29,6 +29,7 @@
 
 #include <string.h>
 #include <glib.h>
+#include <glib/gstdio.h>
 
 #include "gnome-i18nP.h"
 
