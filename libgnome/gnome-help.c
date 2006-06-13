@@ -29,6 +29,7 @@
 
 #include <string.h>
 #include <glib.h>
+#include <glib/gstdio.h>
 
 #include "gnome-i18nP.h"
 
@@ -187,7 +188,7 @@ gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
 	 * and then falling back to the global help path if the first one fails.
 	 */
 
-	if (stat (local_help_path, &local_help_st) == 0) {
+	if (g_stat (local_help_path, &local_help_st) == 0) {
 		if (!S_ISDIR (local_help_st.st_mode)) {
 			g_set_error (error,
 				     GNOME_HELP_ERROR,
@@ -202,7 +203,7 @@ gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
 	}
 
 	if (file == NULL) {
-		if (stat (global_help_path, &global_help_st) == 0) {
+		if (g_stat (global_help_path, &global_help_st) == 0) {
 			if (!S_ISDIR (global_help_st.st_mode)) {
 				g_set_error (error,
 					     GNOME_HELP_ERROR,

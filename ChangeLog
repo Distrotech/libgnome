@@ -1,3 +1,13 @@
+2006-06-13  Tor Lillqvist  <tml@novell.com>
+
+	* libgnome/gnome-config.c
+	* libgnome/gnome-help.c
+	* libgnome/gnome-init.c:
+	Use gstdio wrappers consistently. A couple of spots had slipped
+	through the cracks and still used the unwrapped C library
+	functions. For full Unicode file name support on Win32 we must use
+	gstdio wrappers for all C library functions that take file names.
+
 2006-06-12  Christian Persch  <chpe@cvs.gnome.org>
 
 	* configure.in: Fix the build by removing "no" from ALL_LINGUAS.

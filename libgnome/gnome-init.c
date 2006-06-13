@@ -400,7 +400,7 @@ libgnome_userdir_setup (gboolean create_dirs)
 
 
 	/* change mode to 0700 on the private directory */
-	if (chmod (gnome_user_private_dir, 0700) < 0) {
+	if (g_chmod (gnome_user_private_dir, 0700) < 0) {
 		g_printerr (_("Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"),
 			gnome_user_private_dir, strerror(errno));
 		exit(1);
