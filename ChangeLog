@@ -1,3 +1,13 @@
+2006-06-20  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* schemas/desktop_gnome_interface.schemas.in: From bug #338276:
+	The new gconf keys, /desktop/gnome/interface/show_input_method_menu and
+	/desktop/gnome/interface/show_unicode_menu should default to true 
+	instead of false as they do now. Otherwise, the user's abiliity to 
+	change input method and insert some control characters from the text 
+	input's context menu will vanish without trace once he upgrades to 
+	gtk+ 2.9.
+
 2006-06-13  Tor Lillqvist  <tml@novell.com>
 
 	* libgnome/gnome-config.c
@@ -80,7 +90,7 @@
 2006-04-04  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-init.c: (libgnome_option_cb): Fix
-	--espeaker option. Closes bug #333932. Patch from 
+	--espeaker option. Closes bug #333932. Patch from
 	Michael H. Schimek.
 
 2006-04-04  Kjartan Maraas <kmaraas@gnome.org>
@@ -115,17 +125,17 @@
 	using GOption if explicitly requested, since otherwise the popt
 	context isn't created, which breaks ABI in case anyone tries to use
 	it.
-		
+
 2006-02-12  Claudio Saavedra  <csaavedra@alumnos.utalca.cl>
 
-	* libgnome/gnome-url.c: (gnome_url_show_with_env): Add handling of 
+	* libgnome/gnome-url.c: (gnome_url_show_with_env): Add handling of
 	GNOME_VFS_ERROR_INVALID_URI error and a user readable message
 	(Fixes #327754).
 
 2006-02-12  Vincent Untz  <vuntz@gnome.org>
 
 	Use GOption instead of popt by default
-	
+
 	* libgnome/gnome-program.c: (gnome_program_preinit): use GOption by
 	default if the program does not specify any help data
 
@@ -241,10 +251,10 @@
 2005-11-14  Sebastien Bacher  <seb128@debian.org>
 
 	* schemas/desktop_gnome_interface.schemas.in:
-	describe the new XSettings to control the visibility of the 
-	input method and Unicode control character submenus in the context 
-	menus of entries and text views, change by Matthias Clasen 
-	(Closes: #319637). 
+	describe the new XSettings to control the visibility of the
+	input method and Unicode control character submenus in the context
+	menus of entries and text views, change by Matthias Clasen
+	(Closes: #319637).
 
 2005-11-14  Sebastien Bacher  <seb128@debian.org>
 
@@ -413,7 +423,7 @@
 	* libgnome/gnome-config.c:
 	* libgnome/gnome-help.c:
 	Use g_get_language_names() instead of gnome_i18n_get_language_list.
-	
+
 	* libgnome/gnome-i18n.c:
 	Implement gnome_i18n_get_language_list using g_get_language_names
 	instead of bonobo_activation_get_language_list.
@@ -433,7 +443,7 @@
 
 2005-01-02  Sebastien Bacher  <seb128@debian.org>
 
-	* schemas/desktop_gnome_interface.schemas.in: added a gconf key to 
+	* schemas/desktop_gnome_interface.schemas.in: added a gconf key to
 	configure the gtk-menu-bar-accelerator.
 
 2005-05-11  Kjartan Maraas  <kmaraas@gnome.org>
@@ -526,7 +536,7 @@
 	* libgnome/libgnome-2.0.pc.in
 	* libgnome/gnome-init.c
 	* libgnome/gnome-open.c: Try to manage without gnome-vfs on Win32,
-	at least for now. 
+	at least for now.
 
 	* libgnome/gnome-config.c
 	* libgnome/gnome-init.c
@@ -539,7 +549,7 @@
 	* libgnome/dllmain.c: New file. Contains the Win32 DLL entry
 	point, which is used here to implement installation location
 	independence. Sets up run-time paths to libdir, sysconfdir etc.
-	
+
 	* libgnome/libgnome-private.h: New file. On Win32 undefs the
 	compile-time definitions of directory pathnames and defines them
 	to point to the run-time ones instead.
@@ -628,22 +638,21 @@
 
 	* libgnome/gnome-config.h:
 	Deprecate, use GKeyFile instead.
-	
+
 	* libgnome/gnome-i18n.h:
 	Deprecate, use glib/gi18n.h and	g_get_language_names instead.
-	
+
 	* libgnome/gnome-score.h:
 	Deprecate. This is too specialized, and eventually a replacement
 	will find its way into gnome-games.
-	
+
 2004-11-08  Anders Carlsson  <andersca@gnome.org>
 
 	* configure.in: Update to 2.9.1
 
-2004-10-27  Thomas Fitzsimmons	<fitzsim@redhat.com>			       
-									       
-					     
-	* schemas/Makefile.am (install-data-local): Install generated	       
+2004-10-27  Thomas Fitzsimmons	<fitzsim@redhat.com>
+
+	* schemas/Makefile.am (install-data-local): Install generated
 	.schema files from build directory, not source directory.
 
 2004-10-10  Anders Carlsson  <andersca@gnome.org>
@@ -651,7 +660,7 @@
 	* libgnome/gnome-gconf.c:
 	(gnome_gconf_get_gnome_libs_settings_relative):
 	Escape the app id.
-	
+
 ==================== 2.8.0 ====================
 
 2004-09-12  Anders Carlsson  <andersca@gnome.org>
@@ -674,7 +683,7 @@
 	s/NULL/0 in parameter list. Closes bug #150986.
 
 =================== 2.7.91 ====================
-	
+
 2004-08-16  Anders Carlsson  <andersca@gnome.org>
 
 	* configure.in: Release 2.7.91
@@ -694,7 +703,7 @@
 2004-08-11  J.H.M. Dassen (Ray) <jdassen@debian.org>
 
 	* configure.in: Added gobject-2.0 to the PKG_CHECK_MODULES for LIBGNOME
-	so all libgnome's symbol references are resolvable (i.e. it builds 
+	so all libgnome's symbol references are resolvable (i.e. it builds
 	with LDFLAGS=-Wl,-z,defs).
 
 2004-08-11  Alexander Larsson  <alexl@redhat.com>
@@ -797,7 +806,7 @@ Mon Jul 19 23:18:19 2004  Jonathan Blandford  <jrb@gnome.org>
 	* libgnome/gnome-init.c: (safe_mkdir), (libgnome_userdir_setup):
 	Add a new mkdir function that's safe against trailing slashes and use it.
 	(#106117, Julio Merino)
-	
+
 2004-05-02  Anders Carlsson  <andersca@gnome.org>
 
 	* libgnome/gnome-help.c (locate_help_file): First try locating
@@ -811,12 +820,12 @@ Mon Jul 19 23:18:19 2004  Jonathan Blandford  <jrb@gnome.org>
 	* libgnome/gnome-util.c: (gnome_unsetenv):
 	* schemas/Makefile.am:
 	A couple of portability fixes (#131394, The Written Word)
-	
+
 2004-05-02  Anders Carlsson  <andersca@gnome.org>
 
 	* libgnome/gnome-program.c: (gnome_program_get_property):
 	Fix memory leak. (#135773, Christian Persche)
-	
+
 2004-05-02  Anders Carlsson  <andersca@gnome.org>
 
 	* configure.in:
@@ -825,7 +834,7 @@ Mon Jul 19 23:18:19 2004  Jonathan Blandford  <jrb@gnome.org>
 	* doc/reference/version.xml.in:
 	Put version number in reference docs.
 	(#125759, Steve Chaplin)
-	
+
 2004-05-02  Anders Carlsson  <andersca@gnome.org>
 
 	* libgnome/gnome-sound.c: Fix crash when reading invalid
@@ -858,7 +867,7 @@ Mon Jul 19 23:18:19 2004  Jonathan Blandford  <jrb@gnome.org>
 2004-03-25  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-i18n.h: Fix comment after #endif to
-	denote the right file. Patch from Gustavo R. Montesino 
+	denote the right file. Patch from Gustavo R. Montesino
 	<ikki_gerrard at yahoo.com>. Closes bug #133788.
 
 2004-03-22  Guntupalli Karunakar  <karunakar@freedomink.org>
@@ -873,7 +882,7 @@ Mon Jul 19 23:18:19 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* Makefile.am (EXTRA_DIST): Add NEWS
 
-	* NEWS: Update 
+	* NEWS: Update
 
 Wed Mar 17 12:34:30 2004  Jonathan Blandford  <jrb@gnome.org>
 
@@ -888,7 +897,7 @@ Wed Mar 17 12:34:30 2004  Jonathan Blandford  <jrb@gnome.org>
 	(libgnome_module_info_get):
 	Put back the bind_textdomain_codeset, and use g_printerr
 	instead of fprintf on stderr. This partially fixes #106549.
-	
+
 2004-03-15  Anders Carlsson  <andersca@gnome.org>
 
 	* configure.in: Release 2.5.92
@@ -932,7 +941,7 @@ Wed Mar 17 12:34:30 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* configure.in: Release 2.5.4
 
-	* schemas/Makefile.am (install-data-local): Revert fix 
+	* schemas/Makefile.am (install-data-local): Revert fix
 	since it broke distcheck
 
 2004-01-23  Jody Goldberg <jody@gnome.org>
@@ -945,14 +954,14 @@ Wed Mar 17 12:34:30 2004  Jonathan Blandford  <jrb@gnome.org>
 	* libgnome/gnome-program.c: (gnome_program_preinit):
 	Translate strings instead of just marking them.
 	(Completely fixes #106549, patch by Christian Neumair).
-	
+
 2004-01-21  Anders Carlsson  <andersca@gnome.org>
 
 	* libgnome/gnome-init.c: (libgnome_module_info_get):
 	* libgnome/gnome-program.c: (gnome_program_parse_args):
-	Fix translation of program arguments. 
+	Fix translation of program arguments.
 	(#106549, patch by Hidetoshi Tajima).
-	
+
 2004-01-18  Jason Leach  <leach@wam.umd.edu>
 
 	* schemas/Makefile.am (install-data-local): builddir != srcdir fix.
@@ -1004,7 +1013,7 @@ Wed Mar 17 12:34:30 2004  Jonathan Blandford  <jrb@gnome.org>
 2003-09-01  Laurent Dhima  <laurenti@alblinux.net>
 
 	* configure.in: Added "sq" to ALL_LINGUAS.
-	
+
 2003-08-26  Frederic Crozat  <fcrozat@mandrakesoft.com>
 
 	* schemas/Makefile.am:
@@ -1038,12 +1047,12 @@ Wed Mar 17 12:34:30 2004  Jonathan Blandford  <jrb@gnome.org>
 2003-07-11  Dennis Cranston <dennis_cranston at yahoo com>
 
 	Fixes for ui-review bug number 99533.
-	
-	* gnome-data/gtk-events-2.soundlist.in:  
+
+	* gnome-data/gtk-events-2.soundlist.in:
 	  s/Action button click/Click on command button,
 	  s/Check box toggled/Select check box,
 	  s/Menu item activation/Choose menu item.
-	
+
 	* gnome-data/gnome-2.soundlist.in:
 	  s/GNOME system events/System events,
 	  s/Error Messages/Error message,
@@ -1065,12 +1074,12 @@ Wed Mar 17 12:34:30 2004  Jonathan Blandford  <jrb@gnome.org>
 	* schemas/desktop_gnome_interface.schemas.in:
 	Add default value for monospace font name
 	(Patch by Owen Taylor).
-	
+
 2003-07-08  Anders Carlsson  <andersca@codefactory.se>
 
 	* configure.in:
 	Remove libxml and libxslt deps.
-	
+
 2003-07-08  Anders Carlsson  <andersca@codefactory.se>
 
 	* Makefile.am:
@@ -1110,7 +1119,7 @@ Wed Mar 17 12:34:30 2004  Jonathan Blandford  <jrb@gnome.org>
 	* help-converters/man/gnome-man2html.c:
 	* help-converters/man/man2html.8:
 	Remove help converters (#98761)
-	
+
 2003-07-04  Anders Carlsson  <andersca@codefactory.se>
 
 	* configure.in: Release 2.3.3.1
@@ -1121,7 +1130,7 @@ Wed Mar 17 12:34:30 2004  Jonathan Blandford  <jrb@gnome.org>
 	* doc/reference/Makefile.am:
 	* doc/reference/libgnome-docs.sgml:
 	Generate xml reference docs (#111796, Matthias Clasen)
-	
+
 2003-06-30  Anders Carlsson  <andersca@codefactory.se>
 
 	* libgnome/gnome-gconf.h: Add G_BEGIN_DECLS and G_END_DECLS.
@@ -1140,25 +1149,25 @@ Thu Jun 26 07:35:41 2003  Jonathan Blandford  <jrb@gnome.org>
 2003-06-24  Anders Carlsson  <andersca@codefactory.se>
 
 	* schemas/desktop_gnome_peripherals_mouse.schemas.in: Fix typo.
-	(#100283, Christian Rose)	
+	(#100283, Christian Rose)
 	(#104140, Christian Rose)
 
 	* schemas/desktop_gnome_interface.schemas.in: Fix typo.
 	(#100280, Christian Rose)
 
-	* schemas/desktop_gnome_accessibility_startup.schemas.in: 
+	* schemas/desktop_gnome_accessibility_startup.schemas.in:
 	Use "Applications", not "Apps". (#115570, Christian Rose)
 
 	* libgnome/gnome-util.c: (gnome_util_user_shell):
 	Check that the shells exist and that they are executable.
 	(#91925, Giovanni Pardini).
-	
+
 2003-06-24  Anders Carlsson  <andersca@codefactory.se>
 
 	* help-converters/info/main.c: (main):
-	Use g_strdup_printf instead of sprintf. 
+	Use g_strdup_printf instead of sprintf.
 	(#109889, Christian Marillat).
-	
+
 2003-06-24  Anders Carlsson  <andersca@codefactory.se>
 
 	* help-converters/man/gnome-man2html.c: Use glib versions of
@@ -1166,20 +1175,20 @@ Thu Jun 26 07:35:41 2003  Jonathan Blandford  <jrb@gnome.org>
 
 	* schemas/Makefile.am:
 	Honor for --disable-schemas-install (#106119, Julio Merino.)
-	
+
 2003-06-24  Anders Carlsson  <andersca@codefactory.se>
 
 	* schemas/desktop_gnome_interface.schemas.in:
 	* schemas/desktop_gnome_peripherals_keyboard.schemas.in:
 	Put literal values inside quotes. (#100278, Christian Rose)
-	
+
 2003-06-23  Anders Carlsson  <andersca@codefactory.se>
 
 	* libgnome/.cvsignore:
 	* libgnome/Makefile.am:
 	* libgnome/gnome-open.c: (main):
 	Add gnome-open.
-	
+
 Tue Jun 10 12:51:27 2003  Jonathan Blandford  <jrb@redhat.com>
 
 	* schemas/desktop_gnome_accessibility_startup.schemas.in: Patch
@@ -1201,10 +1210,10 @@ Tue Jun 10 12:51:27 2003  Jonathan Blandford  <jrb@redhat.com>
 
 2003-05-12  Hidetoshi Tajima <hidetoshi.tajima@sun.com>
 
-	* libgnome/gnome-init.c (libgnome_module_info_get): 
+	* libgnome/gnome-init.c (libgnome_module_info_get):
 	call bindtextdomain and bind_textdomain_codeset() earlier
 	than the current, fixing bug #99224.
-	
+
 2003-05-09  SamÅel JÅn Gunnarsson  <sammi@techattack.nu>
 
 	* configure.in: Added "is" into ALL_LINGUAS
@@ -1281,10 +1290,10 @@ Thu May  8 18:31:02 2003  Soeren Sandmann  <sandmann@daimi.au.dk>
 
 	* libgnome/gnome-url.c: (gnome_url_show_with_env):
 	now just calls gnome_vfs_show_url and wrap error codes in GErrors
-	
+
 	* libgnome/gnome-url.h:
 	updated for new functions
-	
+
 	* schemas/desktop_gnome_url_handlers.schemas.in:
 	cleaned up the url handler schemas. removed unneeded schemas and moved
 	others into gnome-vfs
@@ -1292,7 +1301,7 @@ Thu May  8 18:31:02 2003  Soeren Sandmann  <sandmann@daimi.au.dk>
 2003-04-14 Paul Duffy <dubhthach@frink.nuigalway.ie>
 
         * configure.in: Added ga (irish) to ALL_LINGUAS
-       
+
 2003-04-12  Arvind Samptur <arvind.samptur@wipro.com>
 	* libgnome/gnome-exec.c: (gnome_execute_async_with_env_fds):
 	waitpid() could fail due to a interrupted system call, loop till you
@@ -1302,12 +1311,12 @@ Thu May  8 18:31:02 2003  Soeren Sandmann  <sandmann@daimi.au.dk>
 
 2003-04-11  Pasupathi Duraisamy <pasupathi.duraisamy@wipro.com>
 
-	*  libgnome/gnome-url.c (gnome_url_show_with_env): 
+	*  libgnome/gnome-url.c (gnome_url_show_with_env):
 	Make sure url substitution takes place for customized web
 	browser command. Fixes bug#108909.
-	
+
 	Reviewed by: Mark McLoughlin <mark@skynet.ie>
-	
+
 2003-03-27  Anders Carlsson  <andersca@gnu.org>
 
 	* configure.in: Releae 2.3.0
@@ -1332,7 +1341,7 @@ Thu May  8 18:31:02 2003  Soeren Sandmann  <sandmann@daimi.au.dk>
 	* doc/reference/Makefile.am: Removed extra '\'
 	* libgnome/gnome-help.c (gnome_help_display_desktop_with_env):
 	Plug a leak.
-	
+
 2003-02-11  Frederic Crozat  <fcrozat@mandrakesoft.com>
 
 	* help-converters/gnome-vfs-module/Makefile.am:
@@ -1343,7 +1352,7 @@ Thu May  8 18:31:02 2003  Soeren Sandmann  <sandmann@daimi.au.dk>
 	* help-converters/gnome-vfs-module/Makefile.am:
 	* help-converters/gnome-vfs-module/help-methods.conf:
 	* help-converters/gnome-vfs-module/help-methods.conf.in:
-	be sure to generate help-methods.conf based on libexecdir value 
+	be sure to generate help-methods.conf based on libexecdir value
 	(bug #91169)
 
 2003-02-10  Mohammad DAMT  <mdamt@bisnisweb.com>
@@ -1357,9 +1366,9 @@ Thu Jan 30 22:28:43 2003  Jonathan Blandford  <jrb@redhat.com>
 
 2003-01-23  Alexander Larsson  <alexl@redhat.com>
 
-	* libgnome/Makefile.am (libgnome_2_la_LDFLAGS): 
+	* libgnome/Makefile.am (libgnome_2_la_LDFLAGS):
 	Correct version number error.
-	
+
 	* configure.in:
 	Add EXTRAVERSION and set to .1
 	Add missing translations to ALL_LINGUAS.
@@ -1384,7 +1393,7 @@ Fri Jan 17 15:25:39 2003  Jonathan Blandford  <jrb@redhat.com>
 
 2003-01-09  Alexander Larsson  <alexl@redhat.com>
 
-	* schemas/Makefile.am (schema_in_files): 
+	* schemas/Makefile.am (schema_in_files):
 	* schemas/desktop_gnome_thumbnailers.schemas.in:
 	Add schemas for thumbnailers.
 
@@ -1461,8 +1470,8 @@ Fri Jan 17 15:25:39 2003  Jonathan Blandford  <jrb@redhat.com>
 	gnome_user_private_dir_get()
 
 	* libgnome/gnome-init.c (libgnome_userdir_setup): allow overriding
-	gnome_user_dir via environment variable GNOME22_USER_DIR, this 
-	allows people to install multiple GNOME versions and isolate the 
+	gnome_user_dir via environment variable GNOME22_USER_DIR, this
+	allows people to install multiple GNOME versions and isolate the
 	configuration of each one.
 
 	* libgnome/gnome-init.h: add comment about how GNOME_DOT_GNOME and
@@ -1503,7 +1512,7 @@ Sun Oct 27 09:07:49 2002  Jonathan Blandford  <jrb@gnome.org>
 
 2002-10-01  Yanko Kaneti <yaneti@declera.com>
 
-	* schemas/*.schemas.in: reorder the "applyto" and "key" elements 
+	* schemas/*.schemas.in: reorder the "applyto" and "key" elements
 	so that the files validate against the gconf dtd.
 
 2002-09-27  Anders Carlsson  <andersca@gnu.org>
@@ -1517,7 +1526,7 @@ Sun Oct 27 09:07:49 2002  Jonathan Blandford  <jrb@gnome.org>
 
 Thu Sep 26 17:25:26 2002  HideToshi Tajima  <hidetoshi.tajima@sun.com>
 
-	* schemas/desktop_gnome_interface.schemas.in: 
+	* schemas/desktop_gnome_interface.schemas.in:
 	Add settings to change preedit/status styles of GTK+ input
 	method,	and set callback styles by default (#59076)
 
@@ -1530,11 +1539,11 @@ Thu Sep 26 17:25:26 2002  HideToshi Tajima  <hidetoshi.tajima@sun.com>
 	* configure.in: Release 2.0.3
 
 2002-08-21  Anju P S  <anju.premachandran@wipro.com>
- 
+
  	* libgnome/gnome-exec.c (gnome_execute_async_with_env_fds) :
  	Added code to check the return value of the chdir() call.If chdir
  	call fails the child process may be executed in the wrong directoy.
- 
+
 2002-08-15  Mikael Hallendal  <micke@codefactory.se>
 
 	* help-converters/man/gnome-man2html.c:
@@ -1613,7 +1622,7 @@ Thu Sep 26 17:25:26 2002  HideToshi Tajima  <hidetoshi.tajima@sun.com>
 	* schemas/desktop_gnome_url_handlers.schemas:
 	Add handlers for start-here, preferences, system-settings, server-settings, applications,
 	and trash. They all default to nautilus. Fixes bug 77875.
-	
+
 2002-06-06  Anders Carlsson  <andersca@gnu.org>
 
 	* configure.in: Update required versions and update version to 2.0.0
@@ -1732,10 +1741,10 @@ Thu Sep 26 17:25:26 2002  HideToshi Tajima  <hidetoshi.tajima@sun.com>
 	* schemas/desktop_gnome_peripherals_keyboard.schemas: remove bell
 	volume, as it's not used, and default to a nicer pitch.  fix for
 	#78016
-	
+
 	* schemas/desktop_gnome_applications_browser.schemas: remove http,
 	ftp handlers and just default to the default
-	
+
 	* schemas/desktop_gnome_applications_editor.schemas:
 	* schemas/Makefile.am (schema_DATA): remove default editors
 	schemas
@@ -1785,7 +1794,7 @@ Tue May 14 15:44:38 2002  Jonathan Blandford  <jrb@redhat.com>
 	* schemas/desktop_gnome_peripherals_mouse.schemas:
 	Set default values of mouse_acceleration and mouse_threshold
 	to -1, which means "use system default".
-	
+
 2002-05-08  Glynn Foster  <glynn.foster@sun.com>
 
 	* schemas/desktop_gnome_interface.schemas: Add new key for
@@ -1812,8 +1821,8 @@ Tue May 14 15:44:38 2002  Jonathan Blandford  <jrb@redhat.com>
 	(gnome_help_display_desktop): don't free the variables before
 	  using them, thanks Satyajit
 	- Fixes #79870
-	(gnome_help_display_with_doc_id): 
-	- always send the full uri to the help browsers. 
+	(gnome_help_display_with_doc_id):
+	- always send the full uri to the help browsers.
 	(gnome_help_display_desktop): same.
 
 2002-04-29  Anders Carlsson  <andersca@gnu.org>
@@ -1823,7 +1832,7 @@ Tue May 14 15:44:38 2002  Jonathan Blandford  <jrb@redhat.com>
 	* configure.in:
 	* libgnome/gnome-init.c: (libgnome_post_args_parse):
 	Call bindtextdomain_codeset if it's available.
-	
+
 2002-04-24  Zbigniew Chyla <cyba@gnome.pl>
 
 	* gnome-data/gnome-2.soundlist.in, gnome-data/gtk-events-2.soundlist.in:
@@ -1842,7 +1851,7 @@ Tue May 14 15:44:38 2002  Jonathan Blandford  <jrb@redhat.com>
 
 	* gnome-data/Makefile.am: Fix intltool support.
 	* gnome-data/.cvsignore: Ignore the generated files.
-	
+
 2002-04-11  Mark McLoughlin  <mark@skynet.ie>
 
 	* libgnome/gnome-exec.c: (safe_read): impl to handle EINTR
@@ -1858,18 +1867,18 @@ Tue May 14 15:44:38 2002  Jonathan Blandford  <jrb@redhat.com>
 
 	* libgnome/gnome-url.c (gnome_url_show): Don't use a shell,
 	just launch the url handler directly. Fixes #73781.
-	
+
 	* help-converters/man/Makefile.am:
 	* help-converters/man/gnome-man2html.c: (main):
 	Use g_snprintf instead of snprintf which apparently needs
 	-ldb to work on OSF/1 4.0 (#78166, Gareth Pearce).
-	
+
 2002-04-09  Anders Carlsson  <andersca@gnu.org>
 
 	* message-of-doom:
 	* Makefile.am:
 	Remove message-of-doom file, I think we're stable enough now.
-	
+
 	* configure.in:
 	* libgnome/Makefile.am:
 	Add proper libtool versioning.
@@ -1934,12 +1943,12 @@ Tue May 14 15:44:38 2002  Jonathan Blandford  <jrb@redhat.com>
 	* libgnome/gnome-url.c (gnome_url_show): use g_shell_parse_argv()
 	instead of popt function
 	(gnome_url_show): quote url for shell so we don't run shell
-	commands found in the url. Using a shell here is perhaps 
+	commands found in the url. Using a shell here is perhaps
 	not a good idea anyway...
 
 	* monikers/bonobo-config-bag.c (impl_Bonobo_PropertyBag_getValue):
 	don't use private gconf fields
-	(impl_Bonobo_PropertyBag_getValues): ditto, also handle 
+	(impl_Bonobo_PropertyBag_getValues): ditto, also handle
 	NULL entry values
 
 2002-03-26  Dave Camp  <dave@ximian.com>
@@ -1975,7 +1984,7 @@ Tue May 14 15:44:38 2002  Jonathan Blandford  <jrb@redhat.com>
 	* schemas/desktop_gnome_url_handlers.schemas: set the default url
           handlers in the schema file instead of in the code.
 
-	* libgnome/gnome-url.c: 
+	* libgnome/gnome-url.c:
 	(gnome_url_default_handler): removed, left over from gnome-config.
 	(gnome_url_show): get the default handler from gconf every time,
 	  #71632
@@ -2072,8 +2081,8 @@ Tue May 14 15:44:38 2002  Jonathan Blandford  <jrb@redhat.com>
 
 2002-03-05  Eric Baudais  <baudais@okstate.edu>
 
-	* help-converters/docbook/gnome-customization/gnome-customization.xsl: 
-	changed the stylesheets to 1.48.  after testing no adverse results 
+	* help-converters/docbook/gnome-customization/gnome-customization.xsl:
+	changed the stylesheets to 1.48.  after testing no adverse results
 	can be seen.
 
 2002-03-04  Anders Carlsson  <andersca@gnu.org>
@@ -2187,7 +2196,7 @@ Wed Feb 20 00:05:13 2002  Jonathan Blandford  <jrb@redhat.com>
 
 	* help-converters/docbook/gnome-customization/Makefile.am
 	install gnome-custom.xsl and l10n.xml
-	
+
 2002-01-23  Peteris Krisjanis <peteris.krisjanis@ttc.lv>
 
 	* configure.in: Added lv to ALL_LINGUAS
@@ -2200,7 +2209,7 @@ Wed Feb 20 00:05:13 2002  Jonathan Blandford  <jrb@redhat.com>
 	Spruce up Jonathan's cleanup of the schemas file and rename
 	keys to more approximately match how we are using them
 	and their names in the capplet.
-	
+
 	* schemas/desktop_gnome_file_views.schemas:
 
 	Add file views schemas that Nautilus will shortly use.
@@ -2213,9 +2222,9 @@ Wed Jan 23 01:25:20 2002  Jonathan Blandford  <jrb@redhat.com>
 
 	* help-converters/docbook/gnome-customization/eric_titlepage.xsl: Cruft removed.
 	* help-converters/docbook/gnome-xustomization/eric-customization: Cruft removed.
-	* help-converters/docbook/gnome-customization/gnome-custom.xsl: Added concatenated 
+	* help-converters/docbook/gnome-customization/gnome-custom.xsl: Added concatenated
 	GDP stylesheets.
-	* help-converters/docbook/gnome-customization/gnome-customization.xsl: Displays the 
+	* help-converters/docbook/gnome-customization/gnome-customization.xsl: Displays the
 	entire document.
 
 2002-01-21  jacob berkman  <jacob@ximian.com>
@@ -2254,7 +2263,7 @@ Fri Jan 11 15:01:56 2002  George Lebl <jirka@5z.com>
 
 	* message-of-doom: Make the message of doom a little less scary.
 
-	* schemas/desktop_gnome_interface.schemas: Fix toolbar-style 
+	* schemas/desktop_gnome_interface.schemas: Fix toolbar-style
 	and remove some unused keys.
 
 Mon Jan 14 00:28:40 2002  Jonathan Blandford  <jrb@gnome.org>
@@ -2269,7 +2278,7 @@ Mon Jan 14 00:28:40 2002  Jonathan Blandford  <jrb@gnome.org>
 	Added number_of_workspaces and workspace_names.
 
 2002-01-12 Hasbullah Bin Pit <sebol@ikhlas.com>
-	
+
 	* Added Malay (ms) Translation in configure.in
 
 2002-01-12  Rodrigo Moya <rodrigo@gnome-db.org>
@@ -2284,7 +2293,7 @@ Mon Jan 14 00:28:40 2002  Jonathan Blandford  <jrb@gnome.org>
 	are in libmoniker_extra_2.so, not libmoniker_std_2.so
 
 2002-01-12 Hasbullah Bin Pit <sebol@ikhlas.com>
-	
+
 	* Added Malay (ms) Translation in configure.in
 
 2002-01-11  Rodrigo Moya <rodrigo@gnome-db.org>
@@ -2304,7 +2313,7 @@ Mon Jan 14 00:28:40 2002  Jonathan Blandford  <jrb@gnome.org>
 	double def. of menus-have-icons.
 
 2002-01-10  Anders Carlsson  <andersca@gnu.org>
-	
+
 	* configure.in: Release 1.109.0
 
 	* schemas/Makefile.am (install-data-local): Fix builddir != srcdir bug.
@@ -2321,7 +2330,7 @@ Mon Jan 14 00:28:40 2002  Jonathan Blandford  <jrb@gnome.org>
 2002-01-09  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* help-converters/info/main.c: Merge fix from stable branch. <HTML><BODY>.
-	
+
 2002-01-09  Alex Larsson  <alexl@redhat.com>
 
 	* help-converters/gnome-vfs-module/help-method.c:
@@ -2338,7 +2347,6 @@ Mon Jan 14 00:28:40 2002  Jonathan Blandford  <jrb@gnome.org>
 
 	* help-converters/info/main.c (main):
 	Use white background in the generated pages for info.
-	
 
 2002-01-08  Richard Hestilow  <hestilow@ximian.com>
 
@@ -2347,7 +2355,7 @@ Mon Jan 14 00:28:40 2002  Jonathan Blandford  <jrb@gnome.org>
 
 	* libgnome/gnome-triggers.c: (gnome_triggers_play_sound,
 	gnome_triggers_do_mediaplay): Re-enable.
-	
+
 Thu Jan 03 11:15:40 2002  George Lebl <jirka@5z.com>
 
 	* libgnome/gnome-program.[ch]:  Perform some garbage collection: Remove
@@ -2477,14 +2485,14 @@ Fri Dec 14 16:20:16 2001  Jonathan Blandford  <jrb@redhat.com>
 
 	* libgnome/gnome-exec.c (gnome_prepend_terminal_to_vector): Don't
 	double-free terminal.
-	
+
 	* libgnome/gnome-url.c (gnome_url_show): Wrap execution in "/bin/sh -c ...".
 	Also, return ret, not hard-coded TRUE.
 
 	* libgnome/libgnome.schemas: Revamp to better fit
 	default-applications-properties. Also, remove UI settings, will
 	be moved to libgnomeui.schemas.
-	
+
 
 2001-12-04  Gregory Leblanc  <gleblanc@linuxweasel.com>
 
@@ -2564,16 +2572,16 @@ Tue Nov 27 15:41:43 2001  George Lebl <jirka@5z.com>
 
 Tue Nov 20 15:44:49 2001  Owen Taylor  <otaylor@redhat.com>
 
-	* libgnome/gnome-marshal-main.c gnome-program.c test-libgnome.c: 
+	* libgnome/gnome-marshal-main.c gnome-program.c test-libgnome.c:
 	Remove excess gobject/* includes.
 
 2001-11-18  Miles Lane  <miles@megapathdsl.net>
 
-	* libgnome/gnome-program.h: 
-	libgnome/Makefile.am : replace include of 
-        gobject/gobject.h and gobject/genums.h with glib-object.h, 
+	* libgnome/gnome-program.h:
+	libgnome/Makefile.am : replace include of
+        gobject/gobject.h and gobject/genums.h with glib-object.h,
 	due to a change in gobject/gobject.h and gobject/genums.h
-        that forces an #error for all direct includes.  
+        that forces an #error for all direct includes.
         This checkin was approved by Havoc.
 
 2001-11-14  Michael Meeks  <michael@ximian.com>
@@ -2590,7 +2598,7 @@ Tue Nov 20 15:44:49 2001  Owen Taylor  <otaylor@redhat.com>
 	* libgnome/gnome-macros.h: Took out unused parameter of the
 	GNOME_CLASS_BOILERPLATE macro. Broke macro into pieces so it can
 	be reused by bonobo.
-	
+
 	* libgnome/gnome-program.c: Pass one less argument to
 	GNOME_CLASS_BOILERPLATE.
 
@@ -2681,12 +2689,12 @@ Thu Nov  1 16:14:11 2001  Jonathan Blandford  <jrb@redhat.com>
 
 2001-11-01  Anders Carlsson  <andersca@gnu.org>
 
-	* Copy the help converters from nautilus. We now depend on 
+	* Copy the help converters from nautilus. We now depend on
 	libxslt.
 
 2001-10-30  jacob berkman  <jacob@ximian.com>
 
-	* libgnome/libgnome-2.0.pc.in (Cflags): 
+	* libgnome/libgnome-2.0.pc.in (Cflags):
 	* libgnome/Makefile.am (libgnomeincludedir): install headers in
 	libgnome-2.0 rather than gnome-2.0
 
@@ -2879,7 +2887,7 @@ Sun Sep 30 14:41:52 2001  George Lebl <jirka@5z.com>
 
 2001-09-19  Frank Belew <frb@ximian.com>
 
-	* libgnome/gnome-init.c (gnomelib_options): add quotation marks to continued 
+	* libgnome/gnome-init.c (gnomelib_options): add quotation marks to continued
 	string in initializer
 
 	* libgnome/gnome-program.h: define program_invocation_short_name and
@@ -2892,7 +2900,7 @@ Sun Sep 30 14:41:52 2001  George Lebl <jirka@5z.com>
 2001-09-19  Ariel Rios  <ariel@gnu.org>
 
 	* libgnome/gnome-program.c (add_to_module_list): Cast the return
-	value of g_ptr_array_index since PPC was complaining about this. 
+	value of g_ptr_array_index since PPC was complaining about this.
 
 Tue Sep 18 20:40:04 2001  George Lebl <jirka@5z.com>
 
@@ -3048,28 +3056,28 @@ Sun Sep 02 14:15:46 2001  George Lebl <jirka@5z.com>
 
 	* libgnome/gnome-exec.c: (gnome_prepend_terminal_to_vector):
 	Use gconf.
-	
+
 	* libgnome/gnome-help.c: (gnome_help_display_uri):
 	Use the old gnome_url_show API.
-	
+
 	* libgnome/gnome-init.c: (libbonobo_class_init):
 	Don't initialize the bonobo-config monikers.
-	
+
 	* libgnome/gnome-init.h:
 	Remove functions to get a ConfigDatabase from a GnomeProgram.
-	
+
 	* libgnome/gnome-preferences.c: (desktop_property_get_boolean),
 	(desktop_property_set_boolean):
 	Add a really bad hack (always return FALSE on get_boolean) until
 	we can put GnomePreferences out of its misery.
-	
+
 	* libgnome/gnome-url.c: (gnome_url_default_handler), (gnome_url_show):
 	* libgnome/gnome-url.h:
 	Remove complex API and just export gnome_url_show.
-	
+
 	* libgnome/libgnome.h:
 	Don't include Gnome.h
-	
+
 	* libgnome/test-libgnome.c: (test_url), (main):
 	Remove moniker tests and use gnome_url_show for the url test.
 
@@ -3132,13 +3140,13 @@ Sat Sep 01 15:24:54 2001  George Lebl <jirka@5z.com>
 2001-09-02  Anders Carlsson  <andersca@gnu.org>
 
 	* Makefile.am: Don't build tests/
-	
+
 	* configure.in: Don't build tests, remove bonobo-config dependency.
-	
+
 	* idl/ChangeLog: Remove.
-	
+
 	* idl/Gnome.idl: Remove.
-	
+
 	* idl/Makefile.am: Remove.
 
 Sat Sep 01 23:05:23 2001  George Lebl <jirka@5z.com>
@@ -3415,7 +3423,7 @@ Thu Aug 23 23:23:42 2001  George Lebl <jirka@5z.com>
 	* NEWS: Updated for 1.100.0.
 
 	We're almost done for the release :-)
-	
+
 	Just let me watch the rest of the Nature One broadcast in TV
 	and then I'll increment the version number and do the distcheck.
 
@@ -3560,7 +3568,7 @@ Thu Aug 23 23:23:42 2001  George Lebl <jirka@5z.com>
 	Don't call g_thread_init () if it has already been called
 	by another library / application / what have you. g_thread_init
 	can only be called *once*.
-	
+
 	* po/ChangeLog:
 
 	Curse you gettext.
@@ -3568,7 +3576,7 @@ Thu Aug 23 23:23:42 2001  George Lebl <jirka@5z.com>
 Thu Jun 28 22:58:23 2001  Owen Taylor  <otaylor@redhat.com>
 
 	* libgnome/gnome-program.c: g_type_init() no longer
-	has an arg. 
+	has an arg.
 
 Thu Jun 28 10:39:18 2001  Jonathan Blandford  <jrb@redhat.com>
 
@@ -3601,10 +3609,10 @@ Sat Jun 30 15:54:25 2001  Jonathan Blandford  <jrb@redhat.com>
 
 	* configure.in: Added ta to the languages list.
 
-2001-06-19  HÅctor GarcÅa Álvarez <hector@scouts-es.org>
+2001-06-19  Héctor García Álvarez <hector@scouts-es.org>
 
 	* configure.in: Added "es" for Spanish to $ALL_LINGUAS
-	
+
 2001-06-16  Christian Rose  <menthos@menthos.com>
 
 	* configure.in: Added sv to ALL_LINGUAS.
@@ -3921,7 +3929,7 @@ Sun May 20 22:46:20 2001  George Lebl <jirka@5z.com>
 2001-05-16  Mark Murnane  <Mark.Murnane@ireland.sun.com>
 
 	Changes to eliminate any potential problems on 64-bit platforms.
-	
+
 	* libgnome/gnome-config.c (gnome_config_assemble_vector): Modified type
 	of len to match return type of strlen().
 
@@ -3934,7 +3942,7 @@ Sun May 20 22:46:20 2001  George Lebl <jirka@5z.com>
 	of res to gssize to match return type of read() and write() system
 	calls.
 
-	* libgnome/gnome-moz-remote.c (mozilla_remote_test_window): Cast 
+	* libgnome/gnome-moz-remote.c (mozilla_remote_test_window): Cast
 	hostname to const char* to match g_strcasecmp's signature.
 
 	* libgnome/gnome-paper.c	(paper_name_compare): Modified return type
@@ -3945,10 +3953,10 @@ Sun May 20 22:46:20 2001  George Lebl <jirka@5z.com>
 	* libgnome/gnome-program.c (gnome_program_install_property): Cast
 	parameter #3 of both calls to g_param_spec_set_qdata.
 
-	* libgnome/gnome-score.c (log_score): Modified type of counter i to 
+	* libgnome/gnome-score.c (log_score): Modified type of counter i to
 	match return from strlen().
 
-	* libgnome/gnome-selector.c (_gnome_selector_add_history): Cast 
+	* libgnome/gnome-selector.c (_gnome_selector_add_history): Cast
 	parameter #3 to GCompareFunc.
 
 2001-05-15  Martin Baulig  <baulig@suse.de>
@@ -4122,7 +4130,6 @@ Sun May 20 22:46:20 2001  George Lebl <jirka@5z.com>
 	New properties.
 
 	* libgnome/libgnome-init.c: Don't initialize GConf.
- 
 
 2001-04-23  Dietmar Maurer  <dietmar@ximian.com>
 
@@ -4157,7 +4164,7 @@ Sun May 20 22:46:20 2001  George Lebl <jirka@5z.com>
 2001-04-21  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Added nn and no to ALL_LINGUAS.
-	
+
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
 	* libgnome/libgnome-init.c (gnome_oaf_module_info): Put this back.
@@ -4172,11 +4179,10 @@ Sun May 20 22:46:20 2001  George Lebl <jirka@5z.com>
 2001-04-18  Michael Meeks  <michael@ximian.com>
 
 	* *.[ch]:
-	
+
 	s/\#include[ \t]*<libgnomebase\/gnome-defs.h>//;
 	s/BEGIN_GNOME_DECLS/G_BEGIN_DECLS/g;
 	s/END_GNOME_DECLS/G_END_DECLS/g;
-	
 
 2001-04-18  Martin Baulig  <baulig@suse.de>
 
@@ -4267,7 +4273,7 @@ Sun May 20 22:46:20 2001  George Lebl <jirka@5z.com>
 2001-04-13  Martin Baulig  <baulig@suse.de>
 
 	NOTE: You must update your gnome-common to make this work !
-	
+
 	* configure.in: Optionally depend on libbonobo and define
 	`HAVE_LIBBONOBO' automake conditional.
 	(LIBGNOME_EXTRA_DEPS): New AC_SUBST'ed variable for our .pc file.
@@ -4451,7 +4457,6 @@ Sun May 20 22:46:20 2001  George Lebl <jirka@5z.com>
 	gnome-exec.h, gnome-fileconvert.h, gnome-i18n.h, gnome-regex.h,
 	gnome-remote.h, gnome-score.h, gnome-sound.h, gnome-triggers.h,
 	gnome-url.h, gnome-util.h, gnome-init.h).
-	
 
 2001-02-26  jacob berkman  <jacob@ximian.com>
 
@@ -4680,8 +4685,8 @@ Fri May 26 12:24:02 2000  George Lebl <jirka@5z.com>
 2000-05-18  Miguel de Icaza  <miguel@gnu.org>
 
 	* libgnome/gnome-config.c (gnome_config_iterator_next): Implement as
-	documented.  
-	
+	documented.
+
 Sat May 06 16:46:13 2000  George Lebl <jirka@5z.com>
 
 	* libgnome/gnome-config.c (_gnome_config_get_float_with_default)
@@ -4689,7 +4694,7 @@ Sat May 06 16:46:13 2000  George Lebl <jirka@5z.com>
 	  then back to original locale when reading and writing floats
 	  so that we can read/write floats over different locales
 
-	* libgnome/gnome-score.c (gnome_get_score_file_name) (log_score): 
+	* libgnome/gnome-score.c (gnome_get_score_file_name) (log_score):
 	  The same as above.  Fixes bugs #10404, #10257
 
 Fri May 05 20:53:11 2000  George Lebl <jirka@5z.com>
@@ -4730,7 +4735,7 @@ Mon Mar 20 20:36:35 2000  George Lebl <jirka@5z.com>
 	* libgnome/gnome-config.c: Apply patch from miguel made to gnome-libs-1-0,
 	  fix segfault when loading illegal files by correctly setting state
 	  after ignore.  also correctly set state after premature end of line
-	
+
 	* libgnome/gnome-dentry.c: when saving names and comments, save them to the
 	  default (no language) first just in case there was no setting,
 	  fixes first part of #7300
@@ -4836,10 +4841,10 @@ Thu Jan 14 23:56:08 2000  George Lebl <jirka@5z.com>
 2000-01-13  Havoc Pennington  <hp@redhat.com>
 
 	* libgnome/gnomelib-init2.c (gnome_program_module_register): Dump
-	bad-module-version message to stderr instead of stdout, and 
+	bad-module-version message to stderr instead of stdout, and
 	then exit(1) (we can't really continue, it will segfault
 	most of the time no doubt)
-	(gnome_program_version_check): reverse the version args 
+	(gnome_program_version_check): reverse the version args
 	to rpmvercmp
 
 Thu Jan 13 14:49:03 2000  George Lebl <jirka@5z.com>
@@ -4851,7 +4856,7 @@ Thu Jan 13 14:49:03 2000  George Lebl <jirka@5z.com>
 2000-01-11  Havoc Pennington  <hp@redhat.com>
 
 	* libgnome/gnomelib-init2.c: Add GNOME_PARAM_HUMAN_READABLE_NAME
-	(gnome_program_get_human_readable_name): convenience function 
+	(gnome_program_get_human_readable_name): convenience function
 	to get it
 
 Sat Jan 08 19:06:47 2000  George Lebl <jirka@5z.com>
@@ -4872,7 +4877,7 @@ Sat Jan 01 18:45:26 2000  George Lebl <jirka@5z.com>
 
 2000-01-11  Havoc Pennington  <hp@pobox.com>
 
-	* libgnome/gnomelib-init.c: move human readable name stuff into 
+	* libgnome/gnomelib-init.c: move human readable name stuff into
 	libgnome init files.
 
 1999-12-23  Havoc Pennington  <hp@redhat.com>
@@ -4971,7 +4976,7 @@ Fri Dec 03 21:23:56 1999  George Lebl <jirka@5z.com>
 	        (gnome_config_make_vector): george also suggested this
 	        fix
 
-	        Fixes bug #3475	
+	        Fixes bug #3475
 
 1999-11-09  Elliot Lee  <sopwith@redhat.com>
 
