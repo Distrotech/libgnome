@@ -187,7 +187,7 @@ help_display_with_doc_id_and_env (GnomeProgram  *program,
 				     global_help_path);
 			goto out;
 		}
-		
+
 //		if (!(local_help_st.st_dev == global_help_st.st_dev
 //		      && local_help_st.st_ino == global_help_st.st_ino))
 			file2 = locate_help_file (global_help_path, file_name);
