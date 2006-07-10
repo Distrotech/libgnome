@@ -57,7 +57,7 @@ G_BEGIN_DECLS
  *
  * LC_MONETARY="de_DE:es"
  * LANG="de_DE:de:C:en"
- * 
+ *
  * In this case 'gnome_i18n_get_language_list ("LC_COLLATE")' returns the
  * list: ("de_DE" "de" "C" "en").
  *

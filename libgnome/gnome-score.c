@@ -180,7 +180,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 
 	fclose (infile);
      }
-   
+
    anitem = g_new(struct ascore_t, 1);
    anitem->score = score;
    anitem->username = g_strdup (username);
@@ -202,7 +202,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 	       break;
 	  }
      }
-   
+
    if (pos < NSCORES)
      {
 	scores = g_list_insert (scores, anitem, pos);
@@ -216,7 +216,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
      }
    else
      retval = 0;
-   
+
    /* we dont create the file; it must already exist */
    outfile = g_fopen (game_score_file, "r+");
 #ifndef G_OS_WIN32
@@ -224,7 +224,7 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
 #else
    _chsize (fileno (outfile), 0);
 #endif
-   
+
    if (outfile)
      {
 	gnome_i18n_push_c_numeric_locale ();
@@ -236,10 +236,10 @@ log_score (const gchar * progname, const gchar * level, gchar * username,
      perror (game_score_file);
 
    g_free (game_score_file);
-   
+
    g_list_foreach (scores, (GFunc) free_ascore, NULL);
    g_list_free (scores);
-   
+
    return retval;
 }
 
@@ -253,7 +253,7 @@ gnome_score_child (int infileno,
    gint retval;
 #ifdef HAVE_SETFSGID
    gid_t gid;
-   
+
    gid = getegid ();
    setgid (getgid ());
    setfsgid (gid);
@@ -301,12 +301,12 @@ gnome_score_child_thread (gpointer data)
 
 #endif
 
-static void 
+static void
 drop_perms (void)
 {
 #ifndef G_OS_WIN32
    gid_t gid = getegid ();
-   
+
    setregid (getgid (), getgid ());	/* on some os'es (eg linux) this
 					 * incantation will also drop the
 					 * saved gid */
@@ -331,7 +331,7 @@ drop_perms (void)
  * in main() if they have been installed setgid to the "games" group. It
  * performs the intialization required to later record information in the
  * scores table and then drops the groups privileges.
- * 
+ *
  * Returns: %0 on success, returns %-1 on failure.
  */
 
@@ -339,7 +339,7 @@ gint
 gnome_score_init (const gchar * gamename)
 {
    int inpipe[2], outpipe[2];
-   
+
    /*
     *creates a child process with which we communicate through a pair of pipes,
     * then drops privileges.
@@ -416,7 +416,7 @@ gnome_score_log (gfloat score,
 {
    struct command cmd;
    gint retval;
-   
+
 #ifndef G_OS_WIN32
    if (getgid () != getegid ())
      {
@@ -426,13 +426,13 @@ gnome_score_log (gfloat score,
 #endif
    if (infd == -1 || outfd == -1)
      return 0;
-   
+
    cmd.score = score;
    if (!level)
      level = "";
    cmd.level = strlen (level) + 1;
    cmd.ordering = higher_to_lower_score_order;
-   
+
    if (write (outfd, &cmd, sizeof cmd) != sizeof(cmd) ||
        write (outfd, level, cmd.level) != cmd.level ||
        read (infd, &retval, sizeof retval) != sizeof(retval))
@@ -471,26 +471,26 @@ gnome_score_get_notable (const gchar * gamename,
    gchar *infile_name;
    FILE *infile;
    gint retval;
-   
+
    g_return_val_if_fail (names != NULL, 0);
    g_return_val_if_fail (scores != NULL, 0);
-   
+
    if (gamename == NULL)
      realname = defgamename;
    else
      realname = gamename;
-   
+
    infile_name = gnome_get_score_file_name (realname, level);
-   
+
    infile = g_fopen (infile_name, "r");
    g_free (infile_name);
-   
+
    if (infile)
      {
 	*names = g_malloc ((NSCORES + 1) * sizeof (gchar *));
 	*scores = g_malloc ((NSCORES + 1) * sizeof (gfloat));
 	*scoretimes = g_malloc ((NSCORES + 1) * sizeof (time_t));
-	
+
         gnome_i18n_push_c_numeric_locale ();
 
 	for (retval = 0;

@@ -22,7 +22,7 @@
 
 1999-10-04  Elliot Lee  <sopwith@redhat.com>
 	* gnome-i18n.c: Revert a bugnum-less commit.
-	
+
 Mon Oct 04 11:24:51 1999  George Lebl  <jirka@5z.com>
 
 	* gnome-i18n.c: in case the aliases would have a real infinite
@@ -71,7 +71,7 @@ Mon Sep 13 22:01:29 1999  George Lebl  <jirka@5z.com>
 
 1999-09-01  Jacob Berkman  <jberkman@andrew.cmu.edu>
 
-	* gnome-dentry.c (gnome_desktop_entry_load_flags_conditional): 
+	* gnome-dentry.c (gnome_desktop_entry_load_flags_conditional):
 	default type to Directory for KDE dentries.  Unfortunately for
 	directories, they do not specify the Type (at least for KDE 1.1.1)
 	Also, look in the KDE_ICONDIR for KDE icons
@@ -201,16 +201,16 @@ Thu Aug 26 20:48:13 1999  George Lebl  <jirka@5z.com>
 	* gnome-util.c: Remove g_filename_index() and g_filename_pointer()
 	cruft (already #if 0)
 	(gnome_datadir_file): wrong function name in inline docs
-	
+
 1999-06-12  Miguel de Icaza  <miguel@gnu.org>
 
-	* gnome-paper.c (paper_init): Push an empty configuration prefix. 
+	* gnome-paper.c (paper_init): Push an empty configuration prefix.
 
 1999-07-04  Owen Taylor  <otaylor@redhat.com>
 
 	* gnome-i18n.c (compute_locale_variants): Look for
-	variants of supplied locale value - e.g., for 
-	ja_JP.ujis, look (in order) for ja_JP.ujis, 
+	variants of supplied locale value - e.g., for
+	ja_JP.ujis, look (in order) for ja_JP.ujis,
 	ja_JP, ja.ujis, and ja.
 
 1999-06-28  Miguel de Icaza  <miguel@nuclecu.unam.mx>
@@ -297,7 +297,7 @@ Tue Apr 20 21:03:24 1999  George Lebl  <jirka@5z.com>
 
 Sat Apr 10 20:56:25 1999  ape@lrdpf.spacetec.no  (Asbjorn Pettersen)
 
-	* gnome-triggers.c (gnome_triggers_readfile): 
+	* gnome-triggers.c (gnome_triggers_readfile):
 	* gnome-fileconvert.c (load_types_from): Open file in TEXT mode.
 
 Fri Apr 09 18:47:46 1999  George Lebl  <jirka@5z.com>
@@ -313,7 +313,7 @@ Fri Apr 09 18:47:46 1999  George Lebl  <jirka@5z.com>
 	Thanks to Morten Wellinder for pointing this out again.
 
 	* gnome-help.c (gnome_help_file_find_file): Do not overwrite freed
-	memory. 
+	memory.
 
 Thu Apr  8 21:50:12 1999  ape@lrdpf.spacetec.no  (Asbjorn Pettersen)
 
@@ -337,7 +337,7 @@ Thu Apr  8 21:50:12 1999  ape@lrdpf.spacetec.no  (Asbjorn Pettersen)
 
 Fri Apr  2 20:55:28 1999  ape@spacetec.no  (Asbjorn Pettersen)
 
-	* gnome-history.c (write_history): 
+	* gnome-history.c (write_history):
 	* gnome-mime.c (mime_fill_from_file): Open file in TEXT mode.
 	This is for the OS/2 version.
 
@@ -368,7 +368,7 @@ Fri Apr  2 20:55:28 1999  ape@spacetec.no  (Asbjorn Pettersen)
 1999-02-23  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnome-fileconvert.c (gnome_file_convert): Make const correct.
-	
+
 Tue Mar 23 19:28:41 1999  George Lebl  <jirka@5z.com>
 
 	* gnome-score.c,gnome-exec.c,gnome-entry.c: stuff that is allocated
@@ -413,9 +413,9 @@ Fri Mar 19 12:53:11 1999  George Lebl  <jirka@5z.com>
 
 Tue Mar 16 22:39:04 1999  Tim Janik  <timj@gtk.org>
 
-	* libgnome.h: 
+	* libgnome.h:
 	* gnomelib-init.c:
-	(gnomelib_init): 
+	(gnomelib_init):
 	(create_user_gnome_directories):
 	setup and mkdir gnome_user_accels_dir as ~/.gnome/accels, this is used
 	for applications to save their accelerators.
@@ -425,7 +425,7 @@ Tue Mar 16 22:39:04 1999  Tim Janik  <timj@gtk.org>
 	* gnome-mime-info.c (context_destroy_and_unlink): Splited from
 	context_destroy.  Context_destroy now only destroys the context.
 	(maybe_reload): Tries to find out if it would be wise to reload
-	the contents.  Reloads information if required. 
+	the contents.  Reloads information if required.
 	(load_mime_type_info): Use mime_dir_source_t instead of an
 	absolute path name now.
 
@@ -493,7 +493,7 @@ Sat Feb 20 03:11:29 1999  Timur Bakeyev <mc@bat.ru>
 	* libgnome/gnome-mime.c (add_to_key): Likewise.
 	* libgnome/gnome-config.c (check_path): Likewise.
 	* libgnome/gnome-score.c (gnome_score_get_notable): Likewise.
-	
+
 1999-02-16  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnome-metadata.c (worker): Added missing call to unlock
@@ -609,7 +609,7 @@ Thu Feb 11 23:56:18 1999  George Lebl  <jirka@5z.com>
 
 1999-01-21  Havoc Pennington  <hp@pobox.com>
 
-	* libgnome/gnome-triggers.c (gnome_triggers_play_sound): Don't 
+	* libgnome/gnome-triggers.c (gnome_triggers_play_sound): Don't
 	spew warnings if esound is not compiled in.
 
 1999-01-20  Miguel de Icaza  <miguel@nuclecu.unam.mx>
@@ -618,7 +618,7 @@ Thu Feb 11 23:56:18 1999  George Lebl  <jirka@5z.com>
 
 	* libgnome/gnome-fileconvert.c (gfc_read_FileConverters): Load
 	convertion types from the system installed directory and from the
-	user directory.. 
+	user directory.
 
 1999-01-20  Nat Friedman  <nat@nat.org>
 
@@ -669,7 +669,7 @@ Thu Feb 11 23:56:18 1999  George Lebl  <jirka@5z.com>
 
 	* libgnome/gnome-popt.h: Place the inclusion of the popt header
 	inside BEGIN_GNOME_DECLS, because the popt header does not
-	properly #ifdef __cplusplus. This should probably be fixed in 
+	properly #ifdef __cplusplus. This should probably be fixed in
 	popt itself.
 
 1999-01-12  Miguel de Icaza  <miguel@nuclecu.unam.mx>
@@ -689,8 +689,8 @@ Thu Feb 11 23:56:18 1999  George Lebl  <jirka@5z.com>
 
 Mon Jan 11 11:54:00 1999  Manish Vachharajani <mvachhar@vger.rutgers.edu>
 
-	* libgnome/gnome-exec.c: Remove the _with_fds functions and 
-	add a new _fds API with a flag to ask if you want to close fds or 
+	* libgnome/gnome-exec.c: Remove the _with_fds functions and
+	add a new _fds API with a flag to ask if you want to close fds or
 	not.
 
 1999-01-11  Miguel de Icaza  <miguel@nuclecu.unam.mx>
@@ -725,7 +725,7 @@ Sat Jan 09 13:43:01 1999  Manish Vachharajani <mvachhar@vger.rutgers.edu>
 
 	* libgnome/gnome-exec.c: make all the gnome_exec functions close
 	all but the 0, 1, and 2 file descriptors
-	
+
 Sat Jan 09 01:28:21 1999  George Lebl  <jirka@5z.com>
 
 	* libgnome/gnome-config.c: fixed sync_file, it didn't work quite right always
@@ -810,7 +810,7 @@ Sat Jan  2 22:44:37 PST 1999 Manish Singh <yosh@gimp.org>
 1999-01-02  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* libgnome/gnome-mime-info.c (remove_this_key): Release the
-	correct pointer. 
+	correct pointer.
 
 	* libgnome/gnome-metadata.c: Made this module use g_malloc/g_strdup/g_free.
 
@@ -822,7 +822,7 @@ Sat Jan  2 22:44:37 PST 1999 Manish Singh <yosh@gimp.org>
 	  libgnorba/orbitns.c:
 	Wrap _xxx_SOURCE defines in libgnome,
 	add _xxx_SOURCE defines in libgnorba.
-	
+
 1999-01-01  Jeff Garzik  <jgarzik@pobox.com>
 
 	* libgnome/gnome-dump.c, libgnome/gnome-magic.c,
@@ -838,7 +838,7 @@ Sat Jan  2 22:44:37 PST 1999 Manish Singh <yosh@gimp.org>
 	* libgnome/gnome-config.c (_gnome_config_clean_file): Removed the
 	current optimization, as it was wrong.
 	(_gnome_config_drop_file): Remove the current optimization as it
-	was wrong. 
+	was wrong.
 
 Wed Dec 30 16:46:56 1998  George Lebl  <jirka@5z.com>
 
@@ -891,7 +891,7 @@ Tue Dec 29 20:25:08 1998  George Lebl  <jirka@5z.com>
 1998-12-16  Sven Neumanns  <sven@gimp.org>
 
 	* replaced all occurences of gtk_label_set() with
-	gtk_label_set_text() 
+	gtk_label_set_text()
 
 Sun Dec 27 22:13:53 1998  George Lebl  <jirka@5z.com>
 
@@ -916,7 +916,7 @@ Sun Dec 27 22:13:53 1998  George Lebl  <jirka@5z.com>
 1998-12-16  Sven Neumanns  <sven@gimp.org>
 
 	* replaced all occurences of gtk_label_set() with
-	gtk_label_set_text() 
+	gtk_label_set_text()
 
 1998-12-14  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
@@ -945,11 +945,11 @@ Sun Dec 27 22:13:53 1998  George Lebl  <jirka@5z.com>
 	* libgnome/lib_date.README, libgnome/lib_date.c,
 	libgnome/lib_date.h, libgnome/lib_defs.h: Removed. Use GDate from
 	glib instead.
-	
+
 	* libgnome/Makefile.am: Changed accordingly.
 
 Sat Dec 12 11:38:46 1998 Gregory McLean <gregm@comstar.net>
-	
+
 	* libgnome/gnome-paper.[c|h] gnome-url.[c|h] : Updated FSF address
 
 1998-12-11  Miguel de Icaza  <miguel@nuclecu.unam.mx>
@@ -967,26 +967,26 @@ Sat Dec 12 11:38:46 1998 Gregory McLean <gregm@comstar.net>
 
 	* libgnorba/orbitgtk.c (gnome_name_service_get): Use a reliable
 	scheme for fetching the name server IOR.  We use the proxy window
-	scheme to find the name service IOR. 
-	
+	scheme to find the name service IOR.
+
 1998-12-10  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
-	* libgnome/gnome-gen-mimedb.c (main): 
+	* libgnome/gnome-gen-mimedb.c (main):
 
 1998-12-08  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* libgnome/gnome-gen-mimedb.c (main): Use stdio for I/O, as we
 	were not checking proper usage of write.  Improved the error
-	messages. 
+	messages.
 
 1998-12-09  Michael Lausch  <mla@gams.at>
 
         * corrected CVS trioubles with gnome-regex and gnome-metadata
-	
+
 	* libgnome/gnome-metadata.c (maybe_scan_app_dir): don't free the
         list pointer if it's NULL.
 
-        * libgnome/gnome-regex.c (gnome_regex_cache_set_size): fence post 
+        * libgnome/gnome-regex.c (gnome_regex_cache_set_size): fence post
         error corrected.
 
 1998-12-08  Herbert Valerio Riedel  <hvr@hvrlab.ml.org>
@@ -1008,15 +1008,15 @@ Sat Dec 12 11:38:46 1998 Gregory McLean <gregm@comstar.net>
 
 1998-12-07  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
-	* libgnome/gnome-regex.c (DEFAULT_SIZE): Make the cache larger. 
-	(gnome_regex_cache_compile): Fix test.  
+	* libgnome/gnome-regex.c (DEFAULT_SIZE): Make the cache larger.
+	(gnome_regex_cache_compile): Fix test.
 
 Nov 26, 1998 Elliot Lee
-	
+
 	. libgnome/gnome-mime.c: read gnomedatadir/mime.types as well
 	. In general, move data files not associated with any specific
 	  directory into a 'gnome-data' directory.
-	
+
 1998-12-07  James Henstridge  <james@daa.com.au>
 
 	* libgnome/gnome-url.c: Documented this module.
@@ -1050,11 +1050,11 @@ Tue Dec  1 02:43:15 PST 1998 Manish Singh <yosh@gimp.org>
 
 1998-11-29  Justin Maurer  <justin@openprojects.net>
 
-	* libgnome/gnome-hook.[ch]: removed. Updated Makefiles/etc. to reflect 
+	* libgnome/gnome-hook.[ch]: removed. Updated Makefiles/etc. to reflect
 	this.
 
 Nov 26, 1998  Elliot Lee  <sopwith@redhat.com>
-	
+
 	* libgnome/gnome-mime.c: read gnomedatadir/mime.types as well
 	In general, move data files not associated with any specific
 	directory into a 'gnome-data' directory.
@@ -1171,7 +1171,7 @@ Tue Nov 17 19:27:50 PST 1998 Manish Singh <yosh@gimp.org>
 
 1998-10-28  Federico Mena Quintero  <federico@nuclecu.unam.mx>
 
-	* libgnome/gnome-fileconvert.c (gfc_read_FileConverters): 
+	* libgnome/gnome-fileconvert.c (gfc_read_FileConverters):
 	Made static.
 	(gfc_reset_path): Likewise.
 
@@ -1191,7 +1191,7 @@ Tue Nov 17 19:27:50 PST 1998 Manish Singh <yosh@gimp.org>
 
 Sun Oct 18 02:08:20 1998  Owen Taylor  <otaylor@gtk.org>
 
-	* libgnome/libgnome.h: Add in gnome-mime.h, since 
+	* libgnome/libgnome.h: Add in gnome-mime.h, since
 	gnome_uri_list_* is (temporarily?) there.
 
 	* libgnome/gnome-mime.[ch]: Added functions to decompose
@@ -1244,8 +1244,6 @@ Sun Oct 18 02:08:20 1998  Owen Taylor  <otaylor@gtk.org>
 	tell that copy to display the given URL, optionally in a new
 	window.  It also contains the 'netscape -remote' functionality
 	using the --remote argument.
-
-		
 
 1998-10-01  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
@@ -1358,7 +1356,6 @@ Thu Sep 17 00:24:19 1998  Tom Tromey  <tromey@cygnus.com>
 	instead of <db.h>.
 	* libgnome/gnome-metadata.c: Likewise.
 
-
 Wed Sep  9 00:01:56 1998  Tom Tromey  <tromey@cygnus.com>
 
 	* libgnome/gnome-metadata.c (get_worker): Use
@@ -1426,12 +1423,12 @@ Sat Sep  5 19:37:17 1998  Tom Tromey  <tromey@cygnus.com>
 	only if `chgrp' succeeds.
 
 Tue Sep  1 00:48:02 CDT 1998  Frank Belew <frb@umr.edu>
-	
+
 	* configure.in: Use imlib.m4 instead of kludge.
 	* libgnome/Makefile.am, libgnomeui/Makefile.am,
 	test-gnome/Makefile.am, gnome-hello/Makefile.am: Use new
 	GDK_IMLIB_CFLAGS instead of GTK_CFLAGS.
-	
+
 Mon Aug 24 11:51:03 1998  Tom Tromey  <tromey@cygnus.com>
 
 	* libgnome/gnome-metadata.h: New file.
@@ -1523,7 +1520,7 @@ Tue Jun 30 16:12:55 1998  Tom Tromey  <tromey@cygnus.com>
 	* libgnome/gnome-config.c (gnome_config_pop_prefix,
 	gnome_config_remove_prefix_list): Removed.  If any application
 	relied on this stuff it was broken.  That is what push/pop prefix
-	are for. 
+	are for.
 
 Mon Jun 29 00:18:10 1998  Tom Tromey  <tromey@cygnus.com>
 
@@ -1537,7 +1534,7 @@ Mon Jun 29 00:18:10 1998  Tom Tromey  <tromey@cygnus.com>
 	* Makefile.am (gnome-config): Move generation to ...
 	* configure.in (AC_SUBST): ... here.
 	(GNOME_LIBDIR,GNOME_INCLUDEDIR): Use ${..}, not $(..) for variable
-	substitution. 
+	substitution.
 	* gnome-config.in: Rehaul.
 
 Thu Jun 18 23:52:07 1998  George Lebl  <jirka@5z.com>
@@ -1560,7 +1557,7 @@ Tue Jun 16 15:24:46 1998  Havoc Pennington  <hp@pobox.com>
 	* libgnome/gnome-util.h, gnome-util.c (gnome_dirrelative_file):
 	make char * args const.
 	(gnome_datadir_file, gnome_libdir_file, gnome_pixmap_file,
-	gnome_unconditional_pixmap_file, gnome_unconditional_libdir_file, 
+	gnome_unconditional_pixmap_file, gnome_unconditional_libdir_file,
 	gnome_unconditional_datadir_file): const char *
 	(g_filename_pointer): Return a pointer to the last part of a
 	path. Maybe this should replace g_filename_index.
@@ -1577,7 +1574,7 @@ Tue Jun 16 15:24:46 1998  Havoc Pennington  <hp@pobox.com>
 	(gnome_desktop_entry_load_flags): const char *
 	(gnome_desktop_entry_copy): copy the struct. I guess I didn't end
 	up using this, but here it is anyway.
-	
+
 Sun Jun 14 18:03:14 1998  Tom Tromey  <tromey@cygnus.com>
 
 	* libgnome/gnome-exec.c (gnome_execute_async): Removed redundant
@@ -1617,21 +1614,21 @@ Mon Jun  8 22:49:28 1998  Tom Tromey  <tromey@cygnus.com>
 
 Mon Jun  8 19:13:50 1998  Havoc Pennington  <hp@pobox.com>
 
-	* libgnome/gnome-util.h, gnome-util.c (g_filename_index): 
-	Get the starting index of the last component of a path. 
+	* libgnome/gnome-util.h, gnome-util.c (g_filename_index):
+	Get the starting index of the last component of a path.
 	Sort of the reverse of g_concat_dir_and_file.
-	
+
 1998-06-01  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* libgnome/gnome-dentry.c (gnome_desktop_entry_destroy): Remove
 	references to the gnome-config entry when discarding a
 	gnome-dentry and release the memory associated with the
-	GnomeDesktopEntry. 
+	GnomeDesktopEntry.
 
 Mon Jun  1 13:23:26 1998  Havoc Pennington  <hp@pobox.com>
 
 	* libgnome/gnome-exec.h, gnome-exec.c (gnome_execute_async):
- 	 Change arg 3 to char * const argv[] to match execvp	
+ 	 Change arg 3 to char * const argv[] to match execvp
 	(gnome_execute_shell): New function. Like system(), but
  	backgrounds the process and uses the user's shell.
 
@@ -1686,7 +1683,7 @@ Fri May 22 18:24:09 1998  Tom Tromey  <tromey@cygnus.com>
 	now, we just appendm them.
 
 	* libgnome/gnome-config.c (_gnome_config_get_vector_with_default):
-	Set the entire argvp array to NULL.  
+	Set the entire argvp array to NULL.
 	Count correctly the number of arguments.
 
 Tue May 19 14:42:32 1998  George Lebl  <jirka@5z.com>
@@ -1700,13 +1697,13 @@ Tue May 19 14:42:32 1998  George Lebl  <jirka@5z.com>
 
 	* configure.in (GLIB_LIBS): use the correct glib depending on what
 	is installed.  Bug reported by Mark Galassi.  Thanks to Owen for
-	suggesting the proper approach to this. 
+	suggesting the proper approach to this.
 
 1998-05-18  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* libgnome/gnome-dentry.c (gnome_desktop_entry_free): Do not free
 	item->exec as the gnome_string_arry_free already freed that.
-	
+
 Mon May 18 14:10:42 1998  Tom Tromey  <tromey@cygnus.com>
 
 	* libgnome/gnome-config.c (_gnome_config_set_vector): Also quote
@@ -1720,11 +1717,12 @@ Mon May 18 14:10:42 1998  Tom Tromey  <tromey@cygnus.com>
 	Fix the routine.  Simplify the parsing code with a slicker
 	routine.  This should fix the panel problems, at least it works
 	for me.
-	
+
 1998-04-30  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* libgnome/gnome-util.c (g_copy_strings): Put back optimized and
-	non-leaking copy_strings. 
+	non-leaking copy_strings.
+
 Sat May 16 00:44:21 1998  Tom Tromey  <tromey@cygnus.com>
 
 	* libgnome/gnome-string.c: Removed dead check for delim==NULL.
@@ -1790,7 +1788,7 @@ Sat May  9 20:25:49 1998  Szekeres István  <szekeres@cyberspace.mht.bme.hu>
         * libgnome/gnome-help.c (gnome_help_file_find_file):
 	  strip off last '#' in the requested path, since most help
 	  requests are going to be URLs.
-	
+
 	* libgnome/gnome-help.c (gnome_help_display):
 	  use gnome_help_file_find_file() function
 
@@ -1809,7 +1807,7 @@ Sat May  9 20:25:49 1998  Szekeres István  <szekeres@cyberspace.mht.bme.hu>
 	* libgnome/gnome-config.c
 	(_gnome_config_get_translated_string_with_default): Changed to
 	look for more than one language.
-	(_gnome_config_set_translated_string): Changed to support language 
+	(_gnome_config_set_translated_string): Changed to support language
 	lists.
 
 	* libgnome/gnome-i18n.c (guess_category_value): New function.
@@ -1885,14 +1883,14 @@ Mon Apr 20 22:41:44 1998  George Lebl  <jirka@5z.com>
 1998-04-16  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* libgnome/gnome-dentry.c (gnome_is_program_in_path): Return the
-	full pathname for the program if it is found on the path. 
+	full pathname for the program if it is found on the path.
 	(gnome_desktop_entry_load_flags): Free the pathname according to
 	the new convention.
 
 1998-04-13  Raja R Harinath  <harinath@cs.umn.edu>
 
 	* libgnome/gnome-help.c (gnome_help_file_path): Be more
-	`const'-correct. 
+	`const'-correct.
 
 Mon Apr  6 00:05:34 1998  Havoc Pennington  <hp@pobox.com>
 
@@ -1909,7 +1907,7 @@ Sat Apr 04 12:12:47 1998  George Lebl  <jirka@5z.com>
 1998-03-31  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* libgnome/lib_date.c, lib_date.h, lib_defs.h, lib_date.README:
-	Added the lib_date routines from Steffen Beyer. 
+	Added the lib_date routines from Steffen Beyer.
 
 Sat Mar 28 19:28:48 MST 1998 Nathan Summers <rock@gimp.org>
 
@@ -1939,11 +1937,11 @@ Tue Mar 17 21:34:35 1998  George Lebl  <jirka@5z.com>
 
 Sun Mar 15 15:24:41 1998  Owen Taylor  <owt1@cornell.edu>
 
-	* Makefile.am configure.in gnomeConf.sh.in: 
+	* Makefile.am configure.in gnomeConf.sh.in:
 	Add GTK_CFLAGS to GNOME_INCLUDEDIR, and GTK_LIBS to the
 	approriate *LIBS variables.
 
-	* libgnome/Makefile.am libgnomeui/Makefile.am: 
+	* libgnome/Makefile.am libgnomeui/Makefile.am:
 	Added GTK_CFLAGS to INCLUDES
 
 Tue Mar 10 11:58:38 1998  Tom Tromey  <tromey@cygnus.com>
@@ -2003,20 +2001,20 @@ Wed Mar  4 01:06:58 1998  Tom Tromey  <tromey@cygnus.com>
 	(*): Use `g_strdup' and `g_free' uniformly, throughout.
 
 Sat Feb 28 15:46:51 1998  Miguel de Icaza  <miguel@nuclecu.unam.mx>
-	
+
 	* libgnome/gnome-config.c (parse_path): Reverse Raja Harinath's
-	change that used "" instead of NULL.  
+	change that used "" instead of NULL.
 
 	If we use NULL here, the gnome-config-get-string routines can
 	distinguish between:
 
 		- NULL if they key was non-existant.
 		- "" if the key had an empty value.
-	
+
 Thu Feb 26 21:12:26 1998  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* libgnome/gnome-util.c (gnome_dirrelative_file): Check inside the
-	user relative home directory for more files. 
+	user relative home directory for more files.
 
 1998-02-28  Carsten Schaar  <nhadcasc@fs-maphy.uni-hannover.de>
 
@@ -2028,11 +2026,11 @@ Thu Feb 26 21:12:26 1998  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 Thu Feb 26 18:08:15 1998  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* libgnome/gnome-dentry.c, libgnome/gnome-dentry.h: Dropped the
-	computed icon filenames, things will be scaled now by the panel. 
+	computed icon filenames, things will be scaled now by the panel.
 
 	* libgnome/gnome-dentry.c (gnome_desktop_entry_load_flags): More
 	fields; a new parameter that avoids dumping the loaded
-	information. 
+	information.
 
 1998-02-25  Raja R Harinath  <harinath@cs.umn.edu>
 
@@ -2047,7 +2045,7 @@ Wed Feb 25 20:16:13 1998  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 1998-02-23  Federico Mena Quintero  <federico@nuclecu.unam.mx>
 
-	* libgnome/gnome-dl.c: 
+	* libgnome/gnome-dl.c:
 	* libgnome/gnome-help.c: #include <string.h>
 
 	* configure.in (ALL_LINGUAS): Added "it" to ALL_LINGUAS
@@ -2074,7 +2072,7 @@ Wed Feb 25 20:16:13 1998  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 Tue Feb 17 23:37:50 1998  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* libgnome/gnome-dentry.c (gnome_desktop_entry_load): Provide a
-	default for the Terminal entry. 
+	default for the Terminal entry.
 
 Mon Feb 16 13:13:19 1998  Tom Tromey  <tromey@cygnus.com>
 

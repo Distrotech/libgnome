@@ -76,7 +76,7 @@ WAVFormatChunk;
 /**
  * gnome_sound_sample_load_wav:
  * @file: filename to try loading a WAV file from.
- * 
+ *
  * Used to load a .wav file into esound.
  *
  * Returns a GnomeSoundSample or NULL if file did not exist.
@@ -385,7 +385,7 @@ gnome_sound_sample_load_audiofile(const char *file)
     s = NULL;
     goto error_case;
   }
-  
+
   frames_read = afReadFrames(in_file, AF_DEFAULT_TRACK, s->data,
 			     frame_count * in_channels);
 
@@ -448,7 +448,7 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
     {
       if (s->data)
 	{
-	  /* "name" of all samples is currently "E", should be name of sound 
+	  /* "name" of all samples is currently "E", should be name of sound
 	   * file, or event type, for later identification */
 	  s->id = esd_sample_cache (gnome_sound_connection, s->format, s->rate,
 				    size, (char *)sample_name);
@@ -481,7 +481,7 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
  * Plays the audio stored in @filename, if possible. Fail quietly if playing is
  * not possible (due to missing sound support or for other reasons).
  */
-void 
+void
 gnome_sound_play (const char * filename)
 {
 #ifdef HAVE_ESD
@@ -497,7 +497,7 @@ gnome_sound_play (const char * filename)
 
   g_snprintf(buf, sizeof(buf), "%d-%u-%d",
 	     getpid(), cookie++, rand ());
- 
+
   /* overflow, make sure we don't reinit with rand again */
   if (cookie == 0)
 	  cookie = 1;
@@ -529,7 +529,7 @@ gnome_sound_init(const char *hostname)
 #endif
 }
 
-/** 
+/**
  * gnome_sound_shutdown:
  *
  * Shuts down the gnome sound support.
@@ -547,7 +547,7 @@ gnome_sound_shutdown(void)
 #endif
 }
 
-/** 
+/**
  * gnome_sound_connection_get:
  *
  * Rarely needed to by programs directly, this function may be useful if a

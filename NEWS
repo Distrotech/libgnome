@@ -1,3 +1,28 @@
+libgnome 2.15.1
+---------------
+
+What's new since 2.14.1
+
+* Bug fixes:
+	- Cleanups and related (Kjartan, Christian Persch)
+	- Win32 portability (Tor)
+	- Input method gconf schema defaults adjusted for Gtk+ 2.9.x
+	  (Christian)
+	- API docs updates (Kjartan, Christian, Kristof Vansant)
+	- po/LINGUAS handling (Przemysøaw Grzegorczyk)
+	- Constify some data (BenoÓt Dejean)
+
+* New and updated translations:
+	- bg (Alexander Shopov), bn_IN (Runa Bhattacharjee), cs (Jakub Friedl),
+	  cy (Rhys Jones), de (Hendrik Richter), dz (Guntupalli Karunakar),
+	  es (Francisco Javier F. Serrador), eu (Inaki Larranaga)
+	  fi (Ilkka Tuohela), fr (BenoÓt Dejean), gl (Ignacio Casal Quinteiro),
+	  gu (Ankit Patel), he (Yair Hershkovitz)
+	  hi (Rajesh Ranjan), ka (Gia Shervashidze), ko (Changwoo Ryu),
+	  lv (Raivis Dejus), nb (Kjartan Maraas), ne (Pawan Chitrakar), 
+	  nn (≈smund SkjÊveland), th (Theppitak Karoonboonyanan), vi (Clytie Siddall),
+	  zh_HK (Chao-Hsiung Liao), zh_TW (Chao-Hsiung Liao)
+
 libgnome 2.14.1
 ---------------
 
@@ -7,7 +32,7 @@ What's new since 2.14.0
 	- Fix memory leaks in gnome-program (Christian Persch)
 	- Fixes for locating help files (Stefan Kost, Christian Persch)
 	- Add --enable-esd switch (Leonardo Boshell)
-	- Fix --espeaker option (Michael H. Schimek) 
+	- Fix --espeaker option (Michael H. Schimek)
 	- General cleanups (Kjartan)
 	- Fix for 'run in terminal' launchers with gnome-terminal as
           the preferred terminal. (Vincent Vuntz)
@@ -25,7 +50,7 @@ What's new since 2.13.90
 	- cs (Miroslav Trmac), cy (Rhys Jones), da (Ole Laursen),
 	  de (Frank Arnold), et (Ivar Smolin),
 	  hi (Rajesh Ranjan), hu (Gabor Kelemen), it (Francesco Marletta),
-	  ja (Satoru SATOH), nl (Timo Meinen), nn (Kjartan Maraas), 
+	  ja (Satoru SATOH), nl (Timo Meinen), nn (Kjartan Maraas),
 	  or (Subhransu Behera), ro (Misu Moldovan), ru (Leonid Kanter),
 	  sv (Daniel Nylander), th (Theppitak Karoonboonyan)
 
@@ -40,14 +65,14 @@ What's new since 2.13.7
 	- Use GOption instead of popt as default (Christian Perch)
 	- Add handling of GNOME_VFS_ERROR_INVALID_URI
 	  (Claudio Saavedra)
- 
+
 libgnome 2.13.7
 ---------------
 
 What's new since 2.13.6
 
 * Bug fixes
-	- Fix compilation issues due to the missing inclusion 
+	- Fix compilation issues due to the missing inclusion
 	  of popt.h (Emmanuele Bassi)
 
 libgnome 2.13.6
@@ -96,7 +121,7 @@ What's new since 2.13.2
 
 * Translations
 	- be, bg, cs, en_CA, es, gl, gu, ja, lt, nb, sk, th, zh_CN.
- 
+
 libgnome 2.13.2
 ---------------
 
@@ -106,7 +131,7 @@ What's new since 2.12.0
 	- New show_input_method_menu gconf key (Matthias Clasen)
         - Update of the cursors descriptions for the new GTK (Sebastien Bacher)
         - New remember_numlock_state gconf key (J¸rg Billeter)
-        - Add GNOME_URL_ERROR_CANCELLED and return it 
+        - Add GNOME_URL_ERROR_CANCELLED and return it
           in gnome_url_show_with_env (Christian Neumair)
 
 * Bug fixes
@@ -139,10 +164,10 @@ What's new since 2.11.3
 	- Include developer docs in the zip file for Win32 (Tor)
 
 * Updated translations
-	- Catalan, Basque, Brazilian Portugese, Estonian, French, 
-	  Galician, Hungarian, Indonesian, Korean, Portugese, 
+	- Catalan, Basque, Brazilian Portugese, Estonian, French,
+	  Galician, Hungarian, Indonesian, Korean, Portugese,
 	  Russian, Serbian, Turkish, Vietnamese.
- 
+
 libgnome 2.11.3
 ---------------
 
@@ -175,7 +200,7 @@ What's new since 2.11.1
 	  Traditional Chinese (ch_TW), Thai (th), Estonian (et),
 	  Spanish (es), Slovak (sk), Canadian English (en_CA),
 	  Hungarian (hu), Serbian (sr), Catalan (ca), Japanese (ja),
-	  
+  
 libgnome 2.11.1
 ---------------
 
@@ -216,7 +241,7 @@ What's new since 2.9.1
 	- Added Xhosa (xs)
 	- Updated Arabic (ar), Belarusian (be), Estii (et),
 	  Spanish (es), Norwegian bokmÂl (nb/no)
- 
+
 libgnome 2.9.1
 --------------
 
@@ -230,7 +255,6 @@ What's new since 2.8.0
 
 * Translations:
 	- Various updated translations (en_CA, es, fr, hr, it, ko lt, th)
- 
 
 libgnome 2.8.0
 --------------
@@ -289,11 +313,11 @@ What's new since 2.6.0
 * Translations:
 	- Added Punjabi translation (Amanpreet Singh Alam)
 	- Added Gujarati translation (Gujarati Team)
-	- Various updated translations (az, ar, be, ca, cs, cy, da, de, 
-					en_CA, en_GB, el, es, et, eu, fi, 
-					he, hr, id, it, ja, ko, lt, nn, nl, 
-					no, pl, pt, pt_BR, ro, ru, sk, sr@ije, 
-					sq, sr, sr@Latn, sv, ta, th, tr, uk, 
+	- Various updated translations (az, ar, be, ca, cs, cy, da, de,
+					en_CA, en_GB, el, es, et, eu, fi,
+					he, hr, id, it, ja, ko, lt, nn, nl,
+					no, pl, pt, pt_BR, ro, ru, sk, sr@ije,
+					sq, sr, sr@Latn, sv, ta, th, tr, uk,
 					zh_CN, wa)
 
 libgnome 2.6.0 "Zoomer"
@@ -305,7 +329,7 @@ What's new since 2.4
 	- Add File Chooser backend schema (Jonathan Blandford)
 
 * Bug fixes:
-	- Fix translation of program arguments (Hidetoshi Tajima, 
+	- Fix translation of program arguments (Hidetoshi Tajima,
 						Christian Neumair,
 						Anders Carlsson)
 * Translations:
@@ -318,14 +342,14 @@ What's new since 2.4
 	- Updated Arabic translation (Arafat Medini)
 	- Updated Azerbaijani translation (MúÙ£Ÿtin úÙ°œmirov)
 	- Updated Belarusian translation (Ales Nyakhaychyk)
-	- Updated Brazilian Portuguese translation (Augusta Margues da Silva, 
-					            Raphael Higino, 
+	- Updated Brazilian Portuguese translation (Augusta Margues da Silva,
+					            Raphael Higino,
 					  	    Everson Santos Araujo)
 	- Updated British translation (Gareth Owen)
 	- Updated Catalan translation (Jordi Mallach)
 	- Updated Czech translation (Miloslav Trmac)
  	- Updated Danish translation (Ole Laursen)
-	- Updated Dutch translation (Vincent van Adrighem, 
+	- Updated Dutch translation (Vincent van Adrighem,
 				     Reinout van Schouwen)
 	- Updated Estonian translation (TÅıivo LeedjÅ‰rv)
 	- Updated Finnish translation (Pauli Virtanen)

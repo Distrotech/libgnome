@@ -137,7 +137,7 @@ bonobo_arg_new_from_gconf_value (GConfValue *value)
 {
         if (value == NULL)
                 return bonobo_arg_new (BONOBO_ARG_NULL);
-        
+
 	switch (value->type) {
 	case GCONF_VALUE_STRING :
 		return bonobo_arg_new_from (BONOBO_ARG_STRING,
@@ -168,7 +168,7 @@ impl_Bonobo_PropertyBag_getValue (PortableServer_Servant  servant,
 	char            *path;
 	GConfValue      *value;
 	GError          *err = NULL;
- 
+
 	if (strchr (key, '/')) {
 		bonobo_exception_set (ev, ex_Bonobo_PropertyBag_NotFound);
 		return NULL;
@@ -190,7 +190,7 @@ impl_Bonobo_PropertyBag_getValue (PortableServer_Servant  servant,
         return bonobo_arg_new_from_gconf_value (value);
 }
 
-static void 
+static void
 impl_Bonobo_PropertyBag_setValue (PortableServer_Servant  servant,
 				  const CORBA_char       *key,
 				  const CORBA_any        *value,
@@ -199,7 +199,7 @@ impl_Bonobo_PropertyBag_setValue (PortableServer_Servant  servant,
 	BonoboConfigBag *cb = GET_BAG_FROM_SERVANT (servant);
 	char            *path;
 	GError          *err = NULL;
-	
+
 	if (strchr (key, '/')) {
 		bonobo_exception_set (ev, ex_Bonobo_PropertyBag_NotFound);
 		return;
@@ -285,7 +285,7 @@ impl_Bonobo_PropertyBag_getValues (PortableServer_Servant servant,
                 value = gconf_entry_get_value (entry);
 
                 arg = bonobo_arg_new_from_gconf_value (value);
-                
+
 		retval->_buffer[n].value = *arg;
 	}
 
@@ -294,7 +294,7 @@ impl_Bonobo_PropertyBag_getValues (PortableServer_Servant servant,
 	return retval;
 }
 
-static void                  
+static void
 impl_Bonobo_PropertyBag_setValues (PortableServer_Servant servant,
 				   const Bonobo_PropertySet *set,
 				   CORBA_Environment *ev)
@@ -302,9 +302,9 @@ impl_Bonobo_PropertyBag_setValues (PortableServer_Servant servant,
 	int i;
 
 	for (i = 0; i < set->_length; i++) {
-		impl_Bonobo_PropertyBag_setValue (servant, 
+		impl_Bonobo_PropertyBag_setValue (servant,
 						  set->_buffer [i].name,
-						  &set->_buffer [i].value, 
+						  &set->_buffer [i].value,
 						  ev);
 		if (BONOBO_EX (ev))
 			return;
@@ -441,7 +441,7 @@ impl_Bonobo_PropertyBag_getFlags (PortableServer_Servant  servant,
 #if 0
 static void
 notify_cb (BonoboListener    *listener,
-	   const char        *event_name, 
+	   const char        *event_name,
 	   const CORBA_any   *any,
 	   CORBA_Environment *ev,
 	   gpointer           user_data)
@@ -475,12 +475,12 @@ bonobo_config_bag_new (const gchar *path)
 	else
 		cb->path = g_strconcat ("/", path, NULL);
 
-	while ((l = strlen (cb->path)) > 1 && path [l - 1] == '/') 
+	while ((l = strlen (cb->path)) > 1 && path [l - 1] == '/')
 		cb->path [l] = '\0';
-	
+
 	cb->es = bonobo_event_source_new ();
 
-	bonobo_object_add_interface (BONOBO_OBJECT (cb), 
+	bonobo_object_add_interface (BONOBO_OBJECT (cb),
 				     BONOBO_OBJECT (cb->es));
 
 	m = g_strconcat ("Bonobo/ConfigDatabase:change", cb->path, ":", NULL);
@@ -502,7 +502,7 @@ bonobo_config_bag_class_init (BonoboConfigBagClass *class)
 {
 	GObjectClass *object_class = (GObjectClass *) class;
 	POA_Bonobo_PropertyBag__epv *epv= &class->epv;
-	
+
 	parent_class = g_type_class_peek_parent (class);
 
 	object_class->finalize = bonobo_config_bag_finalize;
@@ -525,7 +525,7 @@ bonobo_config_bag_init (BonoboConfigBag *cb)
 	/* nothing to do */
 }
 
-BONOBO_TYPE_FUNC_FULL (BonoboConfigBag, 
+BONOBO_TYPE_FUNC_FULL (BonoboConfigBag,
 		       Bonobo_PropertyBag,
 		       PARENT_TYPE,
 		       bonobo_config_bag);

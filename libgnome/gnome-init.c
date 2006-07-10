@@ -130,7 +130,7 @@ bonobo_activation_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_i
 
 		dumb_argv[0] = g_get_prgname ();
 		(void) bonobo_activation_orb_init (&dumb_argc, dumb_argv);
-		
+
 		bonobo_activation_postinit (program, mod_info);
 	}
 }
@@ -223,7 +223,7 @@ libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
 	GValue value = { 0 };
 
 	program = gnome_program_get ();
-	
+
 	switch(reason) {
 	case POPT_CALLBACK_REASON_OPTION:
 		switch(opt->val) {
@@ -300,7 +300,7 @@ libgnome_goption_enable_sound (const gchar *option_name,
 	return TRUE;
 }
 
-static void 
+static void
 libgnome_goption_version (void)
 {
 	GnomeProgram *program;
@@ -310,7 +310,7 @@ libgnome_goption_version (void)
 	g_print ("Gnome %s %s\n",
 		 gnome_program_get_app_id (program),
 		 gnome_program_get_app_version (program));
-	
+
 	exit (0);
 }
 
@@ -319,10 +319,10 @@ safe_mkdir (const char *pathname, mode_t mode)
 {
 	char *safe_pathname;
 	int len, ret;
-	
+
 	safe_pathname = g_strdup (pathname);
 	len = strlen (safe_pathname);
-	
+
 	if (len > 1 && G_IS_DIR_SEPARATOR (safe_pathname[len - 1]))
 		safe_pathname[len - 1] = '\0';
 
@@ -344,7 +344,7 @@ libgnome_userdir_setup (gboolean create_dirs)
                  * remember if not hardcoded.
                  */
                 override = g_getenv ("GNOME22_USER_DIR");
-                
+
                 if (override != NULL) {
                         int len;
 
@@ -358,7 +358,7 @@ libgnome_userdir_setup (gboolean create_dirs)
 #endif
 					))
                                 gnome_user_dir[len - 1] = '\0';
-                        
+
                         gnome_user_private_dir = g_strconcat (gnome_user_dir,
                                                               "_private",
                                                               NULL);
@@ -367,14 +367,14 @@ libgnome_userdir_setup (gboolean create_dirs)
                         gnome_user_private_dir = g_build_filename (g_get_home_dir(),
                                                                    GNOME_DOT_GNOME_PRIVATE, NULL);
                 }
-                
+
 		gnome_user_accels_dir = g_build_filename (gnome_user_dir,
 							  "accels", NULL);
 	}
 
 	if (!create_dirs)
 		return;
-	
+
 	if (safe_mkdir (gnome_user_dir, 0700) < 0) { /* private permissions, but we
 							don't check that we got them */
 		if (errno != EEXIST) {
@@ -383,7 +383,7 @@ libgnome_userdir_setup (gboolean create_dirs)
 			exit(1);
 		}
 	}
-    
+
 	if (safe_mkdir (gnome_user_private_dir, 0700) < 0) { /* This is private
 								per-user info mode
 								700 will be
@@ -405,7 +405,7 @@ libgnome_userdir_setup (gboolean create_dirs)
 			gnome_user_private_dir, strerror(errno));
 		exit(1);
 	}
-  
+
 	if (safe_mkdir (gnome_user_accels_dir, 0700) < 0) {
 		if (errno != EEXIST) {
 			g_printerr (_("Could not create gnome accelerators directory `%s': %s\n"),
@@ -420,8 +420,8 @@ libgnome_post_args_parse (GnomeProgram *program,
 			  GnomeModuleInfo *mod_info)
 {
 	GValue value = { 0 };
-	gboolean enable_val = TRUE, create_dirs_val = TRUE;                           
-	char *espeaker_val = NULL;                                                    
+	gboolean enable_val = TRUE, create_dirs_val = TRUE;
+	char *espeaker_val = NULL;
 
 	g_value_init (&value, G_TYPE_BOOLEAN);
 	g_object_get_property (G_OBJECT (program),
@@ -431,13 +431,13 @@ libgnome_post_args_parse (GnomeProgram *program,
 	g_value_unset (&value);
 
 	g_value_init (&value, G_TYPE_BOOLEAN);
-	g_object_get_property (G_OBJECT (program), 
+	g_object_get_property (G_OBJECT (program),
 			       GNOME_PARAM_ENABLE_SOUND, &value);
 	enable_val = g_value_get_boolean (&value);
 	g_value_unset (&value);
 
 	g_value_init (&value, G_TYPE_STRING);
-	g_object_get_property (G_OBJECT (program), 
+	g_object_get_property (G_OBJECT (program),
 			       GNOME_PARAM_ESPEAKER, &value);
 	espeaker_val = g_value_dup_string (&value);
 	g_value_unset (&value);
@@ -456,16 +456,16 @@ static struct poptOption gnomelib_options [] = {
 
 	{ NULL, '\0', POPT_ARG_CALLBACK, (void *) libgnome_option_cb, 0, NULL, NULL},
 
-	{ "disable-sound", '\0', POPT_ARG_NONE,                                 
-	  NULL, ARG_DISABLE_SOUND, N_("Disable sound server usage"), NULL},     
+	{ "disable-sound", '\0', POPT_ARG_NONE,
+	  NULL, ARG_DISABLE_SOUND, N_("Disable sound server usage"), NULL},
 
-	{ "enable-sound", '\0', POPT_ARG_NONE,                                  
-	  NULL, ARG_ENABLE_SOUND, N_("Enable sound server usage"), NULL},       
+	{ "enable-sound", '\0', POPT_ARG_NONE,
+	  NULL, ARG_ENABLE_SOUND, N_("Enable sound server usage"), NULL},
 
-	{ "espeaker", '\0', POPT_ARG_STRING,                                    
+	{ "espeaker", '\0', POPT_ARG_STRING,
 	  NULL, ARG_ESPEAKER, N_("Host:port on which the sound server to use is"
 				 " running"),
-	  N_("HOSTNAME:PORT")},                                                 
+	  N_("HOSTNAME:PORT")},
 
 	{"version", '\0', POPT_ARG_NONE,
 	 NULL, ARG_VERSION, VERSION, NULL},
@@ -475,16 +475,16 @@ static struct poptOption gnomelib_options [] = {
 };
 
 static const GOptionEntry gnomelib_goptions [] = {
-	{ "disable-sound", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,                                 
-	  libgnome_goption_disable_sound, N_("Disable sound server usage"), NULL },     
+	{ "disable-sound", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,
+	  libgnome_goption_disable_sound, N_("Disable sound server usage"), NULL },
 
-	{ "enable-sound", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,                                  
-	  libgnome_goption_enable_sound, N_("Enable sound server usage"), NULL },       
+	{ "enable-sound", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,
+	  libgnome_goption_enable_sound, N_("Enable sound server usage"), NULL },
 
-	{ "espeaker", '\0',0, G_OPTION_ARG_CALLBACK,                                    
+	{ "espeaker", '\0',0, G_OPTION_ARG_CALLBACK,
 	  libgnome_goption_epeaker,
 	  N_("Host:port on which the sound server to use is running"),
-	  N_("HOSTNAME:PORT") },                                                 
+	  N_("HOSTNAME:PORT") },
 
 	{ "version", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,
 	  (GOptionArgFunc) libgnome_goption_version, VERSION, NULL },
@@ -532,7 +532,7 @@ libgnome_module_get_goption_group (void)
 
 /**
 * libgnome_module_info_get:
-* 
+*
 * Retrieves the current libgnome version and the modules it depends on.
 *
 * Returns: a new #GnomeModuleInfo structure describing the version and
@@ -550,7 +550,7 @@ libgnome_module_info_get (void)
 		libgnome_module_get_goption_group
 	};
 	int i = 0;
-	
+
 	if (module_info.requirements == NULL) {
 		static GnomeModuleRequirement req[4];
 

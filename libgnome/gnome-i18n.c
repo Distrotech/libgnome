@@ -34,9 +34,9 @@
 /**
  * gnome_i18n_get_language_list:
  * @ignored: Ignored, pass NULL.
- * 
+ *
  * This function is deprecated. You should be using g_get_language_names() instead.
- * 
+ *
  * This computes a list of language strings that the user wants.  It searches in
  * the standard environment variables to find the list, which is sorted in order
  * from most desirable to least desirable.  The `C' locale is appended to the
@@ -46,7 +46,7 @@
  * The @ignored argument used to be the category name to use, but this was
  * removed since there is only one useful thing to pass here. For further
  * details, see http://bugzilla.gnome.org/show_bug.cgi?id=168948
- * 
+ *
  * Return value: the list of languages, this list should not be freed as it is
  * owned by gnome-i18n.
  **/
@@ -68,7 +68,7 @@ gnome_i18n_get_language_list (const gchar *ignored)
 
     list = g_list_reverse (list);
   }
-  
+
   g_static_rec_mutex_unlock (&lang_list_lock);
 
   return list;
@@ -102,7 +102,7 @@ gnome_i18n_push_c_numeric_locale (void)
 /**
  * gnome_i18n_pop_c_numeric_locale:
  *
- * Description:  Restores the LC_NUMERIC locale to what it was 
+ * Description:  Restores the LC_NUMERIC locale to what it was
  * before the matching gnome_i18n_push_c_numeric_locale(). If these calls
  * were nested, then this is a no-op until we get to the most outermost
  * layer. Code in between these should not do any setlocale calls

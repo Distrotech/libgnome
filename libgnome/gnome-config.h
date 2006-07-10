@@ -54,7 +54,7 @@ G_BEGIN_DECLS
  * if none is specified on the config file.
  *
  * Examples:
- * 
+ *
  * /gmix/Balance/Ratio=0.5
  * /filemanager/Panel Display/html=1
  *
@@ -254,7 +254,7 @@ void gnome_config_clean_file_     (const char *path, gboolean priv);
 #define gnome_config_private_clean_file(path) \
 	(gnome_config_clean_file_((path),TRUE))
 
-/* This routine drops all of the information related to /file/section 
+/* This routine drops all of the information related to /file/section
    this will actually remove the section */
 void gnome_config_clean_section_  (const char *path, gboolean priv);
 #define gnome_config_clean_section(path) \

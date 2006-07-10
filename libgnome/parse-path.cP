@@ -22,7 +22,7 @@ parse_path (const char *path, gboolean priv)
 	ParsedPath *p = g_malloc (sizeof (ParsedPath));
 
 	g_assert(path != NULL);
-	
+
 	if (*path == '/' || prefix == NULL)
 		p->opath = g_strdup (path);
 	else
@@ -59,7 +59,7 @@ parse_path (const char *path, gboolean priv)
 		if ((end = strchr (p->path, '='))) {
 			*end = 0;
 			p->def = end + 1;
-		} else 
+		} else
 			end = p->path + strlen (p->path);
 
 		/* Look backwards for a slash, to split key from the filename/section */

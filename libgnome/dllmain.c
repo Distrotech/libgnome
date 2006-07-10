@@ -142,7 +142,7 @@ gnome_win32_get_prefixes (gpointer  hmodule,
                 gchar *p = strrchr (*full_prefix, '\\');
                 if (p != NULL)
                         *p = '\0';
-      
+
                 p = strrchr (*full_prefix, '\\');
                 if (p && (g_ascii_strcasecmp (p + 1, "bin") == 0))
                         *p = '\0';
@@ -153,7 +153,7 @@ gnome_win32_get_prefixes (gpointer  hmodule,
                 gchar *p = _mbsrchr (*cp_prefix, '\\');
                 if (p != NULL)
                         *p = '\0';
-      
+
                 p = _mbsrchr (*cp_prefix, '\\');
                 if (p && (g_ascii_strcasecmp (p + 1, "bin") == 0))
                         *p = '\0';
@@ -163,7 +163,7 @@ gnome_win32_get_prefixes (gpointer  hmodule,
 static void
 setup (void)
 {
-	char *cp_prefix; 
+	char *cp_prefix;
 
         G_LOCK (mutex);
         if (localedir != NULL) {

@@ -74,32 +74,32 @@ gnome_url_show_with_env (const char  *url,
 	g_return_val_if_fail (url != NULL, FALSE);
 
 	result = gnome_vfs_url_show_with_env (url, envp);
-	
+
 	switch (result) {
 	case GNOME_VFS_OK:
 		return TRUE;
-		
+
 	case GNOME_VFS_ERROR_INTERNAL:
 		g_set_error (error,
 		             GNOME_URL_ERROR,
 			     GNOME_URL_ERROR_VFS,
 			     _("Unknown internal error while displaying this location."));
 		break;
-		
+
 	case GNOME_VFS_ERROR_BAD_PARAMETERS:
 		g_set_error (error,
 			     GNOME_URL_ERROR,
 			     GNOME_URL_ERROR_URL,
 			     _("The specified location is invalid."));
 		break;
-	
+
 	case GNOME_VFS_ERROR_PARSE:
 		g_set_error (error,
 			     GNOME_URL_ERROR,
 			     GNOME_URL_ERROR_PARSE,
 			     _("There was an error parsing the default action command associated "
 			       "with this location."));
-		break;	
+		break;
 
 	case GNOME_VFS_ERROR_LAUNCH:
 		g_set_error (error,
@@ -107,15 +107,15 @@ gnome_url_show_with_env (const char  *url,
 			     GNOME_URL_ERROR_LAUNCH,
 			     _("There was an error launching the default action command associated "
 			       "with this location."));
-		break;	
-	
+		break;
+
 	case GNOME_VFS_ERROR_NO_DEFAULT:
 		g_set_error (error,
 			     GNOME_URL_ERROR,
 			     GNOME_URL_ERROR_NO_DEFAULT,
 			     _("There is no default action associated with this location."));
-		break;	
-	
+		break;
+
 	case GNOME_VFS_ERROR_NOT_SUPPORTED:
 		g_set_error (error,
 			     GNOME_URL_ERROR,

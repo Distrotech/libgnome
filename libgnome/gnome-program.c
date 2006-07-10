@@ -421,7 +421,7 @@ gnome_program_module_list_order (void)
     new_list = g_alloca (program_modules->len * sizeof(gpointer));
     new_list[0] = NULL;
     num_items_used = 0;
-  
+
     times_visited = g_alloca (program_modules->len * sizeof(int));
     memset(times_visited, '\0', program_modules->len * sizeof(int));
 
@@ -455,7 +455,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_POPT_TABLE,
 	 g_param_spec_pointer (GNOME_PARAM_POPT_TABLE,
-			       _("Popt Table"), 
+			       _("Popt Table"),
 			       _("The table of options for popt"),
 			       (G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY)));
 
@@ -463,7 +463,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_POPT_FLAGS,
 	 g_param_spec_int (GNOME_PARAM_POPT_FLAGS,
-			   _("Popt Flags"), 
+			   _("Popt Flags"),
 			   _("The flags to use for popt"),
 			   G_MININT, G_MAXINT, 0,
 			   (G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY)));
@@ -472,7 +472,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_POPT_CONTEXT,
 	 g_param_spec_pointer (GNOME_PARAM_POPT_CONTEXT,
-			      _("Popt Context"), 
+			      _("Popt Context"),
 			      _("The popt context pointer that GnomeProgram "
 				"is using"),
 			       (G_PARAM_READABLE)));
@@ -481,7 +481,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_GOPTION_CONTEXT,
 	 g_param_spec_pointer (GNOME_PARAM_GOPTION_CONTEXT,
-			       _("GOption Context"), 
+			       _("GOption Context"),
 			       _("The goption context pointer that GnomeProgram "
 				 "is using"),
 			       (G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY)));
@@ -490,7 +490,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_HUMAN_READABLE_NAME,
 	 g_param_spec_string (GNOME_PARAM_HUMAN_READABLE_NAME,
-			      _("Human readable name"), 
+			      _("Human readable name"),
 			      _("Human readable name of this application"),
 			      NULL,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
@@ -499,8 +499,8 @@ gnome_program_class_init (GnomeProgramClass *klass)
     g_object_class_install_property
 	(object_class,
 	 PROP_GNOME_PATH,
-	 g_param_spec_string (GNOME_PARAM_GNOME_PATH, 
-			      _("GNOME path"), 
+	 g_param_spec_string (GNOME_PARAM_GNOME_PATH,
+			      _("GNOME path"),
 			      _("Path in which to look for installed files"),
 			      g_getenv ("GNOME2_PATH"),
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
@@ -510,15 +510,15 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_APP_ID,
 	 g_param_spec_string (GNOME_PARAM_APP_ID,
-			      _("App ID"), 
+			      _("App ID"),
 			      _("ID string to use for this application"),
 			      NULL, G_PARAM_READABLE));
 
     g_object_class_install_property
 	(object_class,
 	 PROP_APP_VERSION,
-	 g_param_spec_string (GNOME_PARAM_APP_VERSION, 
-			      _("App version"), 
+	 g_param_spec_string (GNOME_PARAM_APP_VERSION,
+			      _("App version"),
 			      _("Version of this application"),
 			      NULL, G_PARAM_READABLE));
 
@@ -526,7 +526,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_GNOME_PREFIX,
 	 g_param_spec_string (GNOME_PARAM_GNOME_PREFIX,
-			      _("GNOME Prefix"), 
+			      _("GNOME Prefix"),
 			      _("Prefix where GNOME was installed"),
 			      LIBGNOME_PREFIX,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
@@ -536,7 +536,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_GNOME_LIBDIR,
 	 g_param_spec_string (GNOME_PARAM_GNOME_LIBDIR,
-			      _("GNOME Libdir"), 
+			      _("GNOME Libdir"),
 			      _("Library prefix where GNOME was installed"),
 			      LIBGNOME_LIBDIR,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
@@ -546,7 +546,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_GNOME_DATADIR,
 	 g_param_spec_string (GNOME_PARAM_GNOME_DATADIR,
-			      _("GNOME Datadir"), 
+			      _("GNOME Datadir"),
 			      _("Data prefix where GNOME was installed"),
 			      LIBGNOME_DATADIR,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE |
@@ -556,7 +556,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_GNOME_SYSCONFDIR,
 	 g_param_spec_string (GNOME_PARAM_GNOME_SYSCONFDIR,
-			      _("GNOME Sysconfdir"), 
+			      _("GNOME Sysconfdir"),
 			      _("Configuration prefix where GNOME "
 				"was installed"),
 			      LIBGNOME_SYSCONFDIR,
@@ -567,7 +567,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_APP_PREFIX,
 	 g_param_spec_string (GNOME_PARAM_APP_PREFIX,
-			      _("GNOME App Prefix"), 
+			      _("GNOME App Prefix"),
 			      _("Prefix where this application was installed"),
 			      NULL,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE)));
@@ -576,7 +576,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_APP_LIBDIR,
 	 g_param_spec_string (GNOME_PARAM_APP_LIBDIR,
-			      _("GNOME App Libdir"), 
+			      _("GNOME App Libdir"),
 			      _("Library prefix where this application "
 				"was installed"),
 			      NULL,
@@ -586,7 +586,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_APP_DATADIR,
 	 g_param_spec_string (GNOME_PARAM_APP_DATADIR,
-			      _("GNOME App Datadir"), 
+			      _("GNOME App Datadir"),
 			      _("Data prefix where this application "
 				"was installed"),
 			      NULL,
@@ -596,7 +596,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_APP_SYSCONFDIR,
 	 g_param_spec_string (GNOME_PARAM_APP_SYSCONFDIR,
-			      _("GNOME App Sysconfdir"), 
+			      _("GNOME App Sysconfdir"),
 			      _("Configuration prefix where this application "
 				"was installed"),
 			      NULL,
@@ -606,7 +606,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_CREATE_DIRECTORIES,
 	 g_param_spec_boolean (GNOME_PARAM_CREATE_DIRECTORIES,
-			      _("Create Directories"), 
+			      _("Create Directories"),
 			      _("Create standard GNOME directories on startup"),
 			       TRUE,
 			       (G_PARAM_READABLE | G_PARAM_WRITABLE |
@@ -616,7 +616,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_ENABLE_SOUND,
 	 g_param_spec_boolean (GNOME_PARAM_ENABLE_SOUND,
-			      _("Enable Sound"), 
+			      _("Enable Sound"),
 			      _("Enable sound on startup"),
 			       TRUE,
 			       (G_PARAM_READABLE | G_PARAM_WRITABLE)));
@@ -625,7 +625,7 @@ gnome_program_class_init (GnomeProgramClass *klass)
 	(object_class,
 	 PROP_ESPEAKER,
 	 g_param_spec_string (GNOME_PARAM_ESPEAKER,
-			      _("Espeaker"), 
+			      _("Espeaker"),
 			      _("How to connect to esd"),
 			      NULL,
 			      (G_PARAM_READABLE | G_PARAM_WRITABLE)));
@@ -643,7 +643,7 @@ gnome_program_instance_init (GnomeProgram *program)
     program->_priv->state = APP_CREATE_DONE;
 
     program->_priv->prop_enable_sound = TRUE;
-    
+
     for (i = 0; i < program_modules->len; i++) {
 	GnomeModuleInfo *a_module = g_ptr_array_index (program_modules, i);
 
@@ -651,7 +651,7 @@ gnome_program_instance_init (GnomeProgram *program)
 #ifdef TIME_INIT
 	    GTimer *timer = g_timer_new ();
 	    g_timer_start (timer);
-	    g_print ("Running class_init for: %s ...", a_module->name); 
+	    g_print ("Running class_init for: %s ...", a_module->name);
 #endif
 	    a_module->instance_init (program, a_module);
 #ifdef TIME_INIT
@@ -691,7 +691,7 @@ gnome_program_finalize (GObject* object)
 	self->_priv->prop_app_datadir = NULL;
 	g_free (self->_priv->prop_espeaker);
 	self->_priv->prop_espeaker = NULL;
-	
+
 	g_strfreev (self->_priv->gnome_path);
 	self->_priv->gnome_path = NULL;
 
@@ -828,7 +828,7 @@ gnome_program_get_human_readable_name (GnomeProgram *program)
 
     if (program->_priv->prop_human_readable_name == NULL)
       return g_get_prgname ();
-    
+
     return program->_priv->prop_human_readable_name;
 }
 
@@ -928,7 +928,7 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
         if (!only_if_exists || g_file_test (file_name, G_FILE_TEST_EXISTS))
           ADD_FILENAME (file_name);
       }
-    
+
     switch (domain) {
     case GNOME_FILE_DOMAIN_LIBDIR:
 	prefix_rel = "/lib";
@@ -1047,7 +1047,7 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
 
 /******** modules *******/
 
-/* Stolen verbatim from rpm/lib/misc.c 
+/* Stolen verbatim from rpm/lib/misc.c
    RPM is Copyright (c) 1998 by Red Hat Software, Inc.,
    and may be distributed under the terms of the GPL and LGPL.
 */
@@ -1061,7 +1061,7 @@ static int rpmvercmp(const char * a, const char * b) {
     char * one, * two;
     int rc;
     int isnum;
-    
+
     /* easy comparison to see if versions are identical */
     if (!strcmp(a, b)) return 0;
 
@@ -1094,7 +1094,7 @@ static int rpmvercmp(const char * a, const char * b) {
 	    while (*str2 && g_ascii_isalpha(*str2)) str2++;
 	    isnum = 0;
 	}
-		
+
 	/* save character at the end of the alpha or numeric segment */
 	/* so that they can be restored after the comparison */
 	oldch1 = *str1;
@@ -1111,7 +1111,7 @@ static int rpmvercmp(const char * a, const char * b) {
 	    /* this used to be done by converting the digit segments */
 	    /* to ints using atoi() - it's changed because long  */
 	    /* digit segments can overflow an int - this should fix that. */
-	  
+
 	    /* throw away any leading zeros - it's a number, right? */
 	    while (*one == '0') one++;
 	    while (*two == '0') two++;
@@ -1127,7 +1127,7 @@ static int rpmvercmp(const char * a, const char * b) {
 	/* compare */
 	rc = strcmp(one, two);
 	if (rc) return rc;
-	
+
 	/* restore character that was replaced by null above */
 	*str1 = oldch1;
 	one = str1;
@@ -1182,7 +1182,7 @@ gnome_program_module_registered (const GnomeModuleInfo *module_info)
 	/* array is NULL-terminated, so break on NULL */
 	if (curmod == NULL)
 		break;
-	
+
 	if (curmod == module_info)
 	    return TRUE;
     }
@@ -1296,7 +1296,7 @@ gnome_program_preinit (GnomeProgram *program,
     GnomeModuleInfo *a_module;
     poptContext argctx = NULL;
     int i;
-    
+
     g_return_val_if_fail (program != NULL, NULL);
     g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
     g_return_val_if_fail (argv != NULL, NULL);
@@ -1306,7 +1306,7 @@ gnome_program_preinit (GnomeProgram *program,
 
     /* Store invocation name */
     g_set_prgname (argv[0]);
-    
+
     /* 0. Misc setup */
     if (program->_priv->app_id)
 	g_free (program->_priv->app_id);
@@ -1336,7 +1336,7 @@ gnome_program_preinit (GnomeProgram *program,
        1. Process all framework attributes in 'attrs'
        2. Order the module list for dependencies
        3. Call the preinit functions for the modules
-       4. Process other attributes 
+       4. Process other attributes
        5a. Add the modules' GOptionGroup:s to our context, or
        5b. Create a top-level 'struct poptOption *' for use in arg-parsing.
        6. Create a poptContext
@@ -1349,7 +1349,7 @@ gnome_program_preinit (GnomeProgram *program,
 #ifdef TIME_INIT
 	    GTimer *timer = g_timer_new ();
 	    g_timer_start (timer);
-	    g_print ("Running pre_args_parse for: %s ...", a_module->name); 
+	    g_print ("Running pre_args_parse for: %s ...", a_module->name);
 #endif
 	    a_module->pre_args_parse (program, a_module);
 #ifdef TIME_INIT
@@ -1425,7 +1425,7 @@ gnome_program_preinit (GnomeProgram *program,
     }
     /* 7. Cleanup/return */
     program->_priv->state = APP_PREINIT_DONE;
-    
+
     return argctx;
 }
 
@@ -1490,7 +1490,7 @@ gnome_program_parse_args (GnomeProgram *program)
 	priv = program->_priv;
 	g_return_if_fail ((priv->arg_context != NULL && priv->goption_context == NULL) ||
 			  (priv->arg_context == NULL && priv->goption_context != NULL));
-	
+
 	if (priv->goption_context) {
 		GError *error = NULL;
 		char **arguments;
@@ -1531,7 +1531,6 @@ gnome_program_parse_args (GnomeProgram *program)
 			program->_priv->argv[0]);
 			exit (1);
 		}
-	
 	}
 }
 
@@ -1617,7 +1616,7 @@ accessibility_invoke (GnomeProgram *program, gboolean init)
 
 	for (l = program->_priv->accessibility_modules; l; l = l->next) {
 		GnomeModuleInfo *module = l->data;
-		
+
 		if (!strcmp (module->name, "gtk")) {
 			accessibility_invoke_module (program, "libgail", init);
 			use_gui = TRUE;
@@ -1647,7 +1646,7 @@ accessibility_init (GnomeProgram *program)
 	/* Seek the module list we need */
 	for (i = 0; i < program_modules->len; i++) {
 		GnomeModuleInfo *module = g_ptr_array_index (program_modules, i);
-		
+
 		if (!module)
 			continue;
 
@@ -1659,7 +1658,7 @@ accessibility_init (GnomeProgram *program)
 	}
 
 	program->_priv->accessibility_modules = list;
-	
+
 	do_init = FALSE;
 
 	if ((env_var = g_getenv (GNOME_ACCESSIBILITY_ENV)))
@@ -1698,7 +1697,7 @@ gnome_program_postinit (GnomeProgram *program)
 #ifdef TIME_INIT
 	    GTimer *timer = g_timer_new ();
 	    g_timer_start (timer);
-	    g_print ("Running post_args_parse for: %s ...", a_module->name); 
+	    g_print ("Running post_args_parse for: %s ...", a_module->name);
 #endif
 	    a_module->post_args_parse (program, a_module);
 #ifdef TIME_INIT
@@ -1781,7 +1780,7 @@ gnome_program_init_common (GType type,
 
 	if (!program_module_list)
 	    program_module_list = g_ptr_array_new ();
-	
+
 	if (!program_modules) {
 	    program_modules = g_ptr_array_new ();
 	      /* keep array NULL terminated */
@@ -1790,7 +1789,7 @@ gnome_program_init_common (GType type,
 	/* Register the requested modules. */
 	gnome_program_module_register (module_info);
 
-	/* 
+	/*
 	 * make sure libgnome is always registered.
 	 */
 	libgnome_module = libgnome_module_info_get ();
@@ -1832,7 +1831,7 @@ gnome_program_init_common (GType type,
 #ifdef TIME_INIT
 	        GTimer *timer = g_timer_new ();
 	        g_timer_start (timer);
-	        g_print ("Running init_pass for: %s ...", a_module->name); 
+	        g_print ("Running init_pass for: %s ...", a_module->name);
 #endif
 		a_module->init_pass (a_module);
 #ifdef TIME_INIT
@@ -1853,7 +1852,7 @@ gnome_program_init_common (GType type,
 #ifdef TIME_INIT
 	        GTimer *timer = g_timer_new ();
 	        g_timer_start (timer);
-	        g_print ("Running class_init for: %s ...", a_module->name); 
+	        g_print ("Running class_init for: %s ...", a_module->name);
 #endif
 		a_module->class_init (klass, a_module);
 #ifdef TIME_INIT
@@ -1876,7 +1875,7 @@ gnome_program_init_common (GType type,
 #ifdef TIME_INIT
 	        GTimer *timer = g_timer_new ();
 	        g_timer_start (timer);
-	        g_print ("Running init_pass for: %s ...", a_module->name); 
+	        g_print ("Running init_pass for: %s ...", a_module->name);
 #endif
 		a_module->init_pass (a_module);
 #ifdef TIME_INIT
@@ -1898,7 +1897,7 @@ gnome_program_init_common (GType type,
 #ifdef TIME_INIT
 	        GTimer *timer = g_timer_new ();
 	        g_timer_start (timer);
-	        g_print ("Running class_init for: %s ...", a_module->name); 
+	        g_print ("Running class_init for: %s ...", a_module->name);
 #endif
 		a_module->class_init (klass, a_module);
 #ifdef TIME_INIT

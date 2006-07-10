@@ -387,7 +387,7 @@ gnome_help_display_desktop_with_env (GnomeProgram  *program,
 
 	g_free (file);
 	g_free (url);
-	
+
 	return retval;
 }
 
@@ -483,7 +483,7 @@ gnome_help_display_uri (const char  *help_uri,
 
 /**
  * gnome_help_error_quark:
- * 
+ *
  * Returns: A #GQuark representing the domain of gnome-help errors.
  */
 GQuark

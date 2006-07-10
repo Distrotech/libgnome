@@ -58,7 +58,7 @@ gnome_gconf_get_gnome_libs_settings_relative (const gchar *subkey)
         gchar *tmp;
 
         tmp = gconf_escape_key (gnome_program_get_app_id (gnome_program_get()), -1);
-        
+
         dir = g_strconcat("/apps/gnome-settings/",
                           tmp,
                           NULL);

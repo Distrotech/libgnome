@@ -9,7 +9,7 @@
    modify it under the terms of the GNU Library General Public License
    as published by the Free Software Foundation; either version 2 of
    the License, or (at your option) any later version.
-   
+
    The Gnome Library is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
@@ -133,7 +133,7 @@ config_concat_dir_and_key (const char *dir, const char *key)
    static ParsedPath *parse_path (const char *path, gboolean priv); */
 #include "parse-path.cP"
 
-static void 
+static void
 free_keys (TKeys *p)
 {
 	if (!p)
@@ -144,7 +144,7 @@ free_keys (TKeys *p)
 	g_free (p);
 }
 
-static void 
+static void
 free_sections (TSecHeader *p)
 {
 	if (!p)
@@ -157,7 +157,7 @@ free_sections (TSecHeader *p)
 	g_free (p);
 }
 
-static void 
+static void
 free_profile (TProfile *p)
 {
 	if (!p)
@@ -170,13 +170,13 @@ free_profile (TProfile *p)
 	g_free (p);
 }
 
-static int 
+static int
 is_loaded (const char *filename, TSecHeader **section)
 {
 	TProfile *p = Base;
 	TProfile *lastp = NULL;
 	struct stat st;
-	
+
 	/*
 	 * if the last one we accessed was this one we don't want to
 	 * search
@@ -199,7 +199,7 @@ is_loaded (const char *filename, TSecHeader **section)
 		*section = Current->section;
 		return 1;
 	}
-	
+
 	while (p){
 		/*search and destroy empty nodes*/
 		if (p->filename[0]=='\0') {
@@ -274,7 +274,7 @@ escape_string_and_dup (char *s)
 
 	if(!s)
 		return g_strdup("");
-	
+
 	while (*p){
 		len++;
 		if (*p == '\n' || *p == '\\' || *p == '\r' || *p == '\0')
@@ -314,17 +314,17 @@ load (const char *file)
 	char CharBuffer [STRSIZE];
 	char *next = "";		/* Not needed */
 	int c;
-	
+
 	if ((f = g_fopen (file, "r"))==NULL)
 		return NULL;
-	
+
 	state = FirstBrace;
 	while ((c = getc_unlocked (f)) != EOF){
 		if (c == '\r')		/* Ignore Carriage Return */
 			continue;
-		
+
 		switch (state){
-			
+
 		case OnSecHeader:
 			if (c == ']' || overflow){
 				*next = '\0';
@@ -359,7 +359,7 @@ load (const char *file)
 
 			if (c == '[' && state != KeyDefOnKey){
 				TSecHeader *temp;
-		
+
 				temp = SecHeader;
 				SecHeader = (TSecHeader *) g_malloc (sizeof (TSecHeader));
 				SecHeader->link = temp;
@@ -371,16 +371,16 @@ load (const char *file)
 			/* On first pass, don't allow dangling keys */
 			if (state == FirstBrace)
 				break;
-	    
+
 			if ((c == ' ' && state != KeyDefOnKey) || c == '\t')
 				break;
-	    
+
 			if (c == '\n' || overflow) { /* Abort Definition */
 				next = CharBuffer;
 				state = KeyDef;
                                 break;
                         }
-	    
+
 			if (c == '=' || overflow){
 				TKeys *temp;
 
@@ -408,9 +408,9 @@ load (const char *file)
 			} else
 				*next++ = c;
 			break;
-	    
+
 		} /* switch */
-	
+
 	} /* while ((c = getc_unlocked (f)) != EOF) */
 	if (c == EOF && state == KeyValue){
 		*next = '\0';
@@ -420,11 +420,11 @@ load (const char *file)
 	return SecHeader;
 }
 
-static void 
+static void
 new_key (TSecHeader *section, const char *key_name, const char *value)
 {
 	TKeys *key;
-    
+
 	key = (TKeys *) g_malloc (sizeof (TKeys));
 	key->key_name = g_strdup (key_name);
 	key->value   = g_strdup (value);
@@ -437,7 +437,7 @@ access_config (access_type mode, const char *section_name,
 	       const char *key_name, const char *def, const char *filename,
 	       gboolean *def_used)
 {
-    
+
 	TProfile   *New;
 	TSecHeader *section;
 	TKeys      *key;
@@ -462,7 +462,7 @@ access_config (access_type mode, const char *section_name,
 		section = New->section;
 		Current = New;
 	}
-    
+
 	/* Start search */
 	for (; section; section = section->link){
 		/*if section name empty or deleted or not the one we're
@@ -471,7 +471,7 @@ access_config (access_type mode, const char *section_name,
 		    !*section->section_name ||
 		    strcasecmp (section->section_name, section_name))
 			continue;
-		
+
 		for (key = section->keys; key; key = key->link){
 			if (strcasecmp (key->key_name, key_name))
 				continue;
@@ -490,7 +490,7 @@ access_config (access_type mode, const char *section_name,
 			return NULL;
 		}
 	}
-    
+
 	/* Non existent section */
 	if ((mode == SET) && def){
 		section = (TSecHeader *) g_malloc (sizeof (TSecHeader));
@@ -500,7 +500,7 @@ access_config (access_type mode, const char *section_name,
 		section->link = Current->section;
 		Current->section = section;
 		Current->written_to = TRUE;
-	} 
+	}
 	if (def_used)
 		*def_used = TRUE;
 	return def;
@@ -548,7 +548,7 @@ access_config_extended (access_type mode, const char *section_name,
  			       strcmp (cache_filename, rel_file) == 0 &&
  			       now - cache_time <= 2);
  		if (!cache_valid) {
- 			if (cache_filename) 
+ 			if (cache_filename)
 				g_free (cache_filename);
 
  			cache_filename = g_strdup (rel_file);
@@ -563,7 +563,7 @@ access_config_extended (access_type mode, const char *section_name,
 			     tmp, TRUE, NULL);
  			g_free (tmp);
  			cache_overrride_filename = filename ? g_strdup (filename) : NULL;
-			
+
  			if (cache_global_filename)
 				g_free (cache_global_filename);
 
@@ -595,7 +595,7 @@ access_config_extended (access_type mode, const char *section_name,
 					 filename, &internal_def);
 		g_free (filename);
 		if (!internal_def) {
-			if (def_used) 
+			if (def_used)
 				*def_used = FALSE;
 			return ret_val;
 		}
@@ -611,7 +611,7 @@ access_config_extended (access_type mode, const char *section_name,
 			return ret_val;
 		} else {
 			/* it doesn't -- use the default value */
-			if (def_used) 
+			if (def_used)
 				*def_used = TRUE;
 			return def;
 		}
@@ -619,12 +619,12 @@ access_config_extended (access_type mode, const char *section_name,
 	g_assert_not_reached ();
 
 	/* keep the compiler happy */
-	if (def_used) 
+	if (def_used)
 		*def_used = TRUE;
 	return def;
 }
 
-static void 
+static void
 dump_keys (FILE *profile, TKeys *p)
 {
 	if (!p)
@@ -637,7 +637,7 @@ dump_keys (FILE *profile, TKeys *p)
 	}
 }
 
-static void 
+static void
 dump_sections (FILE *profile, TSecHeader *p)
 {
 	if (!p)
@@ -697,7 +697,7 @@ check_path(char *path, mode_t newmode)
 			*cur = '\0';
 			cur++;
 		}
-		
+
 		if (newpath == NULL)
 			newpath = g_string_new(root);
 		else
@@ -733,19 +733,19 @@ check_path(char *path, mode_t newmode)
 
 
 
-static gboolean 
+static gboolean
 dump_profile (TProfile *p, gboolean one_only)
 {
 	gboolean ret = TRUE;
 	FILE *profile;
-    
+
 	if (!p)
 		return ret;
 	if(!one_only) {
 		if(!dump_profile (p->link, FALSE))
 			ret = FALSE;
 	}
-	
+
 	/*
 	 * was this profile written to?, if not it's not necessary to dump
 	 * it to disk
@@ -782,7 +782,7 @@ dump_profile (TProfile *p, gboolean one_only)
 			ret = FALSE;
 		}
 	}
-	
+
 	/*mark this to not be dumped any more*/
 	p->written_to = FALSE;
 
@@ -801,7 +801,7 @@ dump_profile (TProfile *p, gboolean one_only)
  * Returns: %TRUE if everything went well. %FALSE if any file
  * could not be written to disk.
  */
-gboolean 
+gboolean
 gnome_config_sync (void)
 {
 	gboolean ret;
@@ -840,14 +840,14 @@ gnome_config_sync (void)
  * could not be written to for some reason.  %FALSE is only returned
  * when a write was actually attempted and failed.
  */
-gboolean 
+gboolean
 gnome_config_sync_file_ (char *path, gboolean priv)
 {
 	gboolean ret = TRUE;
 	TProfile *p;
 	ParsedPath *pp;
 	char *fake_path;
-	
+
 	if (!path)
 		return ret;
 
@@ -871,7 +871,7 @@ gnome_config_sync_file_ (char *path, gboolean priv)
 }
 
 /**
- * gnome_config_clean_file: 
+ * gnome_config_clean_file:
  * @path: A gnome-config path
  *
  * Cleans up the configuration file specified by @path from any
@@ -888,13 +888,13 @@ gnome_config_sync_file_ (char *path, gboolean priv)
  *
  * Changes will take place after gnome_config_sync() has been invoked.
  */
-void 
+void
 gnome_config_clean_file_ (const char *path, gboolean priv)
 {
 	TProfile *p;
 	ParsedPath *pp;
 	char *fake_path;
-	
+
 	if (!path)
 		return;
 
@@ -903,11 +903,11 @@ gnome_config_clean_file_ (const char *path, gboolean priv)
 	g_free (fake_path);
 
 	Current = NULL;
-	
+
 	for (p = Base; p; p = p->link){
 		if (strcmp (pp->file, p->filename) != 0)
 			continue;
-		
+
 		free_sections (p->section);
 		p->section = NULL;
 		p->written_to = TRUE;
@@ -919,7 +919,7 @@ gnome_config_clean_file_ (const char *path, gboolean priv)
 }
 
 /**
- * gnome_config_drop_file: 
+ * gnome_config_drop_file:
  * @path: A gnome-config path
  *
  * Releases any memory resources that were allocated from accessing
@@ -933,14 +933,14 @@ gnome_config_clean_file_ (const char *path, gboolean priv)
  * Releases any memory resources that were allocated from accessing the
  * private configuration file in @path.
  */
-void 
+void
 gnome_config_drop_file_ (const char *path, gboolean priv)
 {
 	TProfile *p;
 	TProfile *last;
 	ParsedPath *pp;
 	char *fake_path;
-	
+
 	if (!path)
 		return;
 
@@ -949,16 +949,16 @@ gnome_config_drop_file_ (const char *path, gboolean priv)
 	g_free (fake_path);
 
 	Current = NULL;
-	
+
 	for (last = NULL,p = Base; p; last = p, p = p->link){
 		if (strcmp (pp->file, p->filename) != 0)
 			continue;
-		
+
 		if(last)
 			last->link = p->link;
 		else
 			Base = p->link;
-		
+
 		free_sections (p->section);
 		g_free(p->filename);
 		g_free(p);
@@ -1003,7 +1003,7 @@ gnome_config_init_iterator_ (const char *path, gboolean priv)
 	fake_path = config_concat_dir_and_key (path, "key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
-	
+
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
 		
@@ -1072,7 +1072,7 @@ gnome_config_init_iterator_sections_ (const char *path, gboolean priv)
 	fake_path = config_concat_dir_and_key (path, "section/key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
-	
+
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
 		
@@ -1122,13 +1122,13 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
 	 * return NULL at times)
 	 */
 	if(!iterator_handle)
-		return NULL; 
+		return NULL;
 
 	if (key)
 		*key = NULL;
 	if (value)
 		*value = NULL;
-	
+
 	if (iter->type == 0){
 		TKeys *keys;
 		keys = iter->value;
@@ -1156,7 +1156,7 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
 			return iter;
 		} else {
 			g_free (iter);
-			return NULL; 
+			return NULL;
 		}
 	}
 }
@@ -1177,18 +1177,18 @@ gnome_config_iterator_next (void *iterator_handle, char **key, char **value)
  * configuration information.  Changes will only take place after
  * gnome_config_sync() has been invoked.
  */
-void 
+void
 gnome_config_clean_section_ (const char *path, gboolean priv)
 {
 	TProfile   *New;
 	TSecHeader *section;
 	ParsedPath *pp;
 	char *fake_path;
-	
+
 	fake_path = config_concat_dir_and_key (path, "key");
 	pp = parse_path (fake_path, priv);
 	g_free (fake_path);
-	
+
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
 
@@ -1236,7 +1236,7 @@ gnome_config_clean_section_ (const char *path, gboolean priv)
  *
  * Changes will take place after gnome_config_sync() has been invoked.
  */
-void 
+void
 gnome_config_clean_key_ (const char *path, gboolean priv)
 	/* *section_name, char *file */
 {
@@ -1244,9 +1244,9 @@ gnome_config_clean_key_ (const char *path, gboolean priv)
 	TSecHeader *section;
 	TKeys *key;
 	ParsedPath *pp;
-	
+
 	pp = parse_path (path, priv);
-	
+
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
 		
@@ -1296,7 +1296,7 @@ gnome_config_clean_key_ (const char *path, gboolean priv)
  *
  * Returns: %TRUE if the section exists, %FALSE otherwise.
  */
-gboolean 
+gboolean
 gnome_config_has_section_ (const char *path, gboolean priv)
 	/* char *section_name, char *profile */
 {
@@ -1308,7 +1308,7 @@ gnome_config_has_section_ (const char *path, gboolean priv)
 	fake_path = config_concat_dir_and_key (path, "key");
 	pp = parse_path (fake_path,priv);
 	g_free (fake_path);
-	
+
 	if (!is_loaded (pp->file, &section)){
 		struct stat st;
 		
@@ -1344,7 +1344,7 @@ gnome_config_has_section_ (const char *path, gboolean priv)
  * gnome config. Any pending information that has not been
  * written to disk is discarded.
  */
-void 
+void
 gnome_config_drop_all (void)
 {
 	free_profile (Base);
@@ -1398,7 +1398,7 @@ gnome_config_get_int_with_default_ (const char *path, gboolean *def, gboolean pr
 	ParsedPath *pp;
 	const char *r;
 	int  v;
-	
+
 	pp = parse_path (path, priv);
 	/*is there a better way to check if an absolute path has been given?*/
 	if (!priv && pp->opath[0] != '=')
@@ -1466,7 +1466,7 @@ gnome_config_get_float_with_default_ (const char *path, gboolean *def, gboolean 
 	ParsedPath *pp;
 	const char *r;
 	gdouble v;
-	
+
 	pp = parse_path (path, priv);
 	if (!priv && pp->opath[0] != '=')
 		r = access_config_extended (LOOKUP, pp->section, pp->key,
@@ -1498,7 +1498,7 @@ get_string_with_default_from_pp (ParsedPath *pp, gboolean *def, gboolean priv)
 {
 	const char *r;
 	char *ret = NULL;
-	
+
 	if (!priv && pp->opath[0] != '=')
 		r = access_config_extended (LOOKUP, pp->section, pp->key,
 					    pp->def, pp->path, def);
@@ -1698,7 +1698,7 @@ gnome_config_get_string_with_default_ (const char *path, gboolean *def,
 {
 	ParsedPath *pp;
 	char *ret;
-	
+
 	pp = parse_path (path, priv);
 	ret = get_string_with_default_from_pp (pp, def, priv);
 	release_path (pp);
@@ -1751,7 +1751,7 @@ gnome_config_get_bool_with_default_ (const char *path, gboolean *def,
 	ParsedPath *pp;
 	const char *r;
 	int  v;
-	
+
 	pp = parse_path (path, priv);
 	if (!priv && pp->opath[0] != '=')
 		r = access_config_extended (LOOKUP, pp->section, pp->key,
@@ -1836,8 +1836,8 @@ gnome_config_make_vector (const char *string, int *argcp, char ***argvp)
 		(*argvp)[count++] = tmp = s;
 
 		while (*s) {
-			if (*s == '\\') 
-				s++;				
+			if (*s == '\\')
+				s++;
 			if (!*s) break;
 			*tmp++ = *s++;
 		}
@@ -1899,7 +1899,7 @@ gnome_config_get_vector_with_default_ (const char *path, int *argcp,
 {
 	ParsedPath *pp;
 	const char *rr;
-	
+
 	pp = parse_path (path, priv);
 	if (!priv && pp->opath[0] != '=')
 		rr = access_config_extended (LOOKUP, pp->section, pp->key,
@@ -1920,7 +1920,7 @@ gnome_config_get_vector_with_default_ (const char *path, int *argcp,
  * gnome_config_set_translated_string:
  * @path: A gnome configuration path to a key.
  * @value: A string value to set.
- * 
+ *
  * Stores the string value @value in the file/section/key defined
  * by the @path on the proper section for the current language set by
  * by the user.
@@ -1929,7 +1929,7 @@ gnome_config_get_vector_with_default_ (const char *path, int *argcp,
  * gnome_config_private_set_translated_string:
  * @path: A gnome configuration path to a key.
  * @new_value: A string value to set.
- * 
+ *
  * Stores the string value @new_value in the file/section/key defined by the
  * @path on the proper section for the current language set by by the user.
  * The configuration value is stored in the user's private storage area.
@@ -1975,7 +1975,7 @@ gnome_config_set_string_ (const char *path, const char *new_value, gboolean priv
 {
 	ParsedPath *pp;
 	const char *r;
-	
+
 	pp = parse_path (path, priv);
 	r = access_config (SET, pp->section, pp->key, new_value, pp->file,
 			   NULL);
@@ -2005,7 +2005,7 @@ gnome_config_set_int_ (const char *path, int new_value, gboolean priv)
 	ParsedPath *pp;
 	char intbuf [40];
 	const char *r;
-	
+
 	pp = parse_path (path, priv);
 	g_snprintf (intbuf, sizeof(intbuf), "%d", new_value);
 	r = access_config (SET, pp->section, pp->key, intbuf, pp->file,
@@ -2036,7 +2036,7 @@ gnome_config_set_float_ (const char *path, gdouble new_value, gboolean priv)
 	ParsedPath *pp;
 	char floatbuf [40];
 	const char *r;
-	
+
 	pp = parse_path (path, priv);
 
         /* make sure we write values in a consistent manner */
@@ -2070,7 +2070,7 @@ gnome_config_set_bool_ (const char *path, gboolean new_value, gboolean priv)
 {
 	ParsedPath *pp;
 	const char *r;
-	
+
 	pp = parse_path (path, priv);
 	r = access_config (SET, pp->section, pp->key,
 			   new_value ? "true" : "false", pp->file, NULL);
@@ -2098,7 +2098,7 @@ gnome_config_assemble_vector (int argc, const char *const argv [])
 
 	/*
 	 * Compute length of quoted string.  We cheat and just use
-	 * twice the sum of the lengths of all the strings.  
+	 * twice the sum of the lengths of all the strings.
 	 */
 	len = 1;
 	for (i = 0; i < argc; ++i)
@@ -2162,7 +2162,7 @@ gnome_config_set_vector_ (const char *path, int argc,
  *
  * Library code will usually have to set the prefix before doing
  * any gnome-configuration access, since the application might
- * be using their own prefix. 
+ * be using their own prefix.
  */
 void
 gnome_config_push_prefix (const char *path)
@@ -2237,6 +2237,5 @@ main ()
 	x ("/file/seccion/llave", "USERDIR/file", "seccion", "llave", NULL);
 	x ("/file/archivo/archivo/seccion/llave", "USERDIR/file/archivo/archivo", "seccion", "llave", NULL);
 	x ("/file/archivo/archivo/seccion/llave=valor", "USERDIR/file/archivo/archivo", "seccion", "llave", "valor");
-	
 }
 #endif

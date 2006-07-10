@@ -29,7 +29,7 @@
  * Gnome utility routines.
  * (C)  1997, 1998, 1999 the Free Software Foundation.
  *
- * Author: Miguel de Icaza, 
+ * Author: Miguel de Icaza,
  */
 #include <config.h>
 
@@ -144,7 +144,7 @@ const char *
 g_extension_pointer (const char * path)
 {
 	char * s, * t;
-	
+
 	g_return_val_if_fail(path != NULL, NULL);
 
 	/* get the dot in the last element of the path */
@@ -153,7 +153,7 @@ g_extension_pointer (const char * path)
 		s = strrchr(t, '.');
 	else
 		s = strrchr(path, '.');
-	
+
 	if (s == NULL)
 		return path + strlen(path); /* There is no extension. */
 	else {
@@ -168,7 +168,7 @@ g_extension_pointer (const char * path)
  * @value: The value to assign to the environment variable.
  * @overwrite: If %TRUE, overwrite the existing @name variable in the
  * environment.
- * 
+ *
  * Adds "@name=@value" to the environment. Note that on systems without setenv,
  * this leaks memory so please do not use inside a loop or anything like that.
  * The semantics are the same as the glibc setenv() (if setenv() exists, it is
@@ -178,7 +178,7 @@ g_extension_pointer (const char * path)
  * then %0 is returned and the value is not changed.
  *
  * Returns: %0 on success, %-1 on error
- * 
+ *
  **/
 int
 gnome_setenv (const char *name, const char *value, gboolean overwrite)
@@ -187,11 +187,11 @@ gnome_setenv (const char *name, const char *value, gboolean overwrite)
 	return setenv (name, value != NULL ? value : "", overwrite);
 #else
 	char *string;
-	
+
 	if (! overwrite && g_getenv (name) != NULL) {
 		return 0;
 	}
-	
+
 	/* This results in a leak when you overwrite existing
 	 * settings. It would be fairly easy to fix this by keeping
 	 * our own parallel array or hash table.
@@ -204,12 +204,12 @@ gnome_setenv (const char *name, const char *value, gboolean overwrite)
 /**
  * gnome_unsetenv:
  * @name: The environment variable to unset.
- * 
+ *
  * Description: Removes @name from the environment.
  * In case there is no native implementation of unsetenv,
  * this could cause leaks depending on the implementation of
  * environment.
- * 
+ *
  **/
 void
 gnome_unsetenv (const char *name)
@@ -221,7 +221,7 @@ gnome_unsetenv (const char *name)
 	int i, len;
 
 	len = strlen (name);
-	
+
 	/* Mess directly with the environ array.
 	 * This seems to be the only portable way to do this.
 	 */
@@ -240,12 +240,12 @@ gnome_unsetenv (const char *name)
 
 /**
  * gnome_clearenv:
- * 
+ *
  * Description: Clears out the environment completely.
  * In case there is no native implementation of clearenv,
  * this could cause leaks depending on the implementation
  * of environment.
- * 
+ *
  **/
 void
 gnome_clearenv (void)
@@ -265,7 +265,7 @@ gnome_clearenv (void)
  *
  * Deprecated, use #g_find_program_in_path
  *
- * Returns: %NULL if program is not on the path or a string 
+ * Returns: %NULL if program is not on the path or a string
  * allocated with g_malloc() with the full path name of the program
  * found.
  */

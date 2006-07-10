@@ -156,7 +156,7 @@ gnome_triggers_read_path(const char *config_path)
       nt.u.media.file = sample_file;
       gnome_triggers_add_trigger(&nt, ctmp, sample_name, NULL);
       g_print ("Added: %s\n", ctmp);
-      
+
       g_free(ctmp);
 
     continue_loop:
@@ -258,27 +258,27 @@ void gnome_triggers_add_trigger(GnomeTrigger* nt, ...)
   va_list l;
   gint nstrings, i;
   gchar **strings;
-  
+
   /* Count number of strings */
-  
+
   va_start(l, nt);
   for (nstrings = 0; va_arg(l, gchar *); nstrings++);
   va_end(l);
-  
+
   /* Build list */
-  
+
   strings = g_new(gchar *, nstrings + 1);
-  
+
   va_start(l, nt);
-  
+
   for (i = 0; i < nstrings; i++)
     strings[i] = va_arg(l, gchar *);
   strings[i] = NULL;
-  
+
   va_end(l);
-  
+
   /* And pass them to the real function */
-  
+
   gnome_triggers_vadd_trigger(nt, strings);
 
   g_free (strings);
@@ -383,26 +383,26 @@ gnome_triggers_do(const char *msg, const char *level, ...)
   va_list l;
   gint nstrings, i;
   gchar **strings;
-  
+
   /* Count number of strings */
   va_start(l, level);
   for (nstrings = 0; va_arg(l, gchar *); nstrings++);
   va_end(l);
-  
+
   /* Build list */
-  
+
   strings = g_new (gchar *, nstrings + 1);
-  
+
   va_start(l, level);
-  
+
   for (i = 0; i < nstrings; i++)
     strings[i] = va_arg(l, gchar *);
   strings[i] = NULL;
-  
+
   va_end(l);
-  
+
   /* And pass them to the real function */
-  
+
   gnome_triggers_vdo(msg, level, (const char **)strings);
 
   g_free (strings);
@@ -477,7 +477,7 @@ gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 	   || !strcmp(level, curnode->actions[j]->level))
 	  gnome_trigger_do(curnode->actions[j], msg, level, supinfo);
       }
-    
+
     for(j = 0;
 	j < curnode->numsubtrees
 	  && strcmp(curnode->subtrees[j]->nodename,supinfo[i]);
@@ -594,7 +594,6 @@ gnome_trigger_do_command(GnomeTrigger* t,
 		NULL, NULL,
 		NULL, NULL, NULL, NULL);
 #endif
-  
   g_free(argv);
 }
 
@@ -614,4 +613,3 @@ gnome_trigger_do_mediaplay(GnomeTrigger* t,
     gnome_sound_play(t->u.media.file);
 #endif
 }
-

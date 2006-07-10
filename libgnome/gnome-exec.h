@@ -38,7 +38,7 @@ G_BEGIN_DECLS
    which to exec the child; if NULL the current directory is used.
    Searches $PATH to find the child.  */
 int gnome_execute_async (const char *dir, int argc, char * const argv[]);
-int gnome_execute_async_fds (const char *dir, int argc, char * const argv[], 
+int gnome_execute_async_fds (const char *dir, int argc, char * const argv[],
 			     gboolean close_fds);
 
 
@@ -50,14 +50,14 @@ int gnome_execute_async_fds (const char *dir, int argc, char * const argv[],
 int gnome_execute_async_with_env (const char *dir,
 				  int argc, char * const argv[],
 				  int envc, char * const envv[]);
-int gnome_execute_async_with_env_fds (const char *dir, int argc, 
-				      char * const argv[], int envc, 
+int gnome_execute_async_with_env_fds (const char *dir, int argc,
+				      char * const argv[], int envc,
 				      char * const envv[], gboolean close_fds);
 
 
 
-/* Fork and execute commandline using the user's shell. Calls 
-   gnome_execute_async so it does the same things and returns 
+/* Fork and execute commandline using the user's shell. Calls
+   gnome_execute_async so it does the same things and returns
    the same things. */
 int gnome_execute_shell (const char *dir, const char *commandline);
 int gnome_execute_shell_fds (const char *dir, const char *commandline,

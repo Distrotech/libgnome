@@ -14,7 +14,7 @@ main (int argc, char *argv[])
 {
   GError *err = NULL;
   char *uri;
-  
+
   if (argc < 2)
     {
       fprintf (stderr, "Usage: %s <url>\n", argv[0]);

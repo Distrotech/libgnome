@@ -30,7 +30,7 @@ libmoniker_extra_2_la_SOURCES =			\
 	bonobo-moniker-config.c			\
 	bonobo-moniker-conf-indirect.c		\
 	bonobo-moniker-extra.h            	\
-	bonobo-moniker-extra.c			
+	bonobo-moniker-extra.c
 
 libmoniker_extra_2_la_LDFLAGS = -module -avoid-version -no-undefined $(LIBGNOME_LIBS)
 
