@@ -10,7 +10,8 @@ EXTRA_DIST = \
 	intltool-extract.in	\
 	intltool-merge.in	\
 	intltool-update.in	\
-	libgnome-zip.in
+	libgnome-zip.in		\
+	gtk-doc.make
 
 DISTCLEANFILES = \
   intltool-extract \
