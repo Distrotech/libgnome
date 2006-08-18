@@ -50,6 +50,7 @@ bonobo_moniker_conf_indirect_resolve (BonoboMoniker *moniker,
 	object = bonobo_get_object ((const CORBA_char *) oiid,
 				    requested_interface,
 				    ev);
+	g_free (oiid);
 
 	return object;
 }
