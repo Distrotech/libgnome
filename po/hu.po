@@ -1,24 +1,24 @@
 # Hungarian translation of libgnome.
-# Copyright (C) 2002, 2003, 2004, 2005 Free Software Foundation, Inc.
+# Copyright (C) 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgnome package.
+#
 # Andras Timar <timar@gnome.hu>, 2002, 2003.
 # Gabor Sari <saga@gnome.hu>, 2003.
 # Laszlo Dvornik <dvornik@gnome.hu>, 2004.
-# Gabor Kelemen <kelemeng@gnome.hu>, 2004, 2005.
-#
+# Gabor Kelemen <kelemeng@gnome.hu>, 2004, 2005, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome.HEAD.hu\n"
+"Project-Id-Version: libgnome.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-15 12:14+0200\n"
-"PO-Revision-Date: 2005-08-23 21:18+0200\n"
+"POT-Creation-Date: 2006-08-17 12:12+0200\n"
+"PO-Revision-Date: 2006-08-26 13:26+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.10.2\n"
-"Plural-Forms:   nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.2\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -91,8 +91,7 @@ msgstr "A GNOME_FILE_DOMAIN_HELP tartomány nem található."
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr ""
-"Nem jeleníthető meg a súgó, mivel %s nem könyvtár. Ellenőrizze a telepítését."
+msgstr "Nem jeleníthető meg a súgó, mivel %s nem könyvtár. Ellenőrizze a telepítését."
 
 #: ../libgnome/gnome-help.c:220 ../libgnome/gnome-help.c:236
 #, c-format
@@ -125,8 +124,7 @@ msgstr "Bonobo-aktiválás támogatása"
 #: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr ""
-"Nem hozható létre a(z) \"%s\" felhasználói gnome konfigurációs könyvtár: %s\n"
+msgstr "Nem hozható létre a(z) \"%s\" felhasználói gnome konfigurációs könyvtár: %s\n"
 
 #: ../libgnome/gnome-init.c:404
 #, c-format
@@ -156,15 +154,15 @@ msgstr "Kiszolgáló:port, amelyen a használandó hangkiszolgáló fut"
 
 #: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
 msgid "HOSTNAME:PORT"
-msgstr "HOSTNAME:PORT"
+msgstr "GÉPNÉV:PORT"
 
 #: ../libgnome/gnome-init.c:506
 msgid "GNOME Virtual Filesystem"
-msgstr "GNOME Virtuális Fájlrendszer"
+msgstr "GNOME virtuális fájlrendszer"
 
 #: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
 msgid "GNOME Library"
-msgstr "GNOME Programkönyvtár"
+msgstr "GNOME programkönyvtár"
 
 #: ../libgnome/gnome-init.c:525
 msgid "Show GNOME options"
@@ -328,7 +326,7 @@ msgstr "Súgó beállításai"
 
 #: ../libgnome/gnome-program.c:1401
 msgid "Application options"
-msgstr "Alkalmazás beállításai"
+msgstr "Alkalmazás kapcsolói"
 
 #: ../libgnome/gnome-program.c:1417
 msgid "Dynamic modules to load"
@@ -438,8 +436,7 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Kikapcsolás két gomb egyidejű lenyomásakor."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
 "Ne fogadja el a billentyű lenyomását, hacsak nincs @delay ezredmásodpercig "
 "lenyomva"
@@ -449,10 +446,8 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Hány ezredmásodpercig tart a 0-ról maximális sebességre gyorsulás"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
-msgstr ""
-"Hány másodpercet várjon mielőtt az egérmozgató billentyűk működni kezdenek"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgstr "Hány másodpercet várjon mielőtt az egérmozgató billentyűk működni kezdenek"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many pixels per second to move at the maximum speed"
@@ -531,12 +526,10 @@ msgstr "Az alapértelmezett súgómegjelenítő elfogad-e URL-eket?"
 
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
 msgid "Whether the default help viewer needs a terminal to run"
-msgstr ""
-"Az alapértelmezett súgómegjelenítőnek szüksége van-e terminálra a futáshoz?"
+msgstr "Az alapértelmezett súgómegjelenítőnek szüksége van-e terminálra a futáshoz?"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Az \"exec\" kulcsban megadott terminálban a programok végrehajtására "
 "használt paraméter."
@@ -594,8 +587,7 @@ msgid "User window manager (deprecated)"
 msgstr "Felhasználói ablakkezelő (elavult)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid ""
-"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
 "Az elsőként próbálandó ablakkezelő. Ez a kulcs a GNOME 2.12 óta elavultnak "
 "számít."
@@ -772,8 +764,7 @@ msgid "Monospace font"
 msgstr "Monospace betűkészlet"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:23
-msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "A terminálokhoz hasonló helyeken használandó monospace (rögzített "
 "szélességű) betűkészlet neve."
@@ -866,8 +857,7 @@ msgstr ""
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
-msgstr ""
-"A beviteli mezők és szövegnézetek felajánlják-e vezérlőkarakterek beszúrását?"
+msgstr "A beviteli mezők és szövegnézetek felajánlják-e vezérlőkarakterek beszúrását?"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
@@ -882,12 +872,10 @@ msgid "Whether the user can detach toolbars and move them around"
 msgstr "A felhasználó leválaszthatja és elmozdíthatja-e az eszköztárakat"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:46
-#, fuzzy
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
-msgstr ""
-"A felhasználó beüthet-e egy új gyorsbillentyűt egy menü felbukkanásakor?"
+msgstr "A felhasználó beüthet-e egy új gyorsbillentyűt egy aktív menüre mutatva?"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
@@ -1131,3 +1119,4 @@ msgstr "Engedélyezve legyen-e a billentyűzetzárolás vagy sem?"
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "A gépelési szünet felfüggeszthető legyen-e?"
+
