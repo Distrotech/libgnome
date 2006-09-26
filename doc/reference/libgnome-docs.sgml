@@ -22,10 +22,10 @@
     <releaseinfo>for libgnome &version;</releaseinfo>
   </bookinfo>
 
-  <chapter id="libgnome">
+  <part id="libgnome">
     <title>GNOME Library (libgnome)</title>
-    <sect1>
-       <title>Initializing applications and starting programs</title>
+    <chapter>
+       <title>Initializing Applications and Starting Programs</title>
        <para>The functions in this section provide the necesary tools to both
        initialise your own application and to start other applications in the
        background.
@@ -33,9 +33,9 @@
 	  &libgnome-GnomeProgram;
 	  &libgnome-gnome-init;
 	  &libgnome-gnome-exec;
-    </sect1>
+    </chapter>
 
-    <sect1>
+    <chapter>
        <title>Configuration</title>
        <para>This group of functions allow an application to set and retrieve
        configuration information, as well as popping in and out of the user's
@@ -43,20 +43,18 @@
        fashion).
        </para>
 	  &libgnome-gnome-gconf;
-	  &libgnome-gnome-config;
-	  &libgnome-gnome-i18n;
-    </sect1>
-    <sect1>
-       <title>Displaying help and external info</title>
+    </chapter>
+
+    <chapter>
+       <title>Displaying Help and External Info</title>
        <para>These functions provide means to display help files and general
        urls and to retrieve the high (or low) scores for a game.
        </para>
 	  &libgnome-gnome-help;
 	  &libgnome-gnome-url;
-	  &libgnome-gnome-score;
-    </sect1>
+    </chapter>
 
-    <sect1>
+    <chapter>
        <title>Miscellaneous</title>
        <para>Functions that don't easily fit into any other group, but are
        still useful.
@@ -64,14 +62,53 @@
 	  &libgnome-gnome-util;
 	  &libgnome-gnome-sound;
 	  &libgnome-gnome-triggers;
-    </sect1>
+    </chapter>
 
-    <sect1>
-       <title>Lower level interactions</title>
+    <chapter>
+       <title>Lower Level Interactions</title>
        <para>Functions and macros that are rarely needed by application
        developers, but they are documented here for completeness.
        </para>
 	  &libgnome-libgnometypebuiltins;
-    </sect1>
-  </chapter>
+    </chapter>
+
+    <chapter>
+       <title>Deprecated Modules</title>
+	  &libgnome-gnome-config;
+	  &libgnome-gnome-i18n;
+	  &libgnome-gnome-score;
+    </chapter>
+  </part>
+
+  <index>
+    <title>Index</title>
+  </index>
+  <index role="deprecated">
+    <title>Index of deprecated symbols</title>
+  </index>
+  <index role="2.2">
+    <title>Index of new symbols in 2.2</title>
+  </index>
+  <index role="2.4">
+    <title>Index of new symbols in 2.4</title>
+  </index>
+  <index role="2.6">
+    <title>Index of new symbols in 2.6</title>
+  </index>
+  <index role="2.8">
+    <title>Index of new symbols in 2.8</title>
+  </index>
+  <index role="2.10">
+    <title>Index of new symbols in 2.10</title>
+  </index>
+  <index role="2.12">
+    <title>Index of new symbols in 2.12</title>
+  </index>
+  <index role="2.14">
+    <title>Index of new symbols in 2.14</title>
+  </index>
+  <index role="2.16">
+    <title>Index of new symbols in 2.16</title>
+  </index>
+
 </book>
