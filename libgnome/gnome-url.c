@@ -150,6 +150,7 @@ gnome_url_show_with_env (const char  *url,
 		break;
 
 	case GNOME_VFS_ERROR_INVALID_URI:
+	case GNOME_VFS_ERROR_NOT_FOUND:
 		g_set_error (error,
 		             GNOME_URL_ERROR,
 			     GNOME_URL_ERROR_VFS,
