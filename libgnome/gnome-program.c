@@ -1739,6 +1739,9 @@ gnome_program_init (const char *app_id, const char *app_version,
     GnomeProgram *program;
     va_list args;
 
+    if (!g_threads_got_initialized)
+        g_thread_init (NULL);
+
     g_type_init ();
 
     va_start(args, first_property_name);
