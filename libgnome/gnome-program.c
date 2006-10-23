@@ -1739,6 +1739,7 @@ gnome_program_init (const char *app_id, const char *app_version,
     GnomeProgram *program;
     va_list args;
 
+    /* g_thread_init() has to be the first GLib function called ever */
     if (!g_threads_got_initialized)
         g_thread_init (NULL);
 
