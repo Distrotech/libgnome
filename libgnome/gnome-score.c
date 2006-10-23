@@ -406,8 +406,7 @@ gnome_score_init (const gchar * gamename)
  * ends.  This function takes care of working out whether the user's score made
  * it into the ten best scores and, if so, records it in the table.
  *
- * Returns: %0 on failure or the status from the gnome-score helper
- * program.
+ * Returns: %0 on failure and the number of bytes written otherwise.
  */
 gint
 gnome_score_log (gfloat score,
