@@ -1,3 +1,9 @@
+2006-10-23  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-sound.c: (use_sound), (gnome_sound_init),
+	(gnome_sound_shutdown): Fix playback problems on NetBSD and possibly
+	other platforms. Closes bug #155121. Patch from Cliff Wright.
+
 2006-10-15  Daniel Drake  <dsd@gentoo.org>
 
 	* libgnome/gnome-url.c: Interpret GNOME_VFS_ERROR_NOT_FOUND

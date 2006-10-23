@@ -39,7 +39,6 @@
 
 #ifdef HAVE_ESD
 static char *esound_hostname = NULL;
-static gboolean esound_hostname_null_ok = FALSE;
 static int gnome_sound_connection = -1;
 #endif
 
@@ -300,16 +299,15 @@ static gboolean
 use_sound (void)
 {
   if (gnome_sound_connection == -1){
-    if (esound_hostname || esound_hostname_null_ok){
       gnome_sound_connection = esd_open_sound (esound_hostname);
       if (gnome_sound_connection == -1){
-	g_free (esound_hostname);
-	esound_hostname = NULL;
-	esound_hostname_null_ok = FALSE;
+        if (esound_hostname) {
+	  g_free (esound_hostname);
+	  esound_hostname = NULL;
+        }
 	return FALSE;
       }
     }
-  }
   return TRUE;
 }
 #endif
@@ -521,11 +519,12 @@ gnome_sound_init(const char *hostname)
 {
 #ifdef HAVE_ESD
 	srand(time(NULL));
-	g_free (esound_hostname);
+	if (esound_hostname) {
+		g_free (esound_hostname);
+		esound_hostname = NULL;
+	}
 	if (hostname)
 		esound_hostname = g_strdup (hostname);
-	else
-		esound_hostname_null_ok = TRUE;
 #endif
 }
 
@@ -538,8 +537,10 @@ void
 gnome_sound_shutdown(void)
 {
 #ifdef HAVE_ESD
-	g_free (esound_hostname);
-	esound_hostname = NULL;
+	if (esound_hostname) {
+		g_free (esound_hostname);
+		esound_hostname = NULL;
+	}
 	if(gnome_sound_connection >= 0){
 		esd_close(gnome_sound_connection);
 		gnome_sound_connection = -1;
