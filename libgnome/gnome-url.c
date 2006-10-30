@@ -157,6 +157,12 @@ gnome_url_show_with_env (const char  *url,
 			     _("The location or file could not be found."));
 		break;
 
+	case GNOME_VFS_ERROR_LOGIN_FAILED:
+		g_set_error (error,
+			     GNOME_URL_ERROR,
+			     GNOME_URL_ERROR_VFS,
+			     _("The login has failed."));
+		break;
 	default:
 		g_set_error (error,
 			     GNOME_URL_ERROR,
