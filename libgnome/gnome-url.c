@@ -167,7 +167,7 @@ gnome_url_show_with_env (const char  *url,
 		g_set_error (error,
 			     GNOME_URL_ERROR,
 			     GNOME_URL_ERROR_VFS,
-			     _("Unknown error code: %u"), result);
+			     gnome_vfs_result_to_string (result));
 	}
 
 	return FALSE;
