@@ -1,4 +1,4 @@
-# translation of mk.po to Macedonian
+# translation of libgnome.HEAD.mk.po to Macedonian
 # translation of libgnome.HEAD.mk.po to
 # translation of libgnome.HEAD.mk.po to
 # This file is distributed under the same license as the PACKAGE package.
@@ -9,19 +9,20 @@
 # Misa Popovic <stomak81@freemail.com.mk>, 2003.
 # Jovan Kostovski <chombium@freemail.com.mk>, 2003.
 # Арангел Ангов <ufo@linux.net.mk>, 2005.
+# Jovan Naumovski <jovan@lugola.net>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: mk\n"
+"Project-Id-Version: libgnome.HEAD.mk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-02 07:49+0200\n"
-"PO-Revision-Date: 2006-08-02 08:41+0200\n"
-"Last-Translator: Arangel Angov <ufo@linux.net.mk>\n"
+"POT-Creation-Date: 2006-10-31 07:26+0100\n"
+"PO-Revision-Date: 2006-10-31 17:10+0100\n"
+"Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural= n==1 || n%10==1 ? 0 : 1\n"
-"X-Generator: KBabel 1.11.2\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -98,7 +99,14 @@ msgstr ""
 "Не можам да покажам помош како %s не е директориум.  Проверете ја "
 "инсталацијата."
 
-#: ../libgnome/gnome-help.c:220 ../libgnome/gnome-help.c:236
+#: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr ""
+"Не можам да ги најдам патеките за помош ни во %s ни во %s.  Проверете ја "
+"инсталацијата"
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -367,7 +375,7 @@ msgstr ""
 "Се појави грешка при парсирање на стандардната команда за дејство проврзана "
 "со оваа локација."
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:174
+#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -396,14 +404,13 @@ msgstr "Хостот \"%s\" не може да биде најден."
 msgid "The host could not be found."
 msgstr "Хостот не може да биде пронајден."
 
-#: ../libgnome/gnome-url.c:156
+#: ../libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
 msgstr "Локацијата на датотеката не може да биде пронајдена."
 
-#: ../libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "Непознат грешка: %u"
+#: ../libgnome/gnome-url.c:164
+msgid "The login has failed."
+msgstr ""
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -872,8 +879,8 @@ msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
 msgstr ""
-"Дали корисникот може динамички да внесе нов забрзувач кога е позициониран над "
-"активен предмет од менито."
+"Дали корисникот може динамички да внесе нов забрзувач кога е позициониран "
+"над активен предмет од менито."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
