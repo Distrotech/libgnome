@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-31 16:46+0200\n"
-"PO-Revision-Date: 2006-07-27 21:22+0200\n"
+"POT-Creation-Date: 2006-11-03 00:11+0100\n"
+"PO-Revision-Date: 2006-11-03 00:12+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -78,15 +78,15 @@ msgstr ""
 msgid "GNOME GConf Support"
 msgstr "Soporte para GConf GNOME"
 
-#: ../libgnome/gnome-help.c:169
+#: ../libgnome/gnome-help.c:170
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "No se encuentra el dominio GNOME_FILE_DOMAIN_APP_HELP"
 
-#: ../libgnome/gnome-help.c:182
+#: ../libgnome/gnome-help.c:183
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "No se encuentra el dominio GNOME_FILE_DOMAIN_HELP."
 
-#: ../libgnome/gnome-help.c:195 ../libgnome/gnome-help.c:210
+#: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
@@ -95,7 +95,12 @@ msgstr ""
 "No se puede mostrar la ayuda ya que %s no es un directorio. Compruebe su "
 "instalación."
 
-#: ../libgnome/gnome-help.c:219 ../libgnome/gnome-help.c:235
+#: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr "No se pueden encontrar las rutas de ayuda %s o %s. Compruebe su instalación"
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -104,12 +109,12 @@ msgstr ""
 "No se pueden encontrar los archivos de ayuda en %s ni en %s. Compruebe su "
 "instalación"
 
-#: ../libgnome/gnome-help.c:352
+#: ../libgnome/gnome-help.c:353
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "No se puede encontrar doc_id %s en la ruta de la ayuda"
 
-#: ../libgnome/gnome-help.c:373
+#: ../libgnome/gnome-help.c:374
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "Documento de ayuda %s/%s no encontrado"
@@ -126,7 +131,8 @@ msgstr "Soporte para activación de Bonobo"
 #: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "No se ha podido crear un directorio de configuración por usuario  «%s»: %s\n"
+msgstr ""
+"No se ha podido crear un directorio de configuración por usuario  «%s»: %s\n"
 
 #: ../libgnome/gnome-init.c:404
 #, c-format
@@ -140,7 +146,8 @@ msgstr ""
 #: ../libgnome/gnome-init.c:411
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "No se ha podido crear el directorio de aceleradores de GNOME «%s»: %s\n"
+msgstr ""
+"No se ha podido crear el directorio de aceleradores de GNOME «%s»: %s\n"
 
 #: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
 msgid "Disable sound server usage"
@@ -365,7 +372,7 @@ msgstr ""
 "Hubo un error al analizar el comando de acción predeterminado asociado con "
 "este lugar."
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:174
+#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -394,14 +401,13 @@ msgstr "No se pudo encontrar el equipo remoto «%s»."
 msgid "The host could not be found."
 msgstr "El equipo remoto no se pudo encontrar."
 
-#: ../libgnome/gnome-url.c:156
+#: ../libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
 msgstr "El lugar o el archivo no se pudo encontrar."
 
-#: ../libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "Código de error desconocido: %u"
+#: ../libgnome/gnome-url.c:164
+msgid "The login has failed."
+msgstr "Ha fallado la el inicio de sesión."
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -438,15 +444,19 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Desactivar si se presionan dos teclas al mismo tiempo."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "No aceptar una tecla como pulsada a no ser que se mantenga durante @delay milisegundos"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr ""
+"No aceptar una tecla como pulsada a no ser que se mantenga durante @delay "
+"milisegundos"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Cuántos milisegundos lleva ir desde 0 hasta la velocidad máxima"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Cuántos milisegundos esperar antes de que las teclas de movimiento del ratón "
 "empiecen a funcionar"
@@ -457,7 +467,8 @@ msgstr "Cuántos píxeles por segundo mover a la velocidad máxima"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "Ignorar pulsaciones múltiples de la _misma_ tecla durante @delay milisegundos"
+msgstr ""
+"Ignorar pulsaciones múltiples de la _misma_ tecla durante @delay milisegundos"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -506,7 +517,8 @@ msgstr "Navegador predeterminado para todas las URL"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run"
-msgstr "Indica si el navegador predeterminado necesita un terminal para ejecutarse"
+msgstr ""
+"Indica si el navegador predeterminado necesita un terminal para ejecutarse"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
@@ -531,7 +543,8 @@ msgstr ""
 "ejecutarse"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Argumento utilizado para ejecutar programas en el terminal definida por la "
 "clave «exec»."
@@ -555,8 +568,8 @@ msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
 msgstr ""
-"Una lista con nombres de las primeras áreas de trabajo del gestor de ventanas. "
-"Esta clave se ha hecho obsoleta desde GNOME 2.12."
+"Una lista con nombres de las primeras áreas de trabajo del gestor de "
+"ventanas. Esta clave se ha hecho obsoleta desde GNOME 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
@@ -591,7 +604,8 @@ msgid "User window manager (deprecated)"
 msgstr "Gestor de ventanas del usuario (obsoleto)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
 "Gestor de ventanas que se probará primero. Esta clave es obsoleta desde "
 "GNOME 2.12."
@@ -766,18 +780,22 @@ msgid "Monospace font"
 msgstr "Tipografía monoespaciada"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:23
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Nombre de una tipografía monoespaciada (ancho fijo) que usar en sitios como "
 "terminales."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr "Nombre del método de entrada del «Estilo de preedición» de GTK+ usado por gtk+."
+msgstr ""
+"Nombre del método de entrada del «Estilo de preedición» de GTK+ usado por gtk"
+"+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "Nombre del «Estilo de estado» del método de entrada GTK+ usado por gtk+."
+msgstr ""
+"Nombre del «Estilo de estado» del método de entrada GTK+ usado por gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:26
 msgid "Name of the default font used by gtk+."
@@ -785,7 +803,8 @@ msgstr "Nombre de la tipografía predeterminada que usará gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:27
 msgid "Name of the default font used for reading documents"
-msgstr "Nombre de la tipografía predeterminada que se usará para leer documentos"
+msgstr ""
+"Nombre de la tipografía predeterminada que se usará para leer documentos"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
 msgid "Show the 'Input Methods' menu"
@@ -885,7 +904,9 @@ msgstr ""
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
-msgstr "Indica si el usuario puede teclear dinámicamente un acelerador nuevo cuando se encuentra situado sobre un elemento de menú activo"
+msgstr ""
+"Indica si el usuario puede teclear dinámicamente un acelerador nuevo cuando "
+"se encuentra situado sobre un elemento de menú activo"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
@@ -893,7 +914,9 @@ msgstr "Indica si se muestra un medidor de la barra de estado en la derecha"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "Indica si se va que usar una tipografía personalizada en las aplicaciones GTK+."
+msgstr ""
+"Indica si se va que usar una tipografía personalizada en las aplicaciones GTK"
+"+."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
@@ -1136,3 +1159,5 @@ msgstr "Indica si el bloqueo del teclado está activado."
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Indica si la pantalla de descanso de tecleo puede o no ser pospuesta."
 
+#~ msgid "Unknown error code: %u"
+#~ msgstr "Código de error desconocido: %u"
