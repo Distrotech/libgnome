@@ -280,8 +280,7 @@ gnome_score_child (int infileno,
 	  g_free (realname);
 	  return EXIT_FAILURE;
 	}
-	if (level)
-	  g_free(level);
+	g_free(level);
    }
    g_free (realname);
    return EXIT_SUCCESS;

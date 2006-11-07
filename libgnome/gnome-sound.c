@@ -283,8 +283,7 @@ gnome_sound_sample_load_wav(const char *file)
     }
   fclose (f);
   g_free (s);
-  if (s->data)
-    g_free (s->data);
+  g_free (s->data);
 
   return NULL;
 }
@@ -301,10 +300,8 @@ use_sound (void)
   if (gnome_sound_connection == -1){
       gnome_sound_connection = esd_open_sound (esound_hostname);
       if (gnome_sound_connection == -1){
-        if (esound_hostname) {
-	  g_free (esound_hostname);
-	  esound_hostname = NULL;
-        }
+	g_free (esound_hostname);
+	esound_hostname = NULL;
 	return FALSE;
       }
     }
@@ -519,10 +516,8 @@ gnome_sound_init(const char *hostname)
 {
 #ifdef HAVE_ESD
 	srand(time(NULL));
-	if (esound_hostname) {
-		g_free (esound_hostname);
-		esound_hostname = NULL;
-	}
+	g_free (esound_hostname);
+	esound_hostname = NULL;
 	if (hostname)
 		esound_hostname = g_strdup (hostname);
 #endif
@@ -537,10 +532,9 @@ void
 gnome_sound_shutdown(void)
 {
 #ifdef HAVE_ESD
-	if (esound_hostname) {
-		g_free (esound_hostname);
-		esound_hostname = NULL;
-	}
+	g_free (esound_hostname);
+	esound_hostname = NULL;
+
 	if(gnome_sound_connection >= 0){
 		esd_close(gnome_sound_connection);
 		gnome_sound_connection = -1;

@@ -503,8 +503,7 @@ gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 static void
 gnome_trigger_free(GnomeTrigger* t)
 {
-  if(t->level)
-    g_free(t->level);
+  g_free(t->level);
   switch(t->type) {
   case GTRIG_COMMAND:
     g_free(t->u.command); break;

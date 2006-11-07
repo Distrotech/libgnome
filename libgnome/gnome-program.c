@@ -1308,12 +1308,10 @@ gnome_program_preinit (GnomeProgram *program,
     g_set_prgname (argv[0]);
 
     /* 0. Misc setup */
-    if (program->_priv->app_id)
-	g_free (program->_priv->app_id);
+    g_free (program->_priv->app_id);
     program->_priv->app_id = g_strdup (app_id);
     g_set_prgname (app_id);
-    if (program->_priv->app_version)
-	g_free (program->_priv->app_version);
+    g_free (program->_priv->app_version);
     program->_priv->app_version = g_strdup (app_version);
     program->_priv->argc = argc;
 

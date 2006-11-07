@@ -548,31 +548,28 @@ access_config_extended (access_type mode, const char *section_name,
  			       strcmp (cache_filename, rel_file) == 0 &&
  			       now - cache_time <= 2);
  		if (!cache_valid) {
- 			if (cache_filename)
-				g_free (cache_filename);
+			g_free (cache_filename);
 
  			cache_filename = g_strdup (rel_file);
  			cache_time = now;
 
- 			if (cache_overrride_filename)
-				g_free (cache_overrride_filename);
+			g_free (cache_overrride_filename);
 
  			tmp = config_concat_dir_and_key ("gnome/config-override",rel_file);
  			filename = gnome_program_locate_file
 			    (gnome_program_get (), GNOME_FILE_DOMAIN_CONFIG,
 			     tmp, TRUE, NULL);
  			g_free (tmp);
- 			cache_overrride_filename = filename ? g_strdup (filename) : NULL;
+ 			cache_overrride_filename = g_strdup (filename);
 
- 			if (cache_global_filename)
-				g_free (cache_global_filename);
+			g_free (cache_global_filename);
 
 			tmp = config_concat_dir_and_key ("gnome/config", rel_file);
  			filename = gnome_program_locate_file
 			    (gnome_program_get (), GNOME_FILE_DOMAIN_CONFIG,
 			     tmp, TRUE, NULL);
  			g_free (tmp);
-			cache_global_filename = filename ? g_strdup (filename) : NULL;
+			cache_global_filename = g_strdup (filename);
  		}
 
 		if (cache_overrride_filename) {
