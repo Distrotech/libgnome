@@ -191,6 +191,15 @@ AC_SUBST(GNOME_VFS_VERSION)
 AC_CHECK_LIB(popt, poptStrippedArgv,, AC_MSG_ERROR([popt 1.5 or newer is required to build
 libgnome. You can download the latest version from ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/]))
 
+LIBGNOME_MINOR_VERSION=libgnome_minor_version
+if test $(( $(echo $LIBGNOME_MINOR_VERSION) %2)) == "1"; then
+	A11Y_ENABLED=true
+else
+	A11Y_ENABLED=false
+fi
+
+AC_SUBST(A11Y_ENABLED)
+
 AC_CONFIG_FILES([
 Makefile
 libgnome-zip
@@ -198,6 +207,7 @@ po/Makefile.in
 libgnome/Makefile
 monikers/Makefile
 schemas/Makefile
+schemas/desktop_gnome_interface.schemas.in
 gnome-data/Makefile
 libgnome/libgnome-2.0.pc
 libgnome/libgnome-2.0-uninstalled.pc

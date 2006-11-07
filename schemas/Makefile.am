@@ -23,7 +23,7 @@ schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 @INTLTOOL_SCHEMAS_RULE@
 
 # get rid of schemas during clean
-CLEANFILES = $(schema_DATA)
+CLEANFILES = $(schema_DATA) desktop_gnome_interface.schemas.in
 
 if GCONF_SCHEMAS_INSTALL
 # don't do this if we are building in eg. rpm
@@ -53,4 +53,4 @@ else
 install-data-local:
 endif
 
-EXTRA_DIST = $(schema_in_files) $(schema_DATA)
+EXTRA_DIST = $(schema_in_files) $(schema_DATA) desktop_gnome_interface.schemas.in
