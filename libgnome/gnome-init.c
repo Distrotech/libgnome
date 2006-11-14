@@ -252,7 +252,7 @@ libgnome_option_cb (poptContext ctx, enum poptCallbackReason reason,
 			break;
 
 		case ARG_VERSION:
-			g_print ("Gnome %s %s\n",
+			g_print ("GNOME %s %s\n",
 				 gnome_program_get_app_id (program),
 				 gnome_program_get_app_version (program));
 			exit(0);
@@ -307,7 +307,7 @@ libgnome_goption_version (void)
 
 	program = gnome_program_get ();
 
-	g_print ("Gnome %s %s\n",
+	g_print ("GNOME %s %s\n",
 		 gnome_program_get_app_id (program),
 		 gnome_program_get_app_version (program));
 
