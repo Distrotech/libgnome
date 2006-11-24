@@ -9,11 +9,12 @@
 # Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
 # Arafat Medini <lumina@silverpen.de>, 2003, 2004.
 # Khaled Hosny <khaledhosny@eglug.org>, 2006.
+# Djihed Afifi <djihed@gmail.com>, 2006.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-11 12:42+0000\n"
+"POT-Creation-Date: 2006-11-24 13:03+0000\n"
 "PO-Revision-Date: 2006-11-10 06:29+0200\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <support@eglug.org>\n"
@@ -341,11 +342,13 @@ msgstr "الوحدة1، الوحدة2،..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
 #: ../libgnome/gnome-program.c:1507
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"٪ ق / ق نرون '٪ --' المساعدة رؤية قائمة كاملة من الخيارات المتاحة خط "
+"القيادة. / ن"
 
 #: ../libgnome/gnome-url.c:86
 msgid "Unknown internal error while displaying this location."
@@ -391,8 +394,9 @@ msgid "The host could not be found."
 msgstr "لم يمكن إيجاد “%s”"
 
 #: ../libgnome/gnome-url.c:157
+#, fuzzy
 msgid "The location or file could not be found."
-msgstr ""
+msgstr "موقع الملف او قد لا يعثر عليهم."
 
 #: ../libgnome/gnome-url.c:164
 #, fuzzy, c-format
@@ -582,9 +586,10 @@ msgid "User window manager (deprecated)"
 msgstr "خلل في مدير النوافذ: "
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
+#, fuzzy
 msgid ""
 "Window manager to try first. This key has been deprecated since GNOME 2.12."
-msgstr ""
+msgstr "نافذة مدير محاولة أولا.هذا المفتاح قد انتقدت منذ تمثال 2.12."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -776,12 +781,14 @@ msgid "Name of the default font used for reading documents"
 msgstr "اسم الخط الإفتراضي المستعمل من طرف gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
+#, fuzzy
 msgid "Show the 'Input Methods' menu"
-msgstr ""
+msgstr "عرض ‘’ مساهمه الطرق القائمة"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#, fuzzy
 msgid "Show the 'Unicode Control Character' menu"
-msgstr ""
+msgstr "عرض ‘يونيكود سيطره الطابع' القائمة"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
@@ -837,16 +844,21 @@ msgid "Whether menus should have a tearoff"
 msgstr "فيما إذا وجب أن يكون للقوائم شارات"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#, fuzzy
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
 msgstr ""
+"سواء في اطار من القيود والقوائم الآراء عرض النص على تغيير طريقة المساهمة"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#, fuzzy
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
 msgstr ""
+"سواء في اطار من القيود والقوائم النص الى عرض وجهات النظر يجب ان تدرج مراقبة "
+"الاشخاص"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
@@ -939,10 +951,11 @@ msgid "Remember NumLock state"
 msgstr "حالة توثّق مجهولة."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
+#, fuzzy
 msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
-msgstr ""
+msgstr "حينما الحقيقي ، تمثال تتذكر الدولة للنوملوك أدى بين الدورات."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -967,10 +980,13 @@ msgid "Cursor theme"
 msgstr "تيمة المؤشر"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
 msgstr ""
+"اسم مؤشره الموضوع.الا ان الدعم الذي كسشرفيرس كسكورسور مثل xfree86 و 4.3 "
+"لاحقا."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -1033,8 +1049,9 @@ msgid "Single click to open icons"
 msgstr "نقرة واحدة لفتح الأيقونات"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
+#, fuzzy
 msgid "Size of the cursor referenced by cursor_theme."
-msgstr ""
+msgstr "حجم المءشره اليها من cursor_theme."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
