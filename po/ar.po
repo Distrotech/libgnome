@@ -1,4 +1,4 @@
-# translation of libgnome.HEAD.po to Arabic
+# translation of libgnome.gnome-2-16.ar.po to Arabic
 # translation of libgnome.HEAD.ar.po to
 # translation of libgnome.HEAD.ar.po to
 # translation of libgnome.po to
@@ -12,18 +12,17 @@
 # Djihed Afifi <djihed@gmail.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome.HEAD\n"
+"Project-Id-Version: libgnome.gnome-2-16.ar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-11-24 13:03+0000\n"
-"PO-Revision-Date: 2006-11-10 06:29+0200\n"
+"PO-Revision-Date: 2006-11-30 17:43+0200\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
-"Language-Team: Arabic <support@eglug.org>\n"
+"Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : "
-"3\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : 3\n"
 "\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
@@ -102,8 +101,7 @@ msgstr "لا يمكن عرض المساعدة لأن %s ليس دليلا. ال�
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr ""
-"لا يمكن العثور على ملفات المساعدة في %s أو %s. الرجاء التأكد من تثبيتك."
+msgstr "لا يمكن العثور على ملفات المساعدة في %s أو %s. الرجاء التأكد من تثبيتك."
 
 #: ../libgnome/gnome-help.c:353
 #, c-format
@@ -166,9 +164,8 @@ msgid "GNOME Library"
 msgstr "مكتبة جنوم"
 
 #: ../libgnome/gnome-init.c:525
-#, fuzzy
 msgid "Show GNOME options"
-msgstr "عرض خيارات عامّة"
+msgstr "اعرض خيارات جنوم"
 
 #: ../libgnome/gnome-program.c:458
 msgid "Popt Table"
@@ -195,14 +192,12 @@ msgid "The popt context pointer that GnomeProgram is using"
 msgstr "مؤشر سياق Popt الذي يستعمله GnomeProgram"
 
 #: ../libgnome/gnome-program.c:484
-#, fuzzy
 msgid "GOption Context"
-msgstr "سياق مراسِل فوري"
+msgstr "سياق GOption "
 
 #: ../libgnome/gnome-program.c:485
-#, fuzzy
 msgid "The goption context pointer that GnomeProgram is using"
-msgstr "مؤشر سياق Popt الذي يستعمله GnomeProgram"
+msgstr "سياق مؤشّر goption الذي يستخدمه GnomeProgram"
 
 #: ../libgnome/gnome-program.c:493
 msgid "Human readable name"
@@ -342,13 +337,13 @@ msgstr "الوحدة1، الوحدة2،..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
 #: ../libgnome/gnome-program.c:1507
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"٪ ق / ق نرون '٪ --' المساعدة رؤية قائمة كاملة من الخيارات المتاحة خط "
-"القيادة. / ن"
+"%s\n"
+"شغّل '%s --help' لترى قائمة كاملة بخيارات سطر الأوامر المتاحة.\n"
 
 #: ../libgnome/gnome-url.c:86
 msgid "Unknown internal error while displaying this location."
@@ -379,29 +374,26 @@ msgid "The default action does not support this protocol."
 msgstr "العملية الافتراضية لا تدعم هذا البروتوكول."
 
 #: ../libgnome/gnome-url.c:130
-#, fuzzy
 msgid "The request was cancelled."
-msgstr "تم إلغاء العملية من طرف المستخدم."
+msgstr "تم إلغاء الطلب."
 
 #: ../libgnome/gnome-url.c:140
-#, fuzzy, c-format
+#, c-format
 msgid "The host \"%s\" could not be found."
-msgstr "لم يمكن إيجاد “%s”"
+msgstr "لم يمكن إيجاد المضيف “%s”."
 
 #: ../libgnome/gnome-url.c:146
-#, fuzzy
 msgid "The host could not be found."
-msgstr "لم يمكن إيجاد “%s”"
+msgstr "لم يمكن إيجاد المضيف."
 
 #: ../libgnome/gnome-url.c:157
-#, fuzzy
 msgid "The location or file could not be found."
-msgstr "موقع الملف او قد لا يعثر عليهم."
+msgstr "لا يمكن إيجاد الموقع أو الملف."
 
 #: ../libgnome/gnome-url.c:164
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error code: %u"
-msgstr "حدث خطأ مجهول."
+msgstr "رمز خطأ مجهول: %u"
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -438,8 +430,7 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "إلغاء عند نقر زران في آن واحد."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr "لا تقبل زرا كمكبوس إلا عند ضغطه لـ @delay مليثانية"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
@@ -447,8 +438,7 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "كم يستغرق التسريع من 0 حتى السرعة القصوى بالمليثانية"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr "كم مليثانية يجب الإنتظار حتى تبدأ أزرار حركات الفأرة العمل"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
@@ -527,10 +517,8 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "ما إذا كان عارض المساعدة الإفتراضي يحتاج شاشة طرفية للعمل"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr ""
-"العامل المستعمل لتشغيل البرامج ·المعرفة·بمفتاح 'exec' في الشاشة الطرفية."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr "العامل المستعمل لتشغيل البرامج ·المعرفة·بمفتاح 'exec' في الشاشة الطرفية."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -545,51 +533,42 @@ msgid "Terminal program to use when starting applications that require one"
 msgstr "برنامج الشاشة الطرفية للاستعمال عند تشغيل تطبيقات تحتاجه"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
-#, fuzzy
 msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
-msgstr "قائمة باسماء مساحات عمل مدير النوافذ الأول."
+msgstr "قائمة باسماء مساحات عمل مدير النوافذ الأول. ألغي هذا المفتاح منذ GNOME 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
-#, fuzzy
 msgid "Fallback window manager (deprecated)"
-msgstr "خلل في مدير النوافذ: "
+msgstr "مدير النوافذ الإحتياطي (ملغي)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
-#, fuzzy
 msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
-msgstr "مدير النوافذ البديل إذا لم يوجد مدير نوافذ المستعمل"
+msgstr "مدير النوافذ البديل إذا لم يوجد مدير نوافذ المستخدم. ألغي هذا المفتاح منذ GNOME 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
-#, fuzzy
 msgid "Names of the workspaces (deprecated)"
-msgstr "استدعاء التابع ملغى"
+msgstr "أسماء مساحات العمل (ملغي)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
-#, fuzzy
 msgid "The number of workspaces (deprecated)"
-msgstr "خطأ تعيين عدد مساحات العمل لـ %d: %s\n"
+msgstr "عدد مساحات العمل (ملغي)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
-#, fuzzy
 msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
-msgstr "عدد مساحات العمل الذي من المفروض أن يستخدمها مدير النوافذ"
+msgstr "عدد مساحات العمل الذي من المفروض أن يستخدمها مدير النوافذ. ألغي هذا المفتاح منذ GNOME 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
-#, fuzzy
 msgid "User window manager (deprecated)"
-msgstr "خلل في مدير النوافذ: "
+msgstr "مدير نوافذ المستخدم (ملغي)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-#, fuzzy
-msgid ""
-"Window manager to try first. This key has been deprecated since GNOME 2.12."
-msgstr "نافذة مدير محاولة أولا.هذا المفتاح قد انتقدت منذ تمثال 2.12."
+msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr "مدير النوافذ الذي سيجرب أولا. ألغي هذا المفتاح منذ GNOME 2.12."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -657,15 +636,15 @@ msgstr "اللون الثانوي"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:1
 msgid "File Icon Theme"
-msgstr "تيمة ملف الأيقونة"
+msgstr "سِمة ملف الأيقونة"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons"
-msgstr "التيمة المستخدمة لعرض ملفات الأيقونات"
+msgstr "السِمة المستخدمة لعرض ملفات الأيقونات"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr "الإسم الأساسي لالتيمة الإفتراضية المستعملة من طرف gtk+."
+msgstr "الإسم الأساسي لالسِمة الإفتراضية المستعملة من طرف gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:2
 msgid "Can Change Accels"
@@ -684,17 +663,16 @@ msgid "Default font"
 msgstr "الخط الإفتراضي"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:6
-#, fuzzy
 msgid "Document font"
-msgstr "<b>خط داشر:</b>"
+msgstr "خط الوثائق"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:7
 msgid "Enable Accessibility"
-msgstr "تمكين الإعانة"
+msgstr "مكّن الإعانة"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:8
 msgid "Enable Animations"
-msgstr "تمكين الرسوم المتحركة"
+msgstr "مكّن الرسوم المتحركة"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:9
 msgid "GTK IM Preedit Style"
@@ -706,20 +684,19 @@ msgstr "أسلوب حالة طرق ادخال GTK"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:11
 msgid "Gtk+ Theme"
-msgstr "تيمة Gtk+"
+msgstr "سِمة Gtk+"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:12
 msgid "Icon Theme"
-msgstr "تيمة الأيقونة"
+msgstr "سِمة الأيقونة"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
-msgstr "تيمة الأيقونة للاستعمال لالشريط، ناوتيلس الخ."
+msgstr "سِمة الأيقونة للاستعمال لالشريط، ناوتيلس الخ."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:14
-#, fuzzy
 msgid "Keyboard shortcut to open the menu bars."
-msgstr "مختصر لوحة المفاتيح لغلق لفتح لسان جديد"
+msgstr "مختصر لوحة المفاتيح لفتح شريط القوائم."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
@@ -727,12 +704,11 @@ msgstr "مدة دورة وميض المؤشر، بالمليثانية"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:16
 msgid "Menubar Detachable"
-msgstr "عمود القوائم قابل للقلع"
+msgstr "شريط القوائم قابل للقلع"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:17
-#, fuzzy
 msgid "Menubar accelerator"
-msgstr "مسرّع جديد..."
+msgstr "مسرّع شريط القوائم"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:18
 msgid "Menus Have Icons"
@@ -759,8 +735,7 @@ msgid "Monospace font"
 msgstr "خط ذي عرض ثابت"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:23
-msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "اسم الخط ذي العرض الثابت للاستخدام في مواقع مثل الشاشات الطرفية."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:24
@@ -776,23 +751,20 @@ msgid "Name of the default font used by gtk+."
 msgstr "اسم الخط الإفتراضي المستعمل من طرف gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:27
-#, fuzzy
 msgid "Name of the default font used for reading documents"
-msgstr "اسم الخط الإفتراضي المستعمل من طرف gtk+."
+msgstr "اسم الخط الإفتراضي المستعمل لقرائة المستندات"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:28
-#, fuzzy
 msgid "Show the 'Input Methods' menu"
-msgstr "عرض ‘’ مساهمه الطرق القائمة"
+msgstr "اعرض قائمة 'طرق الإدخال'"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:29
-#, fuzzy
 msgid "Show the 'Unicode Control Character' menu"
-msgstr "عرض ‘يونيكود سيطره الطابع' القائمة"
+msgstr "اعرض قائمة 'محارف تحكّم يونيكود'"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:30
 msgid "Status Bar on Right"
-msgstr "عمود الحالة على اليمين"
+msgstr "شريط الحالة على اليمين"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
@@ -800,24 +772,21 @@ msgstr "هذا يحدد حجم الأيقونات المعروضة في أعمد
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:32
 msgid "Toolbar Detachable"
-msgstr "عمود الأدوات قابل للفصل"
+msgstr "شريط الأدوات قابل للفصل"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:33
 msgid "Toolbar Icon Size"
-msgstr "حجم أيقونة عمود الأدوات"
+msgstr "حجم أيقونة شريط الأدوات"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:34
 msgid "Toolbar Style"
-msgstr "أسلوب عمود الأدوات"
+msgstr "أسلوب شريط الأدوات"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:35
-#, fuzzy
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
-msgstr ""
-"أسلوب عمود الأدوات. القيم الممكنة: \"كلاهما\"و \"كلاهما أفقيا\"و \"الأيقونة"
-"\"و \"النص\""
+msgstr "أسلوب شريط الأدوات. القيم الممكنة هي \"both\"، \"both-horiz\"، \"icons\"، و \"text\""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:36
 msgid "Use Custom Font"
@@ -844,21 +813,16 @@ msgid "Whether menus should have a tearoff"
 msgstr "فيما إذا وجب أن يكون للقوائم شارات"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:41
-#, fuzzy
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
-"سواء في اطار من القيود والقوائم الآراء عرض النص على تغيير طريقة المساهمة"
+msgstr "إذا ماكانت قوائم سياق المدخلات وعرض النص ستعرض تغيير طريقة الإدخال"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:42
-#, fuzzy
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
-msgstr ""
-"سواء في اطار من القيود والقوائم النص الى عرض وجهات النظر يجب ان تدرج مراقبة "
-"الاشخاص"
+msgstr "إذا ماكانت قوائم سياق المدخلات وعرض النص ستعرض إدراج محرَف تحكّم"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:43
 msgid "Whether the cursor should blink"
@@ -873,16 +837,14 @@ msgid "Whether the user can detach toolbars and move them around"
 msgstr "فيما إذا يمكن للمستخدم قلع أعمدة الأدوات و نقلها"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:46
-#, fuzzy
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
-msgstr ""
-"ما اذا كان يمكن للمستخدم كتابة مفتاح اختصار جديد ديناميكيا عند ابراز قائمة"
+msgstr "إذا كان يمكن للمستخدم كتابة مسرّع جديد ديناميكيا أثناء الوضع فوق عنصر قائمة"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
-msgstr "ما اذا سيعرض عمود حالة متري على اليمين"
+msgstr "ما اذا سيعرض شريط حالة متري على اليمين"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
@@ -946,16 +908,14 @@ msgid "Keyboard Bell Custom Filename"
 msgstr "اسم ملف رنة لوحة المفاتيح المخصّص"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
-#, fuzzy
 msgid "Remember NumLock state"
-msgstr "حالة توثّق مجهولة."
+msgstr "تذكّر حالة NumLock"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
-#, fuzzy
 msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
-msgstr "حينما الحقيقي ، تمثال تتذكر الدولة للنوملوك أدى بين الدورات."
+msgstr "عند ضبطه لـ true، ستتذكّر جنوم حالة NumLock LED بين الجلسات."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -977,16 +937,13 @@ msgstr "حجم المؤشر"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
 msgid "Cursor theme"
-msgstr "تيمة المؤشر"
+msgstr "سِمة المؤشر"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-#, fuzzy
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
-msgstr ""
-"اسم مؤشره الموضوع.الا ان الدعم الذي كسشرفيرس كسكورسور مثل xfree86 و 4.3 "
-"لاحقا."
+msgstr "اسم سِمة المؤشّر. تستخدمها فقط خوادم X التي تدعم Xcursor، مثل XFree86 4.3 أو ما بعده."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -1049,9 +1006,8 @@ msgid "Single click to open icons"
 msgstr "نقرة واحدة لفتح الأيقونات"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
-#, fuzzy
 msgid "Size of the cursor referenced by cursor_theme."
-msgstr "حجم المءشره اليها من cursor_theme."
+msgstr "حجم المؤشر المشار إليه في cursor_theme."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice"
@@ -1116,3 +1072,4 @@ msgstr "فيما اذا يجب قفل لوحة المحارف أم لا."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "ما إذا يمكن تأجيل شاشة إستراحة الكتابة."
+
