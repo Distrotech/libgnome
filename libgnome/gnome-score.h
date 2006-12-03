@@ -23,10 +23,10 @@
   @NOTATION@
  */
 
-#ifndef GNOME_DISABLE_DEPRECATED
-
 #ifndef __GNOME_SCORE_H__
 #define __GNOME_SCORE_H__ 1
+
+#ifndef GNOME_DISABLE_DEPRECATED
 
 #include <time.h>
 #include <glib.h>

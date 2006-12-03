@@ -23,7 +23,6 @@
   @NOTATION@
  */
 
-#ifndef GNOME_DISABLE_DEPRECATED
 
 /*
  * Handles all of the internationalization configuration options.
@@ -31,7 +30,9 @@
  */
 
 #ifndef __GNOME_I18N_H__
-#define __GNOME_I18N_H__ 1
+#define __GNOME_I18N_H__
+
+#ifndef GNOME_DISABLE_DEPRECATED
 
 #include <glib.h>
 #ifdef GNOME_EXPLICIT_TRANSLATION_DOMAIN

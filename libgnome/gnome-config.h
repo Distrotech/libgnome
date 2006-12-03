@@ -23,10 +23,10 @@
   @NOTATION@
  */
 
-#ifndef GNOME_DISABLE_DEPRECATED
-
 #ifndef GNOME_CONFIG_H
 #define GNOME_CONFIG_H
+
+#ifndef GNOME_DISABLE_DEPRECATED
 
 #include <glib.h>
 
