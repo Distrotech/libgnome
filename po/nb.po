@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.13.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-24 00:09+0200\n"
-"PO-Revision-Date: 2006-05-24 00:09+0200\n"
+"POT-Creation-Date: 2006-12-05 00:33+0100\n"
+"PO-Revision-Date: 2006-12-05 00:34+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -71,15 +71,15 @@ msgstr ""
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf støtte"
 
-#: ../libgnome/gnome-help.c:169
+#: ../libgnome/gnome-help.c:170
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Kan ikke finne GNOME_FILE_DOMAIN_APP_HELP domene"
 
-#: ../libgnome/gnome-help.c:182
+#: ../libgnome/gnome-help.c:183
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Kan ikke finne GNOME_FILE_DOMAIN_HELP domene."
 
-#: ../libgnome/gnome-help.c:195 ../libgnome/gnome-help.c:210
+#: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
@@ -88,7 +88,12 @@ msgstr ""
 "Kan ikke vise hjelp ettersom %s ikke er en katalog. Vennligst sjekk din "
 "installasjon."
 
-#: ../libgnome/gnome-help.c:219 ../libgnome/gnome-help.c:235
+#: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr "Kan ikke finne hjelpstier %s eller %s. Vennligst sjekk din installasjon"
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -96,12 +101,12 @@ msgid ""
 msgstr ""
 "Kan ikke finne hjelpfiler i %s eller %s. Vennligst sjekk din installasjon"
 
-#: ../libgnome/gnome-help.c:352
+#: ../libgnome/gnome-help.c:353
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "Kan ikke finne doc_id %s i hjelpstien"
 
-#: ../libgnome/gnome-help.c:373
+#: ../libgnome/gnome-help.c:374
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "Hjelpdokument %s/%s ble ikke funnet"
@@ -314,24 +319,24 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Hvordan koble til esd"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1394
 msgid "Help options"
 msgstr "Hjelp-alternativ"
 
-#: ../libgnome/gnome-program.c:1401
+#: ../libgnome/gnome-program.c:1399
 msgid "Application options"
 msgstr "Applikasjonsalternativer"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1415
 msgid "Dynamic modules to load"
 msgstr "Dynamiske moduler som skal lastes"
 
-#: ../libgnome/gnome-program.c:1418
+#: ../libgnome/gnome-program.c:1416
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1507
+#: ../libgnome/gnome-program.c:1505
 #, c-format
 msgid ""
 "%s\n"
@@ -357,7 +362,7 @@ msgstr ""
 "Det oppsto en feil under lesing av forvalgt handlingskommando assosiert med "
 "denne lokasjonen."
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:174
+#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -386,14 +391,13 @@ msgstr "Verten «%s» ble ikke funnet."
 msgid "The host could not be found."
 msgstr "Verten ble ikke funnet."
 
-#: ../libgnome/gnome-url.c:156
+#: ../libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
 msgstr "Lokasjonen eller filen ble ikke funnet."
 
-#: ../libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "Ukjent feilkode: %u"
+#: ../libgnome/gnome-url.c:164
+msgid "The login has failed."
+msgstr "Pålogging feilet."
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -870,7 +874,9 @@ msgstr "Om bruker kan ta løs verktøylinjer og flytte dem rundt"
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
-msgstr "Om bruker kan oppgi en snarveitast dynamisk når markøren er plassert over en aktiv menyoppføring"
+msgstr ""
+"Om bruker kan oppgi en snarveitast dynamisk når markøren er plassert over en "
+"aktiv menyoppføring"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.h:47
 msgid "Whether to display a status bar meter on the right"
