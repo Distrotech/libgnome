@@ -5,7 +5,8 @@ INCLUDES = \
 	-DVERSION=\"$(VERSION)\"
 
 GNOME_Moniker_std.server.in: GNOME_Moniker_std.server.in.in
-	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir_in_server_file)|" $< > $@
+	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir_in_server_file)|" \
+		-e "s|\@SOPREFIX\@|$(SOPREFIX)|" $< > $@
 
 CLEANFILES = GNOME_Moniker_std.server GNOME_Moniker_std.server.in
 
@@ -32,6 +33,8 @@ libmoniker_extra_2_la_SOURCES =			\
 	bonobo-moniker-extra.h            	\
 	bonobo-moniker-extra.c
 
-libmoniker_extra_2_la_LDFLAGS = -module -avoid-version -no-undefined $(LIBGNOME_LIBS)
+libmoniker_extra_2_la_LDFLAGS = -module -avoid-version -no-undefined
+
+libmoniker_extra_2_la_LIBADD = $(LIBGNOME_LIBS)
 
 EXTRA_DIST = GNOME_Moniker_std.server.in.in
