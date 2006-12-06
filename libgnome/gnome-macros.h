@@ -28,6 +28,8 @@
 #ifndef GNOME_MACROS_H
 #define GNOME_MACROS_H
 
+#ifndef GNOME_DISABLE_DEPRECATED
+
 #include <bonobo/bonobo-macros.h>
 
 /* Macros for defining classes.  Ideas taken from Nautilus and GOB. */
@@ -56,5 +58,7 @@
 				       name, args, def_return)		\
 	BONOBO_CALL_PARENT_WITH_DEFAULT (				\
 		parent_class_cast, name, args, def_return)
+
+#endif /* !GNOME_DISABLE_DEPRECATED */
 
 #endif /* GNOME_MACROS_H */
