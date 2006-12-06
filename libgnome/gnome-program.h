@@ -166,7 +166,7 @@ struct _GnomeModuleInfo {
     GnomeModuleHook pre_args_parse, post_args_parse;
 
 #ifdef GNOME_DISABLE_DEPRECATED
-    struct poptOption *_options;
+    void *_options;
 #else
     struct poptOption *options;
 #endif
@@ -226,8 +226,6 @@ gnome_program_postinit (GnomeProgram *program);
 	GNOME_PARAM_APP_DATADIR, DATADIR,	\
 	GNOME_PARAM_APP_LIBDIR, LIBDIR
 
-/* These are convenience functions that calls gnomelib_preinit(...), have
-   popt parse all args, and then call gnomelib_postinit() */
 GnomeProgram *
 gnome_program_init (const char *app_id, const char *app_version,
 		    const GnomeModuleInfo *module_info,
