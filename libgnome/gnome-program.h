@@ -37,7 +37,9 @@
 
 #include <glib-object.h>
 
+#ifndef GNOME_DISABLE_DEPRECATED
 #include <popt.h>
+#endif
 
 G_BEGIN_DECLS
 
@@ -195,6 +197,8 @@ gnome_program_install_property (GnomeProgramClass *pclass,
 				GObjectSetPropertyFunc set_fn,
 				GParamSpec *pspec);
 
+#ifndef GNOME_DISABLE_DEPRECATED
+
 /*
  * If the application writer wishes to use getopt()-style arg
  * processing, they can do it using a while looped sandwiched between
@@ -211,6 +215,8 @@ gnome_program_parse_args (GnomeProgram *program);
 
 void
 gnome_program_postinit (GnomeProgram *program);
+
+#endif /* GNOME_DISABLE_DEPRECATED */
 
 /* If you have your auto* define PREFIX, SYSCONFDIR, DATADIR and LIBDIR,
  * Use this macro in your init code. */

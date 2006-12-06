@@ -138,11 +138,6 @@ running in setuid or setgid mode will also load modules specified in the
 <parameter class="option">--load-modules</parameter> and also in the <parameter
 class="option">GNOME_MODULES</parameter> environment variable.
 </para>
-<para>
-After setting up the module loading, this function then calls (in order)
-gnome_program_preinit(), gnome_program_parse_args() and
-gnome_program_postinit().
-</para>
 <para>The following example shows how one might initialise a typical program
 using a goption table that is defined elsewhere.
 </para>
@@ -353,6 +348,7 @@ int main(int argc, char **argv) {
 @argc: 
 @argv: 
 @Returns: 
+@Deprecated: 2.18: Use gnome_program_init() instead.
 
 
 <!-- ##### FUNCTION gnome_program_parse_args ##### -->
@@ -361,6 +357,7 @@ int main(int argc, char **argv) {
 </para>
 
 @program: 
+@Deprecated: 2.18: Use gnome_program_init() instead.
 
 
 <!-- ##### FUNCTION gnome_program_postinit ##### -->
@@ -369,6 +366,7 @@ int main(int argc, char **argv) {
 </para>
 
 @program: 
+@Deprecated: 2.18: Use gnome_program_init() instead.
 
 
 <!-- ##### MACRO GNOME_PARAM_POPT_TABLE ##### -->
