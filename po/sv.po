@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-15 17:13+0200\n"
-"PO-Revision-Date: 2006-08-15 20:45+0100\n"
+"POT-Creation-Date: 2006-12-11 19:08+0100\n"
+"PO-Revision-Date: 2006-12-12 00:02+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -89,6 +89,10 @@ msgid "Unable to show help as %s is not a directory.  Please check your installa
 msgstr "Kan inte visa hjälp eftersom %s inte är en katalog. Kontrollera din installation."
 
 #: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr "Kunde inte hitta hjälpfilerna i vare sig %s eller %s. Kontrollera din installation"
+
 #: ../libgnome/gnome-help.c:236
 #, c-format
 msgid "Unable to find the help files in either %s or %s.  Please check your installation"
@@ -315,24 +319,24 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Hur anslutning till esd ska ske"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1394
 msgid "Help options"
 msgstr "Hjälpflaggor"
 
-#: ../libgnome/gnome-program.c:1401
+#: ../libgnome/gnome-program.c:1399
 msgid "Application options"
 msgstr "Programflaggor"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1415
 msgid "Dynamic modules to load"
 msgstr "Dynamiska moduler att läsa in"
 
-#: ../libgnome/gnome-program.c:1418
+#: ../libgnome/gnome-program.c:1416
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1507
+#: ../libgnome/gnome-program.c:1505
 #, c-format
 msgid ""
 "%s\n"
@@ -354,7 +358,7 @@ msgid "There was an error parsing the default action command associated with thi
 msgstr "Ett fel uppstod vid tolkning av standardåtgärdskommandot som är associerat med denna plats."
 
 #: ../libgnome/gnome-url.c:108
-#: ../libgnome/gnome-url.c:174
+#: ../libgnome/gnome-url.c:181
 msgid "There was an error launching the default action command associated with this location."
 msgstr "Ett fel uppstod vid start av standardåtgärdskommandot som är associerat med denna plats."
 
@@ -379,14 +383,13 @@ msgstr "Värden \"%s\" kunde inte hittas."
 msgid "The host could not be found."
 msgstr "Värden kunde inte hittas."
 
-#: ../libgnome/gnome-url.c:156
+#: ../libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
 msgstr "Platsen eller filen kunde inte hittas."
 
-#: ../libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "Okänd felkod: %u"
+#: ../libgnome/gnome-url.c:164
+msgid "The login has failed."
+msgstr "Inloggningen har misslyckats."
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -619,195 +622,195 @@ msgstr "Filikontema"
 msgid "Theme used for displaying file icons"
 msgstr "Tema som används för visning av filikoner"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:1
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
 msgstr "Basnamn för standardtemat som används av gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:2
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
 msgstr "Kan ändra snabbtangenter"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
 msgstr "Markörblinkning"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
 msgstr "Blinktid för markör"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
 msgstr "Standardtypsnitt"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Document font"
 msgstr "Dokumenttypsnitt"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
 msgstr "Aktivera tillgänglighet"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
 msgstr "Aktivera animationer"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "GTK IM Preedit Style"
 msgstr "GTK IM-förredigeringsstil"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Status Style"
 msgstr "GTK IM-statusstil"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "Gtk+ Theme"
 msgstr "Gtk+-tema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Icon Theme"
 msgstr "Ikontema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Ikontema att använda för panelen, nautilus, osv."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Tangentbordsgenväg för att öppna menyraderna."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Längd på markörblinkcykeln, i millisekunder"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Menubar Detachable"
 msgstr "Menyrad är löstagbar"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar accelerator"
 msgstr "Menyradssnabbtangent"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menus Have Icons"
 msgstr "Menyer har ikoner"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Tearoff"
 msgstr "Menyer har löstagningsflik"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Module for GtkFileChooser"
 msgstr "Modul för GtkFileChooser"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module to use as the filesystem model for the GtkFileChooser widget. Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr "Modul att använda som filsystemsmodellen för GtkFileChooser-widgeten. Möjliga värden är \"gnome-vfs\" och \"gtk+\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Monospace font"
 msgstr "Typsnitt med fast breddsteg"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "Namn på ett typsnitt med fast breddsteg som kan användas på platser som exempelvis terminalfönster."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Namn på GTK+-inmatningsmetodens förredigeringsstil som används av gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Namn på GTK+-inmatningsmetodens statusstil som används av gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the default font used by gtk+."
 msgstr "Namn på standardtypsnittet som används av gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used for reading documents"
 msgstr "Namn på standardtypsnittet som används för läsning av dokument."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Show the 'Input Methods' menu"
 msgstr "Visa \"Inmatningsmetoder\"-menyn"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "Visa \"Unicode-kontrolltecken\"-menyn"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Status Bar on Right"
 msgstr "Statusraden till höger"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Detta anger storleken på ikoner som visas i verktygsrader"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Toolbar Detachable"
 msgstr "Verktygsrad är löstagbar"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "Storlek på verktygsradsikoner"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Style"
 msgstr "Verktygsradsstil"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and \"text\""
 msgstr "Verktygsradsstil. Giltiga värden är \"both\", \"both-horiz\", \"icons\" och \"text\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Use Custom Font"
 msgstr "Använd anpassat typsnitt"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "Huruvida program ska ha tillgänglighetsstöd"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
 msgstr "Huruvida animationer ska visas. Observera: Detta är en global nyckel, den ändrar beteendet på fönsterhanteraren, panelen osv."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Huruvida menyer kan visa en ikon bredvid en menypost"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "Huruvida menyer ska ha en löstagningsflik"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid "Whether the context menus of entries and text views should offer to change the input method"
 msgstr "Huruvida sammanhangsmenyer för objekt och textvyer ska låta inmatningsmetoden ändras eller inte"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid "Whether the context menus of entries and text views should offer to insert control characters"
 msgstr "Huruvida sammanhangsmenyerna för objekt och textvyer ska låta kontrolltecken infogas eller inte"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "Huruvida markören ska blinka"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Huruvida användaren kan ta loss menyrader och flytta runt dem"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Huruvida användaren kan ta loss verktygsrader och flytta runt dem"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid "Whether the user can dynamically type a new accelerator when positioned over an active menuitem"
 msgstr "Huruvida användaren dynamiskt kan ange en ny snabbtangent när denne är positionerad över en aktiv menypost"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "Huruvida en statusradsmätare ska visas till höger"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Huruvida ett anpassat typsnitt ska användas i gtk+-program."
 
@@ -995,6 +998,8 @@ msgstr "Huruvida tangentbordslåsning är aktiverat."
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Huruvida skrivpausskärmen kan senareläggas."
 
+#~ msgid "Unknown error code: %u"
+#~ msgstr "Okänd felkod: %u"
 #~ msgid ""
 #~ "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 #~ "XFree86 4.3 and later. This value is only propagated to the X server at "
