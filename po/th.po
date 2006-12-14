@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-24 22:49+0700\n"
-"PO-Revision-Date: 2006-05-24 23:08+0700\n"
+"POT-Creation-Date: 2006-12-14 15:18+0700\n"
+"PO-Revision-Date: 2006-12-14 15:23+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <L10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -75,34 +75,39 @@ msgstr "ไม่พบเทอร์มินัล จะลองใช้ x
 msgid "GNOME GConf Support"
 msgstr "การสนับสนุน GConf ของ GNOME"
 
-#: libgnome/gnome-help.c:169
+#: libgnome/gnome-help.c:170
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "หาโดเมน GNOME_FILE_DOMAIN_APP_HELP ไม่พบ"
 
-#: libgnome/gnome-help.c:182
+#: libgnome/gnome-help.c:183
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "หาโดเมน GNOME_FILE_DOMAIN_HELP ไม่พบ"
 
-#: libgnome/gnome-help.c:195 libgnome/gnome-help.c:210
+#: libgnome/gnome-help.c:196 libgnome/gnome-help.c:211
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr "ไม่สามารถแสดงวิธีใช้เพราะ %s ไม่ใช่โฟลเดอร์  โปรดตรวจสอบการติดตั้ง"
 
-#: libgnome/gnome-help.c:219 libgnome/gnome-help.c:235
+#: libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr "ไม่พบพาธข้อมูลวิธีใช้ทั้ง %s และ %s โปรดตรวจสอบการติดตั้ง"
+
+#: libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr "ไม่เจอแฟ้มข้อมูลวิธีใช้ทั้งใน %s และ %s โปรดตรวจสอบการติดตั้ง"
+msgstr "ไม่พบแฟ้มข้อมูลวิธีใช้ทั้งใน %s และ %s โปรดตรวจสอบการติดตั้ง"
 
-#: libgnome/gnome-help.c:352
+#: libgnome/gnome-help.c:353
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr "ไม่เจอ doc_id %s ใน help path"
+msgstr "ไม่พบ doc_id %s ในพาธข้อมูลวิธีใช้"
 
-#: libgnome/gnome-help.c:373
+#: libgnome/gnome-help.c:374
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "ไม่พบเอกสารวิธีใช้ %s/%s"
@@ -313,24 +318,24 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "วิธีติดต่อ esd"
 
-#: libgnome/gnome-program.c:1396
+#: libgnome/gnome-program.c:1394
 msgid "Help options"
 msgstr "ตัวเลือกของวิธีใช้"
 
-#: libgnome/gnome-program.c:1401
+#: libgnome/gnome-program.c:1399
 msgid "Application options"
 msgstr "ตัวเลือกของโปรแกรม"
 
-#: libgnome/gnome-program.c:1417
+#: libgnome/gnome-program.c:1415
 msgid "Dynamic modules to load"
 msgstr "รายการมอดูลที่จะโหลด"
 
-#: libgnome/gnome-program.c:1418
+#: libgnome/gnome-program.c:1416
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: libgnome/gnome-program.c:1507
+#: libgnome/gnome-program.c:1505
 #, c-format
 msgid ""
 "%s\n"
@@ -353,7 +358,7 @@ msgid ""
 "location."
 msgstr "เกิดข้อผิดพลาดขณะแจงคำสั่งปริยายสำหรับตำแหน่งนี้"
 
-#: libgnome/gnome-url.c:108 libgnome/gnome-url.c:174
+#: libgnome/gnome-url.c:108 libgnome/gnome-url.c:181
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -380,14 +385,13 @@ msgstr "หาโฮสต์ \"%s\" ไม่พบ"
 msgid "The host could not be found."
 msgstr "หาโฮสต์ไม่พบ"
 
-#: libgnome/gnome-url.c:156
+#: libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
 msgstr "หาตำแหน่งหรือแฟ้มไม่พบ"
 
-#: libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "รหัสผิดพลาดที่ไม่รู้จัก: %u"
+#: libgnome/gnome-url.c:164
+msgid "The login has failed."
+msgstr "ล็อกอินไม่สำเร็จ"
 
 #: libgnome/gnome-open.c:34
 #, c-format
@@ -644,87 +648,87 @@ msgstr "ชุดไอคอนแฟ้ม"
 msgid "Theme used for displaying file icons"
 msgstr "ชุดไอคอนสำหรับใช้แสดงเป็นตัวแทนแฟ้ม"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:1
+#: schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
 msgstr "ชื่อของชุดตกแต่งปริยายที่ใช้โดย GTK+"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:2
+#: schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
 msgstr "สามารถเปลี่ยนคีย์ด่วนได้"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:3
+#: schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
 msgstr "กะพริบตัวชี้"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:4
+#: schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
 msgstr "ช่วงการกะพริบของตัวชี้"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:5
+#: schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
 msgstr "แบบอักษรปริยาย"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:6
+#: schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Document font"
 msgstr "แบบอักษรสำหรับเอกสาร"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:7
+#: schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
 msgstr "ใช้ระบบอำนวยการใช้งาน"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:8
+#: schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
 msgstr "ใช้ภาพเคลื่อนไหว"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:9
+#: schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "GTK IM Preedit Style"
 msgstr "รูปแบบ Preedit ของ GTK IM"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:10
+#: schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Status Style"
 msgstr "รูปแบบของสถานะของ GTK IM"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:11
+#: schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "Gtk+ Theme"
 msgstr "ชุดตกแต่ง Gtk+"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:12
+#: schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Icon Theme"
 msgstr "ชุดตกแต่งไอคอน"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:13
+#: schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "ชุดไอคอนสำหรับใช้ในพาเนล nautilus ฯลฯ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:14
+#: schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "ปุ่มลัดที่จะใช้เปิดแถบเมนู"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:15
+#: schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "จำนวนมิลลิวินาทีที่ตัวชี้ใช้ในการกะพริบหนึ่งรอบ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:16
+#: schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Menubar Detachable"
 msgstr "ดึงแถบเมนูออกมาได้"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:17
+#: schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar accelerator"
 msgstr "คีย์ด่วนเรียกเมนู"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menus Have Icons"
 msgstr "เมนูมีไอคอน"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Tearoff"
 msgstr "เมนูมีแถบดึงออก"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Module for GtkFileChooser"
 msgstr "มอดูลสำหรับ GtkFileChooser"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -732,75 +736,75 @@ msgstr ""
 "มอดูลที่จะใช้จัดการระบบแฟ้มสำหรับวิดเจ็ต GtkFileChooser ค่าที่เป็นไปได้คือ \"gnome-vfs\" "
 "และ \"gtk+\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Monospace font"
 msgstr "แบบอักษรพิมพ์ดีด"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "ชื่อแบบอักษรพิมพ์ดีด (ความกว้างคงที่) สำหรับใช้โปรแกรมที่ต้องใช้ (เช่น เทอร์มินัล)"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "ชื่อของรูปแบบ Preedit ของกรรมวิธีป้อนข้อความที่จะใช้ใน GTK+"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "ชื่อของรูปแบบสถานะของกรรมวิธีป้อนข้อความที่จะใช้ใน GTK+"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the default font used by gtk+."
 msgstr "ชื่อแบบอักษรปริยายสำหรับ gtk+"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:27
+#: schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used for reading documents"
 msgstr "ชื่อแบบอักษรปริยายสำหรับอ่านเอกสารต่างๆ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Show the 'Input Methods' menu"
 msgstr "แสดงเมนู 'วิธีป้อนข้อความ'"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "แสดงเมนู 'อักขระควบคุมของยูนิโค้ด'"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Status Bar on Right"
 msgstr "แถบสถานะอยู่ด้านขวา"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:31
+#: schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "บอกขนาดของไอคอนที่จะแสดงในแถบเครื่องมือ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Toolbar Detachable"
 msgstr "ดึงแถบเครื่องมือออกมาได้"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "ขนาดไอคอนในแถบเครื่องมือ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Style"
 msgstr "รูปแบบแถบเครื่องมือ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr ""
 "รูปแบบแถบเครื่องมือ สามารถตั้งเป็น \"both\", \"both_horiz\" \"icons\" หรือ \"text\""
 
-#: schemas/desktop_gnome_interface.schemas.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Use Custom Font"
 msgstr "ใช้แบบอักษรตั้งเอง"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:37
+#: schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "โปรแกรมควรจะใช้ระบบอำนวยการใช้งานหรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:38
+#: schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -808,49 +812,49 @@ msgstr ""
 "ควรจะแสดงภาพเคลื่อนไหวหรือไม่  หมายเหตุ: นี่เป็นคีย์ส่วนกลางที่ใช้ร่วมสำหรับ พาเนล "
 "โปรแกรมจัดการหน้าต่าง ฯลฯ"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:39
+#: schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "เมนูควรจะแสดงไอคอนข้างๆ รายการในเมนูหรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:40
+#: schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "เมนูสามารถดึงออกมาได้หรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:41
+#: schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
 msgstr "จะให้เมนูบริบทของช่องป้อนข้อความแสดงเมนูสำหรับเปลี่ยนวิธีป้อนข้อความหรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:42
+#: schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
 msgstr "จะให้เมนูบริบทของช่องป้อนข้อความแสดงเมนูสำหรับแทรกอักขระควบคุมหรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:43
+#: schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "ตัวชี้ควรจะกะพริบหรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:44
+#: schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "ผู้ใช้สามารถดึงแถบเมนูออกมาใช้ข้างนอกหน้าต่างได้หรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:45
+#: schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "ผู้ใช้สามารถดึงแถบเครื่องมือออกมาใช้ข้างนอกหน้าต่างได้หรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:46
+#: schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
 msgstr "ผู้ใช้สามารถตั้งคีย์ด่วนเมื่อเมาส์ชี้ที่รายการเมนูที่เปิดใช้งานอยู่ได้หรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:47
+#: schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "ควรจะแสดงแถบสถานะไว้ด้านขวาหรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.h:48
+#: schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "จะใช้แบบอักษรตั้งเองในโปรแกรม gtk+ หรือไม่"
 
@@ -1074,6 +1078,9 @@ msgstr "จะล็อคแป้นพิมพ์หรือไม่"
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "จะให้เลื่อนการพักพิมพ์ออกไปได้หรือไม่"
+
+#~ msgid "Unknown error code: %u"
+#~ msgstr "รหัสผิดพลาดที่ไม่รู้จัก: %u"
 
 #~ msgid ""
 #~ "Cursor theme name. Used only by Xservers that support Xcursor, such as "
