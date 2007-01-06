@@ -80,5 +80,19 @@
       </locale>
     </schema>
 
+    <schema>
+      <key>/schemas/desktop/gnome/lockdown/disable_lock_screen</key>
+      <applyto>/desktop/gnome/lockdown/disable_lock_screen</applyto>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Disable lock screen</short>
+        <long>
+         Prevent the user to lock his screen.
+        </long>
+      </locale>
+    </schema>
+
   </schemalist>
 </gconfschemafile>
