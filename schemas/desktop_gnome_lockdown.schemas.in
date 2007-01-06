@@ -65,5 +65,20 @@
       </locale>
     </schema>
 
+    <schema>
+      <key>/schemas/desktop/gnome/lockdown/disable_user_switching</key>
+      <applyto>/desktop/gnome/lockdown/disable_user_switching</applyto>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Disable user switching</short>
+        <long>
+         Prevent the user from switching to another account while his
+         session is active.
+        </long>
+      </locale>
+    </schema>
+
   </schemalist>
 </gconfschemafile>
