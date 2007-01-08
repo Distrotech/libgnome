@@ -48,8 +48,9 @@ AC_SUBST(LIBGNOME_CURRENT)
 AC_SUBST(LIBGNOME_REVISION)
 AC_SUBST(LIBGNOME_AGE)
 
-AM_INIT_AUTOMAKE
-AM_CONFIG_HEADER(config.h)
+AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-bzip2])
+
+AC_CONFIG_HEADERS([config.h])
 
 AM_MAINTAINER_MODE
 
@@ -57,10 +58,6 @@ dnl make aclocal calls respect $ACLOCAL_FLAGS
 ACLOCAL_AMFLAGS="\${ACLOCAL_FLAGS}"
 AC_SUBST(ACLOCAL_AMFLAGS)
 
-dnl
-dnl Due to the sed scripts being split on 90 line
-dnl blocks, this macro needs to be right at the beginning.
-dnl
 IT_PROG_INTLTOOL([0.35.0])
 
 AC_ISC_POSIX

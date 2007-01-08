@@ -6,7 +6,7 @@ test -z "$srcdir" && srcdir=.
 
 PKG_NAME="libgnome"
 
-REQUIRED_AUTOMAKE_VERSION=1.7
+REQUIRED_AUTOMAKE_VERSION=1.9
 export REQUIRED_AUTOMAKE_VERSION
 
 (test -f $srcdir/configure.in \
