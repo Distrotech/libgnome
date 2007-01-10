@@ -2,6 +2,29 @@
 <gconfschemafile>
   <schemalist>
     <schema>
+      <key>/schemas/desktop/gnome/sound/default_mixer_device</key>
+      <applyto>/desktop/gnome/sound/default_mixer_device</applyto>
+      <owner>gnome</owner>
+      <type>string</type>
+      <default></default>
+      <locale name="C">
+        <short>Default mixer device</short>
+        <long>The default mixer device used by the multimedia key bindings.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/gnome/sound/default_mixer_tracks</key>
+      <applyto>/desktop/gnome/sound/default_mixer_tracks</applyto>
+      <owner>gnome</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[]</default>
+      <locale name="C">
+        <short>Default mixer tracks</short>
+        <long>The default mixer tracks used by the multimedia key bindings.</long>
+      </locale>
+    </schema>
+    <schema>
       <key>/schemas/desktop/gnome/sound/enable_esd</key>
       <applyto>/desktop/gnome/sound/enable_esd</applyto>
       <owner>gnome</owner>
