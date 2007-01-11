@@ -5,10 +5,10 @@
 # 
 msgid ""
 ""
-msgstr "Project-Id-Version: libgnome 2.11.3 Gnome HEAD\n"
+msgstr "Project-Id-Version: libgnome 2.17.3 Gnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-02 02:15+0000\n"
-"PO-Revision-Date: 2007-01-04 22:51+1030\n"
+"POT-Creation-Date: 2007-01-10 14:19+0000\n"
+"PO-Revision-Date: 2007-01-11 23:04+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -487,6 +487,45 @@ msgstr "Danh sách các ứng dụng công nghệ trợ giúp cần khởi chạ
 msgid "Startup Assistive Technology Applications"
 msgstr "Ứng dụng Công nghệ Trợ giúp lúc khởi động"
 
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr "GNOME sẽ khởi chạy ứng dụng công nghệ trợ giúp khả năng di chuyển trong khi đăng nhập"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "Ứng dụng Công nghệ Trợ giúp khả năng di chuyển ưa thích"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application be used for login, menu, "
+"or command line"
+msgstr "Ứng dụng công nghệ trợ giúp khả năng di chuyển ưa thích cần dùng để đăng nhập cho trình đơn hay dòng lệnh"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "Khởi chạy ứng dụng công nghệ trợ giúp khả năng di chuyển ưa thích"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Visual assistive technology application during login"
+msgstr "GNOME sẽ khởi chạy ứng dụng công nghệ trợ giúp khả năng nhìn ưa thích"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "Ứng dụng công nghệ trợ giúp khả năng nhìn ưa thích"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr "Ứng dụng công nghệ trợ giúp khả năng nhìn ưa thích cần dùng để đăng nhập, cho trình đơn hay dòng lệnh"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "Khởi chạy ứng dụng công nghệ trợ giúp khả năng nhìn ưa thích"
+
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
 msgstr "Trình duyệt cần thiết bị cuối."
@@ -887,18 +926,26 @@ msgid "Disable command line"
 msgstr "Vô hiệu hoá dòng lệnh."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable lock screen"
+msgstr "Tắt khả năng khoá màn hình"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "Vô hiệu hoá thiết lập in."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "Vô hiệu hoá in."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "Vô hiệu hoá lưu lên đĩa."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "Tắt khả năng chuyển đổi người dùng"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -907,26 +954,36 @@ msgstr "Ngăn cản người dùng truy cập thiết bị cuối hoặc thực 
 "lệnh. Ví dụ, nó sẽ vô hiệu hoá hộp thoại « Chạy ứng dụng » của bảng điều "
 "khiển."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr "Ngăn cản người dùng hiệu chỉnh thiết lập máy in. Ví dụ, nó sẽ vô hiệu hoá "
 "truy cập hộp thoại « Thiết lập in » trong mọi ứng dụng."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
 msgstr "Ngăn cản người dùng in. Ví dụ, nó sẽ vô hiệu hoá truy câp hộp thoại « In » "
 "trong mọi ứng dụng."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr "Ngăn cản người dùng lưu vào đĩa. Ví dụ, nó sẽ vô hiệu hoá hộp thoại « Lưu là "
 "» trong mọi ứng dụng."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr "Ngăn cản người dùng chuyển đổi sang tài khoản khác trong khi phiên đang chạy."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "Ngăn cản người dùng khoá màn hình."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -1047,18 +1104,34 @@ msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "Hoán đổi nút trái, phải của chuột cho người dùng thuận tay trái"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "Thiết bị hoà tiếng mặc định"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "Các rãnh hoà tiếng mặc định"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "Bật ESD"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "Bật trình phục vụ âm thanh lúc khởi động."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "Âm thanh của sự kiện"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr "Thiết bị hoà tiếng mặc định dùng bởi những tổ hợp phím nhạc/phim."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr "Các rãnh hoà tiếng mặc định dùng bởi những tổ hợp phím nhạc/phim."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "Có phát âm trên những sự kiện của người dùng không."
 
