@@ -1,3 +1,12 @@
+2007-01-12  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/libgnome-2.0-uninstalled.pc.in:
+	* libgnome/libgnome-2.0.pc.in:
+	Move some libs that aren't exposed in the headers to
+	Requires.private. Built the entire jhbuild moduleset
+	without problems with this patch. Closes bug #352193.
+	Patch from Samuel Thibault.
+
 ======================== libgnome 2.17.3 ======================
 
 2007-01-10  Kjartan Maraas  <kmaraas@gnome.org>
