@@ -1726,7 +1726,8 @@ gnome_program_postinit (GnomeProgram *program)
  *
  * Initialises the current GNOME libraries for use by the application.
  *
- * Returns: A #GnomeProgram instance representing the current application.
+ * Returns: A new #GnomeProgram instance representing the current application.
+ * Unref the returned reference right before exiting your application.
  */
 GnomeProgram *
 gnome_program_init (const char *app_id, const char *app_version,
