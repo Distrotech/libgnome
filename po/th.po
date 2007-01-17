@@ -1,18 +1,18 @@
 # Thai translation for libgnome
-# Copyright (C) 2003-2006 Free Software Foundation, Inc.
+# Copyright (C) 2003-2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgnome package.
 #
 # Natorn Tuntanggoon <sc442409@angsila.compsci.buu.ac.th>, 2003
 # Chanchai Junlouchai <taz@opentle.org>, 2003
 # Paisa Seeluangsawat <paisa@users.sf.net>, 2003, 2004.
-# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2006.
+# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-14 15:18+0700\n"
-"PO-Revision-Date: 2006-12-14 15:23+0700\n"
+"POT-Creation-Date: 2007-01-17 16:18+0700\n"
+"PO-Revision-Date: 2007-01-17 16:37+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <L10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -469,11 +469,57 @@ msgstr "พิกเซลต่อวินาที"
 msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
-msgstr "รายการของบริการอำนวยการใช้งานที่จะเริ่มใช้เมื่อเข้าสู่ระบบ GNOME"
+msgstr "รายการของโปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกที่จะเริ่มใช้เมื่อเข้าสู่ระบบ GNOME"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
-msgstr "โปรแกรมอำนวยการใช้งานเมื่อเข้าสู่ระบบ"
+msgstr "โปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกเมื่อเข้าสู่ระบบ"
+
+#: schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr ""
+"ให้ GNOME เรียกโปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับอุปกรณ์ติดตามตัวที่เลือกไว้ "
+"เมื่อเข้าระบบ"
+
+#: schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "โปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับอุปกรณ์ติดตามตัวที่เลือกใช้"
+
+#: schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+"โปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับอุปกรณ์ติดตามตัวที่เลือกใช้ สำหรับการเข้าระบบ เมนู "
+"หรือบรรทัดคำสั่ง"
+
+#: schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "เรียกโปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับอุปกรณ์ติดตามตัวที่เลือกไว้"
+
+#: schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Visual assistive technology application during login"
+msgstr ""
+"ให้ GNOME เรียกโปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับสายตาที่เลือกไว้ เมื่อเข้าระบบ"
+
+#: schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "โปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับสายตาที่เลือกใช้"
+
+#: schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+"โปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับสายตาที่เลือกใช้ สำหรับการเข้าระบบ เมนู "
+"หรือบรรทัดคำสั่ง"
+
+#: schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "เรียกโปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับสายตาที่เลือกไว้"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -674,7 +720,7 @@ msgstr "แบบอักษรสำหรับเอกสาร"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
-msgstr "ใช้ระบบอำนวยการใช้งาน"
+msgstr "ใช้สิ่งอำนวยความสะดวก"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
@@ -802,7 +848,7 @@ msgstr "ใช้แบบอักษรตั้งเอง"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Whether Applications should have accessibility support"
-msgstr "โปรแกรมควรจะใช้ระบบอำนวยการใช้งานหรือไม่"
+msgstr "โปรแกรมควรจะใช้สิ่งอำนวยความสะดวกหรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
@@ -863,18 +909,26 @@ msgid "Disable command line"
 msgstr "ปิดใช้บรรทัดคำสั่ง"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable lock screen"
+msgstr "ปิดการล็อคหน้าจอ"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "ปิดใช้การปรับแต่งการพิมพ์"
 
-#: schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "ปิดใช้การพิมพ์"
 
-#: schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "ปิดใช้การบันทึกแฟ้ม"
 
-#: schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "ปิดการสลับผู้ใช้"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -883,7 +937,7 @@ msgstr ""
 "ป้องกันไม่ให้ผู้ใช้เรียกใช้เทอร์มินัล หรือเรียกใช้คำสั่งจากบรรทัดคำสั่ง ผลคือ หน้าต่าง \"เรียกโปรแกรม"
 "\" ในพาเนลจะหายไป เป็นต้น"
 
-#: schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -891,19 +945,29 @@ msgstr ""
 "ป้องกันไม่ให้ผู้ใช้ปรับแต่งการพิมพ์ ผลคือ เมนู \"ปรับแต่งการพิมพ์\" ในโปรแกรมต่างๆ จะใช้ไม่ได้ "
 "เป็นต้น"
 
-#: schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
 msgstr ""
 "ป้องกันไม่ให้ผู้ใช้พิมพ์ออกเครื่องพิมพ์ ผลคือ เมนู \"พิมพ์\" ในโปรแกรมต่างๆ จะใช้ไม่ได้ เป็นต้น"
 
-#: schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
 "ป้องกันไม่ให้ผู้ใช้บันทึกแฟ้มลงดิสก์ ผลคือ เมนู \"บันทึกเป็น\" ในโปรแกรมต่างๆ จะใช้ไม่ได้ เป็นต้น"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr "ป้องกันไม่ให้ผู้ใช้สลับไปใช้บัญชีผู้ใช้อื่นขณะที่วาระยังดำเนินอยู่"
+
+#: schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "ป้องกันไม่ให้ผู้ใช้ล็อคจอภาพ"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -1020,18 +1084,34 @@ msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "สลับปุ่มซ้ายและขวาของเมาส์ สำหรับผู้ถนัดซ้าย"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "อุปกรณ์ปรับระดับเสียงปริยาย"
+
+#: schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "แทร็กปรับระดับเสียงปริยาย"
+
+#: schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "เปิดใช้ ESD"
 
-#: schemas/desktop_gnome_sound.schemas.in.h:2
+#: schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "เปิดใช้ระบบเสียง"
 
-#: schemas/desktop_gnome_sound.schemas.in.h:3
+#: schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "เล่นเสียงเมื่อมีเหตุการณ์"
 
-#: schemas/desktop_gnome_sound.schemas.in.h:4
+#: schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr "อุปกรณ์ปรับระดับเสียงปริยายที่จะใช้โดยปุ่มลัดสื่อผสม"
+
+#: schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr "แทร็กปรับระดับเสียงปริยายที่จะใช้โดยปุ่มลัดสื่อผสม"
+
+#: schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "จะเล่นเสียงหรือไม่เมื่อมีเหตุการณ์การใช้งาน"
 
