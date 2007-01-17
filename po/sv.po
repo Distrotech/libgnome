@@ -1,16 +1,16 @@
 # Swedish messages for libgnome.
-# Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-# Daniel Nylander <po@danielnylander.se>, 2006.
+# Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+# Daniel Nylander <po@danielnylander.se>, 2006, 2007.
 # Christian Rose <menthos@menthos.com>, 2001, 2002, 2003, 2004, 2005.
 #
-# $Id$
+# $Id: sv.po,v 1.77 2006/12/11 23:16:12 dnylande Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-11 19:08+0100\n"
-"PO-Revision-Date: 2006-12-12 00:02+0100\n"
+"POT-Creation-Date: 2007-01-10 14:19+0000\n"
+"PO-Revision-Date: 2007-01-18 00:30+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -469,6 +469,38 @@ msgstr "Lista med program för hjälpmedelstekniker som ska startas då inloggni
 msgid "Startup Assistive Technology Applications"
 msgstr "Starta program för hjälpmedelstekniker"
 
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid "GNOME to start preferred Mobility assistive technology application during login"
+msgstr "GNOME ska starta föredraget program för hjälpmedelstekniker för rörelsehindrade under inloggning"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "Föredraget program för hjälpmedelstekniker för rörelsehindrade"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid "Preferred Mobility assistive technology application be used for login, menu, or command line"
+msgstr "Föredraget program för hjälpmedelstekniker för rörelsehindrade att använda för inloggning, meny eller kommandorad"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "Starta föredraget program för hjälpmedelstekniker för rörelsehindrade"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid "GNOME to start preferred Visual assistive technology application during login"
+msgstr "GNOME ska starta föredraget program för hjälpmedelstekniker för synskadade under inloggning"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "Föredraget program för hjälpmedelstekniker för synskadade"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid "Preferred Visual assistive technology application be used for login, menu, or command line"
+msgstr "Föredraget program för hjälpmedelstekniker för synskadade att använda för inloggning, meny eller kommandorad"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "Starta föredraget program för hjälpmedelstekniker för synskadade"
+
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
 msgstr "Webbläsaren behöver terminal"
@@ -818,33 +850,50 @@ msgstr "Huruvida ett anpassat typsnitt ska användas i gtk+-program."
 msgid "Disable command line"
 msgstr "Inaktivera kommandorad"
 
+# SUN CHANGED MESSAGE
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable lock screen"
+msgstr "Inaktivera skärmlåsning"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "Inaktivera utskriftskonfiguration"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "Inaktivera utskrifter"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "Inaktivera sparande av filer till disk"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "Inaktivera användarväxling"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid "Prevent the user from accessing the terminal or specifying a command line to be executed. For example, this would disable access to the panel's \"Run Application\" dialog."
 msgstr "Förhindra att användaren kommer åt terminalfönster eller kan ange en kommandorad som ska köras. Detta kan till exempel inaktivera åtkomst till panelens \"Kör program\"-dialogfönster."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid "Prevent the user from modifying print settings. For example, this would disable access to all applications' \"Print Setup\" dialogs."
 msgstr "Förhindra att användaren ändrar utskriftsinställningar. Detta kan till exempel inaktivera åtkomst till alla programs \"Utskriftskonfiguration\"-dialogfönster."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid "Prevent the user from printing. For example, this would disable access to all applications' \"Print\" dialogs."
 msgstr "Förhindra att användaren skriver ut. Detta kan till exempel inaktivera åtkomst till alla programs \"Skriv ut\"-dialogfönster."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid "Prevent the user from saving files to disk. For example, this would disable access to all applications' \"Save as\" dialogs."
 msgstr "Förhindra att användaren sparar filer på hårddisken. Detta kan till exempel inaktivera åtkomst till alla programs \"Spara som\"-dialogfönster."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid "Prevent the user from switching to another account while his session is active."
+msgstr "Förhindra användaren från att växla till ett annat konto under tiden dennes session är aktiv."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "Förhindra användaren från att låsa skärmen."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -943,18 +992,34 @@ msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "Byt vänster och höger musknapp för vänsterhänt mus"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "Standardmixerenhet"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "Standardmixerspår"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "Aktivera ESD"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "Aktivera uppstart av ljudserver."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "Ljud för händelser"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr "Standardmixerenheten som används av multimediatangentbindningarna."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr "Standardmixerspåren som används av multimediatangentbindningarna."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "Huruvida ljud ska spelas vid användarhändelser."
 
