@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-04 15:37+0100\n"
-"PO-Revision-Date: 2007-01-04 15:38+0100\n"
+"POT-Creation-Date: 2007-01-19 13:01+0100\n"
+"PO-Revision-Date: 2007-01-19 13:04+0100\n"
 "Last-Translator: Hendrik Richter <hendrikr@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -504,6 +504,53 @@ msgid "Startup Assistive Technology Applications"
 msgstr ""
 "Beim Anmelden zu startende Anwendungen, die Hilfstechnologie bereitstellen"
 
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+#, fuzzy
+msgid "Preferred Mobility assistive technology application"
+msgstr ""
+"Beim Anmelden zu startende Anwendungen, die Hilfstechnologie bereitstellen"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+#, fuzzy
+msgid "Start preferred Mobility assistive technology application"
+msgstr ""
+"Beim Anmelden zu startende Anwendungen, die Hilfstechnologie bereitstellen"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Visual assistive technology application during login"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+#, fuzzy
+msgid "Preferred Visual assistive technology application"
+msgstr ""
+"Beim Anmelden zu startende Anwendungen, die Hilfstechnologie bereitstellen"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+#, fuzzy
+msgid "Start preferred Visual assistive technology application"
+msgstr ""
+"Beim Anmelden zu startende Anwendungen, die Hilfstechnologie bereitstellen"
+
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
 msgstr "Browser benötigt Terminal"
@@ -627,7 +674,7 @@ msgid ""
 msgstr ""
 "Legt fest, wie das von »wallpaper_filename« festgelegte Bild dargestellt "
 "werden soll. Zulässige Werte: »none« (Keins), »wallpaper« (Tapete), "
-"»centered« (zentriert), »scaled« (skaliert) sowie »streched« (gestreckt)."
+"»centered« (zentriert), »scaled« (skaliert) sowie »stretched« (gestreckt)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -920,18 +967,28 @@ msgid "Disable command line"
 msgstr "Befehlszeile deaktivieren"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+#, fuzzy
+msgid "Disable lock screen"
+msgstr "Den Sound-Server nicht verwenden"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "Druckeinstellungen deaktivieren"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "Drucken deaktivieren"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "Speichern von Dateien auf Platte deaktivieren"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#, fuzzy
+msgid "Disable user switching"
+msgstr "Drucken deaktivieren"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -941,7 +998,7 @@ msgstr ""
 "auszuführende Befehlszeile anzugeben. Dies verhindert beispielsweise den "
 "Zugriff auf den Panel-Dialog »Anwendung ausführen«."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -950,7 +1007,7 @@ msgstr ""
 "verhindert beispielsweise den Zugriff auf den Druckeinstellungsdialog aller "
 "Anwendungen."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -958,7 +1015,7 @@ msgstr ""
 "Den Benutzer am Drucken hindern. Dies verhindert beispielsweise den Zugriff "
 "auf den Druckdialog aller Anwendungen."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
@@ -966,6 +1023,16 @@ msgstr ""
 "Den Benutzer am Speichern von Dateien auf Platte hindern. Dies verhindert "
 "beispielsweise den Zugriff auf den »Speichern unter«-Dialog aller "
 "Anwendungen."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr ""
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr ""
 
 # CHECK
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
@@ -1097,18 +1164,35 @@ msgstr ""
 "Linkshänder die Maus verwenden können?"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+#, fuzzy
+msgid "Default mixer device"
+msgstr "Voreingestellter Hilfe-Betrachter"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr ""
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "ESD aktivieren"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "Soll der Sound-Server beim Start von GNOME gestartet werden?"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "Klänge bei Ereignissen"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr ""
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr ""
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "Sollen bei Benutzer-Ereignissen Klänge abgespielt werden?"
 
