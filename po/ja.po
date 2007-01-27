@@ -1,19 +1,19 @@
 # libgnome ja.po.
-# Copyright (C) 1998-2005 Free Software Foundation, Inc.
+# Copyright (C) 1998-2007 Free Software Foundation, Inc.
 # Yukihiro Nakai <Nakai@abricot.co.jp>, 1998,2001.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1999.
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 1999-2002.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
-# Takeshi AIHANA <aihana@gnome.gr.jp>, 2003-2005.
+# Takeshi AIHANA <aihana@gnome.gr.jp>, 2003-2007.
 # Satoru SATOH <ss@gnome.gr.jp>, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome HEAD\n"
+"Project-Id-Version: libgnome trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-17 01:15+0900\n"
-"PO-Revision-Date: 2006-08-17 01:24+0900\n"
-"Last-Translator: Satoru SATOH <ss@gnome.gr.jp>\n"
+"POT-Creation-Date: 2007-01-27 21:01+0900\n"
+"PO-Revision-Date: 2007-01-27 21:01+0900\n"
+"Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,7 +92,14 @@ msgstr ""
 "%s はフォルダでないのでヘルプを表示できません。インストール状況を確認して下さ"
 "い。"
 
-#: ../libgnome/gnome-help.c:220 ../libgnome/gnome-help.c:236
+#: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr ""
+"%s または %s にヘルプ・ファイルがありません。インストール状況を確認して下さ"
+"い。"
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -320,24 +327,24 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "ESD への接続方法"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1394
 msgid "Help options"
 msgstr "ヘルプのオプション"
 
-#: ../libgnome/gnome-program.c:1401
+#: ../libgnome/gnome-program.c:1399
 msgid "Application options"
 msgstr "アプリケーションのオプション"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1415
 msgid "Dynamic modules to load"
 msgstr "読み込むダイナミック・モジュール"
 
-#: ../libgnome/gnome-program.c:1418
+#: ../libgnome/gnome-program.c:1416
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1507
+#: ../libgnome/gnome-program.c:1505
 #, c-format
 msgid ""
 "%s\n"
@@ -363,7 +370,7 @@ msgstr ""
 "この'場所'に関連付けられているデフォルトのコマンドを解析する際にエラーが発生"
 "しました。"
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:174
+#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -392,14 +399,13 @@ msgstr "ホスト \"%s\" が見つかりませんでした。"
 msgid "The host could not be found."
 msgstr "ホストが見つかりませんでした。"
 
-#: ../libgnome/gnome-url.c:156
+#: ../libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
 msgstr "場所またはファイルが見つかりませんでした。"
 
-#: ../libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "不明なエラー・コード: %u"
+#: ../libgnome/gnome-url.c:164
+msgid "The login has failed."
+msgstr "ログインに失敗しました。"
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -483,7 +489,54 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
-msgstr "起動する支援技術 (Assistive Technology) アプリケーション"
+msgstr "支援技術 (Assistive Technology) をサポートしたアプリケーション"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr ""
+"ログインする際に易動性支援技術 (Mobility Assistive Technology) をサポートする"
+"アプリケーションを優先して起動します"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "易動性支援技術をサポートしたアプリケーション"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+"ログインやメニュー、コマンドライン実行で使用する易動性支援技術 (Mobility "
+"Assistive Technology) をサポートしたアプリケーションを優先して起動します"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "易動性支援技術をサポートしたアプリケーションの起動"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Visual assistive technology application during login"
+msgstr ""
+"ログインする際に視覚支援技術 (Visual Assistive Technology) をサポートするアプ"
+"リケーションを優先して起動します"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "視覚支援技術をサポートしたアプリケーション"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+"ログインやメニュー、コマンドライン実行で使用する視覚支援技術 (Visual "
+"Assistive Technology) をサポートしたアプリケーションを優先して起動します"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "視覚支援技術をサポートするアプリケーションの優先起動"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -664,87 +717,87 @@ msgstr "ファイル・アイコンのテーマ"
 msgid "Theme used for displaying file icons"
 msgstr "ファイル・アイコンを表示する際に使用するテーマです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:1
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
 msgstr "GTK+ が使用するデフォルトのテーマの名前 (basename) です。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:2
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
 msgstr "アクセラレーション・キーを変更できるようにする"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
 msgstr "カーソルの点滅"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
 msgstr "カーソルの点滅間隔"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
 msgstr "デフォルトのフォント"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Document font"
 msgstr "ドキュメントのフォント"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
 msgstr "アクセシビリティを有効にする"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
 msgstr "アニメーションを有効にする"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "GTK IM Preedit Style"
 msgstr "GTK IM プレエディット形式"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Status Style"
 msgstr "GTK IM ステータス形式"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "Gtk+ Theme"
 msgstr "GTK+ テーマ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Icon Theme"
 msgstr "アイコンのテーマ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "パネルや Nautilus などで使用するアイコンのテーマです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "メニューバーを開くキーボード・ショートカットです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "カーソルが点滅する間隔です (ミリ秒単位)。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Menubar Detachable"
 msgstr "メニューバーを取り外せるようにする"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar accelerator"
 msgstr "メニューバーのアクセラレータ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menus Have Icons"
 msgstr "メニューにアイコンを表示する"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Tearoff"
 msgstr "メニューに可動メニューを表示する"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooser のモジュール"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -752,60 +805,60 @@ msgstr ""
 "GtkFileChooser ウィジットのファイルシステム・モデルとして使用するモジュールで"
 "す。設定可能な値: \"gnome-vfs\" と \"gtk+\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Monospace font"
 msgstr "等幅フォント"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "端末などで使用する等幅 (固定幅) フォントの名前です。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "GTK+ が使用する GTK+ IM プレエディット形式の名前です。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "GTK+ が使用する GTK+ IM ステータス形式の名前です。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the default font used by gtk+."
 msgstr "GTK+ が使用するデフォルトのフォント名です。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used for reading documents"
 msgstr "読み込んだドキュメントで使用するデフォルトのフォント名です。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Show the 'Input Methods' menu"
 msgstr "'入力メソッド' のメニューを表示する"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "'Unicode 制御文字の挿入' メニューを表示する"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Status Bar on Right"
 msgstr "ステータス・バーを右側に表示する"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "ツールバーに表示するアイコンのサイズを指定します。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Toolbar Detachable"
 msgstr "ツールバーを取り外せるようにする"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "ツールバーのアイコンのサイズ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Style"
 msgstr "ツールバーの形式"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
@@ -813,15 +866,15 @@ msgstr ""
 "ツールバーのスタイルです。設定可能な値: \"both\"、\"both_horiz\"、\"icons\"、"
 "\"text\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Use Custom Font"
 msgstr "カスタム・フォントを使用する"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "アプリケーションにアクセシビリティをサポートさせるかどうかです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -829,15 +882,15 @@ msgstr ""
 "アニメーションを有効にするかどうかを設定します。[注意] これはグローバルな設定"
 "なので、ウィンドウ・マネージャやパネルなどの挙動に影響します。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "メニュー名の隣にアイコンを表示するかどうかです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "メニューに可動メニューを持たせるかどうかです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
@@ -845,7 +898,7 @@ msgstr ""
 "入力エントリとテキスト・ビューのコンテキスト・メニューで入力メソッドを切り替"
 "えるエントリを表示するかどうかです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
@@ -853,30 +906,31 @@ msgstr ""
 "入力エントリとテキスト・ビューのコンテキスト・メニューで Unicode の制御文字を"
 "挿入するエントリを表示するかどうかです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "カーソルを点滅させるかどうかです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "メニューバーを取り外して移動できるようにするかどうかです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "ツールバーを取り外して移動できるようにするかどうかです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
-msgstr "アクティブなメニューアイテム上にあるときに"
-"新しいアクセラレータキーを動的に入力できるかどうかです。"
+msgstr ""
+"メニューアイテムを利用可能な状態にした時に新しいアクセラレータを動的に登録で"
+"きるかどうかです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "ステータス・バーのメータを右側に表示するかどうかです。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "GTK+ アプリケーションでカスタム・フォントを使用するかどうかです。"
 
@@ -885,18 +939,26 @@ msgid "Disable command line"
 msgstr "コマンドラインを利用不可にする"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable lock screen"
+msgstr "画面のロックを利用不可にする"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "印刷設定を利用不可にする"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "印刷機能を利用不可にする"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "ファイル保存の機能を利用不可にする"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "アカウントの切り換えを不可にする"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -906,7 +968,7 @@ msgstr ""
 "す。たとえば、これはパネルの \"アプリケーションの実行\" ダイアログへのアクセ"
 "スを利用できなくします。"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -914,7 +976,7 @@ msgstr ""
 "ユーザによる印刷設定の変更を不可にします。たとえば、これは全てのアプリケー"
 "ションが提供する \"印刷設定\" ダイアログへのアクセスを利用できなくします。"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -922,13 +984,25 @@ msgstr ""
 "ユーザからの印刷実行を不可にします。たとえば、全てのアプリケーションが提供す"
 "る \"印刷\" ダイアログへのアクセスを利用できなくします。"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
 "ユーザによるファイルの保存を不可にします。たとえば、全てのアプリケーションが"
 "提供する \"別名で保存\" ダイアログへのアクセスを利用できなくします。"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr ""
+"ユーザが使用しているセッションが有効な間は他のアカウントへ切り換えることがで"
+"きないようにします"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "画面をロックできないようにします。"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -1051,18 +1125,36 @@ msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "左利き用のマウスのために、マウスの左ボタンと右ボタンを入れ替えます。"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "デフォルトのミキサ用デバイス"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "デフォルトのミキサ・トラック"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "ESD を有効にする"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "サウンド・サーバを起動します。"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "イベント発生時にサウンドを鳴らす"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr ""
+"マルチメディア・キーの割り当てで使用するデフォルトのミキサ用デバイスです。"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr ""
+"マルチメディア・キーの割り当てで使用するデフォルトのミキサ・トラックです。"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "ユーザのイベントでサウンドを鳴らすかどうかです。"
 
