@@ -7,6 +7,7 @@ SUBDIRS = libgnome monikers schemas gnome-data po doc
 EXTRA_DIST = \
 	COPYING.LIB		\
 	NEWS			\
+	MAINTAINERS		\
 	intltool-extract.in	\
 	intltool-merge.in	\
 	intltool-update.in	\
