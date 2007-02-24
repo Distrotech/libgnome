@@ -6,19 +6,20 @@
 # Amanpreet Singh Alam <aalam@redhat.com>, 2004, 2006.
 # Amanpreet Singh Alam <amanpreetalam@yahoo.com>, 2005.
 # A S Alam <apbrar@gmail.com>, 2006.
+# A S Alam <aalam@users.sf.net>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-10 08:28+0100\n"
-"PO-Revision-Date: 2006-03-11 12:32+0530\n"
-"Last-Translator: A S Alam <apbrar@gmail.com>\n"
-"Language-Team: Punjabi <fedora-trans-pa@redhat.com>\n"
+"POT-Creation-Date: 2007-01-10 14:19+0000\n"
+"PO-Revision-Date: 2007-02-24 23:17+0530\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.1\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -30,11 +31,11 @@ msgstr "ਜਾਣਕਾਰੀ ਸੁਨੇਹਾ"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:3
 msgid "Log in"
-msgstr "ਦਾਖਲਾ (ਲਾਗਆਨ)"
+msgstr "ਲਾਗਇਨ"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:4
 msgid "Log out"
-msgstr "ਬਾਹਰੀ ਦਰ (ਲਾਗ ਆਉਟ)"
+msgstr "ਲਾਗ ਆਉਟ"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:5
 msgid "Miscellaneous message"
@@ -68,46 +69,49 @@ msgstr "ਚੈਕ-ਡੱਬਾ ਚੁਣੋ"
 msgid "User interface events"
 msgstr "ਯੂਜਰ-ਇੰਟਰਫੇਸ ਘਟਨਾਵਾਂ"
 
-#: ../libgnome/gnome-exec.c:455
+#: ../libgnome/gnome-exec.c:458
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "ਟਰਮੀਨਲ ਨਹੀ ਲੱਭਿਆ ਹੈ, xterm ਵਰਤਕੇ, ਫਿਰ ਵੀ ਕੰਮ ਨਹੀਂ ਕਰਦਾ ਹੈ"
 
-#: ../libgnome/gnome-gconf.c:180
+#: ../libgnome/gnome-gconf.c:177
 msgid "GNOME GConf Support"
 msgstr "ਗਨੋਮ ਜੀ-ਕਾਨਫ ਸਹਾਇਤਾ"
 
-#: ../libgnome/gnome-help.c:159
+#: ../libgnome/gnome-help.c:170
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "GNOME_FILE_DOMAIN_APP_HELP ਡੋਮੇਨ ਲੱਭਣ ਵਿੱਚ ਅਸਫ਼ਲ"
 
-#: ../libgnome/gnome-help.c:172
+#: ../libgnome/gnome-help.c:183
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "GNOME_FILE_DOMAIN_HELP ਡੋਮੇਨ ਲੱਭਣ ਵਿੱਚ ਅਸਫ਼ਲ"
 
-#: ../libgnome/gnome-help.c:185 ../libgnome/gnome-help.c:200
+#: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
 "ਕਿਉਂਕਿ %s ਇੱਕ ਡਾਇਰੈਕਟਰੀ ਨਹੀ ਹੈ, ਇਸਕਰਕੇ ਸਹਾਇਤਾ ਵੇਖਾਉਣ ਵਿੱਚ ਅਸਫਲ। "
-"ਕਿਰਪਾ ਕਰਕੇ ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
+"ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ ਜੀ।"
 
-#: ../libgnome/gnome-help.c:209 ../libgnome/gnome-help.c:225
+#: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr "%s ਜਾਂ %s ਸਹਾਇਤਾ ਮਾਰਗ ਲੱਭਣ ਵਿੱਚ ਅਸਫ਼ਲ ਹੈ। ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ ਜੀ"
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr ""
-"ਇਸ %s ਜਾਂ %s ਵਿੱਚ ਸਹਾਇਤਾ ਲੱਭਣ ਵਿੱਚ ਅਸਫਲ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ "
-"ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ"
+msgstr "ਇਸ %s ਜਾਂ %s ਵਿੱਚ ਸਹਾਇਤਾ ਲੱਭਣ ਵਿੱਚ ਅਸਫਲ ਹੈ। ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ ਜੀ"
 
-#: ../libgnome/gnome-help.c:339
+#: ../libgnome/gnome-help.c:353
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr "ਸਹਾਇਤਾ ਵਿਚੋਂ ਦਸਤਾਵੇਜ਼ ਸ਼ੰਨ ਨੰ %s ਲੱਭਣ ਵਿੱਚ ਅਸਫਲ ਹੈ"
+msgstr "ਸਹਾਇਤਾ ਵਿਚੋਂ ਦਸਤਾਵੇਜ਼ doc_id %s ਲੱਭਣ ਵਿੱਚ ਅਸਫਲ ਹੈ"
 
-#: ../libgnome/gnome-help.c:360
+#: ../libgnome/gnome-help.c:374
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "ਸਹਾਇਤਾ ਦਸਤਾਵੇਜ਼  %s/%s ਲੱਭਣ ਵਿੱਚ ਅਸਫਲ ਹੈ"
@@ -132,8 +136,8 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"ਮੋਡ 0700 ਦਿੱਤਾ ਨਹੀ ਕੀਤਾ ਜਾ ਸਕਿਆ, ਨਿੱਜੀ ਪ੍ਰਤੀ-ਉਪਭੋਗੀ ਗਨੋਮ-ਸੰਰਚਨਾ ਡਾਇਰੈਕਟਰੀ`%"
-"s' ਉੱਤੇ: %s\n"
+"ਮੋਡ 0700 ਦਿੱਤਾ ਨਹੀ ਕੀਤਾ ਜਾ ਸਕਿਆ, ਨਿੱਜੀ ਪ੍ਰਤੀ-ਉਪਭੋਗੀ ਗਨੋਮ-ਸੰਰਚਨਾ ਡਾਇਰੈਕਟਰੀ`%s' ਉੱਤੇ: %"
+"s\n"
 
 #: ../libgnome/gnome-init.c:411
 #, c-format
@@ -168,176 +172,176 @@ msgstr "ਗਨੋਮ ਲਾਇਬ੍ਰੇਰੀ"
 msgid "Show GNOME options"
 msgstr "ਗਨੋਮ ਚੋਣਾਂ ਵੇਖਾਓ"
 
-#: ../libgnome/gnome-program.c:447
+#: ../libgnome/gnome-program.c:458
 msgid "Popt Table"
 msgstr "ਪੋਪਟ ਸਾਰਣੀ"
 
-#: ../libgnome/gnome-program.c:448
+#: ../libgnome/gnome-program.c:459
 msgid "The table of options for popt"
 msgstr "ਪੋਪਟ ਲਈ ਚੋਣ-ਸਾਰਣੀ"
 
-#: ../libgnome/gnome-program.c:455
+#: ../libgnome/gnome-program.c:466
 msgid "Popt Flags"
 msgstr "ਪੋਪਟ ਨਿਸ਼ਾਨ"
 
-#: ../libgnome/gnome-program.c:456
+#: ../libgnome/gnome-program.c:467
 msgid "The flags to use for popt"
 msgstr "ਪੋਪਟ ਲਈ ਵਰਤਣ ਲਈ ਨਿਸ਼ਾਨ"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:475
 msgid "Popt Context"
 msgstr "ਪੋਪਟ ਪ੍ਰਸੰਗ"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:476
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "ਪੋਪਟ ਪ੍ਰਸੰਗ ਸੰਕੇਤਕ ਜੋ ਕਿ ਗਨੋਮ ਕਾਰਜ ਵਰਤ ਰਿਹਾ ਹੈ"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:484
 msgid "GOption Context"
 msgstr "GOption ਪਰਸੰਗ"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:485
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "goption ਪਰਸੰਗ ਸੰਕੇਤ ਦਿੰਦਾ ਹੈ ਕਿ ਗਨੋਮ-ਪਰੋਗਰਾਮ ਵਰਤਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: ../libgnome/gnome-program.c:482
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name"
 msgstr "ਮਨੁੱਖੀ ਪਡ਼ਨਯੋਗ ਨਾਂ"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:494
 msgid "Human readable name of this application"
 msgstr "ਇਸ ਕਾਰਜ ਦਾ ਮਨੁੱਖੀ ਪਡ਼ਨਯੋਗ ਨਾਂ"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:503
 msgid "GNOME path"
-msgstr "ਗਨੋਮ ਰਾਹ"
+msgstr "ਗਨੋਮ ਮਾਰਗ"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:504
 msgid "Path in which to look for installed files"
 msgstr "ਮਾਰਗ, ਜਿਸ ਤੇ ਇੰਸਟਾਲ ਫਾਇਲਾਂ ਦੀ ਖੋਜ ਕੀਤੀ ਜਾਏ"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:513
 msgid "App ID"
-msgstr "ਕਾਰਜ ਸ਼ੰਨ ਨੰ"
+msgstr "ਕਾਰਜ ID"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:514
 msgid "ID string to use for this application"
-msgstr "ਇਸ ਕਾਰਜ ਲਈ ਵਰਤਣ ਲਈ ਸ਼ੰਨ ਨੰ ਸਤਰ"
+msgstr "ਇਸ ਕਾਰਜ ਲਈ ਵਰਤਣ ਲਈ ID ਸਤਰ"
 
-#: ../libgnome/gnome-program.c:510
+#: ../libgnome/gnome-program.c:521
 msgid "App version"
 msgstr "ਕਾਰਜ ਵਰਜਨ"
 
-#: ../libgnome/gnome-program.c:511
+#: ../libgnome/gnome-program.c:522
 msgid "Version of this application"
 msgstr "ਕਾਰਜ ਦਾ ਵਰਜਨ"
 
-#: ../libgnome/gnome-program.c:518
+#: ../libgnome/gnome-program.c:529
 msgid "GNOME Prefix"
 msgstr "ਗਨੋਮ ਅਗੇਤਰ"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:530
 msgid "Prefix where GNOME was installed"
 msgstr "ਅਗੇਤਰ ਜਿਥੇ ਕਿ ਗਨੋਮ ਇੰਸਟਾਲ ਹੈ"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:539
 msgid "GNOME Libdir"
 msgstr "ਗਨੋਮ Libdir"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:540
 msgid "Library prefix where GNOME was installed"
 msgstr "ਲਾਇਬਰੇਰੀ ਅਗੇਤਰ, ਜਿੱਥੇ ਕਿ ਗਨੋਮ ਇੰਸਟਾਲ ਹੈ"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:549
 msgid "GNOME Datadir"
 msgstr "ਗਨੋਮ Datadir"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:550
 msgid "Data prefix where GNOME was installed"
 msgstr "ਡੈਟਾ ਅਗੇਤਰ, ਜਿਥੇ ਕਿ ਗਨੋਮ ਇੰਸਟਾਲ ਹੈ"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:559
 msgid "GNOME Sysconfdir"
 msgstr "ਗਨੋਮ Sysconfdir"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:560
 msgid "Configuration prefix where GNOME was installed"
 msgstr "ਸੰਰਚਨਾ ਅਗੇਤਰ, ਜਿਥੇ ਕਿ ਗਨੋਮ ਇੰਸਟਾਲ ਹੈ"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:570
 msgid "GNOME App Prefix"
 msgstr "ਗਨੋਮ ਕਾਰਜ ਅਗੇਤਰ"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:571
 msgid "Prefix where this application was installed"
-msgstr "ਅਗੇਤਰ, ਜਿਥੇ ਕਿ ਕਾਰਜ ਇੰਸਟਾਲ ਹੈ"
+msgstr "ਅਗੇਤਰ, ਜਿੱਥੇ ਕਿ ਕਾਰਜ ਇੰਸਟਾਲ ਹੈ"
 
-#: ../libgnome/gnome-program.c:568
+#: ../libgnome/gnome-program.c:579
 msgid "GNOME App Libdir"
 msgstr "ਗਨੋਮ ਕਾਰਜ Libdir"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:580
 msgid "Library prefix where this application was installed"
 msgstr "ਲਾਇਬਰੇਰੀ ਅਗੇਤਰ, ਜਿਥੇ ਕਿ ਇਹ ਕਾਰਜ ਇੰਸਟਾਲ ਹੈ"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:589
 msgid "GNOME App Datadir"
 msgstr "ਗਨੋਮ ਕਾਰਜ Datadir"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:590
 msgid "Data prefix where this application was installed"
 msgstr "ਡੈਟਾ ਅਗੇਤਰ, ਜਿਥੇ ਕਿ ਇਹ ਕਾਰਜ ਇੰਸਟਾਲ ਹੈ"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:599
 msgid "GNOME App Sysconfdir"
 msgstr "ਗਨੋਮ Sysconfdir"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:600
 msgid "Configuration prefix where this application was installed"
 msgstr "ਸੰਰਚਨਾ ਅਗੇਤਰ, ਜਿਥੇ ਕਿ ਇਹ ਕਾਰਜ ਇੰਸਟਾਲ ਹੈ"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:609
 msgid "Create Directories"
 msgstr "ਡਾਇਰੈਕਟਰੀਆਂ ਬਣਾਓ"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:610
 msgid "Create standard GNOME directories on startup"
-msgstr "ਸ਼ੁਰੂ ਵੇਲੇ ਗਨੋਮ ਦੀਆਂ ਮਿਆਰੀ ਡਾਇਰੈਕਟਰੀਆਂ ਬਣਾਓ"
+msgstr "ਸ਼ੁਰੂ ਵੇਲੇ ਸਟੈਂਡਰਡ ਗਨੋਮ ਡਾਇਰੈਕਟਰੀਆਂ ਬਣਾਓ"
 
-#: ../libgnome/gnome-program.c:608
+#: ../libgnome/gnome-program.c:619
 msgid "Enable Sound"
-msgstr "ਧੁਨੀ ਯੋਗ"
+msgstr "ਸਾਊਂਡ ਯੋਗ"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:620
 msgid "Enable sound on startup"
-msgstr "ਸ਼ੁਰੂ ਵੇਲੇ ਧੁਨੀ ਯੋਗ ਕਰੋ"
+msgstr "ਸ਼ੁਰੂ ਵੇਲੇ ਸਾਊਂਡ ਯੋਗ ਕਰੋ"
 
-#: ../libgnome/gnome-program.c:617
+#: ../libgnome/gnome-program.c:628
 msgid "Espeaker"
 msgstr "ਸਪੀਕਰ"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:629
 msgid "How to connect to esd"
 msgstr "esd ਨੂੰ ਕਿਵੇਂ ਜੁਡ਼ਨਾ ਹੈ"
 
-#: ../libgnome/gnome-program.c:1402
+#: ../libgnome/gnome-program.c:1394
 msgid "Help options"
 msgstr "ਸਹਾਇਤਾ ਚੋਣ"
 
-#: ../libgnome/gnome-program.c:1407
+#: ../libgnome/gnome-program.c:1399
 msgid "Application options"
 msgstr "ਕਾਰਜ ਚੋਣ"
 
-#: ../libgnome/gnome-program.c:1423
+#: ../libgnome/gnome-program.c:1415
 msgid "Dynamic modules to load"
 msgstr "ਲੋਡ ਕਰਨ ਲਈ ਡਾਇਨਾਮਿਕ ਮੋਡੀਊਲ"
 
-#: ../libgnome/gnome-program.c:1424
+#: ../libgnome/gnome-program.c:1416
 msgid "MODULE1,MODULE2,..."
 msgstr "ਮੋਡੀਊਲ1,ਮੋਡੀਊਲ2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1507
+#: ../libgnome/gnome-program.c:1505
 #, c-format
 msgid ""
 "%s\n"
@@ -346,55 +350,54 @@ msgstr ""
 "%s\n"
 "ਉਪਲੱਬਧ ਕਮਾਂਡ ਲਾਇਨ ਚੋਣਾਂ ਵੇਖਣ ਤਈ '%s --help' ਚਲਾਓ।\n"
 
-#: ../libgnome/gnome-url.c:84
+#: ../libgnome/gnome-url.c:86
 msgid "Unknown internal error while displaying this location."
 msgstr "ਇਹ ਟਿਕਾਣਾ ਵੇਖਾਉਣ ਸਮੇ ਅਣਜਾਣੀ ਅੰਦਰੂਨੀ ਗਲਤੀ ਹੈ"
 
-#: ../libgnome/gnome-url.c:91
+#: ../libgnome/gnome-url.c:93
 msgid "The specified location is invalid."
 msgstr "ਦਿੱਤਾ ਟਿਕਾਣਾ ਗਲਤ ਹੈ।"
 
-#: ../libgnome/gnome-url.c:98
+#: ../libgnome/gnome-url.c:100
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr "ਇਹ ਟਿਕਾਣੇ ਨਾਲ ਸਬੰਧਤ ਮੂਲ ਕਾਰਵਾਈ-ਕਮਾਂਡ ਨੂੰ ਪਾਰਸ ਕਰਨ ਵਿੱਚ ਗਲਤੀ ਆਈ ਹੈ।"
 
-#: ../libgnome/gnome-url.c:106 ../libgnome/gnome-url.c:172
+#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr "ਇਹ ਟਿਕਾਣੇ ਨਾਲ ਸਬੰਧਤ ਮੂਲ ਕਾਰਵਾਈ-ਕਮਾਂਡ ਨੂੰ ਸ਼ੁਰੂ ਕਰਨ ਵਿੱਚ ਗਲਤੀ ਆਈ ਹੈ।"
 
-#: ../libgnome/gnome-url.c:114
+#: ../libgnome/gnome-url.c:116
 msgid "There is no default action associated with this location."
 msgstr "ਇਹ ਟਿਕਾਣੇ ਨਾਲ ਸਬੰਧਤ ਕੋਈ ਮੂਲ ਕਾਰਵਾਈ ਨਹੀਂ ਹੈ।"
 
-#: ../libgnome/gnome-url.c:121
+#: ../libgnome/gnome-url.c:123
 msgid "The default action does not support this protocol."
-msgstr "ਇਸ ਪਰੋਟੋਕਾਲ ਨੂੰ ਮੂਲ ਕਾਰਵਾਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
+msgstr "ਇਸ ਪ੍ਰੋਟੋਕਾਲ ਨੂੰ ਮੂਲ ਕਾਰਵਾਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: ../libgnome/gnome-url.c:128
+#: ../libgnome/gnome-url.c:130
 msgid "The request was cancelled."
 msgstr "ਬੇਨਤੀ ਰੱਦ ਕੀਤੀ ਗਈ ਹੈ।"
 
-#: ../libgnome/gnome-url.c:138
+#: ../libgnome/gnome-url.c:140
 #, c-format
 msgid "The host \"%s\" could not be found."
 msgstr "ਮੇਜ਼ਬਾਨ \"%s\" ਨਹੀਂ ਲੱਭਿਆ ਹੈ।"
 
-#: ../libgnome/gnome-url.c:144
+#: ../libgnome/gnome-url.c:146
 msgid "The host could not be found."
 msgstr "ਮੇਜ਼ਬਾਨ ਲੱਭਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
 
-#: ../libgnome/gnome-url.c:154
+#: ../libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
 msgstr "ਟਿਕਾਣਾ ਜਾਂ ਫਾਇਲ ਲੱਭੀ ਨਹੀਂ ਜਾ ਸਕੀ ਹੈ।"
 
-#: ../libgnome/gnome-url.c:161
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "ਅਣਜਾਣ ਗਲਤੀ ਕੋਡ:%u"
+#: ../libgnome/gnome-url.c:164
+msgid "The login has failed."
+msgstr "ਲਾਗਇਨ ਫੇਲ੍ਹ ਹੋਇਆ।"
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -432,7 +435,9 @@ msgstr "ਅਯੋਗ, ਜਦੋਂ ਦੋ ਕੀ(ਬਟਨ) ਇੱਕਠੀਆ�
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "ਕਿਸੇ ਕੁੰਜੀ ਨੂੰ ਮਾਨਤਾ ਨਾ ਦਿਓ, ਜਦੋਂ ਤੱਕ ਕਿ ਇਹਨਾਂ ਨੂੰ @delay ਮਿਲੀ ਸਕਿੰਟ ਲਈ ਦਬਾਇਆ ਨਹੀ ਜਾਦਾ ਹੈ"
+msgstr ""
+"ਕਿਸੇ ਕੁੰਜੀ ਨੂੰ ਮਾਨਤਾ ਨਾ ਦਿਓ, ਜਦੋਂ ਤੱਕ ਕਿ ਇਹਨਾਂ ਨੂੰ @delay ਮਿਲੀ ਸਕਿੰਟ ਲਈ "
+"ਦਬਾਇਆ ਨਹੀਂ ਜਾਂਦਾ ਹੈ"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
@@ -448,7 +453,7 @@ msgstr "ਅਧਿਕਤਮ ਗਤੀ ਤੇ ਕਿੰਨੇ ਪਿਕਸਲ ਪ�
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "ਇਕੋ ਸਮੇ ਬਹੁਤੀਆਂ ਸਵਿੱਚਾਂ @delay ਮਿਲੀਸਕਿੰਟ ਦਬਾਉਣ 'ਤੇ ਰੱਦ ਕਰ ਦਿਓ"
+msgstr "ਇਕੋਂ ਸਮੇਂ ਬਹੁਤੀਆਂ ਸਵਿੱਚਾਂ @delay ਮਿਲੀਸਕਿੰਟ ਦਬਾਉਣ 'ਤੇ ਰੱਦ ਕਰ ਦਿਓ"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "how long to accelerate in milliseconds"
@@ -470,11 +475,49 @@ msgstr "ਪਿਕਸਲ ਪ੍ਰਤੀ ਸਕਿੰਟ"
 msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
-msgstr "ਜਦੋ ਗਨੋਮ ਵੇਹਡ਼ਾ ਵਿੱਚ ਦਾਖਲਾ ਹੋਵੇ ਤਾਂ ਸ਼ੁਰੂ ਹੋਣ ਵਾਲੇ ਕਾਰਜਾਂ ਦੀ ਸੂਚੀ"
+msgstr "ਜਦੋਂ ਗਨੋਮ ਵੇਹਡ਼ਾ ਵਿੱਚ ਦਾਖਲਾ ਹੋਵੇ ਤਾਂ ਸ਼ੁਰੂ ਹੋਣ ਵਾਲੇ ਕਾਰਜਾਂ ਦੀ ਸੂਚੀ"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr "ਸ਼ੁਰੂਆਤੀ ਸਹਾਇਕ ਤਕਨੀਕੀ ਕਾਰਜ"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr "ਲਾਗਇਨ ਦੌਰਾਨ ਪਸੰਦੀਦਾ ਮੋਬਾਇਲ ਸਹਾਇਕ ਤਕਨੀਕੀ ਕਾਰਜ ਗਨੋਮ ਵਲੋਂ ਸ਼ੁਰੂ ਕਰਨ ਲਈ"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "ਪਸੰਦੀਦਾ ਮੋਬਾਇਲ ਸਹਾਇਕ ਤਕਨੀਕੀ ਕਾਰਜ"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application be used for login, menu, "
+"or command line"
+msgstr "ਲਾਗਇਨ, ਮੇਨੂ ਜਾਂ ਕਮਾਂਡ ਲਾਇਨ ਵਾਸਤੇ ਪਸੰਦੀਦਾ ਮੋਬਾਇਲ ਸਹਾਇਕ ਤਕਨੀਕੀ ਕਾਰਜ"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "ਪਸੰਦੀਦਾ ਮੋਬਾਇਲ ਸਹਾਇਕ ਤਕਨੀਕੀ ਕਾਰਜ ਚਾਲੂ"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid "GNOME to start preferred Visual assistive technology application during login"
+msgstr "ਲਾਗਇਨ ਦੌਰਾਨ ਪਸੰਦੀਦਾ ਦਿੱਖ ਸਹਾਇਕ ਤਕਨੀਕੀ ਕਾਰਜ ਗਨੋਮ ਵਲੋਂ ਸ਼ੁਰੂ ਕਰਨ ਲਈ"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "ਪਸੰਦੀਦਾ ਦਿੱਖ ਸਹਾਇਕ ਤਕਨੀਕੀ ਕਾਰਜ"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr "ਲਾਗਇਨ, ਮੇਨੂ ਜਾਂ ਕਮਾਂਡ ਲਾਇਨ ਵਾਸਤੇ ਪਸੰਦੀਦਾ ਦਿੱਖ ਸਹਾਇਕ ਤਕਨੀਕੀ ਕਾਰਜ"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "ਪਸੰਦੀਦਾ ਦਿੱਖ ਸਹਾਇਕ ਤਕਨੀਕੀ ਕਾਰਜ ਚਾਲੂ"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -538,20 +581,20 @@ msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
 msgstr ""
-"ਪਹਿਲੇ ਵਰਕਸਪੇਸ ਵਿੱਚ ਝਰੋਖਾ ਮੈਨੇਜਰ ਦੀ ਨਾਂ ਸੂਚੀ ਹੈ। ਇਹ ਕੁੰਜੀ ਗਨੋਮ 2.12 ਵਿੱਚ ਬਰਤਰਫ਼ ਕਰ ਦਿੱਤੀ ਗਈ "
-"ਹੈ।"
+"ਪਹਿਲੇ ਵਰਕਸਪੇਸ ਵਿੱਚ ਝਰੋਖਾ ਮੈਨੇਜਰ ਦੀ ਨਾਂ ਸੂਚੀ ਹੈ। ਇਹ ਕੁੰਜੀ ਗਨੋਮ 2.12 ਵਿੱਚ "
+"ਬਰਤਰਫ਼ ਕਰ ਦਿੱਤੀ ਗਈ ਹੈ।"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
-msgstr "ਫਾਲਬੈਕ ਝਰੋਖਾ ਪਰਬੰਧਕ (ਬਰਤਰਫ਼)"
+msgstr "ਫਾਲਬੈਕ ਝਰੋਖਾ ਮੈਨੇਜਰ (ਬਰਤਰਫ਼)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
 msgstr ""
-"ਫਾਲਬੈਕ ਝਰੋਖਾ ਪਰਬੰਧਕ, ਜੇਕਰ ਉਪਭੋਗੀ ਪਰਬੰਧਕ ਨਾ ਲੱਭਿਆ ਜਾ ਸਕੇ। ਇਹ ਕੁੰਜੀ ਗਨੋਮ 2.12 ਵਿੱਚ ਬਰਤਰਫ਼ "
-"ਕੀਤੀ ਜਾ ਚੁੱਕੀ ਹੈ।"
+"ਫਾਲਬੈਕ ਝਰੋਖਾ ਮੈਨੇਜਰ, ਜੇਕਰ ਉਪਭੋਗੀ ਪਰਬੰਧਕ ਨਾ ਲੱਭਿਆ ਜਾ ਸਕੇ। ਇਹ ਕੁੰਜੀ "
+"ਗਨੋਮ 2.12 ਵਿੱਚ ਬਰਤਰਫ਼ ਕੀਤੀ ਜਾ ਚੁੱਕੀ ਹੈ।"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -566,8 +609,8 @@ msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
 msgstr ""
-"ਵਰਕਸਪੇਸਾਂ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ਝਰੋਖਾ ਪਰਬੰਧਕ ਵਰਤ ਸਕਦੇ ਹਨ। ਇਹ ਕੁੰਜੀ ਨੂੰ ਗਨੋਮ 2.12 ਵਿੱਚ ਬਰਤਰਫ਼ "
-"ਕੀਤਾ ਜਾ ਚੁੱਕਿਆ ਹੈ।"
+"ਵਰਕਸਪੇਸਾਂ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ਝਰੋਖਾ ਪਰਬੰਧਕ ਵਰਤ ਸਕਦੇ ਹਨ। ਇਹ ਕੁੰਜੀ ਨੂੰ ਗਨੋਮ "
+"2.12 ਵਿੱਚ ਬਰਤਰਫ਼ ਕੀਤਾ ਜਾ ਚੁੱਕਿਆ ਹੈ।"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
@@ -586,36 +629,36 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
 msgstr ""
-"ਦੱਸੋ ਕਿ ਪਿੱਠਭੂਮੀ ਦੀ ਫਾਇਲ-ਨਾਂ ਦਾ ਚਿੱਤਰ ਨੂੰ ਕਿਵੇ ਹਾਜ਼ਰ ਕਰਨਾ ਹੈ, ਸੰਭਵ ਮੁੱਲ ਹਨ \"ਕੋਈ ਨਹੀ\", "
-"\"ਕੰਧ-ਚਿੱਤਰ\",\"ਕੇਦਰੀ\",\"ਮਾਪ\",\"ਤਣਿਆ\""
+"ਦੱਸੋ ਕਿ ਬੈਕਗਰਾਊਂਡ ਫਾਇਲ-ਨਾਂ ਦਾ ਚਿੱਤਰ ਨੂੰ ਕਿਵੇਂ ਪੇਸ਼ ਕਰਨਾ ਹੈ, ਸੰਭਵ ਮੁੱਲ ਹਨ \"ਕੋਈ "
+"ਨਹੀਂ\", \"ਕੰਧ-ਚਿੱਤਰ\",\"ਕੇਦਰੀ\",\"ਮਾਪ\",\"ਤਣਿਆ\""
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
-msgstr "ਵੇਹਡ਼ਾ ਪਿੱਠਭੂਮੀ ਬਣਾਓ"
+msgstr "ਡਿਸਕਟਾਪ (ਵੇਹੜਾ) ਬੈਕਗਰਾਊਂਡ ਬਣਾਓ"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:4
 msgid "File to use for the background image"
-msgstr "ਪਿੱਠਭੂਮੀ ਦੇ ਚਿੱਤਰ ਦੇ ਤੌਰ ਤੇ ਵਰਤਣ ਲਈ ਫਾਇਲ ਨਾਂ"
+msgstr "ਬੈਕਗਰਾਊਂਡ ਚਿੱਤਰ ਦੇ ਤੌਰ ਤੇ ਵਰਤਣ ਲਈ ਫਾਇਲ ਨਾਂ"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:5
 msgid "Have GNOME draw the desktop background"
-msgstr "ਕੀ ਗਨੋਮ ਵੇਹਡ਼ੇ ਦੀ ਪਿੱਠਭੂਮੀ ਬਣਾਏ"
+msgstr "ਕੀ ਗਨੋਮ ਵੇਹਡ਼ਾ ਬੈਕਗਰਾਊਂਡ ਬਣਾਏ"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
 msgstr ""
-"ਪਿੱਠਭੂਮੀ ਦੇ ਰੰਗ ਦਾ ਸੇਡ ਕਿਵੇਂ ਹੋਵੇ ਸੰਭਵ ਮੁੱਲ ਹਨ \"ਲੇਟਵਾਂ ਢਾਲਵਾਂ\", \"ਲੰਬਕਾਰੀ ਢਾਲਵਾਂ\" ਅਤੇ "
-"\"ਇਕਸਾਰ\""
+"ਬੈਕਗਰਾਊਂਡ ਦੇ ਰੰਗ ਦਾ ਸੇਡ ਕਿਵੇਂ ਹੋਵੇ ਸੰਭਵ ਮੁੱਲ ਹਨ \"ਲੇਟਵਾਂ ਢਾਲਵਾਂ\", \"ਲੰਬਕਾਰੀ "
+"ਢਾਲਵਾਂ\" ਅਤੇ \"ਇਕਸਾਰ\""
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr "ਜਦੋ ਢਾਲਵਾਂ ਬਣਾਇਆ ਜਾਵੇ ਤਾਂ ਖੱਬੇ ਤੋਂ ਜਾਂ ਉਪੱਰੋ ਜਾਂ ਇਕਸਾਰ ਰੰਗ ਵਰਤਣਾ ਹੈ।"
+msgstr "ਜਦੋਂ ਢਾਲਵਾਂ ਬਣਾਇਆ ਜਾਵੇ ਤਾਂ ਖੱਬੇ ਤੋਂ ਜਾਂ ਉਪੱਰੋ ਜਾਂ ਇਕਸਾਰ ਰੰਗ ਵਰਤਣਾ ਹੈ।"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:8
 msgid "Opacity with which to draw the background picture"
-msgstr "ਧੁੰਦਲਾਪਨ, ਜਿਸ ਨਾਲ ਪਿੱਠਭੂਮੀ ਦੀ ਤਸਵੀਰ ਨੂੰ ਬਣਾਇਆ ਜਾਵੇ"
+msgstr "ਧੁੰਦਲਾਪਨ, ਜਿਸ ਨਾਲ ਬੈਕਗਰਾਊਂਡ ਦੀ ਤਸਵੀਰ ਨੂੰ ਬਣਾਇਆ ਜਾਵੇ"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:9
 msgid "Picture Filename"
@@ -627,7 +670,7 @@ msgstr "ਤਸਵੀਰ ਧੁੰਦਲਾਪਨ"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:11
 msgid "Picture Options"
-msgstr "ਤਸਵੀਰ ਦੀ ਚੋਣ"
+msgstr "ਤਸਵੀਰ ਚੋਣਾਂ"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:12
 msgid "Primary Color"
@@ -635,7 +678,9 @@ msgstr "ਮੁੱਖ ਰੰਗ"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "ਜਦੋ ਢਾਲਵਾਂ ਬਣਾਇਆ ਜਾਵੇ ਤਾਂ ਸੱਜਿਉ ਤੋਂ ਜਾਂ ਥੱਲਿਉ ਜਾਂ ਇਕਸਾਰ ਰੰਗ ਲਈ ਨਹੀ ਵਰਤਿਆ ਜਾ ਸਕਦਾ ਹੈ।"
+msgstr ""
+"ਜਦੋਂ ਢਾਲਵਾਂ ਬਣਾਇਆ ਜਾਵੇ ਤਾਂ ਸੱਜਿਉ ਤੋਂ ਜਾਂ ਥੱਲਿਉ ਜਾਂ ਇਕਸਾਰ ਰੰਗ ਲਈ ਨਹੀਂ "
+"ਵਰਤਿਆ ਜਾ ਸਕਦਾ ਹੈ।"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:14
 msgid "Secondary Color"
@@ -649,229 +694,241 @@ msgstr "ਫਾਇਲ ਆਈਕਾਨ ਸਰੂਪ"
 msgid "Theme used for displaying file icons"
 msgstr "ਸਰੂਪ, ਫਾਇਲ ਆਈਕਾਨ ਵੇਖਾਉਣ ਲਈ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:1
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr "gtk+ ਦੁਆਰਾ ਵਰਤੀ ਜਾਣ ਵਾਲੇ ਮੂਲ ਸਰੂਪ ਲਈ ਆਧਾਰ-ਨਾਂ"
+msgstr "gtk+ ਰਾਹੀਂ ਵਰਤੇ ਜਾਣ ਵਾਲੇ ਮੂਲ ਸਰੂਪ ਲਈ ਆਧਾਰ-ਨਾਂ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:2
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
 msgstr "ਐਸਲ ਤਬਦੀਲ ਕਰ ਸਕਦੇ ਹਨ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
 msgstr "ਝਪਕਦੀ ਕਰਸਰ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
 msgstr "ਕਰਸਰ ਝਪਕਣ ਸਮਾਂ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
 msgstr "ਮੂਲ ਫੋਂਟ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Document font"
 msgstr "ਦਸਤਾਵੇਜ਼ ਫੋਂਟ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
 msgstr "ਸੁਲੱਭਤਾ ਯੋਗ ਕਰੋ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
 msgstr "ਸਜੀਵਤਾ ਯੋਗ ਕਰੋ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "GTK IM Preedit Style"
 msgstr "GTK IM ਪਰੀਆਡਿਟ ਸ਼ੈਲੀ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Status Style"
 msgstr "GTK IM ਹਾਲਤ ਸ਼ੈਲੀ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "Gtk+ Theme"
 msgstr "Gtk+ ਸਰੂਪ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Icon Theme"
 msgstr "ਆਈਕਾਨ ਸਰੂਪ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "ਪੈਨਲ, ਨਟਾਲਿਸ ਆਦਿ ਲਈ ਵਰਤਣ ਲਈ ਆਈਕਾਨ ਸਰੂਪ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "ਮੇਨੂ ਪੱਟੀਆਂ ਖੋਲਣ ਲਈ ਕੀ-ਬੋਰਡ ਸ਼ਾਰਟਕੱਟ ਹਨ।"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "ਕਰਸਰ ਝਪਕਣ ਦੀ ਲੰਬਾਈ (ਮਿਲੀਸਕਿੰਟ ਵਿੱਚ)"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Menubar Detachable"
 msgstr "ਮੇਨੂ-ਸੂਚੀ-ਪੱਟੀ ਵੱਖ ਹੋਣ ਯੋਗ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar accelerator"
 msgstr "ਮੇਨੂ-ਪੱਟੀ ਪਰਵੇਸ਼ਕ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menus Have Icons"
 msgstr "ਮੇਨੂ-ਸੂਚੀ ਵਿੱਚ ਆਈਕਾਨ ਹੋਣ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Tearoff"
 msgstr "ਮੇਨੂ-ਸੂਚੀ ਵਿੱਚ ਭਾਗ ਹੋਣ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Module for GtkFileChooser"
 msgstr "ਜੀਟੀਕੇ ਫਾਇਲ ਚੋਣਕਾਰ ਲਈ ਮੋਡੀਊਲ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
-"GtkFileChooser ਵਿਦਗਿਟ ਲਈ ਫਾਇਲ ਸਿਸਟਮ ਵਰਤਣ ਲਈ ਮੇਡੀਊਲ "
-"ਸੰਭਵ ਮੁੱਲ \"gnome-vfs\" ਅਤੇ \"gtk+\" ਹਨ"
+"GtkFileChooser ਵਿਦਗਿਟ ਲਈ ਫਾਇਲ ਸਿਸਟਮ ਵਰਤਣ ਲਈ ਮੋਡੀਊਲ ਸੰਭਵ "
+"ਮੁੱਲ \"gnome-vfs\" ਅਤੇ \"gtk+\" ਹਨ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Monospace font"
 msgstr "ਮੋਨੋਸਪੇਸ ਫੋਂਟ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "ਮੋਨੋਸਪੇਸਡ (ਨਿਸ਼ਚਿਤ ਚੌਡ਼ਾਈ) ਫੋਂਟ ਦਾ ਨਾਂ, ਟਰਮੀਨਲ ਆਦਿ ਸਥਿਤੀਆਂ ਵਿੱਚ ਵਰਤਣ ਲਈ।"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr "gtk+ ਦੁਆਰਾ ਵਰਤੇ ਜਾਣ ਵਾਲੇ GTK+ ਇੰਨਪੁੱਟ ਤਰੀਕਾ ਪਰੀਆਡਿਟ ਸ਼ੈਲੀ ਦਾ ਨਾਂ"
+msgstr "gtk+ ਰਾਹੀਂ ਵਰਤੇ ਜਾਣ ਵਾਲੇ GTK+ ਇੰਨਪੁੱਟ ਤਰੀਕਾ ਪਰੀਆਡਿਟ ਸ਼ੈਲੀ ਦਾ ਨਾਂ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "gtk+ ਦੁਆਰਾ ਵਰਤੇ ਜਾਣ ਵਾਲੇ GTK+ ਇੰਨਪੁੱਟ ਤਰੀਕਾ ਸਥਿਤੀ ਸ਼ੈਲੀ ਦਾ ਨਾਂ"
+msgstr "gtk+ ਰਾਹੀਂ ਵਰਤੇ ਜਾਣ ਵਾਲੇ GTK+ ਇੰਨਪੁੱਟ ਤਰੀਕਾ ਸਥਿਤੀ ਸ਼ੈਲੀ ਦਾ ਨਾਂ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the default font used by gtk+."
-msgstr "gtk+ ਦੁਆਰਾ ਵਰਤੇ ਜਾਦੇ ਮੂਲ ਫੋਂਟ ਦਾ ਨਾਂ"
+msgstr "gtk+ ਵਲੋਂ ਵਰਤੇ ਜਾਂਦੇ ਮੂਲ ਫੋਂਟ ਦਾ ਨਾਂ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used for reading documents"
 msgstr "ਦਸਤਾਵੇਜ਼ ਪੜਨ ਲਈ ਵਰਤੇ ਜਾਣ ਵਾਲੇ ਮੂਲ ਫੋਂਟਾਂ ਦਾ ਨਾਂ ਹੈ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Show the 'Input Methods' menu"
 msgstr "'ਇੰਪੁੱਟ ਢੰਗ' ਮੇਨੂ ਵੇਖਾਓ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "'ਯੂਨੀਕੋਡ ਕੰਟਰੋਲ ਅੱਖਰ' ਮੇਨੂ ਵੇਖਾਓ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Status Bar on Right"
 msgstr "ਸੱਜੇ ਪਾਸੇ ਹਾਲਤ-ਪੱਟੀ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "ਸੰਦਪੱਟੀ ਵਿੱਚ ਵੇਖਣ ਲਈ ਆਈਕਾਨਾਂ ਦਾ ਅਕਾਰ ਦਿਓ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Toolbar Detachable"
 msgstr "ਸੰਦਪੱਟੀ ਵੱਖ ਹੋਣ ਯੋਗ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "ਸੰਦਪੱਟੀ ਆਈਕਾਨ ਅਕਾਰ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Style"
 msgstr "ਸੰਦਪੱਟੀ ਸ਼ੈਲੀ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr "ਸੰਦਪੱਟੀ ਸ਼ੈਲੀ ਹੈ। ਸੰਭਵ ਮੁੱਲ ਹਨ \"ਦੋਂਵੇ\", \"ਦੋਂਵੇ ਲੇਟਵੇਂ\", \"ਆਈਕਾਨ\" ਅਤੇ \"ਪਾਠ\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Use Custom Font"
 msgstr "ਸੋਧੇ ਫੋਂਟ ਵਰਤੋਂ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "ਕੀ ਕਾਰਜ ਨੂੰ ਸੁਲੱਭਤਾ ਸਹਾਇਤਾ ਲੋਡ਼ੀਦੀ ਹੈ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
-msgstr "ਕੀ ਸਜੀਵਤਾ ਵੇਖਾਈ ਜਾਵੇ। ਇਹ ਗਲੋਬ ਕੁੰਜੀ ਹੈ, ਇਹ ਝਰੋਖਾ ਪਰਬੰਧਕ, ਪੈਨਲ ਆਦਿ ਦਾ ਰਵੱਈਆ ਬਦਲ ਸਕਦੀ ਹੈ"
+msgstr ""
+"ਕੀ ਸਜੀਵਤਾ ਵੇਖਾਈ ਜਾਵੇ। ਇਹ ਗਲੋਬ ਕੁੰਜੀ ਹੈ, ਇਹ ਝਰੋਖਾ ਮੈਨੇਜਰ, ਪੈਨਲ ਆਦਿ "
+"ਦਾ ਰਵੱਈਆ ਬਦਲ ਸਕਦੀ ਹੈ।"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr "ਕੀ ਮੇਨੂ-ਸੂਚੀ, ਮੇਨੂ-ਸੂਚੀ ਇਕਾਈ ਦੇ ਅੱਗੇ ਆਈਕਾਨ ਵੇਖਾਵੇ"
+msgstr "ਕੀ ਮੇਨੂ, ਮੇਨੂ-ਸੂਚੀ ਇਕਾਈ ਦੇ ਅੱਗੇ ਆਈਕਾਨ ਵੇਖਾਵੇ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether menus should have a tearoff"
-msgstr "ਕੀ ਮੇਨੂ-ਸੂਚੀ ਵਿੱਚ ਭਾਗ ਹੋਣ"
+msgstr "ਕੀ ਮੇਨੂ ਵਿੱਚ ਭਾਗ ਹੋਣ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
 msgstr "ਕੀ ਇੰਦਰਾਜ਼ਾਂ ਅਤੇ ਪਾਠ ਝਲਕ ਦੇ ਮੇਨੂ ਇੰਦਰਾਜ਼ਾਂ ਲਈ ਇੰਪੁੱਟ ਢੰਗ ਬਦਲਣ ਸਹਾਇਕ ਹੈ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
 msgstr "ਕੀ ਇੰਦਰਾਜ਼ਾਂ ਅਤੇ ਪਾਠ ਝਲਕ ਦੇ ਮੇਨੂ ਇੰਦਰਾਜ਼ਾਂ ਲਈ ਕੰਟਰੋਲ ਅੱਖਰ ਦੇਣ ਲਈ ਸਹਾਇਕ ਹੈ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "ਕੀ ਕਰਸਰ ਝਪਕਣੀ ਚਾਹੀਦੀ ਹੈ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "ਕੀ ਉਪਭੋਗੀ ਮੇਨੂ-ਸੂਚੀ-ਪੱਟੀ ਨੂੰ ਵੱਖ ਕਰਕੇ ਅਤੇ ਏਧਰ-ਓਧਰ ਕਰ ਸਕੇ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "ਕੀ ਉਪਭੋਗੀ ਸੰਦਪੱਟੀ ਨੂੰ ਵੱਖ ਕਰਕੇ ਅਤੇ ਏਧਰ-ਓਧਰ ਕਰ ਸਕੇ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
-"Whether the user can dynamically type a new accelerator when a menu is "
-"popped up"
-msgstr "ਕੀ ਉਪਭੋਗੀ ਮੌਕੇ ਤੇ ਨਵਾਂ ਐਕਸਲੇਟਰ ਬਣਾ ਸਕੇ ਜਦੋ ਕਿ ਮੇਨੂ-ਸੂਚੀ ਨੂੰ ਖੋਲ਼ਿਆ ਜਾਵੇ"
+"Whether the user can dynamically type a new accelerator when positioned over "
+"an active menuitem"
+msgstr ""
+"ਕੀ ਉਪਭੋਗੀ ਮੌਕੇ ਤੇ ਨਵਾਂ ਐਕਸਲੇਟਰ ਬਣਾ ਸਕੇ, ਜਦੋਂ ਸਥਿਤੀ ਇੱਕ ਸਰਗਰਮ "
+"ਮੇਨੂ-ਇਕਾਈ ਉੱਤੇ ਹੋਵੇ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "ਕੀ ਸੱਜੇ ਪਾਸੇ ਹਾਲਤ-ਪੱਟੀ ਮੀਟਰ ਵੇਖਾਵੇ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "ਕੀ gtk+ ਕਾਰਜਾਂ ਲਈ ਸੋਧੋ ਫੋਂਟ ਵਰਤਣੇ ਹਨ"
+msgstr "ਕੀ gtk+ ਕਾਰਜਾਂ ਲਈ ਸੋਧੋ ਫੋਂਟ ਵਰਤਣੇ ਹਨ।"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
 msgstr "ਕਮਾਂਡ ਲਾਇਨ ਨੂੰ ਅਯੋਗ ਕਰੋ"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable lock screen"
+msgstr "ਸਕਰੀਨ ਲਾਕ ਆਯੋਗ"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "ਪਰਿੰਟਰ ਸੈੱਟਅੱਪ ਆਯੋਗ"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
-msgid "Disable printing"
-msgstr "ਛਾਪਣ ਨੂੰ ਅਯੋਗ ਕਰੋ"
-
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
-msgid "Disable saving files to disk"
-msgstr "ਫਾਇਲ ਨੂੰ ਡਿਸਕ 'ਤੇ ਸੰਭਾਲਣ ਨੂੰ ਅਯੋਗ ਕਰੋ"
+msgid "Disable printing"
+msgstr "ਛਾਪਣਾ ਅਯੋਗ ਕਰੋ"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+msgid "Disable saving files to disk"
+msgstr "ਫਾਇਲ ਨੂੰ ਡਿਸਕ 'ਤੇ ਸੰਭਾਲਣ ਅਯੋਗ ਕਰੋ"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "ਉਪਭੋਗੀ ਸਵਿੱਚ ਕਰਨਾ ਆਯੋਗ"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -880,27 +937,37 @@ msgstr ""
 "ਉਪਭੋਗੀ ਨੂੰ ਟਰਮੀਨਲ ਜਾਂ ਖਾਸ ਕਮਾਂਡ ਲਾਈਨਾਂ ਨੂੰ ਚਲਾਉਣ ਨੂੰ ਸੋਧਣ ਤੋਂ ਰੋਕ ਦਿਓ ਜਿਵੇਂ "
 "ਕਿ, ਪੈਨਲ ਵਿੱਚ \"ਕਾਰਜ ਚਲਾਓ\" ਵਾਰਤਾਲਾਪ ਨੂੰ ਅਯੋਗ ਕਰ ਦਿਓ।"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
-"ਉਪਭੋਗੀ ਨੂੰ ਪਰਿੰਟਰ ਦਾ ਸੈੱਟਅੱਪ ਨੂੰ ਸੋਧਣ ਤੋਂ ਰੋਕ ਦਿਓ। ਜਿਵੇਂ ਕਿ, ਹਰੇਕ ਕਾਰਜ ਵਿੱਚ \"ਪਰਿੰਟਰ ਸੈੱਟਅੱਪ\" "
-"ਵਾਰਤਾਲਾਪ ਨੂੰ ਅਯੋਗ ਕਰ ਦੇਵੇਗਾ।"
+"ਉਪਭੋਗੀ ਨੂੰ ਪਰਿੰਟਰ ਦਾ ਸੈੱਟਅੱਪ ਨੂੰ ਸੋਧਣ ਤੋਂ ਰੋਕ ਦਿਓ। ਜਿਵੇਂ ਕਿ, ਹਰੇਕ ਕਾਰਜ ਵਿੱਚ "
+"\"ਪਰਿੰਟਰ ਸੈੱਟਅੱਪ\" ਵਾਰਤਾਲਾਪ ਨੂੰ ਅਯੋਗ ਕਰ ਦੇਵੇਗਾ।"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
 msgstr "ਉਪਭੋਗੀ ਨੂੰ ਛਾਪਣ ਤੋਂ ਰੋਕ ਦਿਉ ਜਿਵੇਂ ਕਿ, ਹਰੇਕ ਕਾਰਜ ਵਿੱਚ \"ਛਾਪੋ\" ਵਾਰਤਾਲਾਪ ਨੂੰ ਅਯੋਗ ਕਰ ਦੇਵੇਗਾ।"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
-"ਉਪਭੋਗੀ ਨੂੰ ਫਾਇਲ ਨੂੰ ਡਿਸਕ ਉੱਤੇ ਸੰਭਾਲਣ ਤੋਂ ਰੋਕੇ ਜਿਵੇਂ ਕਿ, ਹਰੇਕ ਕਾਰਜ ਵਿੱਚ \"ਇੰਜ ਸੰਭਾਲੋ\" ਵਾਰਤਾਲਾਪ ਨੂੰ "
-"ਅਯੋਗ ਕਰ ਦੇਵੇਗਾ।"
+"ਉਪਭੋਗੀ ਨੂੰ ਫਾਇਲ ਨੂੰ ਡਿਸਕ ਉੱਤੇ ਸੰਭਾਲਣ ਤੋਂ ਰੋਕੇ ਜਿਵੇਂ ਕਿ, ਹਰੇਕ ਕਾਰਜ ਵਿੱਚ \"ਇੰਜ "
+"ਸੰਭਾਲੋ\" ਵਾਰਤਾਲਾਪ ਨੂੰ ਅਯੋਗ ਕਰ ਦੇਵੇਗਾ।"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr "ਉਪਭੋਗੀ ਨੂੰ ਆਪਣਾ ਸ਼ੈਸ਼ਨ ਸਰਗਰਮ ਰੱਖਣ ਦੌਰਾਨ ਹੋਰ ਖਾਤੇ ਵਿੱਚ ਬਦਲਣ ਤੋਂ ਰੋਕਦੀ ਹੈ।"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "ਉਪਭੋਗੀ ਵਲੋਂ ਆਪਣੀ ਸਕਰੀਨ ਤਾਲਾਬੰਦ ਕਰਨ ਤੋਂ ਰੋਕੋ।"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -908,7 +975,7 @@ msgstr "ਘੰਟੀ ਦੀ ਅਵਾਜ਼ ਚਲਾਉਣ ਲਈ ਫਾਇਲ 
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr "ਕੀ-ਬੋਰਡ ਦੀ ਘੰਟੀ ਲਈ ਪਸੰਦੀਦਾ ਫਾਇਲ ਨਾਂ"
+msgstr "ਕੀ-ਬੋਰਡ ਘੰਟੀ ਲਈ ਪਸੰਦੀਦਾ ਫਾਇਲ ਨਾਂ"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "Remember NumLock state"
@@ -918,7 +985,7 @@ msgstr "ਨਮ-ਲਾਕ (NumLock) ਹਾਲਤ ਯਾਦ ਰੱਖੋ"
 msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
-msgstr "ਜਦੋਂ ਸਹੀਂ ਦਿੱਤਾ ਗਿਆ ਤਾਂ ਗਨੋਮ ਨਮ-ਲਾਕ LED ਦੀ ਹਾਲਤ ਅਜਲਾਸ ਦੌਰਾਨ ਯਾਦ ਰੱਖੇਗਾ।"
+msgstr "ਜਦੋਂ ਸਹੀਂ ਦਿੱਤਾ ਗਿਆ ਤਾਂ ਗਨੋਮ ਨਮ-ਲਾਕ LED ਦੀ ਹਾਲਤ ਸ਼ੈਸ਼ਨ ਦੌਰਾਨ ਯਾਦ ਰੱਖੇਗਾ।"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -947,20 +1014,20 @@ msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
 msgstr ""
-"ਕਸਸਰ ਸਰੂਪ ਨਾਂ। ਉਹਨਾਂ Xservers ਵਲੋਂ ਹੀ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ, ਜੋ Xcursor ਸਹਿਯੋਗੀ ਹੋਵੇ, ਜਿਵੇਂ ਕਿ "
-"XFree86 4.3 ਅਤੇ ਨਵਾਂ"
+"ਕਸਸਰ ਸਰੂਪ ਨਾਂ। ਉਹਨਾਂ Xservers ਵਲੋਂ ਹੀ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ, ਜੋ Xcursor "
+"ਸਹਿਯੋਗੀ ਹੋਵੇ, ਜਿਵੇਂ ਕਿ XFree86 4.3 ਅਤੇ ਨਵਾਂ।"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
-msgstr "ਚੁੱਕਣ ਦੀ ਕਿਰਿਆ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਦੂਰੀ"
+msgstr "ਚੁੱਕਣ ਦੀ ਕਿਰਿਆ ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਦੂਰੀ"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
-"ਦੂਰੀ ਪਿਕਸਲਾਂ ਵਿੱਚ ਜੋ ਕਿ ਸੰਕੇਤਕ ਨੂੰ ਤਹਿ ਕਰਨੀ ਪਵੇ ਤਾਂਕਿ ਐਕਸਲੇਟਿਡ ਮਾਊਸ ਗਤੀ ਸਰਗਰਮ ਹੋ ਸਕੇ "
-"ਮੁੱਲ -1 ਮੁੱਲ ਸਿਸਟਮ ਦਾ ਮੂਲ ਹੈ।"
+"ਦੂਰੀ ਪਿਕਸਲਾਂ ਵਿੱਚ ਜੋ ਕਿ ਸੰਕੇਤਕ ਨੂੰ ਤਹਿ ਕਰਨੀ ਪਵੇ ਤਾਂਕਿ ਐਕਸਲੇਟਿਡ ਮਾਊਸ ਗਤੀ ਸਰਗਰਮ ਹੋ ਸਕੇ ਮੁੱਲ -"
+"1 ਮੁੱਲ ਸਿਸਟਮ ਦਾ ਮੂਲ ਹੈ।"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -976,9 +1043,8 @@ msgid ""
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"ਕਰਸਰ ਲਈ ਫੋਂਟ ਨਾਂ, ਜੇਕਰ ਨਾ ਦਿੱਤਾ ਤਾਂ ਮੂਲ ਫੋਂਟ ਹੀ ਵਰਤੇ ਜਾਣਗੇ ਇਹ ਤਾਂ X ਸਰਵਰ ਨੂੰ ਸ਼ੁਰੂ "
-"ਵੇਲੇ ਹੀ ਮਿਲ ਜਾਦੇ ਹਨ, ਇਸ ਕਰਕੇ ਅਜਲਾਸ ਵਿੱਚਕਾਰ ਬਦਲਣ ਨਾਲ ਕੋਈ ਫਰਕ ਨਹੀਂ ਪੈਦਾ, "
-"ਜਦ ਤੱਕ ਮੁਡ਼ ਚਾਲੂ ਨਹੀ ਕਰਦੇ।"
+"ਕਰਸਰ ਲਈ ਫੋਂਟ ਨਾਂ, ਜੇਕਰ ਨਾ ਦਿੱਤਾ ਤਾਂ ਮੂਲ ਫੋਂਟ ਹੀ ਵਰਤੇ ਜਾਣਗੇ ਇਹ ਤਾਂ X ਸਰਵਰ ਨੂੰ ਸ਼ੁਰੂ ਵੇਲੇ ਹੀ ਮਿਲ "
+"ਜਾਂਦੇ ਹਨ, ਇਸ ਕਰਕੇ ਸ਼ੈਸ਼ਨ ਵਿੱਚਕਾਰ ਬਦਲਣ ਨਾਲ ਕੋਈ ਫਰਕ ਨਹੀਂ ਪੈਦਾ, ਜਦ ਤੱਕ ਮੁਡ਼ ਚਾਲੂ ਨਹੀ ਕਰਦੇ।"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -1008,7 +1074,7 @@ msgstr "ਇੱਕ ਵਾਰ ਦਬਾਓ"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons"
-msgstr "ਆਈਕਾਨ ਖੋਲਣ ਲਈ ਇੱਕ ਵਾਰ ਦਬਾਓ"
+msgstr "ਆਈਕਾਨ ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਵਾਰ ਦਬਾਓ"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
@@ -1019,20 +1085,36 @@ msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "ਖੱਬੇ-ਹੱਥ ਵਾਲੇ ਮਾਊਸ ਲਈ ਖੱਬਾ ਅਤੇ ਸੱਜਾ ਮਾਊਸ ਬਟਨ ਨੂੰ ਫਡ਼ੋ"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "ਮੂਲ ਮਿਕਸਰ ਜੰਤਰ"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "ਮੂਲ ਮਿਕਸਰ ਟਰੈਕ"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "ESD ਯੋਗ"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "ਸ਼ੁਰੂਆਤ 'ਤੇ ਸਾਊਡ ਸਰਵਰ ਨੂੰ ਯੋਗ"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "ਘਟਨਾਵਾਂ ਲਈ ਆਵਾਜ਼"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr "ਮਲਟੀਮੀਡਿਆ ਸਵਿੱਚ-ਬਾਈਡਿੰਗ ਰਾਹੀਂ ਵਰਤਣ ਲਈ ਮਿਕਸਰ ਜੰਤਰ ਹੈ।"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr "ਮਲਟੀਮੀਡਿਆ ਸਵਿੱਚ-ਬਾਈਡਿੰਗ ਰਾਹੀਂ ਵਰਤਣ ਲਈ ਮਿਕਸਰ ਟਰੈਕ ਹਨ।"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
-msgstr "ਕੀ ਉਪਭੋਗੀ ਘਟਨਾਵਾਂ ਲਈ ਅਵਾਜ਼ਾਂ ਨੂੰ ਜਾਰੀ ਕਰਨਾ ਹੈ।"
+msgstr "ਕੀ ਉਪਭੋਗੀ ਘਟਨਾਵਾਂ ਲਈ ਅਵਾਜ਼ਾਂ ਨੂੰ ਚਲਾਉਣਾ ਹੈ।"
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
@@ -1043,8 +1125,8 @@ msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
-"ਹਰੇਕ ਬਾਹਰੀ ਥੰਬਨੇਲਰ ਨੂੰ ਅਯੋਗ ਕਰੋ ਨੂੰ ਸੱਚ ਨਿਰਧਾਰਿਤ ਕਰਨ ਲਈ, ਇਹ ਵੇਖੇ ਬਿਨਾਂ ਕਿ "
-"ਇੱਕਲਾ-ਇੱਕਲਾ ਅਯੋਗ/ਯੋਗ ਹੈ ਜਾਂ ਨਹੀਂ।"
+"ਹਰੇਕ ਬਾਹਰੀ ਥੰਬਨੇਲਰ ਨੂੰ ਅਯੋਗ ਕਰੋ ਨੂੰ ਸੱਚ ਨਿਰਧਾਰਿਤ ਕਰਨ ਲਈ, ਇਹ ਵੇਖੇ ਬਿਨਾਂ "
+"ਕਿ ਇੱਕਲਾ-ਇੱਕਲਾ ਅਯੋਗ/ਯੋਗ ਹੈ ਜਾਂ ਨਹੀਂ।"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
