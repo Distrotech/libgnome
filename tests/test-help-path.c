@@ -32,7 +32,6 @@
 #include <unistd.h>
 
 #include <string.h>
-#include <glib.h>
 #include <stdlib.h>
 #include <libgnome/gnome-program.h>
 #include <libgnome/gnome-help.h>

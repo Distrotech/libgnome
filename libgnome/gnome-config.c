@@ -31,7 +31,6 @@
 #include <strings.h>
 #include <stdio.h>
 #include <time.h>
-#include <string.h>
 #include <unistd.h>	/* unlink() */
 #include <stdlib.h>	/* atoi() */
 #include <sys/types.h>
