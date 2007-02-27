@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-14 13:52+0200\n"
+"POT-Creation-Date: 2007-02-27 15:48+0200\n"
 "PO-Revision-Date: 2007-01-14 14:07+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -103,13 +103,13 @@ msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"Nepavyko rasti žinyno rinkmenų nei %s, nei %s. Patikrinkite ar įdiegta "
+"Nepavyko rasti žinyno failų nei %s, nei %s. Patikrinkite ar įdiegta "
 "korektiškai."
 
 #: ../libgnome/gnome-help.c:353
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr "Nepavyko aptikti doc_id rinkmenų %s žinyno dokumentų kelyje"
+msgstr "Nepavyko aptikti doc_id failų %s žinyno dokumentų kelyje"
 
 #: ../libgnome/gnome-help.c:374
 #, c-format
@@ -162,7 +162,7 @@ msgstr "KOMPIUTERIS:PRIEVADAS"
 
 #: ../libgnome/gnome-init.c:506
 msgid "GNOME Virtual Filesystem"
-msgstr "GNOME virtuali rinkmenų sistema"
+msgstr "GNOME virtuali failų sistema"
 
 #: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
 msgid "GNOME Library"
@@ -218,7 +218,7 @@ msgstr "GNOME kelias"
 
 #: ../libgnome/gnome-program.c:504
 msgid "Path in which to look for installed files"
-msgstr "Vieta, kurioje reikia ieškoti įdiegtų rinkmenų"
+msgstr "Vieta, kurioje reikia ieškoti įdiegtų failų"
 
 #: ../libgnome/gnome-program.c:513
 msgid "App ID"
@@ -394,7 +394,7 @@ msgstr "Nepavyko rasti kompiuterio."
 
 #: ../libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
-msgstr "Nepavyko rasti vietos arba rinkmenos."
+msgstr "Nepavyko rasti vietos arba failo."
 
 #: ../libgnome/gnome-url.c:164
 msgid "The login has failed."
@@ -657,7 +657,7 @@ msgstr "Piešti darbalaukio foną"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:4
 msgid "File to use for the background image"
-msgstr "Rinkmena naudotina fono paveikslėliui"
+msgstr "Failas naudotinas fono paveikslėliui"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:5
 msgid "Have GNOME draw the desktop background"
@@ -683,7 +683,7 @@ msgstr "Foninio piešinio nepermatomumas"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:9
 msgid "Picture Filename"
-msgstr "Paveikslėlio rinkmenos pavadinimas"
+msgstr "Paveikslėlio failo pavadinimas"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:10
 msgid "Picture Opacity"
@@ -709,11 +709,11 @@ msgstr "Antrinė spalva"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:1
 msgid "File Icon Theme"
-msgstr "Rinkmenų piktogramų tema"
+msgstr "Failų piktogramų tema"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons"
-msgstr "Tema naudojama rodyti rinkmenų piktogramas"
+msgstr "Tema naudojama rodyti failų piktogramas"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -765,7 +765,7 @@ msgstr "Piktogramų tema"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
-msgstr "Piktogramų tema, naudotina skydelui, rinkmenų naršyklei ir t.t."
+msgstr "Piktogramų tema, naudotina skydeliui, failų naršyklei ir t.t."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
@@ -800,7 +800,7 @@ msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
-"Modulis naudojamas kaip rinkmenų sistemos modelis GtkFileChooser valdymo "
+"Modulis naudojamas kaip failų sistemos modelis GtkFileChooser valdymo "
 "elementui. Galimos reikšmės yra „gnome-vfs“ ir „gtk+“."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
@@ -816,7 +816,8 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr "GTK+ įvedimo metodo, kurį naudos gtk+ su Preedit Stiliumi, pavadinimas."
+msgstr ""
+"GTK+ įvedimo metodo, kurį naudos gtk+ su Preedit Stiliumi, pavadinimas."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
@@ -953,7 +954,7 @@ msgstr "Atjungti spausdinimą"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
-msgstr "Atjungti rinkmenų saugojimą į diską"
+msgstr "Atjungti failų saugojimą į diską"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid "Disable user switching"
@@ -991,7 +992,7 @@ msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
-"Užkirsti kelią naudotojui išsaugoti rinkmenas į diską. Pvz., naudojant šį "
+"Užkirsti kelią naudotojui išsaugoti failus į diską. Pvz., naudojant šį "
 "nustatymą visose programose dialogas „Išsaugoti kaip“ bus neprieinamas."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
@@ -1007,11 +1008,11 @@ msgstr "Neleisti naudotojui užrakinti jo ekrano."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
-msgstr "Sisteminio garso signalo rinkmenos vardas."
+msgstr "Sisteminio garso signalo failo vardas."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr "Speciali klaviatūros varpelio rinkmena"
+msgstr "Klaviatūros varpelio failas"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "Remember NumLock state"
