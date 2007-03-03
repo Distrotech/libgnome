@@ -2,18 +2,17 @@
 # Dutch translation of libgnome.
 # Copyright (C) 2002, 2004 Free Software Foundation, Inc.
 # Commentaar:
-# Tino Meinen <a.t.meinen@chello.nl>, 2002, 2006.
+# Tino Meinen <a.t.meinen@chello.nl>, 2002, 2006, 2007.
 # Reinout van Schouwen <reinout@cs.vu.nl>, 2002-2005
 # Vincent van Adrighem <V.vanAdrighem@dirck.mine.nu>, 2003, 2004.
-# Wouter Bolsterlee <wbolster@gnome.org>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-03 13:20+0100\n"
-"PO-Revision-Date: 2007-03-03 13:20+0100 \n"
-"Last-Translator: Wouter Bolsterlee <wbolster@gnome.org>\n"
+"POT-Creation-Date: 2007-01-10 14:19+0000\n"
+"PO-Revision-Date: 2007-02-24 16:52+0100\n"
+"Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -94,10 +93,11 @@ msgid ""
 msgstr ""
 "Kan hulptekst niet tonen omdat %s geen map is. Controleer uw installatie."
 
+# punt aan het eind van de zin ontbreekt in het Engels
 #: ../libgnome/gnome-help.c:220
 #, c-format
 msgid "Unable to find help paths %s or %s.Please check your installation"
-msgstr "Kan hulpbestanden ‘%s’ of ‘%s’ niet vinden. Controleer uw installatie."
+msgstr "Kan hulppaden %s of %s niet vinden. Controleer uw installatie."
 
 #: ../libgnome/gnome-help.c:236
 #, c-format
@@ -403,7 +403,7 @@ msgstr "De locatie of het bestand was onvindbaar."
 
 #: ../libgnome/gnome-url.c:164
 msgid "The login has failed."
-msgstr "Inloggen is mislukt."
+msgstr "Het aanmelden is mislukt."
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -499,47 +499,43 @@ msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
 "login"
 msgstr ""
-"Of Gnome de assisterende technologie-toepassinn voor mobiliteit moet starten "
-"na inloggen."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+#, fuzzy
 msgid "Preferred Mobility assistive technology application"
-msgstr "Geprefereerde assisterende technologie-toepassing voor mobiliteit"
+msgstr "Opstarten van assisterende technologie-toepassingen"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application be used for login, menu, "
 "or command line"
 msgstr ""
-"Geprefereerde assisterende technologie-toepassing voor mobiliteit die bij "
-"inloggen, het menu en de opdrachtregel gebruikt moet worden."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+#, fuzzy
 msgid "Start preferred Mobility assistive technology application"
-msgstr "Opstarten van assisterende technologie-toepassing voor mobiliteit"
+msgstr "Opstarten van assisterende technologie-toepassingen"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Visual assistive technology application during login"
 msgstr ""
-"Of Gnome de assisterende technologie-toepassing voor visuele hulp moet "
-"starten na inloggen."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+#, fuzzy
 msgid "Preferred Visual assistive technology application"
-msgstr "Geprefereerde assisterende technologie-toepassing voor visuele hulp"
+msgstr "Opstarten van assisterende technologie-toepassingen"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
 "or command line"
 msgstr ""
-"Geprefereerde assisterende technologie-toepassing voor visuele hulp die bij "
-"inloggen, het menu en de opdrachtregel gebruikt moet worden."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+#, fuzzy
 msgid "Start preferred Visual assistive technology application"
-msgstr "Opstarten van assisterende technologie-toepassing voor visuele hulp"
+msgstr "Opstarten van assisterende technologie-toepassingen"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -873,7 +869,8 @@ msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr ""
-"Werkbalkstijl. Geldige waarden zijn ‘both’, ‘both_horiz’, ‘icons’ en ‘text’"
+"Werkbalkstijl. Geldige waarden zijn \"both\", \"both_horiz\", \"icons\" en "
+"\"text\""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Use Custom Font"
@@ -952,9 +949,11 @@ msgstr "Of gtk+-toepassingen een aangepast lettertype moeten gebruiken."
 msgid "Disable command line"
 msgstr "Opdrachtregel uitschakelen"
 
+# vastzetten/beveiligen
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+#, fuzzy
 msgid "Disable lock screen"
-msgstr "Schermvergrendeling uitschakelen"
+msgstr "Scherm vastzetten uitschakelen"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
@@ -970,7 +969,7 @@ msgstr "Opslaan van bestanden naar schijf uitschakelen"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid "Disable user switching"
-msgstr "‘Gebruiker wisselen’ uitschakelen"
+msgstr "Wisselen van gebruiker uitschakelen"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
@@ -1013,11 +1012,10 @@ msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
 msgstr ""
-"Voorkomen dat van gebruiker gewisseld kan worden als de sessie actief is"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid "Prevent the user to lock his screen."
-msgstr "Voorkomen dat de gebruiker het scherm kan vergrendelen"
+msgstr ""
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -1144,11 +1142,11 @@ msgstr "Links en rechts omdraaien voor linkshandige muizen"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
-msgstr "Standaard mixerapparaat"
+msgstr "Standaard mixer"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:2
 msgid "Default mixer tracks"
-msgstr "Standaard mixersporen"
+msgstr "Standaard mixer-schuiven"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
@@ -1164,12 +1162,11 @@ msgstr "Geluiden voor gebeurtenissen"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:6
 msgid "The default mixer device used by the multimedia key bindings."
-msgstr ""
-"Het mixerapparaat dat standaard gebruikt wordt voor de multimediatoetsen"
+msgstr "De standaard mixer die bediend wordt door de multimedia toetsbindingen."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:7
 msgid "The default mixer tracks used by the multimedia key bindings."
-msgstr "De mixersporen die gebruikt worden voor de multimediatoetsen."
+msgstr "De standaard mixer-schuiven die bediend worden door de multimedia toetsbindingen."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
