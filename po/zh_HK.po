@@ -1,15 +1,16 @@
-# Chinese (Taiwan) translation of libgnome.
-# Copyright (C) 2001-2006 Free Software Foundation, Inc.
+# Chinese (Hong Kong) translation of libgnome.
+# Copyright (C) 2001-07 Free Software Foundation, Inc.
 # Abel Cheung <abel@oaka.org>, 2001-04, 06.
-#
+# 
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.15.2\n"
+"Project-Id-Version: libgnome 2.18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-01 23:31+0200\n"
-"PO-Revision-Date: 2006-08-01 15:08+0800\n"
-"Last-Translator: Abel Cheung <abel@oaka.org>\n"
-"Language-Team: Chinese (Taiwan) <community@linuxhall.org>\n"
+"POT-Creation-Date: 2007-03-01 03:15+0000\n"
+"PO-Revision-Date: 2007-03-04 14:28+0800\n"
+"Last-Translator: Woodman Tuen <wmtuen@gmail.com>\n"
+"Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,7 +86,12 @@ msgid ""
 "installation."
 msgstr "無法顯示說明文件，因為 %s 不是目錄。請檢查是否已正確安裝軟件。"
 
-#: ../libgnome/gnome-help.c:220 ../libgnome/gnome-help.c:236
+#: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr "找不到說明文件的路徑  %s 或 %s。請檢查安裝是否正確。"
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -308,24 +314,24 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "如何連上 esd"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1394
 msgid "Help options"
 msgstr "求助選項"
 
-#: ../libgnome/gnome-program.c:1401
+#: ../libgnome/gnome-program.c:1399
 msgid "Application options"
 msgstr "程式選項"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1415
 msgid "Dynamic modules to load"
 msgstr "準備載入的模組"
 
-#: ../libgnome/gnome-program.c:1418
+#: ../libgnome/gnome-program.c:1416
 msgid "MODULE1,MODULE2,..."
 msgstr "模組 1，模組 2，..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1507
+#: ../libgnome/gnome-program.c:1505
 #, c-format
 msgid ""
 "%s\n"
@@ -348,7 +354,7 @@ msgid ""
 "location."
 msgstr "在讀取處理這個位置的預設指令時發生分析錯誤。"
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:174
+#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -375,14 +381,13 @@ msgstr "找不到主機“%s”。"
 msgid "The host could not be found."
 msgstr "找不到主機。"
 
-#: ../libgnome/gnome-url.c:156
+#: ../libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
 msgstr "找不到位置或是檔案。"
 
-#: ../libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "不明的錯誤碼：%u"
+#: ../libgnome/gnome-url.c:164
+msgid "The login has failed."
+msgstr "登入失敗。"
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -467,6 +472,45 @@ msgstr "當登入 GNOME 桌面時，會啟動這些有輔助技術的程式"
 msgid "Startup Assistive Technology Applications"
 msgstr "進入桌面時啟動的輔助技術程式"
 
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr "在登入時 GNOME 會執行偏好的行動輔助科技"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "偏好的行動輔助科技程式"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application be used for login, menu, "
+"or command line"
+msgstr "偏好的行動輔助科技可以用作登入、選單及命令列"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "執行偏好的行動輔助科技程式"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Visual assistive technology application during login"
+msgstr "在登入時 GNOME 會執行偏好的視覺輔助科技"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "偏好的視覺輔助科技程式"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr "偏好的視覺輔助科技可以用作登入、選單及命令列"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "執行偏好的視覺輔助科技程式"
+
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
 msgstr "瀏覽器需要終端機方可運作"
@@ -531,8 +575,7 @@ msgstr "當啟動的程式需要終端機時，使用哪個終端機程式"
 msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
-msgstr ""
-"一系列視窗總管預設使用的工作區名稱。這設定鍵自 GNOME 2.12 已不鼓勵再使用。"
+msgstr "一系列視窗總管預設使用的工作區名稱。這設定鍵自 GNOME 2.12 已不鼓勵再使用。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
@@ -542,9 +585,7 @@ msgstr "後備視窗總管（不鼓勵再使用）"
 msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
-msgstr ""
-"當找不到用戶首選的視窗總管時，執行這裏指定的後備視窗總管。這設定鍵自 GNOME "
-"2.12 已不鼓勵再使用。"
+msgstr "當找不到用戶首選的視窗總管時，執行這裏指定的後備視窗總管。這設定鍵自 GNOME 2.12 已不鼓勵再使用。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -577,9 +618,7 @@ msgstr "背景顏色顯示方式"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr ""
-"決定 wallpaper_filename 中指定的圖像如何顯示。可使用的值"
-"為：“none”、“wallpaperd”、“centered”、“scaled”、“stretched”。"
+msgstr "決定 wallpaper_filename 中指定的圖像如何顯示。可使用的值為：“none”、“wallpaperd”、“centered”、“scaled”、“stretched”。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:3
 msgid "Draw Desktop Background"
@@ -597,9 +636,7 @@ msgstr "顯示 GNOME 桌面的桌布"
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
-msgstr ""
-"繪畫背景顏色的方式。可使用的值為“horizontal-gradient”、“vertical-"
-"gradient”及“solid”"
+msgstr "繪畫背景顏色的方式。可使用的值為“horizontal-gradient”、“vertical-gradient”及“solid”"
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -641,212 +678,208 @@ msgstr "檔案圖示主題"
 msgid "Theme used for displaying file icons"
 msgstr "顯示檔案圖示所使用的圖示主題"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:1
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
 msgstr "gtk+ 預設使用的佈景主題的名稱。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:2
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
 msgstr "可更改捷徑鍵"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
 msgstr "游標可閃爍"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
 msgstr "游標閃爍周期"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
 msgstr "預設字型"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Document font"
 msgstr "文件字型"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
 msgstr "啟用無障礙環境"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
 msgstr "啟用動畫"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "GTK IM Preedit Style"
 msgstr "GTK 輸入法 Preedit 區域樣式"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Status Style"
 msgstr "GTK 輸入法狀態樣式"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "Gtk+ Theme"
 msgstr "Gtk+ 佈景主題"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Icon Theme"
 msgstr "圖示佈景主題"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "在面板、nautilus 等等中使用的圖示主題"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "用來開啟選單列的鍵盤快捷鍵。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "游標閃爍的周期，以毫秒計算"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Menubar Detachable"
 msgstr "選單列可卸離視窗"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar accelerator"
 msgstr "選單列捷徑鍵"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menus Have Icons"
 msgstr "選單可出現圖示"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Tearoff"
 msgstr "顯示可將選單卸離選單列的元件"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooser 所使用的模組"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
-msgstr ""
-"GtkFileChooser 元件所使用的模組，不同模組會以不同的方式顯示檔案系統。可能的值"
-"為“gnome-vfs”或者“gtk+”。"
+msgstr "GtkFileChooser 元件所使用的模組，不同模組會以不同的方式顯示檔案系統。可能的值為“gnome-vfs”或者“gtk+”。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Monospace font"
-msgstr "固定寬度字型"
+msgstr "固定闊度字型"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr "在例如終端機等地方使用的固定寬度字型"
+msgstr "在例如終端機等地方使用的固定闊度字型"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "GTK+ 輸入法所使用的 Preedit 區域樣式的名稱。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "GTK+ 輸入法所使用的「狀態區域」樣式的名稱。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the default font used by gtk+."
 msgstr "gtk+ 選用的預設字型名稱。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used for reading documents"
 msgstr "閱讀文件的預設字型名稱。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Show the 'Input Methods' menu"
 msgstr "顯示「輸入法」選單"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Show the 'Unicode Control Character' menu"
-msgstr "顯示「統一碼控制字元」選單"
+msgstr "顯示「統一碼控制字符」選單"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Status Bar on Right"
 msgstr "狀態列在右邊"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "指定工具列中的圖示大小"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Toolbar Detachable"
 msgstr "工具列可卸離視窗"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "工具列圖示大小"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Style"
 msgstr "工具列樣式"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr "工具列樣式。有效的值為“both”、“both_horiz”、“icon”及“text”"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Use Custom Font"
 msgstr "使用自選字型"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "程式應否支援無障礙環境"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
-msgstr ""
-"應否平滑地移動桌面的各種視窗元件。請注意：這是整體的設定，它會更改視窗總管、"
-"面板等等的運作方式。"
+msgstr "應否平滑地移動桌面的各種視窗元件。請注意：這是整體的設定，它會更改視窗總管、面板等等的運作方式。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "選單項目旁邊應否顯示圖示"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "應否顯示可讓選單卸離選單列的元件"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
 msgstr "文字輸入欄和文字顯示元件中的選單應否顯示輸入法選擇"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
-msgstr "文字輸入欄和文字顯示元件中的選單應否顯示統一碼控制字元的選擇"
+msgstr "文字輸入欄和文字顯示元件中的選單應否顯示統一碼控制字符的選擇"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "游標可否閃爍"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "用戶可否卸離及移動選單列"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "用戶可否卸離及移動工具列"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
 msgstr "當位置在使用中選單項目上時使用者能否在中隨時設定捷徑鍵"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "進度列是否在右邊顯示"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "gtk+ 程式會否使用自選字型。"
 
@@ -855,47 +888,59 @@ msgid "Disable command line"
 msgstr "禁止使用指令列"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
-msgid "Disable print setup"
-msgstr "禁止更改列印設定"
+msgid "Disable lock screen"
+msgstr "停用畫面上鎖"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
-msgid "Disable printing"
-msgstr "禁止列印"
+msgid "Disable print setup"
+msgstr "禁止更改打印設定"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+msgid "Disable printing"
+msgstr "禁止打印"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "禁止將檔案儲存至磁碟"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "停用使用者切換"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
-msgstr ""
-"禁止用戶使用虛擬終端機或者從指令列執行指令。譬如說，本設定會令面板中的「執行"
-"程式」對話方塊失效。"
-
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
-msgid ""
-"Prevent the user from modifying print settings. For example, this would "
-"disable access to all applications' \"Print Setup\" dialogs."
-msgstr ""
-"禁止用戶修改列印設定。譬如說，本設定會令所有應用軟件的「列印設定」對話方塊失"
-"效。"
-
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
-msgid ""
-"Prevent the user from printing. For example, this would disable access to "
-"all applications' \"Print\" dialogs."
-msgstr "禁止用戶列印。譬如說，本設定會令所有應用軟件的「列印」對話方塊失效。"
+msgstr "禁止用戶使用虛擬終端機或者從指令列執行指令。譬如說，本設定會令面板中的「執行程式」對話方塊失效。"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all applications' \"Print Setup\" dialogs."
+msgstr "禁止用戶修改打印設定。譬如說，本設定會令所有應用軟件的「打印設定」對話方塊失效。"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all applications' \"Print\" dialogs."
+msgstr "禁止用戶打印。譬如說，本設定會令所有應用軟件的「打印」對話方塊失效。"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
+msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
-msgstr ""
-"禁止用戶將檔案儲存進磁碟。譬如說，本設定會令所有應用軟件的「另存新檔」對話方"
-"塊失效。"
+msgstr "禁止用戶將檔案儲存進磁碟。譬如說，本設定會令所有應用軟件的「另存新檔」對話方塊失效。"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr "當作業階段正在使用時，防止使用者切換到另一個帳戶。"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "防止使用者鎖定螢幕。"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -941,9 +986,7 @@ msgstr "鼠標主題"
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
-msgstr ""
-"這個是鼠標主題名稱，只適用於支援 Xcursor 的 X 伺服程式，例如 XFree86 4.3 或以"
-"後的版本。"
+msgstr "這個是鼠標主題名稱，只適用於支援 Xcursor 的 X 伺服程式，例如 XFree86 4.3 或以後的版本。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -968,10 +1011,7 @@ msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
-msgstr ""
-"載有鼠標的檔案名稱。如果沒有設定，會使用預設的鼠標檔。本設定值只會在作業階段"
-"開始時傳送至 X 伺服程式，因此使用 X Window 時更改設定是不會生效的，必須登出再"
-"登入後才會生效。"
+msgstr "載有鼠標的檔案名稱。如果沒有設定，會使用預設的鼠標檔。本設定值只會在作業階段開始時傳送至 X 伺服程式，因此使用 X Window 時更改設定是不會生效的，必須登出再登入後才會生效。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -1012,18 +1052,34 @@ msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "在左手滑鼠模式中，左右按鈕的功能會互換"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "預設混音裝置"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "預設混音聲道"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "啟用 ESD"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "啟動時開啟音效伺服程式。"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "代表事件的音效"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr "多媒體按鍵組合使用的預設混音裝置"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr "多媒體按鍵組合使用的預設混音聲道"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "當出現不同事件時播放代表該事件的音效。"
 
@@ -1035,9 +1091,7 @@ msgstr "停止使用任何製作縮圖的程式"
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
-msgstr ""
-"如設定為“true”，會停止產生任何縮圖，而不理會各種製作縮圖的程式是否已經個別被"
-"啟用或者停止使用"
+msgstr "如設定為“true”，會停止產生任何縮圖，而不理會各種製作縮圖的程式是否已經個別被啟用或者停止使用"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
@@ -1070,3 +1124,6 @@ msgstr "是否鎖定鍵盤"
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "可否暫時延後進入休息畫面的時間。"
+
+#~ msgid "Unknown error code: %u"
+#~ msgstr "不明的錯誤碼：%u"
