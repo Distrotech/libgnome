@@ -1,5 +1,5 @@
 # Serbian translation of libgnome
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2003, 2004, 2005, 2006.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2003, 2004, 2005, 2006, 2007.
 #
 # This file is distributed under the same license as the libgnome package.
 #
@@ -7,14 +7,15 @@
 # Reviewed on 2004-02-02 by: Бојан Сузић <bojans@teol.net>
 # Reviewed on 2005-07-09 by: Данило Шеган <danilo@gnome.org>
 # Reviewed on 2005-09-03 by: Данило Шеган <danilo@gnome.org>
+# Translated on 2006-02-21 by Слободан Д. Средојевић <slobo@akrep.be>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-03 18:27+0200\n"
-"PO-Revision-Date: 2006-02-21 01:59+0100\n"
-"Last-Translator: Слободан Д. Средојевић <slobo@akrep.be>\n"
+"POT-Creation-Date: 2007-01-10 14:19+0000\n"
+"PO-Revision-Date: 2007-03-11 16:03+0100\n"
+"Last-Translator: Горан Ракић <grakic@devbase.net>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -94,7 +95,14 @@ msgstr ""
 "Не може да прикаже помоћ пошто %s није директоријум. Проверите вашу "
 "инсталацију."
 
-#: ../libgnome/gnome-help.c:220 ../libgnome/gnome-help.c:236
+#: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr ""
+"Не може да пронађе путање са помоћним датотекама ни у %s ни у %s. Проверите вашу "
+"инсталацију."
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -331,24 +339,24 @@ msgstr "Е-звучник"
 msgid "How to connect to esd"
 msgstr "Како да успостави везу са esd-ом"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1394
 msgid "Help options"
 msgstr "Помоћне опције"
 
-#: ../libgnome/gnome-program.c:1401
+#: ../libgnome/gnome-program.c:1399
 msgid "Application options"
 msgstr "Опције програма"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1415
 msgid "Dynamic modules to load"
 msgstr "Учитај динамичке модуле"
 
-#: ../libgnome/gnome-program.c:1418
+#: ../libgnome/gnome-program.c:1416
 msgid "MODULE1,MODULE2,..."
 msgstr "МОДУЛ1,МОДУЛ2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1507
+#: ../libgnome/gnome-program.c:1505
 #, c-format
 msgid ""
 "%s\n"
@@ -372,7 +380,7 @@ msgid ""
 "location."
 msgstr "Дошло је до грешке при обради подразумеване наредбе за ову путању."
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:174
+#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -399,14 +407,13 @@ msgstr "Не могу да пронађем рачунар „%s“."
 msgid "The host could not be found."
 msgstr "Не могу да пронађем рачунар."
 
-#: ../libgnome/gnome-url.c:156
+#: ../libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
 msgstr "Место или датотека нису могли бити пронађени."
 
-#: ../libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "Непознат код грешке: %u"
+#: ../libgnome/gnome-url.c:164
+msgid "The login has failed."
+msgstr "Пријава није успела."
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -497,7 +504,52 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
-msgstr "Почетни програми за испомоћ"
+msgstr "Програми за испомоћ на почетку"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr ""
+"Да ли Гном треба да покрене омиљени програм за моторичку испомоћ при пријави у окружење"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "Омиљени програм за моторичку испомоћ"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+"Омиљени програм за моторичку испомоћ који се користи за пријаву, мени или "
+"рад у командној линији"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "Покрени омиљени програм за моторичку испомоћ"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Visual assistive technology application during login"
+msgstr ""
+"Да ли Гном треба да покрене омиљени програм за визуелну испомоћ при пријави у окружење"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "Омиљени програм за визуелну испомоћ"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+"Омиљени програм за визуелну испомоћ који се користи за пријаву, мени или "
+"рад у командној линији"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "Покрени омиљени програм за визуелну испомоћ"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -685,88 +737,88 @@ msgstr "Тема икона за датотеке"
 msgid "Theme used for displaying file icons"
 msgstr "Тема која се користи за приказивање икона за датотеке"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:1
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
 msgstr "Основно име уобичајене теме коју користи Гтк+."
 
 # bug: accels -> accelerators
-#: ../schemas/desktop_gnome_interface.schemas.in.h:2
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
 msgstr "Дозвољена измена пречица"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
 msgstr "Треперење курсора"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
 msgstr "Период трептаја курсора"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
 msgstr "Уобичајен словни лик"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Document font"
 msgstr "Словни лик за документе"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
 msgstr "Омогући приступачност"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
 msgstr "Омогући анимације"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "GTK IM Preedit Style"
 msgstr "GTK IM Стил предуноса"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Status Style"
 msgstr "GTK IM Стил стања"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "Gtk+ Theme"
 msgstr "Гтк+ тема"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Icon Theme"
 msgstr "Тема икона"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Тема икона која се користи за панел, Наутилус, итд."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Пречица са тастатуре за отварање менија."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Дужина периода треперења курсора, у милисекундама"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Menubar Detachable"
 msgstr "Одвојив основни мени"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar accelerator"
 msgstr "Пречица за основни мени"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menus Have Icons"
 msgstr "Менији садрже иконе"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Tearoff"
 msgstr "Мени се може откинути"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Module for GtkFileChooser"
 msgstr "Део за избор датотека (GtkFileChooser)"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -774,77 +826,77 @@ msgstr ""
 "Део за начин избора датотека помоћу елемента GtkFileChooser. Дозвољене "
 "вредности су „gnome-vfs“ и „gtk+“."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Monospace font"
 msgstr "Словни лик утврђене ширине"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Име словног лика подједнаке ширине који се користе на местима као што је "
 "нпр. терминал."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Име Гтк+ IM стила предуноса који користи Гтк+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Име Гтк+ IM стила стања који користи Гтк+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the default font used by gtk+."
 msgstr "Име уобичајеног писма које користи Гтк+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used for reading documents"
 msgstr "Име уобичајеног фонта за читање докумената"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Show the 'Input Methods' menu"
 msgstr "Прикажи мени „Начин уноса“"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "Покажи мени Управљачки Уникод знак"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Status Bar on Right"
 msgstr "Стање на десној страни"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Ово одређује величину икона које се приказују међу алаткама"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Toolbar Detachable"
 msgstr "Одвојиве алатке"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "Величина икона на палети алатки"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Style"
 msgstr "Стил палете алатки"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr ""
 "Стил алатки. Дозвољене вредности су „both“, „both_horiz“, „icon“ и „text“"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Use Custom Font"
 msgstr "Прилагоди словни лик"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "Да ли програми садрже подршку за приступачност"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -852,15 +904,15 @@ msgstr ""
 "Да ли се приказују анимације. Напомена: ово је општи кључ, и измениће "
 "понашање управника прозора, панела, итд."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Да ли се приказује икона поред ставке у менију"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "Да ли је меније могуће откинути"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
@@ -868,7 +920,7 @@ msgstr ""
 "Да ли помоћни менији изнад ставки и текста треба да понуде могућност промене "
 "начина уноса"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
@@ -876,19 +928,19 @@ msgstr ""
 "Да ли помоћни менији изнад ставки и текста треба да понуде могућност уметања "
 "контролног знака"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "Да ли курсор треба да трепери"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Да ли корисник може да одвоји основне меније и да их помера наоколо"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Да ли корисник може да одвоји алатке и да их помера наоколо"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
@@ -896,11 +948,11 @@ msgstr ""
 "Да ли корисник може динамички да постави нову пречицу када је означена "
 "ставка у менију"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "Да ли да прикаже стање на десној страни прозора"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Да ли да користи произвољни фонт у Гтк+ програмима."
 
@@ -909,18 +961,26 @@ msgid "Disable command line"
 msgstr "Искључи ред наредби"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable lock screen"
+msgstr "Искључи закључавање екрана"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "Искључи подешавање штампе"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "Искључи штампу"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "Искључи чување датотека на диск"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "Искључи промену корисника"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -929,7 +989,7 @@ msgstr ""
 "Спречи корисника да приступа терминалу или да издаје наредбу за извршење.  "
 "На пример, ово ће онемогућити приступ прозорчету „Покрени програм“ са панела."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -937,7 +997,7 @@ msgstr ""
 "Спречи корисника да мења подешавања штампе.  На пример, ово ће онемогућити "
 "приступ прозорчету „Подешавање штампе“ из сваког програма."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -945,13 +1005,25 @@ msgstr ""
 "Спречи корисника да штампа.  На пример, ово ће онемогућити приступ "
 "прозорчету „Штампај“ из сваког програма."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
 "Спречи корисника да чува датотеке на диску.  На пример, ово ће онемогућити "
 "приступ прозорчету „Сачувај као“ из сваког програма."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr ""
+"Спречи корисника да се пријави под другим налогом док је његова сесија "
+"у току."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "Спречи корисника да закључа екран."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -1074,18 +1146,34 @@ msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "Замени лево и десно дугме миша за леворуке"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "Уобичајени уређај за звук"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "Уобичајни канали уређаја за звук"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "Омогући ЕСД"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "Покрени звучни сервер при покретању."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "Звуци за догађаје"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr "Уобичајни уређај за звук на који ће се односити мултимедијалне пречице на тастатури."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr "Уобичајни канали уређаја за звук на које ће се односити мултимедијалне пречице на тастатури."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "Да ли да пусти звук при корисниковим догађајима."
 
@@ -1132,6 +1220,9 @@ msgstr "Да ли је или није укључено закључавање �
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Да ли се може одложити екран за одмор од куцања."
+
+#~ msgid "Unknown error code: %u"
+#~ msgstr "Непознат код грешке: %u"
 
 #~ msgid ""
 #~ "Cursor theme name. Used only by Xservers that support Xcursor, such as "
