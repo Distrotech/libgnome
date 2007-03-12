@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.ta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-06-07 07:10+0200\n"
+"POT-Creation-Date: 2007-01-10 14:19+0000\n"
 "PO-Revision-Date: 2006-06-08 16:06+0530\n"
 "Last-Translator: Felix <ifelix@redhat.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -19,7 +19,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"\n"
 "\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
@@ -72,28 +73,37 @@ msgstr "பயனர் இடைமுகம் நிகழ்வுகள்"
 
 #: ../libgnome/gnome-exec.c:458
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "முனையம் ஒன்றைக் கண்டுபிடிக்க முடியவில்லை, இயக்க முடியாவிட்டாலும், xterm பயன்படுத்தும்"
+msgstr ""
+"முனையம் ஒன்றைக் கண்டுபிடிக்க முடியவில்லை, இயக்க முடியாவிட்டாலும், xterm பயன்படுத்தும்"
 
 #: ../libgnome/gnome-gconf.c:177
 msgid "GNOME GConf Support"
 msgstr "குனோம் GConf ஆதரவளிப்பு"
 
-#: ../libgnome/gnome-help.c:169
+#: ../libgnome/gnome-help.c:170
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "GNOME_FILE_DOMAIN_APP_HELP களம் கண்டுபிடிக்க முடியவில்லை"
 
-#: ../libgnome/gnome-help.c:182
+#: ../libgnome/gnome-help.c:183
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "GNOME_FILE_DOMAIN_HELP களம் கண்டுபிடிக்க முடியவில்லை"
 
-#: ../libgnome/gnome-help.c:195 ../libgnome/gnome-help.c:210
+#: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr "%s ஓர் அடைவு இல்லாததால், உதவி காண்பிக்க முடியவில்லை. உங்கள் நிறுவலை சரிபார்க்கவும்"
+msgstr ""
+"%s ஓர் அடைவு இல்லாததால், உதவி காண்பிக்க முடியவில்லை. உங்கள் நிறுவலை சரிபார்க்கவும்"
 
-#: ../libgnome/gnome-help.c:219 ../libgnome/gnome-help.c:235
+#: ../libgnome/gnome-help.c:220
+#, fuzzy, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr ""
+"உதவிக் கோப்புகளை %s இல் அல்லது %s இல் கண்டுபிடிக்க முடியவில்லை. உங்கள் நிறுவலை "
+"சரிபார்க்கவும்"
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -102,12 +112,12 @@ msgstr ""
 "உதவிக் கோப்புகளை %s இல் அல்லது %s இல் கண்டுபிடிக்க முடியவில்லை. உங்கள் நிறுவலை "
 "சரிபார்க்கவும்"
 
-#: ../libgnome/gnome-help.c:352
+#: ../libgnome/gnome-help.c:353
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "உதவிப் பாதையில் doc_id %s ஐ கண்டுபிடிக்க முடியவில்லை"
 
-#: ../libgnome/gnome-help.c:373
+#: ../libgnome/gnome-help.c:374
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "%s/%s உதவி ஆவணம் காணவில்லை"
@@ -320,24 +330,24 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "esdஉடன் எப்படி இணைத்து கொள்வது"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1394
 msgid "Help options"
 msgstr "உதவி விருப்பத்தேர்வுகள்"
 
-#: ../libgnome/gnome-program.c:1401
+#: ../libgnome/gnome-program.c:1399
 msgid "Application options"
 msgstr "பயன்பாட்டு விருப்பத்தேர்வுகள்"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1415
 msgid "Dynamic modules to load"
 msgstr "ஏற்ற வேண்டிய இயங்குநிலை கூறுகள்"
 
-#: ../libgnome/gnome-program.c:1418
+#: ../libgnome/gnome-program.c:1416
 msgid "MODULE1,MODULE2,..."
 msgstr "கூறு1,கூறு2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1507
+#: ../libgnome/gnome-program.c:1505
 #, c-format
 msgid ""
 "%s\n"
@@ -360,7 +370,7 @@ msgid ""
 "location."
 msgstr "இந்த இடத்தோடு தொடர்புடைய கட்டளையை பயன்படுத்தும் போது பகுத்தலில் பிழை நேர்ந்தது"
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:174
+#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -387,14 +397,13 @@ msgstr "புரவலன் \"%s\" ஐ காண முடியவில்�
 msgid "The host could not be found."
 msgstr "புரவலனை காண முடியவில்லை."
 
-#: ../libgnome/gnome-url.c:156
+#: ../libgnome/gnome-url.c:157
 msgid "The location or file could not be found."
 msgstr "இடம் அல்லது கோப்பினை காண முடியவில்லை."
 
-#: ../libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "தெரியாத பிழைக் குறி: %u"
+#: ../libgnome/gnome-url.c:164
+msgid "The login has failed."
+msgstr ""
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -431,15 +440,18 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "ஒரே நேரத்தில் இரண்டு விசைகள் அழுத்தப்படும்போது முடக்குசெய்."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "@தாமதம் மில்லிநொடிகளுக்கு அழுத்தப்படும் வரை, விசை அழுத்தப்பட்டதாக ஏற்றுக்கொள்ள வேண்டாம்"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr ""
+"@தாமதம் மில்லிநொடிகளுக்கு அழுத்தப்படும் வரை, விசை அழுத்தப்பட்டதாக ஏற்றுக்கொள்ள வேண்டாம்"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "0 விலிருந்து ஆகக்கூடிய வேகத்தை அடைவதற்கு எத்தனை மில்லிநொடிகள்"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
 msgstr "சுட்டி நகர்த்தல் விசைகளை தொடங்குவதற்கு எத்தனை மில்லிநொடிகள் காத்திருக்க வேண்டும்"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
@@ -470,10 +482,54 @@ msgstr "நொடியில் எத்தனை பிக்செல்க�
 msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop"
-msgstr "க்னோம் மேல்மேசைக்குள் நுழையும் போது பங்கெடுத்துக்கொள்ளும் தொழில்நுட்ப பயன்பாடுகளின் பட்டியல்"
+msgstr ""
+"க்னோம் மேல்மேசைக்குள் நுழையும் போது பங்கெடுத்துக்கொள்ளும் தொழில்நுட்ப பயன்பாடுகளின் பட்டியல்"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
+msgstr "கைகொடுக்கும் தொழில்நுட்ப பயன்பாடுகள் துவக்கம்"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+#, fuzzy
+msgid "Preferred Mobility assistive technology application"
+msgstr "கைகொடுக்கும் தொழில்நுட்ப பயன்பாடுகள் துவக்கம்"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+#, fuzzy
+msgid "Start preferred Mobility assistive technology application"
+msgstr "கைகொடுக்கும் தொழில்நுட்ப பயன்பாடுகள் துவக்கம்"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Visual assistive technology application during login"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+#, fuzzy
+msgid "Preferred Visual assistive technology application"
+msgstr "கைகொடுக்கும் தொழில்நுட்ப பயன்பாடுகள் துவக்கம்"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+#, fuzzy
+msgid "Start preferred Visual assistive technology application"
 msgstr "கைகொடுக்கும் தொழில்நுட்ப பயன்பாடுகள் துவக்கம்"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
@@ -518,7 +574,8 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "கொடாநிலை உதவி-காட்டி இயக்குவதற்கு முனையம் வேண்டுமா"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr "'exec' விசையால் குறிப்பிடப்பட்ட முனையத்தில் இயங்கும் நிரல்களின் அளவுரு"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
@@ -538,8 +595,8 @@ msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
 msgstr ""
-"முதல் சாளர மேலாளர் பணியிடங்களின் பெயர்களிடங்கிய பட்டியல். GNOME 2.12லிருந்து "
-"இந்த விசை எதிரிடையானது."
+"முதல் சாளர மேலாளர் பணியிடங்களின் பெயர்களிடங்கிய பட்டியல். GNOME 2.12லிருந்து இந்த விசை "
+"எதிரிடையானது."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
@@ -550,8 +607,8 @@ msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
 msgstr ""
-"பயனர் சாளரமேலாளர் காணாவிட்டால், பின்சார்ந்த சாளரமேலாளர். GNOME 2.12லிருந்து "
-"இந்த விசை எதிரிடையானது."
+"பயனர் சாளரமேலாளர் காணாவிட்டால், பின்சார்ந்த சாளரமேலாளர். GNOME 2.12லிருந்து இந்த விசை "
+"எதிரிடையானது."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -566,16 +623,18 @@ msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
 msgstr ""
-"சாளரமேலாளர் எத்தனை பணிஇடங்களை பயன்படுத்தவேண்டும். GNOME 2.12லிருந்து "
-"இந்த விசை எதிரிடையானது."
+"சாளரமேலாளர் எத்தனை பணிஇடங்களை பயன்படுத்தவேண்டும். GNOME 2.12லிருந்து இந்த விசை "
+"எதிரிடையானது."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
 msgstr "பயனர் சாளரமேலாளர் (எதிரிடையானது)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
-msgstr "சாளர மேலாளர் முதலில் முயற்சிக்கட்டும். GNOME 2.12லிருந்து இந்த விசை எதிரிடையானது."
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr ""
+"சாளர மேலாளர் முதலில் முயற்சிக்கட்டும். GNOME 2.12லிருந்து இந்த விசை எதிரிடையானது."
 
 #: ../schemas/desktop_gnome_background.schemas.in.h:1
 msgid "Color Shading Type"
@@ -650,87 +709,87 @@ msgstr "கோப்பு குறும்படம் தோற்றம்"
 msgid "Theme used for displaying file icons"
 msgstr "கோப்பு குறும்படங்களை காண்பிப்பதற்கு பயன்படுத்தவேண்டிய தோற்றம்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:1
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
 msgstr "gtk+.பயன்படுத்தும் இயல்பான கருவின் அடிப்படைபெயர்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:2
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
 msgstr "முடுகு விசைகளை மாற்றலாம்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
 msgstr "நிலை காட்டி சிமிட்டம்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
 msgstr "நிலை காட்டி சிமிட்டம் நேரம்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
 msgstr "கொடாநிலை எழுத்துரு"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Document font"
 msgstr "ஆவண எழுத்துரு"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
 msgstr "அனுமதியை இயலுமைப்படுத்துக"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
 msgstr "அசைவூட்டம் இயலுமைப்படுத்துக"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "GTK IM Preedit Style"
 msgstr "GTK IM முன்திருத்தம் பாணி"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Status Style"
 msgstr "GTK IM நிகழ்நிலை பாணி"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "Gtk+ Theme"
 msgstr "Gtk+ தோற்றம்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Icon Theme"
 msgstr "குறும்படம் தோற்றம்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "பலகை, நாடிலஸ் ஆகியவைகளில் புழங்கவேண்டிய குறும்படத் தோற்றம்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "விசைப்பலகை குறுக்குவழி பட்டி பட்டைகளை திறக்கிறது"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "கர்சர் சிமிட்டும் கால அளவு, மில்லிசெகண்டில்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Menubar Detachable"
 msgstr "கழட்டக்கூடிய பட்டி-பட்டை"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar accelerator"
 msgstr "பட்டி பட்டை மாற்றி"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menus Have Icons"
 msgstr "பட்டிகளில் குறும்படங்கள்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Tearoff"
 msgstr "பட்டிகளில் பிக்கக்கூடியவை"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooser க்கான பகுதி"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -738,75 +797,77 @@ msgstr ""
 "GtkFileChooser சிறு சாளரம் கோப்பு அமைப்பு மாதிரியாக பயன்படுத்த வேண்டிய பகுதி. "
 "மதிப்புகள் \"gnome-vfs\" மற்றும் \"gtk+\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Monospace font"
 msgstr "Monospace எழுத்துரு"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:23
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr "முனையத்தில் பயன்படுத்தப்படும் நிலையால இடைவெளி(fixed-width) உள்ள எழுத்துருவின் பெயர்"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr ""
+"முனையத்தில் பயன்படுத்தப்படும் நிலையால இடைவெளி(fixed-width) உள்ள எழுத்துருவின் பெயர்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "GTK+ உள்ளிடு முறை முன் திருத்த பாணி பயன்படுத்தும் பெயர் "
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "GTK+ உள்ளிடு முறை நிலை பாணி பயன்படுத்தும் பெயர் "
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the default font used by gtk+."
 msgstr "gtk+ பயன்படுத்தும் கொடாநிலை எழுத்துரு."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used for reading documents"
 msgstr "ஆவணத்தைப் படிப்பதற்கான முன்னிருப்பு எழுத்துருவின் பெயர்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Show the 'Input Methods' menu"
 msgstr "'உள்ளீடு முறைகள்' பட்டியை காட்டு"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "'யுனிக்கோட் கட்டுப்பாடு எழுத்து' பட்டியை காட்டு"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Status Bar on Right"
 msgstr "நிலைப்பட்டை வலது பக்கத்தில்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "இது கருவிப்பட்டையில் உள்ள சின்னத்தின் அளவை குறிப்பிடும்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Toolbar Detachable"
 msgstr "கழட்டக்கூடிய கருவிப்பட்டை"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "கருவிப்பட்டையின் குறும்படம் அளவு"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Style"
 msgstr "கருவிப் பட்டை பாணி"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
 msgstr ""
-"கருவிப்பட்டை தோற்றம். சரியான மதிப்புகள் \"both\", \"both_horiz\", \"icon\", "
-"மற்றும் \"text\""
+"கருவிப்பட்டை தோற்றம். சரியான மதிப்புகள் \"both\", \"both_horiz\", \"icon\", மற்றும் "
+"\"text\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Use Custom Font"
 msgstr "தனிப்பட்ட எழுத்துரு பயன்படுத்துக"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr "பயன்பாட்டிற்கு அணுகல் ஆதரவு தேவையா"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -814,55 +875,52 @@ msgstr ""
 "உயிர்சித்திரம் காட்டப்பட வேண்டுமா.குறிப்பு: இது பொதுவான விசை, இது சாளர மேலாளரின் "
 "நடத்தை மற்றும் பலகத்தை மாற்றும்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "மெனுவிற்கு அருகில் அதற்கான சின்னத்தை காட்ட வேண்டிமா"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "மெனு பிளக்கும் வசதி வேண்டுமா"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
-"சூழல் பட்டிகளின் உள்ளீடுகள் மற்றும் உரை பார்வைகள் உள்ளீடு முறைகளை "
-"மாற்ற வேண்டுமா"
+msgstr "சூழல் பட்டிகளின் உள்ளீடுகள் மற்றும் உரை பார்வைகள் உள்ளீடு முறைகளை மாற்ற வேண்டுமா"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
 msgstr ""
-"சூழல் பட்டிகளின் உள்ளீடுகள் மற்றும் உரை பார்வைகள் கட்டுப்பாடு எழுத்துக்களை "
-"நுழைக்க வேண்டுமா"
+"சூழல் பட்டிகளின் உள்ளீடுகள் மற்றும் உரை பார்வைகள் கட்டுப்பாடு எழுத்துக்களை நுழைக்க வேண்டுமா"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "லை காட்டி சிமிட்ட வேண்டுமா"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr "பயனீட்டாளர் மெனுவை தனிப்படுத்தி நகர்த்தலாமா"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "பயனீட்டாளர் கருவிப்பட்டியை தனியாக பிரித்து நகர்த்தலாமா"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
 msgstr ""
-"பயனர் செயலிலுள்ள பட்டி உருப்படியின் மேல் ஒரு புதிய மாற்றியில் "
-"எவ்வாறாயினும் தட்டச்சு செய்யலாம்"
+"பயனர் செயலிலுள்ள பட்டி உருப்படியின் மேல் ஒரு புதிய மாற்றியில் எவ்வாறாயினும் தட்டச்சு "
+"செய்யலாம்"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr "நிலைப்பட்டி மீட்டரை வலது பக்கத்தில் காட்ட வேண்டுமா"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "gtk+ பயன்பாட்டிற்கான தனிப்பயன் எழுத்துருவை பயன்படுத்த வேண்டுமா"
 
@@ -871,18 +929,28 @@ msgid "Disable command line"
 msgstr "கட்டளை வரிசையை முடக்குக"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+#, fuzzy
+msgid "Disable lock screen"
+msgstr "ஒலிச் சேவையக பயன்படுத்தலை முடக்கு"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "அச்சிடும் அமைப்பை முடக்குக"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "அச்சிடுவதை முடக்குக"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "கோப்புகளை வட்டுவில் சேமிப்பதை முடக்குக"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#, fuzzy
+msgid "Disable user switching"
+msgstr "அச்சிடுவதை முடக்குக"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -891,7 +959,7 @@ msgstr ""
 "பயனீட்டாளர் முனையத்தை பயன்படுத்துவதை தடுக்க அதற்காக கட்டளைவரியை உள்ளிடவும். உதாரணம், "
 "\"Run Application\" உரையாடல் பலகத்தை அணுகுவதை செயலிழக்க செய்யும்"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -899,7 +967,7 @@ msgstr ""
 "பயனீட்டாளர் அச்சுப்பொறி அமைப்பை மாற்றுவதை தடுக்கும். உதாரணம் , இது அனைத்து பயன்பாட்டிலும் "
 "உள்ள \"அச்சுப்பொறி அமைப்பு\" உரையாடல் பெட்டியை செயலிழக்க செய்யும்"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -907,13 +975,23 @@ msgstr ""
 "பயனீட்டாளர் அச்சடிப்பதை தடுக்கும். உதாரணமாக , இது அனைத்து பயன்பாட்டிலும் உள்ள \"அச்சடி\" "
 "உரையாடல் பெட்டியை செயல்நீக்கம் செய்யாது"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
 "பயனீட்டாளர் கோப்பை வட்டில் சேமிப்பதை தடுக்கும். உதாரணம், இது \"எனச்சேமி\" உரையாடலை "
 "செயலிழக்க செய்யும்"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr ""
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr ""
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -932,8 +1010,7 @@ msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"உண்மை என்று அமைக்கப்பட்டால், GNOME அமர்வுகளுக்கிடையே எண் பூட்டின் LED நிலையை "
-"அறியும்."
+"உண்மை என்று அமைக்கப்பட்டால், GNOME அமர்வுகளுக்கிடையே எண் பூட்டின் LED நிலையை அறியும்."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -962,8 +1039,8 @@ msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
 msgstr ""
-"நிலைகாட்டி திட்ட பெயர். XFree86 4.3 அல்லது அதற்கு அடுத்தது போன்ற Xservers ஆல் மட்டுமே பயன்படுத்தப்பட்டு "
-"Xcursorக்கு துணை புரிகிறது."
+"நிலைகாட்டி திட்ட பெயர். XFree86 4.3 அல்லது அதற்கு அடுத்தது போன்ற Xservers ஆல் மட்டுமே "
+"பயன்படுத்தப்பட்டு Xcursorக்கு துணை புரிகிறது."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
@@ -1036,18 +1113,35 @@ msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "வலது இடது சுண்டெலி பொத்தான்களை இடக்கை"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+#, fuzzy
+msgid "Default mixer device"
+msgstr "கொடாநிலை உதவிக் காட்டி"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr ""
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "ESD ஐ இயலுமைப்படுத்து"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "ஒலிச் சேவையக தொடங்குதலை இயலுமைப்படுத்துக."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "நிகழ்வுகளுக்கான ஒலி"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr ""
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr ""
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "ஒலிகளை பயனர் நிகழ்வின்போது விளையாடுவதா இல்லையா"
 
@@ -1095,3 +1189,5 @@ msgstr "விசைப்பலகை பூட்டு செயல்பட�
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "விசைப்பலகை நிறுத்த திரையை தாமதிக்க முடியுமா"
 
+#~ msgid "Unknown error code: %u"
+#~ msgstr "தெரியாத பிழைக் குறி: %u"
