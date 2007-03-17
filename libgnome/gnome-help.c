@@ -31,7 +31,7 @@
 #include <glib.h>
 #include <glib/gstdio.h>
 
-#include "gnome-i18nP.h"
+#include <glib/gi18n-lib.h>
 
 #include "gnome-program.h"
 #include "gnome-url.h"

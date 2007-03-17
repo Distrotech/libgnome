@@ -47,12 +47,11 @@
 #include <gconf/gconf-value.h>
 #include <gconf/gconf-client.h>
 
-#include "gnome-i18nP.h"
+#include <glib/gi18n-lib.h>
 
 #include "gnome-program.h"
 #include "gnome-util.h"
 #include "gnome-init.h"
-#include "gnome-i18n.h"
 #include "gnome-url.h"
 
 #include "libgnome-private.h"

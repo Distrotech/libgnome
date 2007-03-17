@@ -28,8 +28,10 @@
 #include <stdio.h>
 #include <locale.h>
 
-#include "gnome-i18nP.h"
+#include <glib.h>
+#include <glib/gi18n-lib.h>
 
+#include "gnome-i18n.h"
 
 /**
  * gnome_i18n_get_language_list:

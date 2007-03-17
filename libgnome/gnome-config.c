@@ -36,8 +36,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#include "gnome-i18nP.h"
+#include <glib/gi18n-lib.h>
 #include "gnome-util.h"
+#include "gnome-i18n.h"
 #include "gnome-config.h"
 
 #if !defined getc_unlocked && !defined HAVE_GETC_UNLOCKED

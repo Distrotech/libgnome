@@ -38,7 +38,7 @@
 #include <glib.h>
 #include <glib/goption.h>
 #include <glib/gstdio.h>
-#include "gnome-i18nP.h"
+#include <glib/gi18n-lib.h>
 
 #include "gnome-init.h"
 #include "gnome-gconfP.h"

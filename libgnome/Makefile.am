@@ -25,6 +25,7 @@ INCLUDES = \
 	-DLIBGNOME_SYSCONFDIR=\""$(sysconfdir)"\"		\
 	-DVERSION=\""$(VERSION)"\"				\
 	-DGNOMEVFSVERSION=\"$(GNOME_VFS_VERSION)\"		\
+	-DGNOME_EXPLICIT_TRANSLATION_DOMAIN="GETTEXT_PACKAGE"	\
 	-DG_LOG_DOMAIN=\"Gnome\"
 
 if OS_WIN32
@@ -44,7 +45,6 @@ libgnome_2_la_SOURCES = \
 	gnome-gconf.c		\
 	gnome-gconfP.h		\
 	gnome-i18n.c		\
-	gnome-i18nP.h		\
 	gnome-url.c		\
 	gnome-util.c		\
 	gnome-score.c		\
@@ -83,7 +83,7 @@ gnome_open_LDADD = \
 
 libgnometypebuiltins.h: stamp-libgnometypebuiltins.h
 	@true
-stamp-libgnometypebuiltins.h: @REBUILD@ $(libgnome_headers)
+stamp-libgnometypebuiltins.h: Makefile @REBUILD@ $(libgnome_headers)
 	(cd $(srcdir) \
 	&& glib-mkenums \
 			--fhead "#ifndef __LIBGNOMETYPEBUILTINS_H__\n" \
@@ -100,9 +100,10 @@ stamp-libgnometypebuiltins.h: @REBUILD@ $(libgnome_headers)
 	&& rm -f xgen-gth \
 	&& echo timestamp > $(@F)
 
-libgnometypebuiltins.c: @REBUILD@ $(libgnome_headers)
+libgnometypebuiltins.c: Makefile @REBUILD@ $(libgnome_headers)
 	(cd $(srcdir) \
 	&& glib-mkenums \
+			--fhead "#include <config.h>\n" \
 			--fhead "#include <glib-object.h>\n" \
 			--fhead "#include \"libgnometypebuiltins.h\"\n\n" \
 			--fprod "\n/* enumerations from \"@filename@\" */" \

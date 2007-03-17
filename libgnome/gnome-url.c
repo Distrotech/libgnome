@@ -30,7 +30,7 @@
 #include <unistd.h>
 #include <errno.h>
 
-#include "gnome-i18nP.h"
+#include <glib/gi18n-lib.h>
 
 #include <gconf/gconf-client.h>
 #ifndef G_OS_WIN32
@@ -43,7 +43,6 @@
 #include "gnome-exec.h"
 #include "gnome-util.h"
 #include "gnome-init.h"
-#include "gnome-i18n.h"
 #include "gnome-gconfP.h"
 
 #include "gnome-url.h"

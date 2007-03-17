@@ -8,9 +8,9 @@
  * Copyright 2000 Ximian, Inc.
  */
 #include <config.h>
+#include <glib/gi18n-lib.h>
 #include <bonobo/Bonobo.h>
 #include <bonobo/bonobo-arg.h>
-#include <bonobo/bonobo-i18n.h>
 #include <bonobo/bonobo-main.h>
 #include <bonobo/bonobo-exception.h>
 #include <string.h>

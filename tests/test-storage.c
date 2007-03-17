@@ -2,8 +2,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <glib/gi18n.h>
 #include <libbonobo.h>
-#include <bonobo/bonobo-i18n.h>
 
 #define TESTSIZE (1024*1)
 

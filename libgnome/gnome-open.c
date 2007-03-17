@@ -7,7 +7,7 @@
 #include <libgnome/gnome-init.h>
 #include <libgnomevfs/gnome-vfs-utils.h>
 
-#include "gnome-i18nP.h"
+#include <glib/gi18n-lib.h>
 
 int
 main (int argc, char *argv[])

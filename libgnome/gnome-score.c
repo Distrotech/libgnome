@@ -43,8 +43,9 @@
 #endif
 #endif
 
-#include "gnome-i18nP.h"
+#include <glib/gi18n-lib.h>
 
+#include "gnome-i18n.h"
 #include "gnome-score.h"
 #include "gnome-util.h"
 
