@@ -1,20 +1,20 @@
-# translation of libgnome.HEAD.po to basque
-# Copyright (C) 1999, 2004, 2006 Free Software Foundation, Inc.
+# translation of eu.po to Basque
 # Joseba Bidaurrazaga van Dierdonck <jbv@euskalnet.net>, 1999-2001.
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004.
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2004, 2005, 2006.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2004, 2005, 2006, 2007.
+# Copyright (C) 1999, 2004, 2006, 2007 Free Software Foundation, Inc.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-08 10:16+0000\n"
-"PO-Revision-Date: 2006-05-24 16:03+0000\n"
+"POT-Creation-Date: 2007-03-31 18:24+0200\n"
+"PO-Revision-Date: 2007-03-31 18:33+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.10.2\n"
+"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
@@ -65,10 +65,9 @@ msgstr "Hautatu kontrol-laukia"
 msgid "User interface events"
 msgstr "Erabiltzailearen interfazearen gertaerak"
 
-#: ../libgnome/gnome-exec.c:458
+#: ../libgnome/gnome-exec.c:457
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr ""
-"Ezin da terminala aurkitu; xterm erabiliko da, nahiz eta agian funtzionatu ez"
+msgstr "Ezin da terminala aurkitu; xterm erabiliko da, nahiz eta agian funtzionatu ez"
 
 #: ../libgnome/gnome-gconf.c:177
 msgid "GNOME GConf Support"
@@ -87,10 +86,16 @@ msgstr "Ezin izan da GNOME_FILE_DOMAIN_HELP domeinua aurkitu."
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr ""
-"Ezin da laguntza erakutsi, %s direktorioa ez delako. Egiaztatu instalazioa."
+msgstr "Ezin da laguntza erakutsi, %s direktorioa ez delako. Egiaztatu instalazioa."
 
-#: ../libgnome/gnome-help.c:220 ../libgnome/gnome-help.c:236
+#: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s.Please check your installation"
+msgstr ""
+"Ezin izan dira laguntzaren bide-izenik aurkitu ez %s(e)n, ez %s(e)n. Egiaztatu "
+"instalazioa"
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -167,176 +172,176 @@ msgstr "GNOMEren liburutegia"
 msgid "Show GNOME options"
 msgstr "Erakutsi GNOMEko aukerak"
 
-#: ../libgnome/gnome-program.c:458
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "Popt taula"
 
-#: ../libgnome/gnome-program.c:459
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "popt-erako aukeren taula"
 
-#: ../libgnome/gnome-program.c:466
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "Popt-en banderak"
 
-#: ../libgnome/gnome-program.c:467
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "popt-en erabiltzeko banderak"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Popt-en testuingurua"
 
-#: ../libgnome/gnome-program.c:476
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "Gnome programa erabiltzen ari den popt-en testuinguruaren erakuslea"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "GOption-en testuingurua"
 
-#: ../libgnome/gnome-program.c:485
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "Gnome programa erabiltzen ari den goption-en testuinguruaren erakuslea"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "Gizakiek irakurtzeko moduko izena"
 
-#: ../libgnome/gnome-program.c:494
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "Aplikazio honen gizakiek irakurtzeko moduko izena"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "GNOMEren bide-izena"
 
-#: ../libgnome/gnome-program.c:504
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "Instalatutako fitxategiak bilatu behar diren bide-izena"
 
-#: ../libgnome/gnome-program.c:513
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "Apl. IDa"
 
-#: ../libgnome/gnome-program.c:514
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "Aplikazio honetan erabiltzeko ID katea"
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "Aplikazioaren bertsioa"
 
-#: ../libgnome/gnome-program.c:522
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "Aplikazio honen bertsioa"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "GNOMEren aurrizkia"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "GNOME instalatuta zegoen aurrizkia"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "GNOMEren liburutegiaren direktorioa"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "GNOME instalatuta zegoen liburutegiaren aurrizkia"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "GNOMEren datuen direktorioa"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "GNOME instalatuta zegoen lekuko datuen aurrizkia"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "GNOMEren sistema konfiguratzeko direktorioa"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "GNOME instalatutako lekuaren konfigurazio-aurrizkia"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "GNOMEren aplikazioen aurrizkia"
 
-#: ../libgnome/gnome-program.c:571
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "Aplikazio hau instalatuta dagoen lekuko aurrizkia"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "GNOMEren aplikazioen liburutegien direktorioa"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "Aplikazio hau instalatuta zegoen lekuko liburutegiaren aurrizkia"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "GNOMEren aplikazioen datuen direktorioa"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "Aplikazio hau instalatuta zegoen lekuko datuen aurrizkia"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "GNOMEren aplikazioen sistema konfiguratzeko direktorioa"
 
-#: ../libgnome/gnome-program.c:600
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "Aplikazio hau instalatuta zegoen lekuko aurrizkiaren konfigurazioa"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "Sortu direktorioak"
 
-#: ../libgnome/gnome-program.c:610
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "Sortu GNOMEren direktorio estandarrak abioan"
 
-#: ../libgnome/gnome-program.c:619
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "Gaitu soinua"
 
-#: ../libgnome/gnome-program.c:620
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "Gaitu soinua abioan"
 
-#: ../libgnome/gnome-program.c:628
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:629
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "Nola konektatu esd-era"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "Laguntza-aukerak"
 
-#: ../libgnome/gnome-program.c:1401
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "Aplikazio-aukerak"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "Kargatzeko modulu dinamikoak"
 
-#: ../libgnome/gnome-program.c:1418
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "1MODULUA,2MODULUA,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1507
+#: ../libgnome/gnome-program.c:1504
 #, c-format
 msgid ""
 "%s\n"
@@ -346,15 +351,15 @@ msgstr ""
 "Exekutatu '%s --help' komando-lerroko aukera erabilgarrien zerrenda "
 "ikusteko.\n"
 
-#: ../libgnome/gnome-url.c:86
+#: ../libgnome/gnome-url.c:85
 msgid "Unknown internal error while displaying this location."
 msgstr "Barne-errore ezezaguna gertatu da helbide hau bistaratzean."
 
-#: ../libgnome/gnome-url.c:93
+#: ../libgnome/gnome-url.c:92
 msgid "The specified location is invalid."
 msgstr "Adierazitako helbidea baliogabea da."
 
-#: ../libgnome/gnome-url.c:100
+#: ../libgnome/gnome-url.c:99
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
@@ -362,7 +367,7 @@ msgstr ""
 "Errorea gertatu da helbidearekin lotutako ekintza-komando lehenetsia "
 "analizatzean."
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:174
+#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -370,24 +375,24 @@ msgstr ""
 "Errorea gertatu da helbidearekin lotutako ekintza-komando lehenetsia "
 "abiaraztean."
 
-#: ../libgnome/gnome-url.c:116
+#: ../libgnome/gnome-url.c:115
 msgid "There is no default action associated with this location."
 msgstr "Ez dago helbideari lotutako ekintza lehenetsirik."
 
-#: ../libgnome/gnome-url.c:123
+#: ../libgnome/gnome-url.c:122
 msgid "The default action does not support this protocol."
 msgstr "Ekintza lehenetsiak ez du protokolo hau onartzen."
 
-#: ../libgnome/gnome-url.c:130
+#: ../libgnome/gnome-url.c:129
 msgid "The request was cancelled."
 msgstr "Eskaera bertan behera utzi da."
 
-#: ../libgnome/gnome-url.c:140
+#: ../libgnome/gnome-url.c:139
 #, c-format
 msgid "The host \"%s\" could not be found."
 msgstr "Ezin izan da \"%s\" ostalaria aurkitu."
 
-#: ../libgnome/gnome-url.c:146
+#: ../libgnome/gnome-url.c:145
 msgid "The host could not be found."
 msgstr "Ezin izan da ostalaria aurkitu."
 
@@ -396,9 +401,8 @@ msgid "The location or file could not be found."
 msgstr "Ezin izan da kokalekua edo fitxategia aurkitu."
 
 #: ../libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "Errore-kode ezezaguna: %u"
+msgid "The login has failed."
+msgstr "Saio-hasierak huts egin du."
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -435,18 +439,15 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Desgaitu bi tekla aldi berean sakatzen direnean."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr ""
-"Ez onartu tekla bat sakatutzat @delay milisegundoz sakatuta edukitzen ez bada"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgstr "Ez onartu tekla bat sakatutzat @delay milisegundoz sakatuta edukitzen ez bada"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "0tik gehienezko abiadurara iristeko behar duen denbora milisegundotan"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Sagua mugitzeko tresnak funtzionatzen hasi baino lehen itxaron behar den "
 "denbora milisegundotan"
@@ -489,6 +490,48 @@ msgstr ""
 msgid "Startup Assistive Technology Applications"
 msgstr "Laguntza-teknologien aplikazioen abioa"
 
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr "GNOMEk abiaraziko duen laguntza-teknologien aplikazio hobetsia saio-hasieran"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "Laguntza-teknologien aplikazio hobetsia"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+"Laguntza-teknologien aplikazio hobetsia saio-hasieran, menuan edo "
+"komando-lerroan erabiltzeko"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "Abiarazi laguntza-teknologien aplikazio hobetsia"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid "GNOME to start preferred Visual assistive technology application during login"
+msgstr "GNOMEk abiaraziko duen bisual-teknologien aplikazio hobetsia saio-hasieran"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "Bisual-teknologien aplikazio hobetsia "
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+"Bisual-teknologien aplikazio hobetsia saio-hasieran, menuan edo "
+"komando-lerroan erabiltzeko"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "Abiarazi bisual-teknologien aplikazio hobetsia"
+
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
 msgstr "Arakatzaileak terminala behar du"
@@ -514,8 +557,7 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
-msgstr ""
-"Arakatzaile lehenetsiak urruneko netscape ulertzen duen ala ez adierazten du"
+msgstr "Arakatzaile lehenetsiak urruneko netscape ulertzen duen ala ez adierazten du"
 
 #: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
 msgid "Default help viewer"
@@ -536,8 +578,7 @@ msgstr ""
 "adierazten du"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "'exec' teklak definitutako terminalean programak exekurtatzeko erabilitako "
 "argumentua."
@@ -597,8 +638,7 @@ msgid "User window manager (deprecated)"
 msgstr "Erabiltzailearen leiho-kudeatzailea (zaharkitua)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid ""
-"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
 "Leiho-kudeatzailea aurrenik saiatzeko. Gako hau zaharkitua gelditu da GNOME "
 "2.12 bertsiotik."
@@ -678,87 +718,87 @@ msgstr "Fitxategi-ikonoen gaia"
 msgid "Theme used for displaying file icons"
 msgstr "Fitxategietako ikonoak bistaratzeko erabiltzen den gaia"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:1
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
 msgstr "gtk+-ek erabiltzen d uen gai lehenetsiaren oinarri-izena."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:2
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
 msgstr "Bizkortzaileak alda ditzake"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
 msgstr "Kurtsorearen keinua"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
 msgstr "Kurtsorearen keinuaren denbora"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
 msgstr "Letra-tipo lehenetsia"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Document font"
 msgstr "Dokumentuaren letra-tipoa"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
 msgstr "Gaitu erabilerraztasuna"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
 msgstr "Gaitu animazioak"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "GTK IM Preedit Style"
 msgstr "GTK IMen Preedit estiloa"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Status Style"
 msgstr "GTK IMen egoeraren estiloa"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "Gtk+ Theme"
 msgstr "Gtk+ gaia"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Icon Theme"
 msgstr "Ikonoen gaia"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Panelerako, nautiluserako eta abarrerako erabiltzeko ikonoen gaia."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Teklatuaren laster-tekla menu-barrak irekitzeko."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Kurtsorearen keinu egiteko zikloaren iraupena, milisegundotan"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Menubar Detachable"
 msgstr "Desmunta daitekeen menu-barra"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar accelerator"
 msgstr "Menu-barrako tekla bizkortzailea"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menus Have Icons"
 msgstr "Menuek ikonoak dituzte"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Tearoff"
 msgstr "Menuak askagarriak dira"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Module for GtkFileChooser"
 msgstr "Moduloa GtkFileChooser-rako"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -766,64 +806,61 @@ msgstr ""
 "Moduloa fitxategi-sistema modeloan erabiltzeko, GtkFileChooser widget-"
 "arentzako. Balio posibleak \"gnome-vfs\" eta \"gtk+\" dira."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Monospace font"
 msgstr "Tarte bakarreko letra-tipoa"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:23
-msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Helbideetan, adibidez terminaletan, erabiltzeko tarte bakarreko (zabalera "
 "finkoko) letra-tipoaren izena."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr ""
-"Gtk+-ek erabiltzen duen GTK+-en Preedit estiloko sarrerako metodoaren izena."
+msgstr "Gtk+-ek erabiltzen duen GTK+-en Preedit estiloko sarrerako metodoaren izena."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr ""
-"Gtk+-ek erabiltzen duen GTK+-en egoera-estiloko sarrerako metodoaren izena."
+msgstr "Gtk+-ek erabiltzen duen GTK+-en egoera-estiloko sarrerako metodoaren izena."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the default font used by gtk+."
 msgstr "gtk+-ek erabiltzen duen letra-tipo lehenetsiaren izena."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used for reading documents"
 msgstr "Dokumentuak irakurtzeko erabiltzen den letra-tipo lehenetsiaren izena."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Show the 'Input Methods' menu"
 msgstr "Erakutsi 'Sarrerako metodak' menua"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "Erakutsi 'Unicode karaktere-kontrola' menua"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Status Bar on Right"
 msgstr "Egoera-barra eskuinean"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr "Horrek tresna-barretan bistaratzen diren ikonoen tamaina zehazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Toolbar Detachable"
 msgstr "Tresna-barra bereizgarria"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "Tresna-barrako ikonoen tamaina"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Style"
 msgstr "Tresna-barraren estiloa"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
@@ -831,16 +868,15 @@ msgstr ""
 "Tresna-barraren estiloa. Balio hauek onartzen dira: \"both\", \"both_horiz"
 "\",  eta \"text\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Use Custom Font"
 msgstr "Erabili letra-tipo pertsonalizatua"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Whether Applications should have accessibility support"
-msgstr ""
-"Aplikazioek erabilerraztasun-euskarria eduki behar duten ala ez adierazten du"
+msgstr "Aplikazioek erabilerraztasun-euskarria eduki behar duten ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -849,16 +885,15 @@ msgstr ""
 "gako orokorra da, leiho-kudeatzailearen, panelaren eta abarraren portaera "
 "aldatzen du."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
-"Menuek menu-sarreren ondoan ikonoa bistaratu behar duten ala ez adierazten du"
+msgstr "Menuek menu-sarreren ondoan ikonoa bistaratu behar duten ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr "Menuak askagarriak izan behar duten ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
@@ -866,7 +901,7 @@ msgstr ""
 "Sarrerako eta testuen ikuspegiko testuinguruko menuak sarrerako metodoa "
 "aldatzea utzi behar duen edo ez."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
@@ -874,23 +909,23 @@ msgstr ""
 "Sarrerako eta testuen ikuspegiko testuinguruko menuak kontroleko karaktereak "
 "txertatzea utzi behar duen edo ez."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "Kurtsoreak keinu egin behar duen ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
 "Erabiltzaileak menu-barrak bereizi eta lekuz alda ditzakeen ala ez "
 "adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 "Erabiltzaileak tresna-barrak bereizi eta lekuz alda ditzakeen ala ez "
 "adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
@@ -898,33 +933,39 @@ msgstr ""
 "Erabiltzaileak menua aktibatuta dagoenean bizkortzaile berri bat dinamikoki "
 "idatz dezakeen ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether to display a status bar meter on the right"
-msgstr ""
-"Egoera-barraren neurgailua eskuinean bistaratu behar den ala ez adierazten du"
+msgstr "Egoera-barraren neurgailua eskuinean bistaratu behar den ala ez adierazten du"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr ""
-"gtk+ aplikazioetan letra-tipo lehenetsia erabiliko den ala ez adierazten du."
+msgstr "gtk+ aplikazioetan letra-tipo lehenetsia erabiliko den ala ez adierazten du."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
 msgstr "Desgaitu komando-lerroa"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable lock screen"
+msgstr "Desgaitu pantaila blokeatzea"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "Desgaitu inpresoraren konfigurazioa"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "Desgaitu inprimatzea"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "Desgaitu fitxategiak diskoan gordetzea"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "Desgaitu erabiltzailez aldatzea"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -934,7 +975,7 @@ msgstr ""
 "exekutatzeko zehaztea eragozten du. Adibidez, honek paneleko \"Exekutatu "
 "aplikazioa\" elkarrizketa-koadroa desgaitzen du."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -943,7 +984,7 @@ msgstr ""
 "honek aplikazio guztietako \"Inprimagailuaren ezarpenak\" elkarrizketa-"
 "koadroak irekitzea desgaitzen du."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -951,7 +992,7 @@ msgstr ""
 "Erabiltzaileak inprimatzea eragozten du. Adibidez, honek aplikazio "
 "guztietako \"Inprimatu\" elkarrizketa-koadroa irekitzea desgaitzen du."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
@@ -959,6 +1000,16 @@ msgstr ""
 "Erabiltzaileak fitxategiak diskoan gordetzea eragozten du. Adibidez, honek "
 "aplikazio guztietako \"Gorde honela\" elkarrizketa-koadroak irekitzea "
 "desgaitzen du."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr "Erabiltzailea beste baten kontura aldatzea saihesten du saioa aktibo duen bitartean."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "Erabiltzaileak pantaila hau blokeatzea saihesten du."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -1086,21 +1137,36 @@ msgstr ""
 "prestatzeko"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "Nahasgailu lehenetsia"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "Pista-nahasgailu lehenetsia"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "Gaitu ESD"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "Gaitu soinu-zerbitzariaren abiaraztea."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "Gertaeren soinuak"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr "Multimediako laster-teklek erabiltzen duten nahasgailu lehenetsia"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr "Multimediako laster-teklek erabiltzen duten pista-nahasgailu lehenetsia"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
-msgstr ""
-"Erabiltzailearen gertaeretan soinuak erreproduzitu ala ez adierazten du."
+msgstr "Erabiltzailearen gertaeretan soinuak erreproduzitu ala ez adierazten du."
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
@@ -1144,5 +1210,5 @@ msgstr "Teklatuaren blokeoa gaituta dagoen ala ez adierazten du."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr ""
-"Idazteko atsedenaldiaren pantaila atzeratu daitekeen ala ez adierazten du."
+msgstr "Idazteko atsedenaldiaren pantaila atzeratu daitekeen ala ez adierazten du."
+
