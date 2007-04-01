@@ -1296,6 +1296,7 @@ gnome_program_preinit (GnomeProgram *program,
     GnomeModuleInfo *a_module;
     poptContext argctx = NULL;
     int i;
+    char *prgname;
 
     g_return_val_if_fail (program != NULL, NULL);
     g_return_val_if_fail (GNOME_IS_PROGRAM (program), NULL);
@@ -1305,12 +1306,13 @@ gnome_program_preinit (GnomeProgram *program,
 	return NULL;
 
     /* Store invocation name */
-    g_set_prgname (argv[0]);
+    prgname = g_path_get_basename (argv[0]);
+    g_set_prgname (prgname);
+    g_free (prgname);
 
     /* 0. Misc setup */
     g_free (program->_priv->app_id);
     program->_priv->app_id = g_strdup (app_id);
-    g_set_prgname (app_id);
     g_free (program->_priv->app_version);
     program->_priv->app_version = g_strdup (app_version);
     program->_priv->argc = argc;

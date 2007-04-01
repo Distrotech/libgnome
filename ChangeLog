@@ -1,3 +1,12 @@
+2007-04-01  Matthias Clasen  <mclasen@redhat.com>
+
+	Merge from trunk:
+
+	* libgnome/gnome-program.c (gnome_program_preinit): Set
+	the program name to the basename of argv[0]. This is
+	expected by other parts of the stack, and e.g. makes
+	bug-buddy work for applets again.  (#424949)
+
 ======================= libgnome 2.18.0 ========================
 
 2007-02-27  Kjartan Maraas  <kmaraas@gnome.org>
