@@ -1727,6 +1727,11 @@ gnome_program_postinit (GnomeProgram *program)
  * pairs.
  *
  * Initialises the current GNOME libraries for use by the application.
+ * @app_id is used for the following purposes:
+ * - to find the programme's help files by gnome_help_*()
+ * - to load the app-specific gtkrc file from ~/.gnome2/$(APPID)rc
+ * - to load/save the app's accelerators map from ~/.gnome2/accelerators/$(APPID)
+ * - to load/save a GnomeEntry's history from gconf/apps/gnome-settings/$(APPID)/history-$(ENTRYID)
  *
  * Returns: A new #GnomeProgram instance representing the current application.
  * Unref the returned reference right before exiting your application.
