@@ -217,7 +217,7 @@ gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
 			g_set_error (error,
 				     GNOME_HELP_ERROR,
 				     GNOME_HELP_ERROR_NOT_FOUND,
-				     _("Unable to find help paths %s or %s."
+				     _("Unable to find help paths %s or %s. "
 				       "Please check your installation"),
 				     local_help_path,
 				     global_help_path);
