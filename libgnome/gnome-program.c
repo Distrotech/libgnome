@@ -902,7 +902,6 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
     gchar *prefix_rel = NULL, *attr_name = NULL, *attr_rel = NULL;
     gchar fnbuf [PATH_MAX], *retval = NULL, **ptr;
     gboolean search_path = TRUE;
-    GValue value = { 0, };
 
     if (program == NULL)
 	program = gnome_program_get ();
@@ -1003,10 +1002,7 @@ gnome_program_locate_file (GnomeProgram *program, GnomeFileDomain domain,
     if (attr_name != NULL) {
 	gchar *dir;
 
-	g_value_init (&value, G_TYPE_STRING);
-	g_object_get_property (G_OBJECT (program), attr_name, &value);
-	dir = g_value_dup_string (&value);
-	g_value_unset (&value);
+	g_object_get (G_OBJECT (program), attr_name, &dir, NULL);
 
 	/* use the prefix */
 	if (dir == NULL) {
@@ -1493,14 +1489,16 @@ gnome_program_parse_args (GnomeProgram *program)
 	if (priv->goption_context) {
 		GError *error = NULL;
 		char **arguments;
+		int n_arguments;
 
 		/* We need to free priv->argv in finalize, but g_option_context_parse
 		 * modifies the array. So we just pass it like this.
 		 */
 		arguments = g_memdup (priv->argv, priv->argc * sizeof (char *));
+		n_arguments = priv->argc;
 
 		if (!g_option_context_parse (priv->goption_context,
-		     			     &priv->argc, &arguments,
+		     			     &n_arguments, &arguments,
 					     &error)) {
 			/* Translators: the first %s is the error message, 2nd %s the program name */
 			g_print(_("%s\nRun '%s --help' to see a full list of available command line options.\n"),

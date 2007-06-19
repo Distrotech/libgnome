@@ -1,3 +1,9 @@
+2007-06-19  Christian Persch  <chpe@gnome.org>
+
+	* libgnome/gnome-program.c: (gnome_program_locate_file),
+	(gnome_program_parse_args): Simplify by using g_object_get
+	instead of g_object_get_property.
+
 2007-06-18  Claudio Saavedra  <csaavedra@alumnos.utalca.cl>
 
 	* configure.in: Post release version bump.
