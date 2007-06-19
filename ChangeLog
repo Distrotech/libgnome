@@ -1,5 +1,12 @@
 2007-06-19  Christian Persch  <chpe@gnome.org>
 
+	* libgnome/gnome-init.c: (libgnome_post_args_parse),
+	(libgnome_module_get_goption_group), (libgnome_module_info_get):
+	Simplify by using g_object_get instead of g_object_get_property.
+	No need to make the GOptionEntry data static.
+
+2007-06-19  Christian Persch  <chpe@gnome.org>
+
 	* libgnome/gnome-program.c: (gnome_program_locate_file),
 	(gnome_program_parse_args): Simplify by using g_object_get
 	instead of g_object_get_property.

@@ -419,78 +419,23 @@ static void
 libgnome_post_args_parse (GnomeProgram *program,
 			  GnomeModuleInfo *mod_info)
 {
-	GValue value = { 0 };
-	gboolean enable_val = TRUE, create_dirs_val = TRUE;
-	char *espeaker_val = NULL;
+	gboolean enable_sound = TRUE, create_dirs = TRUE;
+	char *espeaker = NULL;
 
-	g_value_init (&value, G_TYPE_BOOLEAN);
-	g_object_get_property (G_OBJECT (program),
-			       GNOME_PARAM_CREATE_DIRECTORIES,
-			       &value);
-	create_dirs_val = g_value_get_boolean (&value);
-	g_value_unset (&value);
+	g_object_get (program,
+		      GNOME_PARAM_CREATE_DIRECTORIES, &create_dirs,
+		      GNOME_PARAM_ENABLE_SOUND, &enable_sound,
+		      GNOME_PARAM_ESPEAKER, &espeaker,
+		      NULL);
 
-	g_value_init (&value, G_TYPE_BOOLEAN);
-	g_object_get_property (G_OBJECT (program),
-			       GNOME_PARAM_ENABLE_SOUND, &value);
-	enable_val = g_value_get_boolean (&value);
-	g_value_unset (&value);
-
-	g_value_init (&value, G_TYPE_STRING);
-	g_object_get_property (G_OBJECT (program),
-			       GNOME_PARAM_ESPEAKER, &value);
-	espeaker_val = g_value_dup_string (&value);
-	g_value_unset (&value);
-
-
-	if (enable_val) {
-		gnome_sound_init(espeaker_val);
+	if (enable_sound) {
+		gnome_sound_init (espeaker);
 	}
 
-	libgnome_userdir_setup (create_dirs_val);
+        g_free (espeaker);
 
+	libgnome_userdir_setup (create_dirs);
 }
-
-static struct poptOption gnomelib_options [] = {
-	{ NULL, '\0', POPT_ARG_INTL_DOMAIN, GETTEXT_PACKAGE, 0, NULL, NULL},
-
-	{ NULL, '\0', POPT_ARG_CALLBACK, (void *) libgnome_option_cb, 0, NULL, NULL},
-
-	{ "disable-sound", '\0', POPT_ARG_NONE,
-	  NULL, ARG_DISABLE_SOUND, N_("Disable sound server usage"), NULL},
-
-	{ "enable-sound", '\0', POPT_ARG_NONE,
-	  NULL, ARG_ENABLE_SOUND, N_("Enable sound server usage"), NULL},
-
-	{ "espeaker", '\0', POPT_ARG_STRING,
-	  NULL, ARG_ESPEAKER, N_("Host:port on which the sound server to use is"
-				 " running"),
-	  N_("HOSTNAME:PORT")},
-
-	{"version", '\0', POPT_ARG_NONE,
-	 NULL, ARG_VERSION, VERSION, NULL},
-
-	{ NULL, '\0', 0,
-	  NULL, 0 , NULL, NULL}
-};
-
-static const GOptionEntry gnomelib_goptions [] = {
-	{ "disable-sound", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,
-	  libgnome_goption_disable_sound, N_("Disable sound server usage"), NULL },
-
-	{ "enable-sound", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,
-	  libgnome_goption_enable_sound, N_("Enable sound server usage"), NULL },
-
-	{ "espeaker", '\0',0, G_OPTION_ARG_CALLBACK,
-	  libgnome_goption_epeaker,
-	  N_("Host:port on which the sound server to use is running"),
-	  N_("HOSTNAME:PORT") },
-
-	{ "version", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,
-	  (GOptionArgFunc) libgnome_goption_version, VERSION, NULL },
-
-	{ NULL }
-};
 
 static void
 gnome_vfs_post_args_parse (GnomeProgram *program, GnomeModuleInfo *mod_info)
@@ -519,6 +464,23 @@ static GOptionGroup *
 libgnome_module_get_goption_group (void)
 {
 	GOptionGroup *option_group;
+	const GOptionEntry gnomelib_goptions [] = {
+		{ "disable-sound", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,
+		  libgnome_goption_disable_sound, N_("Disable sound server usage"), NULL },
+
+		{ "enable-sound", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,
+		  libgnome_goption_enable_sound, N_("Enable sound server usage"), NULL },
+
+		{ "espeaker", '\0',0, G_OPTION_ARG_CALLBACK,
+		  libgnome_goption_epeaker,
+		  N_("Host:port on which the sound server to use is running"),
+		  N_("HOSTNAME:PORT") },
+
+		{ "version", '\0', G_OPTION_FLAG_NO_ARG, G_OPTION_ARG_CALLBACK,
+		  (GOptionArgFunc) libgnome_goption_version, NULL, NULL },
+
+		{ NULL }
+	};
 
 	option_group = g_option_group_new ("gnome",
 					   N_("GNOME Library"),
@@ -541,6 +503,29 @@ libgnome_module_get_goption_group (void)
 const GnomeModuleInfo *
 libgnome_module_info_get (void)
 {
+	static const struct poptOption gnomelib_options [] = {
+		{ NULL, '\0', POPT_ARG_INTL_DOMAIN, GETTEXT_PACKAGE, 0, NULL, NULL},
+
+		{ NULL, '\0', POPT_ARG_CALLBACK, (void *) libgnome_option_cb, 0, NULL, NULL},
+
+		{ "disable-sound", '\0', POPT_ARG_NONE,
+		  NULL, ARG_DISABLE_SOUND, N_("Disable sound server usage"), NULL},
+
+		{ "enable-sound", '\0', POPT_ARG_NONE,
+		  NULL, ARG_ENABLE_SOUND, N_("Enable sound server usage"), NULL},
+
+		{ "espeaker", '\0', POPT_ARG_STRING,
+		  NULL, ARG_ESPEAKER, N_("Host:port on which the sound server to use is"
+					" running"),
+		N_("HOSTNAME:PORT")},
+
+		{ "version", '\0', POPT_ARG_NONE,
+		  NULL, ARG_VERSION, VERSION, NULL},
+
+		{ NULL, '\0', 0,
+		  NULL, 0 , NULL, NULL}
+	};
+
 	static GnomeModuleInfo module_info = {
 		"libgnome", VERSION, N_("GNOME Library"),
 		NULL, NULL,
