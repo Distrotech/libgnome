@@ -2,15 +2,16 @@
 # Joseba Bidaurrazaga van Dierdonck <jbv@euskalnet.net>, 1999-2001.
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2004, 2005, 2006, 2007.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
 # Copyright (C) 1999, 2004, 2006, 2007 Free Software Foundation, Inc.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-31 18:24+0200\n"
-"PO-Revision-Date: 2007-03-31 18:33+0200\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
-"Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"POT-Creation-Date: 2007-07-25 20:52+0200\n"
+"PO-Revision-Date: 2007-07-25 20:55+0200\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
+"Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -90,10 +91,10 @@ msgstr "Ezin da laguntza erakutsi, %s direktorioa ez delako. Egiaztatu instalazi
 
 #: ../libgnome/gnome-help.c:220
 #, c-format
-msgid "Unable to find help paths %s or %s.Please check your installation"
+msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr ""
-"Ezin izan dira laguntzaren bide-izenik aurkitu ez %s(e)n, ez %s(e)n. Egiaztatu "
-"instalazioa"
+"Ezin izan dira %s edo %s laguntzaren bide-izenik aurkitu ez. "
+"Egiaztatu instalazioa"
 
 #: ../libgnome/gnome-help.c:236
 #, c-format
@@ -144,31 +145,31 @@ msgstr ""
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Ezin izan da gnome-ren bizkortzaileen `%s' direktorioa sortu: %s\n"
 
-#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "Desgaitu soinu-zerbitzariaren erabilera"
-
-#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "Gaitu soinu-zerbitzariaren erabilera"
-
-#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "Erabili beharreko soinu-zerbitzaria dagoen ostalaria:ataka"
-
-#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "OSTALARIA:ATAKA"
-
-#: ../libgnome/gnome-init.c:506
+#: ../libgnome/gnome-init.c:451
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOMEren fitxategi-sistema birtuala"
 
-#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:469 ../libgnome/gnome-init.c:512
+msgid "Disable sound server usage"
+msgstr "Desgaitu soinu-zerbitzariaren erabilera"
+
+#: ../libgnome/gnome-init.c:472 ../libgnome/gnome-init.c:515
+msgid "Enable sound server usage"
+msgstr "Gaitu soinu-zerbitzariaren erabilera"
+
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:518
+msgid "Host:port on which the sound server to use is running"
+msgstr "Erabili beharreko soinu-zerbitzaria dagoen ostalaria:ataka"
+
+#: ../libgnome/gnome-init.c:477 ../libgnome/gnome-init.c:520
+msgid "HOSTNAME:PORT"
+msgstr "OSTALARIA:ATAKA"
+
+#: ../libgnome/gnome-init.c:486 ../libgnome/gnome-init.c:530
 msgid "GNOME Library"
 msgstr "GNOMEren liburutegia"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:487
 msgid "Show GNOME options"
 msgstr "Erakutsi GNOMEko aukerak"
 
@@ -324,19 +325,19 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Nola konektatu esd-era"
 
-#: ../libgnome/gnome-program.c:1393
+#: ../libgnome/gnome-program.c:1391
 msgid "Help options"
 msgstr "Laguntza-aukerak"
 
-#: ../libgnome/gnome-program.c:1398
+#: ../libgnome/gnome-program.c:1396
 msgid "Application options"
 msgstr "Aplikazio-aukerak"
 
-#: ../libgnome/gnome-program.c:1414
+#: ../libgnome/gnome-program.c:1412
 msgid "Dynamic modules to load"
 msgstr "Kargatzeko modulu dinamikoak"
 
-#: ../libgnome/gnome-program.c:1415
+#: ../libgnome/gnome-program.c:1413
 msgid "MODULE1,MODULE2,..."
 msgstr "1MODULUA,2MODULUA,..."
 
@@ -443,40 +444,44 @@ msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr "Ez onartu tekla bat sakatutzat @delay milisegundoz sakatuta edukitzen ez bada"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
+msgid "How long to accelerate in milliseconds"
+msgstr "Bizkortzeko denbora milisegundotan"
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "0tik gehienezko abiadurara iristeko behar duen denbora milisegundotan"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Sagua mugitzeko tresnak funtzionatzen hasi baino lehen itxaron behar den "
 "denbora milisegundotan"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "How many pixels per second to move at the maximum speed"
 msgstr "Gehienezko abiaduran mugitzeko segunduko behar den pixel-kopurua"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
 msgstr ""
 "Ez egin jaramonik tekla _bera_ hainbat aldiz sakatzen bada @delay "
 "milisegundotan"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "how long to accelerate in milliseconds"
-msgstr "bizkortzeko denbora milisegundotan"
-
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
-msgid "initial delay in milliseconds"
-msgstr "hasierako atzerapena milisegundotan"
+msgid "Initial delay in milliseconds"
+msgstr "Hasierako atzerapena milisegundotan"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
-msgid "minimum interval in milliseconds"
-msgstr "gutxieneko tartea milisegundotan"
+msgid "Minimum interval in milliseconds"
+msgstr "Gutxieneko tartea milisegundotan"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
-msgid "pixels per seconds"
-msgstr "pixel segundoko"
+msgid "Pixels per seconds"
+msgstr "Pixel segundoko"
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
+msgid "minimum interval in milliseconds"
+msgstr "gutxieneko tartea milisegundotan"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
@@ -502,11 +507,9 @@ msgstr "Laguntza-teknologien aplikazio hobetsia"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
-"Preferred Mobility assistive technology application be used for login, menu, "
-"or command line"
-msgstr ""
-"Laguntza-teknologien aplikazio hobetsia saio-hasieran, menuan edo "
-"komando-lerroan erabiltzeko"
+"Preferred Mobility assistive technology application to be used for login, "
+"menu, or command line"
+msgstr "Laguntza-teknologien aplikazio hobetsia saio-hasieran, menuan edo komando-lerroan erabiltzeko"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
@@ -525,8 +528,8 @@ msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
 "or command line"
 msgstr ""
-"Bisual-teknologien aplikazio hobetsia saio-hasieran, menuan edo "
-"komando-lerroan erabiltzeko"
+"Bisual-teknologien aplikazio hobetsia saio-hasieran, menuan edo komando-"
+"lerroan erabiltzeko"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -1005,7 +1008,9 @@ msgstr ""
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
-msgstr "Erabiltzailea beste baten kontura aldatzea saihesten du saioa aktibo duen bitartean."
+msgstr ""
+"Erabiltzailea beste baten kontura aldatzea saihesten du saioa aktibo duen "
+"bitartean."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid "Prevent the user to lock his screen."
