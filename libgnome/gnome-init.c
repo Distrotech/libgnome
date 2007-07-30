@@ -54,6 +54,9 @@
 
 #include "libgnome-private.h"
 
+/* implemented in gnome-sound.c */
+G_GNUC_INTERNAL extern void _gnome_sound_set_enabled (gboolean);
+
 /*****************************************************************************
  * bonobo
  *****************************************************************************/
@@ -419,22 +422,21 @@ static void
 libgnome_post_args_parse (GnomeProgram *program,
 			  GnomeModuleInfo *mod_info)
 {
-	gboolean enable_sound = TRUE, create_dirs = TRUE;
-	char *espeaker = NULL;
+        gboolean enable_sound = TRUE, create_dirs = TRUE;
+        char *espeaker = NULL;
 
-	g_object_get (program,
-		      GNOME_PARAM_CREATE_DIRECTORIES, &create_dirs,
-		      GNOME_PARAM_ENABLE_SOUND, &enable_sound,
-		      GNOME_PARAM_ESPEAKER, &espeaker,
-		      NULL);
+        g_object_get (program,
+                      GNOME_PARAM_CREATE_DIRECTORIES, &create_dirs,
+                      GNOME_PARAM_ENABLE_SOUND, &enable_sound,
+                      GNOME_PARAM_ESPEAKER, &espeaker,
+                      NULL);
 
-	if (enable_sound) {
-		gnome_sound_init (espeaker);
-	}
-
+        gnome_sound_init (espeaker);
         g_free (espeaker);
 
-	libgnome_userdir_setup (create_dirs);
+        _gnome_sound_set_enabled (enable_sound);
+
+        libgnome_userdir_setup (create_dirs);
 }
 
 static void

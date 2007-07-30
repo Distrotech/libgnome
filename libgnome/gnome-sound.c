@@ -40,6 +40,7 @@
 #ifdef HAVE_ESD
 static char *esound_hostname = NULL;
 static int gnome_sound_connection = -1;
+static gboolean gnome_sound_enabled = FALSE;
 #endif
 
 typedef struct _sample
@@ -71,6 +72,8 @@ WAVFormatChunk;
 ( ( x & 0x00ff0000 ) >> 8 ) |\
 ( ( x & 0xff000000 ) >> 24 ) )
 #endif
+
+G_GNUC_INTERNAL void _gnome_sound_set_enabled (gboolean);
 
 /**
  * gnome_sound_sample_load_wav:
@@ -297,17 +300,36 @@ gnome_sound_sample_load_wav(const char *file)
 static gboolean
 use_sound (void)
 {
+  if (!gnome_sound_enabled)
+    return FALSE;
+
   if (gnome_sound_connection == -1){
       gnome_sound_connection = esd_open_sound (esound_hostname);
-      if (gnome_sound_connection == -1){
-	g_free (esound_hostname);
-	esound_hostname = NULL;
-	return FALSE;
-      }
-    }
-  return TRUE;
+  }
+
+  return gnome_sound_connection >= 0;
+}
+
+static void
+close_sound_connection (void)
+{
+  if(gnome_sound_connection >= 0){
+    esd_close(gnome_sound_connection);
+    gnome_sound_connection = -1;
+  }
 }
 #endif
+
+void G_GNUC_INTERNAL
+_gnome_sound_set_enabled (gboolean enabled)
+{
+#ifdef HAVE_ESD
+  gnome_sound_enabled = enabled;
+  if (!enabled) {
+    close_sound_connection();
+  }
+#endif
+}
 
 #if defined(HAVE_LIBAUDIOFILE) && defined(HAVE_ESD)
 #include <audiofile.h>
@@ -517,9 +539,7 @@ gnome_sound_init(const char *hostname)
 #ifdef HAVE_ESD
 	srand(time(NULL));
 	g_free (esound_hostname);
-	esound_hostname = NULL;
-	if (hostname)
-		esound_hostname = g_strdup (hostname);
+	esound_hostname = g_strdup (hostname);
 #endif
 }
 
@@ -535,10 +555,7 @@ gnome_sound_shutdown(void)
 	g_free (esound_hostname);
 	esound_hostname = NULL;
 
-	if(gnome_sound_connection >= 0){
-		esd_close(gnome_sound_connection);
-		gnome_sound_connection = -1;
-	}
+        close_sound_connection ();
 #endif
 }
 

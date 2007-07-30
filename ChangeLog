@@ -1,3 +1,11 @@
+2007-07-30  Christian Persch  <chpe@gnome.org>
+
+	* libgnome/gnome-init.c: (libgnome_post_args_parse):
+	* libgnome/gnome-sound.c: (use_sound), (close_sound_connection),
+	(_gnome_sound_set_enabled), (gnome_sound_init),
+	(gnome_sound_shutdown): Don't init the esd connection when
+	--disable-sound is passed. Bug #449249.
+
 2007-06-19  Christian Persch  <chpe@gnome.org>
 
 	* libgnome/gnome-init.c: (libgnome_post_args_parse),
