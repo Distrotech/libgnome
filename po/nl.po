@@ -1,7 +1,7 @@
-# translation of libgnome.HEAD.po to Dutch
-# Dutch translation of libgnome.
-# Copyright (C) 2002, 2004 Free Software Foundation, Inc.
-# Commentaar:
+# Dutch translation for libgnome
+#
+# This file is distributed under the same license as the libgnome package.
+#
 # Tino Meinen <a.t.meinen@chello.nl>, 2002, 2006.
 # Reinout van Schouwen <reinout@cs.vu.nl>, 2002-2005
 # Vincent van Adrighem <V.vanAdrighem@dirck.mine.nu>, 2003, 2004.
@@ -9,10 +9,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome.HEAD\n"
+"Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-09 10:37+0100\n"
-"PO-Revision-Date: 2007-03-09 10:36+0100 \n"
+"POT-Creation-Date: 2007-07-30 23:51+0200\n"
+"PO-Revision-Date: 2007-07-30 23:55+0200\n"
 "Last-Translator: Wouter Bolsterlee <wbolster@gnome.org>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -68,7 +68,7 @@ msgstr "Selecteer aankruisvakje"
 msgid "User interface events"
 msgstr "Gebruikersinterface-gebeurtenissen"
 
-#: ../libgnome/gnome-exec.c:458
+#: ../libgnome/gnome-exec.c:457
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Kan geen terminalprogramma vinden. Gebruik xterm hoewel dit mogelijk niet "
@@ -79,10 +79,12 @@ msgid "GNOME GConf Support"
 msgstr "GNOME GConf-ondersteuning"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Kan het domein GNOME_FILE_DOMAIN_APP_HELP niet vinden"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Kan het domein GNOME_FILE_DOMAIN_HELP niet vinden"
 
@@ -97,7 +99,7 @@ msgstr ""
 # punt aan het eind van de zin ontbreekt in het Engels
 #: ../libgnome/gnome-help.c:220
 #, c-format
-msgid "Unable to find help paths %s or %s.Please check your installation"
+msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr "Kan hulppaden %s of %s niet vinden. Controleer uw installatie."
 
 #: ../libgnome/gnome-help.c:236
@@ -119,21 +121,21 @@ msgid "Help document %s/%s not found"
 msgstr "Hulpdocument %s/%s niet gevonden"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:89
+#: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "Bonobo-ondersteuning"
 
-#: ../libgnome/gnome-init.c:143
+#: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Bonobo activeringsondersteuning"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Kan de gebruikerspecifieke GNOME-configuratiemap '%s' niet aanmaken: %s\n"
 
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:407
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -142,209 +144,209 @@ msgstr ""
 "Kan de gebruikerspecifieke GNOME-privéconfiguratiemap '%s' niet op modus "
 "0700 zetten: %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:414
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Kan de GNOME-sneltoetsenmap '%s' niet maken: %s\n"
 
-#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "Gebruik van geluidsserver uitschakelen"
-
-#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "Gerbuik van geluidsserver inschakelen"
-
-#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "Host:poort waarop de te gebruiken geluidsserver actief is"
-
-#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "HOSTNAAM:POORT"
-
-#: ../libgnome/gnome-init.c:506
+#: ../libgnome/gnome-init.c:453
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME virtueel bestandssysteem"
 
-#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+msgid "Disable sound server usage"
+msgstr "Gebruik van geluidsserver uitschakelen"
+
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+msgid "Enable sound server usage"
+msgstr "Gerbuik van geluidsserver inschakelen"
+
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+msgid "Host:port on which the sound server to use is running"
+msgstr "Host:poort waarop de te gebruiken geluidsserver actief is"
+
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+msgid "HOSTNAME:PORT"
+msgstr "HOSTNAAM:POORT"
+
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
 msgid "GNOME Library"
 msgstr "GNOME-bibliotheek"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:489
 msgid "Show GNOME options"
 msgstr "GNOME-opties tonen"
 
-#: ../libgnome/gnome-program.c:458
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "Popt-tabel"
 
-#: ../libgnome/gnome-program.c:459
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "De optietabel voor popt"
 
-#: ../libgnome/gnome-program.c:466
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "Popt-vlaggen"
 
-#: ../libgnome/gnome-program.c:467
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "De te gebruiken vlaggen voor popt"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Popt-context"
 
-#: ../libgnome/gnome-program.c:476
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "De popt contextpointer die GnomeProgram gebruikt"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "GOption-context"
 
-#: ../libgnome/gnome-program.c:485
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "De goption-contextpointer die GnomeProgram gebruikt"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "Leesbare naam"
 
-#: ../libgnome/gnome-program.c:494
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "Door mensen leesbare naam van deze toepassing"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "GNOME-pad"
 
-#: ../libgnome/gnome-program.c:504
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "Pad waarin moet worden gezocht voor geïnstalleerde bestanden"
 
-#: ../libgnome/gnome-program.c:513
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "Toepassing-ID"
 
-#: ../libgnome/gnome-program.c:514
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "De te gebruiken ID-tekenreeks voor deze toepassing"
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "Toepassing-versie"
 
-#: ../libgnome/gnome-program.c:522
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "Versie van deze toepassing"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "GNOME-voorvoegsel"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "Voorvoegsel waarin GNOME is geïnstalleerd"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "GNOME-bibliotheekmap"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "Bibliotheek-voorvoegsel waarin GNOME is geïnstalleerd"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "GNOME-gegevensmap"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "Gegevensvoorvoegsel waarin GNOME is geïnstalleerd"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "GNOME-sysconfmap"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Configuratievoorvoegsel waarin GNOME is geïnstalleerd"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "GNOME toepassingsvoorvoegsel"
 
-#: ../libgnome/gnome-program.c:571
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "Voorvoegsel waarin deze toepassing is geïnstalleerd"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "GNOME toepassings-bibliotheekmap"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "Bibliotheek-voorvoegsel waarin deze toepassing is geïnstalleerd"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "GNOME toepassingsgegevensmap"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "Gegevensvoorvoegsel waarin deze toepassing is geïnstalleerd"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME toepassings-sysconfmap"
 
-#: ../libgnome/gnome-program.c:600
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "Configuratievoorvoegsel waarin deze toepassing is geïnstalleerd"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "Mappen aanmaken"
 
-#: ../libgnome/gnome-program.c:610
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "Standaard GNOME-mappen aanmaken bij opstarten"
 
-#: ../libgnome/gnome-program.c:619
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "Geluid inschakelen"
 
-#: ../libgnome/gnome-program.c:620
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "Geluid inschakelen bij opstarten"
 
-#: ../libgnome/gnome-program.c:628
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:629
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "Hoe met esd te verbinden"
 
-#: ../libgnome/gnome-program.c:1394
+#: ../libgnome/gnome-program.c:1391
 msgid "Help options"
 msgstr "Hulpopties"
 
-#: ../libgnome/gnome-program.c:1399
+#: ../libgnome/gnome-program.c:1396
 msgid "Application options"
 msgstr "Toepassingsopties"
 
-#: ../libgnome/gnome-program.c:1415
+#: ../libgnome/gnome-program.c:1412
 msgid "Dynamic modules to load"
 msgstr "Te laden dynamische modules"
 
-#: ../libgnome/gnome-program.c:1416
+#: ../libgnome/gnome-program.c:1413
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1505
+#: ../libgnome/gnome-program.c:1504
 #, c-format
 msgid ""
 "%s\n"
@@ -353,15 +355,18 @@ msgstr ""
 "%s\n"
 "Voer '%s --help' uit voor een volledige lijst van opdrachtregelopties.\n"
 
-#: ../libgnome/gnome-url.c:86
+#: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Onbekende interne fout bij het weergeven van deze locatie."
 
-#: ../libgnome/gnome-url.c:93
+#: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "De aangegeven locatie is ongeldig."
 
-#: ../libgnome/gnome-url.c:100
+#: ../libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
@@ -369,7 +374,8 @@ msgstr ""
 "Er is een fout opgetreden bij het ontleden van de standaardactie-opdracht "
 "welke geassocieerd is met deze locatie."
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
+#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -377,32 +383,38 @@ msgstr ""
 "Er is een fout opgetreden bij het starten van de standaardactie-opdracht "
 "welke geassocieerd is met deze locatie."
 
-#: ../libgnome/gnome-url.c:116
+#: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "Er is geen standaardactie geassocieerd met deze locatie."
 
-#: ../libgnome/gnome-url.c:123
+#: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "De standaardactie ondersteunt dit protocol niet."
 
-#: ../libgnome/gnome-url.c:130
+#: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "De aanvraag is geannuleerd."
 
-#: ../libgnome/gnome-url.c:140
+#: ../libgnome/gnome-url.c:139
 #, c-format
 msgid "The host \"%s\" could not be found."
 msgstr "De \"%s\"-host was onvindbaar."
 
-#: ../libgnome/gnome-url.c:146
+#: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "De host was onvindbaar."
 
-#: ../libgnome/gnome-url.c:157
+#: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "De locatie of het bestand was onvindbaar."
 
-#: ../libgnome/gnome-url.c:164
+#: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "Het aanmelden is mislukt."
 
@@ -448,40 +460,44 @@ msgstr ""
 "ingedrukt gehouden"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
+msgid "How long to accelerate in milliseconds"
+msgstr "Hoe lang te versnellen in milliseconden"
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Hoeveel milliseconden het duurt om van 0 naar maximumsnelheid te gaan"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Hoeveel milliseconden te wachten voordat muisbewegingstoetsen in werking "
 "treden"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "How many pixels per second to move at the maximum speed"
 msgstr "Hoeveel pixels per seconde te bewegen op maximumsnelheid"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
 msgstr ""
 "Meerdere aanslagen van _dezelfde_ toets negeren binnen @delay milliseconden"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "how long to accelerate in milliseconds"
-msgstr "hoe lang te versnellen in milliseconden"
-
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
-msgid "initial delay in milliseconds"
-msgstr "startvertraging in milliseconden"
+msgid "Initial delay in milliseconds"
+msgstr "Startvertraging in milliseconden"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
-msgid "minimum interval in milliseconds"
-msgstr "minimuminterval in milliseconden"
+msgid "Minimum interval in milliseconds"
+msgstr "Minimuminterval in milliseconden"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
-msgid "pixels per seconds"
-msgstr "pixels per seconde"
+msgid "Pixels per seconds"
+msgstr "Pixels per seconde"
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
+msgid "minimum interval in milliseconds"
+msgstr "minimuminterval in milliseconden"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
@@ -509,8 +525,8 @@ msgstr "Geprefereerde assisterende technologie-toepassing voor mobiliteit"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
-"Preferred Mobility assistive technology application be used for login, menu, "
-"or command line"
+"Preferred Mobility assistive technology application to be used for login, "
+"menu, or command line"
 msgstr ""
 "Geprefereerde assisterende technologie-toepassing voor mobiliteit die bij "
 "inloggen, het menu en de opdrachtregel gebruikt moet worden."
