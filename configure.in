@@ -9,7 +9,7 @@ AC_PREREQ(2.54)
 #
 m4_define([libgnome_major_version], [2])
 m4_define([libgnome_minor_version], [19])
-m4_define([libgnome_micro_version], [1])
+m4_define([libgnome_micro_version], [90])
 m4_define([libgnome_interface_age], [1])
 # If you need a modifier for the version number. 
 # Normally empty, but can be used to make "fixup" releases.
@@ -106,7 +106,6 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [The gettext package])
 
 AM_GLIB_GNU_GETTEXT
-AM_GLIB_DEFINE_LOCALEDIR([LIBGNOME_LOCALEDIR])
 
 GNOME_COMPILE_WARNINGS
 
