@@ -1,22 +1,23 @@
 # translation of libgnome.HEAD.ml.po to Malayalam
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# FSF-India <locale@gnu.org.in>, 2003.
-# Ani Peter <apeter@redhat.com>, 2006.
 #
+# FSF-India <locale@gnu.org.in>, 2003.
+# Ani Peter <apeter@redhat.com>, 2006, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.ml\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-07 08:13+0200\n"
-"PO-Revision-Date: 2006-08-08 02:26+0530\n"
+"POT-Creation-Date: 2007-04-19 03:16+0100\n"
+"PO-Revision-Date: 2007-08-04 15:14+0530\n"
 "Last-Translator: Ani Peter <apeter@redhat.com>\n"
-"Language-Team: Malayalam\n"
+"Language-Team: Malayalam <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -66,7 +67,7 @@ msgstr "ചെക്ക് ബോക്സ് തിരഞ്ഞെടുക്�
 msgid "User interface events"
 msgstr "ഉപയോക്താവുമായുളള സംയോജകഘടകത്തിനുളള ഇവന്‍റുകള്‍"
 
-#: ../libgnome/gnome-exec.c:458
+#: ../libgnome/gnome-exec.c:457
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "ടെര്‍മിനല്‍ ലഭ്യമല്ല, അതിനാല്‍ പ്രവര്‍ത്തിച്ചിലേലും xterm തിരഞ്ഞെടുക്കുന്നു"
 
@@ -87,18 +88,19 @@ msgstr "GNOME_FILE_DOMAIN_HELP ഡൊമെയിന്‍ ലഭ്യമല്
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr ""
-"%s ഒരു ഡയറക്ടറി അല്ലാത്തതിനാല്‍, സഹായം ലഭ്യമല്ല.  ദയവായി ഇന്‍സ്റ്റലേഷന്‍ "
-"പരിശോധിക്കുക."
+msgstr "%s ഒരു ഡയറക്ടറി അല്ലാത്തതിനാല്‍, സഹായം ലഭ്യമല്ല.  ദയവായി ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക."
 
-#: ../libgnome/gnome-help.c:220 ../libgnome/gnome-help.c:236
+#: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s. Please check your installation"
+msgstr "%s-ലും %s-ലും സഹായത്തിനുളള ഫയലുകള്‍ ലഭ്യമല്ല.  ദയവായി ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക. "
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr ""
-"%s-ലും %s-ലും സഹായത്തിനുളള ഫയലുകള്‍ ലഭ്യമല്ല.  ദയവായി ഇന്‍സ്റ്റലേഷന്‍ "
-"പരിശോധിക്കുക."
+msgstr "%s-ലും %s-ലും സഹായത്തിനുളള ഫയലുകള്‍ ലഭ്യമല്ല.  ദയവായി ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക."
 
 #: ../libgnome/gnome-help.c:353
 #, c-format
@@ -129,7 +131,9 @@ msgstr "ഒരോ ഉപയോക്താവിനുമുളള gnome കോ�
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
-msgstr "ഒരോ ഉപയോക്താവിനുമുളള gnome കോണ്‍ഫിഗറേഷന്‍ ഡയറക്ടറി `%s'-യുടെ മോഡ് 0700 ആയി സെറ്റ് ചെയ്യുവാന്‍ സാധ്യമായില്ല: %s\n"
+msgstr ""
+"ഒരോ ഉപയോക്താവിനുമുളള gnome കോണ്‍ഫിഗറേഷന്‍ ഡയറക്ടറി `%s'-യുടെ മോഡ് 0700 ആയി സെറ്റ് "
+"ചെയ്യുവാന്‍ സാധ്യമായില്ല: %s\n"
 
 #: ../libgnome/gnome-init.c:411
 #, c-format
@@ -164,176 +168,176 @@ msgstr "GNOME ലൈബ്രറി"
 msgid "Show GNOME options"
 msgstr "GNOME ഉപാധികള്‍ കാണിക്കുക"
 
-#: ../libgnome/gnome-program.c:458
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "Popt ടേബിള്‍"
 
-#: ../libgnome/gnome-program.c:459
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "Popt ഉപാധികള്‍ക്കായുളള ടേബിള്‍"
 
-#: ../libgnome/gnome-program.c:466
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "Popt ഫ്ളാഗ്സ്"
 
-#: ../libgnome/gnome-program.c:467
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "Popt-യ്ക്ക് ആവശ്യമുളള ഫ്ളാഗ്സ്"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Popt കോണ്‍ടക്സ്റ്റ്"
 
-#: ../libgnome/gnome-program.c:476
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "GnomeProgram ഉപയോഗിക്കുന്ന Popt കോണ്‍ടക്സ്റ്റ് സൂചകം (പോയിന്‍റര്‍)"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "GOption കോണ്‍ടക്സ്റ്റ് "
 
-#: ../libgnome/gnome-program.c:485
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "GnomeProgram ഉപയോഗിക്കുന്ന GOption കോണ്‍ടക്സ്റ്റ്  സൂചകം (പോയിന്‍റര്‍)"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "മനുഷ്യന് വായിക്കുവാന്‍ കഴിയുന്ന പേര്"
 
-#: ../libgnome/gnome-program.c:494
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "ഈ പ്രയോഗത്തിന്‍റെ മനുഷ്യന് വായിക്കുവാന്‍ കഴിയുന്ന പേര്"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "GNOME-ലേക്കുളള വഴി"
 
-#: ../libgnome/gnome-program.c:504
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "ഇന്‍സ്റ്റോള്‍ ചെയ്ത ഫയലുകള്‍ കാണുന്നതിനായുളള വഴി"
 
-#: ../libgnome/gnome-program.c:513
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "App ID"
 
-#: ../libgnome/gnome-program.c:514
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "ഈ പ്രയോഗത്തിന് ഉപയോഗിക്കുന്നതിനായുളള ID സ്ട്രിങ്"
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "App വേര്‍ഷന്‍"
 
-#: ../libgnome/gnome-program.c:522
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "ഈ പ്രയോഗത്തിന്‍റെ വേര്‍ഷന്‍"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "GNOME പ്രിഫിക്സ്"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "GNOME ഇന്‍സ്റ്റോള്‍ ചെയ്യപ്പെട്ട പ്രിഫിക്സ്"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "GNOME Libdir"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "GNOME ഇന്‍സ്റ്റോള്‍ ചെയ്യപ്പെട്ട ലൈബ്രറി പ്രിഫിക്സ്"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "GNOME Datadir"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "GNOME ഇന്‍സ്റ്റോള്‍ ചെയ്യപ്പെട്ട ഡേറ്റാ പ്രിഫിക്സ്"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "GNOME Sysconfdir"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "GNOME ഇന്‍സ്റ്റോള്‍ ചെയ്യപ്പെട്ട കോണ്‍ഫിഗറേഷന്‍ പ്രിഫിക്സ്"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "GNOME App പ്രിഫിക്സ്"
 
-#: ../libgnome/gnome-program.c:571
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "ഈ പ്രയോഗം ഇന്‍സ്റ്റോള്‍ ചെയ്യപ്പെട്ട പ്രിഫിക്സ്"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "GNOME App Libdir"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "ഈ പ്രയോഗം ഇന്‍സ്റ്റോള്‍ ചെയ്യപ്പെട്ട ലൈബ്രറി പ്രിഫിക്സ്"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "GNOME App Datadir"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "ഈ പ്രയോഗം ഇന്‍സ്റ്റോള്‍ ചെയ്യപ്പെട്ട ഡേറ്റാ പ്രിഫിക്സ്"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME App Sysconfdir"
 
-#: ../libgnome/gnome-program.c:600
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "ഈ പ്രയോഗം ഇന്‍സ്റ്റോള്‍ ചെയ്യപ്പെട്ട കോണ്‍ഫിഗറേഷന്‍ പ്രിഫിക്സ്"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "ഡയറക്ടറികള്‍ നിര്‍മ്മിക്കുക"
 
-#: ../libgnome/gnome-program.c:610
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "ആരംഭത്തില്‍ നിലവാരമുളള GNOME ഡയറക്ടറികള്‍ നിര്‍മ്മിക്കുക"
 
-#: ../libgnome/gnome-program.c:619
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "ശബ്ദം സജ്ജമാക്കുക"
 
-#: ../libgnome/gnome-program.c:620
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "ആരംഭത്തില്‍ ശബ്ദം സജ്ജമാക്കുക"
 
-#: ../libgnome/gnome-program.c:628
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:629
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "എങ്ങനെ esd-ലേക്ക് ബന്ധപ്പെടാം"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1395
 msgid "Help options"
 msgstr "സഹായ ഉപാധികള്‍"
 
-#: ../libgnome/gnome-program.c:1401
+#: ../libgnome/gnome-program.c:1400
 msgid "Application options"
 msgstr "പ്രയോഗത്തിനുളള ഉപാധികള്‍"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1416
 msgid "Dynamic modules to load"
 msgstr "ലോഡ് ചെയ്യുവാനുളള ഡൈനാമിക്ക് ഘടകങ്ങള്‍"
 
-#: ../libgnome/gnome-program.c:1418
+#: ../libgnome/gnome-program.c:1417
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1507
+#: ../libgnome/gnome-program.c:1506
 #, c-format
 msgid ""
 "%s\n"
@@ -342,44 +346,44 @@ msgstr ""
 "%s\n"
 "ലഭ്യമായ മുഴുവന്‍ കമാന്‍ഡ് ലൈന്‍ ഉപാധികള്‍ കാണുന്നതിനായി '%s --help' പ്രവര്‍ത്തിപ്പിക്കുക.\n"
 
-#: ../libgnome/gnome-url.c:86
+#: ../libgnome/gnome-url.c:85
 msgid "Unknown internal error while displaying this location."
 msgstr "ഈ സ്ഥലം കാണിക്കുന്നതിനിടയില്‍ അപരിചിതമായ ആന്തരിക പിശക്."
 
-#: ../libgnome/gnome-url.c:93
+#: ../libgnome/gnome-url.c:92
 msgid "The specified location is invalid."
 msgstr "നിങ്ങള്‍ പറഞ്ഞിരിക്കുന്ന സ്ഥലം അസാധുവാണ്."
 
-#: ../libgnome/gnome-url.c:100
+#: ../libgnome/gnome-url.c:99
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr ""
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:174
+#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr ""
 
-#: ../libgnome/gnome-url.c:116
+#: ../libgnome/gnome-url.c:115
 msgid "There is no default action associated with this location."
 msgstr ""
 
-#: ../libgnome/gnome-url.c:123
+#: ../libgnome/gnome-url.c:122
 msgid "The default action does not support this protocol."
 msgstr "ഡീഫോള്‍ട്ട് പ്രവര്‍ത്തനം ഈ സന്പ്രദായത്തെ പിന്തുണയ്ക്കുന്നില്ല."
 
-#: ../libgnome/gnome-url.c:130
+#: ../libgnome/gnome-url.c:129
 msgid "The request was cancelled."
 msgstr "ആവശ്യം റദ്ദാക്കിയിരിക്കുന്നു."
 
-#: ../libgnome/gnome-url.c:140
+#: ../libgnome/gnome-url.c:139
 #, c-format
 msgid "The host \"%s\" could not be found."
 msgstr "ഹോസ്റ്റ് \"%s\" കണ്ടുകിട്ടിയില്ല."
 
-#: ../libgnome/gnome-url.c:146
+#: ../libgnome/gnome-url.c:145
 msgid "The host could not be found."
 msgstr "ഹോസ്റ്റ് കണ്ടുകിട്ടിയില്ല"
 
@@ -388,9 +392,8 @@ msgid "The location or file could not be found."
 msgstr "സ്ഥലം അല്ലേല്‍ ഫയല്‍ കണ്ടുകിട്ടിയില്ല."
 
 #: ../libgnome/gnome-url.c:163
-#, c-format
-msgid "Unknown error code: %u"
-msgstr "അപരിചിതമായ പിശക് കോഡ്: %u"
+msgid "The login has failed."
+msgstr ""
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -431,36 +434,40 @@ msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
+msgid "How long to accelerate in milliseconds"
+msgstr ""
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "0-ല്‍ നിന്നും ഏറ്റവും കൂടുതല്‍ വേഗതയില്‍ എത്തുന്നതിനായി എടുക്കുന്ന സമയം (മില്ലിസെക്കന്‍ഡ്)"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "How many pixels per second to move at the maximum speed"
 msgstr "ഒരു സെക്കന്‍ഡില്‍ ഏറ്റവും കൂടുതല്‍ വേഗതയില്‍ നീങ്ങുന്ന പിക്സലുകളുടെ എണ്ണം"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
 msgstr ""
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "how long to accelerate in milliseconds"
-msgstr ""
-
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
-msgid "initial delay in milliseconds"
-msgstr ""
+msgid "Initial delay in milliseconds"
+msgstr "മില്ലിസെക്കന്‍ഡില്‍ ആദ്യമുളള ഇടവേള "
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
-msgid "minimum interval in milliseconds"
-msgstr "മില്ലിസെക്കന്‍ഡില്‍ ഏറ്റവും കുറഞ്ഞ ഇടവേള"
+msgid "Minimum interval in milliseconds"
+msgstr "മില്ലിസെക്കന്‍ഡില്‍ ഏറ്റവും കുറഞ്ഞ ഇടവേള "
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
-msgid "pixels per seconds"
-msgstr "ഓരോ സെക്കന്‍ഡിലും ഉളള പിക്സലുകള്‍"
+msgid "Pixels per seconds"
+msgstr "ഓരോ സെക്കന്‍ഡിലും ഉളള പിക്സലുകള്‍ "
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
+msgid "minimum interval in milliseconds"
+msgstr "മില്ലിസെക്കന്‍ഡില്‍ ഏറ്റവും കുറഞ്ഞ ഇടവേള"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
@@ -471,6 +478,44 @@ msgstr ""
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr "സ്റ്റാര്‍ട്ടപ്പ് അസ്സിസ്റ്റീവ് ടെക്നോളജി പ്രയോഗങ്ങള്‍"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "ആവശ്യമനുസരിച്ചുളള മൊബിളിറ്റി അസ്സിസ്റ്റീവ് ടെക്നോളജി പ്രയോഗങ്ങള്‍"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application to be used for login, "
+"menu, or command line"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "ആവശ്യമനുസരിച്ചുളള മൊബിളിറ്റി അസ്സിസ്റ്റീവ് ടെക്നോളജി പ്രയോഗങ്ങള്‍ തുടങ്ങുക"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid "GNOME to start preferred Visual assistive technology application during login"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "ആവശ്യമനുസരിച്ചുളള വിഷ്വല്‍ അസ്സിസ്റ്റീവ് ടെക്നോളജി പ്രയോഗങ്ങള്‍ "
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "ആവശ്യമനുസരിച്ചുളള വിഷ്വല്‍ അസ്സിസ്റ്റീവ് ടെക്നോളജി പ്രയോഗങ്ങള്‍ തുടങ്ങുക"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -635,207 +680,209 @@ msgstr "ഫയല്‍ പ്രതിരൂപത്തിന്‍റെ ഥ�
 msgid "Theme used for displaying file icons"
 msgstr "ഫയലിന്‍റെ പ്രതിരൂപങ്ങള്‍ ഡിസ്പ്ളെ ചെയ്യുന്നതിനായി ഉപയോഗിച്ച ഥീം"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:1
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
 msgstr "gtk+ ഉപയോഗിക്കുന്ന ഡീഫോള്‍ട്ട് ഥീമിന്‍റെ ബെയിസ്‍ നെയിം."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:2
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
 msgstr "സ്ഥാനസൂചി മിന്നുന്ന സമയം"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
 msgstr "ഡീഫോള്‍ട്ട് ലിപി"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Document font"
 msgstr "രേഖയിലുപയോഗിക്കുന്ന ലിപി"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
-msgstr ""
+msgstr "ആക്സസിബിളിറ്റി സജ്ജമാക്കുക"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
-msgstr ""
+msgstr "ആനിമേഷന്‍ സജ്ജമാക്കുക"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "GTK IM Preedit Style"
 msgstr "GTK IM പ്രിഎഡിറ്റ് സ്റ്റൈല്‍"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Status Style"
 msgstr "GTK IM സ്റ്റേറ്റസ് സ്റ്റൈല്‍"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "Gtk+ Theme"
 msgstr "Gtk+ ഥീം"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Icon Theme"
 msgstr "പ്രതിരൂപത്തിന്‍റെ ഥീം"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "മെനു ബാറുകള്‍ തുറക്കുന്നതിനായുളള കീബോര്‍ഡിന്‍റെ കുറുക്കുവഴികള്‍"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Menubar Detachable"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar accelerator"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menus Have Icons"
 msgstr "മെനുവില്‍ പ്രതിരൂപങ്ങള്‍ ഉണ്ട്"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Tearoff"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooser-നുളള ഘടകം"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Monospace font"
 msgstr "മോണോസ്പെയിസ് ലിപി"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "gtk+ ഉപയോഗിക്കുന്ന GTK+ ഇന്‍പുട്ട് മെഥേഡ് പ്രീ എഡിറ്റ് സ്റ്റൈലിന്‍റെ പേര്."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "gtk+ ഉപയോഗിക്കുന്ന GTK+ ഇന്‍പുട്ട് മെഥേഡ് സ്റ്റേറ്റ്സ് സ്റ്റൈല്‍ സ്റ്റൈലിന്‍റെ പേര്."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the default font used by gtk+."
 msgstr "gtk+ ഉപയോഗിക്കുന്ന ഡീഫോള്‍ട്ട് ലിപിയുടെ പേര്."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used for reading documents"
 msgstr "രേഖകള്‍ വായിക്കുന്നതിനായി ഉപയോഗിക്കുന്ന ഡീഫോള്‍ട്ടായ ലിപിയുടെ പേര്"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Show the 'Input Methods' menu"
 msgstr "ഇന്‍പുട്ട് മാര്‍ഗങ്ങളുടെ മെനു കാണിക്കുക"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "യുണിക്കോഡ് കണ്ട്രോള്‍ ക്യാറക്റ്റര്‍ മെനു"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Status Bar on Right"
 msgstr "വലത്ത് വശത്തുളള സ്റ്റേറ്റസ് ബാര്‍"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "This specifies the size of icons displayed in toolbars"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Toolbar Detachable"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Toolbar Icon Size"
 msgstr "ടൂള്‍ബാര്‍ പ്രതിരൂപങ്ങളുടെ വലുപ്പം"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Style"
 msgstr "ടൂള്‍ബാറിന്‍റെ രീതി"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\""
-msgstr "ടൂള്‍ബാറിന്‍റെ രീതി. ശരിയായ മൂല്ല്യങ്ങള്‍ ഇവയാണ് - \"both\", \"both-horiz\", \"icons\",\"text\""
+msgstr ""
+"ടൂള്‍ബാറിന്‍റെ രീതി. ശരിയായ മൂല്ല്യങ്ങള്‍ ഇവയാണ് - \"both\", \"both-horiz\", \"icons\","
+"\"text\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Use Custom Font"
 msgstr "ഇഷ്ടപ്പെട്ട ലിപി ഉപയോഗിക്കുക"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Whether Applications should have accessibility support"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether menus should have a tearoff"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the cursor should blink"
 msgstr "സ്ഥാനസൂചി മിന്നുന്ന സമയത്ത്"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the user can detach menubars and move them around"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the user can detach toolbars and move them around"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether to display a status bar meter on the right"
 msgstr ""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "gtk+ പ്രയോഗങ്ങളില്‍ ഇഷ്ടമുളള ലിപി ഉപയോഗിക്കണമോ എന്ന്."
 
@@ -844,41 +891,59 @@ msgid "Disable command line"
 msgstr "കമാന്‍ഡ് ലൈന്‍ പ്രവര്‍ത്തന രഹിതമാക്കുക"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable lock screen"
+msgstr "സ്ക്രീന്‍ പൂട്ടുന്ന സംവിധാനം പ്രവര്‍ത്തന രഹിതമാക്കുക"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "പ്രിന്‍റ് സെറ്റപ്പ് പ്രവര്‍ത്തന രഹിതമാക്കുക"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "പ്രിന്‍റ് ചെയ്യുന്നത് പ്രവര്‍ത്തന രഹിതമാക്കുക"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "ഡിസ്കിലേക്ക് ഫയല്‍ സംരക്ഷിക്കുന്നത് പ്രവര്‍ത്തന രഹിതമാക്കുക"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "യൂസറ്‍ സ്വിച്ചിങ് പ്രവര്‍ത്തന രഹിതമാക്കുക"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
 msgstr ""
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
 msgstr ""
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr ""
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "സ്ക്രീന്‍ പൂട്ടുന്നതിന് യൂസറിനെ അനുവദിക്കാതിരിക്കുക."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -990,18 +1055,34 @@ msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr ""
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "ഡീഫോള്‍ട്ടായ മിക്സറ്‍ ഡിവൈസ്"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr ""
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "ESD പ്രവര്‍ത്തന സജ്ജമാക്കുക"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "സൌണ്ട് സര്‍വര്‍ സ്റ്റാര്‍ട്ടപ്പ് പ്രവര്‍ത്തന സജ്ജമാക്കുക"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "ഇവന്‍റുകള്‍ക്കുളള ശബ്ദങ്ങള്‍"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr ""
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr ""
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr ""
 
@@ -1033,15 +1114,15 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:5
 msgid "Type time"
-msgstr ""
+msgstr "ടെപ്പ് ചെയ്യുവാന്‍ എടുക്കുന്ന സമയം"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
-msgstr ""
+msgstr "കീബോറ്‍ഡ് പൂട്ടുന്ന സംവിധാനം പ്റവറ്‍ത്തന സജ്ജമാക്കുവാന്‍ സാധ്യമോ എന്ന്"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr ""
+msgstr "കീബോറ്‍ഡ് പൂട്ടുന്ന സംവിധാനം പ്റവറ്‍ത്തന സജ്ജമാക്കുവാന്‍ സാധ്യമോ എന്ന്."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
