@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-28 13:20-0500\n"
+"POT-Creation-Date: 2007-08-15 15:10-0400\n"
 "PO-Revision-Date: 2005-07-20 14:58-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -64,7 +64,7 @@ msgstr "Select check box"
 msgid "User interface events"
 msgstr "User interface events"
 
-#: ../libgnome/gnome-exec.c:458
+#: ../libgnome/gnome-exec.c:457
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "Cannot find a terminal, using xterm, even if it may not work"
 
@@ -73,10 +73,12 @@ msgid "GNOME GConf Support"
 msgstr "GNOME GConf Support"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 
@@ -91,7 +93,7 @@ msgstr ""
 
 #: ../libgnome/gnome-help.c:220
 #, c-format
-msgid "Unable to find help paths %s or %s.Please check your installation"
+msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr "Unable to find help paths %s or %s. Please check your installation"
 
 #: ../libgnome/gnome-help.c:236
@@ -114,20 +116,20 @@ msgid "Help document %s/%s not found"
 msgstr "Help document %s/%s not found"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:89
+#: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "Bonobo Support"
 
-#: ../libgnome/gnome-init.c:143
+#: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Bonobo activation Support"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Could not create per-user gnome configuration directory `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:407
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -136,209 +138,209 @@ msgstr ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:414
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Could not create gnome accelerators directory `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "Disable sound server usage"
-
-#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "Enable sound server usage"
-
-#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "Host:port on which the sound server to use is running"
-
-#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "HOSTNAME:PORT"
-
-#: ../libgnome/gnome-init.c:506
+#: ../libgnome/gnome-init.c:453
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Virtual Filesystem"
 
-#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+msgid "Disable sound server usage"
+msgstr "Disable sound server usage"
+
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+msgid "Enable sound server usage"
+msgstr "Enable sound server usage"
+
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+msgid "Host:port on which the sound server to use is running"
+msgstr "Host:port on which the sound server to use is running"
+
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+msgid "HOSTNAME:PORT"
+msgstr "HOSTNAME:PORT"
+
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
 msgid "GNOME Library"
 msgstr "GNOME Library"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:489
 msgid "Show GNOME options"
 msgstr "Show GNOME options"
 
-#: ../libgnome/gnome-program.c:458
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "Popt Table"
 
-#: ../libgnome/gnome-program.c:459
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "The table of options for popt"
 
-#: ../libgnome/gnome-program.c:466
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "Popt Flags"
 
-#: ../libgnome/gnome-program.c:467
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "The flags to use for popt"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Popt Context"
 
-#: ../libgnome/gnome-program.c:476
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "The popt context pointer that GnomeProgram is using"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "GOption Context"
 
-#: ../libgnome/gnome-program.c:485
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "The goption context pointer that GnomeProgram is using"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "Human readable name"
 
-#: ../libgnome/gnome-program.c:494
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "Human readable name of this application"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "GNOME path"
 
-#: ../libgnome/gnome-program.c:504
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "Path in which to look for installed files"
 
-#: ../libgnome/gnome-program.c:513
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "App ID"
 
-#: ../libgnome/gnome-program.c:514
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "ID string to use for this application"
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "App version"
 
-#: ../libgnome/gnome-program.c:522
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "Version of this application"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "GNOME Prefix"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "Prefix where GNOME was installed"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "GNOME Libdir"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "Library prefix where GNOME was installed"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "GNOME Datadir"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "Data prefix where GNOME was installed"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "GNOME Sysconfdir"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Configuration prefix where GNOME was installed"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "GNOME App Prefix"
 
-#: ../libgnome/gnome-program.c:571
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "Prefix where this application was installed"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "GNOME App Libdir"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "Library prefix where this application was installed"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "GNOME App Datadir"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "Data prefix where this application was installed"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME App Sysconfdir"
 
-#: ../libgnome/gnome-program.c:600
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "Configuration prefix where this application was installed"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "Create Directories"
 
-#: ../libgnome/gnome-program.c:610
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "Create standard GNOME directories on startup"
 
-#: ../libgnome/gnome-program.c:619
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "Enable Sound"
 
-#: ../libgnome/gnome-program.c:620
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "Enable sound on startup"
 
-#: ../libgnome/gnome-program.c:628
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:629
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "How to connect to esd"
 
-#: ../libgnome/gnome-program.c:1394
+#: ../libgnome/gnome-program.c:1391
 msgid "Help options"
 msgstr "Help options"
 
-#: ../libgnome/gnome-program.c:1399
+#: ../libgnome/gnome-program.c:1396
 msgid "Application options"
 msgstr "Application options"
 
-#: ../libgnome/gnome-program.c:1415
+#: ../libgnome/gnome-program.c:1412
 msgid "Dynamic modules to load"
 msgstr "Dynamic modules to load"
 
-#: ../libgnome/gnome-program.c:1416
+#: ../libgnome/gnome-program.c:1413
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1505
+#: ../libgnome/gnome-program.c:1504
 #, c-format
 msgid ""
 "%s\n"
@@ -347,15 +349,18 @@ msgstr ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 
-#: ../libgnome/gnome-url.c:86
+#: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Unknown internal error while displaying this location."
 
-#: ../libgnome/gnome-url.c:93
+#: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "The specified location is invalid."
 
-#: ../libgnome/gnome-url.c:100
+#: ../libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
@@ -363,7 +368,8 @@ msgstr ""
 "There was an error parsing the default action command associated with this "
 "location."
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
+#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -371,32 +377,38 @@ msgstr ""
 "There was an error launching the default action command associated with this "
 "location."
 
-#: ../libgnome/gnome-url.c:116
+#: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "There is no default action associated with this location."
 
-#: ../libgnome/gnome-url.c:123
+#: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "The default action does not support this protocol."
 
-#: ../libgnome/gnome-url.c:130
+#: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "The request was cancelled."
 
-#: ../libgnome/gnome-url.c:140
+#: ../libgnome/gnome-url.c:139
 #, c-format
 msgid "The host \"%s\" could not be found."
 msgstr "The host \"%s\" could not be found."
 
-#: ../libgnome/gnome-url.c:146
+#: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "The host could not be found."
 
-#: ../libgnome/gnome-url.c:157
+#: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "The location or file could not be found."
 
-#: ../libgnome/gnome-url.c:164
+#: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "The login has failed."
 
@@ -441,38 +453,42 @@ msgstr ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
+msgid "How long to accelerate in milliseconds"
+msgstr "How long to accelerate in milliseconds"
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "How many milliseconds it takes to go from 0 to maximum speed"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "How many milliseconds to wait before mouse movement keys start to operate"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "How many pixels per second to move at the maximum speed"
 msgstr "How many pixels per second to move at the maximum speed"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
 msgstr "Ignore multiple presses of the _same_ key within @delay milliseconds"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "how long to accelerate in milliseconds"
-msgstr "how long to accelerate in milliseconds"
-
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
-msgid "initial delay in milliseconds"
-msgstr "initial delay in milliseconds"
+msgid "Initial delay in milliseconds"
+msgstr "Initial delay in milliseconds"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
-msgid "minimum interval in milliseconds"
-msgstr "minimum interval in milliseconds"
+msgid "Minimum interval in milliseconds"
+msgstr "Minimum interval in milliseconds"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
-msgid "pixels per seconds"
-msgstr "pixels per seconds"
+msgid "Pixels per seconds"
+msgstr "Pixels per seconds"
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
+msgid "minimum interval in milliseconds"
+msgstr "minimum interval in milliseconds"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
@@ -485,6 +501,52 @@ msgstr ""
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr "Startup Assistive Technology Applications"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login"
+msgstr ""
+"Whether GNOME should start preferred Mobility assistive technology application during "
+"login"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "Preferred Mobility assistive technology application"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application to be used for login, "
+"menu, or command line"
+msgstr ""
+"Preferred Mobility assistive technology application to be used for login, "
+"menu, or command line"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "Start preferred Mobility assistive technology application"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Visual assistive technology application during login"
+msgstr ""
+"Whether GNOME should start preferred Visual assistive technology application during login"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "Preferred Visual assistive technology application"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+msgstr ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "Start preferred Visual assistive technology application"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -887,18 +949,26 @@ msgid "Disable command line"
 msgstr "Disable command line"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable lock screen"
+msgstr "Disable lock screen"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "Disable print setup"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "Disable printing"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "Disable saving files to disk"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "Disable user switching"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -908,7 +978,7 @@ msgstr ""
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialogue."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -916,7 +986,7 @@ msgstr ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogues."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -924,13 +994,25 @@ msgstr ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogues."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogues."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr ""
+"Prevent the user from switching to another account while his session is "
+"active."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "Prevent the user from locking his screen."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played"
@@ -1055,18 +1137,34 @@ msgid "Swap left and right mouse buttons for left-handed mice"
 msgstr "Swap left and right mouse buttons for left-handed mice"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "Default mixer device"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "Default mixer tracks"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "Enable ESD"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "Enable sound server startup."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "Sounds for events"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr "The default mixer device used by the multimedia key bindings."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr "The default mixer tracks used by the multimedia key bindings."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "Whether to play sounds on user events."
 
