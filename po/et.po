@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-04-19 03:16+0100\n"
-"PO-Revision-Date: 2007-06-03 15:01+0300\n"
+"PO-Revision-Date: 2007-08-15 12:01+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee> \n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -414,7 +414,7 @@ msgstr "Viga URL-i näitamisel: %s\n"
 
 #: ../monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
-msgstr ""
+msgstr "Ekstra Moniker factory"
 
 #: ../monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
@@ -445,6 +445,8 @@ msgstr "Keelamine kahe klahvi samaaegselt vajutamisel."
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr ""
+"Klahvivajutust, mille korral klahvi pärast vajutamist ei hoita all kauem kui "
+"selles võtmes määratud arv millisekundeid, ei arvestata."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
@@ -468,6 +470,8 @@ msgstr "Kui palju piksleid sekundis liigutakse maksimumkiirusel"
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
 msgstr ""
+"Määratud aja (millisekundites) jooksul _sama_ klahvi mitmekordset vajutamist "
+"eiratakse"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -483,7 +487,7 @@ msgstr "Piksleid sekundis"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
 msgid "minimum interval in milliseconds"
-msgstr "vähim ajavahemik millisekundites"
+msgstr "Vähim ajavahemik millisekundites"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
@@ -502,39 +506,47 @@ msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
 "login"
 msgstr ""
+"Kas GNOME käivitab sisselogimisel eelistatud rakenduse mobiilse abistava "
+"tehnika toe jaoks"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
-msgstr ""
+msgstr "Eelistatud rakendus mobiilse abistava tehnika toe jaoks"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
 "menu, or command line"
 msgstr ""
+"Eelistatud rakendus mobiilse abistava tehnika toe jaoks sisselogimisel, "
+"menüüdes ja käsureal"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
-msgstr ""
+msgstr "Eelistatud mobiilse abistava tehnika rakenduse käivitamine"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Visual assistive technology application during login"
 msgstr ""
+"Kas GNOME käivitab sisselogimisel eelistatud rakenduse visuaalse abistava "
+"tehnika toe jaoks"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
-msgstr ""
+msgstr "Eelistatud rakendus visuaalse abistava tehnika toe jaoks"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
 "or command line"
 msgstr ""
+"Eelistatud rakendus visuaalse abistava tehnika toe jaoks sisselogimisel, "
+"menüüdes ja käsureal"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
-msgstr ""
+msgstr "Eelistatud visuaalse abistava tehnika rakenduse käivitamine"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -607,13 +619,15 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
-msgstr ""
+msgstr "Tagavara-aknahaldur (aegunud)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
 msgstr ""
+"Aknahaldur, mis käivitatakse juhul, kui kasutaja aknahaldurit ei leita. See "
+"võti on alates GNOME 2.12 versioonist aegunud."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -1096,7 +1110,7 @@ msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released"
 msgstr ""
-"Kursori asukoha rõhutamine Control klahvi vajutamise ja lahtilaskmise peale"
+"Kursori asukoha rõhutamine Control klahvi vajutamise ja lahtilaskmise korral"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click"
