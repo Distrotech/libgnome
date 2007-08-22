@@ -7,7 +7,7 @@ libgnome_serverdir=@libexecdir@
 Name: libgnome
 Description: libgnome
 Requires: glib-2.0 libbonobo-2.0
-Requires.private: ORBit-2.0 gconf-2.0 gnome-vfs-2.0 esound
+Requires.private: ORBit-2.0 gconf-2.0 gnome-vfs-2.0 @ESD_DEPS@
 Version: @VERSION@
 Libs: ${pc_top_builddir}/${pcfiledir}/libgnome-2.la -lpopt
 Cflags: -I${pc_top_builddir}/${pcfiledir}/..

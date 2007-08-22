@@ -154,9 +154,12 @@ if test x$enable_esd = xyes; then
 	PKG_CHECK_MODULES(SOUND_TEST, [$SOUND_MODULES])
 	AC_DEFINE(HAVE_LIBAUDIOFILE,, [Compile with audiofile support])
 	AC_DEFINE(HAVE_ESD,, [Compile with esd support])
+	ESD_DEPS="esound"
 else
+	ESD_DEPS=""
 	SOUND_MODULES=""
 fi
+AC_SUBST(ESD_DEPS)
 
 PKG_CHECK_MODULES(LIBGNOME, dnl
  [glib-2.0 >= glib_required_version dnl
