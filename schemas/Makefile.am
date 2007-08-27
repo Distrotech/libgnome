@@ -20,12 +20,16 @@ schema_in_files = \
 	desktop_gnome_typing_break.schemas.in			\
 	desktop_gnome_thumbnailers.schemas.in
 
+desktop_gnome_background.schemas.in: desktop_gnome_background.schemas.in.in Makefile
+	sed -e 's^\@datadir\@^$(datadir)^g' < $(srcdir)/desktop_gnome_background.schemas.in.in > desktop_gnome_background.schemas.in.tmp \
+	&& mv desktop_gnome_background.schemas.in.tmp desktop_gnome_background.schemas.in
+
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 
 @INTLTOOL_SCHEMAS_RULE@
 
 # get rid of schemas during clean
-CLEANFILES = $(schema_DATA) desktop_gnome_interface.schemas.in
+CLEANFILES = $(schema_DATA) desktop_gnome_interface.schemas.in desktop_gnome_background.schemas.in
 
 if GCONF_SCHEMAS_INSTALL
 # don't do this if we are building in eg. rpm
@@ -55,4 +59,5 @@ else
 install-data-local:
 endif
 
-EXTRA_DIST = $(schema_in_files) $(schema_DATA) desktop_gnome_interface.schemas.in
+noinst_DATA = desktop_gnome_background.schemas.in
+EXTRA_DIST = $(schema_in_files) $(schema_DATA) desktop_gnome_interface.schemas.in desktop_gnome_background.schemas.in.in

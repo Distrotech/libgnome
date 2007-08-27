@@ -16,12 +16,12 @@
         <applyto>/desktop/gnome/background/picture_options</applyto>
         <owner>gnome</owner>
         <type>string</type>
-        <default>wallpaper</default>
+        <default>zoom</default>
         <locale name="C">
         <short>Picture Options</short>
         <long>Determines how the image set by wallpaper_filename is
     rendered.  Possible values are "none", "wallpaper", "centered", "scaled",
-    "stretched".</long>
+    "stretched", "zoom".</long>
         </locale>
       </schema>
       <schema>
@@ -29,7 +29,7 @@
         <applyto>/desktop/gnome/background/picture_filename</applyto>
         <owner>gnome</owner>
         <type>string</type>
-	<default></default>
+	<default>@datadir@/pixmaps/backgrounds/gnome/background-default.jpg</default>
         <locale name="C">
         <short>Picture Filename</short>
         <long>File to use for the background image</long>
@@ -51,7 +51,7 @@
         <applyto>/desktop/gnome/background/primary_color</applyto>
         <owner>gnome</owner>
         <type>string</type>
-        <default>#76848F</default>
+        <default>#66ba00</default>
         <locale name="C">
         <short>Primary Color</short>
         <long>Left or Top color when drawing gradients, or the solid color.</long>
@@ -62,7 +62,7 @@
         <applyto>/desktop/gnome/background/secondary_color</applyto>
         <owner>gnome</owner>
         <type>string</type>
-        <default>#7F7F7F</default>
+        <default>#66ba00</default>
         <locale name="C">
         <short>Secondary Color</short>
         <long>Right or Bottom color when drawing gradients, not used for solid color.</long>
