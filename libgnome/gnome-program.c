@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 1999, 2000 Red Hat, Inc.
  *               2001 SuSE Linux AG.
@@ -1425,6 +1424,130 @@ gnome_program_preinit (GnomeProgram *program,
 }
 
 /**
+ * split_file_list:
+ * @str: a %G_SEARCHPATH_SEPARATOR separated list of filenames
+ *
+ * Splits a %G_SEARCHPATH_SEPARATOR-separated list of files, stripping
+ * white space and substituting ~/ with $HOME/.
+ *
+ * Stolen from pango.
+ *
+ * Return value: a list of strings to be freed with g_strfreev()
+ **/
+static char **
+split_file_list (const char *str)
+{
+  int i = 0;
+  int j;
+  char **files;
+
+  files = g_strsplit (str, G_SEARCHPATH_SEPARATOR_S, -1);
+
+  while (files[i])
+    {
+      char *file;
+      
+      file = g_strdup (files[i]);
+      g_strstrip (file);
+
+      /* If the resulting file is empty, skip it */
+      if (file[0] == '\0')
+	{
+	  g_free(file);
+	  g_free (files[i]);
+
+	  for (j = i + 1; files[j]; j++)
+	    files[j - 1] = files[j];
+
+	  files[j - 1] = NULL;
+
+	  continue;
+	}
+#ifndef G_OS_WIN32
+      /* '~' is a quite normal and common character in file names on
+       * Windows, especially in the 8.3 versions of long file names, which
+       * still occur now and then. Also, few Windows user are aware of the
+       * Unix shell convention that '~' stands for the home directory,
+       * even if they happen to have a home directory.
+       */
+      if (file[0] == '~' && file[1] == G_DIR_SEPARATOR)
+	{
+	  char *tmp = g_strconcat (g_get_home_dir(), file + 1, NULL);
+	  g_free (file);
+	  file = tmp;
+	}
+      else if (file[0] == '~' && file[1] == '\0')
+	{
+	  g_free (file);
+	  file = g_strdup (g_get_home_dir());
+	}
+#endif
+      g_free (files[i]);
+      files[i] = file;
+
+      i++;
+    }
+
+  return files;
+}
+
+static gchar **
+get_module_path (void)
+{
+  const gchar *module_path_env;
+  gchar *module_path;
+  static gchar **result = NULL;
+
+  if (result)
+    return result;
+
+  module_path_env = g_getenv ("GNOME_MODULE_PATH");
+
+  if (module_path_env)
+    module_path = g_build_path (G_SEARCHPATH_SEPARATOR_S,
+				module_path_env, LIBGNOME_LIBDIR, NULL);
+  else
+    module_path = g_build_path (G_SEARCHPATH_SEPARATOR_S,
+				LIBGNOME_LIBDIR, NULL);
+
+  result = split_file_list (module_path);
+  g_free (module_path);
+
+  return result;
+}
+
+static gchar *
+find_module (const gchar *name)
+{
+  gchar **paths;
+  gchar **path;
+  gchar *module_name;
+
+  if (g_path_is_absolute (name))
+    {
+      return g_strdup (name);
+    }
+
+  module_name = NULL;
+  paths = get_module_path ();
+  for (path = paths; *path; path++)
+    {
+      gchar *tmp_name;
+
+      tmp_name = g_module_build_path (*path, name);
+      if (g_file_test (tmp_name, G_FILE_TEST_EXISTS))
+        {
+          module_name = tmp_name;
+          goto found;
+        }
+      g_free (tmp_name);
+    }
+found:
+  g_strfreev (paths);
+  return module_name;
+}
+
+/**
  * gnome_program_module_load:
  * @mod_name: module name
  *
@@ -1439,30 +1562,33 @@ gnome_program_module_load (const char *mod_name)
 {
     GModule *mh;
     const GnomeModuleInfo *gmi;
-    char tbuf[1024];
+    char *full_mod_name;
 
     g_return_val_if_fail (mod_name != NULL, NULL);
 
-    g_snprintf (tbuf, sizeof(tbuf), "lib%s.so.0", mod_name);
+    full_mod_name = find_module (mod_name);
+    if (!full_mod_name)
+      {
+        return NULL;
+      }
 
-    mh = g_module_open (mod_name, G_MODULE_BIND_LAZY);
-    if(!mh) {
-	g_snprintf (tbuf, sizeof(tbuf), "lib%s.so", mod_name);
-
-	mh = g_module_open (mod_name, G_MODULE_BIND_LAZY);
-    }
-
+    mh = g_module_open (full_mod_name, G_MODULE_BIND_LAZY);
     if (!mh)
-	return NULL;
+      {
+        return NULL;
+      }
 
-    if (g_module_symbol (mh, "dynamic_module_info", (gpointer *)&gmi)) {
+    if (g_module_symbol (mh, "dynamic_module_info", (gpointer *)&gmi)) 
+      {
 	gnome_program_module_register (gmi);
 	g_module_make_resident (mh);
 	return gmi;
-    } else {
+      } 
+    else 
+      {
 	g_module_close (mh);
 	return NULL;
-    }
+      }
 }
 
 /**

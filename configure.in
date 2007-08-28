@@ -35,6 +35,8 @@ AC_INIT([libgnome], [libgnome_version],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=libgnome])
 AC_CONFIG_SRCDIR([libgnome/libgnome.h])
 
+AC_CONFIG_MACRO_DIR([m4])
+
 LIBGNOME_MAJOR_VERSION=libgnome_major_version
 LIBGNOME_MINOR_VERSION=libgnome_minor_version
 LIBGNOME_MICRO_VERSION=libgnome_micro_version
