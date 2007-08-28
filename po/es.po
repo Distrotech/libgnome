@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-19 03:16+0100\n"
-"PO-Revision-Date: 2007-04-21 18:55+0200\n"
+"POT-Creation-Date: 2007-08-28 03:17+0100\n"
+"PO-Revision-Date: 2007-08-28 14:19+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -52,6 +52,10 @@ msgstr "Eventos del sistema"
 #: ../gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning message"
 msgstr "Mensaje de advertencia"
+
+#: ../gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "Tapiz predeterminado"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
@@ -121,20 +125,20 @@ msgid "Help document %s/%s not found"
 msgstr "Documento de ayuda %s/%s no encontrado"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:89
+#: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "Soporte para Bonobo"
 
-#: ../libgnome/gnome-init.c:143
+#: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Soporte para activación de Bonobo"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "No se ha podido crear un directorio de configuración por usuario  «%s»: %s\n"
 
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:407
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -143,36 +147,36 @@ msgstr ""
 "No se ha podido establecer el modo 0700 en el directorio privado de "
 "configuración «%s» que hay por cada usuario: %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:414
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "No se ha podido crear el directorio de aceleradores de GNOME «%s»: %s\n"
 
-#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "Desactivar el uso del servidor de sonido"
-
-#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "Activar el uso del servidor de sonido"
-
-#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "Host:puerto donde escucha el servidor de sonido que se va a utilizar"
-
-#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "HOST:PUERTO"
-
-#: ../libgnome/gnome-init.c:506
+#: ../libgnome/gnome-init.c:453
 msgid "GNOME Virtual Filesystem"
 msgstr "Sistema de archivos virtual de GNOME"
 
-#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+msgid "Disable sound server usage"
+msgstr "Desactivar el uso del servidor de sonido"
+
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+msgid "Enable sound server usage"
+msgstr "Activar el uso del servidor de sonido"
+
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+msgid "Host:port on which the sound server to use is running"
+msgstr "Host:puerto donde escucha el servidor de sonido que se va a utilizar"
+
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+msgid "HOSTNAME:PORT"
+msgstr "HOST:PUERTO"
+
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
 msgid "GNOME Library"
 msgstr "Biblioteca de GNOME"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:489
 msgid "Show GNOME options"
 msgstr "Mostrar las opciones de GNOME"
 
@@ -328,24 +332,24 @@ msgstr "Altavoz"
 msgid "How to connect to esd"
 msgstr "Cómo conectarse a esd"
 
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1391
 msgid "Help options"
 msgstr "Opción de ayuda"
 
-#: ../libgnome/gnome-program.c:1400
+#: ../libgnome/gnome-program.c:1396
 msgid "Application options"
 msgstr "Opciones de la aplicación"
 
-#: ../libgnome/gnome-program.c:1416
+#: ../libgnome/gnome-program.c:1412
 msgid "Dynamic modules to load"
 msgstr "Módulos dinámicos que cargar"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1413
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULO1,MODULO2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1506
+#: ../libgnome/gnome-program.c:1504
 #, c-format
 msgid ""
 "%s\n"
@@ -502,7 +506,9 @@ msgstr "Aplicaciones de tecnología de asistencia al inicio"
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
 "login"
-msgstr "Si GNOME ha de iniciar la aplicación de tecnología de asistencia móvil preferida durante el inicio"
+msgstr ""
+"Si GNOME ha de iniciar la aplicación de tecnología de asistencia móvil "
+"preferida durante el inicio"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
@@ -512,7 +518,9 @@ msgstr "Aplicación de tecnología de asistencia móvil preferida"
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
 "menu, or command line"
-msgstr "Aplicación de tecnología de asistenciamóvil preferida para ser usada al inicio, menú, o línea de comandos"
+msgstr ""
+"Aplicación de tecnología de asistenciamóvil preferida para ser usada al "
+"inicio, menú, o línea de comandos"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
@@ -520,7 +528,9 @@ msgstr "Iniciar aplicación de tecnología de asistencia móvil preferida"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid "GNOME to start preferred Visual assistive technology application during login"
-msgstr "Si GNOME ha de iniciar la aplicación de tecnología de asistencia visual preferida durante el inicio"
+msgstr ""
+"Si GNOME ha de iniciar la aplicación de tecnología de asistencia visual "
+"preferida durante el inicio"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
@@ -647,32 +657,33 @@ msgstr ""
 "Gestor de ventanas que se probará primero. Esta clave es obsoleta desde "
 "GNOME 2.12."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:1
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "Tipo de sombreado de colores"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:2
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
 msgstr ""
-"Determina cómo se renderiza la imagen definida por «wallpaper_filename». Los "
-"valores posibles son \"none\", \"wallpaper\", \"centered\", \"scaled\", y "
-"\"stretched\"."
+"Determina cómo se renderiza la imagen establecida por «nombre_de_la_imagen_de_fondo_de_pantalla». Los valores posibles "
+"son \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\" y "
+"\"zoom\"."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:3
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "Dibujar fondo del escritorio"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:4
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
 msgid "File to use for the background image"
-msgstr "Archivo para utilizar como imagen del fondo"
+msgstr "Archivo para utilizar como tapiz"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:5
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background"
 msgstr "Hacer que GNOME dibuje el fondo del escritorio"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:6
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
@@ -680,39 +691,39 @@ msgstr ""
 "Como sombrear el color de fondo. Los valores posibles son \"horizontal-"
 "gradient\", \"vertical-gradient\", y \"solid\""
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:7
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr ""
 "Color superior o izquierdo cuando se dibujan los degradados, o el color "
 "sólido."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:8
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture"
-msgstr "Opacidad con la cual dibujar la imagen de fondo"
+msgstr "Opacidad con la cual dibujar el tapiz"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:9
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "Archivo de la imagen"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:10
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "Opacidad de la imagen"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:11
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "Opciones de la imagen"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:12
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "Color primario"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:13
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr ""
 "Color inferior o derecho cuando se dibujan los degradados, no usado para "
 "color sólido."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:14
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "Color secundario"
 
@@ -1170,11 +1181,15 @@ msgstr "Sonidos para los eventos"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:6
 msgid "The default mixer device used by the multimedia key bindings."
-msgstr "El dispositivo mezclador predeterminado a usar por las combinaciones de teclas multimedia."
+msgstr ""
+"El dispositivo mezclador predeterminado a usar por las combinaciones de "
+"teclas multimedia."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:7
 msgid "The default mixer tracks used by the multimedia key bindings."
-msgstr "El mezclador de pistas predeterminado a usar por las combinaciones de teclas multimedia."
+msgstr ""
+"El mezclador de pistas predeterminado a usar por las combinaciones de teclas "
+"multimedia."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
