@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-19 03:16+0100\n"
-"PO-Revision-Date: 2007-07-05 14:19+0530\n"
+"POT-Creation-Date: 2007-08-28 03:17+0100\n"
+"PO-Revision-Date: 2007-08-29 14:08+0530\n"
 "Last-Translator: Ankit Patel <ankit@redhat.com>\n"
 "Language-Team: Gujarati <fedora-trans-gu@redhat.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -52,6 +53,10 @@ msgstr "સિસ્ટમ ઘટનાઓ"
 #: ../gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning message"
 msgstr "ચેતવણી સંદેશો"
+
+#: ../gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "મૂળભૂત પાશ્વ ભાગ"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
@@ -124,20 +129,20 @@ msgid "Help document %s/%s not found"
 msgstr "મદદ દસ્તાવેજ %s/%s મળતો નથી"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:89
+#: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "બોનોબો આધાર"
 
-#: ../libgnome/gnome-init.c:143
+#: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "બોનોબો કાર્યરત આધાર"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "દરેક વપરાશકર્તા માટે જીનોમ રુપરેખા ડિરેક્ટરી '%s' બનાવી શકાતી નથી:%s\n"
 
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:407
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -147,42 +152,42 @@ msgstr ""
 "શકાતી નથી: %s\n"
 
 # libgnome/gnome-init.c:305
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:414
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "જીનોમ પ્રવેગ ડિરેક્ટરી '%s' બનાવી શકતી નથી: %s\n"
 
+# libgnome/gnome-init.c:383
+#: ../libgnome/gnome-init.c:453
+msgid "GNOME Virtual Filesystem"
+msgstr "જીનોમ આભાસી ફાઇલ સિસ્ટમ"
+
 # libgnome/gnome-init.c:357
-#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
+#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
 msgid "Disable sound server usage"
 msgstr "ધ્વની સર્વર ઉપયોગ અકાર્યરત કરો"
 
 # libgnome/gnome-init.c:360
-#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
 msgid "Enable sound server usage"
 msgstr "ધ્વની સર્વર ઉપયોગ કાર્યરત કરો"
 
 # libgnome/gnome-init.c:363
-#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
 msgid "Host:port on which the sound server to use is running"
 msgstr "યજમાન:પોર્ટ કે જેના ઉપર ધ્વનિ સર્વર વાપરવાનું છે"
 
 # libgnome/gnome-init.c:365
-#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "HOSTNAME:PORT"
 msgstr "યજમાન:પોર્ટ"
 
-# libgnome/gnome-init.c:383
-#: ../libgnome/gnome-init.c:506
-msgid "GNOME Virtual Filesystem"
-msgstr "જીનોમ આભાસી ફાઇલ સિસ્ટમ"
-
 # libgnome/gnome-init.c:404
-#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
 msgid "GNOME Library"
 msgstr "જીનોમ લાઇબ્રેરી"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:489
 msgid "Show GNOME options"
 msgstr "જીનોમ વિકલ્પો બતાવો"
 
@@ -377,27 +382,27 @@ msgid "How to connect to esd"
 msgstr "esd સાથે કઈ રીતે જોડાવુ"
 
 # libgnome/gnome-program.c:1335
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1391
 msgid "Help options"
 msgstr "મદદ વિકલ્પો"
 
 # libgnome/gnome-program.c:1340
-#: ../libgnome/gnome-program.c:1400
+#: ../libgnome/gnome-program.c:1396
 msgid "Application options"
 msgstr "કાર્યક્રમ વિકલ્પો"
 
 # libgnome/gnome-program.c:1356
-#: ../libgnome/gnome-program.c:1416
+#: ../libgnome/gnome-program.c:1412
 msgid "Dynamic modules to load"
 msgstr "લાવવા માટે બદલાતું મોડ્યુલ"
 
 # libgnome/gnome-program.c:1357
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1413
 msgid "MODULE1,MODULE2,..."
 msgstr "મોડ્યુલ ૧, મોડ્યુલ ૨,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1506
+#: ../libgnome/gnome-program.c:1504
 #, c-format
 msgid ""
 "%s\n"
@@ -686,31 +691,30 @@ msgstr "વપરાશકર્તા વિન્ડો વ્યવસ્થ�
 msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr "પ્રથમ પ્રયાસ કરવાનું વિન્ડો વ્યવસ્થાપક. આ કી GNOME 2.12 આવ્યું ત્યારથી ઊતારી પડાયેલ છે."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:1
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "રંગની છાયાનો પ્રકાર"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:2
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr ""
-"નક્કી કરે છે કે કેવી રીતે ચિત્રો વોલપેપર_ફાઈલનામ દ્વારા સુયોજિત થાય છે કે જેને ઘાટ અપાય છે. "
-"શક્ય કિંમતો છે \"કંઈ નહિ\", \"વોલપેપર\", \"કેન્દ્રિત\", \"માપ અપાયેલુ\", \"ખેંચાયેલુ\"."
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
+msgstr "wallpaper_filename દ્વારા સુયોજીત થયેલ ઈમેજ કેવી રીતે રેન્ડર થાય તે નક્કી કરે છે. \"કંઈ નહિં\", \"વોલપેપર\", \"કેન્દ્રિયકૃત\", \"માપ અપાયેલ\", \"ખેંચાયેલ\", \"નાનુંમોટું\" શક્ય કિંમતો છે."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:3
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "ડેસ્કટોપનો પાશ્વ ભાગ દોરો"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:4
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
 msgid "File to use for the background image"
 msgstr "પાશ્વ ભાગના ચિત્ર માટે ફાઈલ વાપરો"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:5
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background"
 msgstr "શું જીનોમ ડેસ્કટોપનો પાશ્વ ભાગ દોરવાનું છે"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:6
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
@@ -718,35 +722,35 @@ msgstr ""
 "કેવી રીતે પાશ્વ ભાગના રંગને છાયા આપવી. શક્ય કિંમતો છે \"આડો-ઢાળ\", \"ઊભો-ઢાળ\", અને "
 "\"ઘાટુ\""
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:7
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "ઢાળો દોરતી વખતે ડાબો અથવા ઉપરનો રંગ, અથવા ઘાટો રંગ."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:8
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture"
 msgstr "અપારદર્શકતા કે જેના વડે પાશ્વ ભાગનું ચિત્ર દોરવાનું છે"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:9
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "ચિત્રનું ફાઈલ નામ"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:10
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "ચિત્રની અપારદર્શકતા"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:11
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "ચિત્રના વિકલ્પો"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:12
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "પ્રાથમિક રંગ"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:13
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr "ઢાળો દોરવા માટે જમણો અથવા નીચેનો રંગ વપરાય છે, ઘાટો રંગ વપરાતો નથી."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:14
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "ગૌણ રંગ"
 
