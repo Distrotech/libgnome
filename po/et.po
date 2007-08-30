@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-19 03:16+0100\n"
-"PO-Revision-Date: 2007-08-15 12:01+0300\n"
+"POT-Creation-Date: 2007-08-28 03:17+0100\n"
+"PO-Revision-Date: 2007-08-28 19:41+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee> \n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr "Muu teade"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:6
 msgid "Question dialog"
-msgstr "Küsimused"
+msgstr "Küsimusdialoog"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:7
 msgid "System events"
@@ -51,7 +51,11 @@ msgstr "Süsteemsed sündmused"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning message"
-msgstr "Hoiatused"
+msgstr "Hoiatusteade"
+
+#: ../gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "Vaikimisi taust"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
@@ -72,7 +76,8 @@ msgstr "Kasutajaliidese sündmused"
 #: ../libgnome/gnome-exec.c:457
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
-"Terminali pole võimalik leida, kasutan xterm'i. Ka siis, kui see ei tööta."
+"Terminali pole võimalik leida, kasutatakse xterm'i. Ka siis, kui see ei "
+"pruugi töötada."
 
 #: ../libgnome/gnome-gconf.c:177
 msgid "GNOME GConf Support"
@@ -92,8 +97,8 @@ msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
-"Abiteavet pole võimalik näidata kuna %s pole kataloog. Palun kontrolli GNOME "
-"paigaldust."
+"Abiteavet pole võimalik näidata kuna %s pole kataloog.  Palun kontrolli "
+"GNOME paigaldust."
 
 #: ../libgnome/gnome-help.c:220
 #, c-format
@@ -108,7 +113,7 @@ msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"Abiteavet pole võimalik näidata ei %s ega %s asukohast. Palun kontrolli "
+"Abiteavet pole võimalik näidata ei %s ega %s asukohast.  Palun kontrolli "
 "GNOME paigaldust."
 
 #: ../libgnome/gnome-help.c:353
@@ -119,24 +124,24 @@ msgstr "doc_id %s pole võimalik abiteabe rajalt leida"
 #: ../libgnome/gnome-help.c:374
 #, c-format
 msgid "Help document %s/%s not found"
-msgstr "Abiteabe dokumenti %s/%s pole võimalik leida"
+msgstr "Abiteabe dokumenti %s/%s ei leitud"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:89
+#: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "Bonobo tugi"
 
-#: ../libgnome/gnome-init.c:143
+#: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Bonobo aktiveerimise tugi"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Kasutajapõhiste gnome seadistuste kataloogi `%s' pole võimalik luua: %s\n"
+"Gnome kasutajapõhiste seadistuste kataloogi `%s' pole võimalik luua: %s\n"
 
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:407
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -145,36 +150,36 @@ msgstr ""
 "Gnome kasutajapõhisele privaatsele seadistustekataloogile `%s' pole võimalik "
 "määrata 0700 õiguseid: %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:414
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Gnome kiirendite kataloogi `%s' pole võimalik luua: %s\n"
 
-#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "Heliserveri kasutamine keelatud"
-
-#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "Heliserveri kasutamine lubatud"
-
-#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "Kasutatava heliserveri host:port"
-
-#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "HOSTINIMI:PORT"
-
-#: ../libgnome/gnome-init.c:506
+#: ../libgnome/gnome-init.c:453
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Virtuaalne Failisüsteem"
 
-#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+msgid "Disable sound server usage"
+msgstr "Heliserveri kasutamise keelamine"
+
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+msgid "Enable sound server usage"
+msgstr "Heliserveri kasutamise lubamine"
+
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+msgid "Host:port on which the sound server to use is running"
+msgstr "Kasutatava heliserveri host:port"
+
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+msgid "HOSTNAME:PORT"
+msgstr "HOSTINIMI:PORT"
+
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
 msgid "GNOME Library"
 msgstr "GNOME teek"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:489
 msgid "Show GNOME options"
 msgstr "GNOME valikute näitamine"
 
@@ -232,7 +237,7 @@ msgstr "Rakenduse ID"
 
 #: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
-msgstr "ID string, mida selle rakenduse jaoks kasutatakse"
+msgstr "ID-string, mida selle rakenduse jaoks kasutatakse"
 
 #: ../libgnome/gnome-program.c:520
 msgid "App version"
@@ -330,24 +335,24 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Kuidas esd serverisse ühenduda"
 
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1391
 msgid "Help options"
 msgstr "Abiteabe võtmed"
 
-#: ../libgnome/gnome-program.c:1400
+#: ../libgnome/gnome-program.c:1396
 msgid "Application options"
 msgstr "Rakenduse võtmed"
 
-#: ../libgnome/gnome-program.c:1416
+#: ../libgnome/gnome-program.c:1412
 msgid "Dynamic modules to load"
 msgstr "Dünaamiliselt laaditavad moodulid"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1413
 msgid "MODULE1,MODULE2,..."
 msgstr "MOODUL1,MOODUL2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1506
+#: ../libgnome/gnome-program.c:1504
 #, c-format
 msgid ""
 "%s\n"
@@ -422,7 +427,7 @@ msgstr "GConf moniker"
 
 #: ../monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
-msgstr ""
+msgstr "kaudsete seadistuste moniker"
 
 #: ../monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
@@ -431,7 +436,7 @@ msgstr "Tundmatu tüüp"
 #: ../monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
-msgstr "Võtit %s ei leitud sätetest"
+msgstr "Sätetest ei leitud võtit %s"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed"
@@ -656,33 +661,34 @@ msgstr ""
 "Aknahaldur, mida proovitakse esimesena. See võti on alates GNOME 2.12-st "
 "aegunud."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:1
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "Värvi varjutamise laad"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:2
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
 msgstr ""
-"Määrab kuidas wallpaper_filename võtmega määratud pilti renderdatase. "
-"Võimalikud väärtused on \"none\" (taustapilt puudub), \"wallpaper"
-"\" (tavaline), \"centered\" (keskel), \"scaled\" (skaleeritud), \"stretched"
-"\" (venitatud)."
+"Võtmega wallpaper_filename määratud pilti renderdamise määramine. Võimalikud "
+"väärtused on \"none\" (taustapilt puudub), \"wallpaper\" (tavaline), "
+"\"centered\" (keskel), \"scaled\" (skaleeritud), \"stretched\" (venitatud) "
+"või \"zoom\" (suurendatud)."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:3
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "Töölaua tausta joonistamine"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:4
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
 msgid "File to use for the background image"
 msgstr "Taustapildi jaoks kasutatav fail"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:5
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background"
 msgstr "Kas GNOME joonistab töölaua tausta"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:6
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
@@ -691,38 +697,38 @@ msgstr ""
 "gradient\" (horisontaalse üleminekuga), \"vertical-gradient\" (vertikaalse "
 "üleminekuga) ja \"solid\" (ühtlane värv)."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:7
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr ""
 "Hajusülemineku vasakpoolne või ülemine värvus, või hoopis ühtlane värvus."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:8
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture"
 msgstr "Poolläbipaistev värv, millega taustapilt kaetakse"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:9
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "Pildi failinimi"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:10
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "Pildi läbipaistmatus"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:11
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "Pildi valikud"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:12
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "Peamine värv"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:13
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr ""
 "Hajusülemineku parempoolne või alumine värvus, ei kasutata ühtlase värvuse "
 "jaoks."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:14
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "Teisene värv"
 
