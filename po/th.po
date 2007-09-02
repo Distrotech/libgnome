@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-17 17:59+0700\n"
-"PO-Revision-Date: 2007-05-17 18:02+0700\n"
+"POT-Creation-Date: 2007-09-02 19:54+0700\n"
+"PO-Revision-Date: 2007-08-02 19:56+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <L10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -51,6 +51,10 @@ msgstr "เหตุการณ์ในระบบ"
 msgid "Warning message"
 msgstr "ข้อความเตือน"
 
+#: gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "พื้นหลังปริยาย"
+
 #: gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
 msgstr "เลือกรายการในเมนู"
@@ -76,10 +80,12 @@ msgid "GNOME GConf Support"
 msgstr "การสนับสนุน GConf ของ GNOME"
 
 #: libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "หาโดเมน GNOME_FILE_DOMAIN_APP_HELP ไม่พบ"
 
 #: libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "หาโดเมน GNOME_FILE_DOMAIN_HELP ไม่พบ"
 
@@ -113,229 +119,229 @@ msgid "Help document %s/%s not found"
 msgstr "ไม่พบเอกสารวิธีใช้ %s/%s"
 
 #. FIXME: get this from bonobo
-#: libgnome/gnome-init.c:89
+#: libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "การสนับสนุน Bonobo"
 
-#: libgnome/gnome-init.c:143
+#: libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "การสนับสนุน Bonobo activation"
 
-#: libgnome/gnome-init.c:381 libgnome/gnome-init.c:395
+#: libgnome/gnome-init.c:384 libgnome/gnome-init.c:398
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "ไม่สามารถสร้างโฟลเดอร์เก็บค่าตั้ง gnome ส่วนตัวที่ '%s': %s\n"
 
-#: libgnome/gnome-init.c:404
+#: libgnome/gnome-init.c:407
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr "ไม่สามารถตั้งโหมด 0700 ให้กับโฟลเดอร์เก็บค่าตั้ง gnome ส่วนตัวที่ '%s': %s\n"
 
-#: libgnome/gnome-init.c:411
+#: libgnome/gnome-init.c:414
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "ไม่สามารถสร้างโฟลเดอร์คีย์ด่วนของ gnome ที่ '%s': %s\n"
 
-#: libgnome/gnome-init.c:460 libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "ปิดระบบเสียง"
-
-#: libgnome/gnome-init.c:463 libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "เปิดระบบเสียง"
-
-#: libgnome/gnome-init.c:466 libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "Host:port ที่เซิร์ฟเวอร์เสียงที่จะใช้ทำงานอยู่"
-
-#: libgnome/gnome-init.c:468 libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "HOSTNAME:PORT"
-
-#: libgnome/gnome-init.c:506
+#: libgnome/gnome-init.c:453
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Virtual Filesystem"
 
-#: libgnome/gnome-init.c:524 libgnome/gnome-init.c:545
+#: libgnome/gnome-init.c:471 libgnome/gnome-init.c:514
+msgid "Disable sound server usage"
+msgstr "ปิดระบบเสียง"
+
+#: libgnome/gnome-init.c:474 libgnome/gnome-init.c:517
+msgid "Enable sound server usage"
+msgstr "เปิดระบบเสียง"
+
+#: libgnome/gnome-init.c:478 libgnome/gnome-init.c:520
+msgid "Host:port on which the sound server to use is running"
+msgstr "Host:port ที่เซิร์ฟเวอร์เสียงที่จะใช้ทำงานอยู่"
+
+#: libgnome/gnome-init.c:479 libgnome/gnome-init.c:522
+msgid "HOSTNAME:PORT"
+msgstr "HOSTNAME:PORT"
+
+#: libgnome/gnome-init.c:488 libgnome/gnome-init.c:532
 msgid "GNOME Library"
 msgstr "GNOME Library"
 
-#: libgnome/gnome-init.c:525
+#: libgnome/gnome-init.c:489
 msgid "Show GNOME options"
 msgstr "แสดงตัวเลือกของ GNOME"
 
-#: libgnome/gnome-program.c:457
+#: libgnome/gnome-program.c:456
 msgid "Popt Table"
 msgstr "ตาราง Popt"
 
-#: libgnome/gnome-program.c:458
+#: libgnome/gnome-program.c:457
 msgid "The table of options for popt"
 msgstr "ตารางตัวเลือกสำหรับ popt"
 
-#: libgnome/gnome-program.c:465
+#: libgnome/gnome-program.c:464
 msgid "Popt Flags"
 msgstr "แฟล็ก Popt"
 
-#: libgnome/gnome-program.c:466
+#: libgnome/gnome-program.c:465
 msgid "The flags to use for popt"
 msgstr "แฟล็กที่จะใช้สำหรับ popt"
 
-#: libgnome/gnome-program.c:474
+#: libgnome/gnome-program.c:473
 msgid "Popt Context"
 msgstr "Popt Context"
 
-#: libgnome/gnome-program.c:475
+#: libgnome/gnome-program.c:474
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "พอยน์เตอร์ไปยัง popt context ที่ GnomeProgram ใช้"
 
-#: libgnome/gnome-program.c:483
+#: libgnome/gnome-program.c:482
 msgid "GOption Context"
 msgstr "GOption Context"
 
-#: libgnome/gnome-program.c:484
+#: libgnome/gnome-program.c:483
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "พอยน์เตอร์ไปยัง goption context ที่ GnomeProgram ใช้"
 
-#: libgnome/gnome-program.c:492
+#: libgnome/gnome-program.c:491
 msgid "Human readable name"
 msgstr "ชื่อสำหรับแสดงผล"
 
-#: libgnome/gnome-program.c:493
+#: libgnome/gnome-program.c:492
 msgid "Human readable name of this application"
 msgstr "ชื่อสำหรับแสดงผลของโปรแกรมนี้"
 
-#: libgnome/gnome-program.c:502
+#: libgnome/gnome-program.c:501
 msgid "GNOME path"
 msgstr "พาธของ GNOME"
 
-#: libgnome/gnome-program.c:503
+#: libgnome/gnome-program.c:502
 msgid "Path in which to look for installed files"
 msgstr "พาธสำหรับหาแฟ้มที่ติดตั้งใว้"
 
-#: libgnome/gnome-program.c:512
+#: libgnome/gnome-program.c:511
 msgid "App ID"
 msgstr "App ID"
 
-#: libgnome/gnome-program.c:513
+#: libgnome/gnome-program.c:512
 msgid "ID string to use for this application"
 msgstr "เลข ID สำหรับโปรแกรมนี้"
 
-#: libgnome/gnome-program.c:520
+#: libgnome/gnome-program.c:519
 msgid "App version"
 msgstr "รุ่นของโปรแกรม"
 
-#: libgnome/gnome-program.c:521
+#: libgnome/gnome-program.c:520
 msgid "Version of this application"
 msgstr "รุ่นของโปรแกรมนี้"
 
-#: libgnome/gnome-program.c:528
+#: libgnome/gnome-program.c:527
 msgid "GNOME Prefix"
 msgstr "พรีฟิกซ์ของ GNOME"
 
-#: libgnome/gnome-program.c:529
+#: libgnome/gnome-program.c:528
 msgid "Prefix where GNOME was installed"
 msgstr "พรีฟิกซ์ที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:538
+#: libgnome/gnome-program.c:537
 msgid "GNOME Libdir"
 msgstr "Libdir ของ GNOME"
 
-#: libgnome/gnome-program.c:539
+#: libgnome/gnome-program.c:538
 msgid "Library prefix where GNOME was installed"
 msgstr "พรีฟิกซ์ของที่เก็บไลบรารีที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:548
+#: libgnome/gnome-program.c:547
 msgid "GNOME Datadir"
 msgstr "Datadir ของ GNOME"
 
-#: libgnome/gnome-program.c:549
+#: libgnome/gnome-program.c:548
 msgid "Data prefix where GNOME was installed"
 msgstr "พรีฟิกซ์ของที่เก็บข้อมูลที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:558
+#: libgnome/gnome-program.c:557
 msgid "GNOME Sysconfdir"
 msgstr "Sysconfdir ของ GNOME"
 
-#: libgnome/gnome-program.c:559
+#: libgnome/gnome-program.c:558
 msgid "Configuration prefix where GNOME was installed"
 msgstr "พรีฟิกซ์ของที่เก็บค่าตั้งที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:569
+#: libgnome/gnome-program.c:568
 msgid "GNOME App Prefix"
 msgstr "App Prefix ของ GNOME"
 
-#: libgnome/gnome-program.c:570
+#: libgnome/gnome-program.c:569
 msgid "Prefix where this application was installed"
 msgstr "พรีฟิกซ์ที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:578
+#: libgnome/gnome-program.c:577
 msgid "GNOME App Libdir"
 msgstr "App Libdir ของ GNOME"
 
-#: libgnome/gnome-program.c:579
+#: libgnome/gnome-program.c:578
 msgid "Library prefix where this application was installed"
 msgstr "พรีฟิกซ์ของที่เก็บไลบรารีที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:588
+#: libgnome/gnome-program.c:587
 msgid "GNOME App Datadir"
 msgstr "App Datadir ของ GNOME"
 
-#: libgnome/gnome-program.c:589
+#: libgnome/gnome-program.c:588
 msgid "Data prefix where this application was installed"
 msgstr "พรีฟิกซ์ของที่เก็บข้อมูลที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:598
+#: libgnome/gnome-program.c:597
 msgid "GNOME App Sysconfdir"
 msgstr "App Sysconfdir ของ GNOME"
 
-#: libgnome/gnome-program.c:599
+#: libgnome/gnome-program.c:598
 msgid "Configuration prefix where this application was installed"
 msgstr "พรีฟิกซ์ของที่เก็บค่าตั้งที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:608
+#: libgnome/gnome-program.c:607
 msgid "Create Directories"
 msgstr "สร้างโฟลเดอร์"
 
-#: libgnome/gnome-program.c:609
+#: libgnome/gnome-program.c:608
 msgid "Create standard GNOME directories on startup"
 msgstr "สร้างโฟลเดอร์มาตรฐานของ GNOME เมื่อเริ่มทำงาน"
 
-#: libgnome/gnome-program.c:618
+#: libgnome/gnome-program.c:617
 msgid "Enable Sound"
 msgstr "เปิดเสียง"
 
-#: libgnome/gnome-program.c:619
+#: libgnome/gnome-program.c:618
 msgid "Enable sound on startup"
 msgstr "เปิดการใช้งานเสียงเมื่อเริ่มทำงาน"
 
-#: libgnome/gnome-program.c:627
+#: libgnome/gnome-program.c:626
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: libgnome/gnome-program.c:628
+#: libgnome/gnome-program.c:627
 msgid "How to connect to esd"
 msgstr "วิธีติดต่อ esd"
 
-#: libgnome/gnome-program.c:1395
+#: libgnome/gnome-program.c:1390
 msgid "Help options"
 msgstr "ตัวเลือกของวิธีใช้"
 
-#: libgnome/gnome-program.c:1400
+#: libgnome/gnome-program.c:1395
 msgid "Application options"
 msgstr "ตัวเลือกของโปรแกรม"
 
-#: libgnome/gnome-program.c:1416
+#: libgnome/gnome-program.c:1411
 msgid "Dynamic modules to load"
 msgstr "รายการมอดูลที่จะโหลด"
 
-#: libgnome/gnome-program.c:1417
+#: libgnome/gnome-program.c:1412
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: libgnome/gnome-program.c:1506
+#: libgnome/gnome-program.c:1630
 #, c-format
 msgid ""
 "%s\n"
@@ -345,34 +351,41 @@ msgstr ""
 "เรียก '%s --help' เพื่อดูรายการตัวเลือกทั้งหมดสำหรับบรรทัดคำสั่ง\n"
 
 #: libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "เกิดข้อผิดพลาดภายในขณะแสดงตำแหน่งนี้"
 
 #: libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "ตำแหน่งที่ให้นั้นใช้ไม่ได้"
 
 #: libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr "เกิดข้อผิดพลาดขณะแจงคำสั่งปริยายสำหรับตำแหน่งนี้"
 
 #: libgnome/gnome-url.c:107 libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr "เกิดข้อผิดพลาดขณะเรียกใช้คำสั่งปริยายสำหรับตำแหน่งนี้"
 
 #: libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "ไม่มีคำสั่งปริยายสำหรับตำแหน่งนี้"
 
 #: libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "คำสั่งปริยายไม่รู้จักโพรโทคอลนี้"
 
 #: libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "การร้องขอถูกยกเลิก"
 
@@ -382,14 +395,17 @@ msgid "The host \"%s\" could not be found."
 msgstr "หาโฮสต์ \"%s\" ไม่พบ"
 
 #: libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "หาโฮสต์ไม่พบ"
 
 #: libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "หาตำแหน่งหรือแฟ้มไม่พบ"
 
 #: libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "ล็อกอินไม่สำเร็จ"
 
@@ -626,31 +642,32 @@ msgid ""
 "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr "โปรแกรมจัดการหน้าต่างที่จะลองใช้ก่อน  คีย์นี้เลิกใช้แล้วตั้งแต่ GNOME 2.12 เป็นต้นไป"
 
-#: schemas/desktop_gnome_background.schemas.in.h:1
+#: schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "ชนิดการแรเงาสี"
 
-#: schemas/desktop_gnome_background.schemas.in.h:2
+#: schemas/desktop_gnome_background.schemas.in.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
 msgstr ""
 "ตั้งว่ารูปที่เลือกใน wallpaper_filename จะถูกแสดงอย่างไร  สามารถตั้งเป็น \"none\", "
-"\"wallpaper\", \"centered\", \"scaled\", \"stretched\""
+"\"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom\""
 
-#: schemas/desktop_gnome_background.schemas.in.h:3
+#: schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "วาดพื้นหลังของพื้นโต๊ะ"
 
-#: schemas/desktop_gnome_background.schemas.in.h:4
+#: schemas/desktop_gnome_background.schemas.in.in.h:4
 msgid "File to use for the background image"
 msgstr "แฟ้มที่จะใช้เป็นรูปพื้นหลัง"
 
-#: schemas/desktop_gnome_background.schemas.in.h:5
+#: schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background"
 msgstr "ให้ GNOME เป็นผู้วาดพื้นหลังของพื้นโต๊ะ"
 
-#: schemas/desktop_gnome_background.schemas.in.h:6
+#: schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
@@ -658,35 +675,35 @@ msgstr ""
 "จะไล่สีพื้นหลังอย่างไร  สามารถตั้งเป็น \"horizontal-gradient\" \"vertical-gradient\" "
 "หรือ \"solid\""
 
-#: schemas/desktop_gnome_background.schemas.in.h:7
+#: schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "สีเดียวที่ใช้ หรือสีซ้ายหรือสีบนถ้าไล่แถบสี "
 
-#: schemas/desktop_gnome_background.schemas.in.h:8
+#: schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture"
 msgstr "ความโปร่งแสงสำหรับรูปพื้นหลัง"
 
-#: schemas/desktop_gnome_background.schemas.in.h:9
+#: schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "ชื่อแฟ้มรูป"
 
-#: schemas/desktop_gnome_background.schemas.in.h:10
+#: schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "ความโปร่งแสงของรูป"
 
-#: schemas/desktop_gnome_background.schemas.in.h:11
+#: schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "ตัวเลือกของรูป"
 
-#: schemas/desktop_gnome_background.schemas.in.h:12
+#: schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "สีหลัก"
 
-#: schemas/desktop_gnome_background.schemas.in.h:13
+#: schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr "สีขวาหรือสีล่างถ้าไล่แถบสี ค่านี้ไม่ถูกใช้ถ้าใช้สีเดียว"
 
-#: schemas/desktop_gnome_background.schemas.in.h:14
+#: schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "สีรอง"
 
