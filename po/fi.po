@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 1.109.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-06 16:54+0300\n"
+"POT-Creation-Date: 2007-09-03 18:55+0300\n"
 "PO-Revision-Date: 2007-02-12 18:48+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -51,6 +51,10 @@ msgstr "Järjestelmäviesti"
 msgid "Warning message"
 msgstr "Varoitusviesti"
 
+#: ../gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "Oletustausta"
+
 #: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
 msgstr "Valitse valikon kohta"
@@ -76,10 +80,12 @@ msgid "GNOME GConf Support"
 msgstr "GNOMEn GConf-tuki"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "GNOME_FILE_DOMAIN_APP_HELPER-verkkoaluetta ei löydy"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "GNOME_FILE_DOMAIN_HELP-verkkoaluetta ei löydy."
 
@@ -172,176 +178,176 @@ msgstr "GNOME-kirjasto"
 msgid "Show GNOME options"
 msgstr "Näytä Gnomen vaihtoehdot"
 
-#: ../libgnome/gnome-program.c:457
+#: ../libgnome/gnome-program.c:456
 msgid "Popt Table"
 msgstr "Popt-parametritaulu"
 
-#: ../libgnome/gnome-program.c:458
+#: ../libgnome/gnome-program.c:457
 msgid "The table of options for popt"
 msgstr "Taulukko popt-asetuksista"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:464
 msgid "Popt Flags"
 msgstr "Popt-liput"
 
-#: ../libgnome/gnome-program.c:466
+#: ../libgnome/gnome-program.c:465
 msgid "The flags to use for popt"
 msgstr "Poptille välittyvät liput"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:473
 msgid "Popt Context"
 msgstr "Popt-konteksti"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:474
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "Popt-kontekstiosoitin, jota GnomeProgram käyttää"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:482
 msgid "GOption Context"
 msgstr "GOption-konteksti"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:483
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "GOption-kontekstiosoitin, jota GnomeProgram käyttää"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:491
 msgid "Human readable name"
 msgstr "Selväkielinen nimi"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name of this application"
 msgstr "Tämän ohjelman selväkielinen nimi"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:501
 msgid "GNOME path"
 msgstr "GNOME-polku"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:502
 msgid "Path in which to look for installed files"
 msgstr "Mistä polusta etsiä asennettuja tiedostoja"
 
-#: ../libgnome/gnome-program.c:512
+#: ../libgnome/gnome-program.c:511
 msgid "App ID"
 msgstr "Ohjelman ID"
 
-#: ../libgnome/gnome-program.c:513
+#: ../libgnome/gnome-program.c:512
 msgid "ID string to use for this application"
 msgstr "Tämän ohjelman ID-merkkijono"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:519
 msgid "App version"
 msgstr "Ohjelman versio"
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:520
 msgid "Version of this application"
 msgstr "Tämän ohjelman versio"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:527
 msgid "GNOME Prefix"
 msgstr "GNOME-etuliite"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:528
 msgid "Prefix where GNOME was installed"
 msgstr "Etuliite, jonne GNOME on asennettu"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:537
 msgid "GNOME Libdir"
 msgstr "GNOME-kirjastokansio"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:538
 msgid "Library prefix where GNOME was installed"
 msgstr "Kirjastoetuliite, jonne GNOME on asennettu"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:547
 msgid "GNOME Datadir"
 msgstr "GNOME-datakansio"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:548
 msgid "Data prefix where GNOME was installed"
 msgstr "Dataetuliite, jonne GNOME on asennettu"
 
-#: ../libgnome/gnome-program.c:558
+#: ../libgnome/gnome-program.c:557
 msgid "GNOME Sysconfdir"
 msgstr "GNOME-järjestelmäasetuskansio"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:558
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Asetusetuliite, jonne GNOME on asennettu"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:568
 msgid "GNOME App Prefix"
 msgstr "GNOME-sovellusetuliite"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:569
 msgid "Prefix where this application was installed"
 msgstr "Etuliite, jonne tämä sovellus on asennettu"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:577
 msgid "GNOME App Libdir"
 msgstr "GNOME-ohjelman kirjastokansio"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:578
 msgid "Library prefix where this application was installed"
 msgstr "Kirjastoetuliite, jonne tämä sovellus on asennettu"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:587
 msgid "GNOME App Datadir"
 msgstr "GNOME-ohjelman datakansio"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:588
 msgid "Data prefix where this application was installed"
 msgstr "Dataetuliite, jonne tämä sovellus on asennettu"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:597
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME-ohjelman järjestelmäasetuskansio"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:598
 msgid "Configuration prefix where this application was installed"
 msgstr "Asetusetuliite, jonne tämä sovellus on asennettu"
 
-#: ../libgnome/gnome-program.c:608
+#: ../libgnome/gnome-program.c:607
 msgid "Create Directories"
 msgstr "Luo kansiot"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:608
 msgid "Create standard GNOME directories on startup"
 msgstr "Luo GNOMEn standardikansiot käynnistyessä"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:617
 msgid "Enable Sound"
 msgstr "Käytä ääntä"
 
-#: ../libgnome/gnome-program.c:619
+#: ../libgnome/gnome-program.c:618
 msgid "Enable sound on startup"
 msgstr "Käytä ääniä käynnistyttyä"
 
-#: ../libgnome/gnome-program.c:627
+#: ../libgnome/gnome-program.c:626
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:628
+#: ../libgnome/gnome-program.c:627
 msgid "How to connect to esd"
 msgstr "Miten saada yhteys esd:hen"
 
-#: ../libgnome/gnome-program.c:1391
+#: ../libgnome/gnome-program.c:1390
 msgid "Help options"
 msgstr "Ohjevalitsimet"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1395
 msgid "Application options"
 msgstr "Sovelluksen valitsimet"
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1411
 msgid "Dynamic modules to load"
 msgstr "Ladattavat dynaamiset moduulit"
 
-#: ../libgnome/gnome-program.c:1413
+#: ../libgnome/gnome-program.c:1412
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUULI1,MODUULI2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1504
+#: ../libgnome/gnome-program.c:1630
 #, c-format
 msgid ""
 "%s\n"
@@ -351,14 +357,17 @@ msgstr ""
 "Suorita \"%s --help\" nähdäksesi täyden listan komentorivivalitsimista.\n"
 
 #: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Tuntematon sisäinen virhe tämän sijainnin näyttämisessä."
 
 #: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "Annettu sijainti ei ole kelvollinen."
 
 #: ../libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
@@ -367,6 +376,7 @@ msgstr ""
 "virhe."
 
 #: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -375,14 +385,17 @@ msgstr ""
 "virhe."
 
 #: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "Tähän sijaintiin ei ole kytketty oletusarvoista toimintoa."
 
 #: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "Oletusarvoinen toiminto ei tue tätä protokollaa."
 
 #: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "Pyynto keskeytettiin."
 
@@ -392,14 +405,17 @@ msgid "The host \"%s\" could not be found."
 msgstr "Palvelinta \"%s\" ei löydy."
 
 #: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "Palvelinta ei löydy."
 
 #: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "Sijaintia tai tiedostoa ei löydy."
 
 #: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "Kirjautuminen epäonnistui."
 
@@ -647,32 +663,34 @@ msgstr ""
 "Ensimmäiseksi yritetävä ikkunointiohjelma. Tämä avain on vanhentunut "
 "versiosta Gnome 2.12 alkaen."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:1
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "Varjostustyyppi"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:2
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
 msgstr ""
-"Määrittää, miten wallpaper_filename:n määrittelemä kuva piirtyy. Mahdollisia "
-"arvoja ovat \"none\" (ei piirry), \"wallpaper\" (taustakuva), \"centered"
-"\" (keskellä), \"scaled\" (skaalattu), \"stretched\" (venytetty)"
+"Määrittää, kuinka avaimessa wallpaper_filename määritelty kuva esitetään. "
+"Mahdollisia arvoja ovat \"none\" (ei näytetä), \"wallpaper\" (taustakuva), "
+"\"centered\" (keskitetty), \"scaled\" (skaalattu), \"stretched\" (venytetty) "
+"ja \"zoom\" (lähennetty)"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:3
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "Piirrä työpöydän tausta"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:4
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
 msgid "File to use for the background image"
 msgstr "Taustakuvan tiedostonimi"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:5
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background"
 msgstr "Anna GNOMEn piirtää työpöydän tausta"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:6
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
@@ -681,35 +699,35 @@ msgstr ""
 "\" (vaakaväriliuku), \"vertical-gradient\" (pystyväriliuku) ja \"solid"
 "\" (tasainen väri)."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:7
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "Vasemman reunan tai yläreunan väri väriliu'ussa, tai tasainen väri."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:8
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture"
 msgstr "Taustakuvan peittävyys."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:9
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "Kuvan tiedostonimi"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:10
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "Kuvan peittävyys"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:11
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "Kuva-asetukset"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:12
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "Pääväri"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:13
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr "Oikean tai alareunan väri väriliu'ussa. Tasainen väri ei riipu tästä."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:14
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "Toinen väri"
 
