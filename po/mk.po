@@ -1,4 +1,4 @@
-# translation of libgnome.HEAD.mk.po to Macedonian
+# translation of libgnome.HEAD.po to Macedonian
 # translation of libgnome.HEAD.mk.po to
 # translation of libgnome.HEAD.mk.po to
 # This file is distributed under the same license as the PACKAGE package.
@@ -10,13 +10,14 @@
 # Jovan Kostovski <chombium@freemail.com.mk>, 2003.
 # Арангел Ангов <ufo@linux.net.mk>, 2005.
 # Jovan Naumovski <jovan@lugola.net>, 2006, 2007.
+# Arangel Angov <arangel@linux.net.mk>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome.HEAD.mk\n"
+"Project-Id-Version: libgnome.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-19 03:16+0100\n"
-"PO-Revision-Date: 2007-08-18 20:09+0200\n"
-"Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
+"POT-Creation-Date: 2007-08-28 03:17+0100\n"
+"PO-Revision-Date: 2007-09-04 11:13+0200\n"
+"Last-Translator: Arangel Angov <arangel@linux.net.mk>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,6 +56,10 @@ msgstr "Системски настани"
 #: ../gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning message"
 msgstr "Предупредувачка порака"
+
+#: ../gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "Стандардна позадина"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
@@ -126,20 +131,20 @@ msgid "Help document %s/%s not found"
 msgstr "Помошниот документ %s/%s не е пронајден"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:89
+#: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "Поддршка за bonobo"
 
-#: ../libgnome/gnome-init.c:143
+#: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Поддршка за активирање на bonobo"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Не можам да создадам по-корисник Гном конфигурациски дирекотриуми `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:407
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -148,36 +153,36 @@ msgstr ""
 "Не можам да подесам режим 0700 на приватен по-корисник Гном конфигурациски "
 "директориум `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:414
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Не можам да создадам Гном забрзувачи директно `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "Оневозможи ја употребата на серверот за звук"
-
-#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "Овозможи ја употребата на серверот за звук"
-
-#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "Host:порта на која што треба да се изврши серверот за звук"
-
-#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "ИМЕ НА HOST:ПОРТА"
-
-#: ../libgnome/gnome-init.c:506
+#: ../libgnome/gnome-init.c:453
 msgid "GNOME Virtual Filesystem"
 msgstr "Гном вируелен фајлсистем"
 
-#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+msgid "Disable sound server usage"
+msgstr "Оневозможи ја употребата на серверот за звук"
+
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+msgid "Enable sound server usage"
+msgstr "Овозможи ја употребата на серверот за звук"
+
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+msgid "Host:port on which the sound server to use is running"
+msgstr "Host:порта на која што треба да се изврши серверот за звук"
+
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+msgid "HOSTNAME:PORT"
+msgstr "ИМЕ НА HOST:ПОРТА"
+
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
 msgid "GNOME Library"
 msgstr "Гном библиотека"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:489
 msgid "Show GNOME options"
 msgstr "Покажи опции за Гном"
 
@@ -333,24 +338,24 @@ msgstr "Е-звучник"
 msgid "How to connect to esd"
 msgstr "Како да се врзете за esd"
 
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1391
 msgid "Help options"
 msgstr "Помошни опции"
 
-#: ../libgnome/gnome-program.c:1400
+#: ../libgnome/gnome-program.c:1396
 msgid "Application options"
 msgstr "Опции на апликацијата"
 
-#: ../libgnome/gnome-program.c:1416
+#: ../libgnome/gnome-program.c:1412
 msgid "Dynamic modules to load"
 msgstr "Динамични модули за вчитување"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1413
 msgid "MODULE1,MODULE2,..."
 msgstr "МОДУЛ1,МОДУЛ2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1506
+#: ../libgnome/gnome-program.c:1504
 #, c-format
 msgid ""
 "%s\n"
@@ -651,32 +656,32 @@ msgstr "Кориснички менаџер на прозорци (заоста�
 msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr "Менаџер на прозорци за прва употреба. Ова копче е заостанато од Гном 2.12."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:1
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "Тип на затемнување на боја"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:2
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
 msgstr ""
-"Одредува како сликата подесена од wallpaper_filename  ќе се рендерира. Можни "
-"вредности се \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
-"\"."
+"Одредува како сликата подесена од wallpaper_filename ќе се рендерира. Можни "
+"вредности се \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched, \"zoom\"."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:3
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "Исцртај ја позадината на работната површина"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:4
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
 msgid "File to use for the background image"
 msgstr "Датотека која се користи за позадинската слика"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:5
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background"
 msgstr "Дозволи Гном да ја исцрта позадината на работната површина"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:6
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
@@ -684,35 +689,35 @@ msgstr ""
 "Како да се затемни бојата за позадината. Можни вредности се \"horizontal-"
 "gradient\", \"vertical-gradient\", и \"solid\""
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:7
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "Лева или горна боја при цртање на градиенти или полна боја."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:8
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture"
 msgstr "Затемнетост со која се исцртува позадинската слика"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:9
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "Датотека за слика"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:10
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "Затемнетост на слика"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:11
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "Опции за слика"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:12
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "Примарна Боја"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:13
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr "Десна или долна боја при цртање на градиенти, не се користи за полна боја."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:14
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "Секундарна Боја"
 
