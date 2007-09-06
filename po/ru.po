@@ -1,5 +1,5 @@
-# translation of ru.po to
-# translation of libgnome.HEAD.po to
+# translation of libgnome.pot to Russian
+#
 # Copyright (C) 2001-2002, 2005, 2006, 2007 Free Software Foundation, Inc.
 #
 # Valek Filippov <frob@df.ru>, 2001-2002.
@@ -7,17 +7,17 @@
 # Leonid Kanter <leon@asplinux.ru>, 2005, 2006, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: ru\n"
+"Project-Id-Version: libgnome trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-03 17:53+0200\n"
+"POT-Creation-Date: 2007-09-07 02:21+0400\n"
 "PO-Revision-Date: 2007-03-03 18:24+0200\n"
-"Last-Translator: Leonid Kanter <leon@asplinux.ru>\n"
-"Language-Team:  <gnome-cyr@gnome.org>\n"
+"Last-Translator: Nickolay V. Shmyrev <nshmyrev@yandex.ru>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -51,6 +51,10 @@ msgstr "Системные события"
 msgid "Warning message"
 msgstr "Предупреждающее сообщение"
 
+#: ../gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "Фон рабочего стола по умолчанию"
+
 #: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
 msgstr "Выбор элемента меню"
@@ -67,10 +71,10 @@ msgstr "Выбор поля для отметки"
 msgid "User interface events"
 msgstr "События пользовательского интерфейса"
 
-#: ../libgnome/gnome-exec.c:458
+#: ../libgnome/gnome-exec.c:457
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
-"Невозможно найти терминал, используется xterm, даже если это может не "
+"Не удалось найти терминал, используется xterm, даже если это может не "
 "работать"
 
 #: ../libgnome/gnome-gconf.c:177
@@ -83,7 +87,7 @@ msgstr "Невозможно найти домен GNOME_FILE_DOMAIN_APP_HELP"
 
 #: ../libgnome/gnome-help.c:183
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "Невозможно найти домен GNOME_FILE_DOMAIN_HELP."
+msgstr "Не удалось найти домен GNOME_FILE_DOMAIN_HELP."
 
 #: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
 #, c-format
@@ -91,15 +95,15 @@ msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
 msgstr ""
-"Невозможно показать справку, так как файл \"%s\" не является каталогом. "
+"Не удалось показать справку, так как файл \"%s\" не является каталогом. "
 "Проверьте вашу установку."
 
 #: ../libgnome/gnome-help.c:220
 #, c-format
-msgid "Unable to find help paths %s or %s.Please check your installation"
+msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr ""
-"Невозможно найти файлы справки в %s или в %s. Проверьте вашу "
-"установку"
+"Не удалось найти файлы каталоги файлов справки %s или %s. Проверьте "
+"правильность вашей установки"
 
 #: ../libgnome/gnome-help.c:236
 #, c-format
@@ -107,13 +111,13 @@ msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"Невозможно найти файлы справки в \"%s\" или в \"%s\". Проверьте вашу "
+"Не удалось найти файлы справки в \"%s\" или в \"%s\". Проверьте вашу "
 "установку"
 
 #: ../libgnome/gnome-help.c:353
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr "Невозможно найти идентификатор докумена \"%s\" в пути к справке"
+msgstr "Не удалось найти идентификатор докумена \"%s\" в пути к справке"
 
 #: ../libgnome/gnome-help.c:374
 #, c-format
@@ -121,22 +125,22 @@ msgid "Help document %s/%s not found"
 msgstr "Справочный документ %s/%s не найден"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:89
+#: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "Поддержка системы Bonobo"
 
-#: ../libgnome/gnome-init.c:143
+#: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Поддержка активации системы Bonobo"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Не удалось создать пользовательский каталог  \"%s\" настроек среды GNOME: %"
 "s\n"
 
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:407
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -145,211 +149,213 @@ msgstr ""
 "Не удалось установить режим доступа в 0700 для личного пользовательского "
 "каталога настроек среды GNOME \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:414
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Не удалось создать каталог комбинаций клавиш \"%s\" среды GNOME: %s\n"
 
-#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "Отключить использование сервера звука"
-
-#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "Включить использование сервера звука"
-
-#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "Узел:порт, на котором запущен сервер звука"
-
-#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "HOSTNAME:PORT"
-
-#: ../libgnome/gnome-init.c:506
+#: ../libgnome/gnome-init.c:453
 msgid "GNOME Virtual Filesystem"
 msgstr "Виртуальная файловая система среды GNOME"
 
-#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+msgid "Disable sound server usage"
+msgstr "Отключить использование сервера звука"
+
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+msgid "Enable sound server usage"
+msgstr "Включить использование сервера звука"
+
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+msgid "Host:port on which the sound server to use is running"
+msgstr "Узел:порт, на котором запущен сервер звука"
+
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+msgid "HOSTNAME:PORT"
+msgstr "HOSTNAME:PORT"
+
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
 msgid "GNOME Library"
 msgstr "Библиотека среды GNOME"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:489
 msgid "Show GNOME options"
 msgstr "Отображать параметры GNOME"
 
-#: ../libgnome/gnome-program.c:458
+#: ../libgnome/gnome-program.c:456
 msgid "Popt Table"
 msgstr "Таблица popt"
 
-#: ../libgnome/gnome-program.c:459
+#: ../libgnome/gnome-program.c:457
 msgid "The table of options for popt"
 msgstr "Таблица параметров для popt"
 
-#: ../libgnome/gnome-program.c:466
+#: ../libgnome/gnome-program.c:464
 msgid "Popt Flags"
 msgstr "Флаги popt"
 
-#: ../libgnome/gnome-program.c:467
+#: ../libgnome/gnome-program.c:465
 msgid "The flags to use for popt"
 msgstr "Флаги, используемые для popt"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:473
 msgid "Popt Context"
 msgstr "Контекст popt"
 
-#: ../libgnome/gnome-program.c:476
+#: ../libgnome/gnome-program.c:474
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "Указатель контекста popt, используемый GnomeProgram"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:482
 msgid "GOption Context"
 msgstr "Контекст GOption"
 
-#: ../libgnome/gnome-program.c:485
+#: ../libgnome/gnome-program.c:483
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "Указатель контекста goption, используемый GnomeProgram"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:491
 msgid "Human readable name"
 msgstr "Читаемое название"
 
-#: ../libgnome/gnome-program.c:494
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name of this application"
 msgstr "Читаемое название для этого приложения"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:501
 msgid "GNOME path"
 msgstr "Путь к среде GNOME"
 
-#: ../libgnome/gnome-program.c:504
+#: ../libgnome/gnome-program.c:502
 msgid "Path in which to look for installed files"
 msgstr "Путь для поиска установленных файлов"
 
-#: ../libgnome/gnome-program.c:513
+#: ../libgnome/gnome-program.c:511
 msgid "App ID"
 msgstr "Идентификатор приложения"
 
-#: ../libgnome/gnome-program.c:514
+#: ../libgnome/gnome-program.c:512
 msgid "ID string to use for this application"
 msgstr "Строка идентификатора, используемая этим приложением"
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:519
 msgid "App version"
 msgstr "Версия приложения"
 
-#: ../libgnome/gnome-program.c:522
+#: ../libgnome/gnome-program.c:520
 msgid "Version of this application"
 msgstr "Версия этого приложения"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:527
 msgid "GNOME Prefix"
 msgstr "Префикс среды GNOME"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:528
 msgid "Prefix where GNOME was installed"
 msgstr "Префикс пути, по которому была установлена среда GNOME"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:537
 msgid "GNOME Libdir"
 msgstr "Каталог библиотек среды GNOME"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:538
 msgid "Library prefix where GNOME was installed"
 msgstr "Префикс пути, по которому были установлены библиотеки среды GNOME"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:547
 msgid "GNOME Datadir"
 msgstr "Каталог данных среды GNOME"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:548
 msgid "Data prefix where GNOME was installed"
 msgstr "Префикс пути, по которому были установлены данные среды GNOME"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:557
 msgid "GNOME Sysconfdir"
 msgstr "Каталог конфигурации системы среды GNOME"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:558
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Прификс пути, по которому были установлены файлы настроек среды GNOME"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:568
 msgid "GNOME App Prefix"
 msgstr "Префикс приложений GNOME"
 
-#: ../libgnome/gnome-program.c:571
+#: ../libgnome/gnome-program.c:569
 msgid "Prefix where this application was installed"
 msgstr "Префикс пути, по которому были установлены приложения среды GNOME"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:577
 msgid "GNOME App Libdir"
 msgstr "Каталог библиотек приложений среды GNOME"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:578
 msgid "Library prefix where this application was installed"
-msgstr "Префикс пути, по которому были установлены библиотеки приложений среды GNOME"
+msgstr ""
+"Префикс пути, по которому были установлены библиотеки приложений среды GNOME"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:587
 msgid "GNOME App Datadir"
 msgstr "Каталог данных приложений среды GNOME"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:588
 msgid "Data prefix where this application was installed"
-msgstr "Префикс пути, по которому были установлены данные приложений среды GNOME"
+msgstr ""
+"Префикс пути, по которому были установлены данные приложений среды GNOME"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:597
 msgid "GNOME App Sysconfdir"
 msgstr "Каталог настроек приложений среды GNOME"
 
-#: ../libgnome/gnome-program.c:600
+#: ../libgnome/gnome-program.c:598
 msgid "Configuration prefix where this application was installed"
 msgstr ""
 "Префикс пути, по которому были установлены файлы настроек приложений среды "
 "GNOME"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:607
 msgid "Create Directories"
 msgstr "Создать каталоги"
 
-#: ../libgnome/gnome-program.c:610
+#: ../libgnome/gnome-program.c:608
 msgid "Create standard GNOME directories on startup"
 msgstr "Создать при запуске стандартные каталоги среды GNOME"
 
-#: ../libgnome/gnome-program.c:619
+#: ../libgnome/gnome-program.c:617
 msgid "Enable Sound"
 msgstr "Включить звук"
 
-#: ../libgnome/gnome-program.c:620
+#: ../libgnome/gnome-program.c:618
 msgid "Enable sound on startup"
 msgstr "Включить звук при запуске"
 
-#: ../libgnome/gnome-program.c:628
+#: ../libgnome/gnome-program.c:626
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:629
+#: ../libgnome/gnome-program.c:627
 msgid "How to connect to esd"
 msgstr "Как подключаться к демону esd"
 
-#: ../libgnome/gnome-program.c:1394
+#: ../libgnome/gnome-program.c:1390
 msgid "Help options"
 msgstr "Параметры справки"
 
-#: ../libgnome/gnome-program.c:1399
+#: ../libgnome/gnome-program.c:1395
 msgid "Application options"
 msgstr "Параметры приложения"
 
-#: ../libgnome/gnome-program.c:1415
+#: ../libgnome/gnome-program.c:1411
 msgid "Dynamic modules to load"
 msgstr "Динамически загружаемые модули"
 
-#: ../libgnome/gnome-program.c:1416
+#: ../libgnome/gnome-program.c:1412
 msgid "MODULE1,MODULE2,..."
 msgstr "МОДУЛЬ1, МОДУЛЬ2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1505
+#: ../libgnome/gnome-program.c:1630
 #, c-format
 msgid ""
 "%s\n"
@@ -359,52 +365,54 @@ msgstr ""
 "Выполниете '%s --help', чтобы получить полный список доступных параметров "
 "командной строки.\n"
 
-#: ../libgnome/gnome-url.c:86
+#: ../libgnome/gnome-url.c:85
 msgid "Unknown internal error while displaying this location."
 msgstr "Произошла неизвестная внутренняя ошибка при отображении этого адреса."
 
-#: ../libgnome/gnome-url.c:93
+#: ../libgnome/gnome-url.c:92
 msgid "The specified location is invalid."
 msgstr "Указанный адрес недопустим."
 
-#: ../libgnome/gnome-url.c:100
+#: ../libgnome/gnome-url.c:99
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
-msgstr "Произошла ошибка при разборе действия по умолчанию, связанной с этим адресом."
+msgstr ""
+"Произошла ошибка при разборе действия по умолчанию, связанной с этим адресом."
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:181
+#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
-msgstr "Произошла ошибка при запуске действия по умолчанию, связанной с этим адресом."
+msgstr ""
+"Произошла ошибка при запуске действия по умолчанию, связанной с этим адресом."
 
-#: ../libgnome/gnome-url.c:116
+#: ../libgnome/gnome-url.c:115
 msgid "There is no default action associated with this location."
 msgstr "Отсутствует действие по умолчанию, связанная с этим адресом."
 
-#: ../libgnome/gnome-url.c:123
+#: ../libgnome/gnome-url.c:122
 msgid "The default action does not support this protocol."
 msgstr "Действие по умолчанию не поддержтвает этот протокол."
 
-#: ../libgnome/gnome-url.c:130
+#: ../libgnome/gnome-url.c:129
 msgid "The request was cancelled."
 msgstr "Запрос был отменён."
 
-#: ../libgnome/gnome-url.c:140
+#: ../libgnome/gnome-url.c:139
 #, c-format
 msgid "The host \"%s\" could not be found."
 msgstr "Не удаётся найти узел \"%s\"."
 
-#: ../libgnome/gnome-url.c:146
+#: ../libgnome/gnome-url.c:145
 msgid "The host could not be found."
 msgstr "Не удаётся найти узел."
 
-#: ../libgnome/gnome-url.c:157
+#: ../libgnome/gnome-url.c:156
 msgid "The location or file could not be found."
 msgstr "Не удаётся найти файл или адрес."
 
-#: ../libgnome/gnome-url.c:164
+#: ../libgnome/gnome-url.c:163
 msgid "The login has failed."
 msgstr "Ошибка регистрации."
 
@@ -443,42 +451,49 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Отключать, если две клавиши нажаты одновременно"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds"
 msgstr "Не принимать нажатие, если не оно длилось менее @delay миллисекунд"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
+msgid "How long to accelerate in milliseconds"
+msgstr "Как долго ускоряться (в миллисекундах)"
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
 msgstr "Сколько миллисекунд требуется для набора скорости от 0 до максимальной"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate"
 msgstr ""
 "Сколько миллисекунд одидать, прежде чем клавиши передвиджения мыши начнут "
 "работать"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "How many pixels per second to move at the maximum speed"
 msgstr "Сколько пикселей в секунду составляет максимальноая скорость"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "Игнорировать многократные нажатия одной клавиши в период @delay миллисекунд"
-
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "how long to accelerate in milliseconds"
-msgstr "как долго ускоряться (в миллисекундах)"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
+msgstr ""
+"Игнорировать многократные нажатия одной клавиши в период @delay миллисекунд"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
-msgid "initial delay in milliseconds"
-msgstr "начальная задержка (в миллисекундах)"
+msgid "Initial delay in milliseconds"
+msgstr "Начальная задержка (в миллисекундах)"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
-msgid "minimum interval in milliseconds"
-msgstr "минимальный интервал (в миллисекундах)"
+msgid "Minimum interval in milliseconds"
+msgstr "Минимальный интервал (в миллисекундах)"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
-msgid "pixels per seconds"
-msgstr "пикселей в секунду"
+msgid "Pixels per seconds"
+msgstr "Пикселей в секунду"
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
+msgid "minimum interval in milliseconds"
+msgstr "Минимальный интервал (в миллисекундах)"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
@@ -496,7 +511,8 @@ msgstr "Запускаемые при входе приложения со сп�
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
 "login"
-msgstr "Будут запущены вспомогательные технологии для облегчения входа в систему"
+msgstr ""
+"Будут запущены вспомогательные технологии для облегчения входа в систему"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
@@ -504,17 +520,23 @@ msgstr "Предпочтительное приложение вспомогат
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
-"Preferred Mobility assistive technology application be used for login, menu, "
-"or command line"
-msgstr "Предпочтительное приложение мобильных вспомогательных технологий для использования при регистрации, меню, или в командной строке"
+"Preferred Mobility assistive technology application to be used for login, "
+"menu, or command line"
+msgstr ""
+"Предпочтительное приложение вспомогательных мобильных технологий для "
+"использования при регистрации, меню, или в командной строке"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
-msgstr "Запустить предпочтительное приложение мобильных вспомогательных технологий"
+msgstr ""
+"Запустить предпочтительное приложение мобильных вспомогательных технологий"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
-msgid "GNOME to start preferred Visual assistive technology application during login"
-msgstr "При регистрации будут запущено приложение визуальных вспомогательных технологий"
+msgid ""
+"GNOME to start preferred Visual assistive technology application during login"
+msgstr ""
+"При регистрации будут запущено приложение визуальных вспомогательных "
+"технологий"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
@@ -524,11 +546,14 @@ msgstr "Предпочтительное приложение визуальны
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
 "or command line"
-msgstr "Предпочтительное приложение визуальных вспомогательных технологий, которые могут использоваться для регистрации, меню или командной строки"
+msgstr ""
+"Предпочтительное приложение визуальных вспомогательных технологий, которые "
+"могут использоваться для регистрации, меню или командной строки"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
-msgstr "Запустить предпочтительное приложение визуальных вспомогательных технологий"
+msgstr ""
+"Запустить предпочтительное приложение визуальных вспомогательных технологий"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -572,8 +597,10 @@ msgid "Whether the default help viewer needs a terminal to run"
 msgstr "Нуждается ли программа просмотра справки по умолчанию в терминале"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Аргумент, используемый при загрузке программ в терминале по ключу \"exec\""
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"Аргумент, используемый при загрузке программ в терминале по ключу \"exec\""
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -628,37 +655,39 @@ msgid "User window manager (deprecated)"
 msgstr "Пользовательский оконный менеджер (устаревший)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
 "Оконный менеджер, который необходимо пробовать первым. Этот ключ считается "
 "устаревшим начиная с GNOME 2.12."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:1
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "Тип цветового перехода"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:2
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
 msgstr ""
 "Определяет, как изображение, установленное параметром wallpaper_filename, "
 "будет отрисовываться. Возможные значения \"none\", \"wallpaper\", \"centered"
-"\", \"scaled\", \"stretched\"."
+"\", \"scaled\", \"stretched\", \"zoom\"."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:3
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "Отрисовывать фон рабочего стола"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:4
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
 msgid "File to use for the background image"
 msgstr "Файл, используемый в качестве фона рабочего стола"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:5
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background"
 msgstr "Должна ли среда отрисовывать рабочий стол"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:6
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
@@ -666,37 +695,37 @@ msgstr ""
 "Как изменять цвет фона. Возможные значения \"horizontal-gradient\", "
 "\"vertical-gradient\" и \"solid\""
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:7
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "Левый или верхний цвета при отрисовки градиента, или сплошной цвет."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:8
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture"
 msgstr "Прозрачность, с которой отрисовывать фоновую картинку"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:9
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "Имя файла картинки"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:10
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "Прозрачность картинки"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:11
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "Параметры картинки"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:12
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "Первичный цвет"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:13
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr ""
 "Правый или Нижний цвета при отрисовки градиента, не используется при "
 "сплошном цвете."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:14
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "Вторичный цвет"
 
@@ -801,7 +830,8 @@ msgid "Monospace font"
 msgstr "Моноширинный шрифт"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Наименование моноширинного (как у пиш.машинки) шрифта используемого в "
 "приложениях вроде терминала."
@@ -989,7 +1019,9 @@ msgstr ""
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
-msgstr "Отключить пользователю возможность переключаться на другую учетную запись, когда его сеанс активен."
+msgstr ""
+"Отключить пользователю возможность переключаться на другую учетную запись, "
+"когда его сеанс активен."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid "Prevent the user to lock his screen."
@@ -1141,11 +1173,14 @@ msgstr "Звуки для событий"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:6
 msgid "The default mixer device used by the multimedia key bindings."
-msgstr "Устройство микшера, используемое для привязки мультимедийных клавиш по умолчанию."
+msgstr ""
+"Устройство микшера, используемое для привязки мультимедийных клавиш по "
+"умолчанию."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:7
 msgid "The default mixer tracks used by the multimedia key bindings."
-msgstr "Каналы микшера, используемые по умолчанию для привязки мультимедийных клавиш."
+msgstr ""
+"Каналы микшера, используемые по умолчанию для привязки мультимедийных клавиш."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
