@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-24 20:04+0200\n"
-"PO-Revision-Date: 2007-04-15 01:09+0200\n"
+"POT-Creation-Date: 2007-09-09 03:17+0200\n"
+"PO-Revision-Date: 2007-09-09 01:25+0200\n"
 "Last-Translator: Kenneth Nielsen <k.nielsen81@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -55,6 +55,10 @@ msgstr "Systemhændelser"
 msgid "Warning message"
 msgstr "Advarselsmeddelelse"
 
+#: ../gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "Standardbaggrund"
+
 #: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
 msgstr "Valg af menupunkt"
@@ -92,13 +96,15 @@ msgstr "Kunne ikke finde GNOME_FILE_DOMAIN_HELP-domænet."
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr "Kan ikke vise hjælp da %s ikke er en mappe. Kontrollér installationen."
+msgstr ""
+"Kan ikke vise hjælp, da %s ikke er en mappe. Kontrollér venligst "
+"installationen."
 
 #: ../libgnome/gnome-help.c:220
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr ""
-"Kan ikke finde hjælpestierne hverken %s eller %s. Kontrollér installationen"
+"Kan hverken finde hjælpestien %s eller %s. Kontrollér venligst installationen"
 
 #: ../libgnome/gnome-help.c:236
 #, c-format
@@ -106,7 +112,8 @@ msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
 msgstr ""
-"Kan ikke finde hjælpefilerne i hverken %s eller %s. Kontrollér installationen"
+"Kan hverken finde hjælpefilerne i %s eller %s. Kontrollér venligst "
+"installationen"
 
 #: ../libgnome/gnome-help.c:353
 #, c-format
@@ -119,22 +126,22 @@ msgid "Help document %s/%s not found"
 msgstr "Hjælpedokumentet %s/%s blev ikke fundet"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:89
+#: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "Bonobo-understøttelse"
 
-#: ../libgnome/gnome-init.c:143
+#: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Bonobo-aktiveringsunderstøttelse"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Kunne ikke oprette den brugerspecifikke Gnome-konfigurationsmappen \"%s\": %"
 "s\n"
 
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:407
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -143,209 +150,209 @@ msgstr ""
 "Kunne ikke sætte tilstanden 0700 på privat brugerspecifik Gnome-"
 "konfigurationsmappen \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:414
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Kunne ikke oprette Gnome-acceleratormappen \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "Deaktivér brug af lydserver"
-
-#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "Aktivér brug af lydserver"
-
-#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "Vært:port hvor lydserveren som skal bruges, kører"
-
-#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "VÆRTSNAVN:PORT"
-
-#: ../libgnome/gnome-init.c:506
+#: ../libgnome/gnome-init.c:453
 msgid "GNOME Virtual Filesystem"
 msgstr "Gnome virtuelt filsystem"
 
-#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+msgid "Disable sound server usage"
+msgstr "Deaktivér brug af lydserver"
+
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+msgid "Enable sound server usage"
+msgstr "Aktivér brug af lydserver"
+
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+msgid "Host:port on which the sound server to use is running"
+msgstr "Vært:port hvor lydserveren som skal bruges, kører"
+
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+msgid "HOSTNAME:PORT"
+msgstr "VÆRTSNAVN:PORT"
+
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
 msgid "GNOME Library"
 msgstr "Gnome-biblioteket"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:489
 msgid "Show GNOME options"
 msgstr "Vis Gnome-flag"
 
-#: ../libgnome/gnome-program.c:457
+#: ../libgnome/gnome-program.c:456
 msgid "Popt Table"
 msgstr "Popt-tabel"
 
-#: ../libgnome/gnome-program.c:458
+#: ../libgnome/gnome-program.c:457
 msgid "The table of options for popt"
 msgstr "Tabellen over tilvalg til popt"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:464
 msgid "Popt Flags"
 msgstr "Popt-tilvalg"
 
-#: ../libgnome/gnome-program.c:466
+#: ../libgnome/gnome-program.c:465
 msgid "The flags to use for popt"
 msgstr "De tilvalg der skal bruges til popt"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:473
 msgid "Popt Context"
 msgstr "Popt-kontekst"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:474
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "Den popt-konteksthenvisning som GnomeProgram bruger"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:482
 msgid "GOption Context"
 msgstr "GOption-kontekst"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:483
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "GOption-konteksthenvisningen som GnomeProgram bruger"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:491
 msgid "Human readable name"
 msgstr "Læsevenligt navn"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name of this application"
 msgstr "Læsevenligt navn til dette program"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:501
 msgid "GNOME path"
 msgstr "Gnome-sti"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:502
 msgid "Path in which to look for installed files"
 msgstr "Sti hvor der skal ledes efter installerede filer"
 
-#: ../libgnome/gnome-program.c:512
+#: ../libgnome/gnome-program.c:511
 msgid "App ID"
 msgstr "Program-id"
 
-#: ../libgnome/gnome-program.c:513
+#: ../libgnome/gnome-program.c:512
 msgid "ID string to use for this application"
 msgstr "Id-streng til brug for dette program"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:519
 msgid "App version"
 msgstr "Programversion"
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:520
 msgid "Version of this application"
 msgstr "Versionen af dette program"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:527
 msgid "GNOME Prefix"
 msgstr "Gnome-præfiks"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:528
 msgid "Prefix where GNOME was installed"
 msgstr "Præfikset hvor Gnome blev installeret"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:537
 msgid "GNOME Libdir"
 msgstr "Gnome-biblioteksmappe"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:538
 msgid "Library prefix where GNOME was installed"
 msgstr "Bibliotekspræfiks til hvor Gnome blev installeret"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:547
 msgid "GNOME Datadir"
 msgstr "Gnome-datamappe"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:548
 msgid "Data prefix where GNOME was installed"
 msgstr "Datapræfikset til hvor Gnome blev installeret"
 
-#: ../libgnome/gnome-program.c:558
+#: ../libgnome/gnome-program.c:557
 msgid "GNOME Sysconfdir"
 msgstr "Gnome-systemkonfiguration"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:558
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Konfigurationspræfiks til hvor Gnome blev installeret"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:568
 msgid "GNOME App Prefix"
 msgstr "Gnome-programpræfiks"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:569
 msgid "Prefix where this application was installed"
 msgstr "Præfiks til hvor dette program blev installeret"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:577
 msgid "GNOME App Libdir"
 msgstr "Gnome-programbiblioteksmappe"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:578
 msgid "Library prefix where this application was installed"
 msgstr "Bibliotekspræfiks til hvor dette program blev installeret"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:587
 msgid "GNOME App Datadir"
 msgstr "Gnome-programdatamappe"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:588
 msgid "Data prefix where this application was installed"
 msgstr "Datapræfikset til hvor dette program blev installeret"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:597
 msgid "GNOME App Sysconfdir"
 msgstr "Gnome-programsystemkonfiguration"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:598
 msgid "Configuration prefix where this application was installed"
 msgstr "Konfigurationspræfiks til hvor dette program blev installeret"
 
-#: ../libgnome/gnome-program.c:608
+#: ../libgnome/gnome-program.c:607
 msgid "Create Directories"
 msgstr "Opret mapper"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:608
 msgid "Create standard GNOME directories on startup"
 msgstr "Opret Gnomes standardmapper ved opstart"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:617
 msgid "Enable Sound"
 msgstr "Aktivér lyd"
 
-#: ../libgnome/gnome-program.c:619
+#: ../libgnome/gnome-program.c:618
 msgid "Enable sound on startup"
 msgstr "Aktivér lyd ved opstart"
 
-#: ../libgnome/gnome-program.c:627
+#: ../libgnome/gnome-program.c:626
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:628
+#: ../libgnome/gnome-program.c:627
 msgid "How to connect to esd"
 msgstr "Hvordan der skal tilsluttes til esd"
 
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1390
 msgid "Help options"
 msgstr "Hjælpetilvalg"
 
-#: ../libgnome/gnome-program.c:1400
+#: ../libgnome/gnome-program.c:1395
 msgid "Application options"
 msgstr "Programtilvalg"
 
-#: ../libgnome/gnome-program.c:1416
+#: ../libgnome/gnome-program.c:1411
 msgid "Dynamic modules to load"
 msgstr "Dynamiske moduler som skal indlæses"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1412
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1506
+#: ../libgnome/gnome-program.c:1630
 #, c-format
 msgid ""
 "%s\n"
@@ -449,10 +456,10 @@ msgstr ""
 "Acceptér ikke en tast som værende trykket ned medmindre den holdes @delay "
 "antal millisekunder"
 
+# Efter at have konsulteret GConf-editor tyder det på, at det er acceleration af musecursoren når man bruger tastaturet til at styre den
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
-#, fuzzy
 msgid "How long to accelerate in milliseconds"
-msgstr "hvor langt tid det tager at accelerere i millisekunder"
+msgstr "Hvor lang tid der accelereres i millisekunder"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid "How many milliseconds it takes to go from 0 to maximum speed"
@@ -474,19 +481,16 @@ msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
 msgstr "Ignorér flere tryk på den _samme_ tast inden for @delay millisekunder"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
-#, fuzzy
 msgid "Initial delay in milliseconds"
-msgstr "begyndelsesventetid i millisekunder"
+msgstr "Begyndelsesventetid i millisekunder"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
-#, fuzzy
 msgid "Minimum interval in milliseconds"
-msgstr "minimalt interval i millisekunder"
+msgstr "Minimalt interval i millisekunder"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
-#, fuzzy
 msgid "Pixels per seconds"
-msgstr "punkter pr. sekund"
+msgstr "Punkter pr. sekund"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
 msgid "minimum interval in milliseconds"
@@ -515,7 +519,6 @@ msgid "Preferred Mobility assistive technology application"
 msgstr "Foretrukne program til mobilitets-assisterende teknologier"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
-#, fuzzy
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
 "menu, or command line"
@@ -658,31 +661,33 @@ msgstr ""
 "Den vindueshåndtering der skal prøves først. Denne nøgle har være forældet "
 "siden Gnome 2.12."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:1
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "Farvelægningstype"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:2
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
 msgstr ""
 "Afgør hvordan billedet der er sat af wallpaper_filename optegnes. Mulige "
-"værdier er \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
+"værdier er \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:3
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "Optegn skrivebordsbaggrund"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:4
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
 msgid "File to use for the background image"
 msgstr "Fil der skal bruges for baggrundsbilledet"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:5
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background"
 msgstr "Lad Gnome optegne skrivebordsbaggrunden"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:6
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
@@ -690,39 +695,39 @@ msgstr ""
 "Hvordan baggrundsfarven skal tegnes. Mulige værdier er \"horizontal-gradient"
 "\", \"vertical-gradient\" og \"solid\""
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:7
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr ""
 "Venstre eller øverste farve ved tegning af farveovergange, eller blot den "
 "enkelte farve hvis ensfarvet."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:8
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture"
 msgstr "Uigennemsigtighed som baggrundsbilledet skal tegnes med"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:9
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "Billedfilnavn"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:10
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "Billeduigennemsigtighed"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:11
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "Billedindstillinger"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:12
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "Primær farve"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:13
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr ""
 "Højre eller nederste farve ved tegning af farveovergange, benyttes ikke til "
 "ved ensfarvet baggrund."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:14
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "Sekundær farve"
 
