@@ -1,6 +1,5 @@
+NULL =
 
-
-schemadir   = $(GCONF_SCHEMA_FILE_DIR)
 schema_in_files = \
 	desktop_gnome_accessibility_keyboard.schemas.in		\
 	desktop_gnome_accessibility_startup.schemas.in		\
@@ -10,26 +9,27 @@ schema_in_files = \
 	desktop_gnome_applications_help_viewer.schemas.in	\
 	desktop_gnome_applications_terminal.schemas.in		\
 	desktop_gnome_applications_window_manager.schemas.in	\
-	desktop_gnome_background.schemas.in			\
 	desktop_gnome_file_views.schemas.in			\
-	desktop_gnome_interface.schemas.in			\
 	desktop_gnome_lockdown.schemas.in			\
 	desktop_gnome_peripherals_mouse.schemas.in		\
 	desktop_gnome_peripherals_keyboard.schemas.in		\
 	desktop_gnome_sound.schemas.in				\
 	desktop_gnome_typing_break.schemas.in			\
-	desktop_gnome_thumbnailers.schemas.in
+	desktop_gnome_thumbnailers.schemas.in			\
+	$(NULL)
 
 desktop_gnome_background.schemas.in: desktop_gnome_background.schemas.in.in Makefile
 	sed -e 's^\@datadir\@^$(datadir)^g' < $(srcdir)/desktop_gnome_background.schemas.in.in > desktop_gnome_background.schemas.in.tmp \
 	&& mv desktop_gnome_background.schemas.in.tmp desktop_gnome_background.schemas.in
 
-schema_DATA = $(schema_in_files:.schemas.in=.schemas)
+schemadir= $(GCONF_SCHEMA_FILE_DIR)
+schema_DATA = \
+	$(schema_in_files:.schemas.in=.schemas)	\
+	desktop_gnome_background.schemas.in	\
+	desktop_gnome_interface.schemas.in	\
+	$(NULL)
 
 @INTLTOOL_SCHEMAS_RULE@
-
-# get rid of schemas during clean
-CLEANFILES = $(schema_DATA) desktop_gnome_interface.schemas.in desktop_gnome_background.schemas.in
 
 if GCONF_SCHEMAS_INSTALL
 # don't do this if we are building in eg. rpm
@@ -59,5 +59,12 @@ else
 install-data-local:
 endif
 
-noinst_DATA = desktop_gnome_background.schemas.in
-EXTRA_DIST = $(schema_in_files) $(schema_DATA) desktop_gnome_interface.schemas.in desktop_gnome_background.schemas.in.in
+EXTRA_DIST = \
+	$(schema_in_files)			\
+	desktop_gnome_background.schemas.in.in	\
+	$(NULL)
+
+CLEANFILES = \
+	$(schema_DATA)				\
+	desktop_gnome_background.schemas.in	\
+	$(NULL)
