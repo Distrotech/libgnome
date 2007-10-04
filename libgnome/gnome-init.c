@@ -339,6 +339,8 @@ safe_mkdir (const char *pathname, mode_t mode)
 static void
 libgnome_userdir_setup (gboolean create_dirs)
 {
+	struct stat statbuf;
+	
 	if(!gnome_user_dir) {
                 const char *override;
 
@@ -402,8 +404,15 @@ libgnome_userdir_setup (gboolean create_dirs)
 	}
 
 
+       if (stat (gnome_user_private_dir, &statbuf) < 0) {
+               g_printerr (_("Could not stat private per-user gnome configuration directory `%s': %s\n"),
+                       gnome_user_private_dir, strerror(errno));
+               exit(1);
+       }
+
 	/* change mode to 0700 on the private directory */
-	if (g_chmod (gnome_user_private_dir, 0700) < 0) {
+	if (((statbuf.st_mode & 0700) != 0700 )  &&
+            g_chmod (gnome_user_private_dir, 0700) < 0) {
 		g_printerr (_("Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"),
 			gnome_user_private_dir, strerror(errno));
 		exit(1);
