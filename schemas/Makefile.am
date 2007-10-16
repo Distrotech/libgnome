@@ -25,8 +25,8 @@ desktop_gnome_background.schemas.in: desktop_gnome_background.schemas.in.in Make
 schemadir= $(GCONF_SCHEMA_FILE_DIR)
 schema_DATA = \
 	$(schema_in_files:.schemas.in=.schemas)	\
-	desktop_gnome_background.schemas.in	\
-	desktop_gnome_interface.schemas.in	\
+	desktop_gnome_background.schemas	\
+	desktop_gnome_interface.schemas		\
 	$(NULL)
 
 @INTLTOOL_SCHEMAS_RULE@
