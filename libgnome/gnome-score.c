@@ -53,6 +53,8 @@
 #include <fcntl.h>
 #include <io.h>
 
+#define pipe(fds) _pipe(fds, 4096, _O_BINARY)
+
 /* Microsoft's strtok() *is* thread-safe, it uses a thread-local
  * buffer. "Use" the third argument to this macro so gcc doesn't
  * complain about an unused variable, and we don't have to ifdef out
