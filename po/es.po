@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-28 03:17+0100\n"
-"PO-Revision-Date: 2007-08-28 14:19+0200\n"
+"POT-Creation-Date: 2007-10-04 15:39+0100\n"
+"PO-Revision-Date: 2007-10-19 12:11+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -133,12 +133,17 @@ msgstr "Soporte para Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Soporte para activación de Bonobo"
 
-#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
+#: ../libgnome/gnome-init.c:386 ../libgnome/gnome-init.c:400
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "No se ha podido crear un directorio de configuración por usuario  «%s»: %s\n"
 
-#: ../libgnome/gnome-init.c:407
+#: ../libgnome/gnome-init.c:408
+#, c-format
+msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr "No se han podido examinar los directorios de configuración de GNOME cada usuario «%s»: «%s»\n"
+
+#: ../libgnome/gnome-init.c:416
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -147,209 +152,209 @@ msgstr ""
 "No se ha podido establecer el modo 0700 en el directorio privado de "
 "configuración «%s» que hay por cada usuario: %s\n"
 
-#: ../libgnome/gnome-init.c:414
+#: ../libgnome/gnome-init.c:423
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "No se ha podido crear el directorio de aceleradores de GNOME «%s»: %s\n"
 
-#: ../libgnome/gnome-init.c:453
+#: ../libgnome/gnome-init.c:462
 msgid "GNOME Virtual Filesystem"
 msgstr "Sistema de archivos virtual de GNOME"
 
-#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+#: ../libgnome/gnome-init.c:480 ../libgnome/gnome-init.c:523
 msgid "Disable sound server usage"
 msgstr "Desactivar el uso del servidor de sonido"
 
-#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
 msgid "Enable sound server usage"
 msgstr "Activar el uso del servidor de sonido"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+#: ../libgnome/gnome-init.c:487 ../libgnome/gnome-init.c:529
 msgid "Host:port on which the sound server to use is running"
 msgstr "Host:puerto donde escucha el servidor de sonido que se va a utilizar"
 
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:531
 msgid "HOSTNAME:PORT"
 msgstr "HOST:PUERTO"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
+#: ../libgnome/gnome-init.c:497 ../libgnome/gnome-init.c:541
 msgid "GNOME Library"
 msgstr "Biblioteca de GNOME"
 
-#: ../libgnome/gnome-init.c:489
+#: ../libgnome/gnome-init.c:498
 msgid "Show GNOME options"
 msgstr "Mostrar las opciones de GNOME"
 
-#: ../libgnome/gnome-program.c:457
+#: ../libgnome/gnome-program.c:456
 msgid "Popt Table"
 msgstr "Tabla popt"
 
-#: ../libgnome/gnome-program.c:458
+#: ../libgnome/gnome-program.c:457
 msgid "The table of options for popt"
 msgstr "La tabla de opciones para popt"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:464
 msgid "Popt Flags"
 msgstr "Opciones popt"
 
-#: ../libgnome/gnome-program.c:466
+#: ../libgnome/gnome-program.c:465
 msgid "The flags to use for popt"
 msgstr "Las opciones que usar para popt"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:473
 msgid "Popt Context"
 msgstr "Contexto popt"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:474
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "El puntero del contexto popt que está usando GnomeProgram"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:482
 msgid "GOption Context"
 msgstr "Contexto GOption"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:483
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "El puntero del contexto GOption que el está usando GnomeProgram"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:491
 msgid "Human readable name"
 msgstr "Nombre legible por humanos"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name of this application"
 msgstr "Nombre legible por humanos de esta aplicación"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:501
 msgid "GNOME path"
 msgstr "Ruta de GNOME"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:502
 msgid "Path in which to look for installed files"
 msgstr "Ruta en la cual buscar los archivos instalados"
 
-#: ../libgnome/gnome-program.c:512
+#: ../libgnome/gnome-program.c:511
 msgid "App ID"
 msgstr "ID de Apl."
 
-#: ../libgnome/gnome-program.c:513
+#: ../libgnome/gnome-program.c:512
 msgid "ID string to use for this application"
 msgstr "Cadena ID que usar para esta aplicación"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:519
 msgid "App version"
 msgstr "Versión de la apl."
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:520
 msgid "Version of this application"
 msgstr "Versión de esta aplicación"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:527
 msgid "GNOME Prefix"
 msgstr "Prefijo GNOME"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:528
 msgid "Prefix where GNOME was installed"
 msgstr "Directorio donde se instaló GNOME"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:537
 msgid "GNOME Libdir"
 msgstr "Directorio de bibliotecas de GNOME"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:538
 msgid "Library prefix where GNOME was installed"
 msgstr "Prefijo de biblioteca donde GNOME fue instalado"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:547
 msgid "GNOME Datadir"
 msgstr "Directorio de datos de GNOME"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:548
 msgid "Data prefix where GNOME was installed"
 msgstr "Prefijo de datos donde fue instalado GNOME"
 
-#: ../libgnome/gnome-program.c:558
+#: ../libgnome/gnome-program.c:557
 msgid "GNOME Sysconfdir"
 msgstr "Directorio de configuración de GNOME"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:558
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Prefijo de configuración donde GNOME fue instalado"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:568
 msgid "GNOME App Prefix"
 msgstr "Prefijo de aplicaciones GNOME"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:569
 msgid "Prefix where this application was installed"
 msgstr "Prefijo donde fue instalada esta aplicación"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:577
 msgid "GNOME App Libdir"
 msgstr "Directorio de bibliotecas de aplicaciones de GNOME"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:578
 msgid "Library prefix where this application was installed"
 msgstr "Prefijo de bibliotecas donde fue instalada esta aplicación"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:587
 msgid "GNOME App Datadir"
 msgstr "Directorio de datos de aplicaciones GNOME"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:588
 msgid "Data prefix where this application was installed"
 msgstr "Prefijo de datos donde fue instalada esta aplicación"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:597
 msgid "GNOME App Sysconfdir"
 msgstr "Directorio de configuración de aplicaciones GNOME"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:598
 msgid "Configuration prefix where this application was installed"
 msgstr "Prefijo de configuración donde fue instalada esta aplicación"
 
-#: ../libgnome/gnome-program.c:608
+#: ../libgnome/gnome-program.c:607
 msgid "Create Directories"
 msgstr "Crear directorios"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:608
 msgid "Create standard GNOME directories on startup"
 msgstr "Crear directorios estándar de GNOME en el arranque"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:617
 msgid "Enable Sound"
 msgstr "Activar sonido"
 
-#: ../libgnome/gnome-program.c:619
+#: ../libgnome/gnome-program.c:618
 msgid "Enable sound on startup"
 msgstr "Activar sonido al arrancar"
 
-#: ../libgnome/gnome-program.c:627
+#: ../libgnome/gnome-program.c:626
 msgid "Espeaker"
 msgstr "Altavoz"
 
-#: ../libgnome/gnome-program.c:628
+#: ../libgnome/gnome-program.c:627
 msgid "How to connect to esd"
 msgstr "Cómo conectarse a esd"
 
-#: ../libgnome/gnome-program.c:1391
+#: ../libgnome/gnome-program.c:1390
 msgid "Help options"
 msgstr "Opción de ayuda"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1395
 msgid "Application options"
 msgstr "Opciones de la aplicación"
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1411
 msgid "Dynamic modules to load"
 msgstr "Módulos dinámicos que cargar"
 
-#: ../libgnome/gnome-program.c:1413
+#: ../libgnome/gnome-program.c:1412
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULO1,MODULO2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1504
+#: ../libgnome/gnome-program.c:1630
 #, c-format
 msgid ""
 "%s\n"
@@ -667,9 +672,9 @@ msgid ""
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\"."
 msgstr ""
-"Determina cómo se renderiza la imagen establecida por «nombre_de_la_imagen_de_fondo_de_pantalla». Los valores posibles "
-"son \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\" y "
-"\"zoom\"."
+"Determina cómo se renderiza la imagen establecida por "
+"«nombre_de_la_imagen_de_fondo_de_pantalla». Los valores posibles son \"none"
+"\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\" y \"zoom\"."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
