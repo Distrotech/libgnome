@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.13.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-28 12:25+0200\n"
-"PO-Revision-Date: 2007-08-28 12:26+0200\n"
+"POT-Creation-Date: 2007-10-27 11:16+0200\n"
+"PO-Revision-Date: 2007-10-27 11:17+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -127,12 +127,18 @@ msgstr "Støtte for Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Støtte for aktivering via Bonobo"
 
-#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
+#: ../libgnome/gnome-init.c:386 ../libgnome/gnome-init.c:400
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Kunn ikke opprette per-bruker konfigurasjonskatalog «%s»: %s\n"
 
-#: ../libgnome/gnome-init.c:407
+#: ../libgnome/gnome-init.c:408
+#, c-format
+msgid ""
+"Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr "Kunne ikke kjøre stat() på brukers konfigurasjonskatalog «%s»: %s\n"
+
+#: ../libgnome/gnome-init.c:416
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -141,36 +147,36 @@ msgstr ""
 "Kunne ikke sette modus 0700 på privat brukerspesifikk konfigurasjonskatalog "
 "«%s»: %s\n"
 
-#: ../libgnome/gnome-init.c:414
+#: ../libgnome/gnome-init.c:423
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Kunne ikke opprette katalog «%s» for snarveitaster i GNOME: %s\n"
 
-#: ../libgnome/gnome-init.c:453
+#: ../libgnome/gnome-init.c:462
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME virtuelt filsystem"
 
-#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+#: ../libgnome/gnome-init.c:480 ../libgnome/gnome-init.c:523
 msgid "Disable sound server usage"
 msgstr "Slå av bruk av lydtjener"
 
-#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
 msgid "Enable sound server usage"
 msgstr "Slå på bruk av lydtjener"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+#: ../libgnome/gnome-init.c:487 ../libgnome/gnome-init.c:529
 msgid "Host:port on which the sound server to use is running"
 msgstr "Vert:port hvor lydtjeneren som skal brukes kjører"
 
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:531
 msgid "HOSTNAME:PORT"
 msgstr "VERTSNAVN:PORT"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
+#: ../libgnome/gnome-init.c:497 ../libgnome/gnome-init.c:541
 msgid "GNOME Library"
 msgstr "GNOME bibliotek"
 
-#: ../libgnome/gnome-init.c:489
+#: ../libgnome/gnome-init.c:498
 msgid "Show GNOME options"
 msgstr "Vis GNOME flagg"
 
@@ -326,24 +332,24 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "Hvordan koble til esd"
 
-#: ../libgnome/gnome-program.c:1391
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "Hjelp-alternativ"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "Applikasjonsalternativer"
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "Dynamiske moduler som skal lastes"
 
-#: ../libgnome/gnome-program.c:1413
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1504
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -670,7 +676,9 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\"."
-msgstr "Bestemmer hvordan bildet satt av wallpaper_filename skal rendres. Mulige verdier er «none», «wallpaper», «centered», «scaled», «stretched» og «zoom»."
+msgstr ""
+"Bestemmer hvordan bildet satt av wallpaper_filename skal rendres. Mulige "
+"verdier er «none», «wallpaper», «centered», «scaled», «stretched» og «zoom»."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
