@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 1.109.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-03 18:55+0300\n"
+"POT-Creation-Date: 2007-10-31 17:58+0300\n"
 "PO-Revision-Date: 2007-02-12 18:48+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -131,12 +131,19 @@ msgstr "Bonobo-tuki"
 msgid "Bonobo activation Support"
 msgstr "Bonobo-aktivointituki"
 
-#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
+#: ../libgnome/gnome-init.c:386 ../libgnome/gnome-init.c:400
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Käyttäjän Gnome-asetuskansion \"%s\" luonti epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:407
+#: ../libgnome/gnome-init.c:408
+#,  c-format
+msgid ""
+"Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr ""
+"Käyttäjän Gnome-asetuskansion \"%s\" havaitseminen epäonnistui: %s\n"
+
+#: ../libgnome/gnome-init.c:416
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -145,36 +152,36 @@ msgstr ""
 "Käyttäjän yksityisen Gnome-asetuskansion \"%s\" oikeuksien asettaminen "
 "arvoon 0700 epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:414
+#: ../libgnome/gnome-init.c:423
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Gnomen pikanäppäinkansion \"%s\" luonti epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:453
+#: ../libgnome/gnome-init.c:462
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME-virtuaalitiedostojärjestelmä"
 
-#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+#: ../libgnome/gnome-init.c:480 ../libgnome/gnome-init.c:523
 msgid "Disable sound server usage"
 msgstr "Älä käytä äänipalvelinta."
 
-#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
 msgid "Enable sound server usage"
 msgstr "Käytä äänipalvelinta."
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+#: ../libgnome/gnome-init.c:487 ../libgnome/gnome-init.c:529
 msgid "Host:port on which the sound server to use is running"
 msgstr "Palvelin:portti, jolla käytettävä äänipalvelin on käynnissä"
 
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:531
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORTTI"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
+#: ../libgnome/gnome-init.c:497 ../libgnome/gnome-init.c:541
 msgid "GNOME Library"
 msgstr "GNOME-kirjasto"
 
-#: ../libgnome/gnome-init.c:489
+#: ../libgnome/gnome-init.c:498
 msgid "Show GNOME options"
 msgstr "Näytä Gnomen vaihtoehdot"
 
@@ -397,7 +404,7 @@ msgstr "Oletusarvoinen toiminto ei tue tätä protokollaa."
 #: ../libgnome/gnome-url.c:129
 #, c-format
 msgid "The request was cancelled."
-msgstr "Pyynto keskeytettiin."
+msgstr "Pyyntö keskeytettiin."
 
 #: ../libgnome/gnome-url.c:139
 #, c-format
@@ -660,7 +667,7 @@ msgstr "Käyttäjän määrittelemä ikkunointiohjelma (vanhentunut)"
 msgid ""
 "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
-"Ensimmäiseksi yritetävä ikkunointiohjelma. Tämä avain on vanhentunut "
+"Ensimmäiseksi yritettävä ikkunointiohjelma. Tämä avain on vanhentunut "
 "versiosta Gnome 2.12 alkaen."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:1
@@ -918,7 +925,7 @@ msgid ""
 "the input method"
 msgstr ""
 "Näytetäänkö kohteiden ja tekstinäkymien ponnahdusvalikossa alivalikko "
-"syöttämenetelmän vaihtoa varten"
+"syöttömenetelmän vaihtoa varten"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid ""
@@ -1043,7 +1050,7 @@ msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"Jos arvo on tosi, Gnomemuistaa NumLock-näppäimen ja valon tilan istuntojen "
+"Jos arvo on tosi, Gnome muistaa NumLock-näppäimen ja valon tilan istuntojen "
 "välillä."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
@@ -1075,7 +1082,7 @@ msgid ""
 "XFree86 4.3 and later."
 msgstr ""
 "Kohdistinteeman nimi. Käytetään vain X-palvelimilla, jotka tukevat Xcursor-"
-"laajennosta, kuten esimerkiksi XFrree86 4.3 ja uudemmat."
+"laajennosta, kuten esimerkiksi XFree86 4.3 ja uudemmat."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started"
