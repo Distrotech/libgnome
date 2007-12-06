@@ -1,3 +1,9 @@
+2007-12-06  Jens Granseuer  <jensgr@gmx.net>
+
+	* schemas/desktop_gnome_interface.schemas.in.in: replace the defunct
+	toolbar_icon_size integer setting with a string setting and rename it
+	so it doesn't conflict with the old one. Bug #401030.
+
 2007-10-19  Tor Lillqvist  <tml@novell.com>
 
 	* libgnome/gnome-score.c: Map pipe() to _pipe() on Win32.

@@ -94,13 +94,15 @@
 	</locale>
     </schema>
     <schema>
-      <key>/schemas/desktop/gnome/interface/toolbar_icon_size</key>
-      <applyto>/desktop/gnome/interface/toolbar_icon_size</applyto>
+      <key>/schemas/desktop/gnome/interface/toolbar_icons_size</key>
+      <applyto>/desktop/gnome/interface/toolbar_icons_size</applyto>
       <owner>gnome</owner>
-      <type>int</type>
+      <type>string</type>
+      <default>large-toolbar</default>
       <locale name="C">
         <short>Toolbar Icon Size</short>
-        <long>This specifies the size of icons displayed in toolbars</long>
+        <long>Size of icons in toolbars, either "small-toolbar" or
+        "large-toolbar"</long>
 	</locale>
     </schema>
     <schema>
