@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.19.1\n"
+"Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-29 20:11+0900\n"
-"PO-Revision-Date: 2007-09-29 20:12+0900\n"
+"POT-Creation-Date: 2007-12-09 06:53+0900\n"
+"PO-Revision-Date: 2007-12-09 06:55+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -132,12 +132,18 @@ msgstr "Bonobo 지원"
 msgid "Bonobo activation Support"
 msgstr "Bonobo 활성화 지원"
 
-#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
+#: ../libgnome/gnome-init.c:386 ../libgnome/gnome-init.c:400
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "사용자 그놈 설정 디렉토리 `%s'을(를) 만들 수 없습니다: %s\n"
 
-#: ../libgnome/gnome-init.c:407
+#: ../libgnome/gnome-init.c:408
+#, c-format
+msgid ""
+"Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr "사용자 개인 그놈 설정 디렉토리 `%s'의 정보를 읽을 수 없습니다: %s\n"
+
+#: ../libgnome/gnome-init.c:416
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -146,36 +152,36 @@ msgstr ""
 "사용자 그놈 개인 설정 디렉토리 `%s'의 허가권을 0700으로 설정할 수 없습니다: %"
 "s\n"
 
-#: ../libgnome/gnome-init.c:414
+#: ../libgnome/gnome-init.c:423
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "그놈 단축키 설정 디렉토리 `%s'을(를) 만들 수 없습니다: %s\n"
 
-#: ../libgnome/gnome-init.c:453
+#: ../libgnome/gnome-init.c:462
 msgid "GNOME Virtual Filesystem"
 msgstr "그놈 가상 파일 시스템"
 
-#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+#: ../libgnome/gnome-init.c:480 ../libgnome/gnome-init.c:523
 msgid "Disable sound server usage"
 msgstr "사운드 서버 사용을 하지 않습니다"
 
-#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
 msgid "Enable sound server usage"
 msgstr "사운드 서버를 사용합니다"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+#: ../libgnome/gnome-init.c:487 ../libgnome/gnome-init.c:529
 msgid "Host:port on which the sound server to use is running"
 msgstr "사용할 사운드 서버가 호스트:포트 에서 실행되고 있습니다"
 
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:531
 msgid "HOSTNAME:PORT"
 msgstr "호스트이름:포트"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
+#: ../libgnome/gnome-init.c:497 ../libgnome/gnome-init.c:541
 msgid "GNOME Library"
 msgstr "그놈 라이브러리"
 
-#: ../libgnome/gnome-init.c:489
+#: ../libgnome/gnome-init.c:498
 msgid "Show GNOME options"
 msgstr "그놈 옵션 표시"
 
@@ -654,7 +660,10 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\"."
-msgstr "wallpaper_filename에 설정한 그림을 어떻게 표현할 것인 지 결정합니다. 가능한 값은 \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom\"입니다."
+msgstr ""
+"wallpaper_filename에 설정한 그림을 어떻게 표현할 것인 지 결정합니다. 가능한 "
+"값은 \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom"
+"\"입니다."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -672,7 +681,9 @@ msgstr "그놈 데스크탑에서 데스크탑 배경을 그립니다"
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\""
-msgstr "배경 색상을 어떻게 변화시킬지 결정합니다. 가능한 값들은 \"horizontal-gradient\", \"vertical-gradient\"와 \"solid\"입니다."
+msgstr ""
+"배경 색상을 어떻게 변화시킬지 결정합니다. 가능한 값들은 \"horizontal-gradient"
+"\", \"vertical-gradient\"와 \"solid\"입니다."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -836,12 +847,13 @@ msgid "Show the 'Unicode Control Character' menu"
 msgstr "'유니코드 제어 문자' 메뉴 표시"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
-msgid "Status Bar on Right"
-msgstr "상태 표시줄을 오른쪽에"
+msgid ""
+"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\""
+msgstr "도구 모음의 아이콘 크기, \"small-toolbar\" 혹은 \"large-toolbar\""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
-msgid "This specifies the size of icons displayed in toolbars"
-msgstr "도구 모음에 보일 아이콘의 크기를 명시합니다"
+msgid "Status Bar on Right"
+msgstr "상태 표시줄을 오른쪽에"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Toolbar Detachable"
@@ -1184,3 +1196,6 @@ msgstr "키보드를 쓰지 못하게 할 지 여부."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "타이핑 휴식 스크린을 뒤로 미룰 수 있는 지 여부."
+
+#~ msgid "This specifies the size of icons displayed in toolbars"
+#~ msgstr "도구 모음에 보일 아이콘의 크기를 명시합니다"
