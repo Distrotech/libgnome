@@ -6,7 +6,6 @@ schema_in_files = \
 	desktop_gnome_applications_at_visual.schemas.in		\
 	desktop_gnome_applications_at_mobility.schemas.in	\
 	desktop_gnome_applications_browser.schemas.in		\
-	desktop_gnome_applications_help_viewer.schemas.in	\
 	desktop_gnome_applications_terminal.schemas.in		\
 	desktop_gnome_applications_window_manager.schemas.in	\
 	desktop_gnome_file_views.schemas.in			\
