@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-17 20:40+0100\n"
-"PO-Revision-Date: 2007-12-10 16:04+0100\n"
+"PO-Revision-Date: 2007-12-20 15:29+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -521,7 +521,6 @@ msgid "Browser needs terminal"
 msgstr "Brskalnik potrebuje terminal"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "Brskalnik razume klice upravljanja"
 
@@ -540,22 +539,6 @@ msgstr "Ali privzet brskalnik za zagon potrebuje terminal"
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
 msgstr "Ali privzet brskalnik razume netscape oddaljeno upravljanje"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "Privzet pregledovalnik pomoči"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "Pregledovalnik pomoči potrebuje terminal"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "Ali privzet pregledovalnik pomoči sprejema URL naslove"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
-msgstr "Ali privzet pregledovalnik pomoči za zagon potrebuje terminal"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
@@ -702,162 +685,170 @@ msgid "Enable Animations"
 msgstr "Omogoči animacije"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "Enota GTK IM"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "Predvnosni slog GTK IM"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "Slog stanja GTK IM"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "Tema Gtk+"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "Ikonska tema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Tema ikon, ki naj se uporabi za pult, nautilusa, itd."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Bližnjica tipk za odpiranje menijske vrstice."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "Dolžina cikla utripanja kazalca, v milisekundah"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "Menijsko vrstico je mogoče odstraniti"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "Pospeševalnik menijske vrstice"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "Meniji imajo ikone"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "Meniji imajo vrstico za odcep"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "Modul za GtkFileChooser"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Module to use as the filesystem model for the GtkFileChooser widget. Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr "Modul za uporabo kot model datotečnega sistema za gradnik GtkFileChooser. Možni vrednosti sta \"gnome-vfs\" in \"gtk+\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "Monospace pisava"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "Ime monospace pisave (stalne širine) za uporabo na krajih kot so terminal."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Ime vhodne metode GTK+ predvpisnega sloga, uporabljeno s strani gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Ime vhodne metode GTK+ sloga stanja, uporabljeno s strani gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "Ime privzete pisave, uporabljeno s strani gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Name of the default font used for reading documents"
 msgstr "Ime privzete pisave za branje dokumentov"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "Ime vhodne metode, ki jo uporablja GTK+."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "Prikaži meni 'Vhodne metode'"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "Prikaži meni 'Nadzorni znak Unicode'"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\""
 msgstr "Velikost ikon v orodni vrstici, vrednosti \"majhne\" ali \"velike\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr "Vrstica stanja na desni"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "Odstranljive orodjarne"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "Velikost ikon orodjarn"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "Slog orodjarn"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and \"text\""
 msgstr "Slog orodjarne. Možne vrednosti so \"both\", \"both_horiz\", \"icons\" in \"text\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "Uporabi pisavo po meri"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether Applications should have accessibility support"
 msgstr "Ali naj imajo programi podporo za dostopnost"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
 msgstr "Ali naj bodo prikazane animacije. Opomba: To je globalen ključ, saj spremeni obnašanja upravitelja oken, pulta, itd."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Ali naj meniji kažejo ikono poleg predmeta menija"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid "Whether menus should have a tearoff"
 msgstr "Ali naj imajo meniji vrstico za odcep"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the context menus of entries and text views should offer to change the input method"
 msgstr "Ali naj vsebinski meni vnosov in vnosi besedila omogočajo možnost spreminjanja vhodne metode"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the context menus of entries and text views should offer to insert control characters"
 msgstr "Ali naj vsebinski meni vnosov in vnosi besedila omogočajo možnost vstavljanja nadzornih znakov"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the cursor should blink"
 msgstr "Ali naj kazalec utripa"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid "Whether the user can detach menubars and move them around"
 msgstr "Ali lahko uporabnik odcepi menijske vrstice in jih premika okoli"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "Ali lahko uporabnik odcepi orodjarne in jih premika okoli"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether the user can dynamically type a new accelerator when positioned over an active menuitem"
 msgstr "Ali lahko uporabnik dinamično vpiše nov pospeševalnik, ko se nahaja nad aktivnim predmetom menija"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
 msgid "Whether to display a status bar meter on the right"
 msgstr "Ali naj se kazalnik vrstice stanja kaže na desni"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Ali naj se uporabi prikrojena pisava v programih gtk+."
 
