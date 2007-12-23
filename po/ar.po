@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.ar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-23 21:44+0100\n"
-"PO-Revision-Date: 2007-10-24 20:23+0100\n"
+"POT-Creation-Date: 2007-12-23 12:24+0000\n"
+"PO-Revision-Date: 2007-12-23 13:44+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -536,7 +536,6 @@ msgid "Browser needs terminal"
 msgstr "يحتاج المتصفح لطرفية"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "يفهم المتصفح التحكم عن بعد"
 
@@ -555,22 +554,6 @@ msgstr "ما إذا كان المتصفح الإفتراضي يحتاج طرفي
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote"
 msgstr "ما اذا كان المتصفح يفهم التحكم عن بعد لنتسكايب"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "عارض المساعدة الافتراضي"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "يحتاج عارض المساعدة لطرفية"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "ما إذا كان عارض المساعدة الإفتراضي يتقبل العناوين"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
-msgstr "ما إذا كان عارض المساعدة الإفتراضي يحتاج طرفية للعمل"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
@@ -717,162 +700,170 @@ msgid "Enable Animations"
 msgstr "مكّن الرسوم المتحركة"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "وحدة IM Module"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "أسلوب لمحة التحرير لطريقة الادخال لـ GTK"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "أسلوب حالة طرق ادخال GTK"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "سِمة Gtk+"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "سِمة الأيقونات"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "سِمة الأيقونات للاستعمال في الشريط، ناوتيلس الخ."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "اختصار لوحة المفاتيح لفتح شريط القوائم."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Length of the cursor blink cycle, in milliseconds"
 msgstr "مدة دورة وميض المؤشر، بالملي ثانية"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "شريط القوائم قابل للفصل"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "مسرّع شريط القوائم"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "للقوائم أيقونات"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "للقوائم رؤوس قلع"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "وحدة GtkFileChooser"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Module to use as the filesystem model for the GtkFileChooser widget. Possible values are \"gnome-vfs\" and \"gtk+\"."
 msgstr "الوحدة التي ستستخدم كنموذج نظام الملفّات لقطعة GtkFileChooser. القيم الممكنة هي \"gnome-vfs\" و \"gtk+\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "خط ثابت العرض"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "اسم الخط ذي العرض الثابت للاستخدام في مواقع مثل الطرفيات."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "اسم أسلوب لمحة التحرير لطريقة الادخال لـ GTK+ المستخدم من قبل gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "اسم أسلوب حالة طريقة الإدخال لـ GTK+المستخدم من طرف gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "اسم الخط الإفتراضي المستعمل من طرف gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Name of the default font used for reading documents"
 msgstr "اسم الخط الإفتراضي المستعمل لقرائة المستندات"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "اسم أسلوب طريقة الادخال لـ GTK+."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "اعرض قائمة 'طرق الإدخال'"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "اعرض قائمة 'محارف تحكّم يونيكود'"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\""
+msgstr "حجم الأيقونات في اعمدة الأدوات."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr "شريط الحالة على اليمين"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
-msgid "This specifies the size of icons displayed in toolbars"
-msgstr "هذا يحدد حجم الأيقونات المعروضة في أعمدة الأدوات"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "شريط الأدوات قابل للفصل"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "حجم أيقونة شريط الأدوات"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "أسلوب شريط الأدوات"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and \"text\""
 msgstr "أسلوب شريط الأدوات. القيم الممكنة هي \"both\"، \"both-horiz\"، \"icons\"، و \"text\""
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "استخدم خط مخصّص"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether Applications should have accessibility support"
 msgstr "فيما إذا وجب أن يكون للتطيبقات دعم الإعانة"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
 msgstr "فيما اذا وجب عرض الرسوم المتحركة. لاحظ: هذا مفتاح عام يغير تصرف مدير النوافذ أو الشريط الخ."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "فيما إذا وجب للقوائم عرض الأيقونة بجانب خانة قائمة"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid "Whether menus should have a tearoff"
 msgstr "فيما إذا وجب أن يكون للقوائم شارات"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether the context menus of entries and text views should offer to change the input method"
 msgstr "إذا ماكانت قوائم سياق المدخلات وعرض النص ستعرض تغيير طريقة الإدخال"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether the context menus of entries and text views should offer to insert control characters"
 msgstr "إذا ماكانت قوائم سياق المدخلات وعرض النص ستعرض إدراج محرَف تحكّم"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the cursor should blink"
 msgstr "فيما إذا وجب للمؤشر الوميض"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid "Whether the user can detach menubars and move them around"
 msgstr "فيما إذا يمكن للمستخدم فصل أعمدة القوائم و نقلها"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether the user can detach toolbars and move them around"
 msgstr "فيما إذا يمكن للمستخدم فصل أعمدة الأدوات و نقلها"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether the user can dynamically type a new accelerator when positioned over an active menuitem"
 msgstr "إذا كان يمكن للمستخدم كتابة مسرّع جديد ديناميكيا أثناء الوضع فوق عنصر قائمة"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
 msgid "Whether to display a status bar meter on the right"
 msgstr "ما اذا سيعرض شريط حالة متري على اليمين"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "فيما اذا وجب استخدام خط خاص لتطبيقات gtk+."
 
@@ -1091,4 +1082,15 @@ msgstr "فيما اذا كان قفل لوحة المحارف مفعّلا أم 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "ما إذا يمكن تأجيل شاشة إستراحة الكتابة."
+
+#~ msgid "Default help viewer"
+#~ msgstr "عارض المساعدة الافتراضي"
+#~ msgid "Help viewer needs terminal"
+#~ msgstr "يحتاج عارض المساعدة لطرفية"
+#~ msgid "Whether the default help viewer accepts URLs"
+#~ msgstr "ما إذا كان عارض المساعدة الإفتراضي يتقبل العناوين"
+#~ msgid "Whether the default help viewer needs a terminal to run"
+#~ msgstr "ما إذا كان عارض المساعدة الإفتراضي يحتاج طرفية للعمل"
+#~ msgid "This specifies the size of icons displayed in toolbars"
+#~ msgstr "هذا يحدد حجم الأيقونات المعروضة في أعمدة الأدوات"
 
