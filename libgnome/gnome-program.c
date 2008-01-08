@@ -129,6 +129,7 @@ enum {
     PROP_LAST
 };
 
+static gboolean accessibility_invoke (GnomeProgram *program, gboolean init);
 static void gnome_program_finalize      (GObject           *object);
 
 static GQuark quark_get_prop = 0;
@@ -715,6 +716,8 @@ gnome_program_finalize (GObject* object)
 	if (self->_priv->top_options_table != NULL)
 		g_array_free (self->_priv->top_options_table, TRUE);
 	self->_priv->top_options_table = NULL;
+
+	g_slist_free (self->_priv->accessibility_modules);
 
 	GNOME_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
 }
