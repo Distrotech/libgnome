@@ -1,4 +1,4 @@
-# translation of libgnome.HEAD.po to Arabic
+# translation of libgnome.HEAD.ar.po to Arabic
 # translation of libgnome.HEAD.ar.po to
 # translation of libgnome.HEAD.ar.po to
 # translation of libgnome.po to
@@ -8,21 +8,21 @@
 #
 # Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
 # Arafat Medini <lumina@silverpen.de>, 2003, 2004.
-# Khaled Hosny <khaledhosny@eglug.org>, 2006, 2007.
+# Khaled Hosny <khaledhosny@eglug.org>, 2006, 2007, 2008.
 # Djihed Afifi <djihed@gmail.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome.HEAD\n"
+"Project-Id-Version: libgnome.HEAD.ar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-23 12:24+0000\n"
-"PO-Revision-Date: 2007-12-26 22:15+0200\n"
+"POT-Creation-Date: 2008-01-10 12:53+0000\n"
+"PO-Revision-Date: 2008-01-11 14:23+0200\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
-"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language-Team: Arabic <doc@eglug.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n>=3 && n<=10 ? 3 : n>=11 && n<=99 ? 4 : 5;\n"
+"Plural-Forms:  nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n>=3 && n<=10 ? 3 : n>=11 && n<=99 ? 4 : 5;\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -94,10 +94,11 @@ msgstr "تعذّر العثور على نطاق GNOME_FILE_DOMAIN_APP_HELP"
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "تعذّر العثور على نطاق GNOME_FILE_DOMAIN_HELP."
 
-#: ../libgnome/gnome-help.c:196
-#: ../libgnome/gnome-help.c:211
+#: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
 #, c-format
-msgid "Unable to show help as %s is not a directory.  Please check your installation."
+msgid ""
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
 msgstr "تعذّر عرض المساعدة لأن %s ليس دليلا. الرجاء التأكد من تثبيتك."
 
 #: ../libgnome/gnome-help.c:220
@@ -107,7 +108,9 @@ msgstr "تعذّر العثور على مسارات المساعدة %s أو %s.
 
 #: ../libgnome/gnome-help.c:236
 #, c-format
-msgid "Unable to find the help files in either %s or %s.  Please check your installation"
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
 msgstr "تعذّر العثور على ملفات المساعدة في %s أو %s. الرجاء التأكد من تثبيتك."
 
 #: ../libgnome/gnome-help.c:353
@@ -129,8 +132,7 @@ msgstr "دعم Bonobo "
 msgid "Bonobo activation Support"
 msgstr "دعم تنشيط Bonobo "
 
-#: ../libgnome/gnome-init.c:386
-#: ../libgnome/gnome-init.c:400
+#: ../libgnome/gnome-init.c:386 ../libgnome/gnome-init.c:400
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "تعذّر إنشاء دليل إعداد جنوم الخاص بكل مستخدم `%s': %s\n"
@@ -142,7 +144,9 @@ msgstr "تعذّر إيجاد دليل إعداد جنوم الخاص بكل م�
 
 #: ../libgnome/gnome-init.c:416
 #, c-format
-msgid "Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
+msgid ""
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
 msgstr "تعذّر ضبط النمط 0700 لدليل إعداد جنوم الخاص بكل مستخدم `%s': %s\n"
 
 #: ../libgnome/gnome-init.c:423
@@ -154,28 +158,23 @@ msgstr "تعذّر إنشاء دليل مفاتيح اختصار جنوم `%s': 
 msgid "GNOME Virtual Filesystem"
 msgstr "نظام ملفات جنوم المبدئي"
 
-#: ../libgnome/gnome-init.c:480
-#: ../libgnome/gnome-init.c:523
+#: ../libgnome/gnome-init.c:480 ../libgnome/gnome-init.c:523
 msgid "Disable sound server usage"
 msgstr "عطّل استخدام خادم الصوت"
 
-#: ../libgnome/gnome-init.c:483
-#: ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
 msgid "Enable sound server usage"
 msgstr "فعّل استخدام خادم الصوت"
 
-#: ../libgnome/gnome-init.c:487
-#: ../libgnome/gnome-init.c:529
+#: ../libgnome/gnome-init.c:487 ../libgnome/gnome-init.c:529
 msgid "Host:port on which the sound server to use is running"
 msgstr "منفذ:المستضيف الذي يعمل عليه خادم الصوت الذي سيستخدم"
 
-#: ../libgnome/gnome-init.c:488
-#: ../libgnome/gnome-init.c:531
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:531
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: ../libgnome/gnome-init.c:497
-#: ../libgnome/gnome-init.c:541
+#: ../libgnome/gnome-init.c:497 ../libgnome/gnome-init.c:541
 msgid "GNOME Library"
 msgstr "مكتبة جنوم"
 
@@ -183,176 +182,176 @@ msgstr "مكتبة جنوم"
 msgid "Show GNOME options"
 msgstr "اعرض خيارات جنوم"
 
-#: ../libgnome/gnome-program.c:456
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "جدول Popt"
 
-#: ../libgnome/gnome-program.c:457
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "جدول خيارات Popt"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "شارات Popt"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "الشارات التي ستستخدم لـ Popt"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "سياق Popt"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "مؤشر سياق Popt الذي يستعمله GnomeProgram"
 
-#: ../libgnome/gnome-program.c:482
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "سياق GOption "
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "سياق مؤشّر goption الذي يستخدمه GnomeProgram"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "اسم يمكن للبشر قراءته"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "اسم التطبيق الذي يمكن للبشر قراءته"
 
-#: ../libgnome/gnome-program.c:501
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "مسار جنوم"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "المسار الذي يبحث فيه عن الملفات المثبتة"
 
-#: ../libgnome/gnome-program.c:511
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "هوية التطبيق"
 
-#: ../libgnome/gnome-program.c:512
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "سلسلة الهوية للاستخدام لهذا التطبيق"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "إصدارة التطبيق"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "إصدارة هذا التطبيق"
 
-#: ../libgnome/gnome-program.c:527
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "سابقة دليل جنوم"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "سابقة الدليل الذي فيه ثُبِّتت جنوم"
 
-#: ../libgnome/gnome-program.c:537
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "دليل مكتبات جنوم"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "سابقة دليل المكتبة التي ثُبِّتت فيها جنوم"
 
-#: ../libgnome/gnome-program.c:547
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "دليل بيانات جنوم"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "سابقة دليل البيانات التي ثُبِّتت فيها جنوم"
 
-#: ../libgnome/gnome-program.c:557
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "دليل إعداد النظام في جنوم"
 
-#: ../libgnome/gnome-program.c:558
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "سابقة دليل الإعدادات التي ثُبِّتت فيها جنوم"
 
-#: ../libgnome/gnome-program.c:568
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "سابقة دليل تثبيت تطبيقات جنوم"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "سابقة الدليل التي ثبت فيها التطبيق"
 
-#: ../libgnome/gnome-program.c:577
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "دليل مكتبات تطبيقات جنوم"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "دليل المكتبات الأولي الذي فيه ثبت هذا التطبيق"
 
-#: ../libgnome/gnome-program.c:587
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "دليل بيانات تطبيقات جنوم"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "دليل البيانات الأولي الذي فيه ثبت هذا التطبيق"
 
-#: ../libgnome/gnome-program.c:597
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "دليل إعداد أنظمة تطبيقات جنوم"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "دليل الإعدادات الأولي الذي ثبت فيه هذا التطبيق"
 
-#: ../libgnome/gnome-program.c:607
-msgid "Create Directories"
-msgstr "أنشيء دلائل"
-
 #: ../libgnome/gnome-program.c:608
+msgid "Create Directories"
+msgstr "انشئ دلائل"
+
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "انشئ دلائل جنوم القياسية عند البدء"
 
-#: ../libgnome/gnome-program.c:617
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "فعّل الصوت"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "فعّل الصوت عند البدء"
 
-#: ../libgnome/gnome-program.c:626
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:627
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "كيفية الاتصال مع esd"
 
-#: ../libgnome/gnome-program.c:1390
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "خيارات المساعدة"
 
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "خيارات التطبيق"
 
-#: ../libgnome/gnome-program.c:1411
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "الوحدات الديناميكية التي ستحمّل"
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1630
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -373,13 +372,16 @@ msgstr "الموقع المحدد غير سليم."
 
 #: ../libgnome/gnome-url.c:99
 #, c-format
-msgid "There was an error parsing the default action command associated with this location."
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
 msgstr "حدث خطأ عند تحليل الأمر المبدئي للإجراء المرتبط بهذا الموقع."
 
-#: ../libgnome/gnome-url.c:107
-#: ../libgnome/gnome-url.c:180
+#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
 #, c-format
-msgid "There was an error launching the default action command associated with this location."
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
 msgstr "حدث خطأ عند تنفيذ الأمر المبدئي للإجراء المرتبط بهذا الموقع."
 
 #: ../libgnome/gnome-url.c:115
@@ -444,36 +446,36 @@ msgid "Key %s not found in configuration"
 msgstr "المفتاح %s غير موجود في الإعدادات"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "صفّر عند نقر المغيِّر"
+msgid "Beep when a modifier is pressed."
+msgstr "صفّر عند نقر مُغيِّر"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
 msgstr "عطّل إذا نقر زران في آن واحد."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "لا تقبل زرا كمضغوط إلا عند ضغطه لـ @delay ملي ثانية"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
+msgstr "لا تقبل زرا كمضغوط إلا عند ضغطه لـ @delay ملي ثانية."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
 msgstr "الوقت الذي يستغرقه التسريع بالملي ثانية"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "كم يستغرق التسريع من 0 حتى السرعة القصوى بالملي ثانية"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr "كم يستغرق الانتقال من 0 حتى السرعة القصوى بالملي ثانية."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "كم ملي ثانية يجب الانتظار حتى تبدأ أزرار حركات الفأرة العمل"
+msgid "How many milliseconds to wait before mouse movement keys start to operate."
+msgstr "كم ملي ثانية يجب الانتظار حتى تبدأ أزرار تحريك الفأرة العمل."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "How many pixels per second to move at the maximum speed"
-msgstr "عدد البكسلات التي ستحرك بالثانية بالسرعة القصوى"
+msgid "How many pixels per second to move at the maximum speed."
+msgstr "عدد البكسلات التي ستحرك بالثانية في السرعة القصوى."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "تجاهل نقرات عديدة لنفس المفتاح خلال @delay ملي ثانية"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
+msgstr "تجاهل النقرات المتكررة لنفس المفتاح خلال @delay ملي ثانية."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -492,40 +494,50 @@ msgid "minimum interval in milliseconds"
 msgstr "الفترة الدنيا بالملي ثانية"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
-msgid "List of assistive technology applications to start when logging into the GNOME desktop"
-msgstr "قائمة تطبيقات التقانة المعينة التي ستبدأ عند الولوج في مكتب جنوم"
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop."
+msgstr "قائمة تطبيقات التقانة المعينة التي ستبدأ عند الولوج في مكتب جنوم."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr "تطبيقات التقانة المعينة عند بدأ التشغيل"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
-msgid "GNOME to start preferred Mobility assistive technology application during login"
-msgstr "ستبدأ جنوم تطبيق تقانة إعانة الحركة المفضّل أثناء الولوج"
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login."
+msgstr "ستبدأ جنوم تطبيق تقانة إعانة الحركة المفضّل أثناء الولوج."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
 msgstr "تطبيق تقانة إعانة الحركة المفضّل"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
-msgid "Preferred Mobility assistive technology application to be used for login, menu, or command line"
-msgstr "تطبيق تقانة إعانة الحركة المفضّل ليستخدم للولوج، أو القائمة، أو سطر الأوامر"
+msgid ""
+"Preferred Mobility assistive technology application to be used for login, "
+"menu, or command line."
+msgstr "تطبيق تقانة إعانة الحركة المفضّل ليستخدم للولوج، أو القائمة، أو سطر الأوامر."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
 msgstr "ابدأ تطبيق تقانة إعانة الحركة المفضّل"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
-msgid "GNOME to start preferred Visual assistive technology application during login"
-msgstr "ستبدأ جنوم تطبيق تقانة إعانة الرؤية المفضّل أثناء الولوج"
+msgid ""
+"GNOME to start preferred Visual assistive technology application during "
+"login."
+msgstr "ستبدأ جنوم تطبيق تقانة إعانة الرؤية المفضّل أثناء الولوج."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
 msgstr "تطبيق تقانة إعانة الرؤية المفضّل"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
-msgid "Preferred Visual assistive technology application be used for login, menu, or command line"
-msgstr "تطبيق تقانة إعانة الرؤية المفضّل ليستخدم في الولوج، أو القائمة، أو سطر الأوامر"
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line."
+msgstr "تطبيق تقانة إعانة الرؤية المفضّل ليستخدم في الولوج، أو القائمة، أو سطر الأوامر."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -544,16 +556,16 @@ msgid "Default browser"
 msgstr "المتصفح المبدئي"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
-msgstr "المتصفح المبدئي لجميع العناوين"
+msgid "Default browser for all URLs."
+msgstr "المتصفح المبدئي لجميع العناوين."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
-msgstr "ما إذا كان المتصفح المبدئي يحتاج طرفية للعمل"
+msgid "Whether the default browser needs a terminal to run."
+msgstr "ما إذا كان المتصفح المبدئي يحتاج طرفية للعمل."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
-msgstr "ما اذا كان المتصفح يفهم التحكم عن بعد لنتسكيب"
+msgid "Whether the default browser understands netscape remote."
+msgstr "ما إذا كان المتصفح يفهم التحكم عن بعد لنتسكيب."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
@@ -568,72 +580,89 @@ msgid "Terminal application"
 msgstr "تطبيق الطرفية"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr "برنامج الطرفية الذي سيستعمل عند تشغيل تطبيقات تحتاجه"
+msgid "Terminal program to use when starting applications that require one."
+msgstr "برنامج الطرفية الذي سيستعمل عند تشغيل تطبيقات تحتاجه."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
-msgid "A list with names of the first window manager workspaces. This key has been deprecated since GNOME 2.12."
-msgstr "قائمة بأسماء مساحات عمل مدير النوافذ الأول. ألغي هذا المفتاح منذ GNOME 2.12."
+msgid ""
+"A list with names of the first window manager workspaces. This key has been "
+"deprecated since GNOME 2.12."
+msgstr "قائمة بأسماء مساحات عمل مدير النوافذ الأول. ألغي هذا المفتاح منذ جنوم 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
-msgstr "مدير النوافذ البديل (ملغي)"
+msgstr "مدير النوافذ البديل (لاغِ)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
-msgid "Fallback window manager if user window manager can't be found. This key has been deprecated since GNOME 2.12."
-msgstr "مدير النوافذ البديل إذا لم يوجد مدير نوافذ للمستخدم. ألغي هذا المفتاح منذ GNOME 2.12."
+msgid ""
+"Fallback window manager if user window manager can't be found. This key has "
+"been deprecated since GNOME 2.12."
+msgstr ""
+"مدير النوافذ البديل إذا لم يوجد مدير نوافذ للمستخدم. ألغي هذا المفتاح منذ "
+"جنوم 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
-msgstr "أسماء مساحات العمل (ملغي)"
+msgstr "أسماء مساحات العمل (لاغِ)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
 msgid "The number of workspaces (deprecated)"
-msgstr "عدد مساحات العمل (ملغي)"
+msgstr "عدد مساحات العمل (لاغِ)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
-msgid "The number of workspaces the window manager should use This key has been deprecated since GNOME 2.12."
-msgstr "عدد مساحات العمل الذي من المفروض أن يستخدمها مدير النوافذ. ألغي هذا المفتاح منذ GNOME 2.12."
+msgid ""
+"The number of workspaces the window manager should use This key has been "
+"deprecated since GNOME 2.12."
+msgstr ""
+"عدد مساحات العمل الذي من المفروض أن يستخدمها مدير النوافذ. ألغي هذا المفتاح "
+"منذ جنوم 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
-msgstr "مدير نوافذ المستخدم (ملغي)"
+msgstr "مدير نوافذ المستخدم (لاغِ)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
-msgstr "مدير النوافذ الذي سيجرب أولا. ألغي هذا المفتاح منذ GNOME 2.12."
+msgstr "مدير النوافذ الذي سيجرب أولا. ألغي هذا المفتاح منذ جنوم 2.12."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "نوع لون الإخفاء"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:2
-msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom\"."
-msgstr "ضبط كيفية رسم الصورة الموضوعة من قبل wallpaper_filename. القيم الممكنة هي \"none\"، \"wallpaper\"، \"centered\"، \"scaled\"، \"stretched\"، \"zoom\"."
+msgid ""
+"Determines how the image set by wallpaper_filename is rendered. Possible "
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
+msgstr ""
+"ضبط كيفية رسم الصورة الموضوعة من قبل wallpaper_filename. القيم الممكنة هي "
+"\"none\"، \"wallpaper\"، \"centered\"، \"scaled\"، \"stretched\"، \"zoom\"."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "ارسم خلفية سطح المكتب"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:4
-msgid "File to use for the background image"
-msgstr "الملف الذي سيستعمل كصورة خلفية"
+msgid "File to use for the background image."
+msgstr "الملف الذي سيستعمل لصورة الخلفية."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "اترك جنوم يرسم خلفية سطح المكتب"
+msgid "Have GNOME draw the desktop background."
+msgstr "اترك جنوم يرسم خلفية سطح المكتب."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
-msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
-msgstr "كيفية تظليل لون الخلفية. القيم الممكنة هي \"horizontal-gradient\", \"vertical-gradient\", و \"solid\""
+msgid ""
+"How to shade the background color. Possible values are \"horizontal-gradient"
+"\", \"vertical-gradient\", and \"solid\"."
+msgstr "كيفية تظليل لون الخلفية. القيم الممكنة هي \"horizontal-gradient\"، و \"vertical-gradient\"، و \"solid\"."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "اللون الأيسر أو الأعلى عند رسم التدرّج، أو اللون الصلب."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "العتامة التي سترسم بها صورة الخلفية"
+msgid "Opacity with which to draw the background picture."
+msgstr "العتامة التي سترسم بها صورة الخلفية."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
@@ -664,12 +693,12 @@ msgid "File Icon Theme"
 msgstr "سِمة  أيقونة الملفات"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
-msgstr "السِمة المستخدمة لعرض أيقونات الملفات"
+msgid "Theme used for displaying file icons."
+msgstr "السِمة المستخدمة لعرض أيقونات الملفات."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
-msgstr "الاسم الأساسي للسِمة المبدئية المستعملة من طرف جتك+."
+msgstr "الاسم الأساسي للسِمة المبدئية المستعملة من طرف ج‌ت‌ك+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
@@ -713,7 +742,7 @@ msgstr "أسلوب حالة طرق إدخال جتك"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
-msgstr "سِمة جتك+"
+msgstr "سِمة ج‌ت‌ك+"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
@@ -728,8 +757,8 @@ msgid "Keyboard shortcut to open the menu bars."
 msgstr "اختصار لوحة المفاتيح لفتح شريط القوائم."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "مدة دورة وميض المؤشر، بالملي ثانية"
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "مدة دورة وميض المؤشر، بالملي ثانية."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
@@ -752,8 +781,12 @@ msgid "Module for GtkFileChooser"
 msgstr "وحدة GtkFileChooser"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
-msgid "Module to use as the filesystem model for the GtkFileChooser widget. Possible values are \"gnome-vfs\" and \"gtk+\"."
-msgstr "الوحدة التي ستستخدم كنموذج نظام الملفّات لقطعة GtkFileChooser. القيم الممكنة هي \"gnome-vfs\" و \"gtk+\"."
+msgid ""
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gnome-vfs\" and \"gtk+\"."
+msgstr ""
+"الوحدة التي ستستخدم كنموذج نظام الملفّات لقطعة GtkFileChooser. القيم الممكنة "
+"هي \"gnome-vfs\" و \"gtk+\"."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
@@ -765,23 +798,23 @@ msgstr "اسم الخط ذي العرض الثابت للاستخدام في م�
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr "اسم أسلوب التحرير المسبق لطرق إدخال جتك+ المستخدم من قبل جتك+."
+msgstr "اسم أسلوب التحرير المسبق لطرق إدخال ج‌ت‌ك+ المستخدم من قبل ج‌ت‌ك+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "اسم أسلوب حالة طرق إدخال جتك+ المستخدم من طرف جتك+."
+msgstr "اسم أسلوب حالة طرق إدخال ج‌ت‌ك+ المستخدم من طرف ج‌ت‌ك+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
-msgstr "اسم الخط المبدئي المستعمل من طرف جتك+."
+msgstr "اسم الخط المبدئي المستعمل من طرف ج‌ت‌ك+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
-msgid "Name of the default font used for reading documents"
-msgstr "اسم الخط المبدئي المستعمل لقراءة المستندات"
+msgid "Name of the default font used for reading documents."
+msgstr "اسم الخط المبدئي المستعمل لقراءة المستندات."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Name of the input method module used by GTK+."
-msgstr "اسم وحدة طريقة الإدخال التي تستخدمها جتك+."
+msgstr "اسم وحدة طريقة الإدخال التي تستخدمها ج‌ت‌ك+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
@@ -792,8 +825,8 @@ msgid "Show the 'Unicode Control Character' menu"
 msgstr "اعرض قائمة 'محارف تحكّم يونيكود'"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
-msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\""
-msgstr "حجم الأيقونات في أشرطة الأدوات."
+msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr "حجم الأيقونات في أشرطة الأدوات، إما  \"small-toolbar\" (صغير) أو \"large-toolbar\" (كبير)."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
@@ -812,60 +845,72 @@ msgid "Toolbar Style"
 msgstr "أسلوب شريط الأدوات"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and \"text\""
-msgstr "أسلوب شريط الأدوات. القيم الممكنة هي \"both\"، \"both-horiz\"، \"icons\"، و \"text\""
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
+"\"text\"."
+msgstr "أسلوب شريط الأدوات. القيم الممكنة هي  \"both\" (كلاهما)، و \"both-horiz\" (كلاهما، أفقي)، و \"icons\" (أيقونات)، و \"text\" (نص)."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "استخدم خط مخصّص"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether Applications should have accessibility support"
-msgstr "فيما إذا وجب أن تدعم التطبيقات الإعانة"
+msgid "Whether Applications should have accessibility support."
+msgstr "فيما إذا وجب أن تدعم التطبيقات الإعانة."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
-msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
-msgstr "فيما اذا وجب عرض الرسوم المتحركة. لاحظ: هذا مفتاح عام يغير تصرف مدير النوافذ أو الشريط الخ."
+msgid ""
+"Whether animations should be displayed. Note: This is a global key, it "
+"changes the behaviour of the window manager, the panel etc."
+msgstr ""
+"فيما إذا وجب عرض الرسوم المتحركة. لاحظ: هذا مفتاح عام يغير تصرف مدير النوافذ "
+"أو الشريط الخ."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "فيما إذا وجب للقوائم عرض أيقونة بجانب خانة قائمة"
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "فيما إذا وجب للقوائم عرض أيقونة بجانب خانة القائمة."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid "Whether menus should have a tearoff"
-msgstr "فيما إذا وجب أن يكون للقوائم شارات"
+msgid "Whether menus should have a tearoff."
+msgstr "فيما إذا وجب أن يكون للقوائم شارات."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the context menus of entries and text views should offer to change the input method"
-msgstr "إذا ما كانت قوائم سياق المدخلات وعرض النص ستعرض تغيير طريقة الإدخال"
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method."
+msgstr "إذا ما كانت قوائم سياق المدخلات وعرض النص ستعرض تغيير طريقة الإدخال."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the context menus of entries and text views should offer to insert control characters"
-msgstr "إذا ما كانت قوائم سياق المدخلات وعرض النص ستعرض إدراج محرَف تحكّم"
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters."
+msgstr "إذا ما كانت قوائم سياق المدخلات وعرض النص ستعرض إدراج محرَف تحكّم."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the cursor should blink"
-msgstr "فيما إذا وجب للمؤشر الوميض"
+msgid "Whether the cursor should blink."
+msgstr "فيما إذا وجب للمؤشر الوميض."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid "Whether the user can detach menubars and move them around"
-msgstr "فيما إذا يمكن للمستخدم فصل أعمدة القوائم و نقلها"
+msgid "Whether the user can detach menubars and move them around."
+msgstr "فيما إذا يمكن للمستخدم فصل أشرطة القوائم و نقلها."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "فيما إذا يمكن للمستخدم فصل أعمدة الأدوات و نقلها"
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "فيما إذا يمكن للمستخدم فصل أشرطة الأدوات و نقلها."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
-msgid "Whether the user can dynamically type a new accelerator when positioned over an active menuitem"
-msgstr "إذا كان يمكن للمستخدم كتابة مسرّع جديد ديناميكيا أثناء الوضع فوق عنصر قائمة"
+msgid ""
+"Whether the user can dynamically type a new accelerator when positioned over "
+"an active menuitem."
+msgstr "إذا كان يمكن للمستخدم كتابة اختصار جديد ديناميكيا أثناء الوضع فوق عنصر قائمة."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
-msgid "Whether to display a status bar meter on the right"
-msgstr "ما اذا سيعرض شريط حالة متري على اليمين"
+msgid "Whether to display a status bar meter on the right."
+msgstr "ما إذا سيعرض مقياس شريط الحالة على اليمين."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "فيما اذا وجب استخدام خط خاص لتطبيقات جتك+."
+msgstr "فيما إذا وجب استخدام خط خاص لتطبيقات ج‌ت‌ك+."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
@@ -892,23 +937,42 @@ msgid "Disable user switching"
 msgstr "عطّل تبديل المستخدم"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
-msgid "Prevent the user from accessing the terminal or specifying a command line to be executed. For example, this would disable access to the panel's \"Run Application\" dialog."
-msgstr "يمنع المستخدم من النّفاذ إلى الطّرفيّة أو تحديد سطر أوامر لتنفيذه. يمنع هذا مثلًا المستخدم من النّفاذ إلى حوار الشّريط \"شغّل تطبيق\"."
+msgid ""
+"Prevent the user from accessing the terminal or specifying a command line to "
+"be executed. For example, this would disable access to the panel's \"Run "
+"Application\" dialog."
+msgstr ""
+"يمنع المستخدم من النّفاذ إلى الطّرفيّة أو تحديد سطر أوامر لتنفيذه. يمنع هذا "
+"مثلًا المستخدم من النّفاذ إلى حوار الشّريط \"شغّل تطبيق\"."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
-msgid "Prevent the user from modifying print settings. For example, this would disable access to all applications' \"Print Setup\" dialogs."
-msgstr "يمنع المستخدم من تعديل إعدادات الطّباعة. يمنع هذا مثلًا المستخدم من النّفاذ لحوارات \"إعداد الطّباعة\" في جميع التّطبيقات."
+msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all applications' \"Print Setup\" dialogs."
+msgstr ""
+"يمنع المستخدم من تعديل إعدادات الطّباعة. يمنع هذا مثلًا المستخدم من النّفاذ "
+"لحوارات \"إعداد الطّباعة\" في جميع التّطبيقات."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
-msgid "Prevent the user from printing. For example, this would disable access to all applications' \"Print\" dialogs."
-msgstr "يمنع المستخدم من الطّباعة. يمنع هذا مثلًا المستخدم من النّفاذ إلى حوارات \"اطبع\" في جميع التّطبيقات."
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all applications' \"Print\" dialogs."
+msgstr ""
+"يمنع المستخدم من الطّباعة. يمنع هذا مثلًا المستخدم من النّفاذ إلى حوارات \"اطبع"
+"\" في جميع التّطبيقات."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
-msgid "Prevent the user from saving files to disk. For example, this would disable access to all applications' \"Save as\" dialogs."
-msgstr "لمنع المستخدم من حفط الملفّات على القرص. يمنع هذا مثلًا المستخدم من النّفاذ إلى حوارات \"احفظ ك‍\" في جميع التّطبيقات."
+msgid ""
+"Prevent the user from saving files to disk. For example, this would disable "
+"access to all applications' \"Save as\" dialogs."
+msgstr ""
+"لمنع المستخدم من حفط الملفّات على القرص. يمنع هذا مثلًا المستخدم من النّفاذ إلى "
+"حوارات \"احفظ ك‍\" في جميع التّطبيقات."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
-msgid "Prevent the user from switching to another account while his session is active."
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
 msgstr "امنع المستخدم من التحوّل لحساب آخر حال نشاط هذه الجلسة."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
@@ -916,8 +980,8 @@ msgid "Prevent the user to lock his screen."
 msgstr "امنع المستخدم من قفل هذه الشاشة."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
-msgstr "اسم ملف صوت الجرس الذي سيُعزف"
+msgid "File name of the bell sound to be played."
+msgstr "اسم ملف صوت الجرس الذي سيُعزف."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -928,7 +992,9 @@ msgid "Remember NumLock state"
 msgstr "تذكّر حالة NumLock"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
-msgid "When set to true, GNOME will remember the state of the NumLock LED between sessions."
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
 msgstr "عند ضبطه لصحيح، ستتذكّر جنوم حالة NumLock LED بين الجلسات."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
@@ -936,7 +1002,9 @@ msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "القيم الممكنة هي \"on\"، \"off\"، و \"custom\"."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
-msgid "Acceleration multiplier for mouse motion. A value of -1 is the system default."
+msgid ""
+"Acceleration multiplier for mouse motion. A value of -1 is the system "
+"default."
 msgstr "مصعد التعجيل لحركة الفأرة. قيمة -1 هي مبدئي النظام."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
@@ -952,16 +1020,24 @@ msgid "Cursor theme"
 msgstr "سِمة المؤشر"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-msgid "Cursor theme name. Used only by Xservers that support Xcursor, such as XFree86 4.3 and later."
-msgstr "اسم سِمة المؤشّر. تستخدمها فقط خوادم س التي تدعم Xcursor، مثل XFree86 4.3 أو ما بعده."
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later."
+msgstr ""
+"اسم سِمة المؤشّر. تستخدمها فقط خوادم س التي تدعم Xcursor، مثل XFree86 4.3 أو "
+"ما بعده."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "المسافة التي يبدأ منها النقل"
+msgid "Distance before a drag is started."
+msgstr "المسافة قبل بدأ النقل."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
-msgid "Distance in pixels the pointer must move before accelerated mouse motion is activated. A value of -1 is the system default."
-msgstr "المسافة بالبكسلات التي يجب أن تتحركها الفأرة قبل تنشيط تسريع حركة الفأرة.القيمة -1 هي مبدئي النظام."
+msgid ""
+"Distance in pixels the pointer must move before accelerated mouse motion is "
+"activated. A value of -1 is the system default."
+msgstr ""
+"المسافة بالبكسلات التي يجب أن تتحركها الفأرة قبل تنشيط تسريع حركة الفأرة."
+"القيمة -1 هي مبدئي النظام."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -972,16 +1048,24 @@ msgid "Drag Threshold"
 msgstr "حدود السحب"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-msgid "Font name of the cursor. If unset, the default font is used. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in."
-msgstr "اسم خط المؤشر. إذا لم يضبط، فسيستخدم الخط المبدئي. لا تمرر هذه القيمة لخادم س إلا عند بداية كل جلسة، فتغييرها وسط الجلسة لن يكون له أي تأثير إلا بعد إعادة الولوج في المرة القادمة."
+msgid ""
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
+"session won't have an effect until the next time you log in."
+msgstr ""
+"اسم خط المؤشر. إذا لم يضبط، فسيستخدم الخط المبدئي. لا تمرر هذه القيمة لخادم "
+"س إلا عند بداية كل جلسة، فتغييرها وسط الجلسة لن يكون له أي تأثير إلا بعد "
+"إعادة الولوج في المرة القادمة."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
-msgid "Highlights the current location of the pointer when the Control key is pressed and released"
-msgstr "يبرز الموقع الحالي للمؤشر عند ضغط و ترك مفتاح التحكم"
+msgid ""
+"Highlights the current location of the pointer when the Control key is "
+"pressed and released."
+msgstr "يبرز الموقع الحالي للمؤشر عند ضغط و ترك مفتاح التحكم."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "مدة النقر المزدوج"
+msgid "Length of a double click."
+msgstr "مدة النقر المزدوج."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -1000,16 +1084,16 @@ msgid "Single Click"
 msgstr "نقرة واحدة"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "نقرة واحدة لفتح الأيقونات"
+msgid "Single click to open icons."
+msgstr "نقرة واحدة لفتح الأيقونات."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "حجم المؤشر المشار إليه في cursor_theme."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "اقلب زرا الفأرة الأيمن و الأيسر لفأرة اليد اليسرى"
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr "اقلب زرا الفأرة الأيمن و الأيسر لفأرة لليد اليسرى."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
@@ -1037,7 +1121,9 @@ msgstr "جهاز هندسة الصوت المبدئي المستخدم بواس�
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:7
 msgid "The default mixer tracks used by the multimedia key bindings."
-msgstr "مقطوعات هندسة الصوت المبدئية المستخدمة بواسطة ارتباطات مفتاح الوسائط المتعددة."
+msgstr ""
+"مقطوعات هندسة الصوت المبدئية المستخدمة بواسطة ارتباطات مفتاح الوسائط "
+"المتعددة."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
@@ -1048,8 +1134,12 @@ msgid "Disable all external thumbnailers"
 msgstr "عطّل كل المُضغّرات الخارجية"
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:2
-msgid "Set to true to disable all external thumbnailer programs, independent on whether they are independently disabled/enabled."
-msgstr "اضبط لصحيح لتعطيل كل البرامج الخارجية لانشاء مصغرات،يتوقف استقلال الفعل عما إذا ستعطل/تفعل مفردة."
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+"اضبط لصحيح لتعطيل كل البرامج الخارجية لانشاء مصغرات،يتوقف استقلال الفعل عما "
+"إذا ستعطل/تفعل مفردة."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
@@ -1073,11 +1163,11 @@ msgstr "وقت الكتابة"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
-msgstr "فيما اذا كان قفل لوحة المفاتيح مفعّلا أم لا"
+msgstr "فيما إذا كان قفل لوحة المفاتيح مفعّلا أم لا"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
-msgstr "فيما اذا كان قفل لوحة المفاتيح مفعّلا أم لا."
+msgstr "فيما إذا كان قفل لوحة المفاتيح مفعّلا أم لا."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
