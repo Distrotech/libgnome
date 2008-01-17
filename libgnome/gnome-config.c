@@ -622,26 +622,26 @@ access_config_extended (access_type mode, const char *section_name,
 }
 
 static void
-dump_keys (FILE *profile, TKeys *p)
+dump_keys (GString *profile, TKeys *p)
 {
 	if (!p)
 		return;
 	dump_keys (profile, p->link);
 	if (*p->key_name) {
 		char *t = escape_string_and_dup (p->value);
-		fprintf (profile, "%s=%s\n", p->key_name, t);
+		g_string_append_printf (profile, "%s=%s\n", p->key_name, t);
 		g_free (t);
 	}
 }
 
 static void
-dump_sections (FILE *profile, TSecHeader *p)
+dump_sections (GString *profile, TSecHeader *p)
 {
 	if (!p)
 		return;
 	dump_sections (profile, p->link);
 	if (p->section_name && p->section_name [0]){
-		fprintf (profile, "\n[%s]\n", p->section_name);
+		g_string_append_printf (profile, "\n[%s]\n", p->section_name);
 		dump_keys (profile, p->keys);
 	}
 }
@@ -729,12 +729,32 @@ check_path(char *path, mode_t newmode)
 }
 
 
+static gboolean
+dump_sections_to_file (TProfile *p)
+{
+	GError *err = NULL;
+	GString *profile = g_string_new("");
+
+	dump_sections (profile, p->section);
+
+	g_file_set_contents(p->filename, profile->str, profile->len, &err);
+
+	g_string_free(profile,TRUE);
+
+	if (err != NULL) {
+		/* TODO Maybe the error should be displayed */
+		g_error_free (err);
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
 
 static gboolean
 dump_profile (TProfile *p, gboolean one_only)
 {
 	gboolean ret = TRUE;
-	FILE *profile;
 
 	if (!p)
 		return ret;
@@ -771,9 +791,8 @@ dump_profile (TProfile *p, gboolean one_only)
 			if(p==Current)
 				Current = NULL;
 		} else if (check_path(p->filename,0755) &&
-		    (profile = g_fopen (p->filename, "w")) != NULL){
-			dump_sections (profile, p->section);
-			fclose (profile);
+			dump_sections_to_file(p)){
+			/* File written correctly */
 		} else {
 			/* we failed at actually writing to the file */
 			ret = FALSE;

@@ -1,3 +1,13 @@
+2008-01-17  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-config.c: (dump_keys), (dump_sections),
+	(dump_sections_to_file), (dump_profile): Make this more
+	robust against full disk situations. Patch from edpeur at gmail com
+	Closes bug #507687.
+	* libgnome/libgnome-2.0.pc.in: Add localstatedir variable so
+	we can tell where gnome-games should look for highscore files.
+	Closes some bug I can't find :-/
+
 2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* libgnome/gnome-program.c: (gnome_program_finalize):
