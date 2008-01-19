@@ -3,15 +3,16 @@
 # Wang Jian <lark@linux.net.cn>, 2001
 # Xiong Jiang <jxiong@offtopic.org>, 2003
 # Funda Wang <fundawang@linux.net.cn>, 2003
+# Deng Xiyue <manphiz@gmail.com>, 2008
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-28 03:17+0100\n"
-"PO-Revision-Date: 2007-09-04 20:36+0800\n"
-"Last-Translator: Funda Wang <fundawang@gmail.com>\n"
-"Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"POT-Creation-Date: 2008-01-19 03:18+0000\n"
+"PO-Revision-Date: 2008-01-19 21:39+0800\n"
+"Last-Translator: Deng Xiyue <manphiz@gmail.com>\n"
+"Language-Team: i18n-zh <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -89,9 +90,7 @@ msgstr "无法找到 GNOME_FILE_DOMAIN_HELP 域。"
 # SUN CHANGED MESSAGE
 #: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
 #, c-format
-msgid ""
-"Unable to show help as %s is not a directory.  Please check your "
-"installation."
+msgid "Unable to show help as %s is not a directory.  Please check your installation."
 msgstr "因为 %s 不是目录，所以无法显示帮助。请检查您的安装。"
 
 # SUN CHANGED MESSAGE
@@ -103,9 +102,7 @@ msgstr "无法找到帮助路径 %s 或 %s。请检查您的安装"
 # SUN CHANGED MESSAGE
 #: ../libgnome/gnome-help.c:236
 #, c-format
-msgid ""
-"Unable to find the help files in either %s or %s.  Please check your "
-"installation"
+msgid "Unable to find the help files in either %s or %s.  Please check your installation"
 msgstr "在 %s 或 %s 中都无法找到帮助文件。请检查您的安装"
 
 #: ../libgnome/gnome-help.c:353
@@ -127,48 +124,51 @@ msgstr "Bonobo 支持"
 msgid "Bonobo activation Support"
 msgstr "Bonobo 激活支持"
 
-#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
+#: ../libgnome/gnome-init.c:386 ../libgnome/gnome-init.c:400
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "无法创建每用户的 gnome 配置目录“%s”：%s\n"
 
-#: ../libgnome/gnome-init.c:407
+#: ../libgnome/gnome-init.c:408
 #, c-format
-msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory `%"
-"s': %s\n"
+msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr "无法统计每用户的私有 gnome 配置目录“%s”：%s\n"
+
+#: ../libgnome/gnome-init.c:416
+#, c-format
+msgid "Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
 msgstr "无法将用户私有的 gnome 配置目录“%s”的权限设置为 0700：%s\n"
 
-#: ../libgnome/gnome-init.c:414
+#: ../libgnome/gnome-init.c:423
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "无法创建 gnome 加速目录“%s”：%s\n"
 
-#: ../libgnome/gnome-init.c:453
+#: ../libgnome/gnome-init.c:462
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME 虚拟文件系统"
 
-#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+#: ../libgnome/gnome-init.c:480 ../libgnome/gnome-init.c:523
 msgid "Disable sound server usage"
 msgstr "禁用声音服务器"
 
-#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
 msgid "Enable sound server usage"
 msgstr "启用声音服务器"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+#: ../libgnome/gnome-init.c:487 ../libgnome/gnome-init.c:529
 msgid "Host:port on which the sound server to use is running"
 msgstr "要使用的声音服务器所运行的主机:端口"
 
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:531
 msgid "HOSTNAME:PORT"
 msgstr "主机名:端口"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
+#: ../libgnome/gnome-init.c:497 ../libgnome/gnome-init.c:541
 msgid "GNOME Library"
 msgstr "GNOME 库"
 
-#: ../libgnome/gnome-init.c:489
+#: ../libgnome/gnome-init.c:498
 msgid "Show GNOME options"
 msgstr "显示 GNOME 选项"
 
@@ -324,24 +324,24 @@ msgstr "Espeaker"
 msgid "How to connect to esd"
 msgstr "如何连接 esd"
 
-#: ../libgnome/gnome-program.c:1391
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "帮助选项"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "程序选项"
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "要载入的动态模块"
 
-#: ../libgnome/gnome-program.c:1413
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2，..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1504
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -359,15 +359,11 @@ msgid "The specified location is invalid."
 msgstr "指定位置无效。"
 
 #: ../libgnome/gnome-url.c:99
-msgid ""
-"There was an error parsing the default action command associated with this "
-"location."
+msgid "There was an error parsing the default action command associated with this location."
 msgstr "处理与此位置关联的默认操作命令时出错。"
 
 #: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
-msgid ""
-"There was an error launching the default action command associated with this "
-"location."
+msgid "There was an error launching the default action command associated with this location."
 msgstr "调用与此位置关联的默认操作命令时出错。"
 
 #: ../libgnome/gnome-url.c:115
@@ -427,38 +423,36 @@ msgid "Key %s not found in configuration"
 msgstr "配置中没有找到键 %s"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "按下修饰键时响铃"
+msgid "Beep when a modifier is pressed."
+msgstr "按下修改键时响铃。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
 msgstr "如果两个键同时按下则禁用。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "除非按住 @delay 毫秒不放，否则不接受按键输入"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
+msgstr "除非按住 @delay 毫秒不放，否则不接受按键输入。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
 msgstr "经过多少毫秒后开始加速"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "在多少毫秒内从 0 增长到最大速度"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr "在多少毫秒内从 0 增长到最大速度。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "在鼠标移动键起作用前等待多少毫秒"
+msgid "How many milliseconds to wait before mouse movement keys start to operate."
+msgstr "在鼠标移动键起作用前等待多少毫秒。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "How many pixels per second to move at the maximum speed"
-msgstr "最大速度是每秒钟移动多少个像素点"
+msgid "How many pixels per second to move at the maximum speed."
+msgstr "最大速度时每秒钟移动多少个像素点。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "忽略在 @delay 毫秒内多次按下的同一个键"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
+msgstr "忽略在 @delay 毫秒内多次按下的“同一个”键。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -477,49 +471,40 @@ msgid "minimum interval in milliseconds"
 msgstr "最小间隔毫秒数"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
-msgid ""
-"List of assistive technology applications to start when logging into the "
-"GNOME desktop"
-msgstr "登录 GNOME 桌面后启动的辅助技术应用程序"
+msgid "List of assistive technology applications to start when logging into the GNOME desktop."
+msgstr "登录 GNOME 桌面时启动的辅助技术应用程序列表。"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr "启动辅助技术应用程序"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
-msgid ""
-"GNOME to start preferred Mobility assistive technology application during "
-"login"
-msgstr "GNOME 将要在登录时启动首选的行动辅助技术应用程序"
+msgid "GNOME to start preferred Mobility assistive technology application during login."
+msgstr "GNOME 将要在登录时启动的首选移动辅助技术应用程序。"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
 msgstr "首选的行动辅助技术应用程序"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
-msgid ""
-"Preferred Mobility assistive technology application to be used for login, "
-"menu, or command line"
-msgstr "为登录、菜单或命令行使用的首选行动辅助技术应用程序"
+msgid "Preferred Mobility assistive technology application to be used for login, menu, or command line."
+msgstr "为登录、菜单或命令行使用的首选移动辅助技术应用程序。"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
 msgstr "启动首选的行动辅助技术应用程序"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
-msgid ""
-"GNOME to start preferred Visual assistive technology application during login"
-msgstr "GNOME 将要在登录时启动首选的视觉复制技术应用程序"
+msgid "GNOME to start preferred Visual assistive technology application during login."
+msgstr "GNOME 将要在登录时启动的首选视觉辅助技术应用程序。"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
 msgstr "首选的视觉辅助技术应用程序"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
-msgid ""
-"Preferred Visual assistive technology application be used for login, menu, "
-"or command line"
-msgstr "为登录、菜单或命令行使用的首选视觉辅助技术应用程序"
+msgid "Preferred Visual assistive technology application be used for login, menu, or command line."
+msgstr "为登录、菜单或命令行使用的首选视觉辅助技术应用程序。"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -530,7 +515,6 @@ msgid "Browser needs terminal"
 msgstr "浏览器需要终端"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "浏览器理解远程命令"
 
@@ -539,36 +523,19 @@ msgid "Default browser"
 msgstr "默认浏览器"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
-msgstr "全部 URL 的默认浏览器"
+msgid "Default browser for all URLs."
+msgstr "全部 URL 的默认浏览器。"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
-msgstr "默认的浏览器是否需要终端来运行"
+msgid "Whether the default browser needs a terminal to run."
+msgstr "默认的浏览器是否需要终端来运行。"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
-msgstr "默认的浏览器是否理解 Netscape 远程控制命令"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "默认帮助查看器"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "帮助查看器需要终端"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "默认的帮助查看器是否接受 URL"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
-msgstr "默认的帮助查看器是否需要终端来运行"
+msgid "Whether the default browser understands netscape remote."
+msgstr "默认的浏览器是否理解 netscape 远程控制命令。"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr "在“执行”键定义的终端里执行程序的参数。"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
@@ -580,13 +547,11 @@ msgid "Terminal application"
 msgstr "终端应用程序"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr "当启动需要终端的程序时使用的终端程序"
+msgid "Terminal program to use when starting applications that require one."
+msgstr "当启动需要终端的应用程序时使用的终端程序。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
-msgid ""
-"A list with names of the first window manager workspaces. This key has been "
-"deprecated since GNOME 2.12."
+msgid "A list with names of the first window manager workspaces. This key has been deprecated since GNOME 2.12."
 msgstr "第一个窗口管理器工作区名称的列表。此键自 GNOME 2.12 之后不再推荐使用。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
@@ -594,12 +559,8 @@ msgid "Fallback window manager (deprecated)"
 msgstr "默认窗口管理器(不推荐)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
-msgid ""
-"Fallback window manager if user window manager can't be found. This key has "
-"been deprecated since GNOME 2.12."
-msgstr ""
-"用户窗口管理器无法找到时使用的默认窗口管理器。此键自 GNOME 2.12 之后不再推荐"
-"使用。"
+msgid "Fallback window manager if user window manager can't be found. This key has been deprecated since GNOME 2.12."
+msgstr "用户窗口管理器无法找到时使用的默认窗口管理器。此键自 GNOME 2.12 之后不再推荐使用。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -610,9 +571,7 @@ msgid "The number of workspaces (deprecated)"
 msgstr "工作区数目(不推荐)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
-msgid ""
-"The number of workspaces the window manager should use This key has been "
-"deprecated since GNOME 2.12."
+msgid "The number of workspaces the window manager should use This key has been deprecated since GNOME 2.12."
 msgstr "窗口管理器应该使用的工作区数目。此键自 GNOME 2.12 之后不再推荐使用。"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
@@ -620,8 +579,7 @@ msgid "User window manager (deprecated)"
 msgstr "用户窗口管理器(不推荐)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid ""
-"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr "首先尝试的窗口管理器。此键自 GNOME 2.12 之后不再推荐使用。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:1
@@ -629,41 +587,32 @@ msgid "Color Shading Type"
 msgstr "颜色渐变类型"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:2
-msgid ""
-"Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
-msgstr ""
-"决定如何显示墙纸文件名指定的图片。可用的值有：“none”, “wallpaper”, "
-"“centered”, “scaled”, “stretched”和“zoom”。"
+msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom\"."
+msgstr "决定如何显示墙纸文件名指定的图片。可用的值有：“none”, “wallpaper”, “centered”, “scaled”, “stretched”和“zoom”。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "绘制桌面背景"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:4
-msgid "File to use for the background image"
-msgstr "用作背景图片的文件"
+msgid "File to use for the background image."
+msgstr "用作背景图片的文件。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "让 GNOME 绘制桌面背景"
+msgid "Have GNOME draw the desktop background."
+msgstr "让 GNOME 绘制桌面背景。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
-msgid ""
-"How to shade the background color. Possible values are \"horizontal-gradient"
-"\", \"vertical-gradient\", and \"solid\""
-msgstr ""
-"如何渐变背景颜色。可用的值有“horizontal-gradient”，“vertical-"
-"gradient”和“solid”"
+msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\"."
+msgstr "如何渐变背景颜色。可用的值有“水平渐变”，“垂直渐变”和“纯色”。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "绘制渐变带时左边或上边的颜色，或者是绘制的纯色。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "绘制背景图片的不透明度"
+msgid "Opacity with which to draw the background picture."
+msgstr "绘制背景图片的不透明度。"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
@@ -694,8 +643,8 @@ msgid "File Icon Theme"
 msgstr "文件图标主题"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
-msgstr "用于显示文件图标的主题"
+msgid "Theme used for displaying file icons."
+msgstr "用于显示文件图标的主题。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -730,179 +679,170 @@ msgid "Enable Animations"
 msgstr "启用动画"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "GTK IM 模块"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "GTK IM 预编辑风格"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "GTK IM 状态风格"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "Gtk+ 主题"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "图标主题"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "用于面板、Nautilus 等的图标主题。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "打开菜单栏的键盘快捷键。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "光标闪烁周期的长度，单位为毫秒"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "光标闪烁周期的长度，单位为毫秒。"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "菜单栏可分离"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "菜单栏加速键"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "菜单上使用图标"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "菜单具有分离条"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooser 的模块"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
-msgid ""
-"Module to use as the filesystem model for the GtkFileChooser widget. "
-"Possible values are \"gnome-vfs\" and \"gtk+\"."
-msgstr ""
-"GtkFileChooser 部件所用的文件系统模型的模块。可供选择的值是“gnome-vfs”和“gtk"
-"+”。"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+msgid "Module to use as the filesystem model for the GtkFileChooser widget. Possible values are \"gnome-vfs\" and \"gtk+\"."
+msgstr "GtkFileChooser 部件所用的文件系统模型的模块。可供选择的值是“gnome-vfs”和“gtk+”。"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "等距字体"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
-msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "类似终端程序等位置中所用的等距(固定宽度)字体。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "gtk+ 使用的 GTK+ 输入法预编辑风格的名称。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "gtk+ 使用的 GTK+ 输入法状态风格的名称。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "gtk+ 使用的默认字体的名称。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
-msgid "Name of the default font used for reading documents"
-msgstr "读取文档所使用的默认字体的名称"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+msgid "Name of the default font used for reading documents."
+msgstr "读取文档所使用的默认字体的名称。"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "GTK+ 使用的输入法模块的名称。"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "显示“输入法”菜单"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "显示“Unicode 控制字符”菜单"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr "工具栏图标的大小，“小号工具栏”或者“大号工具栏”。"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr "状态栏位于右边"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
-msgid "This specifies the size of icons displayed in toolbars"
-msgstr "用来指定工具栏上显示的图标的大小"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "工具栏可分离"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "工具栏图标大小"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "工具栏风格"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
-msgid ""
-"Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
-"\"text\""
-msgstr "工具栏风格。有效的值是“both”，“both_horiz”，“icon”和“text”"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
+msgid "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and \"text\"."
+msgstr "工具栏风格。有效的值是“都有”，“都有(水平)”，“图表”和“文本”。"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "使用自定义字体"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Whether Applications should have accessibility support"
-msgstr "应用程序是否应该有辅助访问支持"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
-msgid ""
-"Whether animations should be displayed. Note: This is a global key, it "
-"changes the behaviour of the window manager, the panel etc."
-msgstr ""
-"是否应该显示动画。注意：这是一个全局的设置，它将改变窗口管理器、面板等的行"
-"为。"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "是否在菜单上菜单项的旁边显示图标"
+msgid "Whether Applications should have accessibility support."
+msgstr "应用程序是否应该有辅助访问支持。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
-msgid "Whether menus should have a tearoff"
-msgstr "菜单是否应该有分离条"
+msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
+msgstr "是否应该显示动画。注意：这是一个全局的设置，它将改变窗口管理器、面板等的行为。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid ""
-"Whether the context menus of entries and text views should offer to change "
-"the input method"
-msgstr "输入框和文本视图中的快捷菜单是否应提供更改输入法的选项"
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "是否在菜单上菜单项的旁边显示图标。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid ""
-"Whether the context menus of entries and text views should offer to insert "
-"control characters"
-msgstr "输入框和文本视图中的快捷菜单是否应提供插入控制字符的选项"
+msgid "Whether menus should have a tearoff."
+msgstr "菜单是否应该有分离条。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the cursor should blink"
-msgstr "光标是否应该闪烁"
+msgid "Whether the context menus of entries and text views should offer to change the input method."
+msgstr "输入框和文本视图中的快捷菜单是否应提供更改输入法的选项。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the user can detach menubars and move them around"
-msgstr "用户是否能分离菜单栏并四处移动它们"
+msgid "Whether the context menus of entries and text views should offer to insert control characters."
+msgstr "输入框和文本视图中的快捷菜单是否应提供插入控制字符的选项。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "用户是否能分离工具栏并四处移动它们"
+msgid "Whether the cursor should blink."
+msgstr "光标是否应该闪烁。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid ""
-"Whether the user can dynamically type a new accelerator when positioned over "
-"an active menuitem"
-msgstr "当指针指向激活菜单项时，用户是否能动态地输入新的加速键"
+msgid "Whether the user can detach menubars and move them around."
+msgstr "用户是否能分离菜单栏并四处移动它们。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether to display a status bar meter on the right"
-msgstr "是否在右边显示状态栏指示"
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "用户是否能分离工具栏并四处移动它们。"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+msgid "Whether the user can dynamically type a new accelerator when positioned over an active menuitem."
+msgstr "当指针指向激活菜单项时，用户是否能动态地输入新的加速键。"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+msgid "Whether to display a status bar meter on the right."
+msgstr "是否在右边显示状态栏指示。"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "是否在 gtk+ 程序中使用自定义字体。"
 
@@ -931,38 +871,23 @@ msgid "Disable user switching"
 msgstr "禁用用户切换"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
-msgid ""
-"Prevent the user from accessing the terminal or specifying a command line to "
-"be executed. For example, this would disable access to the panel's \"Run "
-"Application\" dialog."
-msgstr ""
-"避免用户表单访问终端或指定要执行的命令行。例如，这将禁止访问面板的“运行应用程"
-"序”对话框。"
+msgid "Prevent the user from accessing the terminal or specifying a command line to be executed. For example, this would disable access to the panel's \"Run Application\" dialog."
+msgstr "避免用户表单访问终端或指定要执行的命令行。例如，这将禁止访问面板的“运行应用程序”对话框。"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
-msgid ""
-"Prevent the user from modifying print settings. For example, this would "
-"disable access to all applications' \"Print Setup\" dialogs."
-msgstr ""
-"避免用户修改打印设置。例如，这将禁止访问全部应用程序的“打印设置”对话框。"
+msgid "Prevent the user from modifying print settings. For example, this would disable access to all applications' \"Print Setup\" dialogs."
+msgstr "避免用户修改打印设置。例如，这将禁止访问全部应用程序的“打印设置”对话框。"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
-msgid ""
-"Prevent the user from printing. For example, this would disable access to "
-"all applications' \"Print\" dialogs."
+msgid "Prevent the user from printing. For example, this would disable access to all applications' \"Print\" dialogs."
 msgstr "避免用户进行打印。例如，这将禁止访问全部应用程序的“打印”对话框。"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
-msgid ""
-"Prevent the user from saving files to disk. For example, this would disable "
-"access to all applications' \"Save as\" dialogs."
-msgstr ""
-"避免用户将文件保存到磁盘。例如，这将禁止访问全部应用程序的“另存为”对话框。"
+msgid "Prevent the user from saving files to disk. For example, this would disable access to all applications' \"Save as\" dialogs."
+msgstr "避免用户将文件保存到磁盘。例如，这将禁止访问全部应用程序的“另存为”对话框。"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
-msgid ""
-"Prevent the user from switching to another account while his session is "
-"active."
+msgid "Prevent the user from switching to another account while his session is active."
 msgstr "禁止用户在本人会话活动时切换到另外一个账户。"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
@@ -970,8 +895,8 @@ msgid "Prevent the user to lock his screen."
 msgstr "禁止用户锁定自己的屏幕。"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
-msgstr "要播放的响铃声音的文件名"
+msgid "File name of the bell sound to be played."
+msgstr "要播放的响铃声音的文件名。"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -982,9 +907,7 @@ msgid "Remember NumLock state"
 msgstr "记住 NumLock 状态"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
-msgid ""
-"When set to true, GNOME will remember the state of the NumLock LED between "
-"sessions."
+msgid "When set to true, GNOME will remember the state of the NumLock LED between sessions."
 msgstr "设定为 true 时，GNOME 将在不同会话间记住 NumLock 灯的状态。"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
@@ -992,9 +915,7 @@ msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "可用的值是“on”，“off”和“custom”。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
-msgid ""
-"Acceleration multiplier for mouse motion. A value of -1 is the system "
-"default."
+msgid "Acceleration multiplier for mouse motion. A value of -1 is the system default."
 msgstr "鼠标运动的加速倍数。系统的默认值是 -1。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
@@ -1010,20 +931,15 @@ msgid "Cursor theme"
 msgstr "光标主题"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-msgid ""
-"Cursor theme name. Used only by Xservers that support Xcursor, such as "
-"XFree86 4.3 and later."
-msgstr ""
-"光标主题名称。仅适用于支持 Xcursor 的 Xserver，比如 XFree86 4.3 或更新版本。"
+msgid "Cursor theme name. Used only by Xservers that support Xcursor, such as XFree86 4.3 and later."
+msgstr "光标主题名称。仅适用于支持 Xcursor 的 Xserver，比如 XFree86 4.3 或更新版本。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "判断拖放开始的距离"
+msgid "Distance before a drag is started."
+msgstr "判断拖放开始的距离。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
-msgid ""
-"Distance in pixels the pointer must move before accelerated mouse motion is "
-"activated. A value of -1 is the system default."
+msgid "Distance in pixels the pointer must move before accelerated mouse motion is activated. A value of -1 is the system default."
 msgstr "启动鼠标运动加速前鼠标必须移动的像素点数。系统默认的值是 -1。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
@@ -1035,23 +951,16 @@ msgid "Drag Threshold"
 msgstr "拖放阈值"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-msgid ""
-"Font name of the cursor. If unset, the default font is used. This value is "
-"only propagated to the X server start of each session, so changing it mid-"
-"session won't have an effect until the next time you log in."
-msgstr ""
-"光标字体的名称。如果未设置，则使用默认的字体。此设置只有在每次会话开始前传送"
-"给 X 服务器，因此在会话当中改变它不会有用，要等到您下次登录后才会起作用。"
+msgid "Font name of the cursor. If unset, the default font is used. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in."
+msgstr "光标字体的名称。如果未设置，则使用默认的字体。此设置只有在每次会话开始前传送给 X 服务器，因此在会话当中改变它不会有用，要等到您下次登录后才会起作用。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
-msgid ""
-"Highlights the current location of the pointer when the Control key is "
-"pressed and released"
-msgstr "当控制键按下和放开时突出显示指针的当前位置"
+msgid "Highlights the current location of the pointer when the Control key is pressed and released."
+msgstr "当键按下和放开时突出显示指针的当前位置。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "鼠标双击的时间长度"
+msgid "Length of a double click."
+msgstr "鼠标双击的时间长度。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -1070,16 +979,16 @@ msgid "Single Click"
 msgstr "单击"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "单击可打开图标"
+msgid "Single click to open icons."
+msgstr "单击以打开图标。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "cursor_theme 引用的光标大小。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "为左手鼠标交换左右鼠标按钮"
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr "为左手鼠标交换左右鼠标按钮。"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
@@ -1118,9 +1027,7 @@ msgid "Disable all external thumbnailers"
 msgstr "禁用所有外部缩略图程序"
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:2
-msgid ""
-"Set to true to disable all external thumbnailer programs, independent on "
-"whether they are independently disabled/enabled."
+msgid "Set to true to disable all external thumbnailer programs, independent on whether they are independently disabled/enabled."
 msgstr "设为 true 可禁用所有外部缩略图程序，而不管这些程序自身是启用还是禁用。"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
@@ -1154,3 +1061,18 @@ msgstr "是否允许键盘锁定。"
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "是否可推迟打字间断屏幕。"
+
+#~ msgid "Default help viewer"
+#~ msgstr "默认帮助查看器"
+
+#~ msgid "Help viewer needs terminal"
+#~ msgstr "帮助查看器需要终端"
+
+#~ msgid "Whether the default help viewer accepts URLs"
+#~ msgstr "默认的帮助查看器是否接受 URL"
+
+#~ msgid "Whether the default help viewer needs a terminal to run"
+#~ msgstr "默认的帮助查看器是否需要终端来运行"
+
+#~ msgid "This specifies the size of icons displayed in toolbars"
+#~ msgstr "用来指定工具栏上显示的图标的大小"
