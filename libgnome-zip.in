@@ -35,7 +35,11 @@ EOF
 
 zip -r $ZIP etc/gconf/gconf.xml.defaults
 
-zip $ZIP lib/locale/*/LC_MESSAGES/libgnome-2.0.mo
+if [ -f share/locale/de/LC_MESSAGES/libgnome-2.0.mo ]; then
+  zip $ZIP share/locale/*/LC_MESSAGES/libgnome-2.0.mo
+else
+  zip $ZIP lib/locale/*/LC_MESSAGES/libgnome-2.0.mo
+fi
 
 rm $DEVZIP
 zip -r $DEVZIP -@ <<EOF
