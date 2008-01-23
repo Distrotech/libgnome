@@ -1,5 +1,11 @@
 2008-01-23  Kjartan Maraas  <kmaraas@gnome.org>
 
+	* libgnome/gnome-exec.c: (gnome_prepend_terminal_to_vector):
+	* libgnome/gnome-gconf.c: Remove more unneeded use of popt.
+	Patch from dmacks at netspace org. Closes bug #511424.
+
+2008-01-23  Kjartan Maraas  <kmaraas@gnome.org>
+
 	* libgnome/gnome-sound.c: Fix a warning by moving
 	the prototype for _gnome_sound_set_enabled() a bit.
 	Patch from dmacks at netspace org. Closes bug #511455.

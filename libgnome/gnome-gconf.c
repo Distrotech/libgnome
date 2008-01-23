@@ -26,7 +26,6 @@
 
 #include <config.h>
 #include <stdlib.h>
-#include <popt.h>
 
 #define GCONF_ENABLE_INTERNALS
 #include <gconf/gconf.h>

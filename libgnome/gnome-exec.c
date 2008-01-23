@@ -43,7 +43,6 @@
 
 #include <gconf/gconf-client.h>
 
-#include <popt.h>
 
 #include <errno.h>
 #ifndef errno
@@ -423,11 +422,6 @@ gnome_prepend_terminal_to_vector (int *argc, char ***argv)
 		g_free (command_line);
 		g_free (exec_flag);
 		g_free (terminal);
-#if 0
-	    poptParseArgvString (terminal, &term_argc, &temp_argv);
-	    term_argv = g_strdupv ((gchar **) temp_argv);
-	    g_free (terminal);
-#endif
 	}
 
 	if (term_argv == NULL) {
