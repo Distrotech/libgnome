@@ -73,8 +73,6 @@ WAVFormatChunk;
 ( ( x & 0xff000000 ) >> 24 ) )
 #endif
 
-G_GNUC_INTERNAL void _gnome_sound_set_enabled (gboolean);
-
 /**
  * gnome_sound_sample_load_wav:
  * @file: filename to try loading a WAV file from.
@@ -319,6 +317,8 @@ close_sound_connection (void)
   }
 }
 #endif
+
+G_GNUC_INTERNAL void _gnome_sound_set_enabled (gboolean);
 
 void G_GNUC_INTERNAL
 _gnome_sound_set_enabled (gboolean enabled)

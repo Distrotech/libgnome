@@ -1,3 +1,9 @@
+2008-01-23  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-sound.c: Fix a warning by moving
+	the prototype for _gnome_sound_set_enabled() a bit.
+	Patch from dmacks at netspace org. Closes bug #511455.
+
 2008-01-23  Tor Lillqvist  <tml@novell.com>
 
 	* libgnome/gnome-config.c (check_path): Use g_stat().
