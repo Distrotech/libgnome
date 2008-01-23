@@ -667,7 +667,7 @@ check_path(char *path, mode_t newmode)
 
 	/*special case if directory exists, this is probably gonna happen
 	  a lot so we don't want to go though checking it part by part*/
-	if (stat(dir, &s) == 0) {
+	if (g_stat(dir, &s) == 0) {
 		g_free(dir);
 		/*check if a directory*/
 		if (!S_ISDIR(s.st_mode))
@@ -700,7 +700,7 @@ check_path(char *path, mode_t newmode)
 		else
 			newpath = g_string_append_c(newpath, G_DIR_SEPARATOR);
 		newpath = g_string_append(newpath,p);
-		if(stat(newpath->str,&s)==0) {
+		if(g_stat(newpath->str,&s)==0) {
 			/*check if a directory*/
 			if(!S_ISDIR(s.st_mode)) {
 				g_string_free(newpath,TRUE);

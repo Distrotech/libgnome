@@ -1,3 +1,10 @@
+2008-01-23  Tor Lillqvist  <tml@novell.com>
+
+	* libgnome/gnome-config.c (check_path): Use g_stat().
+
+	* libgnome/gnome-init.c (libgnome_userdir_setup): Use
+	G_IS_DIR_SEPARATOR(). Use g_stat().
+
 2008-01-22  Tor Lillqvist  <tml@novell.com>
 
 	* libgnome-zip.in: Look for catalogs in share/locale first, as

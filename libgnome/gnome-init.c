@@ -357,11 +357,7 @@ libgnome_userdir_setup (gboolean create_dirs)
 
                         /* chop trailing slash */
                         len = strlen (gnome_user_dir);
-                        if (len > 1 && (gnome_user_dir[len-1] == G_DIR_SEPARATOR
-#ifdef G_OS_WIN32
-					|| gnome_user_dir[len-1] == '/'
-#endif
-					))
+                        if (len > 1 && G_IS_DIR_SEPARATOR (gnome_user_dir[len - 1]))
                                 gnome_user_dir[len - 1] = '\0';
 
                         gnome_user_private_dir = g_strconcat (gnome_user_dir,
@@ -404,7 +400,7 @@ libgnome_userdir_setup (gboolean create_dirs)
 	}
 
 
-       if (stat (gnome_user_private_dir, &statbuf) < 0) {
+       if (g_stat (gnome_user_private_dir, &statbuf) < 0) {
                g_printerr (_("Could not stat private per-user gnome configuration directory `%s': %s\n"),
                        gnome_user_private_dir, strerror(errno));
                exit(1);
