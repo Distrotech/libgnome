@@ -1660,6 +1660,8 @@ gnome_program_parse_args (GnomeProgram *program)
 	}
 }
 
+#ifndef G_OS_WIN32 /* No GNOME a11y stuff is implemented for real on Windows anyway yet. */
+
 static char *
 find_accessibility_module (GnomeProgram *program, const char *libname)
 {
@@ -1760,10 +1762,12 @@ accessibility_invoke (GnomeProgram *program, gboolean init)
 	return TRUE;
 }
 
+#endif
 
 static void
 accessibility_init (GnomeProgram *program)
 {
+#ifndef G_OS_WIN32
 	int i;
 	gboolean do_init;
 	const char *env_var;
@@ -1796,6 +1800,7 @@ accessibility_init (GnomeProgram *program)
 
 	if (do_init)
 		accessibility_invoke (program, TRUE);
+#endif
 }
 
 /**
