@@ -40,7 +40,7 @@
 #ifdef HAVE_ESD
 static char *esound_hostname = NULL;
 static int gnome_sound_connection = -1;
-static gboolean gnome_sound_enabled = FALSE;
+static gboolean gnome_sound_enabled = TRUE;
 #endif
 
 typedef struct _sample
