@@ -12,18 +12,19 @@
 #
 # Jesus Bravo Alvarez <suso@trasno.net>, 1999-2002.
 # Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
+# Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-16 17:11+0100\n"
-"PO-Revision-Date: 2006-05-25 11:26+0200\n"
-"Last-Translator: Ignacio Casal Quinteiro <nacho.resa@gmail.com>\n"
-"Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
+"POT-Creation-Date: 2008-01-25 14:22+0100\n"
+"PO-Revision-Date: 2008-01-25 14:40+0100\n"
+"Last-Translator: Ignacio Casal Quinteiro <icq@svn.gnome.org>\n"
+"Language-Team: Galego <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -57,6 +58,10 @@ msgstr "Eventos do sistema"
 msgid "Warning message"
 msgstr "Mensaxe de aviso"
 
+#: ../gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "Fondo por defecto"
+
 #: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
 msgstr "Seleccione un elemento do menú"
@@ -73,20 +78,23 @@ msgstr "Seleccione caixa de verificación"
 msgid "User interface events"
 msgstr "Eventos da interface de usuario"
 
-#: ../libgnome/gnome-exec.c:458
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "Non se pode encontrar un terminal, usando o xterm, aínda que talvez "
-       "non funcione"
+msgstr ""
+"Non se pode encontrar un terminal, usando o xterm, aínda que talvez non "
+"funcione"
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "Soporte GConf do Gnome"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Foi imposible encontrar o dominio GNOME_FILE_DOMAIN_APP_HELP"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Foi imposible encontrar o dominio GNOME_FILE_DOMAIN_HELP"
 
@@ -95,16 +103,25 @@ msgstr "Foi imposible encontrar o dominio GNOME_FILE_DOMAIN_HELP"
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr "Foi imposible mostrar a axuda porque %s non é un directorio. "
-       "Verifique a súa instalación."
+msgstr ""
+"Foi imposible mostrar a axuda porque %s non é un directorio. Verifique a súa "
+"instalación."
 
-#: ../libgnome/gnome-help.c:220 ../libgnome/gnome-help.c:236
+#: ../libgnome/gnome-help.c:220
+#, c-format
+msgid "Unable to find help paths %s or %s. Please check your installation"
+msgstr ""
+"Foi imposible encontrar a ruta da axuda en %s ou en %s. Verifique a "
+"súa instalación"
+
+#: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr "Foi imposible encontrar os ficheiros de axuda en %s ou en %s. "
-       "Verifique a súa instalación"
+msgstr ""
+"Foi imposible encontrar os ficheiros de axuda en %s ou en %s. Verifique a "
+"súa instalación"
 
 #: ../libgnome/gnome-help.c:353
 #, c-format
@@ -117,292 +134,311 @@ msgid "Help document %s/%s not found"
 msgstr "Non se encontrou o documento de axuda %s/%s "
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:89
+#: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "Soporte Bonobo"
 
-#: ../libgnome/gnome-init.c:143
+#: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "Soporte para a activación do Bonobo"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Non foi posible crear un directorio de configuración por usuario do "
-       "Gnome `%s': %s\n"
+msgstr ""
+"Non foi posible crear un directorio de configuración por usuario do Gnome `%"
+"s': %s\n"
 
 #: ../libgnome/gnome-init.c:404
 #, c-format
-msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory "
-"`%s': %s\n"
-msgstr "Non foi posible establecer o modo 0700 no directorio privado de "
-       "configuración por usuario do Gnome `%s': %s\n"
+msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr ""
+"Non foi posible crear un directorio de configuración por usuario do Gnome `%"
+"s': %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:412
+#, c-format
+msgid ""
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
+msgstr ""
+"Non foi posible establecer o modo 0700 no directorio privado de "
+"configuración por usuario do Gnome `%s': %s\n"
+
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Non foi posible crear o directorio de teclas rápidas do Gnome `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:460 ../libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "Desactivar o uso do servidor de son"
-
-#: ../libgnome/gnome-init.c:463 ../libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "Activar o uso do servidor de son"
-
-#: ../libgnome/gnome-init.c:466 ../libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "Host:porto onde o servidor de son que se vai utilizar está en "
-       "execución"
-
-#: ../libgnome/gnome-init.c:468 ../libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "NOME DO HOST:PORTO"
-
-#: ../libgnome/gnome-init.c:506
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "Sistema de ficheiros virtual do Gnome"
 
-#: ../libgnome/gnome-init.c:524 ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
+msgid "Disable sound server usage"
+msgstr "Desactivar o uso do servidor de son"
+
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+msgid "Enable sound server usage"
+msgstr "Activar o uso do servidor de son"
+
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
+msgid "Host:port on which the sound server to use is running"
+msgstr "Host:porto onde o servidor de son que se vai utilizar está en execución"
+
+#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
+msgid "HOSTNAME:PORT"
+msgstr "NOME DO HOST:PORTO"
+
+#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "Biblioteca do Gnome"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "Mostrar opcións do Gnome"
 
-#: ../libgnome/gnome-program.c:458
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "Táboa popt"
 
-#: ../libgnome/gnome-program.c:459
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "A táboa de opcións para popt"
 
-#: ../libgnome/gnome-program.c:466
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "Flags do popt"
 
-#: ../libgnome/gnome-program.c:467
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "Flags que se usan para popt"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Contexto do popt"
 
-#: ../libgnome/gnome-program.c:476
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "O punteiro de contexto do popt que está a usar o GnomeProgram"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "Contexto GOption"
 
-#: ../libgnome/gnome-program.c:485
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "O punteiro do contexto GOption que está a usar o GnomeProgram"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "Nome lexible para humanos"
 
-#: ../libgnome/gnome-program.c:494
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "Nome desta aplicación lexible para humanos "
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "Camiño do Gnome"
 
-#: ../libgnome/gnome-program.c:504
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "Camiño onde buscar os ficheiros instalados"
 
-#: ../libgnome/gnome-program.c:513
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "ID de aplicación"
 
-#: ../libgnome/gnome-program.c:514
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "Cadea de ID para usar nesta aplicación"
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "Versión da aplicación"
 
-#: ../libgnome/gnome-program.c:522
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "Versión desta aplicación"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "Prefixo do Gnome"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "Prefixo onde foi instalado o Gnome"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "Libdir do Gnome"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "Prefixo de biblioteca onde foi instalado o Gnome"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "Datadir do Gnome"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "Prefixo de datos onde foi instalado o Gnome"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "Sysconfdir do Gnome"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Prefixo de configuración onde foi instalado o Gnome"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "Prefixo de aplicación do Gnome"
 
-#: ../libgnome/gnome-program.c:571
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "Prefixo onde se instalou esta aplicación"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "Libdir de aplicación do Gnome"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "Prefixo de biblioteca onde se instalou esta aplicación"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "Datadir de aplicación do Gnome"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "Prefixo de datos onde se instalou esta aplicación"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "Sysconfdir de aplicación do Gnome"
 
-#: ../libgnome/gnome-program.c:600
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "Prefixo de configuración onde se instalou esta aplicación"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "Crear directorios"
 
-#: ../libgnome/gnome-program.c:610
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "Crear os directorios estándar do Gnome no inicio"
 
-#: ../libgnome/gnome-program.c:619
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "Activar o son"
 
-#: ../libgnome/gnome-program.c:620
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "Activar o son no inicio"
 
-#: ../libgnome/gnome-program.c:628
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:629
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "Como conectarse ao esd"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "Opcións de axuda"
 
-#: ../libgnome/gnome-program.c:1401
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "Opcións da aplicación"
 
-#: ../libgnome/gnome-program.c:1417
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "Módulos dinámicos para cargar"
 
-#: ../libgnome/gnome-program.c:1418
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MÓDULO1,MÓDULO2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1507
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "%s\n"
-       "Execute '%s --help' para ver unha lista completa das opcións de liña "
-       "de comandos dispoñibles.\n"
+msgstr ""
+"%s\n"
+"Execute '%s --help' para ver unha lista completa das opcións de liña de "
+"comandos dispoñibles.\n"
 
-#: ../libgnome/gnome-url.c:86
+#: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Erro interno descoñecido ao mostrar esta localización."
 
-#: ../libgnome/gnome-url.c:93
+#: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "A localización especificada non é válida."
 
-#: ../libgnome/gnome-url.c:100
+#: ../libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
-msgstr "Houbo un erro ao analizar o comando de acción predeterminado "
-       "asociado con esta localización."
+msgstr ""
+"Houbo un erro ao analizar o comando de acción predeterminado asociado con "
+"esta localización."
 
-#: ../libgnome/gnome-url.c:108 ../libgnome/gnome-url.c:175
+#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
-msgstr "Houbo un erro ao executar o comando de acción predeterminado "
-       "asociado con esta localización."
+msgstr ""
+"Houbo un erro ao executar o comando de acción predeterminado asociado con "
+"esta localización."
 
-#: ../libgnome/gnome-url.c:116
+#: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
-msgstr "Non hai ningunha acción predeterminada asociada con esta "
-       "localización."
+msgstr "Non hai ningunha acción predeterminada asociada con esta localización."
 
-#: ../libgnome/gnome-url.c:123
+#: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "A acción predeterminada non soporta este protocolo."
 
-#: ../libgnome/gnome-url.c:130
+#: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "Cancelouse a solicitude"
 
-#: ../libgnome/gnome-url.c:140
+#: ../libgnome/gnome-url.c:139
 #, c-format
 msgid "The host \"%s\" could not be found."
 msgstr "O host\"%s\" non se puido encontrar."
 
-#: ../libgnome/gnome-url.c:146
+#: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "O host non se puido encontrar."
 
-#: ../libgnome/gnome-url.c:157
+#: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "Non se puido encontrar a localización ou ficheiro."
 
-#: ../libgnome/gnome-url.c:164
+#: ../libgnome/gnome-url.c:163
 #, c-format
-msgid "Unknown error code: %u"
-msgstr "Código de erro descoñecido: %u"
+msgid "The login has failed."
+msgstr "Fallou o inicio de sesión."
 
 #: ../libgnome/gnome-open.c:34
 #, c-format
@@ -431,70 +467,114 @@ msgid "Key %s not found in configuration"
 msgstr "Chave %s non encontrada na configuración"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "Emitir un ton de aviso ao premer un modificador"
+msgid "Beep when a modifier is pressed."
+msgstr "Emitir un ton de aviso ao premer un modificador."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
 msgstr "Desactivar se se premen dúas teclas á vez."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "Non aceptar unha tecla como premida excepto que se manteña durante "
-       "@delay milisegundos."
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
+msgstr ""
+"Non aceptar unha tecla como premida excepto que se manteña durante @delay "
+"milisegundos."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "Canto tempo en milisegundos leva ir desde 0 até a velocidade máxima"
-
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "Canto tempo en milisegundos hai que esperar até que as teclas de "
-       "movemento do rato comezan a funcionar"
-
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
-msgid "How many pixels per second to move at the maximum speed"
-msgstr "Cantos píxeles por segundo se moven á velocidade máxima"
-
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "Ignorar clics múltiples da _mesma_ tecla durante @delay milisegundos"
-
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "how long to accelerate in milliseconds"
+msgid "How long to accelerate in milliseconds"
 msgstr "Durante canto tempo acelerar en milisegundos"
 
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr "Canto tempo en milisegundos leva ir desde 0 até a velocidade máxima"
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
+msgid "How many milliseconds to wait before mouse movement keys start to operate."
+msgstr ""
+"Canto tempo en milisegundos hai que esperar até que as teclas de movemento "
+"do rato comezan a funcionar."
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
+msgid "How many pixels per second to move at the maximum speed."
+msgstr "Cantos píxeles por segundo se moven á velocidade máxima."
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
+msgstr "Ignorar clics múltiples da _mesma_ tecla durante @delay milisegundos."
+
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
-msgid "initial delay in milliseconds"
+msgid "Initial delay in milliseconds"
 msgstr "Atraso inicial en milisegundos"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
-msgid "minimum interval in milliseconds"
-msgstr "intervalo mínimo en milisegundos"
+msgid "Minimum interval in milliseconds"
+msgstr "Intervalo mínimo en milisegundos"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
-msgid "pixels per seconds"
-msgstr "píxeles por segundos"
+msgid "Pixels per seconds"
+msgstr "Píxeles por segundos"
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
+msgid "minimum interval in milliseconds"
+msgstr "intervalo mínimo en milisegundos"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
 "List of assistive technology applications to start when logging into the "
-"GNOME desktop"
-msgstr "Lista de aplicacións de tecnoloxía adaptada para executar ao iniciar "
-       "sesión no escritorio do Gnome"
+"GNOME desktop."
+msgstr ""
+"Lista de aplicacións de tecnoloxía adaptada para executar ao iniciar sesión "
+"no escritorio do Gnome."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr "Iniciar aplicacións de tecnoloxía adaptada"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login."
+msgstr "Se Gnome ha de iniciar a aplicación de tecnoloxía de asistencia móbil preferida durante o inicio."
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "Aplicacións de tecnoloxía adaptad móbil preferidaa"
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application to be used for login, "
+"menu, or command line."
+msgstr "Aplicación de tecnoloxía adaptada móbil preferida para ser usada ao inicio, menú, ou liña de comandos."
+
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "Iniciar aplicación de tecnoloxía adaptada móbil preferida"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Visual assistive technology application during "
+"login."
+msgstr "Se Gnome ha de iniciar a aplicación de tecnoloxía adaptada visual preferida durante o inicio."
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "Aplicación de tecnoloxía adaptada visual preferida"
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line."
+msgstr "Aplicación de tecnoloxía adaptada visual preferida para ser usada ao inicio, menú, ou liña de comandos."
+
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "Iniciar aplicación de tecnoloxía adaptada visual preferida"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
 msgstr "O navegador precisa un terminal"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "O navegador entende a opción remote"
 
@@ -503,40 +583,22 @@ msgid "Default browser"
 msgstr "Navegador predeterminado"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
+msgid "Default browser for all URLs."
 msgstr "Navegador predeterminado para todos os URL"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
-msgstr "Indica se o navegador predeterminado precisa un terminal para "
-       "executarse"
+msgid "Whether the default browser needs a terminal to run."
+msgstr "Indica se o navegador predeterminado precisa un terminal para executarse"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
-msgstr "Indica se o navegador predeterminado entende ao netscape remote"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "Visualizador de axuda predeterminado"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "O visualizador de axuda precisa un terminal"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "Indica se o visualizador de axuda predeterminado acepta os URL"
-
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
-msgstr "Indica se o visualizador de axuda predeterminado precisa un terminal "
-       "para executarse"
+msgid "Whether the default browser understands netscape remote."
+msgstr "Indica se o navegador predeterminado entende ao netscape remote."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid ""
-"Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Argumento usado para executar programas no terminal definido pola "
-       "tecla 'exec'."
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"Argumento usado para executar programas no terminal definido pola tecla "
+"'exec'."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -547,15 +609,16 @@ msgid "Terminal application"
 msgstr "Aplicación do terminal"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr "Programa do terminal para usar ao iniciar aplicacións que precisen un"
+msgid "Terminal program to use when starting applications that require one."
+msgstr "Programa do terminal para usar ao iniciar aplicacións que precisen un."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
-msgstr "Unha lista cos nomes dos primeiros espazos de traballo do xestor de "
-       "ventás. Esta chave volveuse obsoleta desde o Gnome 2.12."
+msgstr ""
+"Unha lista cos nomes dos primeiros espazos de traballo do xestor de ventás. "
+"Esta chave volveuse obsoleta desde o Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
@@ -565,9 +628,9 @@ msgstr "Modo de emerxencia do xestor de ventás (obsoleto)"
 msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
-msgstr "Modo de emerxencia do xestor de ventás se non se pode localizar o "
-       "xestor de ventás do usuario. Esta chave é obsoleta desde o Gnome "
-       "2.12."
+msgstr ""
+"Modo de emerxencia do xestor de ventás se non se pode localizar o xestor de "
+"ventás do usuario. Esta chave é obsoleta desde o Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -581,80 +644,85 @@ msgstr "O número de espazos de traballo (obsoleto)"
 msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
-msgstr "O número de espazos de traballo que o xestor de ventás debe usar. "
-       "Esta chave é obsoleta desde o Gnome 2.12."
+msgstr ""
+"O número de espazos de traballo que o xestor de ventás debe usar. Esta chave "
+"é obsoleta desde o Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
 msgstr "Xestor de ventás do usuario (obsoleto)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid ""
-"Window manager to try first. This key has been deprecated since GNOME 2.12."
-msgstr "Xestor de ventás que se probará primeiro. Esta chave é obsoleta "
-       "desde o Gnome 2.12."
+msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr ""
+"Xestor de ventás que se probará primeiro. Esta chave é obsoleta desde o "
+"Gnome 2.12."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:1
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "Tipo de sombreado de cor"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:2
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
-"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr "Determina como se renderiza a imaxe definida por wallpaper_filename. "
-       "Os valores posibles son \"none\", \"wallpaper\", \"centered\", \""
-       "scaled\", \"stretched\"."
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
+msgstr ""
+"Determina como se renderiza a imaxe definida por wallpaper_filename. Os "
+"valores posibles son \"none\", \"wallpaper\", \"centered\", \"scaled\", "
+"\"stretched\", \"zoom\"."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:3
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "Debuxar fondo de escritorio"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:4
-msgid "File to use for the background image"
-msgstr "Ficheiro para usar para a imaxe de fondo"
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
+msgid "File to use for the background image."
+msgstr "Ficheiro para usar para a imaxe de fondo."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "Facer que o Gnome debuxe o fondo do escritorio"
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
+msgid "Have GNOME draw the desktop background."
+msgstr "Facer que o Gnome debuxe o fondo do escritorio."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:6
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
-"How to shade the background color. Possible values are "
-"\"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
-msgstr "Como ensombrecer a cor de fondo. Os valores posibles son \""
-       "horizontal-gradient\", \"vertical-gradient\" e \"solid\""
+"How to shade the background color. Possible values are \"horizontal-gradient"
+"\", \"vertical-gradient\", and \"solid\"."
+msgstr ""
+"Como ensombrecer a cor de fondo. Os valores posibles son \"horizontal-"
+"gradient\", \"vertical-gradient\" e \"solid\"."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:7
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "Cor superior ou esquerdo ao debuxar os degradados ou a cor sólida."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "Opacidade coa que debuxar a imaxe de fondo"
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
+msgid "Opacity with which to draw the background picture."
+msgstr "Opacidade coa que debuxar a imaxe de fondo."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:9
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "Ficheiro de imaxe"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:10
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "Opacidade da imaxe"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:11
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "Opcións da imaxe"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:12
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "Cor primaria"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:13
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "Cor inferior ou dereita ao debuxar os degradados, non usado para a "
-       "cor sólida."
+msgstr ""
+"Cor inferior ou dereita ao debuxar os degradados, non usado para a cor "
+"sólida."
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:14
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "Cor secundaria"
 
@@ -663,276 +731,310 @@ msgid "File Icon Theme"
 msgstr "Ficheiro de tema de icona"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
-msgstr "Tema usado para mostrar as iconas dos ficheiros"
+msgid "Theme used for displaying file icons."
+msgstr "Tema usado para mostrar as iconas dos ficheiros."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:1
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
 msgstr "Nome base do tema predeterminado usado por gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:2
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
 msgstr "Pode modificar as teclas rápidas"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
 msgstr "Intermitencia do cursor"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
 msgstr "Tempo de intermitencia do cursor"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
 msgstr "Tipo de letra predeterminado"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Document font"
 msgstr "Tipo de letra do documento"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Enable Accessibility"
 msgstr "Activar accesibilidade"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Animations"
 msgstr "Activar animacións"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "Módulo do GTK IM"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "Estilo de edición previa do GTK IM"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "Estilo do estado do GTK IM"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "Tema Gtk+"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "Tema de icona"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Tema de icona para usar para o panel, o Nautilus, etc."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Atallo de teclado para abrir as barras de menú."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:15
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "Duración do ciclo de intermitencia do cursor, en milisegundos"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "Duración do ciclo de intermitencia do cursor, en milisegundos."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "Barra de menú separable"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "Acelerador da barra de menú"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "Os menús posúen iconas"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "Os menús posúen un tirador"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "Módulo para GtkFileChooser"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
-msgstr "Módulo para usar como modelo do sistema de ficheiros para o widget "
-       "GtkFileChooser. Os valores posibles son \"gnome-vfs\" e \"gtk+\"."
+msgstr ""
+"Módulo para usar como modelo do sistema de ficheiros para o widget "
+"GtkFileChooser. Os valores posibles son \"gnome-vfs\" e \"gtk+\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "Tipo de letra monoespazado"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:23
-msgid ""
-"Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr "Nome dun tipo de letra monoespazado (largura fixa) para usar en "
-       "localizacións como terminais."
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr ""
+"Nome dun tipo de letra monoespazado (largura fixa) para usar en "
+"localizacións como terminais."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Nome do método de entrada do Preedit Style do GTK+ usado por gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Nome do método de entrada do Status Style do GTK+ usado por gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "Nome do tipo de letra predeterminado usado por gtk+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:27
-msgid "Name of the default font used for reading documents"
-msgstr "Nome do tipo de letra predeterminado usado para ler documentos"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+msgid "Name of the default font used for reading documents."
+msgstr "Nome do tipo de letra predeterminado usado para ler documentos."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "Nome do método de entrada do usado por GTK+."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "Mostrar o menú 'Métodos de entrada'"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "Mostrar o menú 'Carácter de control Unicode'"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr "O tamaño das iconas nas barras de ferramentas, pode ser \"small-toolbar\" ou \"large-toolbar\"."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr "Barra de estado á dereita"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:31
-msgid "This specifies the size of icons displayed in toolbars"
-msgstr "Isto especifica o tamaño das iconas mostradas nas barras de "
-       "ferramentas"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "Barra de ferramentas separable"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "Tamaño da icona da barra de ferramentas"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "Estilo da barra de ferramentas"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
-"\"text\""
-msgstr "Estilo da barra de ferramentas. Os valores válidos son \"both\", \""
-       "both_horiz\", \"icons\" e \"text\""
+"\"text\"."
+msgstr ""
+"Estilo da barra de ferramentas. Os valores válidos son \"both\", \"both_horiz"
+"\", \"icons\" e \"text\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "Usar tipo de letra personalizado"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:37
-msgid "Whether Applications should have accessibility support"
-msgstr "Indica se as aplicacións deben ter soporte de accesibilidade"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+msgid "Whether Applications should have accessibility support."
+msgstr "Indica se as aplicacións deben ter soporte de accesibilidade."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
-msgstr "Indica se deben mostrarse as animacións. Nota: Esta é unha chave "
-       "global, modifica o comportamento do xestor de ventás, do panel, etc."
+msgstr ""
+"Indica se deben mostrarse as animacións. Nota: Esta é unha chave global, "
+"modifica o comportamento do xestor de ventás, do panel, etc."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:39
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "Indica se os menús poden mostrar unha icona xunto á entrada de menú"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "Indica se os menús poden mostrar unha icona xunto á entrada de menú."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:40
-msgid "Whether menus should have a tearoff"
-msgstr "Indica se os menús deben ter un tirador"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
+msgid "Whether menus should have a tearoff."
+msgstr "Indica se os menús deben ter un tirador."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
-"the input method"
-msgstr "Indica se os menús de contexto das entradas e as visualizacións de "
-       "texto deben ofrecer modificar o método de entrada"
+"the input method."
+msgstr ""
+"Indica se os menús de contexto das entradas e as visualizacións de texto "
+"deben ofrecer modificar o método de entrada."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
-"control characters"
-msgstr "Indica se os menús de contexto das entradas e visualizacións de "
-       "texto deben ofrecer inserir caracteres de control"
+"control characters."
+msgstr ""
+"Indica se os menús de contexto das entradas e visualizacións de texto deben "
+"ofrecer inserir caracteres de control."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:43
-msgid "Whether the cursor should blink"
-msgstr "Indica se o cursor debe pestanexar "
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
+msgid "Whether the cursor should blink."
+msgstr "Indica se o cursor debe pestanexar."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:44
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Indica se o usuario pode separar as barras de menús e movelas a "
-       "outro lado"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
+msgid "Whether the user can detach menubars and move them around."
+msgstr "Indica se o usuario pode separar as barras de menús e movelas a outro lado."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:45
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "Indica se o usuario pode separar as barras de ferramentas e movelas "
-       "a outro lado"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
+msgid "Whether the user can detach toolbars and move them around."
+msgstr ""
+"Indica se o usuario pode separar as barras de ferramentas e movelas a outro "
+"lado."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
-"an active menuitem"
-msgstr "Indica se o usuario pode introducir dinamicamente unha nova tecla "
-       "rápida cando estea situado sobre un elemento de menú activo"
+"an active menuitem."
+msgstr ""
+"Indica se o usuario pode introducir dinamicamente unha nova tecla rápida "
+"cando estea situado sobre un elemento de menú activo."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:47
-msgid "Whether to display a status bar meter on the right"
-msgstr "Indica se se mostra un contador da barra de estado á dereita"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+msgid "Whether to display a status bar meter on the right."
+msgstr "Indica se se mostra un contador da barra de estado á dereita."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "Indica se se vai usar un tipo de letra personalizado nas aplicacións "
-       "gtk+."
+msgstr "Indica se se vai usar un tipo de letra personalizado nas aplicacións gtk+."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
 msgstr "Desactivar a liña de comandos"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable lock screen"
+msgstr "Desactivar o bloqueo da pantalla"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable print setup"
 msgstr "Desactivar a configuración de impresora"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable printing"
 msgstr "Desactivar impresión"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable saving files to disk"
 msgstr "Desactivar gravación de ficheiros en disco"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable user switching"
+msgstr "Desactivar o intercambio de usuario"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
-msgstr "Impide que o usuario acceda ao terminal ou especifique unha liña de "
-       "comandos para ser executada. Por exemplo, isto podería desactivar o "
-       "acceso ao panel de diálogo \"Executar aplicación\"."
-
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
-msgid ""
-"Prevent the user from modifying print settings. For example, this would "
-"disable access to all applications' \"Print Setup\" dialogs."
-msgstr "Impide que o usuario modifique as configuracións de impresión. Por "
-       "exemplo, isto poderá desactivar o acceso a todos os diálogos \""
-       "Configurar impresión\" de todas as aplicacións."
-
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
-msgid ""
-"Prevent the user from printing. For example, this would disable access to "
-"all applications' \"Print\" dialogs."
-msgstr "Impide que o usuario imprima. Por exemplo, isto poderá desactivar o "
-       "acceso a todos os diálogos \"Imprimir\" de todas as aplicacións."
+msgstr ""
+"Impide que o usuario acceda ao terminal ou especifique unha liña de comandos "
+"para ser executada. Por exemplo, isto podería desactivar o acceso ao panel "
+"de diálogo \"Executar aplicación\"."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all applications' \"Print Setup\" dialogs."
+msgstr ""
+"Impide que o usuario modifique as configuracións de impresión. Por exemplo, "
+"isto poderá desactivar o acceso a todos os diálogos \"Configurar impresión\" "
+"de todas as aplicacións."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all applications' \"Print\" dialogs."
+msgstr ""
+"Impide que o usuario imprima. Por exemplo, isto poderá desactivar o acceso a "
+"todos os diálogos \"Imprimir\" de todas as aplicacións."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
+msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
-msgstr "Impide que o usuario garde ficheiros en disco. Por exemplo, isto "
-       "poderá desactivar o acceso a todos os diálogos \"Gardar como\" de "
-       "todas as aplicacións."
+msgstr ""
+"Impide que o usuario garde ficheiros en disco. Por exemplo, isto poderá "
+"desactivar o acceso a todos os diálogos \"Gardar como\" de todas as "
+"aplicacións."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr "Prevén que o usuario seleccione outra conta mentra a súa sesión está activa."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid "Prevent the user to lock his screen."
+msgstr "Prevén que o usuario bloquee a súa pantalla."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
-msgstr "Nome do ficheiro de son da campá para reproducir"
+msgid "File name of the bell sound to be played."
+msgstr "Nome do ficheiro de son da campá para reproducir."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -946,8 +1048,9 @@ msgstr "Recordar o estado de BloqNum"
 msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
-msgstr "Cando está definido como verdadeiro, Gnome recordará o estado do LED "
-       "de BloqNum entre as sesións."
+msgstr ""
+"Cando está definido como verdadeiro, Gnome recordará o estado do LED de "
+"BloqNum entre as sesións."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -957,8 +1060,9 @@ msgstr "os valores posibles son \"on\", \"off\" e \"custom\"."
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr "Multiplicador de aceleración para o movemento do rato. Un valor de "
-       "-1 é o predeterminado do sistema."
+msgstr ""
+"Multiplicador de aceleración para o movemento do rato. Un valor de -1 é o "
+"predeterminado do sistema."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -976,20 +1080,21 @@ msgstr "Tema do cursor"
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
-msgstr "Nome do tema do cursor. Usado só polos servidores X que soportan "
-       "Xcursor, como XFree86 4.3 e posteriores."
+msgstr ""
+"Nome do tema do cursor. Usado só polos servidores X que soportan Xcursor, "
+"como XFree86 4.3 e posteriores."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "Distancia antes de iniciar un arrastre"
+msgid "Distance before a drag is started."
+msgstr "Distancia antes de iniciar un arrastre."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
-msgstr "Distancia en píxeles que o punteiro se debe mover antes de que a "
-       "aceleración do rato sexa activada. Un valor de -1 é o predeterminado "
-       "do sistema."
+msgstr ""
+"Distancia en píxeles que o punteiro se debe mover antes de que a aceleración "
+"do rato sexa activada. Un valor de -1 é o predeterminado do sistema."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -1002,23 +1107,25 @@ msgstr "Límite de arrastre"
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
-"only propagated to the X server start of each session, so changing it "
-"mid-session won't have an effect until the next time you log in."
-msgstr "Nome do tipo de letra do cursor. Se non está definida utilízase o "
-       "tipo de letra predeterminado. Este valor só se propaga ao servidor X "
-       "ao inicio de cada sesión, por iso, se modifica este valor no medio "
-       "dunha sesión, non terá efecto até a próxima vez que inicie a sesión."
+"only propagated to the X server start of each session, so changing it mid-"
+"session won't have an effect until the next time you log in."
+msgstr ""
+"Nome do tipo de letra do cursor. Se non está definida utilízase o tipo de "
+"letra predeterminado. Este valor só se propaga ao servidor X ao inicio de "
+"cada sesión, por iso, se modifica este valor no medio dunha sesión, non terá "
+"efecto até a próxima vez que inicie a sesión."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
-"pressed and released"
-msgstr "Resalta a localización actual do punteiro cando se preme a tecla "
-       "Control e se solta"
+"pressed and released."
+msgstr ""
+"Resalta a localización actual do punteiro cando se preme a tecla Control e "
+"se solta."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "Duración dun duplo clic"
+msgid "Length of a double click."
+msgstr "Duración dun duplo clic."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -1037,31 +1144,48 @@ msgid "Single Click"
 msgstr "Único clic"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "Clic único para abrir iconas"
+msgid "Single click to open icons."
+msgstr "Clic único para abrir iconas."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "Tamaño do cursor indicado polo cursor_theme."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "Intercambia os botóns dereito e esquerdo do rato para crear un rato "
-       "para zurdos"
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr ""
+"Intercambia os botóns dereito e esquerdo do rato para crear un rato para "
+"zurdos."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "Dispositivo mesturador predeterminado"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "Pistas do mesturador predeterminado"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "Activar ESD"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "Activar o inicio do servidor de son."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Sounds for events"
 msgstr "Sons para os eventos"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr "O dispositivo mesturador predeterminado usado palas combinacións de teclas multimedia."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr "O mesturador de pistas predeterminado usado polas combinacións de teclas multimedia."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "Indica se se van reproducir sons nos eventos do usuario."
 
@@ -1073,9 +1197,10 @@ msgstr "Desactivar todas as miniaturizacións externas"
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
-msgstr "Definir como true para desactivar todos os programas "
-       "miniaturizadores externos, independentemente de se están activados "
-       "ou desactivados de maneira independente."
+msgstr ""
+"Definir como true para desactivar todos os programas miniaturizadores "
+"externos, independentemente de se están activados ou desactivados de maneira "
+"independente."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
@@ -1087,8 +1212,9 @@ msgstr "Tempo de descanso"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:3
 msgid "Number of minutes of typing time before break mode starts."
-msgstr "Número de minutos do tempo de dixitación antes de que comece o modo "
-       "de descanso."
+msgstr ""
+"Número de minutos do tempo de dixitación antes de que comece o modo de "
+"descanso."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:4
 msgid "Number of minutes that the typing break should last."
@@ -1108,5 +1234,5 @@ msgstr "Indica se o bloqueo do teclado está activado ou non."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr "Indica se a pantalla de interrupción da dixitación pode posporse ou "
-       "non."
+msgstr "Indica se a pantalla de interrupción da dixitación pode posporse ou non."
+
