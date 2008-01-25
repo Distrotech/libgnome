@@ -1,18 +1,18 @@
 # Thai translation for libgnome
-# Copyright (C) 2003-2007 Free Software Foundation, Inc.
+# Copyright (C) 2003-2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgnome package.
 #
 # Natorn Tuntanggoon <sc442409@angsila.compsci.buu.ac.th>, 2003
 # Chanchai Junlouchai <taz@opentle.org>, 2003
 # Paisa Seeluangsawat <paisa@users.sf.net>, 2003, 2004.
-# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2007.
+# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-02 19:54+0700\n"
-"PO-Revision-Date: 2007-09-02 20:14+0700\n"
+"POT-Creation-Date: 2008-01-25 14:57+0700\n"
+"PO-Revision-Date: 2008-01-25 15:22+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -71,11 +71,11 @@ msgstr "กาช่องกากบาท"
 msgid "User interface events"
 msgstr "เหตุการณ์ของระบบโต้ตอบกับผู้ใช้"
 
-#: libgnome/gnome-exec.c:457
+#: libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "ไม่พบเทอร์มินัล จะลองใช้ xterm แทน แม้ว่าอาจจะไม่ได้ผล"
 
-#: libgnome/gnome-gconf.c:177
+#: libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "การสนับสนุน GConf ของ GNOME"
 
@@ -127,221 +127,227 @@ msgstr "การสนับสนุน Bonobo"
 msgid "Bonobo activation Support"
 msgstr "การสนับสนุน Bonobo activation"
 
-#: libgnome/gnome-init.c:384 libgnome/gnome-init.c:398
+#: libgnome/gnome-init.c:382 libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "ไม่สามารถสร้างโฟลเดอร์เก็บค่าตั้ง gnome ส่วนตัวที่ '%s': %s\n"
 
-#: libgnome/gnome-init.c:407
+#: libgnome/gnome-init.c:404
+#, c-format
+msgid ""
+"Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr "ไม่สามารถ stat โฟลเดอร์เก็บค่าตั้ง gnome ส่วนตัวที่ '%s': %s\n"
+
+#: libgnome/gnome-init.c:412
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr "ไม่สามารถตั้งโหมด 0700 ให้กับโฟลเดอร์เก็บค่าตั้ง gnome ส่วนตัวที่ '%s': %s\n"
 
-#: libgnome/gnome-init.c:414
+#: libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "ไม่สามารถสร้างโฟลเดอร์คีย์ด่วนของ gnome ที่ '%s': %s\n"
 
-#: libgnome/gnome-init.c:453
+#: libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Virtual Filesystem"
 
-#: libgnome/gnome-init.c:471 libgnome/gnome-init.c:514
+#: libgnome/gnome-init.c:476 libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "ปิดระบบเสียง"
 
-#: libgnome/gnome-init.c:474 libgnome/gnome-init.c:517
+#: libgnome/gnome-init.c:479 libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "เปิดระบบเสียง"
 
-#: libgnome/gnome-init.c:478 libgnome/gnome-init.c:520
+#: libgnome/gnome-init.c:483 libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "Host:port ที่เซิร์ฟเวอร์เสียงที่จะใช้ทำงานอยู่"
 
-#: libgnome/gnome-init.c:479 libgnome/gnome-init.c:522
+#: libgnome/gnome-init.c:484 libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
-#: libgnome/gnome-init.c:488 libgnome/gnome-init.c:532
+#: libgnome/gnome-init.c:493 libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "GNOME Library"
 
-#: libgnome/gnome-init.c:489
+#: libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "แสดงตัวเลือกของ GNOME"
 
-#: libgnome/gnome-program.c:456
+#: libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "ตาราง Popt"
 
-#: libgnome/gnome-program.c:457
+#: libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "ตารางตัวเลือกสำหรับ popt"
 
-#: libgnome/gnome-program.c:464
+#: libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "แฟล็ก Popt"
 
-#: libgnome/gnome-program.c:465
+#: libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "แฟล็กที่จะใช้สำหรับ popt"
 
-#: libgnome/gnome-program.c:473
+#: libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Popt Context"
 
-#: libgnome/gnome-program.c:474
+#: libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "พอยน์เตอร์ไปยัง popt context ที่ GnomeProgram ใช้"
 
-#: libgnome/gnome-program.c:482
+#: libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "GOption Context"
 
-#: libgnome/gnome-program.c:483
+#: libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "พอยน์เตอร์ไปยัง goption context ที่ GnomeProgram ใช้"
 
-#: libgnome/gnome-program.c:491
+#: libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "ชื่อสำหรับแสดงผล"
 
-#: libgnome/gnome-program.c:492
+#: libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "ชื่อสำหรับแสดงผลของโปรแกรมนี้"
 
-#: libgnome/gnome-program.c:501
+#: libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "พาธของ GNOME"
 
-#: libgnome/gnome-program.c:502
+#: libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "พาธสำหรับหาแฟ้มที่ติดตั้งใว้"
 
-#: libgnome/gnome-program.c:511
+#: libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "App ID"
 
-#: libgnome/gnome-program.c:512
+#: libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "เลข ID สำหรับโปรแกรมนี้"
 
-#: libgnome/gnome-program.c:519
+#: libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "รุ่นของโปรแกรม"
 
-#: libgnome/gnome-program.c:520
+#: libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "รุ่นของโปรแกรมนี้"
 
-#: libgnome/gnome-program.c:527
+#: libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "พรีฟิกซ์ของ GNOME"
 
-#: libgnome/gnome-program.c:528
+#: libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "พรีฟิกซ์ที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:537
+#: libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "Libdir ของ GNOME"
 
-#: libgnome/gnome-program.c:538
+#: libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "พรีฟิกซ์ของที่เก็บไลบรารีที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:547
+#: libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "Datadir ของ GNOME"
 
-#: libgnome/gnome-program.c:548
+#: libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "พรีฟิกซ์ของที่เก็บข้อมูลที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:557
+#: libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "Sysconfdir ของ GNOME"
 
-#: libgnome/gnome-program.c:558
+#: libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "พรีฟิกซ์ของที่เก็บค่าตั้งที่ GNOME ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:568
+#: libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "App Prefix ของ GNOME"
 
-#: libgnome/gnome-program.c:569
+#: libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "พรีฟิกซ์ที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:577
+#: libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "App Libdir ของ GNOME"
 
-#: libgnome/gnome-program.c:578
+#: libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "พรีฟิกซ์ของที่เก็บไลบรารีที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:587
+#: libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "App Datadir ของ GNOME"
 
-#: libgnome/gnome-program.c:588
+#: libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "พรีฟิกซ์ของที่เก็บข้อมูลที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:597
+#: libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "App Sysconfdir ของ GNOME"
 
-#: libgnome/gnome-program.c:598
+#: libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "พรีฟิกซ์ของที่เก็บค่าตั้งที่โปรแกรมนี้ถูกติดตั้งไว้"
 
-#: libgnome/gnome-program.c:607
+#: libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "สร้างโฟลเดอร์"
 
-#: libgnome/gnome-program.c:608
+#: libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "สร้างโฟลเดอร์มาตรฐานของ GNOME เมื่อเริ่มทำงาน"
 
-#: libgnome/gnome-program.c:617
+#: libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "เปิดเสียง"
 
-#: libgnome/gnome-program.c:618
+#: libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "เปิดการใช้งานเสียงเมื่อเริ่มทำงาน"
 
-#: libgnome/gnome-program.c:626
+#: libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: libgnome/gnome-program.c:627
+#: libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "วิธีติดต่อ esd"
 
-#: libgnome/gnome-program.c:1390
+#: libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "ตัวเลือกของวิธีใช้"
 
-#: libgnome/gnome-program.c:1395
+#: libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "ตัวเลือกของโปรแกรม"
 
-#: libgnome/gnome-program.c:1411
+#: libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "รายการมอดูลที่จะโหลด"
 
-#: libgnome/gnome-program.c:1412
+#: libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULE1,MODULE2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: libgnome/gnome-program.c:1630
+#: libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -436,8 +442,8 @@ msgid "Key %s not found in configuration"
 msgstr "ไม่พบคีย์ %s ในค่าตั้ง"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "บี๊บถ้าปุ่มใช้ร่วมถูกกด"
+msgid "Beep when a modifier is pressed."
+msgstr "บี๊บถ้าปุ่มประกอบถูกกด"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
@@ -445,7 +451,7 @@ msgstr "เลิกใช้ถ้าสองปุ่มถูกกดพร
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+"Do not accept a key as being pressed unless held for @delay milliseconds."
 msgstr "รับสัญญาณการกดปุ่มต่อเมื่อปุ่มถูกกดค้างไว้ @delay มิลลิวินาที"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
@@ -453,20 +459,20 @@ msgid "How long to accelerate in milliseconds"
 msgstr "ใช้เวลากี่มิลลิวินาที่ในการเร่งความเร็ว"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
 msgstr "ใช้เวลากี่มิลลิวินาทีในการเร่งจาก 0 ไปความเร็วสูงสุด"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+"How many milliseconds to wait before mouse movement keys start to operate."
 msgstr "คอยกี่มิลลิวินาทีก่อนที่ปุ่มบังคับเมาส์จะเริ่มทำงาน"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "How many pixels per second to move at the maximum speed"
+msgid "How many pixels per second to move at the maximum speed."
 msgstr "ความเร็วสูงสุดกี่พิกเซลต่อวินาที"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
 msgstr "ไม่สนใจปุ่มเดียวกันที่ถูกกดซ้ำภายใน @delay มิลลิวินาที"
 
 #: schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
@@ -488,7 +494,7 @@ msgstr "ช่วงเวลาสั้นสุด เป็นมิลล�
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
 "List of assistive technology applications to start when logging into the "
-"GNOME desktop"
+"GNOME desktop."
 msgstr "รายการของโปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกที่จะเริ่มใช้เมื่อเข้าสู่ระบบ GNOME"
 
 #: schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
@@ -498,7 +504,7 @@ msgstr "โปรแกรมเทคโนโลยีสิ่งอำนว
 #: schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
-"login"
+"login."
 msgstr ""
 "ให้ GNOME เรียกโปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับอุปกรณ์ติดตามตัวที่เลือกไว้ "
 "เมื่อเข้าระบบ"
@@ -510,7 +516,7 @@ msgstr "โปรแกรมเทคโนโลยีสิ่งอำนว
 #: schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
-"menu, or command line"
+"menu, or command line."
 msgstr ""
 "โปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับอุปกรณ์ติดตามตัวที่เลือกใช้ สำหรับการเข้าระบบ เมนู "
 "หรือบรรทัดคำสั่ง"
@@ -521,7 +527,8 @@ msgstr "เรียกโปรแกรมเทคโนโลยีสิ่
 
 #: schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid ""
-"GNOME to start preferred Visual assistive technology application during login"
+"GNOME to start preferred Visual assistive technology application during "
+"login."
 msgstr ""
 "ให้ GNOME เรียกโปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับสายตาที่เลือกไว้ เมื่อเข้าระบบ"
 
@@ -532,7 +539,7 @@ msgstr "โปรแกรมเทคโนโลยีสิ่งอำนว
 #: schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
-"or command line"
+"or command line."
 msgstr ""
 "โปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับสายตาที่เลือกใช้ สำหรับการเข้าระบบ เมนู "
 "หรือบรรทัดคำสั่ง"
@@ -546,7 +553,6 @@ msgid "Browser needs terminal"
 msgstr "เบราว์เซอร์ต้องใช้เทอร์มินัล"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "เบราว์เซอร์เข้าใจรีโมต"
 
@@ -555,32 +561,16 @@ msgid "Default browser"
 msgstr "เบราว์เซอร์ปริยาย"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
+msgid "Default browser for all URLs."
 msgstr "เบราว์เซอร์ที่ใช้สำหรับเปิด URL ถ้าไม่ได้เจาะจงใช้เบราว์เซอร์อื่น"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
+msgid "Whether the default browser needs a terminal to run."
 msgstr "เบราว์เซอร์ปริยายต้องใช้เทอร์มินัลหรือไม่"
 
 #: schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
-msgstr "กำหนดว่าเบราว์เซอร์เข้าใจ netscape remote หรือไม่"
-
-#: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "โปรแกรมแสดงวิธีใช้ปริยาย"
-
-#: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "โปรแกรมแสดงวิธีใช้ต้องใช้ terminal"
-
-#: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "โปรแกรมแสดงวิธีใช้ปริยายรับ URL หรือไม่"
-
-#: schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
-msgstr "โปรแกรมแสดงวิธีใช้ปริยายต้องใช้เทอร์มินัลหรือไม่"
+msgid "Whether the default browser understands netscape remote."
+msgstr "กำหนดว่าเบราว์เซอร์ปริยายเข้าใจ netscape remote หรือไม่"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -596,8 +586,8 @@ msgid "Terminal application"
 msgstr "โปรแกรมเทอร์มินัล"
 
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr "โปรแกรมเทอร์มินัลสำหรับโปรแกรมที่ต้องใช้เทอร์มินัล"
+msgid "Terminal program to use when starting applications that require one."
+msgstr "โปรแกรมเทอร์มินัลที่จะใช้สำหรับโปรแกรมที่ต้องใช้เทอร์มินัล"
 
 #: schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
@@ -660,17 +650,17 @@ msgid "Draw Desktop Background"
 msgstr "วาดพื้นหลังของพื้นโต๊ะ"
 
 #: schemas/desktop_gnome_background.schemas.in.in.h:4
-msgid "File to use for the background image"
+msgid "File to use for the background image."
 msgstr "แฟ้มที่จะใช้เป็นรูปพื้นหลัง"
 
 #: schemas/desktop_gnome_background.schemas.in.in.h:5
-msgid "Have GNOME draw the desktop background"
+msgid "Have GNOME draw the desktop background."
 msgstr "ให้ GNOME เป็นผู้วาดพื้นหลังของพื้นโต๊ะ"
 
 #: schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
-"\", \"vertical-gradient\", and \"solid\""
+"\", \"vertical-gradient\", and \"solid\"."
 msgstr ""
 "จะไล่สีพื้นหลังอย่างไร  สามารถตั้งเป็น \"horizontal-gradient\" \"vertical-gradient\" "
 "หรือ \"solid\""
@@ -680,7 +670,7 @@ msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "สีเดียวที่ใช้ หรือสีซ้ายหรือสีบนถ้าไล่แถบสี "
 
 #: schemas/desktop_gnome_background.schemas.in.in.h:8
-msgid "Opacity with which to draw the background picture"
+msgid "Opacity with which to draw the background picture."
 msgstr "ความโปร่งแสงสำหรับรูปพื้นหลัง"
 
 #: schemas/desktop_gnome_background.schemas.in.in.h:9
@@ -712,7 +702,7 @@ msgid "File Icon Theme"
 msgstr "ชุดไอคอนแฟ้ม"
 
 #: schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
+msgid "Theme used for displaying file icons."
 msgstr "ชุดไอคอนสำหรับใช้แสดงเป็นตัวแทนแฟ้ม"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:1
@@ -725,11 +715,11 @@ msgstr "สามารถเปลี่ยนคีย์ด่วนได้
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
-msgstr "กะพริบตัวชี้"
+msgstr "กะพริบเคอร์เซอร์"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink Time"
-msgstr "ช่วงการกะพริบของตัวชี้"
+msgstr "ช่วงการกะพริบของเคอร์เซอร์"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Default font"
@@ -748,54 +738,58 @@ msgid "Enable Animations"
 msgstr "ใช้ภาพเคลื่อนไหว"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "มอดูล GTK IM"
+
+#: schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "รูปแบบ Preedit ของ GTK IM"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "รูปแบบของสถานะของ GTK IM"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "ชุดตกแต่ง Gtk+"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "ชุดตกแต่งไอคอน"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "ชุดไอคอนสำหรับใช้ในพาเนล nautilus ฯลฯ"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "ปุ่มลัดที่จะใช้เปิดแถบเมนู"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:15
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "จำนวนมิลลิวินาทีที่ตัวชี้ใช้ในการกะพริบหนึ่งรอบ"
-
 #: schemas/desktop_gnome_interface.schemas.in.in.h:16
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "จังหวะการกะพริบของเคอร์เซอร์ เป็นมิลลิวินาที"
+
+#: schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "ดึงแถบเมนูออกมาได้"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "คีย์ด่วนเรียกเมนู"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "เมนูมีไอคอน"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "เมนูมีแถบดึงออก"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "มอดูลสำหรับ GtkFileChooser"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:21
+#: schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -803,127 +797,133 @@ msgstr ""
 "มอดูลที่จะใช้จัดการระบบแฟ้มสำหรับวิดเจ็ต GtkFileChooser ค่าที่เป็นไปได้คือ \"gnome-vfs\" "
 "และ \"gtk+\""
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:22
+#: schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "แบบอักษรพิมพ์ดีด"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:23
+#: schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "ชื่อแบบอักษรพิมพ์ดีด (ความกว้างคงที่) สำหรับใช้โปรแกรมที่ต้องใช้ (เช่น เทอร์มินัล)"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "ชื่อของรูปแบบ Preedit ของกรรมวิธีป้อนข้อความที่จะใช้ใน GTK+"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "ชื่อของรูปแบบสถานะของกรรมวิธีป้อนข้อความที่จะใช้ใน GTK+"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "ชื่อแบบอักษรปริยายสำหรับ gtk+"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:27
-msgid "Name of the default font used for reading documents"
+#: schemas/desktop_gnome_interface.schemas.in.in.h:28
+msgid "Name of the default font used for reading documents."
 msgstr "ชื่อแบบอักษรปริยายสำหรับอ่านเอกสารต่างๆ"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:28
+#: schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "ชื่อของมอดูลกรรมวิธีป้อนข้อความที่จะใช้ใน GTK+"
+
+#: schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "แสดงเมนู 'วิธีป้อนข้อความ'"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "แสดงเมนู 'อักขระควบคุมของยูนิโค้ด'"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: schemas/desktop_gnome_interface.schemas.in.in.h:32
+msgid ""
+"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr ""
+"ขนาดของไอคอนในแถบเครื่องมือ เป็นค่า \"small-toolbar\" หรือ \"large-toolbar\""
+
+#: schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr "แถบสถานะอยู่ด้านขวา"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:31
-msgid "This specifies the size of icons displayed in toolbars"
-msgstr "บอกขนาดของไอคอนที่จะแสดงในแถบเครื่องมือ"
-
-#: schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "ดึงแถบเครื่องมือออกมาได้"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "ขนาดไอคอนในแถบเครื่องมือ"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "รูปแบบแถบเครื่องมือ"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:35
+#: schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
-"\"text\""
+"\"text\"."
 msgstr ""
-"รูปแบบแถบเครื่องมือ สามารถตั้งเป็น \"both\", \"both_horiz\" \"icons\" หรือ \"text\""
+"รูปแบบแถบเครื่องมือ สามารถตั้งเป็น \"both\", \"both-horiz\" \"icons\" หรือ \"text\""
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "ใช้แบบอักษรตั้งเอง"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Whether Applications should have accessibility support"
-msgstr "โปรแกรมควรจะใช้สิ่งอำนวยความสะดวกหรือไม่"
+#: schemas/desktop_gnome_interface.schemas.in.in.h:39
+msgid "Whether Applications should have accessibility support."
+msgstr "กำหนดว่าโปรแกรมควรจะใช้สิ่งอำนวยความสะดวกหรือไม่"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
 msgstr ""
-"ควรจะแสดงภาพเคลื่อนไหวหรือไม่  หมายเหตุ: นี่เป็นคีย์ส่วนกลางที่ใช้ร่วมสำหรับ พาเนล "
+"กำหนดว่าควรจะแสดงภาพเคลื่อนไหวหรือไม่  หมายเหตุ: นี่เป็นคีย์ส่วนกลางที่ใช้ร่วมสำหรับ พาเนล "
 "โปรแกรมจัดการหน้าต่าง ฯลฯ"
 
-#: schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "เมนูควรจะแสดงไอคอนข้างๆ รายการในเมนูหรือไม่"
-
-#: schemas/desktop_gnome_interface.schemas.in.in.h:40
-msgid "Whether menus should have a tearoff"
-msgstr "เมนูสามารถดึงออกมาได้หรือไม่"
-
 #: schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid ""
-"Whether the context menus of entries and text views should offer to change "
-"the input method"
-msgstr "จะให้เมนูบริบทของช่องป้อนข้อความแสดงเมนูสำหรับเปลี่ยนวิธีป้อนข้อความหรือไม่"
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "กำหนดว่าเมนูจะแสดงไอคอนข้างๆ รายการในเมนูหรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid ""
-"Whether the context menus of entries and text views should offer to insert "
-"control characters"
-msgstr "จะให้เมนูบริบทของช่องป้อนข้อความแสดงเมนูสำหรับแทรกอักขระควบคุมหรือไม่"
+msgid "Whether menus should have a tearoff."
+msgstr "กำหนดว่าเมนูสามารถดึงออกมาได้หรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the cursor should blink"
-msgstr "ตัวชี้ควรจะกะพริบหรือไม่"
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method."
+msgstr "กำหนดว่าจะให้เมนูบริบทของช่องป้อนข้อความแสดงเมนูสำหรับเปลี่ยนวิธีป้อนข้อความหรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the user can detach menubars and move them around"
-msgstr "ผู้ใช้สามารถดึงแถบเมนูออกมาใช้ข้างนอกหน้าต่างได้หรือไม่"
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters."
+msgstr "กำหนดว่าจะให้เมนูบริบทของช่องป้อนข้อความแสดงเมนูสำหรับแทรกอักขระควบคุมหรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "ผู้ใช้สามารถดึงแถบเครื่องมือออกมาใช้ข้างนอกหน้าต่างได้หรือไม่"
+msgid "Whether the cursor should blink."
+msgstr "กำหนดว่าเคอร์เซอร์จะกะพริบหรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid ""
-"Whether the user can dynamically type a new accelerator when positioned over "
-"an active menuitem"
-msgstr "ผู้ใช้สามารถตั้งคีย์ด่วนเมื่อเมาส์ชี้ที่รายการเมนูที่เปิดใช้งานอยู่ได้หรือไม่"
+msgid "Whether the user can detach menubars and move them around."
+msgstr "กำหนดว่าผู้ใช้สามารถดึงแถบเมนูออกมาใช้นอกหน้าต่างได้หรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether to display a status bar meter on the right"
-msgstr "ควรจะแสดงแถบสถานะไว้ด้านขวาหรือไม่"
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "กำหนดว่าผู้ใช้สามารถดึงแถบเครื่องมือออกมาใช้นอกหน้าต่างได้หรือไม่"
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:48
+msgid ""
+"Whether the user can dynamically type a new accelerator when positioned over "
+"an active menuitem."
+msgstr "กำหนดว่าผู้ใช้สามารถตั้งคีย์ด่วนเมื่อเมาส์ชี้ที่รายการเมนูที่เปิดใช้งานอยู่ได้หรือไม่"
+
+#: schemas/desktop_gnome_interface.schemas.in.in.h:49
+msgid "Whether to display a status bar meter on the right."
+msgstr "กำหนดว่าจะแสดงแถบสถานะไว้ด้านขวาหรือไม่"
+
+#: schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "จะใช้แบบอักษรตั้งเองในโปรแกรม gtk+ หรือไม่"
+msgstr "กำหนดว่าจะใช้แบบอักษรตั้งเองในโปรแกรม gtk+ หรือไม่"
 
 #: schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
@@ -991,7 +991,7 @@ msgid "Prevent the user to lock his screen."
 msgstr "ป้องกันไม่ให้ผู้ใช้ล็อคจอภาพ"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
+msgid "File name of the bell sound to be played."
 msgstr "ชื่อแฟ้มเสียงระฆังที่จะเล่น"
 
 #: schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
@@ -1038,7 +1038,7 @@ msgid ""
 msgstr "ชื่อชุดตกแต่งตัวชี้ ใช้กับ X server ที่สนับสนุน Xcursor เช่น XFree86 4.3 ขึ้นไปเท่านั้น"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
+msgid "Distance before a drag is started."
 msgstr "ระยะก่อนที่จะเริ่มลาก"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
@@ -1069,11 +1069,11 @@ msgstr ""
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
-"pressed and released"
+"pressed and released."
 msgstr "เน้นตำแหน่งของตัวชี้เมื่อปุ่ม Control ถูกกดแล้วปล่อย"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
+msgid "Length of a double click."
 msgstr "ความเร็วดับเบิลคลิก"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
@@ -1093,7 +1093,7 @@ msgid "Single Click"
 msgstr "คลิกเดียว"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
+msgid "Single click to open icons."
 msgstr "เปิดไอคอนด้วยคลิกเดียว"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
@@ -1101,7 +1101,7 @@ msgid "Size of the cursor referenced by cursor_theme."
 msgstr "ขนาดของตัวชี้ที่อ้างโดย cursor_theme"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
+msgid "Swap left and right mouse buttons for left-handed mice."
 msgstr "สลับปุ่มซ้ายและขวาของเมาส์ สำหรับผู้ถนัดซ้าย"
 
 #: schemas/desktop_gnome_sound.schemas.in.h:1
@@ -1179,6 +1179,21 @@ msgstr "จะล็อคแป้นพิมพ์หรือไม่"
 #: schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "จะให้เลื่อนการพักพิมพ์ออกไปได้หรือไม่"
+
+#~ msgid "Default help viewer"
+#~ msgstr "โปรแกรมแสดงวิธีใช้ปริยาย"
+
+#~ msgid "Help viewer needs terminal"
+#~ msgstr "โปรแกรมแสดงวิธีใช้ต้องใช้ terminal"
+
+#~ msgid "Whether the default help viewer accepts URLs"
+#~ msgstr "โปรแกรมแสดงวิธีใช้ปริยายรับ URL หรือไม่"
+
+#~ msgid "Whether the default help viewer needs a terminal to run"
+#~ msgstr "โปรแกรมแสดงวิธีใช้ปริยายต้องใช้เทอร์มินัลหรือไม่"
+
+#~ msgid "This specifies the size of icons displayed in toolbars"
+#~ msgstr "บอกขนาดของไอคอนที่จะแสดงในแถบเครื่องมือ"
 
 #~ msgid "Unknown error code: %u"
 #~ msgstr "รหัสผิดพลาดที่ไม่รู้จัก: %u"
