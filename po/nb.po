@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.13.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-08 10:12+0100\n"
-"PO-Revision-Date: 2008-01-08 10:14+0100\n"
+"POT-Creation-Date: 2008-02-10 13:47+0100\n"
+"PO-Revision-Date: 2008-02-10 13:48+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -66,12 +66,12 @@ msgstr "Kryss av i avkrysningsboks"
 msgid "User interface events"
 msgstr "Hendelser angående brukergrensesnittet"
 
-#: ../libgnome/gnome-exec.c:457
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Kan ikke finne en terminal, bruker xterm selv om den kanskje ikke virker"
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf støtte"
 
@@ -127,56 +127,56 @@ msgstr "Støtte for Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Støtte for aktivering via Bonobo"
 
-#: ../libgnome/gnome-init.c:386 ../libgnome/gnome-init.c:400
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Kunn ikke opprette per-bruker konfigurasjonskatalog «%s»: %s\n"
 
-#: ../libgnome/gnome-init.c:408
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr "Kunne ikke kjøre stat() på brukers konfigurasjonskatalog «%s»: %s\n"
 
-#: ../libgnome/gnome-init.c:416
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Kunne ikke sette modus 0700 på privat brukerspesifikk konfigurasjonskatalog "
-"«%s»: %s\n"
+"Kunne ikke sette modus 0700 på privat brukerspesifikk konfigurasjonskatalog «%"
+"s»: %s\n"
 
-#: ../libgnome/gnome-init.c:423
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Kunne ikke opprette katalog «%s» for snarveitaster i GNOME: %s\n"
 
-#: ../libgnome/gnome-init.c:462
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME virtuelt filsystem"
 
-#: ../libgnome/gnome-init.c:480 ../libgnome/gnome-init.c:523
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "Slå av bruk av lydtjener"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "Slå på bruk av lydtjener"
 
-#: ../libgnome/gnome-init.c:487 ../libgnome/gnome-init.c:529
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "Vert:port hvor lydtjeneren som skal brukes kjører"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:531
+#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "VERTSNAVN:PORT"
 
-#: ../libgnome/gnome-init.c:497 ../libgnome/gnome-init.c:541
+#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "GNOME bibliotek"
 
-#: ../libgnome/gnome-init.c:498
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "Vis GNOME flagg"
 
@@ -218,7 +218,7 @@ msgstr "Lesbart navn"
 
 #: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
-msgstr "Lebart navn for denne applikasjonen"
+msgstr "Lebart navn for dette programmet"
 
 #: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
@@ -234,15 +234,15 @@ msgstr "App-ID"
 
 #: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
-msgstr "ID-streng som skal brukes for denne applikasjonen"
+msgstr "ID-streng som skal brukes for dette programmet"
 
 #: ../libgnome/gnome-program.c:520
 msgid "App version"
-msgstr "Versjon av applikasjon"
+msgstr "Versjon av program"
 
 #: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
-msgstr "Versjon for denne applikasjonen"
+msgstr "Versjon for dette programmet"
 
 #: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
@@ -282,7 +282,7 @@ msgstr "GNOME app prefiks"
 
 #: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
-msgstr "Prefiks hvor denne applikasjonen er installert"
+msgstr "Prefiks hvor dette programmet er installert"
 
 #: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
@@ -290,7 +290,7 @@ msgstr "GNOME app libdir"
 
 #: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
-msgstr "Prefiks for biblioteker for denne applikasjonen"
+msgstr "Prefiks for biblioteker for dette programmet"
 
 #: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
@@ -298,7 +298,7 @@ msgstr "GNOME app datadir"
 
 #: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
-msgstr "Prefiks for data for denne applikasjonen"
+msgstr "Prefiks for data for dette programmet"
 
 #: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
@@ -306,7 +306,7 @@ msgstr "GNOME app sysconfdir"
 
 #: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
-msgstr "Prefiks for konfigurasjonsfiler for denne applikasjonen"
+msgstr "Prefiks for konfigurasjonsfiler for dette programmet"
 
 #: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
@@ -338,7 +338,7 @@ msgstr "Hjelp-alternativ"
 
 #: ../libgnome/gnome-program.c:1398
 msgid "Application options"
-msgstr "Applikasjonsalternativer"
+msgstr "Alternativer for programmer"
 
 #: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
@@ -459,7 +459,8 @@ msgstr "Deaktiver hvis to taster trykkes ned samtidig."
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds."
-msgstr "Ikke godta en tast som nedtrykket før den holdes minst @delay millisekunder."
+msgstr ""
+"Ikke godta en tast som nedtrykket før den holdes minst @delay millisekunder."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
@@ -472,7 +473,8 @@ msgstr "Antall millisekunder det tar å gå fra 0 til maksimal hastighet."
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate."
-msgstr "Antall millisekunder ventetid før taster for musbevegelse begynner å virke."
+msgstr ""
+"Antall millisekunder ventetid før taster for musbevegelse begynner å virke."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "How many pixels per second to move at the maximum speed."
@@ -502,17 +504,20 @@ msgstr "minste intervall i millisekunder"
 msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop."
-msgstr "Liste over applikasjoner med hjelpende teknologi som skal startes ved innlogging til GNOME skrivebordet."
+msgstr ""
+"Liste over programmer med hjelpeteknologi som skal startes ved "
+"innlogging til GNOME skrivebordet."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
-msgstr "Oppstart av applikasjoner med hjelpende teknologi"
+msgstr "Oppstart av programmer med hjelpeteknologi"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
 "login."
-msgstr "GNOME skal starte foretrukket hjelpeteknologi for mobilitet ved innlogging."
+msgstr ""
+"GNOME skal starte foretrukket hjelpeteknologi for mobilitet ved innlogging."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
@@ -522,7 +527,9 @@ msgstr "Foretrukket program for hjelpeteknologi for mobilitet"
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
 "menu, or command line."
-msgstr "Foretrukket hjelpeteknologi for bevegelseshemmede som skal brukes ved innlogging, meny, eller kommandolinje."
+msgstr ""
+"Foretrukket hjelpeteknologi for bevegelseshemmede som skal brukes ved "
+"innlogging, meny, eller kommandolinje."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
@@ -532,7 +539,9 @@ msgstr "Oppstart av foretrukket hjelpeteknologi for mobilitet"
 msgid ""
 "GNOME to start preferred Visual assistive technology application during "
 "login."
-msgstr "Om foretrukket hjelpeteknologi for tilgjengelighet for svaksynte skal startes av GNOME ved innlogging."
+msgstr ""
+"Om foretrukket hjelpeteknologi for tilgjengelighet for svaksynte skal "
+"startes av GNOME ved innlogging."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
@@ -543,11 +552,13 @@ msgstr ""
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
 "or command line."
-msgstr "Foretrukket hjelpeteknologi for synshemmede som skal brukes ved innlogging, meny, eller kommandolinje."
+msgstr ""
+"Foretrukket hjelpeteknologi for synshemmede som skal brukes ved innlogging, "
+"meny, eller kommandolinje."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
-msgstr "Oppstart av applikasjoner med hjelpende teknologi"
+msgstr "Oppstart av programmer med hjelpeteknologi"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -573,6 +584,38 @@ msgstr "Om forvalgt leser trenger en terminal for å kjøre."
 msgid "Whether the default browser understands netscape remote."
 msgstr "Om forvalgt leser forstår netscape remote-protokollen."
 
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "Kalender trenger terminal"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "Forvalgt kalender"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "Forvalgt kalenderprogram"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "Forvalgte oppgaver"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "Forvalgt oppgaveprogram"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "Oppgaver trenger terminal"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "Om forvalgt kalenderprogram trenger en terminal for å kjøre."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "Om forvalgt oppgaveprogram trenger en terminal for å kjøre."
+
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
@@ -586,11 +629,12 @@ msgstr "Kjøringsflagg"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:3
 msgid "Terminal application"
-msgstr "Terminal-applikasjon"
+msgstr "Terminalprogram"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one."
-msgstr "Terminalprogram som skal brukes ved oppstart av programmer som krever det."
+msgstr ""
+"Terminalprogram som skal brukes ved oppstart av programmer som krever det."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
@@ -668,7 +712,9 @@ msgstr "La GNOME tegne skrivebordsbakgrunnen."
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\"."
-msgstr "Hvordan bakgrunnsfargen skal skyggelegges. Mulige verdier er «horizontal-gradient», «vertical-gradient» og «solid»."
+msgstr ""
+"Hvordan bakgrunnsfargen skal skyggelegges. Mulige verdier er «horizontal-"
+"gradient», «vertical-gradient» og «solid»."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -846,7 +892,9 @@ msgstr "Vis menyen «Unicode kontrolltegn»"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid ""
 "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
-msgstr "Størrelse på ikoner på verktøylinjen. Enten «small-toolbar» eller «large-toolbar»."
+msgstr ""
+"Størrelse på ikoner på verktøylinjen. Enten «small-toolbar» eller «large-"
+"toolbar»."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
@@ -868,7 +916,8 @@ msgstr "Stil for verktøylinjen"
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\"."
-msgstr "Stil for verktøylinje. Gyldige verdier er «both», «both-horiz», «icon» og «text»."
+msgstr ""
+"Stil for verktøylinje. Gyldige verdier er «both», «both-horiz», «icon» og «text»."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
@@ -876,7 +925,7 @@ msgstr "Bruk egendefinert skrift."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Whether Applications should have accessibility support."
-msgstr "Om applikasjoner skal ha støtte for tilgjengelighet."
+msgstr "Om programmer skal ha støtte for tilgjengelighet."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid ""
@@ -898,13 +947,17 @@ msgstr "Om menyer skal kunne rives løs."
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method."
-msgstr "Om kontekstmeny for oppføringer og tekstvisninger skal vise alternativer for å bytte inndatametode."
+msgstr ""
+"Om kontekstmeny for oppføringer og tekstvisninger skal vise alternativer for "
+"å bytte inndatametode."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters."
-msgstr "Om kontekstmeny for oppføringer og tekstvisninger skal vise alternativer for å sette inn Unicode kontrolltegn."
+msgstr ""
+"Om kontekstmeny for oppføringer og tekstvisninger skal vise alternativer for "
+"å sette inn Unicode kontrolltegn."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the cursor should blink."
@@ -922,7 +975,9 @@ msgstr "Om bruker kan ta løs verktøylinjer og flytte dem rundt."
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem."
-msgstr "Om bruker kan oppgi en snarveitast dynamisk når markøren er plassert over en aktiv menyoppføring."
+msgstr ""
+"Om bruker kan oppgi en snarveitast dynamisk når markøren er plassert over en "
+"aktiv menyoppføring."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
 msgid "Whether to display a status bar meter on the right."
@@ -930,7 +985,7 @@ msgstr "Om statuslinje skal vises til høyre."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "Om en skal bruke en egendefinert skrift i gtk+-applikasjoner."
+msgstr "Om egendefinert skrift skal brukes i gtk+-programmer."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
@@ -964,7 +1019,7 @@ msgid ""
 msgstr ""
 "Forhindre bruker fra å aksessere terminalen eller oppgi en kommandolinje som "
 "skal kjøres. Dette vil for eksempel deaktivere tilgang til panelets «Kjør "
-"applikasjon»-dialog."
+"program»-dialog."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
@@ -972,7 +1027,7 @@ msgid ""
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
 "Hindre at bruker endrer innstillinger for skrivere. Dette vil for eksempel "
-"deaktivere tilgang til «Skriveroppsett»-dialoger i alle applikasjoner."
+"deaktivere tilgang til «Skriveroppsett»-dialoger i alle programmer."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
@@ -980,7 +1035,7 @@ msgid ""
 "all applications' \"Print\" dialogs."
 msgstr ""
 "Hindre at bruker skriver ut dokumenter. Dette vil for eksempel deaktivere "
-"tilgang til «Skriv ut»-dialogene i alle applikasjoner."
+"tilgang til «Skriv ut»-dialogene i alle programmer."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
@@ -988,7 +1043,7 @@ msgid ""
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
 "Hindre at bruker lagrer filer til disk. Dette vil for eksempel deaktivere "
-"«Lagre som»-dialogen i alle applikasjoner."
+"«Lagre som»-dialogen i alle programmer."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
@@ -1086,7 +1141,8 @@ msgstr ""
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released."
-msgstr "Uthever pekerens nåværende plassering når Ctrl-tasten trykkes ned og slippes."
+msgstr ""
+"Uthever pekerens nåværende plassering når Ctrl-tasten trykkes ned og slippes."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click."
