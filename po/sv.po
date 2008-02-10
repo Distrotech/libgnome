@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-15 01:30+0100\n"
-"PO-Revision-Date: 2008-01-15 01:36+0100\n"
+"POT-Creation-Date: 2008-02-10 18:52+0100\n"
+"PO-Revision-Date: 2008-02-10 18:53+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -68,11 +68,11 @@ msgstr "Välj kryssruta"
 msgid "User interface events"
 msgstr "Händelser i användargränssnitt"
 
-#: ../libgnome/gnome-exec.c:457
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "Kan inte hitta någon terminal, använder xterm, även om det kanske inte fungerar"
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "Stöd för GConf i GNOME"
 
@@ -121,58 +121,58 @@ msgstr "Bonobo-stöd"
 msgid "Bonobo activation Support"
 msgstr "Bonobo-activation-stöd"
 
-#: ../libgnome/gnome-init.c:386
-#: ../libgnome/gnome-init.c:400
+#: ../libgnome/gnome-init.c:382
+#: ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Kunde inte skapa användarspecifik gnome-konfigurationskatalog \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:408
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr "Kunde inte få status om privata, per-användare, gnome-konfigurationskatalogen \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:416
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid "Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
 msgstr "Kunde inte ändra rättigheterna till 0700 på den användarspecifika gnome-konfigurationskatalogen \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:423
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Kunde inte skapa katalogen \"%s\" för kortkommandon i gnome: %s\n"
 
-#: ../libgnome/gnome-init.c:462
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "Virtuellt GNOME-filsystem"
 
 # SUN CHANGED MESSAGE
-#: ../libgnome/gnome-init.c:480
-#: ../libgnome/gnome-init.c:523
+#: ../libgnome/gnome-init.c:476
+#: ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "Inaktivera användning av ljudserver"
 
-#: ../libgnome/gnome-init.c:483
-#: ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:479
+#: ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "Aktivera användning av ljudserver"
 
-#: ../libgnome/gnome-init.c:487
-#: ../libgnome/gnome-init.c:529
+#: ../libgnome/gnome-init.c:483
+#: ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "Värd:port på vilken ljudservern som ska användas kör"
 
-#: ../libgnome/gnome-init.c:488
-#: ../libgnome/gnome-init.c:531
+#: ../libgnome/gnome-init.c:484
+#: ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "VÄRDNAMN:PORT"
 
-#: ../libgnome/gnome-init.c:497
-#: ../libgnome/gnome-init.c:541
+#: ../libgnome/gnome-init.c:493
+#: ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "GNOME-bibliotek"
 
-#: ../libgnome/gnome-init.c:498
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "Visa GNOME-flaggor"
 
@@ -547,6 +547,38 @@ msgstr "Huruvida standardwebbläsaren behöver en terminal för att köra."
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote."
 msgstr "Huruvida standardwebbläsaren förstår netscape-fjärr."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "Kalender behöver terminal"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "Standardkalender"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "Standardprogram för kalender"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "Standarduppgifter"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "Standardprogram för uppgifter"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "Uppgifter behöver terminal"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "Huruvida standardprogram för kalender behöver en terminal för att köra"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "Huruvida standardprogram för uppgifter behöver en terminal för att köra"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
