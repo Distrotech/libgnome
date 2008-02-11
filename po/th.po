@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-25 14:57+0700\n"
-"PO-Revision-Date: 2008-01-25 15:22+0700\n"
+"POT-Creation-Date: 2008-02-11 14:06+0700\n"
+"PO-Revision-Date: 2008-02-11 14:10+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -77,7 +77,7 @@ msgstr "ไม่พบเทอร์มินัล จะลองใช้ x
 
 #: libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
-msgstr "การสนับสนุน GConf ของ GNOME"
+msgstr "การรองรับ GConf ของ GNOME"
 
 #: libgnome/gnome-help.c:170
 #, c-format
@@ -121,11 +121,11 @@ msgstr "ไม่พบเอกสารวิธีใช้ %s/%s"
 #. FIXME: get this from bonobo
 #: libgnome/gnome-init.c:92
 msgid "Bonobo Support"
-msgstr "การสนับสนุน Bonobo"
+msgstr "การรองรับ Bonobo"
 
 #: libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
-msgstr "การสนับสนุน Bonobo activation"
+msgstr "การรองรับ Bonobo activation"
 
 #: libgnome/gnome-init.c:382 libgnome/gnome-init.c:396
 #, c-format
@@ -572,6 +572,38 @@ msgstr "เบราว์เซอร์ปริยายต้องใช้
 msgid "Whether the default browser understands netscape remote."
 msgstr "กำหนดว่าเบราว์เซอร์ปริยายเข้าใจ netscape remote หรือไม่"
 
+#: schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "ปฏิทินต้องใช้เทอร์มินัล"
+
+#: schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "ปฏิทินปริยาย"
+
+#: schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "โปรแกรมปฏิทินปริยาย"
+
+#: schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "โปรแกรมงานปริยาย"
+
+#: schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "โปรแกรมรายการงานปริยาย"
+
+#: schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "โปรแกรมงานต้องใช้เทอร์มินัล"
+
+#: schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "ปฏิทินปริยายต้องใช้เทอร์มินัลหรือไม่"
+
+#: schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "โปรแกรมรายการงานปริยายต้องใช้เทอร์มินัลหรือไม่"
+
 #: schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
@@ -837,8 +869,7 @@ msgstr "แสดงเมนู 'อักขระควบคุมของ�
 #: schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid ""
 "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
-msgstr ""
-"ขนาดของไอคอนในแถบเครื่องมือ เป็นค่า \"small-toolbar\" หรือ \"large-toolbar\""
+msgstr "ขนาดของไอคอนในแถบเครื่องมือ เป็นค่า \"small-toolbar\" หรือ \"large-toolbar\""
 
 #: schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
@@ -1035,7 +1066,7 @@ msgstr "ชุดตกแต่งตัวชี้"
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
-msgstr "ชื่อชุดตกแต่งตัวชี้ ใช้กับ X server ที่สนับสนุน Xcursor เช่น XFree86 4.3 ขึ้นไปเท่านั้น"
+msgstr "ชื่อชุดตกแต่งตัวชี้ ใช้กับ X server ที่รองรับ Xcursor เช่น XFree86 4.3 ขึ้นไปเท่านั้น"
 
 #: schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started."
