@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.22\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-31 19:45+0000\n"
-"PO-Revision-Date: 2008-01-31 20:00+0000\n"
+"POT-Creation-Date: 2008-02-12 23:18+0000\n"
+"PO-Revision-Date: 2008-02-12 23:25+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -140,8 +140,8 @@ msgstr ""
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Incapaz de verificar directório de configuração por utilizador do gnome `%s': %"
-"s\n"
+"Incapaz de verificar directório de configuração por utilizador do gnome `%"
+"s': %s\n"
 
 #: ../libgnome/gnome-init.c:412
 #, c-format
@@ -577,11 +577,47 @@ msgstr "Navegador por omissão para todos os URLs."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run."
-msgstr "Se o navegador por omissão necessita de uma consola para ser executado."
+msgstr ""
+"Se o navegador por omissão necessita de uma consola para ser executado."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote."
 msgstr "Se o navegador por omissão compreende netscape remoto."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "Calendário necessita de consola"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "Calendário por omissão"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "Aplicação de calendário por omissão"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "Tarefas por omissão"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "Aplicação de tarefas por omissão"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "Tarefas necessitam de consola"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr ""
+"Se a aplicação de calendário por omissão necessita de uma consola para "
+"ser executada."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr ""
+"Se a aplicação de tarefas por omissão necessita de uma consola para ser executada."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -849,8 +885,7 @@ msgstr "Nome da fonte por omissão utilizada para ler documentos."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Name of the input method module used by GTK+."
-msgstr ""
-"Nome do módulo de método de introdução utilizado pelo GTK+."
+msgstr "Nome do módulo de método de introdução utilizado pelo GTK+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
