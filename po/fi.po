@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 1.109.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-31 17:58+0300\n"
+"POT-Creation-Date: 2008-02-13 15:12+0300\n"
 "PO-Revision-Date: 2007-02-12 18:48+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -71,11 +71,11 @@ msgstr "Valitse valintaruutu"
 msgid "User interface events"
 msgstr "Käyttöliittymätapahtumat"
 
-#: ../libgnome/gnome-exec.c:457
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "Päätettä ei löydy: xterm on oletuksena, vaikkei se välttämättä toimi"
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "GNOMEn GConf-tuki"
 
@@ -131,19 +131,18 @@ msgstr "Bonobo-tuki"
 msgid "Bonobo activation Support"
 msgstr "Bonobo-aktivointituki"
 
-#: ../libgnome/gnome-init.c:386 ../libgnome/gnome-init.c:400
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Käyttäjän Gnome-asetuskansion \"%s\" luonti epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:408
-#,  c-format
+#: ../libgnome/gnome-init.c:404
+#, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
-msgstr ""
-"Käyttäjän Gnome-asetuskansion \"%s\" havaitseminen epäonnistui: %s\n"
+msgstr "Käyttäjän Gnome-asetuskansion \"%s\" havaitseminen epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:416
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -152,209 +151,209 @@ msgstr ""
 "Käyttäjän yksityisen Gnome-asetuskansion \"%s\" oikeuksien asettaminen "
 "arvoon 0700 epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:423
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Gnomen pikanäppäinkansion \"%s\" luonti epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:462
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME-virtuaalitiedostojärjestelmä"
 
-#: ../libgnome/gnome-init.c:480 ../libgnome/gnome-init.c:523
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "Älä käytä äänipalvelinta."
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "Käytä äänipalvelinta."
 
-#: ../libgnome/gnome-init.c:487 ../libgnome/gnome-init.c:529
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "Palvelin:portti, jolla käytettävä äänipalvelin on käynnissä"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:531
+#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORTTI"
 
-#: ../libgnome/gnome-init.c:497 ../libgnome/gnome-init.c:541
+#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "GNOME-kirjasto"
 
-#: ../libgnome/gnome-init.c:498
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "Näytä Gnomen vaihtoehdot"
 
-#: ../libgnome/gnome-program.c:456
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "Popt-parametritaulu"
 
-#: ../libgnome/gnome-program.c:457
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "Taulukko popt-asetuksista"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "Popt-liput"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "Poptille välittyvät liput"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Popt-konteksti"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "Popt-kontekstiosoitin, jota GnomeProgram käyttää"
 
-#: ../libgnome/gnome-program.c:482
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "GOption-konteksti"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "GOption-kontekstiosoitin, jota GnomeProgram käyttää"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "Selväkielinen nimi"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "Tämän ohjelman selväkielinen nimi"
 
-#: ../libgnome/gnome-program.c:501
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "GNOME-polku"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "Mistä polusta etsiä asennettuja tiedostoja"
 
-#: ../libgnome/gnome-program.c:511
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "Ohjelman ID"
 
-#: ../libgnome/gnome-program.c:512
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "Tämän ohjelman ID-merkkijono"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "Ohjelman versio"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "Tämän ohjelman versio"
 
-#: ../libgnome/gnome-program.c:527
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "GNOME-etuliite"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "Etuliite, jonne GNOME on asennettu"
 
-#: ../libgnome/gnome-program.c:537
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "GNOME-kirjastokansio"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "Kirjastoetuliite, jonne GNOME on asennettu"
 
-#: ../libgnome/gnome-program.c:547
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "GNOME-datakansio"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "Dataetuliite, jonne GNOME on asennettu"
 
-#: ../libgnome/gnome-program.c:557
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "GNOME-järjestelmäasetuskansio"
 
-#: ../libgnome/gnome-program.c:558
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Asetusetuliite, jonne GNOME on asennettu"
 
-#: ../libgnome/gnome-program.c:568
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "GNOME-sovellusetuliite"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "Etuliite, jonne tämä sovellus on asennettu"
 
-#: ../libgnome/gnome-program.c:577
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "GNOME-ohjelman kirjastokansio"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "Kirjastoetuliite, jonne tämä sovellus on asennettu"
 
-#: ../libgnome/gnome-program.c:587
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "GNOME-ohjelman datakansio"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "Dataetuliite, jonne tämä sovellus on asennettu"
 
-#: ../libgnome/gnome-program.c:597
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME-ohjelman järjestelmäasetuskansio"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "Asetusetuliite, jonne tämä sovellus on asennettu"
 
-#: ../libgnome/gnome-program.c:607
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "Luo kansiot"
 
-#: ../libgnome/gnome-program.c:608
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "Luo GNOMEn standardikansiot käynnistyessä"
 
-#: ../libgnome/gnome-program.c:617
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "Käytä ääntä"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "Käytä ääniä käynnistyttyä"
 
-#: ../libgnome/gnome-program.c:626
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:627
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "Miten saada yhteys esd:hen"
 
-#: ../libgnome/gnome-program.c:1390
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "Ohjevalitsimet"
 
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "Sovelluksen valitsimet"
 
-#: ../libgnome/gnome-program.c:1411
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "Ladattavat dynaamiset moduulit"
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUULI1,MODUULI2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1630
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -453,8 +452,8 @@ msgid "Key %s not found in configuration"
 msgstr "Avainta %s ei ole asetuksissa"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "Piippaa, kun muunnosnäppäintä painetaan"
+msgid "Beep when a modifier is pressed."
+msgstr "Piippaa, kun muunnosnäppäintä painetaan."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
@@ -462,33 +461,32 @@ msgstr "Poista käytöstä, jos kahta näppäintä painetaan samanaikaisesti."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+"Do not accept a key as being pressed unless held for @delay milliseconds."
 msgstr ""
-"Hyväksy näppäimen painallus vain, jos se kestää yli @delay millisekuntia"
+"Hyväksy näppäimen painallus vain, jos se kestää yli @delay millisekuntia."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
 msgstr "Kuinka monta millisekuntia kiihdytetään"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "Montako millisekuntia 0:sta maksiminopeuteen kiihdytys kestää"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr "Montako millisekuntia 0:sta maksiminopeuteen kiihdytys kestää."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+"How many milliseconds to wait before mouse movement keys start to operate."
 msgstr ""
 "Kuinka monta millisekuntia kestää, ennen kuin hiirenliikutusnäppäimet "
-"alkavat toimia"
+"alkavat toimia."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "How many pixels per second to move at the maximum speed"
-msgstr "Kuinka monta pikseliä sekunnissa kulkee maksiminopeudella"
+msgid "How many pixels per second to move at the maximum speed."
+msgstr "Kuinka monta pikseliä sekunnissa liikutaan maksiminopeudella."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr ""
-"Hylkää useammat _saman_ näppäimen painallukset @delay millisekunnin aikana"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
+msgstr "Hylkää useat saman näppäimen painallukset @delay millisekunnin aikana."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -509,8 +507,8 @@ msgstr "pienin aikaväli millisekunteina"
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
 "List of assistive technology applications to start when logging into the "
-"GNOME desktop"
-msgstr "Luettelo sisään kirjauduttaessa käynnistyvistä esteettömyysohjelmista"
+"GNOME desktop."
+msgstr "Luettelo sisäänkirjauduttaessa käynnistyvistä esteettömyysohjelmista."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -519,10 +517,10 @@ msgstr "Käynnistettävät esteettömyysohjelmat"
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
-"login"
+"login."
 msgstr ""
 "Gnome käynnistää ensisijaisen liikuntavammaisten esteettömyyssovelluksen "
-"sisäänkirjauduttaessa"
+"sisäänkirjauduttaessa."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
@@ -531,10 +529,10 @@ msgstr "Ensisijainen esteettömyyssovellus liikuntavammaisille"
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
-"menu, or command line"
+"menu, or command line."
 msgstr ""
 "Ensisijainen liikuntavammaisten esteettömyyssovellus käytettäväksi "
-"kirjautumiseen, valikoille ja komentoriville"
+"kirjautumiseen, valikoille ja komentoriville."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
@@ -542,10 +540,11 @@ msgstr "Käynnistä ensisijainen liikuntavammaisten esteettömyyssovellus"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid ""
-"GNOME to start preferred Visual assistive technology application during login"
+"GNOME to start preferred Visual assistive technology application during "
+"login."
 msgstr ""
 "Gnome käynnistää ensisijaisen näkövammaisten esteettömyyssovelluksen "
-"sisäänkirjauduttaessa"
+"sisäänkirjauduttaessa."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
@@ -554,10 +553,10 @@ msgstr "Ensisijainen esteettömyyssovellus näkövammaisille"
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
-"or command line"
+"or command line."
 msgstr ""
 "Ensisijainen näkövammaisten esteettömyyssovellus käytettäväksi "
-"kirjautumiseen, valikoille ja komentoriville"
+"kirjautumiseen, valikoille ja komentoriville."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -568,7 +567,6 @@ msgid "Browser needs terminal"
 msgstr "Selain tarvitsee päätteen"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "Selain ymmärtää hallintakomentoja"
 
@@ -577,32 +575,48 @@ msgid "Default browser"
 msgstr "Oletusselain"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
-msgstr "Kaikkien URL:ien oletusselain"
+msgid "Default browser for all URLs."
+msgstr "Kaikkien URL:ien oletusselain."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
-msgstr "Tarvitseeko oletusselain päätteen toimiakseen"
+msgid "Whether the default browser needs a terminal to run."
+msgstr "Tarvitseeko oletusselain päätteen toimiakseen."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
-msgstr "Ymmärtääkö oletusselain netscapen hallintakomentoja"
+msgid "Whether the default browser understands netscape remote."
+msgstr "Ymmärtääkö oletusselain netscapen hallintakomentoja."
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "Oletusohjeselain"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "Kalenteri tarvitsee päätteen"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "Ohjeselain vaatii päätteen"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "Oletuskalenteri"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "Ymmärtääkö ohjeselain URL:eja"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "Kalenteriohjelman oletus"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
-msgstr "Tarvitseeko oletusohjeselain päätteen toimiakseen"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "Oletustehtäväsovellus"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "Tehtävähallinan oletus-sovellus"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "Tehtävähallinta tarvitsee päätteen"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "Tarvitseeko oletuskalenteri päätteen toimiakseen"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "Tarvitseeko oletustehtävähallinta päätteen toimiakseen"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -620,8 +634,8 @@ msgid "Terminal application"
 msgstr "Päätesovellus"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr "Pääteohjelma päätettä tarvitseville sovelluksille"
+msgid "Terminal program to use when starting applications that require one."
+msgstr "Pääteohjelma käynnistettäessä päätettä tarvitseva ohjelma."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
@@ -690,29 +704,28 @@ msgid "Draw Desktop Background"
 msgstr "Piirrä työpöydän tausta"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:4
-msgid "File to use for the background image"
-msgstr "Taustakuvan tiedostonimi"
+msgid "File to use for the background image."
+msgstr "Taustakuvana käytettävän tiedoston nimi."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "Anna GNOMEn piirtää työpöydän tausta"
+msgid "Have GNOME draw the desktop background."
+msgstr "Anna Gnomen piirtää työpöydän tausta."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
-"\", \"vertical-gradient\", and \"solid\""
+"\", \"vertical-gradient\", and \"solid\"."
 msgstr ""
 "Miten taustaväri varjostuu. Mahdollisia arvoja ovat \"horizontal-gradient"
-"\" (vaakaväriliuku), \"vertical-gradient\" (pystyväriliuku) ja \"solid"
-"\" (tasainen väri)."
+"\", \"vertical-gradient\" ja \"solid\"."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "Vasemman reunan tai yläreunan väri väriliu'ussa, tai tasainen väri."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "Taustakuvan peittävyys."
+msgid "Opacity with which to draw the background picture."
+msgstr "Taustakuvan piirrossa käytetty peittävyys."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
@@ -743,8 +756,8 @@ msgid "File Icon Theme"
 msgstr "Tiedostokuvakkeiden teema"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
-msgstr "Teema, joka määrää, miltä tiedostokuvakkeet näyttävät"
+msgid "Theme used for displaying file icons."
+msgstr "Tiedostokuvakkeiden piirrossa käytetty teema."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -779,54 +792,58 @@ msgid "Enable Animations"
 msgstr "Animaatiot käytössä"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "GTK-IM-moduuli "
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "GTK-IM esimuokkaustyyli"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "GTK-IM tilatyyli"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "Gtk+:n teema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "Kuvakkeiden teema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Paneelin, Nautiluksen ja muiden vastaavien kuvakkeiden teema."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Työkalupalkkien avaamisen käytettävä pikanäppäin"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "Kohdistimen vilkkumisen aikaväli millisekunteina"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "Kohdistimen vilkkumisen aikaväli millisekunteina."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "Valikkopalkki irrotettavissa"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "Valikkopalkin pikavalitsin"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "Valikkopalkissa on kuvakkeet"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "Valikot voi irrottaa"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooserin moduuli"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -834,76 +851,82 @@ msgstr ""
 "Moduuli, jota käytetään tiedostojärjestelmän mallina GtkFileChooser-"
 "säätimessä. Mahdolliset arvot ovat \"gnome-vfs\" ja \"gtk+\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "Tasavälinen kirjasin"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "Tasavälisen kirjasinlajin nimi, jota käytetään mm. päätteissä."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "GTK+:n syöttötavan esimuokkaustyylin nimi"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "GTK+:n syöttötavan tilatyylin nimi."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "Gtk+:n käyttämän oletuskirjasimen nimi."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
-msgid "Name of the default font used for reading documents"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+msgid "Name of the default font used for reading documents."
 msgstr "Asiakirjojen lukemiseen käytetyn oletuskirjasimen nimi."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "GTK+:n oletus-syöttötapamoduulin nimi."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "Näytä \"Syöttötavat\"-valikko"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "Näytä \"Unicode-ohjausmerkki\"-valikko"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+msgid ""
+"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr ""
+"Kuvakkeiden koko työkalupalkeissa, joko \"small-toolbar\" tai \"large-toolbar\""
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr "Tilarivi oikealla"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
-msgid "This specifies the size of icons displayed in toolbars"
-msgstr "Tämä määrää työkalupalkkien kuvakkeiden koon"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "Irrotettava työkalupalkki"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "Työkalupalkin kuvakekoko"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "Työkalupalkin tyyli"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
-"\"text\""
+"\"text\"."
 msgstr ""
 "Työkalupalkin tyyli. Mahdollisia arvoja ovat \"both\", \"both-horiz\", "
 "\"icons\"  ja \"text\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "Käytä muuta kirjasinta."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Whether Applications should have accessibility support"
-msgstr "Onko ohjelmissa esteettömyystuki"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+msgid "Whether Applications should have accessibility support."
+msgstr "Tulisiko ohjelmissa olla käytössä esteettömyystuki."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -911,55 +934,55 @@ msgstr ""
 "Näkyvätkö animaatiot. Huomautus: tämä on yleinen avain, joka vaikuttaa "
 "ikkunointiohjelman, paneelin sekä muidenkin osien toimintaan."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "Voiko valikoissa näkyä kuvake valikon kohdan vieressä"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
-msgid "Whether menus should have a tearoff"
-msgstr "Voiko valikot irrottaa"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid ""
-"Whether the context menus of entries and text views should offer to change "
-"the input method"
-msgstr ""
-"Näytetäänkö kohteiden ja tekstinäkymien ponnahdusvalikossa alivalikko "
-"syöttömenetelmän vaihtoa varten"
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "Voiko valikoissa näkyä kuvake valikon kohdan vieressä."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid ""
-"Whether the context menus of entries and text views should offer to insert "
-"control characters"
-msgstr ""
-"Näytetäänkö kohteiden ja tekstinäkymien ponnahdusvalikossa alivalikko "
-"Unicode-ohjausmerkkien syöttöä varten"
+msgid "Whether menus should have a tearoff."
+msgstr "Voiko valikot irrottaa."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the cursor should blink"
-msgstr "Vilkkuuko kohdistin"
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method."
+msgstr ""
+"Näytetäänkö kohteiden ja tekstinäkymien ponnahdusvalikossa alivalikko "
+"syöttömenetelmän vaihtoa varten."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Voiko käyttäjä irrottaa valikkopalkit ja liikutella niitä"
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters."
+msgstr ""
+"Näytetäänkö kohteiden ja tekstinäkymien ponnahdusvalikossa alivalikko "
+"ohjausmerkkien syöttöä varten."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "Voiko käyttäjä irrottaa työkalupalkit ja liikutella niitä"
+msgid "Whether the cursor should blink."
+msgstr "Vilkkuuko kohdistin."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid ""
-"Whether the user can dynamically type a new accelerator when positioned over "
-"an active menuitem"
-msgstr ""
-"Voiko käyttäjä syöttää dynaamisesti uuden pikanäppäimen, kun kohdistin on "
-"aktiivisen valikon kohdan päällä"
+msgid "Whether the user can detach menubars and move them around."
+msgstr "Voiko käyttäjä irrottaa valikkopalkit ja liikutella niitä."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether to display a status bar meter on the right"
-msgstr "Näkyykö tilarivin edistysmittari oikealla"
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "Voiko käyttäjä irrottaa työkalupalkit ja liikutella niitä."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+msgid ""
+"Whether the user can dynamically type a new accelerator when positioned over "
+"an active menuitem."
+msgstr ""
+"Voiko käyttäjä syöttää dynaamisesti uuden pikanäppäimen, kun kohdistin on "
+"aktiivisen valikon kohdan päällä."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+msgid "Whether to display a status bar meter on the right."
+msgstr "Näkyykö tilarivin edistysmittari oikealla."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Onko Gtk+-ohjelmien kirjasin käyttäjän määrittelemä."
 
@@ -1034,8 +1057,8 @@ msgid "Prevent the user to lock his screen."
 msgstr "Estä käyttäjää lukitsemasta näyttöä."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
-msgstr "Piippauksena soivan äänen tiedostonimi"
+msgid "File name of the bell sound to be played."
+msgstr "Piippauksena soitettavan äänen tiedostonimi."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -1085,8 +1108,8 @@ msgstr ""
 "laajennosta, kuten esimerkiksi XFree86 4.3 ja uudemmat."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "Matka, jonka jälkeen vetäminen alkaa"
+msgid "Distance before a drag is started."
+msgstr "Matka, jonka jälkeen vetäminen alkaa."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
@@ -1117,13 +1140,14 @@ msgstr ""
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
-"pressed and released"
+"pressed and released."
 msgstr ""
-"Korostaa osoittimen nykyisen sijainnin, kun control-näppäintä painetaan."
+"Korostaa osoittimen nykyisen sijainnin, kun control-näppäintä painetaan "
+"ja vapautetaan."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "Kaksoisnapsautuksen kesto"
+msgid "Length of a double click."
+msgstr "Kaksoisnapsautuksen kesto."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -1142,16 +1166,16 @@ msgid "Single Click"
 msgstr "Yksöisnapsautus"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "Yksi napsautus avaa kuvakkeet"
+msgid "Single click to open icons."
+msgstr "Yksi napsautus avaa kuvakkeet."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "Kohdistin_teeman viittaamaan kohdistimen koko."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "Vaihda hiiren vasen ja oikea painike vasenkätistä hiirtä varten"
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr "Vaihda hiiren vasen ja oikea painike vasenkätistä hiirtä varten."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
@@ -1228,6 +1252,21 @@ msgstr "Lukkiutuuko näppäimistö."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Voiko kirjoitustaukoja lykätä."
+
+#~ msgid "Default help viewer"
+#~ msgstr "Oletusohjeselain"
+
+#~ msgid "Help viewer needs terminal"
+#~ msgstr "Ohjeselain vaatii päätteen"
+
+#~ msgid "Whether the default help viewer accepts URLs"
+#~ msgstr "Ymmärtääkö ohjeselain URL:eja"
+
+#~ msgid "Whether the default help viewer needs a terminal to run"
+#~ msgstr "Tarvitseeko oletusohjeselain päätteen toimiakseen"
+
+#~ msgid "This specifies the size of icons displayed in toolbars"
+#~ msgstr "Tämä määrää työkalupalkkien kuvakkeiden koon"
 
 #~ msgid "Unknown error code: %u"
 #~ msgstr "Tuntematon virhekoodi: %u"
