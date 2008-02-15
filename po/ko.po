@@ -1,14 +1,14 @@
 # libgnome
 #
 # Young-Ho, Cha <ganadist@chollian.net>, 2002.
-# Changwoo Ryu <cwryu@debian.org>, 2002-2007.
+# Changwoo Ryu <cwryu@debian.org>, 2002-2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-09 06:53+0900\n"
-"PO-Revision-Date: 2007-12-09 06:55+0900\n"
+"POT-Creation-Date: 2008-02-15 10:31+0900\n"
+"PO-Revision-Date: 2008-02-15 10:52+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "메뉴 항목 선택"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Click on command button"
-msgstr "명령 단추 클릭"
+msgstr "명령 단추 누르기"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Select check box"
@@ -68,13 +68,13 @@ msgstr "확인란 선택"
 msgid "User interface events"
 msgstr "사용자 인터페이스 이벤트"
 
-#: ../libgnome/gnome-exec.c:457
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "터미널을 찾을 수 없습니다, xterm을 사용합니다, 하지만 동작하지 않을 수 있습니"
 "다"
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "그놈 GConf 지원"
 
@@ -126,235 +126,233 @@ msgstr "도움말 문서 %s/%s을(를) 찾을 수 없습니다"
 #. FIXME: get this from bonobo
 #: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
-msgstr "Bonobo 지원"
+msgstr "보노보 지원"
 
 #: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
-msgstr "Bonobo 활성화 지원"
+msgstr "보노보 활성화 지원"
 
-#: ../libgnome/gnome-init.c:386 ../libgnome/gnome-init.c:400
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "사용자 그놈 설정 디렉토리 `%s'을(를) 만들 수 없습니다: %s\n"
 
-#: ../libgnome/gnome-init.c:408
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr "사용자 개인 그놈 설정 디렉토리 `%s'의 정보를 읽을 수 없습니다: %s\n"
 
-#: ../libgnome/gnome-init.c:416
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
-msgstr ""
-"사용자 그놈 개인 설정 디렉토리 `%s'의 허가권을 0700으로 설정할 수 없습니다: %"
-"s\n"
+msgstr "사용자 그놈 개인 설정 디렉토리 `%s'의 권한을 0700으로 설정할 수 없습니다: %s\n"
 
-#: ../libgnome/gnome-init.c:423
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "그놈 단축키 설정 디렉토리 `%s'을(를) 만들 수 없습니다: %s\n"
 
-#: ../libgnome/gnome-init.c:462
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "그놈 가상 파일 시스템"
 
-#: ../libgnome/gnome-init.c:480 ../libgnome/gnome-init.c:523
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "사운드 서버 사용을 하지 않습니다"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "사운드 서버를 사용합니다"
 
-#: ../libgnome/gnome-init.c:487 ../libgnome/gnome-init.c:529
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
-msgstr "사용할 사운드 서버가 호스트:포트 에서 실행되고 있습니다"
+msgstr "사용할 사운드 서버가 동작하고 있는 있는 호스트:포트"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:531
+#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "호스트이름:포트"
 
-#: ../libgnome/gnome-init.c:497 ../libgnome/gnome-init.c:541
+#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "그놈 라이브러리"
 
-#: ../libgnome/gnome-init.c:498
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "그놈 옵션 표시"
 
-#: ../libgnome/gnome-program.c:456
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "popt 테이블"
 
-#: ../libgnome/gnome-program.c:457
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "popt의 옵션 테이블"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "popt 플래그"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "popt에서 사용할 플래그"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "popt 컨텍스트"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "GnomeProgram이 사용중인 popt 컨텍스트"
 
-#: ../libgnome/gnome-program.c:482
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "GOption 컨텍스트"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "GnomeProgram이 사용중인 goption 컨텍스트"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "읽을 수 있는 이름"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "이 응용프로그램의 사람이 읽을 수 있는 이름"
 
-#: ../libgnome/gnome-program.c:501
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "그놈 경로"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "설치된 파일을 살펴보는 경로"
 
-#: ../libgnome/gnome-program.c:511
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "App ID"
 
-#: ../libgnome/gnome-program.c:512
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "이 응용프로그램에 사용될 ID 문자열"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "App 버전"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "이 응용프로그램의 버전"
 
-#: ../libgnome/gnome-program.c:527
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "그놈 prefix"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "그놈이 설치된 경로"
 
-#: ../libgnome/gnome-program.c:537
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "그놈 libdir"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "그놈이 설치된 라이브러리 경로"
 
-#: ../libgnome/gnome-program.c:547
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "그놈 datadir"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "그놈이 설치된 데이터 경로"
 
-#: ../libgnome/gnome-program.c:557
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "그놈 sysconfdir"
 
-#: ../libgnome/gnome-program.c:558
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "그놈이 설치된 설정 경로"
 
-#: ../libgnome/gnome-program.c:568
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "그놈 App prefix"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "이 응용프로그램이 설치된 경로"
 
-#: ../libgnome/gnome-program.c:577
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "그놈 App libdir"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "이 응용프로그램이 설치된 라이브러리 경로"
 
-#: ../libgnome/gnome-program.c:587
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "그놈 App datadir"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "이 응용프로그램이 설치된 데이터 경로"
 
-#: ../libgnome/gnome-program.c:597
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "그놈 App sysconfdir"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "이 응용프로그램이 설치된 설정 경로"
 
-#: ../libgnome/gnome-program.c:607
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "디렉토리 만듦"
 
-#: ../libgnome/gnome-program.c:608
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "시작할 때 표준 그놈 디렉토리를 만듭니다"
 
-#: ../libgnome/gnome-program.c:617
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "소리 사용"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "시작할 때 소리를 사용합니다"
 
-#: ../libgnome/gnome-program.c:626
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "espeaker"
 
-#: ../libgnome/gnome-program.c:627
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "esd로 연결할 방법"
 
-#: ../libgnome/gnome-program.c:1390
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "도움말 옵션"
 
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "응용프로그램 옵션"
 
-#: ../libgnome/gnome-program.c:1411
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "읽어들일 동적 모듈"
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "모듈1,모듈2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1630
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -449,8 +447,8 @@ msgid "Key %s not found in configuration"
 msgstr "설정에서 키 %s을(를) 찾을 수 없습니다"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "Modifier가 눌려졌을 때 삑소리"
+msgid "Beep when a modifier is pressed."
+msgstr "Modifier가 눌려졌을 때 삑소리."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
@@ -458,29 +456,29 @@ msgstr "두개의 키가 동시에 눌려졌을 때 사용안함."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "@delay 밀리초동안 눌려져 있지 않은 경우 키를 받아들이지 않습니다"
+"Do not accept a key as being pressed unless held for @delay milliseconds."
+msgstr "@delay 밀리초동안 눌려져 있지 않은 경우 키를 받아들이지 않습니다."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
-msgstr "얼마나 오래 가속할 지 밀리초"
+msgstr "가속할 시간, 밀리초 단위"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "0에서 최대 속도로 가는 데 걸릴 밀리초"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr "0에서 최대 속도로 가는 데 걸리는 시간, 밀리초 단위."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "마우스 이동 키가 동작하기 전에 기다릴 밀리초"
+"How many milliseconds to wait before mouse movement keys start to operate."
+msgstr "마우스 이동 키가 동작하기 전에 기다릴 시간, 밀리초 단위."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "How many pixels per second to move at the maximum speed"
-msgstr "최대 속도에서 초당 이동한 픽셀수"
+msgid "How many pixels per second to move at the maximum speed."
+msgstr "최대 속도에서 일 초에 이동한 픽셀수."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "@delay 밀리초 이내에 *같은* 키가 여러번 눌려졌을 때 무시"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
+msgstr "@delay 밀리초 이내에 _같은_ 키를 여러 번 눌렀을 때 무시."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -501,8 +499,8 @@ msgstr "밀리초 단위의 최소 시간 간격"
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
 "List of assistive technology applications to start when logging into the "
-"GNOME desktop"
-msgstr "그놈 데스크탑에 로그인할 때 시작할 보조 기술 프로그램 목록"
+"GNOME desktop."
+msgstr "그놈 데스크탑에 로그인할 때 시작할 보조 기술 프로그램 목록."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -511,7 +509,7 @@ msgstr "시작 보조 기술 프로그램"
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
-"login"
+"login."
 msgstr "그놈에 로그인할 때 선택한 움직임 보조 기술 프로그램을 시작합니다."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
@@ -521,8 +519,8 @@ msgstr "선택한 움직임 보조 기술 프로그램"
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
-"menu, or command line"
-msgstr "로그인, 메뉴, 명령행에 사용할 움직임 보조 기술 프로그램"
+"menu, or command line."
+msgstr "로그인, 메뉴, 명령행에 사용할 움직임 보조 기술 프로그램."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
@@ -530,7 +528,8 @@ msgstr "선택한 움직임 보조 기술 프로그램 시작"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid ""
-"GNOME to start preferred Visual assistive technology application during login"
+"GNOME to start preferred Visual assistive technology application during "
+"login."
 msgstr "그놈에 로그인할 때 선택한 시각 보조 기술 프로그램을 시작합니다."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
@@ -540,8 +539,8 @@ msgstr "선택한 시각 보조 기술 프로그램"
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
-"or command line"
-msgstr "로그인, 메뉴, 명령행에 사용할 시각 보조 기술 프로그램"
+"or command line."
+msgstr "로그인, 메뉴, 명령행에 사용할 시각 보조 기술 프로그램."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -552,7 +551,6 @@ msgid "Browser needs terminal"
 msgstr "브라우저가 터미널을 필요로 합니다"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "브라우저가 remote를 이해합니다"
 
@@ -561,32 +559,48 @@ msgid "Default browser"
 msgstr "기본 브라우저"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
-msgstr "모든 URL에 대한 기본 브라우저"
+msgid "Default browser for all URLs."
+msgstr "모든 URL에 대한 기본 브라우저."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
-msgstr "기본 브라우저가 터미널에서 실행되어야 하는 지 여부"
+msgid "Whether the default browser needs a terminal to run."
+msgstr "기본 브라우저를 터미널에서 실행할 지 여부."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
-msgstr "기본 브라우저가 넷스케이프의 remote를 이해하는 지 여부"
+msgid "Whether the default browser understands netscape remote."
+msgstr "기본 브라우저가 네트스케이프 리모트 기능을 지원하는 지 여부."
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "기본 도움말 뷰어"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "달력에 터미널이 필요"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "도움말 뷰어가 터미널을 필요로 합니다"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "기본 달력"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "기본 도움말 뷰어가 URL을 이해하는 지 여부"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "기본 달력 응용프로그램"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
-msgstr "기본 도움말 뷰어가 터미널에서 실행되어야 하는 지 여부"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "기본 작업"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "기본 작업 응용프로그램"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "작업에 터미널 필요"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "기본 달력 응용프로그램을 터미널에서 실행해야 할 지 여부"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "기본 작업 응용프로그램을 터미널에서 실행해야 할 지 여부"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -602,8 +616,8 @@ msgid "Terminal application"
 msgstr "터미널 응용프로그램"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr "터미널을 필요로 하는 프로그램을 실행하기 위해 사용될 터미널 프로그램"
+msgid "Terminal program to use when starting applications that require one."
+msgstr "터미널을 필요로 하는 프로그램을 실행하기 위해 사용될 터미널 프로그램."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
@@ -670,17 +684,17 @@ msgid "Draw Desktop Background"
 msgstr "데스크탑 배경 그리기"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:4
-msgid "File to use for the background image"
-msgstr "배경 그림으로 사용할 파일"
+msgid "File to use for the background image."
+msgstr "배경 그림으로 사용할 파일."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "그놈 데스크탑에서 데스크탑 배경을 그립니다"
+msgid "Have GNOME draw the desktop background."
+msgstr "그놈 데스크탑에서 데스크탑 배경을 그립니다."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
-"\", \"vertical-gradient\", and \"solid\""
+"\", \"vertical-gradient\", and \"solid\"."
 msgstr ""
 "배경 색상을 어떻게 변화시킬지 결정합니다. 가능한 값들은 \"horizontal-gradient"
 "\", \"vertical-gradient\"와 \"solid\"입니다."
@@ -690,8 +704,8 @@ msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "경사지게 혹은 단색으로 그릴 때의 왼쪽 혹은 윗쪽 색."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "배경 그림을 그릴 때 불투명하게"
+msgid "Opacity with which to draw the background picture."
+msgstr "배경 그림을 그릴 때 불투명하게."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
@@ -722,8 +736,8 @@ msgid "File Icon Theme"
 msgstr "파일 아이콘 테마"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
-msgstr "파일 아이콘을 보여줄 때 사용된 테마"
+msgid "Theme used for displaying file icons."
+msgstr "파일 아이콘을 보여줄 때 사용된 테마."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -758,54 +772,58 @@ msgid "Enable Animations"
 msgstr "에니메이션 사용"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "GTK IM 모듈"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "GTK IM Preedit 형식"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "GTK IM Status 형식"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "Gtk+ 테마"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "아이콘 테마"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "패널, 노틸러스등에서 사용할 아이콘 테마."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "메뉴 모음을 열 키보드 바로 가기."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "커서 깜빡임 주기 (밀리초 단위)"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "커서 깜빡임 주기, 밀리초 단위."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "메뉴 모음 분리 가능"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "메뉴 모음 단축 키"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "메뉴에 아이콘 사용"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "메뉴에 절취선 사용"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooser용 모듈"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -813,77 +831,81 @@ msgstr ""
 "GtkFileChooser 위젯의 파일 시스템 모델로 사용할 모듈. 가능한 값은 \"gnome-vfs"
 "\"와 \"gtk+\"입니다."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "고정폭 글꼴"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "고정폭 글꼴 이름, 터미널 등에서 사용합니다."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "gtk+가 사용할 GTK+ 입력 방식 Preedit 형식의 이름."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "gtk+가 사용할 GTK+ 입력 방식 Status 형식의 이름."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "gtk+가 사용할 기본 글꼴의 이름."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
-msgid "Name of the default font used for reading documents"
-msgstr "문서를 읽을 때 사용할 기본 글꼴의 이름"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+msgid "Name of the default font used for reading documents."
+msgstr "문서를 읽을 때 사용할 기본 글꼴의 이름."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "GTK+가 사용할 입력 모듈의 이름."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "'입력기' 메뉴 표시"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "'유니코드 제어 문자' 메뉴 표시"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid ""
-"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\""
-msgstr "도구 모음의 아이콘 크기, \"small-toolbar\" 혹은 \"large-toolbar\""
+"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr "도구 모음의 아이콘 크기, \"small-toolbar\" 혹은 \"large-toolbar\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr "상태 표시줄을 오른쪽에"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "도구 모음 분리 가능"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "도구 모음 아이콘 크기"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "도구 모음 형식"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
-"\"text\""
+"\"text\"."
 msgstr ""
 "도구 모음 형식. 가능한 값은 \"both\", \"both-horiz\", \"icon\" 그리고 \"text"
-"\""
+"\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "사용자 글꼴 사용"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Whether Applications should have accessibility support"
-msgstr "응용프로그램이 엑세서빌리티를 지원하는 지 여부"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+msgid "Whether Applications should have accessibility support."
+msgstr "응용프로그램이 접근성 기능을 지원할 지 여부."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -891,50 +913,50 @@ msgstr ""
 "에니메이션을 보여주어야 하는 지 여부. 주의: 이것은 전역 키입니다, 즉 창 관리"
 "자, 패널등의 동작을 바꿀 수 있습니다."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "메뉴가 메뉴 항목 다음에 아이콘을 표시할 지 여부"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
-msgid "Whether menus should have a tearoff"
-msgstr "메뉴에 절취선이 있는 지 여부"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid ""
-"Whether the context menus of entries and text views should offer to change "
-"the input method"
-msgstr "텍스트 입력창이나 편집창의 메뉴에 입력기를 바꾸는 기능을 넣을 지 여부"
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "메뉴가 메뉴 항목 다음에 아이콘을 표시할 지 여부."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid ""
-"Whether the context menus of entries and text views should offer to insert "
-"control characters"
-msgstr "텍스트 입력창이나 편집창의 메뉴에 제어 문자 입력 기능을 넣을 지 여부"
+msgid "Whether menus should have a tearoff."
+msgstr "메뉴를 떼어 낼 수 있는 지 여부."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the cursor should blink"
-msgstr "커서가 깜빡일 지 여부"
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method."
+msgstr "텍스트 입력창이나 편집창의 메뉴에 입력기를 바꾸는 기능을 넣을 지 여부."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the user can detach menubars and move them around"
-msgstr "사용자가 메뉴 모음을 분리해서 움직일 수 있는 지 여부"
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters."
+msgstr "텍스트 입력창이나 편집창의 메뉴에 제어 문자 입력 기능을 넣을 지 여부."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "사용자가 도구 모음을 분리하여 움직일 수 있는 지 여부"
+msgid "Whether the cursor should blink."
+msgstr "커서가 깜빡일 지 여부."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid ""
-"Whether the user can dynamically type a new accelerator when positioned over "
-"an active menuitem"
-msgstr ""
-"활성화된 메뉴 항목 위에 있을 때 사용자가 새 단축키를 입력할 수 있는 지 여부"
+msgid "Whether the user can detach menubars and move them around."
+msgstr "사용자가 메뉴 모음을 분리해서 움직일 수 있는 지 여부."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether to display a status bar meter on the right"
-msgstr "오른쪽에 상태 표시줄 미터를 보여줄 지 여부"
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "사용자가 도구 모음을 분리하여 움직일 수 있는 지 여부."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+msgid ""
+"Whether the user can dynamically type a new accelerator when positioned over "
+"an active menuitem."
+msgstr ""
+"활성화된 메뉴 항목 위에 있을 때 사용자가 새 단축키를 입력할 수 있는 지 여부."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+msgid "Whether to display a status bar meter on the right."
+msgstr "오른쪽에 상태 표시줄 미터를 보여줄 지 여부."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "gtk+ 응용프로그램에서 사용자 글꼴을 사용할 지 여부."
 
@@ -1006,8 +1028,8 @@ msgid "Prevent the user to lock his screen."
 msgstr "사용자가 화면을 잠그지 못하게 합니다."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
-msgstr "연주할 벨소리의 파일 이름"
+msgid "File name of the bell sound to be played."
+msgstr "연주할 벨소리의 파일 이름."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -1025,7 +1047,7 @@ msgstr "참이면, 그놈에서 세션의 NumLock LED 상태를 기억합니다.
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "가능할 값들은 \"on\", \"off\" 그리고 \"custom\"입니다."
+msgstr "가능할 값들은 \"on\", \"off\", \"custom\"입니다."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -1054,8 +1076,8 @@ msgstr ""
 "서만 사용합니다."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "drag가 시작하기 전의 거리"
+msgid "Distance before a drag is started."
+msgstr "끌어 놓기가 시작하기 전의 거리."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
@@ -1067,11 +1089,11 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
-msgstr "더블 클릭 시간"
+msgstr "두번 누르기 시간"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
-msgstr "드래그 Threshold"
+msgstr "끌어 놓기 경계값"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
@@ -1086,12 +1108,12 @@ msgstr ""
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
-"pressed and released"
-msgstr "Control 키가 눌렀다 뗄 때 포인터의 현재 위치를 표시"
+"pressed and released."
+msgstr "Control 키가 눌렀다 뗄 때 포인터의 현재 위치를 표시."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "더블 클릭의 길이"
+msgid "Length of a double click."
+msgstr "두 번 누르기 길이."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -1099,7 +1121,7 @@ msgstr "포인터 위치"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
-msgstr "동작 Threshold"
+msgstr "동작 경계값"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
@@ -1107,19 +1129,19 @@ msgstr "마우스 단추 위치"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
-msgstr "단일 클릭"
+msgstr "한 번 누르기"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "아이콘 열기위해 한번 클릭"
+msgid "Single click to open icons."
+msgstr "아이콘 열 때 한 번 누르기."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "cursor_theme에서 참조하는 커서의 크기."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "왼손잡이를 위해 마우스 단추의 좌우 바꿈"
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr "왼손잡이용으로 마우스 단추의 왼쪽 오른쪽 뒤바꾸기."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
@@ -1196,6 +1218,3 @@ msgstr "키보드를 쓰지 못하게 할 지 여부."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "타이핑 휴식 스크린을 뒤로 미룰 수 있는 지 여부."
-
-#~ msgid "This specifies the size of icons displayed in toolbars"
-#~ msgstr "도구 모음에 보일 아이콘의 크기를 명시합니다"
