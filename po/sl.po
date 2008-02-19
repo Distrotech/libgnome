@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-17 20:40+0100\n"
-"PO-Revision-Date: 2007-12-20 15:29+0100\n"
+"PO-Revision-Date: 2008-02-19 13:55+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -73,11 +73,11 @@ msgstr "Izbor izbirnega vnosa"
 msgid "User interface events"
 msgstr "Dogodki uporabniškega vmesnika"
 
-#: ../libgnome/gnome-exec.c:457
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "Ni mogoče najti konzole, uporabljam xterm čeprav morda ne bo deloval"
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "Podpora GNOME GConf"
 
@@ -124,230 +124,230 @@ msgstr "Podpora Bonobu"
 msgid "Bonobo activation Support"
 msgstr "Podpora zagona Bonoba"
 
-#: ../libgnome/gnome-init.c:386
-#: ../libgnome/gnome-init.c:400
+#: ../libgnome/gnome-init.c:382
+#: ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Ni mogoče ustvariti uporabniškega gnome nastavitvenega imenika `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:408
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr "Ni mogoče preveriti uporabniškega imenika gnome nastavitev `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:416
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid "Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
 msgstr "Ni mogoče nastaviti načina 0700 na privatnem uporabniškem gnome nastavitvenem imeniku `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:423
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Ni mogoče ustvariti gnome pospeševalnega imenika `%s': %s\n"
+msgstr "Ni mogoče ustvariti GNOME pospeševalnega imenika `%s': %s\n"
 
-#: ../libgnome/gnome-init.c:462
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "Navidezni datotečni sistem GNOME"
 
-#: ../libgnome/gnome-init.c:480
-#: ../libgnome/gnome-init.c:523
+#: ../libgnome/gnome-init.c:476
+#: ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "Izključi uporabo strežnika za zvok"
 
-#: ../libgnome/gnome-init.c:483
-#: ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:479
+#: ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "Omogoči uporabo strežnika za zvok"
 
-#: ../libgnome/gnome-init.c:487
-#: ../libgnome/gnome-init.c:529
+#: ../libgnome/gnome-init.c:483
+#: ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "Gostitelj: vrata kjer teče zvočni strežnik, ki naj se uporabi"
 
-#: ../libgnome/gnome-init.c:488
-#: ../libgnome/gnome-init.c:531
+#: ../libgnome/gnome-init.c:484
+#: ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "GOSTITELJ:VRATA"
 
-#: ../libgnome/gnome-init.c:497
-#: ../libgnome/gnome-init.c:541
+#: ../libgnome/gnome-init.c:493
+#: ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "Knjižnica GNOME"
 
-#: ../libgnome/gnome-init.c:498
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "Prikaži možnosti GNOME"
 
-#: ../libgnome/gnome-program.c:456
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "Razpredelnica popt"
 
-#: ../libgnome/gnome-program.c:457
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "Razpredelnica možnosti za popt"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "Zastavice popt"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "Zastavice, ki naj se uporabijo za popt"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Kontekst popt"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "Kazalec na kontekst popt, ki ga uporablja program Gnome namizja"
 
-#: ../libgnome/gnome-program.c:482
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "Kontekst GOption"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "Kazalec na kontekst goption, ki ga uporablja program Gnome namizja"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "Človeku berljivo ime"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "Človeku berljivo ime tega programa"
 
-#: ../libgnome/gnome-program.c:501
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "Pot GNOME"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "Pot kjer naj se išče nameščene datoteke"
 
-#: ../libgnome/gnome-program.c:511
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "ID programa"
 
-#: ../libgnome/gnome-program.c:512
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "Niz ID, ki naj se uporabi za ta program"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "Različica programa"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "Različica tega programa"
 
-#: ../libgnome/gnome-program.c:527
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "Predpona GNOME"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "Predpona kjer je nameščen GNOME"
 
-#: ../libgnome/gnome-program.c:537
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "Imenik knjižnic GNOME"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "Predpona imenika knjižnic, kjer je nameščeno Gnome namizje"
 
-#: ../libgnome/gnome-program.c:547
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "Imenik podatkov GNOME"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "Predpona imenika podatkov kjer je nameščen GNOME"
 
-#: ../libgnome/gnome-program.c:557
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "Imenik nastavitev GNOME"
 
-#: ../libgnome/gnome-program.c:558
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Predpona imenika nastavitev kjer je nameščen GNOME"
 
-#: ../libgnome/gnome-program.c:568
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "Predpona programa za GNOME"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "Predpona imenika, kjer je nameščen ta program"
 
-#: ../libgnome/gnome-program.c:577
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "Imenik knjižnic programa za GNOME"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "Predpona imenika knjižnic, kjer je bil ta program nameščen"
 
-#: ../libgnome/gnome-program.c:587
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "Imenik podatkov programa za GNOME"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "Predpona imenika podatkov, kjer je bil ta program nameščen"
 
-#: ../libgnome/gnome-program.c:597
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "Imenik nastavitev za program GNOME"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "Predpona imenika nastavitev, kjer je bil ta program nameščen"
 
-#: ../libgnome/gnome-program.c:607
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "Ustvari imenike"
 
-#: ../libgnome/gnome-program.c:608
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "Ob zagonu ustvari običajne imenike GNOME"
 
-#: ../libgnome/gnome-program.c:617
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "Omogoči zvok"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "Omogoči  zvok ob zagonu"
 
-#: ../libgnome/gnome-program.c:626
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:627
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "Kako se povezati z esd"
 
-#: ../libgnome/gnome-program.c:1390
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "Možnosti pomoči"
 
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "Možnosti programa"
 
-#: ../libgnome/gnome-program.c:1411
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "Dinamični moduli, ki naj se naložijo"
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2, ..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1630
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -429,36 +429,36 @@ msgid "Key %s not found in configuration"
 msgstr "Ključa %s v nastavitvah ni mogoče najti"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "Zapiskaj, ko je pritisnjen spremenilink"
+msgid "Beep when a modifier is pressed."
+msgstr "Zapiskaj, ko je pritisnjen spremenilnik."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
 msgstr "Izključi, če sta dve tipki pritisnjeni hkrati."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "Ne sprejmi tipke kot pritisnjene, dokler ni pritisnjena @delay milisekund"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
+msgstr "Ne sprejmi tipke kot pritisnjene, dokler ni pritisnjena @delay milisekund."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
 msgstr "kako dolgo je pospeševanje (v milisekundah)"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "Koliko milisekund naj vzame za prehod iz 0 na najvišjo hitrost"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr "Koliko milisekund naj vzame za prehod iz 0 na najvišjo hitrost."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "Koliko milisekund naj se počaka preden začnejo delovati tipke premikanja miške"
+msgid "How many milliseconds to wait before mouse movement keys start to operate."
+msgstr "Koliko milisekund naj se počaka preden začnejo delovati tipke premikanja miške."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "How many pixels per second to move at the maximum speed"
-msgstr "Koliko točk na sekundo se premika pri najvišji hitrosti"
+msgid "How many pixels per second to move at the maximum speed."
+msgstr "Koliko točk na sekundo se premika pri najvišji hitrosti."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "Prezri večkratne pritiske iste tipke znotraj @delay milisekund"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
+msgstr "Prezri večkratne pritiske iste tipke znotraj @delay milisekund."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -477,40 +477,40 @@ msgid "minimum interval in milliseconds"
 msgstr "najmanjši interval (v milisekundah)"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
-msgid "List of assistive technology applications to start when logging into the GNOME desktop"
-msgstr "Seznam programov za pomoč, ki naj se zaženejo ob prijavi v namizje GNOME"
+msgid "List of assistive technology applications to start when logging into the GNOME desktop."
+msgstr "Seznam programov pomožnih tehnologij, ki naj se zaženejo ob prijavi v namizje GNOME."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr "Zagon Programov pomožnih tehnologij"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
-msgid "GNOME to start preferred Mobility assistive technology application during login"
-msgstr "Zagon GNOME Mobility pomožne tehnologije med prijavo"
+msgid "GNOME to start preferred Mobility assistive technology application during login."
+msgstr "Zagon GNOME Mobility pomožne tehnologije med prijavo."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
 msgstr "Zagon Mobility programov pomožnih tehnologij"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
-msgid "Preferred Mobility assistive technology application to be used for login, menu, or command line"
-msgstr "Prednostni program pomožnih Mobility tehnologij za prijavo, menu ali ukazno vrstico"
+msgid "Preferred Mobility assistive technology application to be used for login, menu, or command line."
+msgstr "Prednostni program pomožnih Mobility tehnologij za prijavo, meni ali ukazno vrstico."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
 msgstr "Zagon želenih Mobility programov pomožnih tehnologij"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
-msgid "GNOME to start preferred Visual assistive technology application during login"
-msgstr "Zagon GNOME vizualne pomožne tehnologije med prijavo"
+msgid "GNOME to start preferred Visual assistive technology application during login."
+msgstr "Zagon GNOME vizualne pomožne tehnologije med prijavo."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
 msgstr "Prednostni vizualni programov pomožnih tehnologij"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
-msgid "Preferred Visual assistive technology application be used for login, menu, or command line"
-msgstr "Program prednostnih vizualnih pomožnih tehnologij za prijavo, menu in ukazni vrstico"
+msgid "Preferred Visual assistive technology application be used for login, menu, or command line."
+msgstr "Program prednostnih vizualnih pomožnih tehnologij za prijavo, meni in ukazno vrstico."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -529,16 +529,48 @@ msgid "Default browser"
 msgstr "Privzet brskalnik"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
-msgstr "Privzet brskalnik za vse URLje"
+msgid "Default browser for all URLs."
+msgstr "Privzet brskalnik za vse URL naslove."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
-msgstr "Ali privzet brskalnik za zagon potrebuje terminal"
+msgid "Whether the default browser needs a terminal to run."
+msgstr "Ali privzet brskalnik za zagon potrebuje terminal."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
-msgstr "Ali privzet brskalnik razume netscape oddaljeno upravljanje"
+msgid "Whether the default browser understands netscape remote."
+msgstr "Ali privzet brskalnik razume netscape oddaljeno upravljanje."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "Koledar potrebuje terminal"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "Privzeti koledar"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "Privzet koledarski program"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "Privzete naloge"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "Privzeti program nalog"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "Naloge potrebujejo terminal"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "Ali privzet koledarski program za zagon potrebuje terminal."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "Ali privzet program za naloge za zagon potrebuje terminal."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
@@ -553,8 +585,8 @@ msgid "Terminal application"
 msgstr "Program terminala"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr "Terminalski program, ki naj se zažene, kadar ga drugi programi rabijo"
+msgid "Terminal program to use when starting applications that require one."
+msgstr "Terminalski program, ki naj se zažene, kadar ga drugi programi zahtevajo."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces. This key has been deprecated since GNOME 2.12."
@@ -601,24 +633,24 @@ msgid "Draw Desktop Background"
 msgstr "Riši ozadje namizja"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:4
-msgid "File to use for the background image"
-msgstr "Datoteka, ki naj se uporabi za ozadje namizja"
+msgid "File to use for the background image."
+msgstr "Datoteka, ki naj se uporabi za ozadje."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "Naj Gnome riše ozadje namizja"
+msgid "Have GNOME draw the desktop background."
+msgstr "Naj Gnome izriše ozadje namizja."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
-msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
-msgstr "Kako naj se senči barva ozadja. Možne vrednosti so \"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
+msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\"."
+msgstr "Kako naj se senči barva ozadja. Mogoče vrednosti so \"horizontal-gradient\", \"vertical-gradient\", in \"solid\""
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "Leva ali zgornja barva ob risanju prelivov, ali barva polnjenja."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "Prosojnost s katero naj se nariše slika ozadja"
+msgid "Opacity with which to draw the background picture."
+msgstr "Prosojnost s katero naj se nariše slika ozadja."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
@@ -649,8 +681,8 @@ msgid "File Icon Theme"
 msgstr "Tema ikon datotek"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
-msgstr "Tema za prikaz ikon datotek"
+msgid "Theme used for displaying file icons."
+msgstr "Tema za prikaz ikon datotek."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -713,8 +745,8 @@ msgid "Keyboard shortcut to open the menu bars."
 msgstr "Bližnjica tipk za odpiranje menijske vrstice."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "Dolžina cikla utripanja kazalca, v milisekundah"
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "Dolžina cikla utripanja kazalca, v milisekundah."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
@@ -761,8 +793,8 @@ msgid "Name of the default font used by gtk+."
 msgstr "Ime privzete pisave, uporabljeno s strani gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
-msgid "Name of the default font used for reading documents"
-msgstr "Ime privzete pisave za branje dokumentov"
+msgid "Name of the default font used for reading documents."
+msgstr "Ime privzete pisave za branje dokumentov."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Name of the input method module used by GTK+."
@@ -777,8 +809,8 @@ msgid "Show the 'Unicode Control Character' menu"
 msgstr "Prikaži meni 'Nadzorni znak Unicode'"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
-msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\""
-msgstr "Velikost ikon v orodni vrstici, vrednosti \"majhne\" ali \"velike\""
+msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr "Velikost ikon v orodni vrstici, vrednosti \"majhne\" ali \"velike\"."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
@@ -797,56 +829,56 @@ msgid "Toolbar Style"
 msgstr "Slog orodjarn"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and \"text\""
-msgstr "Slog orodjarne. Možne vrednosti so \"both\", \"both_horiz\", \"icons\" in \"text\""
+msgid "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and \"text\"."
+msgstr "Slog orodjarne. Mogoče vrednosti so \"both\", \"both_horiz\", \"icons\" in \"text\"."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "Uporabi pisavo po meri"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether Applications should have accessibility support"
-msgstr "Ali naj imajo programi podporo za dostopnost"
+msgid "Whether Applications should have accessibility support."
+msgstr "Ali naj imajo programi podporo za dostopnost."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
 msgstr "Ali naj bodo prikazane animacije. Opomba: To je globalen ključ, saj spremeni obnašanja upravitelja oken, pulta, itd."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "Ali naj meniji kažejo ikono poleg predmeta menija"
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "Ali naj meniji kažejo ikono poleg predmeta menija."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid "Whether menus should have a tearoff"
-msgstr "Ali naj imajo meniji vrstico za odcep"
+msgid "Whether menus should have a tearoff."
+msgstr "Ali naj imajo meniji gumb za odpenjanje."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the context menus of entries and text views should offer to change the input method"
-msgstr "Ali naj vsebinski meni vnosov in vnosi besedila omogočajo možnost spreminjanja vhodne metode"
+msgid "Whether the context menus of entries and text views should offer to change the input method."
+msgstr "Ali naj vsebinski meni vnosov in pogledi besedila omogočajo možnost spreminjanja vnosne metode."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the context menus of entries and text views should offer to insert control characters"
-msgstr "Ali naj vsebinski meni vnosov in vnosi besedila omogočajo možnost vstavljanja nadzornih znakov"
+msgid "Whether the context menus of entries and text views should offer to insert control characters."
+msgstr "Ali naj vsebinski meni vnosov in besedila omogoči vstavljanje nadzornih znakov."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the cursor should blink"
-msgstr "Ali naj kazalec utripa"
+msgid "Whether the cursor should blink."
+msgstr "Ali naj kazalec utripa."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Ali lahko uporabnik odcepi menijske vrstice in jih premika okoli"
+msgid "Whether the user can detach menubars and move them around."
+msgstr "Ali lahko uporabnik odpne menijske vrstice in jih premika okoli."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "Ali lahko uporabnik odcepi orodjarne in jih premika okoli"
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "Ali lahko uporabnik odpne orodjarne in jih premika okoli."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
-msgid "Whether the user can dynamically type a new accelerator when positioned over an active menuitem"
-msgstr "Ali lahko uporabnik dinamično vpiše nov pospeševalnik, ko se nahaja nad aktivnim predmetom menija"
+msgid "Whether the user can dynamically type a new accelerator when positioned over an active menuitem."
+msgstr "Ali lahko uporabnik dejavno vpiše nov pospeševalnik, ko se nahaja nad dejavnim predmetom menija."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
-msgid "Whether to display a status bar meter on the right"
-msgstr "Ali naj se kazalnik vrstice stanja kaže na desni"
+msgid "Whether to display a status bar meter on the right."
+msgstr "Ali naj se prikaže kazalnik vrstice stanja na desni."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
@@ -901,8 +933,8 @@ msgid "Prevent the user to lock his screen."
 msgstr "Prepreči uporabniku zaklepanje zaslona."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
-msgstr "Ime datoteke zvonca, ki naj bo predvajan"
+msgid "File name of the bell sound to be played."
+msgstr "Ime datoteke zvonca, ki naj se predvaja."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -941,8 +973,8 @@ msgid "Cursor theme name. Used only by Xservers that support Xcursor, such as XF
 msgstr "Ime teme kazalca. Uporabno samo s strežniki X, ki podpirajo Xcursor, npr. XFree86 4.3 in novejši."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "Razdalja preden se začne vlečenje"
+msgid "Distance before a drag is started."
+msgstr "Razdalja preden se začne poteg miške."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid "Distance in pixels the pointer must move before accelerated mouse motion is activated. A value of -1 is the system default."
@@ -961,12 +993,12 @@ msgid "Font name of the cursor. If unset, the default font is used. This value i
 msgstr "Ime pisave kazalca. Če ni nastavljeno je uporabljena privzeta pisava. Ta vrednost se posreduje strežniku X le ob zagonu vsake seje, zato njeno spreminjanje med sejo ne bo imelo vpliva dokler se ne prijavite znova."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
-msgid "Highlights the current location of the pointer when the Control key is pressed and released"
-msgstr "Osvetli trenutno mesto kazalca, kadar je pritisnjena in spuščena tipka Control"
+msgid "Highlights the current location of the pointer when the Control key is pressed and released."
+msgstr "Osvetli trenutno mesto kazalca, kadar je pritisnjena in spuščena tipka Control."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "Dolžina dvojnega klika"
+msgid "Length of a double click."
+msgstr "Dolžina dvojnega klika."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -985,16 +1017,16 @@ msgid "Single Click"
 msgstr "Enojni klik"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "Enojni klik za odpiranje ikon"
+msgid "Single click to open icons."
+msgstr "Enojni klik za odpiranje ikon."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "Velikost kazalca, ki jo določa tema_kazalca."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "Zamenjaj levi in desni gumb miške za levičarsko miško"
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr "Zamenjaj levi in desni gumb miške za levičarsko miško."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
