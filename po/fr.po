@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-19 22:28+0100\n"
-"PO-Revision-Date: 2008-01-19 22:25+0100\n"
+"POT-Creation-Date: 2008-02-28 14:03+0100\n"
+"PO-Revision-Date: 2008-02-18 20:21+0100\n"
 "Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French team\n"
 "MIME-Version: 1.0\n"
@@ -75,13 +75,13 @@ msgstr "Sélection d'une case à cocher"
 msgid "User interface events"
 msgstr "Événements d'interface utilisateur"
 
-#: ../libgnome/gnome-exec.c:457
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Impossible de trouver un terminal, utilisation de xterm, même s'il peut ne "
 "pas fonctionner"
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "Prise en charge de GNOME GConf"
 
@@ -139,14 +139,14 @@ msgstr "Prise en charge de Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Prise en charge d'activation de Bonobo"
 
-#: ../libgnome/gnome-init.c:386 ../libgnome/gnome-init.c:400
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Impossible de créer un répertoire de configuration GNOME par utilisateur « %"
 "s » : %s\n"
 
-#: ../libgnome/gnome-init.c:408
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
@@ -154,7 +154,7 @@ msgstr ""
 "Impossible d'obtenir les informations sur le répertoire privé de "
 "configuration GNOME par utilisateur « %s » : %s\n"
 
-#: ../libgnome/gnome-init.c:416
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -163,37 +163,37 @@ msgstr ""
 "Impossible de définir les droits, par utilisateur, à 0700 sur le répertoire "
 "privé de configuration GNOME « %s » : %s\n"
 
-#: ../libgnome/gnome-init.c:423
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr ""
 "Impossible de créer le répertoire de raccourcis clavier GNOME « %s » : %s\n"
 
-#: ../libgnome/gnome-init.c:462
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "Système de fichiers virtuel GNOME"
 
-#: ../libgnome/gnome-init.c:480 ../libgnome/gnome-init.c:523
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "Désactive l'utilisation du serveur de sons"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "Active l'utilisation du serveur de sons"
 
-#: ../libgnome/gnome-init.c:487 ../libgnome/gnome-init.c:529
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "Hôte:Port où fonctionne le serveur de sons à utiliser"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:531
+#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "HÔTE:PORT"
 
-#: ../libgnome/gnome-init.c:497 ../libgnome/gnome-init.c:541
+#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "Bibliothèque GNOME"
 
-#: ../libgnome/gnome-init.c:498
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "Affiche les options GNOME"
 
@@ -608,6 +608,42 @@ msgid "Whether the default browser understands netscape remote."
 msgstr ""
 "Indique si le navigateur par défaut comprend le protocole de commande à "
 "distance de Netscape."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "Le calendrier a besoin d'un terminal"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "Calendrier par défaut"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "Application de calendrier par défaut"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "Tâches par défaut"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "Application de gestion de tâches par défaut"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "Les tâches ont besoin d'un terminal"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr ""
+"Indique si l'application de calendrier par défaut a besoin d'un terminal "
+"pour fonctionner."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr ""
+"Indique si l'application de gestion de tâches par défaut a besoin d'un "
+"terminal pour fonctionner."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
