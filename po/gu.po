@@ -1,13 +1,13 @@
 # translation of libgnome.HEAD.gu.po to Gujarati
 # Ankit Patel <ankit644@yahoo.com>, 2005, 2006.
-# Ankit Patel <ankit@redhat.com>, 2006, 2007.
-# Copyright (C) 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+# Ankit Patel <ankit@redhat.com>, 2006, 2007, 2008.
+# Copyright (C) 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-28 03:17+0100\n"
-"PO-Revision-Date: 2007-08-29 14:08+0530\n"
+"POT-Creation-Date: 2008-02-10 12:53+0000\n"
+"PO-Revision-Date: 2008-02-29 16:44+0530\n"
 "Last-Translator: Ankit Patel <ankit@redhat.com>\n"
 "Language-Team: Gujarati <fedora-trans-gu@redhat.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -75,12 +76,12 @@ msgid "User interface events"
 msgstr "વપરાશકર્તા ઘટના ઇન્ટરફેસ"
 
 # libgnome/gnome-exec.c:428
-#: ../libgnome/gnome-exec.c:457
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "xterm વાપરીને ટર્મિનલ શોધી શકાતું નથી પછી ભલે ને તે કામ ન આપે"
 
 # libgnome/gnome-gconf.c:174
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "જીનોમ જીકોન્ફ આધાર"
 
@@ -137,12 +138,17 @@ msgstr "બોનોબો આધાર"
 msgid "Bonobo activation Support"
 msgstr "બોનોબો કાર્યરત આધાર"
 
-#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "દરેક વપરાશકર્તા માટે જીનોમ રુપરેખા ડિરેક્ટરી '%s' બનાવી શકાતી નથી:%s\n"
 
-#: ../libgnome/gnome-init.c:407
+#: ../libgnome/gnome-init.c:404
+#, c-format
+msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr "અંગત વપરાશકર્તા-પ્રતિ જીનોમ રુપરેખાંકન ડિરેક્ટરી '%s' કહી શક્યા નહિં: %s\n"
+
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -152,42 +158,42 @@ msgstr ""
 "શકાતી નથી: %s\n"
 
 # libgnome/gnome-init.c:305
-#: ../libgnome/gnome-init.c:414
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "જીનોમ પ્રવેગ ડિરેક્ટરી '%s' બનાવી શકતી નથી: %s\n"
 
 # libgnome/gnome-init.c:383
-#: ../libgnome/gnome-init.c:453
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "જીનોમ આભાસી ફાઇલ સિસ્ટમ"
 
 # libgnome/gnome-init.c:357
-#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "ધ્વની સર્વર ઉપયોગ અકાર્યરત કરો"
 
 # libgnome/gnome-init.c:360
-#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "ધ્વની સર્વર ઉપયોગ કાર્યરત કરો"
 
 # libgnome/gnome-init.c:363
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "યજમાન:પોર્ટ કે જેના ઉપર ધ્વનિ સર્વર વાપરવાનું છે"
 
 # libgnome/gnome-init.c:365
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "યજમાન:પોર્ટ"
 
 # libgnome/gnome-init.c:404
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
+#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "જીનોમ લાઇબ્રેરી"
 
-#: ../libgnome/gnome-init.c:489
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "જીનોમ વિકલ્પો બતાવો"
 
@@ -382,27 +388,27 @@ msgid "How to connect to esd"
 msgstr "esd સાથે કઈ રીતે જોડાવુ"
 
 # libgnome/gnome-program.c:1335
-#: ../libgnome/gnome-program.c:1391
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "મદદ વિકલ્પો"
 
 # libgnome/gnome-program.c:1340
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "કાર્યક્રમ વિકલ્પો"
 
 # libgnome/gnome-program.c:1356
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "લાવવા માટે બદલાતું મોડ્યુલ"
 
 # libgnome/gnome-program.c:1357
-#: ../libgnome/gnome-program.c:1413
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "મોડ્યુલ ૧, મોડ્યુલ ૨,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1504
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -492,36 +498,36 @@ msgid "Key %s not found in configuration"
 msgstr "રુપરેખામાં %s કી મળતી નથી"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "જ્યારે સુધારનાર દબાવવમાં આવે ત્યારે બીપ વગાડો"
+msgid "Beep when a modifier is pressed."
+msgstr "જ્યારે સુધારક દબાવવામાં આવે ત્યારે બીપ વગાડો."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
 msgstr "નિષ્ક્રિય જો એક જ સમયે બે કી દબાવવામાં આવે."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "કી જેવી દબાવવામાં આવે તેવી સ્વીકારવી નહિ જ્યાં સુધી @વિલંબ મિલિસેકન્ડમાં હોય"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
+msgstr "જ્યાં સુધી @વિલંબ મિલિસેકન્ડો સુધી કી દબાયેલ હોય તો કી સ્વીકારો નહિં"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
 msgstr "કેટલા સમય સુધી પ્રવેગન કરવું મિલિસેકન્ડોમાં"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "૦ થી મહત્તમ ઝડપ પર જવા માટે તે કેટલી મિલિસેકન્ડ લેશે"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr "૦ થી મહત્તમ ઝડપ પર જવા માટે તે કેટલી મિલિસેકન્ડ લેશે."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "માઉસ ફેરવવાની કી શરુ થાય તે ક્રિયા પહેલા કેટલી મિલિસેકન્ડ રાહ જોવી"
+msgid "How many milliseconds to wait before mouse movement keys start to operate."
+msgstr "માઉસ ફેરવવાની કી શરુ થાય તે ક્રિયા પહેલા કેટલી મિલિસેકન્ડ રાહ જોવી."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "How many pixels per second to move at the maximum speed"
-msgstr "મહત્તમ ઝડપે પ્રત્યેક સેકન્ડે કેટલા બિંદુઓ આગળ જવુ"
+msgid "How many pixels per second to move at the maximum speed."
+msgstr "મહત્તમ ઝડપે પ્રત્યેક સેકન્ડે કેટલા બિંદુઓ આગળ જવું."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "એક જ કીનુ એક કરતા વધારે દબાયેલ @વિલંબ મિલિસેકન્ડમાં અવગણો"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
+msgstr "એક જ કીનુ એક કરતા વધારે દબાવવાનું @વિલંબ મિલિસેકન્ડો સુધી અવગણો."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -542,8 +548,8 @@ msgstr "મિલિસેકન્ડમાં ન્યૂનત્તમ સ�
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
 "List of assistive technology applications to start when logging into the "
-"GNOME desktop"
-msgstr "જીનોમ ડેસ્કટોપમાં પ્રવેશ કરતા હોય તે વખતે સહાયક ટોકનોલોજી કાર્યક્રમો શરુ કરવાની યાદી"
+"GNOME desktop."
+msgstr "જ્યારે જીનોમ ડેસ્કટોપમાં પ્રવેશ કરતા હોય તે વખતે સહાયક ટોકનોલોજી કાર્યક્રમો શરુ કરવાની યાદી."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -552,8 +558,8 @@ msgstr "શરુઆતના સહાયક ટૅકનોલોજી કા
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
-"login"
-msgstr "પ્રવેશ દરમ્યાન પ્રાધાન્યવાળી મોબાઈલની સહાયક ટેક્નોલોજી કાર્યક્રમ શરૂ કરવા માટે જીનોમ"
+"login."
+msgstr "પ્રવેશ દરમ્યાન પ્રાધાન્યવાળી મોબાઈલની સહાયક ટેક્નોલોજી કાર્યક્રમ શરૂ કરવા માટે જીનોમ."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
@@ -562,16 +568,18 @@ msgstr "પ્રાધાન્યવાળો મોબાઈલનો સહ�
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
-"menu, or command line"
-msgstr "પ્રાધાન્યવાળો મોબાઈલનો સહાયક ટેક્નોલોજી કાર્યક્રમ પ્રવેશ, મેનુ, અથવા આદેશ વાક્ય માટે વપરાશે"
+"menu, or command line."
+msgstr "પ્રાધાન્યવાળો મોબાઈલનો સહાયક ટેક્નોલોજી કાર્યક્રમ પ્રવેશ, મેનુ, અથવા આદેશ વાક્ય માટે વપરાશે."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
 msgstr "પ્રાધાન્યવાળો મોબાઈલનો સહાયક ટેક્નોલોજી કાર્યક્રમ શરૂ કરો"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
-msgid "GNOME to start preferred Visual assistive technology application during login"
-msgstr "પ્રવેશ દરમ્યાન પ્રાધાન્યવાળો દેખીતો સહાયક ટેક્નોલોજી કાર્યક્રમ શરૂ કરવા માટે જીનોમ"
+msgid ""
+"GNOME to start preferred Visual assistive technology application during "
+"login."
+msgstr "પ્રવેશ દરમ્યાન પ્રાધાન્યવાળો દેખીતો સહાયક ટેક્નોલોજી કાર્યક્રમ શરૂ કરવા માટે જીનોમ."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
@@ -580,8 +588,8 @@ msgstr "પ્રાધાન્યવાળો દેખીતો સહાય�
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
-"or command line"
-msgstr "પ્રવેશ, મેનુ, અથવા આદેશ વાક્ય માટે વાપરવાનો પ્રાધાન્યવાળો દેખીતો સહાયક ટેક્નોલોજી કાર્યક્રમ"
+"or command line."
+msgstr "પ્રવેશ, મેનુ, અથવા આદેશ વાક્ય માટે વાપરવાનો પ્રાધાન્યવાળો દેખીતો સહાયક ટેક્નોલોજી કાર્યક્રમ."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -592,7 +600,6 @@ msgid "Browser needs terminal"
 msgstr "બ્રાઉઝરને ટર્મિનલ જરુરી છે"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "બ્રાઉઝર દૂરસ્થને સમજે છે"
 
@@ -601,32 +608,50 @@ msgid "Default browser"
 msgstr "મૂળભૂત બ્રાઉઝર"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
-msgstr "બધા URL માટે મૂળભૂત બ્રાઉઝર"
+msgid "Default browser for all URLs."
+msgstr "બધી URL માટે મૂળભૂત બ્રાઉઝર."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
-msgstr "શું મૂળભૂત બ્રાઉઝરને ચાલવા માટે ટર્મિનલ જરુરી છે"
+msgid "Whether the default browser needs a terminal to run."
+msgstr "શું મૂળભૂત બ્રાઉઝરને ચાલવા માટે ટર્મિનલ જરુરી છે."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
-msgstr "શું મૂળભૂત બ્રાઉઝર નેટસ્કેપ દૂરસ્થને સમજે છે"
+msgid "Whether the default browser understands netscape remote."
+msgstr "શું મૂળભૂત બ્રાઉઝર નેટસ્કેપ દૂરસ્થને સમજે છે."
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "મૂળભૂત મદદ દર્શક"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "કેલેન્ડરને ટર્મિનલ જરુરી છે"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "મદદ દર્શકને ટર્મિનલ જરુરી છે"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "મૂળભૂત કેલેન્ડર"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "શું મૂળભૂત મદદ દર્શક URL સ્વીકારે છે"
+# libgnome/gnome-program.c:481
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "મૂળભૂત કેલેન્ડર કાર્યક્રમ"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
-msgstr "શું મૂળભૂત મદદ દર્શકને ચાલવા માટે ટર્મિનલ જરુરી છે"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "મૂળભૂત ક્રિયાઓ"
+
+# libgnome/gnome-program.c:481
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "મૂળભૂત ક્રિયાઓ કાર્યક્રમ"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "ક્રિયાઓને ટર્મિનલ જરૂરી છે"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "શું મૂળભૂત કેલેન્ડર કાર્યક્રમને ચલાવવા માટે ટર્મિનલ જરૂરી છે"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "શું મૂળભૂત ક્રિયા કાર્યક્રમને ચલાવવા માટે ટર્મિનલ જરૂરી છે"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
@@ -642,10 +667,8 @@ msgid "Terminal application"
 msgstr "ટર્મીનલ કાર્યક્રમ"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr ""
-"જ્યારે કાર્યક્રમ શરુ કરતા હોઇએ ત્યારે જેને જરુરી હોય તેના માટે ઉપયોગમાં લેવાતો ટર્મિનલ "
-"કાર્યક્રમ"
+msgid "Terminal program to use when starting applications that require one."
+msgstr "જ્યારે કાર્યક્રમો શરૂ કરી રહ્યા હોય કે જેમને કોઈકની જરૂર પડે ત્યારે વાપરવાનો ટર્મિનલ કાર્યક્રમ."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
@@ -700,35 +723,36 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\"."
-msgstr "wallpaper_filename દ્વારા સુયોજીત થયેલ ઈમેજ કેવી રીતે રેન્ડર થાય તે નક્કી કરે છે. \"કંઈ નહિં\", \"વોલપેપર\", \"કેન્દ્રિયકૃત\", \"માપ અપાયેલ\", \"ખેંચાયેલ\", \"નાનુંમોટું\" શક્ય કિંમતો છે."
+msgstr ""
+"wallpaper_filename દ્વારા સુયોજીત થયેલ ઈમેજ કેવી રીતે રેન્ડર થાય તે નક્કી કરે છે. \"કંઈ "
+"નહિં\", \"વોલપેપર\", \"કેન્દ્રિયકૃત\", \"માપ અપાયેલ\", \"ખેંચાયેલ\", \"નાનુંમોટું\" શક્ય "
+"કિંમતો છે."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "ડેસ્કટોપનો પાશ્વ ભાગ દોરો"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:4
-msgid "File to use for the background image"
-msgstr "પાશ્વ ભાગના ચિત્ર માટે ફાઈલ વાપરો"
+msgid "File to use for the background image."
+msgstr "પાશ્વ ભાગના ચિત્ર માટે વાપરવાની ફાઈલ."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "શું જીનોમ ડેસ્કટોપનો પાશ્વ ભાગ દોરવાનું છે"
+msgid "Have GNOME draw the desktop background."
+msgstr "જીનોમને ડેસ્કટોપ પાશ્વભાગ દોરવા દો."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
-"\", \"vertical-gradient\", and \"solid\""
-msgstr ""
-"કેવી રીતે પાશ્વ ભાગના રંગને છાયા આપવી. શક્ય કિંમતો છે \"આડો-ઢાળ\", \"ઊભો-ઢાળ\", અને "
-"\"ઘાટુ\""
+"\", \"vertical-gradient\", and \"solid\"."
+msgstr "કેવી રીતે પાશ્વ ભાગના રંગને છાયા આપવી. શક્ય કિંમતો છે \"આડો-ઢાળ\", \"ઊભો-ઢાળ\", અને \"ઘાટુ\"."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "ઢાળો દોરતી વખતે ડાબો અથવા ઉપરનો રંગ, અથવા ઘાટો રંગ."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "અપારદર્શકતા કે જેના વડે પાશ્વ ભાગનું ચિત્ર દોરવાનું છે"
+msgid "Opacity with which to draw the background picture."
+msgstr "અપારદર્શકતા કે જેના વડે પાશ્વ ભાગનું ચિત્ર દોરવાનું છે."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
@@ -759,8 +783,8 @@ msgid "File Icon Theme"
 msgstr "ફાઈલ ચિહ્ન થીમ"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
-msgstr "ફાઈલના ચિહ્નો દર્શાવતી વખતે થીમ વપરાય છે"
+msgid "Theme used for displaying file icons."
+msgstr "ફાઈલના ચિહ્નો દર્શાવવા માટે વપરાતી થીમ."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -796,54 +820,58 @@ msgid "Enable Animations"
 msgstr "એનીમેશન કાર્યરત કરો"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "GTK IM મોડ્યુલ"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "GTK IM માં પહેલાથી ફેરફાર કરવાની શૈલી"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "GTK IM ની સ્થિતિની શૈલી"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "Gtk+ થીમ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "ચિહ્ન થીમ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "પેનલ માટે વાપરવાનુ ચિહ્ન નામ, નોટિલસ વગેરે."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "મેનુ બાર ખોલવા માટેના કીબોર્ડ ટુંકાણો."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "કર્સર ઝબૂકવાના સાયકલની લંબાઈ, મિલિસેકન્ડોમાં"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "કર્સર ઝબૂક ચક્રની લંબાઈ, મિલિસેકન્ડોમાં."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "અલગ પાડી શકાય તેવી મેનુ પટ્ટી"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "મેનુબાર પ્રવેગક"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "શુ મેનુ પાસે ચિહ્નો છે"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "શુ મેનુ પાસે ટેરઓફ છે"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooser માટે મોડ્યુલ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -851,73 +879,77 @@ msgstr ""
 "GtkFileChooser વિજેટ માટે ફાઈલ સિસ્ટમ મોડેલ તરીકે વાપરવાનું મોડ્યુલ. \"gnome-vfs\" અને "
 "\"gtk+\" શક્ય કિંમતો છે."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "મોનોસ્પેશ ફોન્ટ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "મોનોસ્પેશ (ચોક્કસ-પહોળાઈ) વાળા ફોન્ટનું નામ ટર્મિનલ જેવી જગ્યાએ વાપરવા માટે."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "GTK+ ઈનપુટ પદ્ધતિનું નામ પહેલાથી ફેરફાર કરી શકાય તેવી શૈલી gtk+ દ્વારા વપરાય છે."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "GTK+ ઈનપુટ પદ્ધતિનું નામ પહેલાથી સ્થિતિવાળી શૈલી gtk+ દ્વારા વપરાય છે."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "gtk+ દ્વારા વપરાતા ફોન્ટનું મૂળભુત નામ."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
-msgid "Name of the default font used for reading documents"
-msgstr "દસ્તાવેજો વાંચવા માટે વપરાતા મૂળભુત ફોન્ટનું નામ"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+msgid "Name of the default font used for reading documents."
+msgstr "દસ્તાવેજો વાંચવા માટે વપરાતાત મૂળભૂત ફોન્ટનું નામ."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "GTK+ દ્વારા વપરાતા ઈનપુટ પદ્ધતિ મોડ્યુલનું નામ."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "'ઈનપુટ પદ્ધતિઓ' મેનુ બતાવો"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "'યુનિકોડ નિયંત્રણ અક્ષર' મેનુ બતાવો"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr "સાધનપટ્ટીઓમાં ચિહ્નોનું માપ, ક્યાં તો \"small-toolbar\" અથવા \"large-toolbar\"."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr "જમણી બાજુએ આવેલ સ્થિતિદર્શકપટ્ટી"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
-msgid "This specifies the size of icons displayed in toolbars"
-msgstr "આ સાધનદર્શકપટ્ટીમાં દર્શાવાયેલ ચિહ્નોનું માપ સ્પષ્ટ કરે છે"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "છુટી પાડી શકાય તેવી સાધનદર્શકપટ્ટી"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "સાધનદર્શકપટ્ટીના ચિહ્નનું માપ"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "સાધનદર્શકપટ્ટીની શૈલી"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
-"\"text\""
-msgstr "સાધનપટ્ટી શૈલી. શક્ય કિંમતો છે \"બંને\", \"બંને-આડા\", \"ચિહ્નો\", અને \"લખાણ\""
+"\"text\"."
+msgstr "સાધનપટ્ટી શૈલી. \"both\", \"both-horiz\", \"icons\", અને \"text\" માન્ય કિંમતો છે."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "કસ્ટમ ફોન્ટ વાપરો"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Whether Applications should have accessibility support"
-msgstr "શુ કાર્યક્રમો પાસે સુલભતાઓનો આધાર હશે"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+msgid "Whether Applications should have accessibility support."
+msgstr "શું કાર્યક્રમોને સુલભતા આધાર હોવો જોઈએ."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -925,49 +957,49 @@ msgstr ""
 "શુ એનિમેશનો દર્શાવવાના કે નહિ. નોંધ: આ ગ્લોબલ કી છે, તે વિન્ડો વ્યવસ્થાપકની વર્તણૂક બદલી "
 "શકે છે, પેનલ વગેરે."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "શું મેનુઓ મેનુ પ્રવેશ પહેલા ચિહ્નો દર્શાવશે કે નહિ"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
-msgid "Whether menus should have a tearoff"
-msgstr "શું મેનુઓ પાસે ટેરઓફ હશે કે નહિ"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid ""
-"Whether the context menus of entries and text views should offer to change "
-"the input method"
-msgstr "શું પ્રવેશો અને લખાણ દૃશ્યોના સંદર્ભ મેનુઓ ઈનપુટ પદ્ધતિઓ બદલવા માટે તક આપતા હોવા જોઈએ"
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "શું મેનુઓ મેનુ પ્રવેશની આગળ ચિહ્ન દર્શાવી શકશે."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid ""
-"Whether the context menus of entries and text views should offer to insert "
-"control characters"
-msgstr "શું પ્રવેશો અને લખાણ દૃશ્યોના સંદર્ભ મેનુઓ નિયંત્રણ અક્ષરો ઉમેરવા માટે તક આપતા હોવા જોઈએ"
+msgid "Whether menus should have a tearoff."
+msgstr "શું મેનુઓ પાસે ટીયરઓફ હોવું જોઈએ."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the cursor should blink"
-msgstr "શુ કર્સર ઝબૂકશે કે નહિ"
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method."
+msgstr "શું પ્રવેશો અને લખાણ દૃશ્યોના સંદર્ભ મેનુઓ ઈનપુટ પદ્ધતિઓ બદલવા માટે તક આપતા હોવા જોઈએ."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the user can detach menubars and move them around"
-msgstr "શું વપરાશકર્તા મેનુપટ્ટીઓને છુટા પાડી શકે છે અને તેમની ફરતે ખસી શકે છે"
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters."
+msgstr "શું પ્રવેશો અને લખાણ દૃશ્યોના સંદર્ભ મેનુઓ નિયંત્રણ અક્ષરો ઉમેરવા માટે તક આપતા હોવા જોઈએ."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "શું વપરાશકર્તા સાધનપટ્ટીઓને છુટા પાડી શકે છે અને તેમની ફરતે ખસી શકે છે"
+msgid "Whether the cursor should blink."
+msgstr "શું કર્સર ઝબૂકવુ જોઈએ."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid ""
-"Whether the user can dynamically type a new accelerator when positioned over "
-"an active menuitem"
-msgstr "શું વપરાશકર્તા જ્યારે સક્રિય મેનુવસ્તુ પર સ્થિત થયેલ હોય ત્યારે વૈશ્વિકપણે નવો પ્રવેગક છાપી શકે"
+msgid "Whether the user can detach menubars and move them around."
+msgstr "શું વપરાશકર્તા મેનુપટ્ટીઓ જોડી શકશે અને તેમને ફરતે ખસેડી શકશે."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether to display a status bar meter on the right"
-msgstr "શું જમણી બાજુએ સ્થિતિદર્શકપટ્ટી મીટર દર્શાવવી કે નહિ"
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "શું વપરાશકર્તા સાધનપટ્ટીઓ જોડી શકશે અને તેમને ફરતે ખસેડી શકશે."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+msgid ""
+"Whether the user can dynamically type a new accelerator when positioned over "
+"an active menuitem."
+msgstr "શું વપરાશકર્તા વૈશ્વિક રીતે નવો પ્રવેગક લખી શકે જ્યારે સક્રિય મેનુવસ્તુ ઉપર ખસેડવામાં આવે."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+msgid "Whether to display a status bar meter on the right."
+msgstr "શું જમણી બાજુએ પરિસ્થિતિ પટ્ટી મીટર દર્શાવી શકાય."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "શું gtk+ કાર્યક્રમોમાં કસ્ટમ ફોન્ટ વાપરવા કે નહિ."
 
@@ -1040,8 +1072,8 @@ msgid "Prevent the user to lock his screen."
 msgstr "વપરાશકર્તાને તેની સ્ક્રીનને તાળું મારવાથી અટકાવો."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
-msgstr "ઘંટડી ધ્વનિ વગાડવા માટેની ફાઈલનું નામ"
+msgid "File name of the bell sound to be played."
+msgstr "વગાડવા માટેના ઘંટડી ધ્વનિની ફાઈલનું નામ."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -1088,8 +1120,8 @@ msgstr ""
 "પછીનાને આધાર આપે છે."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "ખેંચવાનું શરુ થાય તે પહેલાનું અંતર"
+msgid "Distance before a drag is started."
+msgstr "ખેંચવાનું શરૂ થાય તે પહેલાંનુ અંતર."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
@@ -1120,14 +1152,12 @@ msgstr ""
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
-"pressed and released"
-msgstr ""
-"જ્યારે કંટ્રોલ કી દબાવેલ હોય અથવા મુક્ત થયેલ હોય ત્યારે નિર્દેશકની વર્તમાન જગ્યાને પ્રકાશિત "
-"કરશે"
+"pressed and released."
+msgstr "જ્યારે કંટ્રોલ કી દબાવેલ હોય અથવા મુક્ત થયેલ હોય ત્યારે નિર્દેશકની વર્તમાન જગ્યાને પ્રકાશિત કરશે."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "બેવડા ક્લિકની લંબાઈ"
+msgid "Length of a double click."
+msgstr "બેવડા ક્લિકની લંબાઈ."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -1146,16 +1176,16 @@ msgid "Single Click"
 msgstr "એક ક્લિક"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "ચિહ્નો ખોલવા માટે એક ક્લિક કરો"
+msgid "Single click to open icons."
+msgstr "ચિહ્નો ખોલવા માટે એક ક્લિક."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "cursor_theme દ્વારા સંદર્ભ અપાયેલ કર્સરનું માપ."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "ડાબા હાથવાળા માઉસ માટે ડાબા અને જમણા માઉસ બટનોની ફેરબદલી કરો"
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr "ડાબા હાથવાળા માઉસ માટે ડાબા અને જમણા માઉસ બટનોની ફેરબદલી કરો."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
