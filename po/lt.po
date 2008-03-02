@@ -1,26 +1,27 @@
 # translation of lt.po to Lithuanian
 # Lithuanian translation of libgnome.
-# Copyright (C) 2000-2007 Free Software Foundation, Inc.
+# Copyright (C) 2000-2007, 2008 Free Software Foundation, Inc.
 #
 #
 # Kęstutis Kružikas <DrKestas@takas.lt>, 2000.
 # Gediminas Paulauskas <menesis@delfi.lt>, 2000-2004.
 # Tomas Kuliavas <tokul@users.sourceforge.net>, 2004.
 # Žygimantas Beručka <zygis@gnome.org>, 2004-2007.
-# Gintautas Miliauskas <gintas@akl.lt>, 2007.
+# Gintautas Miliauskas <gintas@akl.lt>, 2007, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-17 00:18+0300\n"
-"PO-Revision-Date: 2007-09-17 00:36+0300\n"
+"POT-Creation-Date: 2008-03-02 15:24+0200\n"
+"PO-Revision-Date: 2008-03-02 15:24+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <gnome-lt@lists.akl.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -74,19 +75,21 @@ msgstr "Pažymėkite žymimąjį langelį"
 msgid "User interface events"
 msgstr "Vartotojo sąsajos įvykiai"
 
-#: ../libgnome/gnome-exec.c:457
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "Nepavyko rasti terminalo, naudojama xterm, nors gali ir neveikti"
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf palaikymas"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Neapvyko aptikti GNOME_FILE_DOMAIN_APP_HELP srities"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Nepavyko aptikti GNOME_FILE_DOMAIN_HELP srities."
 
@@ -102,7 +105,8 @@ msgstr ""
 #: ../libgnome/gnome-help.c:220
 #, c-format
 msgid "Unable to find help paths %s or %s. Please check your installation"
-msgstr "Nepavyko rasti žinyno kelių %s arba %s. Patikrinkite ar įdiegta korektiškai."
+msgstr ""
+"Nepavyko rasti žinyno kelių %s arba %s. Patikrinkite ar įdiegta korektiškai."
 
 #: ../libgnome/gnome-help.c:236
 #, c-format
@@ -132,12 +136,19 @@ msgstr "Bonobo palaikymas"
 msgid "Bonobo activation Support"
 msgstr "Bonobo aktyvavimo palaikymas"
 
-#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Nepavyko sukurti naudotojo gnome nustatymų aplanko „%s“: %s\n"
 
-#: ../libgnome/gnome-init.c:407
+#: ../libgnome/gnome-init.c:404
+#, c-format
+msgid ""
+"Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr ""
+"Nepavyko patikrinti naudotojo privačių gnome nustatymų aplanko „%s“: %s\n"
+
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -146,209 +157,209 @@ msgstr ""
 "Nepavyko privačiam naudotojo gnome konfigūracijos aplankui „%s“ nustatyti "
 "teisių 0700: %s\n"
 
-#: ../libgnome/gnome-init.c:414
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Nepavyko sukurti gnome akseleratorių aplanko „%s“: %s\n"
 
-#: ../libgnome/gnome-init.c:453
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME virtuali failų sistema"
 
-#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "Nenaudoti garsų serverio"
 
-#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "Naudoti garsų serverį"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "Kompiuteris:prievadas, kuriame veikia naudotinas garsų serveris"
 
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "KOMPIUTERIS:PRIEVADAS"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
+#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "GNOME biblioteka"
 
-#: ../libgnome/gnome-init.c:489
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "Rodyti GNOME parinktis"
 
-#: ../libgnome/gnome-program.c:456
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "Popt lentelė"
 
-#: ../libgnome/gnome-program.c:457
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "Popt opcijų lentelė"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "Popt opcijos"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "Opcijos naudojamos su popt"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Popt turinys"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "Popt konteksto nuoroda, naudojama GnomeProgramos"
 
-#: ../libgnome/gnome-program.c:482
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "GOption kontekstas"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "Goption konteksto nuoroda, naudojama GnomeProgramos"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "Naudotojui draugiškas pavadinimas"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "Naudotojui draugiškas šios programos pavadinimas"
 
-#: ../libgnome/gnome-program.c:501
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "GNOME kelias"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "Vieta, kurioje reikia ieškoti įdiegtų failų"
 
-#: ../libgnome/gnome-program.c:511
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "Prog ID"
 
-#: ../libgnome/gnome-program.c:512
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "ID seka priskiriama šiai programai"
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "Prog versija"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "Programos versija"
 
-#: ../libgnome/gnome-program.c:527
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "GNOME kelio priešdėlis"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "Kelio, kur įdiegtas GNOME, priešdėlis"
 
-#: ../libgnome/gnome-program.c:537
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "GNOME bibliotekų vieta"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "Kelias iki vietos, kur įdiegtos GNOME bibliotekos"
 
-#: ../libgnome/gnome-program.c:547
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "GNOME duomenų vieta"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "Kelias iki vietos, kur saugomi GNOME programų duomenys"
 
-#: ../libgnome/gnome-program.c:557
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "GNOME nustatymų vieta"
 
-#: ../libgnome/gnome-program.c:558
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Kelias iki vietos, kur saugomi GNOME programų nustatymai"
 
-#: ../libgnome/gnome-program.c:568
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "GNOME programų kelio priešdėlis"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "Kelias iki vietos, kur įdiegta ši programa"
 
-#: ../libgnome/gnome-program.c:577
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "GNOME prog bibliotekų vieta"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "Kelias iki šios programos įdiegimo vietos"
 
-#: ../libgnome/gnome-program.c:587
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "GNOME prog duomenų vieta"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "Kelias iki vietos, kur ši programa saugo savo duomenis"
 
-#: ../libgnome/gnome-program.c:597
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME prog sistemos nustatymų vieta"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "Kelias iki vietos, kur ši programa saugo savo nustatymus"
 
-#: ../libgnome/gnome-program.c:607
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "Sukurti katalogus"
 
-#: ../libgnome/gnome-program.c:608
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "Sukurti standartinius GNOME katalogus paleidimo metu"
 
-#: ../libgnome/gnome-program.c:617
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "Įjungti garsą"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "Įjungti garsą paleidimo metu"
 
-#: ../libgnome/gnome-program.c:626
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:627
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "Kaip prisijungti prie esd"
 
-#: ../libgnome/gnome-program.c:1390
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "Žinyno nustatymai"
 
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "Programos nustatymai"
 
-#: ../libgnome/gnome-program.c:1411
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "Įkeliami dinaminiai moduliai"
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MODULIS1,MODULIS2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1630
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -359,34 +370,41 @@ msgstr ""
 "„%s --help“.\n"
 
 #: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Nežinoma vidinė klaida bandant parodyti šią vietą"
 
 #: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "Nurodytas kelias yra netinkamas."
 
 #: ../libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr "Įvyko klaida apdorojant numatytąją su šiuo adresu susietą komandą."
 
 #: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr "Įvyko klaida paleidžiant numatytąją su šiuo adresu susietą komandą."
 
 #: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "Su šiuo adresų tipu nesusietas joks numatytasis veiksmas."
 
 #: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "Numatytasis veiksmas nepalaiko šio protokolo."
 
 #: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "Užklausa buvo atšaukta."
 
@@ -396,14 +414,17 @@ msgid "The host \"%s\" could not be found."
 msgstr "Nepavyko rasti kompiuterio „%s“."
 
 #: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "Nepavyko rasti kompiuterio."
 
 #: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "Nepavyko rasti vietos arba failo."
 
 #: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "Prisijungti nepavyko."
 
@@ -434,40 +455,44 @@ msgid "Key %s not found in configuration"
 msgstr "Nustatymuose nerastas raktas %s"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "Pyptelėti, kai paspaustas specialus klavišas"
+msgid "Beep when a modifier is pressed."
+msgstr "Pyptelėti, kai paspaustas specialus klavišas."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
 msgstr "Atjungti, jei du klavišai paspaudžiami vienu metu."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds."
 msgstr ""
 "Nereaguoti į klavišo paspaudimą, jei jis paspaustas trumpiau nei @delay "
-"milisekundžių"
+"milisekundžių."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
 msgstr "Akseleracijos laikas milisekundėmis"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "Per kiek milisekundžių pasiekti maksimalų žymeklio judėjimo greitį"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr ""
+"Per kiek milisekundžių pasiekiamas maksimalus žymeklio judėjimo greitis."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "Po kiek milisekundžių turi pradėti veikti pelės judėjimo klavišai"
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate."
+msgstr "Po kiek milisekundžių turi pradėti veikti pelės judėjimo klavišai."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "How many pixels per second to move at the maximum speed"
-msgstr "Kiek taškų per sekundę turi būti įveikiama maksimaliu judėjimo greičiu"
+msgid "How many pixels per second to move at the maximum speed."
+msgstr ""
+"Kiek taškų per sekundę turi būti įveikiama maksimaliu judėjimo greičiu."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
 msgstr ""
 "Ignoruoti pasikartojančius _to paties_ klavišo paspaudimus, įvykstančius "
-"@delay millisekundžių intervale"
+"@delay millisekundžių intervale."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -488,10 +513,10 @@ msgstr "mažiausias intervalas milisekundėmis"
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
 "List of assistive technology applications to start when logging into the "
-"GNOME desktop"
+"GNOME desktop."
 msgstr ""
-"Pagalbinių technologijų programų, kurios yra paleidžiamos naudojant GNOME "
-"aplinką, sąrašas"
+"Pagalbinių technologijų programų, kurios yra paleidžiamos pradedant darbą "
+"GNOME aplinkoje, sąrašas."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -500,8 +525,9 @@ msgstr "Paleisti pagalbinių technologijų programas"
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
-"login"
-msgstr "GNOME paleidžia Mobility pagalbinių technologijų programą prisijungimo metu"
+"login."
+msgstr ""
+"GNOME paleidžia Mobility pagalbinių technologijų programą prisijungimo metu."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
@@ -510,18 +536,21 @@ msgstr "Pageidaujama Mobility pagalbinių technologijų programa"
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
-"menu, or command line"
+"menu, or command line."
 msgstr ""
 "Pageidaujama Mobility pagalbinių technologijų programa naudotina "
-"prisijungimui, meniu arba komandų eilutei"
+"prisijungimui, meniu arba komandų eilutei."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
 msgstr "Paleisti pageidaujamą Mobility pagalbinių technologijų programą"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
-msgid "GNOME to start preferred Visual assistive technology application during login"
-msgstr "GNOME paleidžia Vizualių pagalbinių technologijų programą prisijungimo metu"
+msgid ""
+"GNOME to start preferred Visual assistive technology application during "
+"login."
+msgstr ""
+"GNOME paleidžia Vizualių pagalbinių technologijų programą prisijungimo metu."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
@@ -530,10 +559,10 @@ msgstr "Pageidaujama Vizualių pagalbinių technologijų programa"
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
-"or command line"
+"or command line."
 msgstr ""
 "Pageidaujama Vizualių pagalbinių technologijų programa naudotina "
-"prisijungimui, meniu ar komandų eilutei"
+"prisijungimui, meniu ar komandų eilutei."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -544,7 +573,6 @@ msgid "Browser needs terminal"
 msgstr "Naršyklei reikia terminalo"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "Naršyklė gali apdoroti nutolusius adresus"
 
@@ -553,36 +581,54 @@ msgid "Default browser"
 msgstr "Numatytoji naršyklė"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
-msgstr "Numatytoji naršyklė, apdorojanti visus adresus"
+msgid "Default browser for all URLs."
+msgstr "Numatytoji naršyklė, apdorojanti visus adresus."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
-msgstr "Ar numatytajai naršyklei yra būtinas terminalas"
+msgid "Whether the default browser needs a terminal to run."
+msgstr "Ar numatytajai naršyklei yra būtinas terminalas."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
-msgstr "Ar numatytoji naršyklė gali apdoroti netscape nutolusias komandas"
+msgid "Whether the default browser understands netscape remote."
+msgstr "Ar numatytoji naršyklė gali apdoroti netscape nutolusias komandas."
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "Numatytoji žinyno žiūryklė"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "Kalendoriui reikia terminalo"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "Žinyno žiūryklei reikalingas terminalas"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "Numatytasis kalendorius"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "Ar numatytoji pagalbos sistemos peržiūros programa apdoroja adresus"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "Numatytoji kalendoriaus programa"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
-msgstr "Ar numatytojis pagalbos sistemos programos darbui būtinas terminalas"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "Numatytosios užduotys"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "Numatytųjų užduočių programa"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "Užduotims reikia terminalo"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "Ar numatytajai kalendorių programai yra būtinas terminalas"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "Ar numatytajai užduočių programai yra būtinas terminalas"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Argumentas, naudojamas paleisti programas terminale, nurodytame „exec“ raktu."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"Argumentas, naudojamas paleisti programas terminale, nurodytame „exec“ raktu."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -593,8 +639,10 @@ msgid "Terminal application"
 msgstr "Terminalo programa"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr "Naudojama terminalo programa, jei paleidžiamai programai jos reikia"
+msgid "Terminal program to use when starting applications that require one."
+msgstr ""
+"Terminalo programa, naudojama paleidžiant terminalo reikalaujančias "
+"programas."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
@@ -637,7 +685,8 @@ msgid "User window manager (deprecated)"
 msgstr "Vartotojo langų tvarkyklė (nebenaudojama)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
 "Pirmiausiai bandoma langų tvarkyklė. Šis raktas nuo GNOME 2.12 "
 "nebenaudojamas."
@@ -652,28 +701,29 @@ msgid ""
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\"."
 msgstr ""
-"Nustato, kaip turi būti apdorojamas fono paveikslėlis, nurodytas wallpaper_filename raktu. Galimos reikšmės: "
-"„none“, „wallpaper“, „centered“, „scaled“, „stretched“, „zoom“."
+"Nustato, kaip turi būti apdorojamas fono paveikslėlis, nurodytas "
+"wallpaper_filename raktu. Galimos reikšmės: „none“, „wallpaper“, „centered“, "
+"„scaled“, „stretched“, „zoom“."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "Piešti darbalaukio foną"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:4
-msgid "File to use for the background image"
-msgstr "Failas naudotinas fono paveikslėliui"
+msgid "File to use for the background image."
+msgstr "Failas, naudotinas fono paveikslėliui."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "Ar GNOME turi piešti darbalaukio foną"
+msgid "Have GNOME draw the desktop background."
+msgstr "Ar GNOME turi piešti darbalaukio foną."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
-"\", \"vertical-gradient\", and \"solid\""
+"\", \"vertical-gradient\", and \"solid\"."
 msgstr ""
 "Kaip keisti fono spalvos šešėlį. Galimos reikšmės yra \"horizontal-gradient"
-"\", \"vertical-gradient\" ir \"solid\""
+"\", \"vertical-gradient\" ir \"solid\"."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -682,8 +732,8 @@ msgstr ""
 "spalva."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "Foninio piešinio nepermatomumas"
+msgid "Opacity with which to draw the background picture."
+msgstr "Foninio piešinio nepermatomumas."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
@@ -716,8 +766,8 @@ msgid "File Icon Theme"
 msgstr "Failų piktogramų tema"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
-msgstr "Tema naudojama rodyti failų piktogramas"
+msgid "Theme used for displaying file icons."
+msgstr "Tema naudojama rodyti failų piktogramas."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -752,54 +802,58 @@ msgid "Enable Animations"
 msgstr "Įjungti animaciją"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "GTK IM modulis"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "GTK IM Preedit stilius"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "GTK IM būsenos stilius"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "Gtk+ tema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "Piktogramų tema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Piktogramų tema, naudotina skydeliui, failų naršyklei ir t.t."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Klavišų susiejimas, atveriantis meniu juostas."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "Žymeklio mirksėjimo ciklo trukmė milisekundėmis"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "Žymeklio mirksėjimo ciklo trukmė milisekundėmis."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "Meniu juosta atkabinama"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "Meniu juostos spartusis klavišas"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "Meniu turi piktogramas"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "Meniu atkabinami"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooser modulis"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -807,77 +861,87 @@ msgstr ""
 "Modulis naudojamas kaip failų sistemos modelis GtkFileChooser valdymo "
 "elementui. Galimos reikšmės yra „gnome-vfs“ ir „gtk+“."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "Lygiaplotis šriftas"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Lygiapločio (turinčio vienodą raidžių plotį) šrifto, naudojamo terminaluose "
 "bei kitose vietose, pavadinimas."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
-msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr "GTK+ įvedimo metodo, kurį naudos gtk+ su Preedit Stiliumi, pavadinimas."
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
-msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "GTK+ įvedimo metodo, kurį naudos gtk+ su Būsenos Stiliumi, pavadinimas."
+msgid "Name of the GTK+ input method Preedit Style used by gtk+."
+msgstr ""
+"GTK+ įvedimo metodo, kurį naudos gtk+ su Preedit Stiliumi, pavadinimas."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+msgid "Name of the GTK+ input method Status Style used by gtk+."
+msgstr ""
+"GTK+ įvedimo metodo, kurį naudos gtk+ su Būsenos Stiliumi, pavadinimas."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "Numatytojo gtk+ naudojamo šrifto pavadinimas."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
-msgid "Name of the default font used for reading documents"
-msgstr "Numatytojo dokumentų skaitymui naudojamo šrifto pavadinimas"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+msgid "Name of the default font used for reading documents."
+msgstr "Numatytojo dokumentų skaitymui naudojamo šrifto pavadinimas."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "GTK+ įvedimo metodo modulio pavadinimas."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "Rodyti meniu „Įvesties metodai“"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "Rodyti meniu „Unicode valdymo simboliai“"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+msgid ""
+"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr ""
+"Piktogramų įrankių juostose dydis: arba „small-toolbar“, arba „large-"
+"toolbar“."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr "Būklės juosta dešinėje"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
-msgid "This specifies the size of icons displayed in toolbars"
-msgstr "Čia keičiamas ženklų, rodomų įrankių juostose, dydis"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "Įrankių juosta atkabinama"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "Įrankių juostos piktogramų dydis"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "Įrankių juostos stilius"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
-"\"text\""
+"\"text\"."
 msgstr ""
 "Įrankių juostos stilius. Galimos reikšmės yra „both“, „both_horiz“, „icons“ "
-"ir „text“"
+"ir „text“."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "Naudoti vartotojo parinktą šriftą"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Whether Applications should have accessibility support"
-msgstr "Ar programos turėtų turėti prieinamumo įrankių palaikymą"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+msgid "Whether Applications should have accessibility support."
+msgstr "Ar programos turėtų turėti prieinamumo įrankių palaikymą."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -885,55 +949,55 @@ msgstr ""
 "Ar animacijos turi būti rodomos? Pastaba: šis raktas galioja visiems, jis "
 "keičia langų tvarkyklės, skydelio ir kitų aplinkos elementų elgseną."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "Ar meniu gali rodyti ženklus šalia meniu įrašų"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
-msgid "Whether menus should have a tearoff"
-msgstr "Ar meniu gali būti atkabinami"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid ""
-"Whether the context menus of entries and text views should offer to change "
-"the input method"
-msgstr ""
-"Ar įrašų kontekstiniuose meniu ir teksto rodiniuose turėtų pasiūlyti "
-"pakeisti įvesties metodą"
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "Ar meniu gali rodyti piktogramas šalia meniu įrašų."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid ""
-"Whether the context menus of entries and text views should offer to insert "
-"control characters"
-msgstr ""
-"Ar įrašų kontekstiniuose meniu ir teksto rodiniuose turėtų pasiūlyti įterpti "
-"valdymo simbolius"
+msgid "Whether menus should have a tearoff."
+msgstr "Ar meniu gali būti atkabinami."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the cursor should blink"
-msgstr "Ar žymeklis turi mirksėti"
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method."
+msgstr ""
+"Ar įrašų kontekstiniuose meniu ir teksto rodiniuose turėtų pasiūlyti "
+"pakeisti įvesties metodą."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Ar naudotojas gali atkabinti meniu juostas ir jas stumdyti"
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters."
+msgstr ""
+"Ar įrašų kontekstiniuose meniu ir teksto rodiniuose turėtų pasiūlyti įterpti "
+"valdymo simbolius."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "Ar naudotojas gali atkabinti įrankių juostas ir jas stumdyti"
+msgid "Whether the cursor should blink."
+msgstr "Ar žymeklis turi mirksėti."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid ""
-"Whether the user can dynamically type a new accelerator when positioned over "
-"an active menuitem"
-msgstr ""
-"Ar naudotojas gali dinamiškai įvesti naują trumpą klavišą, kai pažymėtas "
-"meniu punktas"
+msgid "Whether the user can detach menubars and move them around."
+msgstr "Ar naudotojas gali atkabinti meniu juostas ir jas stumdyti."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether to display a status bar meter on the right"
-msgstr "Ar rodyti būsenos juostą dešinėje pusėje"
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "Ar naudotojas gali atkabinti įrankių juostas ir jas stumdyti."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+msgid ""
+"Whether the user can dynamically type a new accelerator when positioned over "
+"an active menuitem."
+msgstr ""
+"Ar naudotojas gali dinamiškai įvesti naują trumpą klavišą, kai pažymėtas "
+"meniu punktas."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+msgid "Whether to display a status bar meter on the right."
+msgstr "Ar rodyti būsenos juostą dešinėje pusėje."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Ar su gtk+ programomis naudoti vartotojo parinktą šriftą."
 
@@ -1000,15 +1064,16 @@ msgstr ""
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
-msgstr "Neleisti naudotojui persijungti prie kito abonento, kol jo sesija aktyvi."
+msgstr ""
+"Neleisti naudotojui persijungti prie kito abonento, kol jo sesija aktyvi."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid "Prevent the user to lock his screen."
 msgstr "Neleisti naudotojui užrakinti jo ekrano."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
-msgstr "Sisteminio garso signalo failo vardas."
+msgid "File name of the bell sound to be played."
+msgstr "Skambučio garso signalo failo vardas."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -1055,8 +1120,8 @@ msgstr ""
 "Xcursor; tai pvz., XFree86 4.3 ir naujesni."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "Atstumas, po kurio prasideda tempimas"
+msgid "Distance before a drag is started."
+msgstr "Atstumas, po kurio prasideda tempimas."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
@@ -1087,14 +1152,14 @@ msgstr ""
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
-"pressed and released"
+"pressed and released."
 msgstr ""
 "Parodo dabartinę žymeklio padėtį, jei paspaudžiamas ir atleidžiamas Control "
-"klavišas"
+"klavišas."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "Dvigubo spragtelėjimo trukmė"
+msgid "Length of a double click."
+msgstr "Dvigubo spragtelėjimo trukmė."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -1113,18 +1178,18 @@ msgid "Single Click"
 msgstr "Viengubas spragtelėjimas"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "Pakanka vieno spragtelėjimo atverti piktogramoms"
+msgid "Single click to open icons."
+msgstr "Pakanka vieno spragtelėjimo atverti piktogramoms."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "Žymeklio kursoriaus, nurodyto cursor_theme rakte, dydis."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
+msgid "Swap left and right mouse buttons for left-handed mice."
 msgstr ""
 "Kairiarankiams skirtoje pelėje sukeisti kairį ir dešinį pelės klavišą "
-"vietomis"
+"vietomis."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
@@ -1148,11 +1213,13 @@ msgstr "Įvykių garsai"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:6
 msgid "The default mixer device used by the multimedia key bindings."
-msgstr "Numatytasis mikšerio įrenginys naudojamas multimedijos klavišų susiejimų."
+msgstr ""
+"Numatytasis mikšerio įrenginys naudojamas multimedijos klavišų susiejimų."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:7
 msgid "The default mixer tracks used by the multimedia key bindings."
-msgstr "Numatytieji mikšerio takeliai naudojami multimedijos klavišų susiejimų."
+msgstr ""
+"Numatytieji mikšerio takeliai naudojami multimedijos klavišų susiejimų."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
@@ -1202,4 +1269,3 @@ msgstr "Ar naudojamas klaviatūros blokavimas."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Ar spausdinimo pertraukėlės ekranas gali būti atidėtas."
-
