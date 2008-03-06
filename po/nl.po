@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-10 12:53+0000\n"
+"POT-Creation-Date: 2008-03-06 12:10+0100\n"
 "PO-Revision-Date: 2008-02-17 15:34+0100\n"
 "Last-Translator: Daniel van Eeden <gnomenl@myname.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -75,25 +75,31 @@ msgstr "Gebruikersinterface-gebeurtenissen"
 
 #: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "Kan geen terminalprogramma vinden. Gebruik xterm hoewel dit mogelijk niet werkt."
+msgstr ""
+"Kan geen terminalprogramma vinden. Gebruik xterm hoewel dit mogelijk niet "
+"werkt."
 
 #: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf-ondersteuning"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Kan het domein GNOME_FILE_DOMAIN_APP_HELP niet vinden"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Kan het domein GNOME_FILE_DOMAIN_HELP niet vinden"
 
-#: ../libgnome/gnome-help.c:196
-#: ../libgnome/gnome-help.c:211
+#: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
 #, c-format
-msgid "Unable to show help as %s is not a directory.  Please check your installation."
-msgstr "Kan hulptekst niet tonen omdat %s geen map is. Controleer uw installatie."
+msgid ""
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
+msgstr ""
+"Kan hulptekst niet tonen omdat %s geen map is. Controleer uw installatie."
 
 # punt aan het eind van de zin ontbreekt in het Engels
 #: ../libgnome/gnome-help.c:220
@@ -103,8 +109,11 @@ msgstr "Kan hulppaden %s of %s niet vinden. Controleer uw installatie."
 
 #: ../libgnome/gnome-help.c:236
 #, c-format
-msgid "Unable to find the help files in either %s or %s.  Please check your installation"
-msgstr "Kan hulpbestanden niet vinden in %s, noch in %s. Controleer uw installatie."
+msgid ""
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
+msgstr ""
+"Kan hulpbestanden niet vinden in %s, noch in %s. Controleer uw installatie."
 
 #: ../libgnome/gnome-help.c:353
 #, c-format
@@ -125,21 +134,27 @@ msgstr "Bonobo-ondersteuning"
 msgid "Bonobo activation Support"
 msgstr "Bonobo activeringsondersteuning"
 
-#: ../libgnome/gnome-init.c:382
-#: ../libgnome/gnome-init.c:396
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Kan de gebruikerspecifieke GNOME-configuratiemap '%s' niet aanmaken: %s\n"
+msgstr ""
+"Kan de gebruikerspecifieke GNOME-configuratiemap '%s' niet aanmaken: %s\n"
 
 #: ../libgnome/gnome-init.c:404
 #, c-format
-msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
-msgstr "Kan de gebruikerspecifieke GNOME-configuratiemap '%s' niet benaderen: %s\n"
+msgid ""
+"Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr ""
+"Kan de gebruikerspecifieke GNOME-configuratiemap '%s' niet benaderen: %s\n"
 
 #: ../libgnome/gnome-init.c:412
 #, c-format
-msgid "Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
-msgstr "Kan de gebruikerspecifieke GNOME-privéconfiguratiemap '%s' niet op modus 0700 zetten: %s\n"
+msgid ""
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
+msgstr ""
+"Kan de gebruikerspecifieke GNOME-privéconfiguratiemap '%s' niet op modus "
+"0700 zetten: %s\n"
 
 #: ../libgnome/gnome-init.c:419
 #, c-format
@@ -150,28 +165,23 @@ msgstr "Kan de GNOME-sneltoetsenmap '%s' niet maken: %s\n"
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME virtueel bestandssysteem"
 
-#: ../libgnome/gnome-init.c:476
-#: ../libgnome/gnome-init.c:519
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "Gebruik van geluidsserver uitschakelen"
 
-#: ../libgnome/gnome-init.c:479
-#: ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "Gerbuik van geluidsserver inschakelen"
 
-#: ../libgnome/gnome-init.c:483
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "Host:poort waarop de te gebruiken geluidsserver actief is"
 
-#: ../libgnome/gnome-init.c:484
-#: ../libgnome/gnome-init.c:527
+#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAAM:POORT"
 
-#: ../libgnome/gnome-init.c:493
-#: ../libgnome/gnome-init.c:537
+#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "GNOME-bibliotheek"
 
@@ -358,31 +368,45 @@ msgstr ""
 "Voer '%s --help' uit voor een volledige lijst van opdrachtregelopties.\n"
 
 #: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Onbekende interne fout bij het weergeven van deze locatie."
 
 #: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "De aangegeven locatie is ongeldig."
 
 #: ../libgnome/gnome-url.c:99
-msgid "There was an error parsing the default action command associated with this location."
-msgstr "Er is een fout opgetreden bij het ontleden van de standaardactie-opdracht welke geassocieerd is met deze locatie."
+#, c-format
+msgid ""
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr ""
+"Er is een fout opgetreden bij het ontleden van de standaardactie-opdracht "
+"welke geassocieerd is met deze locatie."
 
-#: ../libgnome/gnome-url.c:107
-#: ../libgnome/gnome-url.c:180
-msgid "There was an error launching the default action command associated with this location."
-msgstr "Er is een fout opgetreden bij het starten van de standaardactie-opdracht welke geassocieerd is met deze locatie."
+#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
+msgid ""
+"There was an error launching the default action command associated with this "
+"location."
+msgstr ""
+"Er is een fout opgetreden bij het starten van de standaardactie-opdracht "
+"welke geassocieerd is met deze locatie."
 
 #: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "Er is geen standaardactie geassocieerd met deze locatie."
 
 #: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "De standaardactie ondersteunt dit protocol niet."
 
 #: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "De aanvraag is geannuleerd."
 
@@ -392,14 +416,17 @@ msgid "The host \"%s\" could not be found."
 msgstr "De \"%s\"-host was onvindbaar."
 
 #: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "De host was onvindbaar."
 
 #: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "De locatie of het bestand was onvindbaar."
 
 #: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "Het aanmelden is mislukt."
 
@@ -438,8 +465,11 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Uitschakelen wanneer twee toetsen tegelijkertijd worden aangeslagen."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
-msgstr "Toets niet accepteren als ingedrukt tenzij @delay milliseconden lang ingedrukt gehouden."
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds."
+msgstr ""
+"Toets niet accepteren als ingedrukt tenzij @delay milliseconden lang "
+"ingedrukt gehouden."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
@@ -450,8 +480,11 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed."
 msgstr "Hoeveel milliseconden het duurt om van 0 naar maximumsnelheid te gaan."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
-msgid "How many milliseconds to wait before mouse movement keys start to operate."
-msgstr "Hoeveel milliseconden te wachten voordat muisbewegingstoetsen in werking treden."
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate."
+msgstr ""
+"Hoeveel milliseconden te wachten voordat muisbewegingstoetsen in werking "
+"treden."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "How many pixels per second to move at the maximum speed."
@@ -459,7 +492,8 @@ msgstr "Hoeveel pixels per seconde te bewegen op maximumsnelheid."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
-msgstr "Meerdere aanslagen van _dezelfde_ toets negeren binnen @delay milliseconden."
+msgstr ""
+"Meerdere aanslagen van _dezelfde_ toets negeren binnen @delay milliseconden."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -478,40 +512,60 @@ msgid "minimum interval in milliseconds"
 msgstr "minimuminterval in milliseconden"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
-msgid "List of assistive technology applications to start when logging into the GNOME desktop."
-msgstr "Lijst van te starten assisterende technologie-toepassingen bij het aanmelden bij de GNOME werkomgeving."
+msgid ""
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop."
+msgstr ""
+"Lijst van te starten assisterende technologie-toepassingen bij het aanmelden "
+"bij de GNOME werkomgeving."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr "Opstarten van assisterende technologie-toepassingen"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
-msgid "GNOME to start preferred Mobility assistive technology application during login."
-msgstr "Of Gnome de assisterende technologie-toepassing voor mobiliteit moet starten tijdens het inloggen."
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login."
+msgstr ""
+"Of Gnome de assisterende technologie-toepassing voor mobiliteit moet starten "
+"tijdens het inloggen."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
 msgstr "Geprefereerde assisterende technologie-toepassing voor mobiliteit"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
-msgid "Preferred Mobility assistive technology application to be used for login, menu, or command line."
-msgstr "Geprefereerde assisterende technologie-toepassing voor mobiliteit die bij inloggen, het menu en de opdrachtregel gebruikt moet worden."
+msgid ""
+"Preferred Mobility assistive technology application to be used for login, "
+"menu, or command line."
+msgstr ""
+"Geprefereerde assisterende technologie-toepassing voor mobiliteit die bij "
+"inloggen, het menu en de opdrachtregel gebruikt moet worden."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
 msgstr "Opstarten van assisterende technologie-toepassing voor mobiliteit"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
-msgid "GNOME to start preferred Visual assistive technology application during login."
-msgstr "Of Gnome de assisterende technologie-toepassing voor visuele hulp moet starten na inloggen."
+msgid ""
+"GNOME to start preferred Visual assistive technology application during "
+"login."
+msgstr ""
+"Of Gnome de assisterende technologie-toepassing voor visuele hulp moet "
+"starten na inloggen."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
 msgstr "Geprefereerde assisterende technologie-toepassing voor visuele hulp"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
-msgid "Preferred Visual assistive technology application be used for login, menu, or command line."
-msgstr "Geprefereerde assisterende technologie-toepassing voor visuele hulp die bij inloggen, het menu en de opdrachtregel gebruikt moet worden."
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line."
+msgstr ""
+"Geprefereerde assisterende technologie-toepassing voor visuele hulp die bij "
+"inloggen, het menu en de opdrachtregel gebruikt moet worden."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -567,15 +621,21 @@ msgstr "Taken heeft terminalvenster nodig"
 
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
 msgid "Whether the default calendar application needs a terminal to run"
-msgstr "Of de standaardagenda toepassing voor het uitvoeren een terminalvenster vereist"
+msgstr ""
+"Of de standaardagenda toepassing voor het uitvoeren een terminalvenster "
+"vereist"
 
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
 msgid "Whether the default tasks application needs a terminal to run"
-msgstr "Of de standaardtaak toepassing voor het uitvoeren een terminalvenster vereist"
+msgstr ""
+"Of de standaardtaak toepassing voor het uitvoeren een terminalvenster vereist"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Argument voor het uitvoeren van programma's in het terminalvenster gedefinieerd door de 'exec'-sleutel."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr ""
+"Argument voor het uitvoeren van programma's in het terminalvenster "
+"gedefinieerd door de 'exec'-sleutel."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -587,19 +647,28 @@ msgstr "Terminaltoepassing"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one."
-msgstr "Terminalprogramma voor het starten van toepassingen die er één vereisen."
+msgstr ""
+"Terminalprogramma voor het starten van toepassingen die er één vereisen."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
-msgid "A list with names of the first window manager workspaces. This key has been deprecated since GNOME 2.12."
-msgstr "Een namenlijst van de eerste window manager-werkbladen. Deze sleutel is ontraden sinds GNOME 2.12."
+msgid ""
+"A list with names of the first window manager workspaces. This key has been "
+"deprecated since GNOME 2.12."
+msgstr ""
+"Een namenlijst van de eerste window manager-werkbladen. Deze sleutel is "
+"ontraden sinds GNOME 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
 msgstr "Terugval-window manager (ontraden)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
-msgid "Fallback window manager if user window manager can't be found. This key has been deprecated since GNOME 2.12."
-msgstr "Windowmanager om op terug te vallen als de gebruikers-windowmanager onvindbaar is. Deze sleutel is ontraden sinds GNOME 2.12."
+msgid ""
+"Fallback window manager if user window manager can't be found. This key has "
+"been deprecated since GNOME 2.12."
+msgstr ""
+"Windowmanager om op terug te vallen als de gebruikers-windowmanager "
+"onvindbaar is. Deze sleutel is ontraden sinds GNOME 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -610,24 +679,37 @@ msgid "The number of workspaces (deprecated)"
 msgstr "Aantal werkbladen (ontraden)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
-msgid "The number of workspaces the window manager should use This key has been deprecated since GNOME 2.12."
-msgstr "Het aantal werkbladen dat de window manager moet gebruiken. Deze sleutel is ontraden sinds GNOME 2.12."
+msgid ""
+"The number of workspaces the window manager should use This key has been "
+"deprecated since GNOME 2.12."
+msgstr ""
+"Het aantal werkbladen dat de window manager moet gebruiken. Deze sleutel is "
+"ontraden sinds GNOME 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
 msgstr "Gebruikers-windowmanager (ontraden)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
-msgstr "Als eerste te proberen windowmanager. Deze sleutel is ontraden sinds GNOME 2.12."
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr ""
+"Als eerste te proberen windowmanager. Deze sleutel is ontraden sinds GNOME "
+"2.12."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "Type kleurschakering"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:2
-msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom\"."
-msgstr "Bepaalt hoe de afbeeldingen welke gezet is met wallpaper_filename wordt weergegeven. Mogelijke waarden zijn \"geen\", \"behang\", \"gecentreerd\", \"geschaald\", \"uitgerekt\"."
+msgid ""
+"Determines how the image set by wallpaper_filename is rendered. Possible "
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
+msgstr ""
+"Bepaalt hoe de afbeeldingen welke gezet is met wallpaper_filename wordt "
+"weergegeven. Mogelijke waarden zijn \"geen\", \"behang\", \"gecentreerd\", "
+"\"geschaald\", \"uitgerekt\"."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -642,12 +724,18 @@ msgid "Have GNOME draw the desktop background."
 msgstr "Laat GNOME de werkbladachtergrond tekenen."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
-msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\"."
-msgstr "Hoe de achtergrondkleur getekend moet worden. Mogelijke waarden zijn \"horizontal-gradient\", \"vertical-gradient\", \"solid\"."
+msgid ""
+"How to shade the background color. Possible values are \"horizontal-gradient"
+"\", \"vertical-gradient\", and \"solid\"."
+msgstr ""
+"Hoe de achtergrondkleur getekend moet worden. Mogelijke waarden zijn "
+"\"horizontal-gradient\", \"vertical-gradient\", \"solid\"."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
-msgstr "Linker - of bovenste kleur bij kleurverloop, of gewoon de kleur bij één kleur."
+msgstr ""
+"Linker - of bovenste kleur bij kleurverloop, of gewoon de kleur bij één "
+"kleur."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture."
@@ -770,16 +858,23 @@ msgid "Module for GtkFileChooser"
 msgstr "Module voor GtkFileChooser"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
-msgid "Module to use as the filesystem model for the GtkFileChooser widget. Possible values are \"gnome-vfs\" and \"gtk+\"."
-msgstr "Te gebruiken modelmodule voor bestandssysteemweergave voor het GtkFileChooser element. Mogelijke waardes zijn \"gnome-vfs\" en \"gtk+\"."
+msgid ""
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
+msgstr ""
+"Te gebruiken modelmodule voor bestandssysteemweergave voor het "
+"GtkFileChooser element. Mogelijke waardes zijn ‘gio’, ‘gnome-vfs’ en ‘gtk+’."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "Niet-proportioneel lettertype"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr "Naam van een niet-proportioneel lettertype voor gebruik in terminalvenster-achtige toepassingen."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr ""
+"Naam van een niet-proportioneel lettertype voor gebruik in terminalvenster-"
+"achtige toepassingen."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -810,8 +905,11 @@ msgid "Show the 'Unicode Control Character' menu"
 msgstr "Het 'Unicode controleteken'-menu tonen"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
-msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
-msgstr "De grootte pictogrammen op de werkbalken, geldige waarden zijn ´small-toolbar´ of ´large-toolbar´."
+msgid ""
+"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr ""
+"De grootte pictogrammen op de werkbalken, geldige waarden zijn ´small-toolbar"
+"´ of ´large-toolbar´."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
@@ -830,8 +928,11 @@ msgid "Toolbar Style"
 msgstr "Werkbalkstijl"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and \"text\"."
-msgstr "Werkbalkstijl. Geldige waarden zijn ‘both’, ‘both-horiz’, ‘icons’ en ‘text’."
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
+"\"text\"."
+msgstr ""
+"Werkbalkstijl. Geldige waarden zijn ‘both’, ‘both-horiz’, ‘icons’ en ‘text’."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
@@ -842,8 +943,12 @@ msgid "Whether Applications should have accessibility support."
 msgstr "Of programma's toegankelijkheid moeten gebruiken."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
-msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
-msgstr "Of animaties weergegeven moeten worden. Opmerking: Dit is een globale instelling. Het heeft invloed op het paneel, vensterbeheer, etc..."
+msgid ""
+"Whether animations should be displayed. Note: This is a global key, it "
+"changes the behaviour of the window manager, the panel etc."
+msgstr ""
+"Of animaties weergegeven moeten worden. Opmerking: Dit is een globale "
+"instelling. Het heeft invloed op het paneel, vensterbeheer, etc..."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid "Whether menus may display an icon next to a menu entry."
@@ -854,12 +959,20 @@ msgid "Whether menus should have a tearoff."
 msgstr "Of menu's een losscheurrand moeten hebben."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the context menus of entries and text views should offer to change the input method."
-msgstr "Of de contextmenu's van tekstvelden een optie moeten bieden om de invoermethode te wijzigen."
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method."
+msgstr ""
+"Of de contextmenu's van tekstvelden een optie moeten bieden om de "
+"invoermethode te wijzigen."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the context menus of entries and text views should offer to insert control characters."
-msgstr "Of de contextmenu's van tekstvelden een optie moeten bieden om controletekens in te voegen."
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters."
+msgstr ""
+"Of de contextmenu's van tekstvelden een optie moeten bieden om "
+"controletekens in te voegen."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid "Whether the cursor should blink."
@@ -867,19 +980,28 @@ msgstr "Of de cursor moet knipperen."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid "Whether the user can detach menubars and move them around."
-msgstr "Of de gebruiker menubalken kan losscheuren en los op het scherm kan neerzetten."
+msgstr ""
+"Of de gebruiker menubalken kan losscheuren en los op het scherm kan "
+"neerzetten."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether the user can detach toolbars and move them around."
-msgstr "Of de gebruiker werkbalken kan losscheuren en los op het scherm kan neerzetten."
+msgstr ""
+"Of de gebruiker werkbalken kan losscheuren en los op het scherm kan "
+"neerzetten."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
-msgid "Whether the user can dynamically type a new accelerator when positioned over an active menuitem."
-msgstr "Of de gebruiker dynamisch een nieuwe sneltoetsbinding kan aangeven wanneer de muis een selecteerbaar menuonderdeel aanwijst."
+msgid ""
+"Whether the user can dynamically type a new accelerator when positioned over "
+"an active menuitem."
+msgstr ""
+"Of de gebruiker dynamisch een nieuwe sneltoetsbinding kan aangeven wanneer "
+"de muis een selecteerbaar menuonderdeel aanwijst."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
 msgid "Whether to display a status bar meter on the right."
-msgstr "Of er een meter op statusbalk aan de rechterkant weergegeven moet worden."
+msgstr ""
+"Of er een meter op statusbalk aan de rechterkant weergegeven moet worden."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
@@ -910,24 +1032,47 @@ msgid "Disable user switching"
 msgstr "Wisselen van gebruiker uitschakelen"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
-msgid "Prevent the user from accessing the terminal or specifying a command line to be executed. For example, this would disable access to the panel's \"Run Application\" dialog."
-msgstr "De gebruiker verhinderen om toegang tot de terminal te krijgen of om een uit te voeren opdrachtregel op te geven. Dit schakelt bijvoorbeeld de toegang uit tot het \"Toepassing uitvoeren\"-dialoogvenster van het paneel."
+msgid ""
+"Prevent the user from accessing the terminal or specifying a command line to "
+"be executed. For example, this would disable access to the panel's \"Run "
+"Application\" dialog."
+msgstr ""
+"De gebruiker verhinderen om toegang tot de terminal te krijgen of om een uit "
+"te voeren opdrachtregel op te geven. Dit schakelt bijvoorbeeld de toegang "
+"uit tot het \"Toepassing uitvoeren\"-dialoogvenster van het paneel."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
-msgid "Prevent the user from modifying print settings. For example, this would disable access to all applications' \"Print Setup\" dialogs."
-msgstr "De gebruiker verhinderen om de afdrukinstellingen aan te passen. Dit schakelt bijvoorbeeld de toegang uit tot de \"Afdrukinstellingen\"-dialoogvensters van alle toepassingen."
+msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all applications' \"Print Setup\" dialogs."
+msgstr ""
+"De gebruiker verhinderen om de afdrukinstellingen aan te passen. Dit "
+"schakelt bijvoorbeeld de toegang uit tot de \"Afdrukinstellingen\"-"
+"dialoogvensters van alle toepassingen."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
-msgid "Prevent the user from printing. For example, this would disable access to all applications' \"Print\" dialogs."
-msgstr "De gebruiker verhinderen af te drukken. Dit schakelt bijvoorbeeld de toegang uit tot de \"Afdrukken\"-dialoogvensters van alle toepassingen."
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all applications' \"Print\" dialogs."
+msgstr ""
+"De gebruiker verhinderen af te drukken. Dit schakelt bijvoorbeeld de toegang "
+"uit tot de \"Afdrukken\"-dialoogvensters van alle toepassingen."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
-msgid "Prevent the user from saving files to disk. For example, this would disable access to all applications' \"Save as\" dialogs."
-msgstr "De gebruiker verhinderen om bestanden naar schijf op te slaan. Dit schakelt bijvoorbeeld de toegang uit tot de \"Opslaan als\"-dialoogvensters van alle toepassingen."
+msgid ""
+"Prevent the user from saving files to disk. For example, this would disable "
+"access to all applications' \"Save as\" dialogs."
+msgstr ""
+"De gebruiker verhinderen om bestanden naar schijf op te slaan. Dit schakelt "
+"bijvoorbeeld de toegang uit tot de \"Opslaan als\"-dialoogvensters van alle "
+"toepassingen."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
-msgid "Prevent the user from switching to another account while his session is active."
-msgstr "Voorkomen dat van gebruiker gewisseld kan worden als de sessie actief is"
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr ""
+"Voorkomen dat van gebruiker gewisseld kan worden als de sessie actief is"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid "Prevent the user to lock his screen."
@@ -946,16 +1091,24 @@ msgid "Remember NumLock state"
 msgstr "NumLock-status onthouden"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
-msgid "When set to true, GNOME will remember the state of the NumLock LED between sessions."
-msgstr "Als ingesteld op waar, dan zal GNOME de status van de NumLock LED onthouden van de ene sessie op de andere."
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+msgstr ""
+"Als ingesteld op waar, dan zal GNOME de status van de NumLock LED onthouden "
+"van de ene sessie op de andere."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "mogelijke waarden zijn \"on\", \"off\", en \"custom\" (aangepast)."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
-msgid "Acceleration multiplier for mouse motion. A value of -1 is the system default."
-msgstr "Versnellingsfactor voor muisbewegingen. Een waarde van -1 is de systeemstandaard."
+msgid ""
+"Acceleration multiplier for mouse motion. A value of -1 is the system "
+"default."
+msgstr ""
+"Versnellingsfactor voor muisbewegingen. Een waarde van -1 is de "
+"systeemstandaard."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -970,16 +1123,24 @@ msgid "Cursor theme"
 msgstr "Cursorthema"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
-msgid "Cursor theme name. Used only by Xservers that support Xcursor, such as XFree86 4.3 and later."
-msgstr "Cursorthema-naam. Slechts gebruikt door Xservers die Xcursor ondersteunen, zoals XFree86 4.3 en nieuwer."
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later."
+msgstr ""
+"Cursorthema-naam. Slechts gebruikt door Xservers die Xcursor ondersteunen, "
+"zoals XFree86 4.3 en nieuwer."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started."
 msgstr "Afstand voordat wordt begonnen met slepen."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
-msgid "Distance in pixels the pointer must move before accelerated mouse motion is activated. A value of -1 is the system default."
-msgstr "Afstand die de muisaanwijzer moet afleggen voordat de versnelling wordt ingeschakeld. Een waarde van -1 is de systeemstandaard."
+msgid ""
+"Distance in pixels the pointer must move before accelerated mouse motion is "
+"activated. A value of -1 is the system default."
+msgstr ""
+"Afstand die de muisaanwijzer moet afleggen voordat de versnelling wordt "
+"ingeschakeld. Een waarde van -1 is de systeemstandaard."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
@@ -990,12 +1151,23 @@ msgid "Drag Threshold"
 msgstr "Sleepdrempel"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
-msgid "Font name of the cursor. If unset, the default font is used. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in."
-msgstr "Naam van het lettertype van de cursor. Als het niet ingesteld is, wordt het standaardlettertype gebruikt. Deze waarde wordt alleen bij het starten van elke sessie doorgegeven aan de X-server, dus om veranderingen te activeren zult u zich opnieuw moeten aanmelden."
+msgid ""
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
+"session won't have an effect until the next time you log in."
+msgstr ""
+"Naam van het lettertype van de cursor. Als het niet ingesteld is, wordt het "
+"standaardlettertype gebruikt. Deze waarde wordt alleen bij het starten van "
+"elke sessie doorgegeven aan de X-server, dus om veranderingen te activeren "
+"zult u zich opnieuw moeten aanmelden."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
-msgid "Highlights the current location of the pointer when the Control key is pressed and released."
-msgstr "Geeft aan waar de muisaanwijzer zich bevindt wanneer de CTRL-toets wordt ingedrukt en losgelaten."
+msgid ""
+"Highlights the current location of the pointer when the Control key is "
+"pressed and released."
+msgstr ""
+"Geeft aan waar de muisaanwijzer zich bevindt wanneer de CTRL-toets wordt "
+"ingedrukt en losgelaten."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click."
@@ -1055,7 +1227,8 @@ msgstr "De mixer die standaard gebruikt wordt voor de multimediatoetsen."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:7
 msgid "The default mixer tracks used by the multimedia key bindings."
-msgstr "De mixer-schuiven die standaard gebruikt worden voor de multimediatoetsen."
+msgstr ""
+"De mixer-schuiven die standaard gebruikt worden voor de multimediatoetsen."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
@@ -1066,8 +1239,12 @@ msgid "Disable all external thumbnailers"
 msgstr "Externe miniaturiseringsprogramma's uitschakelen"
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:2
-msgid "Set to true to disable all external thumbnailer programs, independent on whether they are independently disabled/enabled."
-msgstr "Instellen op waar om alle externe miniaturiseringsprogramma's uit te schakelen, ongeacht of ze individueel ingeschakeld/uitgeschakeld zijn."
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+"Instellen op waar om alle externe miniaturiseringsprogramma's uit te "
+"schakelen, ongeacht of ze individueel ingeschakeld/uitgeschakeld zijn."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
@@ -1103,19 +1280,25 @@ msgstr "Of het tikpauze-scherm al dan niet kan worden uitgesteld."
 
 #~ msgid "Default help viewer"
 #~ msgstr "Standaard hulpweergave"
+
 #~ msgid "Help viewer needs terminal"
 #~ msgstr "Hulpweergave heeft terminalvenster nodig"
+
 #~ msgid "Whether the default help viewer accepts URLs"
 #~ msgstr "Of de standaard hulpweergave URL's accepteert"
+
 #~ msgid "Whether the default help viewer needs a terminal to run"
 #~ msgstr ""
 #~ "Of de standaard hulpweergave voor het uitvoeren een terminalvenster "
 #~ "vereist"
+
 #~ msgid "This specifies the size of icons displayed in toolbars"
 #~ msgstr ""
 #~ "Dit geeft de grootte van de weergegeven pictogrammen in de werkbalken"
+
 #~ msgid "Unknown error code: %u"
 #~ msgstr "Onbekende foutcode: %u"
+
 #~ msgid ""
 #~ "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 #~ "XFree86 4.3 and later. This value is only propagated to the X server at "
@@ -1127,6 +1310,7 @@ msgstr "Of het tikpauze-scherm al dan niet kan worden uitgesteld."
 #~ "alleen doorgegeven aan de X-server aan het begin van iedere sessie, dus "
 #~ "een wijziging ervan tijdens een sessie heeft geen invloed totdat u zich "
 #~ "opnieuw aanmeldt."
+
 #~ msgid ""
 #~ "Size of the cursor referenced by cursor_theme. This value is only "
 #~ "propagated to the X server start of each session, so changing it mid-"
@@ -1136,134 +1320,177 @@ msgstr "Of het tikpauze-scherm al dan niet kan worden uitgesteld."
 #~ "alleen doorgegeven aan de X-server aan het begin van iedere sessie, dus "
 #~ "een wijziging ervan tijdens een sessie heeft geen invloed totdat u zich "
 #~ "opnieuw aanmeldt."
+
 #~ msgid "Window manager to try first"
 #~ msgstr "Eerst te proberen window manager"
+
 #~ msgid "Too many alias levels for a locale, may indicate a loop"
 #~ msgstr ""
 #~ "Te veel aliasniveaus voor een locale, dit wijst mogelijk op een "
 #~ "verwijzingslus (loop)"
+
 #~ msgid "How to handle ghelp URLs"
 #~ msgstr "Hoe ghelp-URLs af te handelen"
+
 #~ msgid "How to handle http URLs"
 #~ msgstr "Hoe http-URLs af te handelen"
+
 #~ msgid "How to handle https URLs"
 #~ msgstr "Hoe https-URLs af te handelen"
+
 #~ msgid "How to handle info URLs"
 #~ msgstr "Hoe info-URLs af te handelen"
+
 #~ msgid "How to handle man URLs"
 #~ msgstr "Hoe man-URLs af te handelen"
+
 #~ msgid "How to handle trash URLs"
 #~ msgstr "Hoe trash-URLs af te handelen"
+
 #~ msgid "Run program in terminal"
 #~ msgstr "Programma uitvoeren in terminal"
+
 #~ msgid "Set to true to have a program specified in command handle http URLs"
 #~ msgstr ""
 #~ "Instellen op 'true' om een programma, gespecificeerd in \"command\",http-"
 #~ "URLs te laten afhandelen"
+
 #~ msgid "Set to true to have a program specified in command handle https URLs"
 #~ msgstr ""
 #~ "Instellen op 'true' om een programma, gespecificeerd in \"command\", "
 #~ "https-URLs te laten afhandelen"
+
 #~ msgid ""
 #~ "Set to true to have a program specified in programs/ghelp handle ghelp "
 #~ "URLs"
 #~ msgstr ""
 #~ "Instellen op 'true' om een programma, gespecificeerd in programs/ghelp, "
 #~ "ghelp-URLs te laten afhandelen"
+
 #~ msgid ""
 #~ "Set to true to have a program specified in programs/info handle info URLs"
 #~ msgstr ""
 #~ "Instellen op 'true' om een programma, gespecificeerd in programs/info, "
 #~ "info-URLs te laten afhandelen"
+
 #~ msgid ""
 #~ "Set to true to have a program specified in programs/man handle man URLs"
 #~ msgstr ""
 #~ "Instellen op 'true' om een programma, gespecificeerd in programs/man, man-"
 #~ "URLs te laten afhandelen"
+
 #~ msgid ""
 #~ "Set to true to have a program specified in trash/command handle trash URLs"
 #~ msgstr ""
 #~ "Instellen op 'true' om een programma, gespecificeerd in trash/command, "
 #~ "trash-URLs te laten afhandelen"
+
 #~ msgid "True if the program to handle this URL should be run in a terminal"
 #~ msgstr "Waar als het programma uitgevoerd moet worden in een terminal"
+
 #~ msgid "URL handler for ghelp pages"
 #~ msgstr "URL-afhandeling voor ghelppagina's"
+
 #~ msgid "URL handler for http uris"
 #~ msgstr "URL-afhandeling voor http-URI's"
+
 #~ msgid "URL handler for https uris"
 #~ msgstr "URL-afhandeling voor https-URI's"
+
 #~ msgid "URL handler for info pages"
 #~ msgstr "URL-afhandeling voor info pagina's"
+
 #~ msgid "URL handler for man pages"
 #~ msgstr "URL-afhandeling voor man pagina's"
+
 #~ msgid "URL handler for trash pages"
 #~ msgstr "URL-afhandeling voor trash-pagina's"
+
 #~ msgid "Action button click"
 #~ msgstr "Klik op actieknop"
+
 #~ msgid "Check box toggled"
 #~ msgstr "Selectievakje omgeschakeld"
+
 #~ msgid "Menu item activation"
 #~ msgstr "Activering menu-item"
+
 #~ msgid "Default URL show handler"
 #~ msgstr "Standaardprogramma voor URL-weergave"
+
 #~ msgid "How to handle applications URLs"
 #~ msgstr ""
 #~ "Hoe de URLs weergegeven moeten worden die door programma's doorgegeven "
 #~ "worden"
+
 #~ msgid "How to handle preferences URLs"
 #~ msgstr "Hoe Voorkeuren-URLs weergegeven moeten worden"
+
 #~ msgid "How to handle server-settings URLs"
 #~ msgstr "Hoe Serverinstellingen URLs weergegeven moeten worden"
+
 #~ msgid "How to handle start-here URLs"
 #~ msgstr "Hoe \"Begin hier\"-URLs weergegeven moeten worden"
+
 #~ msgid "How to handle system-settings URLs"
 #~ msgstr "Hoe Systeeminstellingen URLs weergegeven moeten worden"
+
 #~ msgid "How to handle unknown URLs"
 #~ msgstr "Hoe onbekende URLs weergegeven moeten worden"
+
 #~ msgid ""
 #~ "Set to true to have a program specified in applications/command handle "
 #~ "applications URLs"
 #~ msgstr ""
 #~ "Instellen op 'true\" (waar) om een programma, gespecificeerd in "
 #~ "applications/command, programma-URLs te laten afhandelen"
+
 #~ msgid ""
 #~ "Set to true to have a program specified in preferences/command handle "
 #~ "preferences URLs"
 #~ msgstr ""
 #~ "Instellen op 'true\" (waar) om een programma, gespecificeerd in "
 #~ "preferences/command, Voorkeuren-URLs te laten afhandelen"
+
 #~ msgid ""
 #~ "Set to true to have a program specified in programs/unknown handle "
 #~ "unknown URLs"
 #~ msgstr ""
 #~ "Instellen op 'true\" (waar) om een programma, gespecificeerd in programs/"
 #~ "unknown, onbekende URLs te laten afhandelen"
+
 #~ msgid ""
 #~ "Set to true to have a program specified in server-settings/command handle "
 #~ "server-settings URLs"
 #~ msgstr ""
 #~ "Instellen op 'true\" (waar) om een programma, gespecificeerd in server-"
 #~ "settings/command, Serverinstellingen-URLs te laten afhandelen"
+
 #~ msgid ""
 #~ "Set to true to have a program specified in start-here/command handle "
 #~ "start-here URLs"
 #~ msgstr ""
 #~ "Instellen op 'true\" (waar) om een programma, gespecificeerd in start-"
 #~ "here/command, \"begin hier\"-URLs te laten afhandelen"
+
 #~ msgid ""
 #~ "Set to true to have a program specified in system-settings/command handle "
 #~ "system-settings URLs"
 #~ msgstr ""
 #~ "Instellen op 'true\" (waar) om een programma, gespecificeerd in system-"
 #~ "settings/command, Systeeminstellingen-URLs te laten afhandelen"
+
 #~ msgid "URL handler for applications pages"
 #~ msgstr "URL-weergave voor programmapagina's"
+
 #~ msgid "URL handler for preferences pages"
 #~ msgstr "URL-weergave voor Voorkeuren-pagina's"
+
 #~ msgid "URL handler for server-settings pages"
 #~ msgstr "URL-weergave voor Serverinstellingen-pagina's"
+
 #~ msgid "URL handler for start-here pages"
 #~ msgstr "URL-weergave voor \"Begin hier\"-pagina's"
+
 #~ msgid "URL handler for system-settings pages"
 #~ msgstr "URL-weergave voor Systeeminstellingen-pagina's"
