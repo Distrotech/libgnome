@@ -17,12 +17,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-14 14:26+0100\n"
-"PO-Revision-Date: 2008-02-14 14:28+0100\n"
+"POT-Creation-Date: 2008-03-06 16:42+0100\n"
+"PO-Revision-Date: 2008-03-06 16:43+0100\n"
 "Last-Translator: Ignacio Casal Quinteiro <icq@svn.gnome.org>\n"
 "Language-Team: Galego <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type:  text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
@@ -151,7 +151,8 @@ msgstr ""
 
 #: ../libgnome/gnome-init.c:404
 #, c-format
-msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgid ""
+"Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Non foi posible crear un directorio de configuración por usuario do Gnome `%"
 "s': %s\n"
@@ -168,7 +169,8 @@ msgstr ""
 #: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Non foi posible crear o directorio de teclas rápidas do Gnome `%s': %s\n"
+msgstr ""
+"Non foi posible crear o directorio de teclas rápidas do Gnome `%s': %s\n"
 
 #: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
@@ -184,7 +186,8 @@ msgstr "Activar o uso do servidor de son"
 
 #: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
-msgstr "Host:porto onde o servidor de son que se vai utilizar está en execución"
+msgstr ""
+"Host:porto onde o servidor de son que se vai utilizar está en execución"
 
 #: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
@@ -475,7 +478,8 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Desactivar se se premen dúas teclas á vez."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
+msgid ""
+"Do not accept a key as being pressed unless held for @delay milliseconds."
 msgstr ""
 "Non aceptar unha tecla como premida excepto que se manteña durante @delay "
 "milisegundos."
@@ -489,7 +493,8 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed."
 msgstr "Canto tempo en milisegundos leva ir desde 0 até a velocidade máxima"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
-msgid "How many milliseconds to wait before mouse movement keys start to operate."
+msgid ""
+"How many milliseconds to wait before mouse movement keys start to operate."
 msgstr ""
 "Canto tempo en milisegundos hai que esperar até que as teclas de movemento "
 "do rato comezan a funcionar."
@@ -596,7 +601,8 @@ msgstr "Navegador predeterminado para todos os URL"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run."
-msgstr "Indica se o navegador predeterminado precisa un terminal para executarse"
+msgstr ""
+"Indica se o navegador predeterminado precisa un terminal para executarse"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote."
@@ -628,14 +634,18 @@ msgstr "A terminal precisa tarefas"
 
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
 msgid "Whether the default calendar application needs a terminal to run"
-msgstr "Indica se a aplicación de calendario necesita dunha terminal para executarse"
+msgstr ""
+"Indica se a aplicación de calendario necesita dunha terminal para executarse"
 
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
 msgid "Whether the default tasks application needs a terminal to run"
-msgstr "Indica se a aplicación de tarefas predeterminada precisa dunha terminal para se executar"
+msgstr ""
+"Indica se a aplicación de tarefas predeterminada precisa dunha terminal para "
+"se executar"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
-msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
+msgid ""
+"Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Argumento usado para executar programas no terminal definido pola tecla "
 "'exec'."
@@ -693,7 +703,8 @@ msgid "User window manager (deprecated)"
 msgstr "Xestor de ventás do usuario (obsoleto)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgid ""
+"Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
 "Xestor de ventás que se probará primeiro. Esta chave é obsoleta desde o "
 "Gnome 2.12."
@@ -861,17 +872,18 @@ msgstr "Módulo para GtkFileChooser"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
-"Possible values are \"gnome-vfs\" and \"gtk+\"."
+"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 "Módulo para usar como modelo do sistema de ficheiros para o widget "
-"GtkFileChooser. Os valores posibles son \"gnome-vfs\" e \"gtk+\"."
+"GtkFileChooser. Os valores posibles son \"gio\", \"gnome-vfs\" e \"gtk+\"."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "Tipo de letra monoespazado"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
-msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgid ""
+"Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Nome dun tipo de letra monoespazado (largura fixa) para usar en "
 "localizacións como terminais."
@@ -905,7 +917,8 @@ msgid "Show the 'Unicode Control Character' menu"
 msgstr "Mostrar o menú 'Carácter de control Unicode'"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
-msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgid ""
+"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
 msgstr ""
 "O tamaño das iconas nas barras de ferramentas, pode ser \"small-toolbar\" ou "
 "\"large-toolbar\"."
@@ -980,7 +993,8 @@ msgstr "Indica se o cursor debe pestanexar."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid "Whether the user can detach menubars and move them around."
-msgstr "Indica se o usuario pode separar as barras de menús e movelas a outro lado."
+msgstr ""
+"Indica se o usuario pode separar as barras de menús e movelas a outro lado."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether the user can detach toolbars and move them around."
@@ -1002,7 +1016,8 @@ msgstr "Indica se se mostra un contador da barra de estado á dereita."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
-msgstr "Indica se se vai usar un tipo de letra personalizado nas aplicacións gtk+."
+msgstr ""
+"Indica se se vai usar un tipo de letra personalizado nas aplicacións gtk+."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable command line"
@@ -1068,7 +1083,8 @@ msgstr ""
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
-msgstr "Prevén que o usuario seleccione outra conta mentra a súa sesión está activa."
+msgstr ""
+"Prevén que o usuario seleccione outra conta mentra a súa sesión está activa."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid "Prevent the user to lock his screen."
@@ -1280,5 +1296,5 @@ msgstr "Indica se o bloqueo do teclado está activado ou non."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
-msgstr "Indica se a pantalla de interrupción da dixitación pode posporse ou non."
-
+msgstr ""
+"Indica se a pantalla de interrupción da dixitación pode posporse ou non."
