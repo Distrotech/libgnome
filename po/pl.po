@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-16 17:05+0100\n"
+"POT-Creation-Date: 2008-03-06 23:48+0100\n"
 "PO-Revision-Date: 2008-02-16 16:24+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Tomasz Dominikowski (Aviary.pl) <dominikowski@gmail.com>\n"
@@ -84,12 +84,10 @@ msgid "GNOME GConf Support"
 msgstr "Obsługa GNOME GConf"
 
 #: ../libgnome/gnome-help.c:170
-#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Nie można odnaleźć dziedziny GNOME_FILE_DOMAIN_APP_HELP"
 
 #: ../libgnome/gnome-help.c:183
-#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Nie można odnaleźć dziedziny GNOME_FILE_DOMAIN_HELP."
 
@@ -370,17 +368,14 @@ msgstr ""
 "Uruchom \"%s --help\" aby zobaczyć listę wszystkich dostępnych opcji.\n"
 
 #: ../libgnome/gnome-url.c:85
-#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Nieznany błąd wewnętrzny podczas wyświetlania bieżącego położenia."
 
 #: ../libgnome/gnome-url.c:92
-#, c-format
 msgid "The specified location is invalid."
 msgstr "Podane położenie jest niepoprawne."
 
 #: ../libgnome/gnome-url.c:99
-#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
@@ -388,7 +383,6 @@ msgstr ""
 "Błąd przy analizie domyślnego polecenia powiązanego z bieżącym położeniem."
 
 #: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
-#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -397,17 +391,14 @@ msgstr ""
 "położeniem."
 
 #: ../libgnome/gnome-url.c:115
-#, c-format
 msgid "There is no default action associated with this location."
 msgstr "Brak domyślnej czynności powiązanej z bieżącym położeniem."
 
 #: ../libgnome/gnome-url.c:122
-#, c-format
 msgid "The default action does not support this protocol."
 msgstr "Domyślna czynność nie obsługuje bieżącego protokołu."
 
 #: ../libgnome/gnome-url.c:129
-#, c-format
 msgid "The request was cancelled."
 msgstr "Żądanie zostało anulowane."
 
@@ -417,17 +408,14 @@ msgid "The host \"%s\" could not be found."
 msgstr "Nie można odnaleźć komputera \"%s\"."
 
 #: ../libgnome/gnome-url.c:145
-#, c-format
 msgid "The host could not be found."
 msgstr "Nie można odnaleźć komputera."
 
 #: ../libgnome/gnome-url.c:156
-#, c-format
 msgid "The location or file could not be found."
 msgstr "Nie można odnaleźć położenia pliku."
 
 #: ../libgnome/gnome-url.c:163
-#, c-format
 msgid "The login has failed."
 msgstr "Logowanie nie powiodło się."
 
@@ -865,10 +853,10 @@ msgstr "Moduł dla GtkFileChooser"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
-"Possible values are \"gnome-vfs\" and \"gtk+\"."
+"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 "Moduł użwany jako model systemu pliku przez widget GtkFileChooser. "
-"Dopuszczalnymi wartościami są \"gnome-vfs\" i \"gtk+\"."
+"Dopuszczalnymi wartościami są \"gio\", \"gnome-vfs\" i \"gtk+\"."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
