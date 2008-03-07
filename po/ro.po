@@ -1,15 +1,15 @@
 # Romanian translation of libgnome
-# Copyright (C) 2002 - 2007 Free Software Foundation, Inc.
+# Copyright (C) 2002 - 2008 Free Software Foundation, Inc.
 # Marius Andreiana <marius galuna.ro>, 2002, 2003.
 # Mugurel Tudor <mugurelu@gnome.ro>, 2002 ,2003.
-# Mişu Moldovan <dumol@gnome.ro>, 2003 - 2007.
+# Mişu Moldovan <dumol@gnome.ro>, 2003 - 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-28 03:17+0100\n"
-"PO-Revision-Date: 2007-09-12 01:19+0300\n"
+"POT-Creation-Date: 2008-02-10 12:53+0000\n"
+"PO-Revision-Date: 2008-03-02 20:10+0200\n"
 "Last-Translator: Mişu Moldovan <dumol@gnome.ro>\n"
 "Language-Team: <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -68,12 +68,12 @@ msgstr "Căsuţă de selectare"
 msgid "User interface events"
 msgstr "Evenimente ale interfeţei utilizator"
 
-#: ../libgnome/gnome-exec.c:457
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Nu s-a găsit un terminal, se utilizează xterm, deşi s-ar putea să nu meargă"
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "Suport GNOME GConf"
 
@@ -97,7 +97,8 @@ msgstr ""
 #: ../libgnome/gnome-help.c:220
 #, c-format
 msgid "Unable to find help paths %s or %s. Please check your installation"
-msgstr "Nu s-au găsit căile %s şi %s cu fişiere de ajutor. Verificaţi instalarea."
+msgstr ""
+"Nu s-au găsit căile %s şi %s cu fişiere de ajutor. Verificaţi instalarea."
 
 #: ../libgnome/gnome-help.c:236
 #, c-format
@@ -127,14 +128,22 @@ msgstr "Suport Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Suport de activare Bonobo"
 
-#: ../libgnome/gnome-init.c:384 ../libgnome/gnome-init.c:398
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Nu s-a putut crea un director de configurare Gnome specific utilizatorului „%"
 "s”: %s\n"
 
-#: ../libgnome/gnome-init.c:407
+#: ../libgnome/gnome-init.c:404
+#, c-format
+msgid ""
+"Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr ""
+"Nu s-a găsit un director de configurare Gnome specific utilizatorului „%s”: "
+"%s\n"
+
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -143,36 +152,36 @@ msgstr ""
 "Nu s-a putut seta modul 0700 pentru directorul privat al setărilor Gnome "
 "specifice utilizatorului: „%s”: %s\n"
 
-#: ../libgnome/gnome-init.c:414
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Nu s-a putut crea directorul cu acceleratori Gnome „%s”: %s\n"
 
-#: ../libgnome/gnome-init.c:453
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "Sistem de fişiere virtuale GNOME"
 
-#: ../libgnome/gnome-init.c:471 ../libgnome/gnome-init.c:514
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "Dezactivează utilizarea serverului de sunet"
 
-#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "Activează utilizarea serverului de sunet"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:520
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "Server:port utilizate de serverul de sunet ESD"
 
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "SERVER:PORT"
 
-#: ../libgnome/gnome-init.c:488 ../libgnome/gnome-init.c:532
+#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "Bibliotecă GNOME"
 
-#: ../libgnome/gnome-init.c:489
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "Arată opţiunile GNOME"
 
@@ -328,24 +337,24 @@ msgstr "ESPEAKER"
 msgid "How to connect to esd"
 msgstr "Cum se face conectarea la ESD"
 
-#: ../libgnome/gnome-program.c:1391
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "Opţiuni ajutor"
 
-#: ../libgnome/gnome-program.c:1396
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "Opţiuni aplicaţie"
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "Module dinamice de încărcat"
 
-#: ../libgnome/gnome-program.c:1413
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MODUL1,MODUL2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1504
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -434,8 +443,8 @@ msgid "Key %s not found in configuration"
 msgstr "Cheia %s nu a fost găsită în setări"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "Bip la apăsarea unui modificator"
+msgid "Beep when a modifier is pressed."
+msgstr "Bip la apăsarea unui modificator."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
@@ -443,34 +452,34 @@ msgstr "Dezactivează la apăsarea concomitentă a două taste."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
+"Do not accept a key as being pressed unless held for @delay milliseconds."
 msgstr ""
-"Nu se acceptă apăsarea unei taste decât dacă este ţinută „@delay” milisecunde"
+"Nu se acceptă apăsarea unei taste decât dacă este ţinută „@delay” milisecunde."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
 msgstr "Cât timp se accelerează în milisecunde"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "În câte milisecunde se ajunge de la 0 la viteza maximă"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr "În câte milisecunde se ajunge de la 0 la viteza maximă."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
+"How many milliseconds to wait before mouse movement keys start to operate."
 msgstr ""
 "Milisecunde de aşteptare înainte ca tastele pentru mutarea cursorului de "
-"mouse să fie operaţionale"
+"mouse să fie operaţionale."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "How many pixels per second to move at the maximum speed"
-msgstr "Număr de pixeli pe secundă la viteza maximă"
+msgid "How many pixels per second to move at the maximum speed."
+msgstr "Număr de pixeli pe secundă la viteza maximă."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
 msgstr ""
 "Ignoră apăsările multiple ale aceleiaşi taste într-un interval de „@delay” "
-"milisecunde"
+"milisecunde."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -491,10 +500,10 @@ msgstr "interval minim în milisecunde"
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
 "List of assistive technology applications to start when logging into the "
-"GNOME desktop"
+"GNOME desktop."
 msgstr ""
 "Lista aplicaţiilor pentru tehnologiile de asistare ce pornesc automat la "
-"iniţializarea mediului GNOME."
+"autentificarea în mediul GNOME."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -503,8 +512,8 @@ msgstr "Tehnologiile de asistare pornite automat"
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
-"login"
-msgstr "De pornit la autentificare aplicaţia tehnologiilor de asistare mobilă"
+"login."
+msgstr "De pornit la autentificare aplicaţia tehnologiilor de asistare mobilă."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
@@ -513,10 +522,10 @@ msgstr "Aplicaţia preferată a tehnologiilor de asistare mobilă"
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
-"menu, or command line"
+"menu, or command line."
 msgstr ""
 "Aplicaţia preferată a tehnologiilor de asistare mobilă de utilizat la "
-"autentificare, în meniu şi în linia de comandă"
+"autentificare, în meniu şi în linia de comandă."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
@@ -524,8 +533,9 @@ msgstr "Porneşte aplicaţia preferată a tehnologiilor de asistare mobilă"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid ""
-"GNOME to start preferred Visual assistive technology application during login"
-msgstr "De pornit la autentificare aplicaţia tehnologiilor de asistare vizuală"
+"GNOME to start preferred Visual assistive technology application during "
+"login."
+msgstr "De pornit la autentificare aplicaţia tehnologiilor de asistare vizuală."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
@@ -534,10 +544,10 @@ msgstr "Aplicaţia preferată a tehnologiilor de asistare vizuală"
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
-"or command line"
+"or command line."
 msgstr ""
 "Aplicaţia preferată a tehnologiilor de asistare vizuală de utilizat la "
-"autentificare, în meniu şi în linia de comandă"
+"autentificare, în meniu şi în linia de comandă."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -548,7 +558,6 @@ msgid "Browser needs terminal"
 msgstr "Navigatorul necesită terminal"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "Navigatorul recunoaşte comenzile „remote”"
 
@@ -557,35 +566,50 @@ msgid "Default browser"
 msgstr "Navigator implicit"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
-msgstr "Navigatorul implicit pentru toate URL-urile"
+msgid "Default browser for all URLs."
+msgstr "Navigatorul implicit pentru toate URL-urile."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
-msgstr "Specifică dacă navigatorul implicit are nevoie de terminal la pornire"
+msgid "Whether the default browser needs a terminal to run."
+msgstr "Specifică dacă navigatorul implicit are nevoie de terminal la pornire."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
+msgid "Whether the default browser understands netscape remote."
 msgstr ""
-"Specifică dacă navigatorul implicit înţelege comenzile „remote” Netscape"
+"Specifică dacă navigatorul implicit înţelege comenzile „remote” Netscape."
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "Programul de ajutor implicit"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "Calendarul necesită terminal"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "Programul de ajutor necesită terminal"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "Calendar implicit"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "Specifică dacă programul de ajutor implicit acceptă URL-uri"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "Aplicaţie calendar implicită"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "Sarcini implicite"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "Aplicaţie organizator implicită"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "Organizatorul necesită terminal"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
 msgstr ""
-"Specifică dacă programul de ajutor implicit are nevoie de un terminal la "
-"pornire"
+"Specifică dacă aplicaţia calendar implicită are nevoie de terminal la pornire"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "Specifică dacă organizatorul implicit are nevoie de terminal la pornire"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -603,8 +627,8 @@ msgid "Terminal application"
 msgstr "Aplicaţie terminal"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr "Terminal pentru pornirea aplicaţiilor ce necesită un terminal"
+msgid "Terminal program to use when starting applications that require one."
+msgstr "Terminal pentru pornirea aplicaţiilor ce necesită un terminal."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
@@ -664,27 +688,28 @@ msgid ""
 "\"zoom\"."
 msgstr ""
 "Determină cum este afişată imaginea setată de „wallpaper_filename”. Valori "
-"posibile sunt „none”, „wallpaper”, „centered”, „scaled”, „stretched” şi „zoom”."
+"posibile sunt „none”, „wallpaper”, „centered”, „scaled”, „stretched” şi "
+"„zoom”."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "Administrează fundalul desktopului"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:4
-msgid "File to use for the background image"
-msgstr "Fişier utilizat ca imagine de fundal"
+msgid "File to use for the background image."
+msgstr "Fişier de utilizat ca imagine de fundal."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "Mediul GNOME administrează fundalul desktopului"
+msgid "Have GNOME draw the desktop background."
+msgstr "Mediul GNOME administrează fundalul desktopului."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
-"\", \"vertical-gradient\", and \"solid\""
+"\", \"vertical-gradient\", and \"solid\"."
 msgstr ""
-"Cum va fi umbrită culoarea de fundal. Valori posibile sunt „horizontal-"
-"gradient”, „vertical-gradient” şi „solid”"
+"Cum va fi umbrită culoarea de fundal. Valorile posibile sunt „horizontal-"
+"gradient”, „vertical-gradient” şi „solid”."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -693,8 +718,8 @@ msgstr ""
 "utilizează gradienţi."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "Opacitatea cu care se va afişa imaginea de fundal"
+msgid "Opacity with which to draw the background picture."
+msgstr "Opacitatea cu care se va afişa imaginea de fundal."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
@@ -727,8 +752,8 @@ msgid "File Icon Theme"
 msgstr "Temă iconiţe fişiere"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
-msgstr "Temă utilizată pentru a afişa iconiţele fişierelor"
+msgid "Theme used for displaying file icons."
+msgstr "Temă utilizată pentru a afişa iconiţele fişierelor."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -763,54 +788,58 @@ msgid "Enable Animations"
 msgstr "Activare animaţii"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "Modul GTK IM"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "Stil preeditare GTK IM"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "Stil status GTK IM"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "Temă Gtk+"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "Temă iconiţe"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Temă de iconiţe utilizată pentru panou, Nautilus etc."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Combinaţie de taste pentru accesarea barelor de meniu."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "Durata în milisecunde a ciclului de clipire al cursorului"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "Durata în milisecunde a ciclului de clipire al cursorului."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "Bare de meniu detaşabile"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "Accelerator bară de meniu"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "Meniurile au iconiţe"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "Meniurile pot fi desprinse"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "Modul GtkFileChooser"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gnome-vfs\" and \"gtk+\"."
@@ -818,80 +847,87 @@ msgstr ""
 "Modul de utilizat ca model de sistem de fişiere pentru widget-ul "
 "GtkFileChooser. Valorile posibile sunt „gnome-vfs” şi „gtk+”."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "Font monospaţiat"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Numele unui font monospaţiat (cu caractere de lăţime fixă) pentru utilizarea "
 "în aplicaţii precum terminalele."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr ""
 "Numele metodei de introducere utilizate de GTK+ în stilul „preeditare”."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Numele metodei de introducere utilizate de GTK+ în stilul „status”."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "Numele fontului implicit utilizat de GTK+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
-msgid "Name of the default font used for reading documents"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+msgid "Name of the default font used for reading documents."
 msgstr "Numele fontului implicit utilizat pentru citirea documentelor."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "Numele metodei de introducere utilizate de GTK+."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "Arată meniul „Metode de intrare”"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "Arată meniul „Inserare control Unicode”"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+msgid ""
+"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr ""
+"Mărimea iconiţelor în barele cu unelte (fie „small-toolbar” ori "
+"„large-toolbar”)."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr "Bară de stare pe dreapta"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
-msgid "This specifies the size of icons displayed in toolbars"
-msgstr "Aceasta specifică mărimea iconiţelor afişate în barele cu unelte"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "Bară cu unelte detaşabilă"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "Mărimea iconiţelor din bara cu unelte"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "Stilul barei cu unelte"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
-"\"text\""
+"\"text\"."
 msgstr ""
-"Stilul barei cu unelte. Valori posibile sunt „both”, „both_horiz”, „icons” "
-"şi „text”"
+"Stilul barei cu unelte. Valorile posibile sunt „both”, „both_horiz”, „icons” "
+"şi „text”."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "Utilizează un font personalizat"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Whether Applications should have accessibility support"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+msgid "Whether Applications should have accessibility support."
 msgstr ""
-"Specifică dacă aplicaţiile ar trebui să aibă suport pentru accesibilitate"
+"Specifică dacă aplicaţiile ar trebui să aibă suport pentru accesibilitate."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -899,55 +935,55 @@ msgstr ""
 "Specifică dacă animaţiile ar trebui afişate. Notă: aceasta este o cheie "
 "globală ce afectează administratorul de ferestre, panoul etc."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "Specifică dacă meniurile pot afişa o iconiţă lângă textul meniului"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
-msgid "Whether menus should have a tearoff"
-msgstr "Specifică dacă meniurile pot fi desprinse"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid ""
-"Whether the context menus of entries and text views should offer to change "
-"the input method"
-msgstr ""
-"Specifică dacă meniurile contextuale ale intrărilor ori vizualizărilor de "
-"text conţin opţiunea de schimbare a metodei de introducere"
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "Specifică dacă meniurile pot afişa o iconiţă lângă textul meniului."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid ""
-"Whether the context menus of entries and text views should offer to insert "
-"control characters"
-msgstr ""
-"Specifică dacă meniurile contextuale ale intrărilor ori vizualizărilor de "
-"text conţin opţiunea de inserare de caractere de control"
+msgid "Whether menus should have a tearoff."
+msgstr "Specifică dacă meniurile pot fi desprinse."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the cursor should blink"
-msgstr "Specifică dacă ar trebui să clipească cursorul"
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method."
+msgstr ""
+"Specifică dacă meniurile contextuale ale intrărilor ori vizualizărilor de "
+"text conţin opţiunea de schimbare a metodei de introducere."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the user can detach menubars and move them around"
-msgstr "Specifică dacă utilizatorul poate desprinde şi muta barele de meniuri"
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters."
+msgstr ""
+"Specifică dacă meniurile contextuale ale intrărilor ori vizualizărilor de "
+"text conţin opţiunea de inserare de caractere de control."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "Specifică dacă utilizatorul poate desprinde şi muta barele cu unelte"
+msgid "Whether the cursor should blink."
+msgstr "Specifică dacă ar trebui să clipească cursorul."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid ""
-"Whether the user can dynamically type a new accelerator when positioned over "
-"an active menuitem"
-msgstr ""
-"Specifică dacă utilizatorul poate tasta dinamic un nou accelerator când este "
-"poziţionat deasupra unui element activ dintr-un meniu"
+msgid "Whether the user can detach menubars and move them around."
+msgstr "Specifică dacă utilizatorul poate desprinde şi muta barele de meniuri."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether to display a status bar meter on the right"
-msgstr "Specifică dacă bara de stare e afişată pe dreapta"
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "Specifică dacă utilizatorul poate desprinde şi muta barele cu unelte."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+msgid ""
+"Whether the user can dynamically type a new accelerator when positioned over "
+"an active menuitem."
+msgstr ""
+"Specifică dacă utilizatorul poate tasta dinamic un nou accelerator când este "
+"poziţionat deasupra unui element activ dintr-un meniu."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+msgid "Whether to display a status bar meter on the right."
+msgstr "Specifică dacă bara de stare e afişată pe dreapta."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Specifică dacă aplicaţiile GTK+ utilizează un font personalizat."
 
@@ -1021,8 +1057,8 @@ msgid "Prevent the user to lock his screen."
 msgstr "Nu permite blocarea ecranului."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
-msgstr "Numele fişierului cu sunetul clopoţelului"
+msgid "File name of the bell sound to be played."
+msgstr "Numele fişierului cu sunetul clopoţelului."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -1072,8 +1108,8 @@ msgstr ""
 "Xcursor (XFree86 4.3 sau mai nou)."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "Distanţa parcursă de mouse înainte de a începe o tragere"
+msgid "Distance before a drag is started."
+msgstr "Distanţa parcursă de mouse înainte de a începe o tragere."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
@@ -1105,14 +1141,14 @@ msgstr ""
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
-"pressed and released"
+"pressed and released."
 msgstr ""
 "Evidenţiază locaţia curentă a indicatorului de mouse când tasta Ctrl este "
-"apăsată şi eliberată"
+"apăsată şi eliberată."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "Durata unui dublu-click"
+msgid "Length of a double click."
+msgstr "Durata unui dublu-click."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -1131,16 +1167,16 @@ msgid "Single Click"
 msgstr "Click unic"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "Un singur click pentru a deschide iconiţele"
+msgid "Single click to open icons."
+msgstr "Un singur click pentru a deschide iconiţele."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "Mărimea cursorului precizată în „cursor_theme”."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "Schimbă pentru stângaci butoanele stânga şi dreapta de mouse"
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr "Schimbă pentru stângaci butoanele stânga şi dreapta de mouse."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
@@ -1217,6 +1253,23 @@ msgstr "Specifică dacă blocarea tastaturii este activată sau nu."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Specifică dacă ecranul pauzei de tastare poate fi amânat sau nu."
+
+#~ msgid "Default help viewer"
+#~ msgstr "Programul de ajutor implicit"
+
+#~ msgid "Help viewer needs terminal"
+#~ msgstr "Programul de ajutor necesită terminal"
+
+#~ msgid "Whether the default help viewer accepts URLs"
+#~ msgstr "Specifică dacă programul de ajutor implicit acceptă URL-uri"
+
+#~ msgid "Whether the default help viewer needs a terminal to run"
+#~ msgstr ""
+#~ "Specifică dacă programul de ajutor implicit are nevoie de un terminal la "
+#~ "pornire"
+
+#~ msgid "This specifies the size of icons displayed in toolbars"
+#~ msgstr "Aceasta specifică mărimea iconiţelor afişate în barele cu unelte"
 
 #~ msgid "Unknown error code: %u"
 #~ msgstr "Cod de eroare necunoscut: %u"
