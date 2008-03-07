@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-25 12:33+0200\n"
-"PO-Revision-Date: 2008-01-25 14:10+0200\n"
+"POT-Creation-Date: 2008-03-07 13:27+0200\n"
+"PO-Revision-Date: 2008-03-07 14:10+0200\n"
 "Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -142,7 +142,8 @@ msgstr ""
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Не вдається отримати інформацію про окремий конфігураційний каталог користувача \"%s\": %s\n"
+"Не вдається отримати інформацію про окремий конфігураційний каталог "
+"користувача \"%s\": %s\n"
 
 #: ../libgnome/gnome-init.c:412
 #, c-format
@@ -477,7 +478,8 @@ msgstr "Час розгону, в мілісекундах, від 0 до мак
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate."
-msgstr "Затримка, в мілісекундах, перед початком опрацювання клавіш руху мишею."
+msgstr ""
+"Затримка, в мілісекундах, перед початком опрацювання клавіш руху мишею."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "How many pixels per second to move at the maximum speed."
@@ -589,6 +591,38 @@ msgstr "Чи типовому переглядачу потрібен термі
 msgid "Whether the default browser understands netscape remote."
 msgstr ""
 "Чи типовий переглядач підтримує інтерфейс віддаленого керування Netscape."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "Програмі календаря потрібен термінал"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "Типовий календар"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "Типова програма календаря"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "Типові задачі"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "Типова програма задач"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "Програмі задач потрібен термінал"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "Чи потрібен термінал для запуску програми календаря."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "Чи потрібен термінал для запуску програми задач."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -820,10 +854,11 @@ msgstr "Модуль для GtkFileChooser"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
-"Possible values are \"gnome-vfs\" and \"gtk+\"."
+"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 "Модуль, що використовуватиметься в якості моделі файлової системи для "
-"віджета GtkFileChooser. Можливими значеннями є \"gnome-vfs\" і \"gtk+\"."
+"віджета GtkFileChooser. Можливими значеннями є \"gio\", \"gnome-vfs\" та "
+"\"gtk+\"."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
