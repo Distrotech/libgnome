@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-11 20:03+0100\n"
-"PO-Revision-Date: 2008-02-11 20:05+0100\n"
+"POT-Creation-Date: 2008-03-07 12:37+0100\n"
+"PO-Revision-Date: 2008-03-07 12:38+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -79,10 +79,12 @@ msgid "GNOME GConf Support"
 msgstr "GNOME Gconf-en euskarria"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Ezin izan da GNOME_FILE_DOMAIN_APP_HELP domeinua aurkitu"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Ezin izan da GNOME_FILE_DOMAIN_HELP domeinua aurkitu."
 
@@ -364,14 +366,17 @@ msgstr ""
 "ikusteko.\n"
 
 #: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Barne-errore ezezaguna gertatu da helbide hau bistaratzean."
 
 #: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "Adierazitako helbidea baliogabea da."
 
 #: ../libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
@@ -380,6 +385,7 @@ msgstr ""
 "analizatzean."
 
 #: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -388,14 +394,17 @@ msgstr ""
 "abiaraztean."
 
 #: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "Ez dago helbideari lotutako ekintza lehenetsirik."
 
 #: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "Ekintza lehenetsiak ez du protokolo hau onartzen."
 
 #: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "Eskaera bertan behera utzi da."
 
@@ -405,14 +414,17 @@ msgid "The host \"%s\" could not be found."
 msgstr "Ezin izan da \"%s\" ostalaria aurkitu."
 
 #: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "Ezin izan da ostalaria aurkitu."
 
 #: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "Ezin izan da kokalekua edo fitxategia aurkitu."
 
 #: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "Saio-hasierak huts egin du."
 
@@ -843,10 +855,10 @@ msgstr "GtkFileChooser-en modulua"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
-"Possible values are \"gnome-vfs\" and \"gtk+\"."
+"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
-"Modulua fitxategi-sistema modeloan erabiltzeko, GtkFileChooser "
-"trepetarentzako. Balio posibleak \"gnome-vfs\" eta \"gtk+\" dira."
+"Modulua fitxategi-sistema modelo gisa erabiltzeko, GtkFileChooser "
+"trepetarentzako. Balio erabilgarriak: \"gio\", \"gnome-vfs\" eta \"gtk+\" dira."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
