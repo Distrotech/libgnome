@@ -1,11 +1,11 @@
-# translation of libgnome.HEAD.mk.po to Macedonian
+# translation of mk.po to Macedonian
 # translation of libgnome.HEAD.mk.po to
 # translation of libgnome.HEAD.mk.po to
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Ivan Stojmirov <stojmir@linux.net.mk>, 2002,2003.
-# Arangel Angov <ufo@linux.net.mk>, 2003, 2004, 2005, 2006.
+# Arangel Angov <ufo@linux.net.mk>, 2003, 2004, 2005, 2006, 2008.
 # Misa Popovic <stomak81@freemail.com.mk>, 2003.
 # Jovan Kostovski <chombium@freemail.com.mk>, 2003.
 # Арангел Ангов <ufo@linux.net.mk>, 2005.
@@ -13,12 +13,12 @@
 # Arangel Angov <arangel@linux.net.mk>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome.HEAD.mk\n"
+"Project-Id-Version: mk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-10 12:53+0000\n"
-"PO-Revision-Date: 2008-03-01 01:09+0100\n"
-"Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
-"Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2008-03-05 18:34+0000\n"
+"PO-Revision-Date: 2008-03-10 09:25+0100\n"
+"Last-Translator: Arangel Angov <ufo@linux.net.mk>\n"
+"Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -88,10 +88,12 @@ msgid "GNOME GConf Support"
 msgstr "GNOME GConf поддршка"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Не можам да го најдам GNOME_FILE_DOMAIN_APP_HELP доменот"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Не можам да го најдам GNOME_FILE_DOMAIN_HELP доменот."
 
@@ -370,14 +372,17 @@ msgstr ""
 "Изврши '%s --help' за да видите целосна листа на достапни команди и опции.\n"
 
 #: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Непозната внатрешна грешка при прикажување на локацијата."
 
 #: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "Одредената локација не е валидна"
 
 #: ../libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
@@ -386,6 +391,7 @@ msgstr ""
 "со оваа локација."
 
 #: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -394,14 +400,17 @@ msgstr ""
 "со оваа локација."
 
 #: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "Нема стандардната команда за дејство проврзана со оваа локација."
 
 #: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "Стандардното дејство не го подржува овој протокол."
 
 #: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "Барањето беше откажано."
 
@@ -411,14 +420,17 @@ msgid "The host \"%s\" could not be found."
 msgstr "Хостот \"%s\" не може да биде најден."
 
 #: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "Хостот не може да биде пронајден."
 
 #: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "Локацијата на датотеката не може да биде пронајдена."
 
 #: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "Најавувањето не успеа."
 
@@ -839,10 +851,10 @@ msgstr "Модул за GtkFileChooser"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
-"Possible values are \"gnome-vfs\" and \"gtk+\"."
+"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 "Модул кој што ќе се користи како модел на датотечниот систем за виџетот "
-"GtkFileChooser. Можни вредности се \"gnome-vfs\" и \"gtk+\"."
+"GtkFileChooser. Можни вредности се „gio“, „gnome-vfs“ и „gtk+“."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
@@ -882,7 +894,9 @@ msgstr "Покажи го менито  за „Контрола на Јуник
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
-msgstr "Големина на иконите во лентите со алатки, и на „мали ленти со алатки“ и на „големи ленти со алатки“."
+msgstr ""
+"Големина на иконите во лентите со алатки, и на „мали ленти со алатки“ и на "
+"„големи ленти со алатки“."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
