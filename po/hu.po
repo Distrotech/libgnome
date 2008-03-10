@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-10 12:53+0000\n"
-"PO-Revision-Date: 2008-02-24 00:56+0100\n"
+"POT-Creation-Date: 2008-03-05 18:34+0000\n"
+"PO-Revision-Date: 2008-03-10 02:53+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@fsf.hu>\n"
 "MIME-Version: 1.0\n"
@@ -83,10 +83,12 @@ msgid "GNOME GConf Support"
 msgstr "GNOME GConf-támogatás"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "A GNOME_FILE_DOMAIN_APP_HELP tartomány nem található"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "A GNOME_FILE_DOMAIN_HELP tartomány nem található."
 
@@ -358,18 +360,21 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "%s\n"
-"Adja ki a(z) „%s --help” parancsot az elérhető parancssori kapcsolók "
-"teljes listájáért.\n"
+"Adja ki a(z) „%s --help” parancsot az elérhető parancssori kapcsolók teljes "
+"listájáért.\n"
 
 #: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Ismeretlen belső hiba a hely megjelenítése közben."
 
 #: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "A megadott hely érvénytelen."
 
 #: ../libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
@@ -378,6 +383,7 @@ msgstr ""
 "feldolgozásakor."
 
 #: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
@@ -386,14 +392,17 @@ msgstr ""
 "indításakor."
 
 #: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "Nincs alapértelmezett művelet hozzárendelve ehhez a helyhez."
 
 #: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "Az alapértelmezett művelet nem támogatja ezt a protokollt."
 
 #: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "A kérés megszakítva."
 
@@ -403,14 +412,17 @@ msgid "The host \"%s\" could not be found."
 msgstr "A(z) „%s” kiszolgáló nem található."
 
 #: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "A kiszolgáló nem található."
 
 #: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "A hely vagy a fájl nem található."
 
 #: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "A bejelentkezés meghiúsult."
 
@@ -450,7 +462,9 @@ msgstr "Kikapcsolás két gomb egyidejű lenyomásakor."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
-msgstr "Ne fogadja el a billentyű lenyomását, hacsak nincs @delay ezredmásodpercig lenyomva."
+msgstr ""
+"Ne fogadja el a billentyű lenyomását, hacsak nincs @delay ezredmásodpercig "
+"lenyomva."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
@@ -604,13 +618,15 @@ msgstr "Az alapértelmezett naptáralkalmazásnak szüksége van-e terminálra a
 
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
 msgid "Whether the default tasks application needs a terminal to run"
-msgstr "Az alapértelmezett feladatkezelő alkalmazásnak szüksége van-e terminálra a futáshoz?"
+msgstr ""
+"Az alapértelmezett feladatkezelő alkalmazásnak szüksége van-e terminálra a "
+"futáshoz?"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
-"Az „exec” kulcsban megadott terminálban a programok végrehajtására "
-"használt paraméter."
+"Az „exec” kulcsban megadott terminálban a programok végrehajtására használt "
+"paraméter."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -679,7 +695,11 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\"."
-msgstr "Meghatározza a wallpaper_filename kulcsban beállított képernyővédő megjelenését. Lehetséges értékek: „none” (nincs) „wallpaper” (mozaik), „centered” (középre igazított), „scaled” (kifeszített), „stretched” (nyújtott), „zoom” (nagyítás)."
+msgstr ""
+"Meghatározza a wallpaper_filename kulcsban beállított képernyővédő "
+"megjelenését. Lehetséges értékek: „none” (nincs) „wallpaper” (mozaik), "
+"„centered” (középre igazított), „scaled” (kifeszített), "
+"„stretched” (nyújtott), „zoom” (nagyítás)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -833,10 +853,10 @@ msgstr "Modul a GtkFileChooser-hez"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
-"Possible values are \"gnome-vfs\" and \"gtk+\"."
+"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 "A GtkFileChooser elemhez fájlrendszermodellként használandó modul. "
-"Lehetséges értékek: „gnome-vfs” és „gtk+”."
+"Lehetséges értékek: „gio”, „gnome-vfs” és „gtk+”."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
@@ -878,7 +898,9 @@ msgstr "A „Unicode vezérlőkarakter beszúrása” menü megjelenítése"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
-msgstr "Az eszköztárikonok mérete, a „small-toolbar” (kicsi) vagy „large-toolbar” (nagy) egyike."
+msgstr ""
+"Az eszköztárikonok mérete, a „small-toolbar” (kicsi) vagy „large-"
+"toolbar” (nagy) egyike."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
@@ -900,7 +922,9 @@ msgstr "Eszköztár stílusa"
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\"."
-msgstr "Eszköztár stílusa. Lehetséges értékek: „both” (mindkettő), „both_horiz” (mindkettő vízszintesen), „icon” (ikon), és „text” (szöveg)."
+msgstr ""
+"Eszköztár stílusa. Lehetséges értékek: „both” (mindkettő), "
+"„both_horiz” (mindkettő vízszintesen), „icon” (ikon), és „text” (szöveg)."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
@@ -1023,8 +1047,7 @@ msgid ""
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
 "A felhasználó megakadályozása fájlok lemezre mentésében. Például, ez "
-"letiltja a hozzáférést az alkalmazások „Mentés másként” "
-"párbeszédablakaihoz."
+"letiltja a hozzáférést az alkalmazások „Mentés másként” párbeszédablakaihoz."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
