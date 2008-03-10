@@ -55,8 +55,6 @@ typedef void (*GnomeTriggerTypeFunction)(GnomeTrigger *t, char *msg, char *level
 /* PROTOTYPES */
 static GnomeTrigger* gnome_trigger_dup(GnomeTrigger *dupme);
 static GnomeTriggerList* gnome_triggerlist_new(char *nodename);
-static void gnome_triggerlist_free(GnomeTriggerList* t);
-static void gnome_trigger_free(GnomeTrigger* t);
 static void gnome_trigger_do(GnomeTrigger* t, const char *msg, const char *level,
 			     const char *supinfo[]);
 static void gnome_trigger_do_function(GnomeTrigger* t,
@@ -498,41 +496,6 @@ gnome_triggers_vdo(const char *msg, const char *level, const char *supinfo[])
 	    gnome_trigger_do(curnode->actions[j], msg, level, supinfo);
 	}
     }
-}
-
-static void
-gnome_trigger_free(GnomeTrigger* t)
-{
-  g_free(t->level);
-  switch(t->type) {
-  case GTRIG_COMMAND:
-    g_free(t->u.command); break;
-  case GTRIG_MEDIAPLAY:
-    g_free(t->u.media.file); break;
-  default:
-    break;
-  }
-  g_free(t);
-}
-
-static void
-gnome_triggerlist_free(GnomeTriggerList* t)
-{
-  int i;
-
-  g_free(t->nodename);
-
-  for(i = 0; i < t->numsubtrees; i++) {
-    gnome_triggerlist_free(t->subtrees[i]);
-  }
-  g_free(t->subtrees);
-
-  for(i = 0; i < t->numactions; i++) {
-    gnome_trigger_free(t->actions[i]);
-  }
-  g_free(t->actions);
-
-  g_free(t);
 }
 
 static void
