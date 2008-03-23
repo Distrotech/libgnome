@@ -1,14 +1,14 @@
 # Vietnamese translation for LibGnome.
 # Copyright © 2008 Gnome i18n Project for Vietnamese.
-# Nguyễn Thái Ngọc Duy <pclouds@vnlinux.org>, 2002.
+# Nguyễn Thái Ngọc Duy <pclouds@vnlinux.org>, 2002,2008.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2008.
-# 
+#
 msgid ""
-""
-msgstr "Project-Id-Version: libgnome 2.19.0\n"
+msgstr ""
+"Project-Id-Version: libgnome 2.19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-18 12:32+0000\n"
-"PO-Revision-Date: 2008-01-04 18:40+1030\n"
+"POT-Creation-Date: 2008-03-05 18:34+0000\n"
+"PO-Revision-Date: 2008-03-23 16:41+0700\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -69,44 +69,51 @@ msgstr "Chọn hộp chọn"
 msgid "User interface events"
 msgstr "Sự kiện giao diện người dùng"
 
-#: ../libgnome/gnome-exec.c:457
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr "Không tìm thấy thiết bị cuối nên dùng xterm, thậm chí nếu nó không làm việc."
+msgstr ""
+"Không tìm thấy thiết bị cuối nên dùng xterm, thậm chí nếu nó không làm việc."
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "Hỗ trợ GConf GNOME"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr "Không thể tìm thấy miền « GNOME_FILE_DOMAIN_APP_HELP » (trợ giúp ứng dụng "
+msgstr ""
+"Không thể tìm thấy miền « GNOME_FILE_DOMAIN_APP_HELP » (trợ giúp ứng dụng "
 "miền tập tin Gnome)"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "Không thể tìm thấy miền « GNOME_FILE_DOMAIN_HELP » (trợ giúp miền tập tin "
+msgstr ""
+"Không thể tìm thấy miền « GNOME_FILE_DOMAIN_HELP » (trợ giúp miền tập tin "
 "Gnome)."
 
-#: ../libgnome/gnome-help.c:196
-#: ../libgnome/gnome-help.c:211
+#: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr "Không thể hiển thị trợ giúp vì %s không phải là thư mục. Vui lòng kiểm tra "
+msgstr ""
+"Không thể hiển thị trợ giúp vì %s không phải là thư mục. Vui lòng kiểm tra "
 "lại bản cài đặt."
 
 #: ../libgnome/gnome-help.c:220
 #, c-format
 msgid "Unable to find help paths %s or %s. Please check your installation"
-msgstr "Không tìm thấy đường dẫn trợ giúp %s hay %s. Hãy kiểm tra lại bản cài đặt."
+msgstr ""
+"Không tìm thấy đường dẫn trợ giúp %s hay %s. Hãy kiểm tra lại bản cài đặt."
 
 #: ../libgnome/gnome-help.c:236
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr "Không thể tìm thấy tập tin trợ giúp trong %s cũng như trong %s. Vui lòng "
+msgstr ""
+"Không thể tìm thấy tập tin trợ giúp trong %s cũng như trong %s. Vui lòng "
 "kiểm tra lại bản cài đặt."
 
 #: ../libgnome/gnome-help.c:353
@@ -119,7 +126,7 @@ msgstr "Không tìm thấy « doc_id » (ID tài liệu) %s trong đường dẫ
 msgid "Help document %s/%s not found"
 msgstr "Không tìm thấy tài liệu trợ giúp %s/%s."
 
-#.FIXME: get this from bonobo
+#. FIXME: get this from bonobo
 #: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "Hỗ trợ Bonobo"
@@ -128,272 +135,276 @@ msgstr "Hỗ trợ Bonobo"
 msgid "Bonobo activation Support"
 msgstr "Hỗ trợ hoạt hóa Bonobo"
 
-#: ../libgnome/gnome-init.c:386
-#: ../libgnome/gnome-init.c:400
+#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Không thể tạo thư mục cấu hình GNOME cho mỗi người dùng « %s »: %s.\n"
 
-#: ../libgnome/gnome-init.c:408
+#: ../libgnome/gnome-init.c:404
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
-msgstr "Không thể lấy trạng thái về thư mục cấu hình GNOME từng người dùng riêng « %s »: %s.\n"
+msgstr ""
+"Không thể lấy trạng thái về thư mục cấu hình GNOME từng người dùng riêng « %"
+"s »: %s.\n"
 
-#: ../libgnome/gnome-init.c:416
+#: ../libgnome/gnome-init.c:412
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
-msgstr "Không thể đặt chế độ 0700 cho thư mục cấu hình GNOME cho mỗi người dùng "
+msgstr ""
+"Không thể đặt chế độ 0700 cho thư mục cấu hình GNOME cho mỗi người dùng "
 "riêng « %s »: %s\n"
 
-#: ../libgnome/gnome-init.c:423
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Không thể tạo thư mục tăng tốc GNOME « %s »: %s.\n"
 
-#: ../libgnome/gnome-init.c:462
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "Hệ thống tập tin ảo GNOME"
 
-#: ../libgnome/gnome-init.c:480
-#: ../libgnome/gnome-init.c:523
+#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
 msgstr "Tắt khả năng sử dụng trình phục vụ âm thanh."
 
-#: ../libgnome/gnome-init.c:483
-#: ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
 msgstr "Bật khả năng sử dụng trình phục vụ âm thanh."
 
-#: ../libgnome/gnome-init.c:487
-#: ../libgnome/gnome-init.c:529
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
 msgstr "« Host:port » (máy:cổng) mà trình phục vụ âm thanh cần dùng đang chạy."
 
-#: ../libgnome/gnome-init.c:488
-#: ../libgnome/gnome-init.c:531
+#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
 msgid "HOSTNAME:PORT"
 msgstr "TÊN_MÁY:CỔNG"
 
-#: ../libgnome/gnome-init.c:497
-#: ../libgnome/gnome-init.c:541
+#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "Thư viên GNOME"
 
-#: ../libgnome/gnome-init.c:498
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "Hiện tùy chọn Gnome"
 
-#: ../libgnome/gnome-program.c:456
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "Bảng Popt"
 
-#: ../libgnome/gnome-program.c:457
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "Bảng tùy chọn của popt"
 
-#: ../libgnome/gnome-program.c:464
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "Cờ Popt"
 
-#: ../libgnome/gnome-program.c:465
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "Cờ hiệu cần dùng cho popt"
 
-#: ../libgnome/gnome-program.c:473
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Ngữ cảnh Popt"
 
-#: ../libgnome/gnome-program.c:474
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "Con trỏ ngữ cảnh popt mà GnomeProgram đang dùng."
 
-#: ../libgnome/gnome-program.c:482
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "Ngữ cảnh GOption"
 
-#: ../libgnome/gnome-program.c:483
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "Con trỏ ngữ cảnh goption mà GnomeProgram đang dùng"
 
-#: ../libgnome/gnome-program.c:491
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "Tên mà người có thể đọc"
 
-#: ../libgnome/gnome-program.c:492
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "Tên ứng dụng này mà người có thể đọc."
 
-#: ../libgnome/gnome-program.c:501
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "Đường dẫn GNOME"
 
-#: ../libgnome/gnome-program.c:502
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "Đường dẫn cần theo để tìm các tập tin được cài đặt."
 
-#: ../libgnome/gnome-program.c:511
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "ID Ứngd"
 
-#: ../libgnome/gnome-program.c:512
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "Mã nhận diện cần dùng cho ứng dụng này."
 
-#: ../libgnome/gnome-program.c:519
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "Phb ứngd"
 
-#: ../libgnome/gnome-program.c:520
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "Phiên bản của ứng dụng này."
 
-#: ../libgnome/gnome-program.c:527
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "Tiền tố Gnome"
 
-#: ../libgnome/gnome-program.c:528
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "Thư mục gốc nơi GNOME được cài đặt."
 
-#: ../libgnome/gnome-program.c:537
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "Thư mv GNOME"
 
-#: ../libgnome/gnome-program.c:538
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "Thư mục thư viên nơi đã cài GNOME."
 
-#: ../libgnome/gnome-program.c:547
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "Thư md GNOME"
 
-#: ../libgnome/gnome-program.c:548
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "Thư mục dữ liệu nơi đã cài GNOME."
 
-#: ../libgnome/gnome-program.c:557
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "Thư mc GNOME"
 
-#: ../libgnome/gnome-program.c:558
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "Thư mục cấu hình nơi đã cài GNOME."
 
-#: ../libgnome/gnome-program.c:568
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "Thư ứngd Gnome"
 
-#: ../libgnome/gnome-program.c:569
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "Thư mục gốc mà ứng dụng này được cài đặt."
 
-#: ../libgnome/gnome-program.c:577
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "Thư mv ứngd GNOME"
 
-#: ../libgnome/gnome-program.c:578
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "Thư mục gốc của thư viên nơi cài đặt ứng dụng này."
 
-#: ../libgnome/gnome-program.c:587
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "Thư md ứngd GNOME"
 
-#: ../libgnome/gnome-program.c:588
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "Thư mục gốc dữ liệu nơi đã cài đặt ứng dụng này."
 
-#: ../libgnome/gnome-program.c:597
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "Thư mc ứngd GNOME"
 
-#: ../libgnome/gnome-program.c:598
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "Thư mục gốc cấu hình nơi đã cài đặt ứng dụng này."
 
-#: ../libgnome/gnome-program.c:607
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "Tạo thư mục"
 
-#: ../libgnome/gnome-program.c:608
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "Tạo thư mục chuẩn của GNOME khi khởi động.."
 
-#: ../libgnome/gnome-program.c:617
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "Bật âm thanh"
 
-#: ../libgnome/gnome-program.c:618
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "Bật âm thanh khi khởi động"
 
-#: ../libgnome/gnome-program.c:626
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:627
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "Kết nối với esd như thế nào."
 
-#: ../libgnome/gnome-program.c:1390
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "Tuỳ chọn trợ giúp"
 
-#: ../libgnome/gnome-program.c:1395
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "Tùy chọn ứng dụng"
 
-#: ../libgnome/gnome-program.c:1411
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "Môđụn động cần tải."
 
-#: ../libgnome/gnome-program.c:1412
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MÔ-ĐUN1,MÔ-ĐUN2,..."
 
-#.Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1630
+#. Translators: the first %s is the error message, 2nd %s the program name
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "%s\n"
+msgstr ""
+"%s\n"
 "Chạy lệnh « %s --help » (trợ giúp) để xem danh sách đầy đủ tùy chọn dòng "
 "lệnh.\n"
 
 #: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Lỗi nội tại lạ khi hiển thị địa điểm này."
 
 #: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "Địa điểm xác định không hợp lệ."
 
 #: ../libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr "Gặp lỗi khi phân tích lệnh hành động mặc định gắn với địa điểm này."
 
-#: ../libgnome/gnome-url.c:107
-#: ../libgnome/gnome-url.c:180
+#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr "Gặp lỗi khi khởi chạy lệnh hành động mặc định gắn với địa điểm này."
 
 #: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "Không có hành động mặc định gắn với địa điểm này."
 
 #: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "Hành động mặc định không hỗ trợ giao thức này."
 
 #: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "Yêu cầu bị hủy bỏ."
 
@@ -403,14 +414,17 @@ msgid "The host \"%s\" could not be found."
 msgstr "Không tìm thấy máy « %s »."
 
 #: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "Không tìm thấy máy."
 
 #: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "Không tìm thấy địa điểm hoặc tập tin đó."
 
 #: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "Lỗi đăng nhập."
 
@@ -441,7 +455,7 @@ msgid "Key %s not found in configuration"
 msgstr "Không tìm thấy phím %s trong cấu hình."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
+msgid "Beep when a modifier is pressed."
 msgstr "Kêu bíp khi nhấn phím bổ trợ."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
@@ -450,29 +464,29 @@ msgstr "Tắt nếu hai phím được nhấn cùng lúc."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds"
-msgstr "Không chấp nhận phím được nhấn trừ khi nhấn trong vòng @delay mili giây"
+"Do not accept a key as being pressed unless held for @delay milliseconds."
+msgstr "Không chấp nhận phím được nhấn trừ khi nhấn trong vòng @delay mili giây."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
 msgstr "Bao lâu cần tăng tốc (mili-giây)"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
 msgstr "Mất bao nhiêu mili giây để đi từ 0 đến tốc độ tối đa."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "Số mili-giây cần chờ trước khi phím di chuyển chuột bắt đầu hoạt động"
+"How many milliseconds to wait before mouse movement keys start to operate."
+msgstr "Số mili-giây cần chờ trước khi phím di chuyển chuột bắt đầu hoạt động."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "How many pixels per second to move at the maximum speed"
+msgid "How many pixels per second to move at the maximum speed."
 msgstr "Di chuyển bao nhiêu điểm ảnh mỗi giây ở tốc độ tối đa."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "Bỏ qua nhấn nhiều lần _cùng_ một phím trong vòng @delay mili giây"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
+msgstr "Bỏ qua nhấn nhiều lần _cùng_ một phím trong vòng @delay mili giây."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -493,9 +507,8 @@ msgstr "khoảng chờ tối thiểu (mili giây)"
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
 "List of assistive technology applications to start when logging into the "
-"GNOME desktop"
-msgstr "Danh sách các ứng dụng công nghệ trợ giúp cần khởi chạy khi đăng nhập vào "
-"GNOME."
+"GNOME desktop."
+msgstr "Danh sách các ứng dụng công nghệ trợ giúp cần khởi chạy khi đăng nhập vào môi trường GNOME."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -504,9 +517,8 @@ msgstr "Ứng dụng Công nghệ Trợ giúp lúc khởi động"
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
-"login"
-msgstr "GNOME sẽ khởi chạy ứng dụng công nghệ trợ giúp khả năng di chuyển trong khi "
-"đăng nhập"
+"login."
+msgstr "GNOME sẽ khởi chạy ứng dụng công nghệ trợ giúp khả năng di chuyển trong khi đăng nhập."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
@@ -515,9 +527,8 @@ msgstr "Ứng dụng Công nghệ Trợ giúp khả năng di chuyển ưa thích
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
-"menu, or command line"
-msgstr "Ứng dụng công nghệ trợ giúp khả năng di chuyển ưa thích cần dùng để đăng "
-"nhập, cho trình đơn hay dòng lệnh"
+"menu, or command line."
+msgstr "Ứng dụng công nghệ trợ giúp khả năng di chuyển ưa thích cần dùng để đăng nhập, cho trình đơn hay dòng lệnh."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
@@ -525,8 +536,9 @@ msgstr "Khởi chạy ứng dụng công nghệ trợ giúp khả năng di chuy�
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid ""
-"GNOME to start preferred Visual assistive technology application during login"
-msgstr "GNOME sẽ khởi chạy ứng dụng công nghệ trợ giúp khả năng nhìn ưa thích"
+"GNOME to start preferred Visual assistive technology application during "
+"login."
+msgstr "GNOME sẽ khởi chạy ứng dụng công nghệ trợ giúp khả năng nhìn ưa thích."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
@@ -535,9 +547,8 @@ msgstr "Ứng dụng công nghệ trợ giúp khả năng nhìn ưa thích"
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
-"or command line"
-msgstr "Ứng dụng công nghệ trợ giúp khả năng nhìn ưa thích cần dùng để đăng nhập, "
-"cho trình đơn hay dòng lệnh"
+"or command line."
+msgstr "Ứng dụng công nghệ trợ giúp khả năng nhìn ưa thích cần dùng để đăng nhập, cho trình đơn hay dòng lệnh."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -556,21 +567,54 @@ msgid "Default browser"
 msgstr "Trình duyệt mặc định"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
-msgstr "Trình duyệt mặc định cho mọi địa chỉ Mạng"
+msgid "Default browser for all URLs."
+msgstr "Trình duyệt mặc định cho mọi URL."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
+msgid "Whether the default browser needs a terminal to run."
 msgstr "Trình duyệt mặc định có cần thiết bị cuối để chạy không."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
+msgid "Whether the default browser understands netscape remote."
 msgstr "Trình duyệt mặc định có hiểu netscape remote không."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "Lịch cần thiết bị cuối"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "Lịch mặc định"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "Ứng dụng lịch mặc định"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "Tác vụ mặc định"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "Ứng dụng tác vụ mặc định"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "Tác vụ cần thiết bị cuối"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "Ứng dụng lịch mặc định có cần thiết bị cuối để chạy không."
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "Ứng dụng tác vụ mặc định có cần thiết bị cuối để chạy không."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
-msgstr "Đối số được dùng để thực hiện chương trình trong thiết bị cuối được định "
+msgstr ""
+"Đối số được dùng để thực hiện chương trình trong thiết bị cuối được định "
 "nghĩa bởi khóa « exec » (thực hiện)."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
@@ -582,14 +626,15 @@ msgid "Terminal application"
 msgstr "Ứng dụng thiết bị cuối"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
+msgid "Terminal program to use when starting applications that require one."
 msgstr "Chương trình thiết bị cuối cần dùng để khởi chạy ứng dụng có yêu cầu."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
-msgstr "Danh sách kèm tên vùng làm việc của bộ quản lý cửa sổ đầu tiên. Khóa này đã "
+msgstr ""
+"Danh sách kèm tên vùng làm việc của bộ quản lý cửa sổ đầu tiên. Khóa này đã "
 "bị phản đối kể từ Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
@@ -600,7 +645,8 @@ msgstr "Bộ quản lý cửa sổ dự phòng (bị phản đối)"
 msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
-msgstr "Bộ quản lý cửa sổ dự phòng trong trường hợp không tìm thấy bộ quản lý cửa sổ "
+msgstr ""
+"Bộ quản lý cửa sổ dự phòng trong trường hợp không tìm thấy bộ quản lý cửa sổ "
 "của người dùng. Khóa này đã bị phản đối kể từ Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
@@ -615,7 +661,8 @@ msgstr "Số các vùng làm việc (bị phản đối)."
 msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
-msgstr "Số vùng làm việc bộ quản lý cửa sổ nên dùng. Khóa này đã bị phản đối kể từ "
+msgstr ""
+"Số vùng làm việc bộ quản lý cửa sổ nên dùng. Khóa này đã bị phản đối kể từ "
 "Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
@@ -625,7 +672,8 @@ msgstr "Bộ quản lý cửa sổ người dùng (bị phản đối)"
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid ""
 "Window manager to try first. This key has been deprecated since GNOME 2.12."
-msgstr "Bộ quản lý cửa sổ cần thử đầu tiên. Khóa này đã bị phản đối kể từ Gnome 2.12."
+msgstr ""
+"Bộ quản lý cửa sổ cần thử đầu tiên. Khóa này đã bị phản đối kể từ Gnome 2.12."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
@@ -636,7 +684,8 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\"."
-msgstr "Xác định ảnh đặt bởi « wallpaper_filename » (tên tập tin ảnh nền) được vẽ "
+msgstr ""
+"Xác định ảnh đặt bởi « wallpaper_filename » (tên tập tin ảnh nền) được vẽ "
 "như thế nào. Giá trị hợp lệ là:\n"
 " • none — không có,\n"
 " • wallpaper — ảnh nền,\n"
@@ -650,20 +699,21 @@ msgid "Draw Desktop Background"
 msgstr "Vẽ nền mặt bàn"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:4
-msgid "File to use for the background image"
-msgstr "Tập tin cần dùng cho ảnh nền."
+msgid "File to use for the background image."
+msgstr "Tập tin dùng làm ảnh nền."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "Để GNOME vẽ nền mặt bàn."
+msgid "Have GNOME draw the desktop background."
+msgstr "Để GNOME vẽ ảnh nền."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
-"\", \"vertical-gradient\", and \"solid\""
-msgstr "Bóng màu nền như thế nào. Giá trị hợp lệ là:\n"
-" • horizontal-gradient — dốc ngang,\n"
-" • vertical-gradient — dốc dọc,\n"
+"\", \"vertical-gradient\", and \"solid\"."
+msgstr ""
+"Bóng màu nền như thế nào. Giá trị hợp lệ là:\n"
+" • horizontal-gradient — dốc ngang\n"
+" • vertical-gradient — dốc dọc\n"
 " • solid — đặc."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
@@ -671,8 +721,8 @@ msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "Màu Trái hoặc Trên khi vẽ dốc, hoặc màu đặc."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "Độ mờ đục để vẽ ảnh nền"
+msgid "Opacity with which to draw the background picture."
+msgstr "Độ mờ đục để vẽ ảnh nền."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
@@ -703,7 +753,7 @@ msgid "File Icon Theme"
 msgstr "Sắc thái Biểu tượng Tập tin"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
+msgid "Theme used for displaying file icons."
 msgstr "Sắc thái được dùng để hiển thị biểu tượng tập tin."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
@@ -767,8 +817,8 @@ msgid "Keyboard shortcut to open the menu bars."
 msgstr "Phím tắt mở thanh trình đơn."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "Độ dài chu kỳ nháy con trỏ, theo mili giây"
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "Độ dài chu kỳ nháy con trỏ, theo mili giây."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
@@ -793,11 +843,8 @@ msgstr "Mô-đun cho GtkFileChooser (chọn tập tin)"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
-"Possible values are \"gnome-vfs\" and \"gtk+\"."
-msgstr "Mô-đun cần dùng là mô hình hệ thống tập tin cho ô điều khiển của "
-"GtkFileChooser. Giá trị có thể là:\n"
-" • gnome-vfs\n"
-" • gtk+"
+"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
+msgstr "Mô-đun cần dùng là mô hình hệ thống tập tin cho ô điều khiển của GtkFileChooser. Giá trị có thể là \"gio\", \"gnome-vfs\" và \"gtk+\"."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
@@ -806,7 +853,8 @@ msgstr "Phông chữ cách đơn"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr "Tên phông chữ cách đơn (bề rộng cố định) cần dùng ở những nơi như thiết bị "
+msgstr ""
+"Tên phông chữ cách đơn (bề rộng cố định) cần dùng ở những nơi như thiết bị "
 "cuối."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
@@ -822,7 +870,7 @@ msgid "Name of the default font used by gtk+."
 msgstr "Tên phông chữ mặc định dùng bởi GTK+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
-msgid "Name of the default font used for reading documents"
+msgid "Name of the default font used for reading documents."
 msgstr "Tên phông chữ mặc định cần dùng để đọc tài liệu."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
@@ -839,10 +887,11 @@ msgstr "Hiện trình đơn « Ký tự Điều khiển Unicode »"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid ""
-"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\""
-msgstr "Kích cỡ của biểu tượng trên thanh công cụ, hoặc:\n"
-" • small-toolbar	biểu tượng nhỏ cho thanh công cụ\n"
-" • large-toolbar	biểu tượng lớn cho thanh công cụ"
+"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr ""
+"Kích cỡ của biểu tượng trên thanh công cụ, hoặc:\n"
+" • small-toolbar\tbiểu tượng nhỏ cho thanh công cụ\n"
+" • large-toolbar\tbiểu tượng lớn cho thanh công cụ"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
@@ -863,11 +912,12 @@ msgstr "Kiểu dáng thanh công cụ"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
-"\"text\""
-msgstr "Kiểu dáng thanh công cụ. Giá trị hợp lệ là:\n"
+"\"text\"."
+msgstr ""
+"Kiểu dáng thanh công cụ. Giá trị hợp lệ là:\n"
 " • both — cả hai,\n"
-" • both_horiz — cả hai ngang,\n"
-" • icon — biểu tượng,\n"
+" • both-horiz — cả hai ngang,\n"
+" • icons — biểu tượng,\n"
 " • text — chữ."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
@@ -875,59 +925,63 @@ msgid "Use Custom Font"
 msgstr "Dùng phông chữ tự chọn"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether Applications should have accessibility support"
+msgid "Whether Applications should have accessibility support."
 msgstr "Ứng dụng có nên hỗ trợ khả năng truy cập không."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
-msgstr "Có nên hiển thị hoạt cảnh hay không. Chú ý: đây là khóa toàn cục, nó tác "
+msgstr ""
+"Có nên hiển thị hoạt cảnh hay không. Chú ý: đây là khóa toàn cục, nó tác "
 "động lên hành vi của bộ quản lý cửa sổ, bảng điều khiển v.v. ..."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid "Whether menus may display an icon next to a menu entry"
+msgid "Whether menus may display an icon next to a menu entry."
 msgstr "Trình đơn có thể hiển thị ảnh bên cạnh mục nhập trình đơn không."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid "Whether menus should have a tearoff"
+msgid "Whether menus should have a tearoff."
 msgstr "Có nên tách rời trình đơn được không."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
-"the input method"
-msgstr "Trình đơn ngữ cảnh của mục nhập và khung xem văn bản có nên đưa ra việc thay "
+"the input method."
+msgstr ""
+"Trình đơn ngữ cảnh của mục nhập và khung xem văn bản có nên đưa ra việc thay "
 "đổi cách nhập hay không."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
-"control characters"
-msgstr "Trình đơn ngữ cảnh của mục nhập và khung xem văn bản có nên đưa ra việc chèn "
+"control characters."
+msgstr ""
+"Trình đơn ngữ cảnh của mục nhập và khung xem văn bản có nên đưa ra việc chèn "
 "ký tự điều khiển hay không."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the cursor should blink"
+msgid "Whether the cursor should blink."
 msgstr "Con trỏ có nên chớp không."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid "Whether the user can detach menubars and move them around"
+msgid "Whether the user can detach menubars and move them around."
 msgstr "Người dùng có thể tháo thanh trình đơn và di chuyển đi chỗ khác không."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether the user can detach toolbars and move them around"
+msgid "Whether the user can detach toolbars and move them around."
 msgstr "Người dùng có thể thao thanh công cụ và di chuyển đi chỗ khác không."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
-"an active menuitem"
-msgstr "Người dùng có thể gõ động phím tắt mới khi ở trên mục trình đơn hoạt động "
+"an active menuitem."
+msgstr ""
+"Người dùng có thể gõ động phím tắt mới khi ở trên mục trình đơn hoạt động "
 "không."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
-msgid "Whether to display a status bar meter on the right"
+msgid "Whether to display a status bar meter on the right."
 msgstr "Có hiển thị đồng hồ thanh trạng thái bên phải không."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
@@ -963,7 +1017,8 @@ msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
-msgstr "Ngăn cản người dùng truy cập thiết bị cuối hoặc thực hiện lệnh bằng dòng "
+msgstr ""
+"Ngăn cản người dùng truy cập thiết bị cuối hoặc thực hiện lệnh bằng dòng "
 "lệnh. Ví dụ, nó sẽ vô hiệu hoá hộp thoại « Chạy ứng dụng » của bảng điều "
 "khiển."
 
@@ -971,35 +1026,39 @@ msgstr "Ngăn cản người dùng truy cập thiết bị cuối hoặc thực 
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
-msgstr "Ngăn cản người dùng hiệu chỉnh thiết lập máy in. Ví dụ, nó sẽ vô hiệu hoá "
+msgstr ""
+"Ngăn cản người dùng hiệu chỉnh thiết lập máy in. Ví dụ, nó sẽ vô hiệu hoá "
 "truy cập hộp thoại « Thiết lập in » trong mọi ứng dụng."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
-msgstr "Ngăn cản người dùng in. Ví dụ, nó sẽ vô hiệu hoá truy câp hộp thoại « In » "
+msgstr ""
+"Ngăn cản người dùng in. Ví dụ, nó sẽ vô hiệu hoá truy câp hộp thoại « In » "
 "trong mọi ứng dụng."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
-msgstr "Ngăn cản người dùng lưu vào đĩa. Ví dụ, nó sẽ vô hiệu hoá hộp thoại « Lưu là "
+msgstr ""
+"Ngăn cản người dùng lưu vào đĩa. Ví dụ, nó sẽ vô hiệu hoá hộp thoại « Lưu là "
 "» trong mọi ứng dụng."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
-msgstr "Ngăn cản người dùng chuyển đổi sang tài khoản khác trong khi phiên đang chạy."
+msgstr ""
+"Ngăn cản người dùng chuyển đổi sang tài khoản khác trong khi phiên đang chạy."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid "Prevent the user to lock his screen."
 msgstr "Ngăn cản người dùng khoá màn hình."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
+msgid "File name of the bell sound to be played."
 msgstr "Tên tập tin của tiếng bíp cần phát."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
@@ -1014,12 +1073,14 @@ msgstr "Nhớ tính trạng NumLock"
 msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
-msgstr "Khi đặt là « true » (đúng), Gnome sẽ nhớ tính trạng của LED NumLock (Khóa "
+msgstr ""
+"Khi đặt là « true » (đúng), Gnome sẽ nhớ tính trạng của LED NumLock (Khóa "
 "Số) giữa hai phiên chạy."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "giá trị hợp lệ là:\n"
+msgstr ""
+"giá trị hợp lệ là:\n"
 " • on — bật,\n"
 " • off — tắt,\n"
 " • custom — tự chọn."
@@ -1028,7 +1089,8 @@ msgstr "giá trị hợp lệ là:\n"
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr "Bộ nhân gia tốc cho chuyển động chuột. Giá trị (-1) là mặc định hệ thống."
+msgstr ""
+"Bộ nhân gia tốc cho chuyển động chuột. Giá trị (-1) là mặc định hệ thống."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
@@ -1046,18 +1108,20 @@ msgstr "Sắc thái con trỏ"
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
-msgstr "Tên sắc thái con trỏ. Chỉ dùng do trình phục vụ X có hỗ trợ Xcursor, như "
+msgstr ""
+"Tên sắc thái con trỏ. Chỉ dùng do trình phục vụ X có hỗ trợ Xcursor, như "
 "XFree86 phiên bản 4.3 và sau."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "Khoảng cách trước khi bắt đầu kéo"
+msgid "Distance before a drag is started."
+msgstr "Khoảng cách trước khi bắt đầu kéo."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
-msgstr "Khoảng cách, tính theo điểm ảnh, mà con trỏ phải di chuyển trước khi kích "
+msgstr ""
+"Khoảng cách, tính theo điểm ảnh, mà con trỏ phải di chuyển trước khi kích "
 "hoạt chuyển động của con chuột. Giá trị (-1) là mặc định hệ thống."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
@@ -1073,7 +1137,8 @@ msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
-msgstr "Tên phông chữ của con trỏ. Nếu bỏ chọn, phông mặc định sẽ được dùng. Giá trị "
+msgstr ""
+"Tên phông chữ của con trỏ. Nếu bỏ chọn, phông mặc định sẽ được dùng. Giá trị "
 "này chỉ tác động khi khởi chạy trình phục vụ X mỗi phiên làm việc, vì thế "
 "thay đổi giá trị này khi đang chạy sẽ không tác động gì cho đến khi bạn đăng "
 "nhập lại."
@@ -1081,12 +1146,12 @@ msgstr "Tên phông chữ của con trỏ. Nếu bỏ chọn, phông mặc đị
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
-"pressed and released"
-msgstr "Tô sáng vị trí hiện thời của con trỏ khi nhấn và nhả phím Control"
+"pressed and released."
+msgstr "Tô sáng vị trí hiện thời của con trỏ khi nhấn và nhả phím Control."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "Độ dài nhấp đúp"
+msgid "Length of a double click."
+msgstr "Độ dài nhấp đúp."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -1105,16 +1170,17 @@ msgid "Single Click"
 msgstr "Nhấp đơn"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "Nhấp đơn để mở biểu tượng"
+msgid "Single click to open icons."
+msgstr "Nhấp đơn để mở biểu tượng."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
-msgstr "Kích cỡ của con trỏ mà « cursor_theme » (sắc thái con trỏ) có tham chiếu."
+msgstr ""
+"Kích cỡ của con trỏ mà « cursor_theme » (sắc thái con trỏ) có tham chiếu."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "Hoán đổi nút trái, phải của chuột cho người dùng thuận tay trái"
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr "Hoán đổi nút trái, phải của chuột cho người dùng thuận tay trái."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
@@ -1156,7 +1222,8 @@ msgstr "Tắt mọi trình hiển ảnh thu nhỏ bên ngoài."
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
-msgstr "Đặt Đúng (true) để vô hiệu hoá mọi trình hiển ảnh thu nhỏ bên ngoài, không "
+msgstr ""
+"Đặt Đúng (true) để vô hiệu hoá mọi trình hiển ảnh thu nhỏ bên ngoài, không "
 "cần biết chúng có bị vô hiệu hoá hay không."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
