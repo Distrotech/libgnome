@@ -8,13 +8,14 @@ schema_in_files = \
 	desktop_gnome_applications_browser.schemas.in		\
 	desktop_gnome_applications_terminal.schemas.in		\
 	desktop_gnome_applications_window_manager.schemas.in	\
-	desktop_gnome_applications_office.schemas.in	\
+	desktop_gnome_applications_office.schemas.in		\
 	desktop_gnome_file_views.schemas.in			\
 	desktop_gnome_lockdown.schemas.in			\
 	desktop_gnome_peripherals_mouse.schemas.in		\
 	desktop_gnome_peripherals_keyboard.schemas.in		\
 	desktop_gnome_sound.schemas.in				\
 	desktop_gnome_typing_break.schemas.in			\
+	desktop_gnome_thumbnail_cache.schemas.in		\
 	desktop_gnome_thumbnailers.schemas.in			\
 	$(NULL)
 
