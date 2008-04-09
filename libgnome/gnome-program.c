@@ -1786,10 +1786,12 @@ accessibility_init (GnomeProgram *program)
 
 	if ((env_var = g_getenv (GNOME_ACCESSIBILITY_ENV)))
 		do_init = atoi (env_var);
-	else
+	else {
+		GConfClient* gc = gconf_client_get_default ();
 		do_init = gconf_client_get_bool (
-			gconf_client_get_default (),
-			GNOME_ACCESSIBILITY_KEY, NULL);
+			gc, GNOME_ACCESSIBILITY_KEY, NULL);
+		g_object_unref (gc);
+	}
 
 	if (do_init)
 		accessibility_invoke (program, TRUE);
