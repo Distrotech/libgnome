@@ -2,7 +2,7 @@
 #
 # This file is distributed under the same license as the libgnome package.
 #
-# Tino Meinen <a.t.meinen@chello.nl>, 2002, 2006.
+# Tino Meinen <a.t.meinen@chello.nl>, 2002, 2006, 2008.
 # Reinout van Schouwen <reinout@cs.vu.nl>, 2002-2005
 # Vincent van Adrighem <V.vanAdrighem@dirck.mine.nu>, 2003, 2004.
 # Wouter Bolsterlee <wbolster@gnome.org>, 2007.
@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-06 12:10+0100\n"
-"PO-Revision-Date: 2008-02-17 15:34+0100\n"
-"Last-Translator: Daniel van Eeden <gnomenl@myname.nl>\n"
+"POT-Creation-Date: 2008-04-09 23:48+0100\n"
+"PO-Revision-Date: 2008-04-10 03:36+0200\n"
+"Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,17 +81,17 @@ msgstr ""
 
 #: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
-msgstr "GNOME GConf-ondersteuning"
+msgstr "Gnome GConf-ondersteuning"
 
 #: ../libgnome/gnome-help.c:170
 #, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
-msgstr "Kan het domein GNOME_FILE_DOMAIN_APP_HELP niet vinden"
+msgstr "Kan het domein Gnome_FILE_DOMAIN_APP_HELP niet vinden"
 
 #: ../libgnome/gnome-help.c:183
 #, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
-msgstr "Kan het domein GNOME_FILE_DOMAIN_HELP niet vinden"
+msgstr "Kan het domein Gnome_FILE_DOMAIN_HELP niet vinden"
 
 #: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
 #, c-format
@@ -138,14 +138,14 @@ msgstr "Bonobo activeringsondersteuning"
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Kan de gebruikerspecifieke GNOME-configuratiemap '%s' niet aanmaken: %s\n"
+"Kan de gebruikerspecifieke Gnome-configuratiemap '%s' niet aanmaken: %s\n"
 
 #: ../libgnome/gnome-init.c:404
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Kan de gebruikerspecifieke GNOME-configuratiemap '%s' niet benaderen: %s\n"
+"Kan de gebruikerspecifieke Gnome-configuratiemap '%s' niet benaderen: %s\n"
 
 #: ../libgnome/gnome-init.c:412
 #, c-format
@@ -153,17 +153,17 @@ msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Kan de gebruikerspecifieke GNOME-privéconfiguratiemap '%s' niet op modus "
+"Kan de gebruikerspecifieke Gnome-privéconfiguratiemap '%s' niet op modus "
 "0700 zetten: %s\n"
 
 #: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Kan de GNOME-sneltoetsenmap '%s' niet maken: %s\n"
+msgstr "Kan de Gnome-sneltoetsenmap '%s' niet maken: %s\n"
 
 #: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
-msgstr "GNOME virtueel bestandssysteem"
+msgstr "Gnome virtueel bestandssysteem"
 
 #: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
 msgid "Disable sound server usage"
@@ -171,7 +171,7 @@ msgstr "Gebruik van geluidsserver uitschakelen"
 
 #: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
 msgid "Enable sound server usage"
-msgstr "Gerbuik van geluidsserver inschakelen"
+msgstr "Gebruik van geluidsserver inschakelen"
 
 #: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
 msgid "Host:port on which the sound server to use is running"
@@ -183,11 +183,11 @@ msgstr "HOSTNAAM:POORT"
 
 #: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
-msgstr "GNOME-bibliotheek"
+msgstr "Gnome-bibliotheek"
 
 #: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
-msgstr "GNOME-opties tonen"
+msgstr "Gnome-opties tonen"
 
 #: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
@@ -227,15 +227,15 @@ msgstr "Leesbare naam"
 
 #: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
-msgstr "Door mensen leesbare naam van deze toepassing"
+msgstr "De naam van deze toepassing in leesbare vorm"
 
 #: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
-msgstr "GNOME-pad"
+msgstr "Gnome-pad"
 
 #: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
-msgstr "Pad waarin moet worden gezocht voor geïnstalleerde bestanden"
+msgstr "Pad waarin gezocht wordt naar geïnstalleerde bestanden"
 
 #: ../libgnome/gnome-program.c:512
 msgid "App ID"
@@ -253,69 +253,71 @@ msgstr "Toepassing-versie"
 msgid "Version of this application"
 msgstr "Versie van deze toepassing"
 
+# index/voorvoegsel/locatie
 #: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
-msgstr "GNOME-voorvoegsel"
+msgstr "Gnome-voorvoegsel"
 
 #: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
-msgstr "Voorvoegsel waarin GNOME is geïnstalleerd"
+msgstr "Locatie waarin Gnome werd geïnstalleerd"
 
 #: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
-msgstr "GNOME-bibliotheekmap"
+msgstr "Gnome-bibliotheekmap"
 
 #: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
-msgstr "Bibliotheek-voorvoegsel waarin GNOME is geïnstalleerd"
+msgstr "Bibliotheek-locatie waarin Gnome werd geïnstalleerd"
 
+# data hier duidelijker dan gegevens. Technotalk
 #: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
-msgstr "GNOME-gegevensmap"
+msgstr "Gnome-datamap"
 
 #: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
-msgstr "Gegevensvoorvoegsel waarin GNOME is geïnstalleerd"
+msgstr "Data-locatie waarin Gnome werd geïnstalleerd"
 
 #: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
-msgstr "GNOME-sysconfmap"
+msgstr "Gnome-sysconfmap"
 
 #: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
-msgstr "Configuratievoorvoegsel waarin GNOME is geïnstalleerd"
+msgstr "Configuratielocatie waarin Gnome werd geïnstalleerd"
 
 #: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
-msgstr "GNOME toepassingsvoorvoegsel"
+msgstr "Gnome toepassingsvoorvoegsel"
 
 #: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
-msgstr "Voorvoegsel waarin deze toepassing is geïnstalleerd"
+msgstr "Locatie waarin deze toepassing werd geïnstalleerd"
 
 #: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
-msgstr "GNOME toepassings-bibliotheekmap"
+msgstr "Gnome toepassings-bibliotheekmap"
 
 #: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
-msgstr "Bibliotheek-voorvoegsel waarin deze toepassing is geïnstalleerd"
+msgstr "Bibliotheek-locatie waarin deze toepassing werd geïnstalleerd"
 
 #: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
-msgstr "GNOME toepassingsgegevensmap"
+msgstr "Gnome toepassingsdatamap"
 
 #: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
-msgstr "Gegevensvoorvoegsel waarin deze toepassing is geïnstalleerd"
+msgstr "Data-locatie waarin deze toepassing werd geïnstalleerd"
 
 #: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
-msgstr "GNOME toepassings-sysconfmap"
+msgstr "Gnome toepassings-sysconfmap"
 
 #: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
-msgstr "Configuratievoorvoegsel waarin deze toepassing is geïnstalleerd"
+msgstr "Configuratielocatie waarin deze toepassing werd geïnstalleerd"
 
 #: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
@@ -323,7 +325,7 @@ msgstr "Mappen aanmaken"
 
 #: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
-msgstr "Standaard GNOME-mappen aanmaken bij opstarten"
+msgstr "Standaard Gnome-mappen aanmaken bij opstarten"
 
 #: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
@@ -365,7 +367,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "%s\n"
-"Voer '%s --help' uit voor een volledige lijst van opdrachtregelopties.\n"
+"Typ '%s --help' voor een volledige lijst met opdrachtregelopties.\n"
 
 #: ../libgnome/gnome-url.c:85
 #, c-format
@@ -413,7 +415,7 @@ msgstr "De aanvraag is geannuleerd."
 #: ../libgnome/gnome-url.c:139
 #, c-format
 msgid "The host \"%s\" could not be found."
-msgstr "De \"%s\"-host was onvindbaar."
+msgstr "De ‘%s’-host was onvindbaar."
 
 #: ../libgnome/gnome-url.c:145
 #, c-format
@@ -517,7 +519,7 @@ msgid ""
 "GNOME desktop."
 msgstr ""
 "Lijst van te starten assisterende technologie-toepassingen bij het aanmelden "
-"bij de GNOME werkomgeving."
+"bij de Gnome werkomgeving."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -656,7 +658,7 @@ msgid ""
 "deprecated since GNOME 2.12."
 msgstr ""
 "Een namenlijst van de eerste window manager-werkbladen. Deze sleutel is "
-"ontraden sinds GNOME 2.12."
+"ontraden sinds Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
@@ -668,7 +670,7 @@ msgid ""
 "been deprecated since GNOME 2.12."
 msgstr ""
 "Windowmanager om op terug te vallen als de gebruikers-windowmanager "
-"onvindbaar is. Deze sleutel is ontraden sinds GNOME 2.12."
+"onvindbaar is. Deze sleutel is ontraden sinds Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -684,7 +686,7 @@ msgid ""
 "deprecated since GNOME 2.12."
 msgstr ""
 "Het aantal werkbladen dat de window manager moet gebruiken. Deze sleutel is "
-"ontraden sinds GNOME 2.12."
+"ontraden sinds Gnome 2.12."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
@@ -694,7 +696,7 @@ msgstr "Gebruikers-windowmanager (ontraden)"
 msgid ""
 "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
-"Als eerste te proberen windowmanager. Deze sleutel is ontraden sinds GNOME "
+"Als eerste te proberen windowmanager. Deze sleutel is ontraden sinds Gnome "
 "2.12."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:1
@@ -706,10 +708,7 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\"."
-msgstr ""
-"Bepaalt hoe de afbeeldingen welke gezet is met wallpaper_filename wordt "
-"weergegeven. Mogelijke waarden zijn \"geen\", \"behang\", \"gecentreerd\", "
-"\"geschaald\", \"uitgerekt\"."
+msgstr "Bepaalt hoe de afbeeldingen welke gezet is met wallpaper_filename wordt weergegeven. Mogelijke waarden zijn ‘none’ (niet), ‘wallpaper’ (behang), ‘centered’ (gecentreerd), ‘scaled’ (geschaald), ‘stretched’ (uitgerekt)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -721,15 +720,13 @@ msgstr "Bestand voor achtergrondafbeelding."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background."
-msgstr "Laat GNOME de werkbladachtergrond tekenen."
+msgstr "Laat Gnome de werkbladachtergrond tekenen."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\"."
-msgstr ""
-"Hoe de achtergrondkleur getekend moet worden. Mogelijke waarden zijn "
-"\"horizontal-gradient\", \"vertical-gradient\", \"solid\"."
+msgstr "Hoe de achtergrondkleur getekend moet worden. Mogelijke waarden zijn ‘horizontal-gradient’, ‘vertical-gradient’, ‘solid’."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -1036,19 +1033,13 @@ msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
-msgstr ""
-"De gebruiker verhinderen om toegang tot de terminal te krijgen of om een uit "
-"te voeren opdrachtregel op te geven. Dit schakelt bijvoorbeeld de toegang "
-"uit tot het \"Toepassing uitvoeren\"-dialoogvenster van het paneel."
+msgstr "De gebruiker verhinderen om toegang tot de terminal te krijgen of om een uit te voeren opdrachtregel op te geven. Dit schakelt bijvoorbeeld de toegang uit tot het ‘Toepassing uitvoeren’-dialoogvenster van het paneel."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
-msgstr ""
-"De gebruiker verhinderen om de afdrukinstellingen aan te passen. Dit "
-"schakelt bijvoorbeeld de toegang uit tot de \"Afdrukinstellingen\"-"
-"dialoogvensters van alle toepassingen."
+msgstr "De gebruiker verhinderen om de afdrukinstellingen aan te passen. Dit schakelt bijvoorbeeld de toegang uit tot de ‘Afdrukinstellingen’-dialoogvensters van alle toepassingen."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
@@ -1062,10 +1053,7 @@ msgstr ""
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
-msgstr ""
-"De gebruiker verhinderen om bestanden naar schijf op te slaan. Dit schakelt "
-"bijvoorbeeld de toegang uit tot de \"Opslaan als\"-dialoogvensters van alle "
-"toepassingen."
+msgstr "De gebruiker verhinderen om bestanden naar schijf op te slaan. Dit schakelt bijvoorbeeld de toegang uit tot de ‘Opslaan als’-dialoogvensters van alle toepassingen."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
@@ -1095,12 +1083,12 @@ msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"Als ingesteld op waar, dan zal GNOME de status van de NumLock LED onthouden "
+"Als ingesteld op waar, dan zal Gnome de status van de NumLock LED onthouden "
 "van de ene sessie op de andere."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr "mogelijke waarden zijn \"on\", \"off\", en \"custom\" (aangepast)."
+msgstr "mogelijke waarden zijn ‘on’, ‘off’, en ‘custom’ (aangepast)."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -1233,6 +1221,18 @@ msgstr ""
 #: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "Whether to play sounds on user events."
 msgstr "Of er geluiden afgespeeld moeten worden bij bepaalde gebeurtenissen."
+
+#: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:1
+msgid ""
+"Maximum age for thumbnails in the cache, in days. Set to -1 to disable "
+"cleaning."
+msgstr "Maximum leeftijd voor miniaturen in de cache, in dagen. Instellen op -1 om opschonen uit te zetten."
+
+#: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
+msgid ""
+"Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
+"cleaning."
+msgstr "Maximum grootte van de miniaturen-cache, in megabyte. Instellen op -1 om opschonen uit te zetten."
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
