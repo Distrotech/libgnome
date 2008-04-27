@@ -26,16 +26,13 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-
 #include <string.h>
+
 #include <glib.h>
 #include <glib/gstdio.h>
-
 #include <glib/gi18n-lib.h>
 
-#include "gnome-program.h"
 #include "gnome-url.h"
-
 #include "gnome-help.h"
 
 static char *

@@ -33,9 +33,8 @@
 
 #include <glib/gi18n-lib.h>
 
-#include <libgnome/libgnome.h>
+#include "libgnome.h"
 
-#include "gnome-gconf.h"
 #include "gnome-gconfP.h"
 
 /**
@@ -108,7 +107,7 @@ gnome_gconf_get_app_settings_relative (GnomeProgram *program, const gchar *subke
 }
 
 /**
- * gnome_gconf_lazy_init
+ * gnome_gconf_lazy_init:
  *
  * Description:  Internal libgnome/ui routine.  You never have
  * to do this from your code.  But all places in libgnome/ui

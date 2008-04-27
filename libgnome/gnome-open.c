@@ -1,13 +1,15 @@
 #include <config.h>
 
 #include <glib.h>
-#include <stdio.h>
-#include <libgnome/gnome-url.h>
-#include <libgnome/gnome-program.h>
-#include <libgnome/gnome-init.h>
-#include <libgnomevfs/gnome-vfs-utils.h>
-
 #include <glib/gi18n-lib.h>
+
+#include <stdio.h>
+
+#include "gnome-url.h"
+#include "gnome-program.h"
+#include "gnome-init.h"
+
+#include <libgnomevfs/gnome-vfs-utils.h>
 
 int
 main (int argc, char *argv[])

@@ -50,8 +50,8 @@
 #include <pwd.h>
 #endif
 #include <limits.h>
-#include <libgnome/gnome-program.h>
-#include <libgnome/gnome-util.h>
+#include "gnome-program.h"
+#include "gnome-util.h"
 
 #ifdef G_OS_WIN32
 #include <windows.h>

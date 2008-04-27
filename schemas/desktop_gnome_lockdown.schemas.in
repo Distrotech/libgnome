@@ -94,5 +94,19 @@
       </locale>
     </schema>
 
+    <schema>
+      <key>/schemas/desktop/gnome/lockdown/disable_application_handlers</key>
+      <applyto>/desktop/gnome/lockdown/disable_application_handlers</applyto>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Disable URL and MIME type handlers</short>
+        <long>
+         Prevent running any URL or MIME type handler applications.
+        </long>
+      </locale>
+    </schema>
+
   </schemalist>
 </gconfschemafile>

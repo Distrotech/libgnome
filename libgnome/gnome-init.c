@@ -38,21 +38,20 @@
 #include <glib.h>
 #include <glib/goption.h>
 #include <glib/gstdio.h>
-#include <libgnome/gnome-i18n.h>
 
+#include "gnome-i18n.h"
 #include "gnome-init.h"
 #include "gnome-gconfP.h"
 #include "gnome-util.h"
 #include "gnome-sound.h"
 #include "gnome-triggers.h"
+#include "libgnome-private.h"
 
 #include <bonobo-activation/bonobo-activation.h>
 #include <bonobo-activation/bonobo-activation-version.h>
 #include <libbonobo.h>
 
 #include <libgnomevfs/gnome-vfs-init.h>
-
-#include "libgnome-private.h"
 
 /* implemented in gnome-sound.c */
 G_GNUC_INTERNAL extern void _gnome_sound_set_enabled (gboolean);

@@ -43,7 +43,6 @@
 
 #include <gconf/gconf-client.h>
 
-
 #include <errno.h>
 #ifndef errno
 extern int errno;
@@ -95,8 +94,7 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
   int child_errno, itmp, i, open_max;
   gssize res;
   char **cpargv;
-  pid_t child_pid, immediate_child_pid; /* XXX this routine assumes
-					   pid_t is signed */
+  pid_t child_pid, immediate_child_pid;
 
   if(pipe(parent_comm_pipes))
     return -1;
@@ -216,7 +214,8 @@ gnome_execute_async_with_env_fds (const char *dir, int argc,
 
   /* do this after the read's in case some OS's handle blocking on pipe writes
      differently */
-   while ((waitpid(immediate_child_pid, &itmp, 0)== -1) && (errno == EINTR)); /* eat zombies */
+  while ((waitpid(immediate_child_pid, &itmp, 0)== -1) && (errno == EINTR))
+    ; /* eat zombies */
 
   close(parent_comm_pipes[0]);
 
