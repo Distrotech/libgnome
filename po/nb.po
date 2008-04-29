@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.23.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-19 11:16+0200\n"
-"PO-Revision-Date: 2008-04-19 11:17+0200\n"
+"POT-Creation-Date: 2008-04-30 01:39+0200\n"
+"PO-Revision-Date: 2008-04-30 01:40+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -988,30 +988,38 @@ msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Om egendefinert skrift skal brukes i gtk+-programmer."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
+msgid "Disable URL and MIME type handlers"
+msgstr "Slå av URL- og MIME-håndterere"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable command line"
 msgstr "Deaktiver kommandolinjen"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable lock screen"
 msgstr "Slå av låsing av skjermen"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable print setup"
 msgstr "Dekativer skriveroppsett"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable printing"
 msgstr "Deaktiver utskrift"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid "Disable saving files to disk"
 msgstr "Deaktiver lagring av filer til disk"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid "Disable user switching"
 msgstr "Deaktiver brukerbytting"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+msgid "Prevent running any URL or MIME type handler applications."
+msgstr "Forhindre kjøring av håndterere for URL og MIME-type."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -1021,7 +1029,7 @@ msgstr ""
 "skal kjøres. Dette vil for eksempel deaktivere tilgang til panelets «Kjør "
 "program»-dialog."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -1029,7 +1037,7 @@ msgstr ""
 "Hindre at bruker endrer innstillinger for skrivere. Dette vil for eksempel "
 "deaktivere tilgang til «Skriveroppsett»-dialoger i alle programmer."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -1037,7 +1045,7 @@ msgstr ""
 "Hindre at bruker skriver ut dokumenter. Dette vil for eksempel deaktivere "
 "tilgang til «Skriv ut»-dialogene i alle programmer."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
@@ -1045,13 +1053,13 @@ msgstr ""
 "Hindre at bruker lagrer filer til disk. Dette vil for eksempel deaktivere "
 "«Lagre som»-dialogen i alle programmer."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:13
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
 msgstr "Hindre bruker fra å bytte til en annen konto mens sesjonen er aktiv."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:14
 msgid "Prevent the user to lock his screen."
 msgstr "Hindre brukeren i å låse skjermen."
 
@@ -1213,13 +1221,17 @@ msgstr "Om lyder skal spilles av ved brukerhendelser."
 msgid ""
 "Maximum age for thumbnails in the cache, in days. Set to -1 to disable "
 "cleaning."
-msgstr "Maks alder for miniatyrer i bufferen i dager. Sett til -1 for å deaktivere opprydding."
+msgstr ""
+"Maks alder for miniatyrer i bufferen i dager. Sett til -1 for å deaktivere "
+"opprydding."
 
 #: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
 msgid ""
 "Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
 "cleaning."
-msgstr "Maks størrelse på buffer for miniatyrer i megabyte. Sett til -1 for å deaktivere opprydding."
+msgstr ""
+"Maks størrelse på buffer for miniatyrer i megabyte. Sett til -1 for å "
+"deaktivere opprydding."
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
