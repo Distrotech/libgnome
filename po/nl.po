@@ -7,13 +7,15 @@
 # Vincent van Adrighem <V.vanAdrighem@dirck.mine.nu>, 2003, 2004.
 # Wouter Bolsterlee <wbolster@gnome.org>, 2007.
 # Daniel van Eeden <gnomenl@myname.nl>, 2008.
+# ------------------------------------------------------------------------
+# handler - weergave/afhandeling/toepassing/programma
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-09 23:48+0100\n"
-"PO-Revision-Date: 2008-04-10 03:36+0200\n"
+"POT-Creation-Date: 2008-04-27 10:29+0000\n"
+"PO-Revision-Date: 2008-05-07 18:14+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -73,27 +75,27 @@ msgstr "Selecteer aankruisvakje"
 msgid "User interface events"
 msgstr "Gebruikersinterface-gebeurtenissen"
 
-#: ../libgnome/gnome-exec.c:451
+#: ../libgnome/gnome-exec.c:450
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Kan geen terminalprogramma vinden. Gebruik xterm hoewel dit mogelijk niet "
 "werkt."
 
-#: ../libgnome/gnome-gconf.c:176
+#: ../libgnome/gnome-gconf.c:175
 msgid "GNOME GConf Support"
 msgstr "Gnome GConf-ondersteuning"
 
-#: ../libgnome/gnome-help.c:170
+#: ../libgnome/gnome-help.c:167
 #, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Kan het domein Gnome_FILE_DOMAIN_APP_HELP niet vinden"
 
-#: ../libgnome/gnome-help.c:183
+#: ../libgnome/gnome-help.c:180
 #, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Kan het domein Gnome_FILE_DOMAIN_HELP niet vinden"
 
-#: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
+#: ../libgnome/gnome-help.c:193 ../libgnome/gnome-help.c:208
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
@@ -102,12 +104,12 @@ msgstr ""
 "Kan hulptekst niet tonen omdat %s geen map is. Controleer uw installatie."
 
 # punt aan het eind van de zin ontbreekt in het Engels
-#: ../libgnome/gnome-help.c:220
+#: ../libgnome/gnome-help.c:217
 #, c-format
 msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr "Kan hulppaden %s of %s niet vinden. Controleer uw installatie."
 
-#: ../libgnome/gnome-help.c:236
+#: ../libgnome/gnome-help.c:233
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -115,39 +117,39 @@ msgid ""
 msgstr ""
 "Kan hulpbestanden niet vinden in %s, noch in %s. Controleer uw installatie."
 
-#: ../libgnome/gnome-help.c:353
+#: ../libgnome/gnome-help.c:350
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "Kan doc_id %s in het hulppad niet vinden."
 
-#: ../libgnome/gnome-help.c:374
+#: ../libgnome/gnome-help.c:371
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "Hulpdocument %s/%s niet gevonden"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:92
+#: ../libgnome/gnome-init.c:91
 msgid "Bonobo Support"
 msgstr "Bonobo-ondersteuning"
 
-#: ../libgnome/gnome-init.c:146
+#: ../libgnome/gnome-init.c:145
 msgid "Bonobo activation Support"
 msgstr "Bonobo activeringsondersteuning"
 
-#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
+#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Kan de gebruikerspecifieke Gnome-configuratiemap '%s' niet aanmaken: %s\n"
 
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:403
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Kan de gebruikerspecifieke Gnome-configuratiemap '%s' niet benaderen: %s\n"
 
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:411
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -156,36 +158,36 @@ msgstr ""
 "Kan de gebruikerspecifieke Gnome-privéconfiguratiemap '%s' niet op modus "
 "0700 zetten: %s\n"
 
-#: ../libgnome/gnome-init.c:419
+#: ../libgnome/gnome-init.c:418
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Kan de Gnome-sneltoetsenmap '%s' niet maken: %s\n"
 
-#: ../libgnome/gnome-init.c:458
+#: ../libgnome/gnome-init.c:457
 msgid "GNOME Virtual Filesystem"
 msgstr "Gnome virtueel bestandssysteem"
 
-#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
+#: ../libgnome/gnome-init.c:475 ../libgnome/gnome-init.c:518
 msgid "Disable sound server usage"
 msgstr "Gebruik van geluidsserver uitschakelen"
 
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:521
 msgid "Enable sound server usage"
 msgstr "Gebruik van geluidsserver inschakelen"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:524
 msgid "Host:port on which the sound server to use is running"
 msgstr "Host:poort waarop de te gebruiken geluidsserver actief is"
 
-#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAAM:POORT"
 
-#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
+#: ../libgnome/gnome-init.c:492 ../libgnome/gnome-init.c:536
 msgid "GNOME Library"
 msgstr "Gnome-bibliotheek"
 
-#: ../libgnome/gnome-init.c:494
+#: ../libgnome/gnome-init.c:493
 msgid "Show GNOME options"
 msgstr "Gnome-opties tonen"
 
@@ -432,7 +434,7 @@ msgstr "De locatie of het bestand was onvindbaar."
 msgid "The login has failed."
 msgstr "Het aanmelden is mislukt."
 
-#: ../libgnome/gnome-open.c:34
+#: ../libgnome/gnome-open.c:36
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Er is een fout opgetreden bij het tonen van url: %s\n"
@@ -708,7 +710,10 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\"."
-msgstr "Bepaalt hoe de afbeeldingen welke gezet is met wallpaper_filename wordt weergegeven. Mogelijke waarden zijn ‘none’ (niet), ‘wallpaper’ (behang), ‘centered’ (gecentreerd), ‘scaled’ (geschaald), ‘stretched’ (uitgerekt)."
+msgstr ""
+"Bepaalt hoe de afbeeldingen welke gezet is met wallpaper_filename wordt "
+"weergegeven. Mogelijke waarden zijn ‘none’ (niet), ‘wallpaper’ (behang), "
+"‘centered’ (gecentreerd), ‘scaled’ (geschaald), ‘stretched’ (uitgerekt)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -726,7 +731,9 @@ msgstr "Laat Gnome de werkbladachtergrond tekenen."
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\"."
-msgstr "Hoe de achtergrondkleur getekend moet worden. Mogelijke waarden zijn ‘horizontal-gradient’, ‘vertical-gradient’, ‘solid’."
+msgstr ""
+"Hoe de achtergrondkleur getekend moet worden. Mogelijke waarden zijn "
+"‘horizontal-gradient’, ‘vertical-gradient’, ‘solid’."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -1005,43 +1012,54 @@ msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Of gtk+-toepassingen een aangepast lettertype moeten gebruiken."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
+msgid "Disable URL and MIME type handlers"
+msgstr "URL- en MIME-type afhandeling uitschakelen"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable command line"
 msgstr "Opdrachtregel uitschakelen"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable lock screen"
 msgstr "Schermvergrendeling uitschakelen"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable print setup"
 msgstr "Afdrukinstellingen uitschakelen"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable printing"
 msgstr "Afdrukken uitschakelen"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid "Disable saving files to disk"
 msgstr "Opslaan van bestanden naar schijf uitschakelen"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid "Disable user switching"
 msgstr "Wisselen van gebruiker uitschakelen"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+msgid "Prevent running any URL or MIME type handler applications."
+msgstr "Voorkomen dat bepaalde toepassingen gestart worden voor het afhandelen van URL- of MIME-types."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
 msgstr "De gebruiker verhinderen om toegang tot de terminal te krijgen of om een uit te voeren opdrachtregel op te geven. Dit schakelt bijvoorbeeld de toegang uit tot het ‘Toepassing uitvoeren’-dialoogvenster van het paneel."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
-msgstr "De gebruiker verhinderen om de afdrukinstellingen aan te passen. Dit schakelt bijvoorbeeld de toegang uit tot de ‘Afdrukinstellingen’-dialoogvensters van alle toepassingen."
+msgstr ""
+"De gebruiker verhinderen om de afdrukinstellingen aan te passen. Dit "
+"schakelt bijvoorbeeld de toegang uit tot de ‘Afdrukinstellingen’-"
+"dialoogvensters van alle toepassingen."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -1049,20 +1067,23 @@ msgstr ""
 "De gebruiker verhinderen af te drukken. Dit schakelt bijvoorbeeld de toegang "
 "uit tot de \"Afdrukken\"-dialoogvensters van alle toepassingen."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
-msgstr "De gebruiker verhinderen om bestanden naar schijf op te slaan. Dit schakelt bijvoorbeeld de toegang uit tot de ‘Opslaan als’-dialoogvensters van alle toepassingen."
+msgstr ""
+"De gebruiker verhinderen om bestanden naar schijf op te slaan. Dit schakelt "
+"bijvoorbeeld de toegang uit tot de ‘Opslaan als’-dialoogvensters van alle "
+"toepassingen."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:13
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
 msgstr ""
 "Voorkomen dat van gebruiker gewisseld kan worden als de sessie actief is"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:14
 msgid "Prevent the user to lock his screen."
 msgstr "Voorkomen dat de gebruiker het scherm kan vergrendelen"
 
@@ -1226,13 +1247,17 @@ msgstr "Of er geluiden afgespeeld moeten worden bij bepaalde gebeurtenissen."
 msgid ""
 "Maximum age for thumbnails in the cache, in days. Set to -1 to disable "
 "cleaning."
-msgstr "Maximum leeftijd voor miniaturen in de cache, in dagen. Instellen op -1 om opschonen uit te zetten."
+msgstr ""
+"Maximum leeftijd voor miniaturen in de cache, in dagen. Instellen op -1 om "
+"opschonen uit te zetten."
 
 #: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
 msgid ""
 "Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
 "cleaning."
-msgstr "Maximum grootte van de miniaturen-cache, in megabyte. Instellen op -1 om opschonen uit te zetten."
+msgstr ""
+"Maximum grootte van de miniaturen-cache, in megabyte. Instellen op -1 om "
+"opschonen uit te zetten."
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
