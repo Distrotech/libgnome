@@ -23,7 +23,7 @@
 #ifndef GNOME_HELP_H
 #define GNOME_HELP_H
 
-#include <glib/gmacros.h>
+#include <glib.h>
 #include <libgnome/gnome-program.h>
 
 G_BEGIN_DECLS
