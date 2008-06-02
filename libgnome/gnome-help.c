@@ -146,7 +146,7 @@ gnome_help_display_with_doc_id_and_env (GnomeProgram  *program,
 
 	if (doc_id == NULL) {
 		g_object_get (program, GNOME_PARAM_APP_ID, &doc_id, NULL);
-		free_doc_id = doc_id;
+		free_doc_id = (char *)doc_id;
 	}
 
 	if (doc_id == NULL)
