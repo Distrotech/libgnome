@@ -30,8 +30,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
 #include <time.h>
+#include <poll.h>
 
 #ifdef HAVE_ESD
 #include <esd.h>
@@ -413,6 +417,55 @@ gnome_sound_sample_load_audiofile(const char *file)
 }
 #endif
 
+#ifdef HAVE_ESD
+static int
+send_all (int fd, const char *buf, size_t buflen)
+{
+	struct pollfd pfd[1];
+	size_t nwritten = 0;
+	int flags, rv;
+	ssize_t n;
+	
+	if ((flags = fcntl (fd, F_GETFL)) == -1)
+		return -1;
+	
+	fcntl (fd, F_SETFL, flags | O_NONBLOCK);
+	
+	pfd[0].events = POLLOUT;
+	pfd[0].fd = fd;
+	
+	do {
+		do {
+			pfd[0].revents = 0;
+			rv = poll (pfd, 1, 100);
+		} while (rv == -1 && errno == EINTR);
+		
+		if (pfd[0].revents & POLLOUT) {
+			/* socket is ready for writing */
+			do {
+				n = write (fd, buf + nwritten, buflen - nwritten);
+			} while (n == -1 && errno == EINTR);
+			
+			if (n > 0)
+				nwritten += n;
+		} else if (pfd[0].revents & (POLLERR | POLLHUP)) {
+			/* we /just/ lost the esd connection */
+			esd_close (fd);
+			fd = -1;
+			break;
+		} else if (rv == -1 && errno == EBADF) {
+			/* socket is bad */
+			fd = -1;
+			break;
+		}
+	} while (nwritten < buflen);
+	
+	if (fd != -1 && flags != -1)
+		fcntl (fd, F_SETFL, flags);
+	
+	return fd;
+}
+#endif
 
 /**
  * gnome_sound_sample_load:
@@ -469,21 +522,23 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
 	   * file, or event type, for later identification */
 	  s->id = esd_sample_cache (gnome_sound_connection, s->format, s->rate,
 				    size, (char *)sample_name);
-	  write (gnome_sound_connection, s->data, size);
-	  confirm = esd_confirm_sample_cache (gnome_sound_connection);
+	  
+	  gnome_sound_connection = send_all (gnome_sound_connection, (const char *) s->data, size);
+	  if (gnome_sound_connection != -1)
+	    confirm = esd_confirm_sample_cache (gnome_sound_connection);
+	  
 	  if (s->id <= 0 || confirm != s->id)
 	    {
 	      g_warning ("error caching sample <%d>!\n", s->id);
 	      s->id = 0;
 	    }
-	  g_free (s->data);
-	  s->data = NULL;
 	}
     }
 
   sample_id = s->id;
 
-  g_free(s->data); g_free(s);
+  g_free(s->data);
+  g_free(s);
 
   return sample_id;
 #else
@@ -521,9 +576,12 @@ gnome_sound_play (const char * filename)
 
   sample = gnome_sound_sample_load (buf, filename);
 
-  esd_sample_play(gnome_sound_connection, sample);
-  fsync (gnome_sound_connection);
-  esd_sample_free(gnome_sound_connection, sample);
+  if (gnome_sound_connection != -1 && sample > 0)
+    {
+      esd_sample_play(gnome_sound_connection, sample);
+      fsync (gnome_sound_connection);
+      esd_sample_free(gnome_sound_connection, sample);
+    }
 #endif
 }
 

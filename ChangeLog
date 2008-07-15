@@ -1,3 +1,13 @@
+2008-07-09  Jeffrey Stedfast  <fejj@novell.com>
+
+	Fixes bug #542296
+
+	* libgnome/gnome-sound.c (gnome_sound_sample_load): Poll the esd
+	connection to check that it's still alive. Set it to -1 if it's
+	not.
+	(gnome_sound_play): Make sure the connection is still alive before
+	trying to play the sound file.
+
 ==================== 2.23.4 ====================
 
 2008-06-14  Christian Persch  <chpe@gnome.org>
