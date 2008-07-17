@@ -438,7 +438,7 @@ send_all (int fd, const char *buf, size_t buflen)
 		do {
 			pfd[0].revents = 0;
 			rv = poll (pfd, 1, 100);
-		} while (rv == -1 && errno == EINTR);
+		} while (rv == -1 && (errno == EINTR || errno == EAGAIN));
 		
 		if (pfd[0].revents & POLLOUT) {
 			/* socket is ready for writing */
