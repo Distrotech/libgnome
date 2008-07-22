@@ -46,5 +46,27 @@
         <long>Whether to play sounds on user events.</long>
       </locale>
     </schema>
+    <schema>
+      <key>/schemas/desktop/gnome/sound/theme_name</key>
+      <applyto>/desktop/gnome/sound/theme_name</applyto>
+      <owner>gnome</owner>
+      <type>string</type>
+      <default>freedesktop</default>
+      <locale name="C">
+        <short>Sound theme name</short>
+        <long>The XDG sound theme to use for event sounds.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/gnome/sound/input_feedback_sounds</key>
+      <applyto>/desktop/gnome/sound/input_feedback_sounds</applyto>
+      <owner>gnome</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Input feedback sounds</short>
+        <long>Whether to play sounds on input events.</long>
+      </locale>
+    </schema>
   </schemalist>
 </gconfschemafile>
