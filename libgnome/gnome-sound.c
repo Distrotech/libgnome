@@ -440,23 +440,35 @@ send_all (int fd, const char *buf, size_t buflen)
 			rv = poll (pfd, 1, 100);
 		} while (rv == -1 && (errno == EINTR || errno == EAGAIN));
 		
-		if (pfd[0].revents & POLLOUT) {
+		if (rv == -1) {
+			if (errno != EBADF) {
+				rv = errno;
+				esd_close (fd);
+				errno = rv;
+			}
+			
+			fd = -1;
+			break;
+		} else if (rv < 1 || (pfd[0].revents & (POLLERR | POLLHUP | POLLOUT)) != POLLOUT) {
+			/* we /just/ lost the esd connection */
+			esd_close (fd);
+			fd = -1;
+			break;
+		} else {
 			/* socket is ready for writing */
 			do {
 				n = write (fd, buf + nwritten, buflen - nwritten);
 			} while (n == -1 && errno == EINTR);
 			
-			if (n > 0)
-				nwritten += n;
-		} else if (pfd[0].revents & (POLLERR | POLLHUP)) {
-			/* we /just/ lost the esd connection */
-			esd_close (fd);
-			fd = -1;
-			break;
-		} else if (rv == -1 && errno == EBADF) {
-			/* socket is bad */
-			fd = -1;
-			break;
+			if (n == -1) {
+				rv = errno;
+				esd_close (fd);
+				errno = rv;
+				fd = -1;
+				break;
+			}
+			
+			nwritten += n;
 		}
 	} while (nwritten < buflen);
 	
