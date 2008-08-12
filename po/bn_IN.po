@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bn_IN\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-10 12:53+0000\n"
-"PO-Revision-Date: 2008-03-02 00:49+0530\n"
+"POT-Creation-Date: 2008-07-22 11:03+0000\n"
+"PO-Revision-Date: 2008-08-12 18:13+0530\n"
 "Last-Translator: Runa Bhattacharjee <runab@fedoraproject.org>\n"
-"Language-Team: Bengali INDIA <discuss@ankur.co.in>\n"
+"Language-Team: Bengali INDIA <discuss@ankur.org.in>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,7 +82,7 @@ msgid "User interface events"
 msgstr "ইউজার ইন্টারফেসের ইভেন্ট"
 
 # msgstr "ইউজার ইন্টারফেস ইভেন্টস"
-#: ../libgnome/gnome-exec.c:451
+#: ../libgnome/gnome-exec.c:450
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "কোনো টার্মিনাল না পাওয়ার ফলে xterm ব্যবহার করা হচ্ছে। সম্ভবত এটিও সঠিকরূপে চলবে না"
 
@@ -90,20 +90,22 @@ msgstr "কোনো টার্মিনাল না পাওয়ার ফ�
 # " এমনকি এটা কাজ নাও করতে পারে"
 # msgstr "একসটারম ব্যবহার করে টারমিনাল পাওয়া যাচ্ছে না,"
 # " এমনকি এটা কাজ নাও করতে পারে"
-#: ../libgnome/gnome-gconf.c:176
+#: ../libgnome/gnome-gconf.c:175
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf সমর্থন"
 
 # msgstr "গুহ্‌নোম জীকন্‌ফ সহায়ক"
-#: ../libgnome/gnome-help.c:170
+#: ../libgnome/gnome-help.c:167
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "GNOME_FILE_DOMAIN_APP_HELP ডোমেইন পাওয়া যায়নি"
 
-#: ../libgnome/gnome-help.c:183
+#: ../libgnome/gnome-help.c:180
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "GNOME_FILE_DOMAIN_HELP ডোমেইন পাওয়া যায়নি।"
 
-#: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
+#: ../libgnome/gnome-help.c:193 ../libgnome/gnome-help.c:208
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
@@ -113,7 +115,7 @@ msgstr ""
 "সিস্টেমের ইনস্টলেশন পরীক্ষা করুন।"
 
 # installation = সংস্থাপনতা
-#: ../libgnome/gnome-help.c:220
+#: ../libgnome/gnome-help.c:217
 #, c-format
 msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr ""
@@ -121,7 +123,7 @@ msgstr ""
 "ইনস্টলেশন পরীক্ষা করুন।"
 
 # installation = সংস্থাপনতা
-#: ../libgnome/gnome-help.c:236
+#: ../libgnome/gnome-help.c:233
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -132,7 +134,7 @@ msgstr ""
 
 # msgstr "হয় %s অথবা %s এর সহায়ক ফাইল পেতে ব্যর্থ ।"
 # " দয়া করে আপনার  সংস্থাপনতা পরীক্ষা করুন"
-#: ../libgnome/gnome-help.c:353
+#: ../libgnome/gnome-help.c:350
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "সহায়তার জন্য চিহ্নিত পাথের মধ্যে doc_id %s পাওয়া যায়নি"
@@ -140,37 +142,37 @@ msgstr "সহায়তার জন্য চিহ্নিত পাথের
 # msgstr "সাহায্য পথে doc_id %s খুঁজে পাওয়া যায়নি"
 # msgstr "সহায়ক path এ ডক_আই.ডি %s খুঁজে পাওয়া যায়নি"
 # msgstr "সাহায্য পথে doc_id %s খুঁজে পেতে ব্যর্থ"
-#: ../libgnome/gnome-help.c:374
+#: ../libgnome/gnome-help.c:371
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "সহায়তার উদ্দেশ্যে ডকুমেন্ট %s/%s পাওয়া যায়নি"
 
 # বুঝতেছি না
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:92
+#: ../libgnome/gnome-init.c:91
 msgid "Bonobo Support"
 msgstr "Bonobo সমর্থন"
 
 # msgstr "বোনোবো সাহায্য"
 # বনোবো
-#: ../libgnome/gnome-init.c:146
+#: ../libgnome/gnome-init.c:145
 msgid "Bonobo activation Support"
 msgstr "Bonobo সক্রিয়করণ সমর্থন"
 
 # msgstr "বোনোবো কার্জকরণে সাহায্য"
-#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
+#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "প্রত্যেক ব্যবহারকারীর জন্য gnome কনফিগারেরশন ডিরেক্টরি `%s' নির্মাণ করতে ব্যর্থ: %s\n"
 
 # msgstr "বোনোবো কার্জকরণে সাহায্য"
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:403
 #, c-format
 msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr "প্রত্যেক ব্যবহারকারীর জন্য gnome কনফিগারেরশন ডিরেক্টরি `%s' stat করতে ব্যর্থ: %s\n"
 
 # msgstr "প্রত্যেক ব্যবহারকারীর গুহ্‌নোম কনফিগারেশন ডিরেকটরী '%s': %s তৈরী করতে পারছে না"
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:411
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -179,44 +181,44 @@ msgstr ""
 "প্রত্যেক ব্যবহারকারীর ব্যক্তিগত gnome কনফিগারেশন ডিরেক্টরি`%s'-র জন্য 0700 মোড "
 "নির্ধারণ করতে ব্যর্থ: %s\n"
 
-#: ../libgnome/gnome-init.c:419
+#: ../libgnome/gnome-init.c:418
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "gnome অ্যাকসেলেরেটর ডিরেক্টরি `%s' নির্মাণ করতে ব্যর্থ: %s\n"
 
 # msgstr"গৃহকতার নাম: পোর্ট"
-#: ../libgnome/gnome-init.c:458
+#: ../libgnome/gnome-init.c:457
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME ভার্চুয়াল ফাইল-সিস্টেম"
 
 # msgstr "গুহ্‌নোম একসিলারেটরস ডিরেকটরী '%s': %s তৈরী করতে পারছেনা\n"
-#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
+#: ../libgnome/gnome-init.c:475 ../libgnome/gnome-init.c:518
 msgid "Disable sound server usage"
 msgstr "সাউন্ড সার্ভারের ব্যবহার নিষ্ক্রিয় করা হবে"
 
 # msgstr "নিষ্ক্রিয় সাউন্ড সার্ভার "
 # msgstr "নিষ্ক্রিয় শব্দ সার্ভার "
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:521
 msgid "Enable sound server usage"
 msgstr "সাউন্ড সার্ভারের ব্যবহার সক্রিয় করা হবে"
 
 # msgstr "সক্রিয় শব্দ সার্ভার"
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:524
 msgid "Host:port on which the sound server to use is running"
 msgstr "সাউন্ড সার্ভার সঞ্চালনকারী Host:port (হোস্ট:পোর্ট)"
 
 # msgstr "হোস্ট : শব্দ সার্ভার চালাতে ব্যবহৃত পোর্ট"
-#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORT"
 
 # msgstr "গুহ্‌নোম কাযকর ক্ষমতাসম্পন্ন ফাইল সিস্টেম"
 # virtual = অশরীরি
-#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
+#: ../libgnome/gnome-init.c:492 ../libgnome/gnome-init.c:536
 msgid "GNOME Library"
 msgstr "GNOME Library"
 
-#: ../libgnome/gnome-init.c:494
+#: ../libgnome/gnome-init.c:493
 msgid "Show GNOME options"
 msgstr "GNOME সংক্রান্ত বিকল্প প্রদর্শন করা হবে"
 
@@ -430,34 +432,41 @@ msgstr ""
 "ব্যবহার করুন।\n"
 
 #: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "চিহ্নিত অবস্থান প্রদর্শনের সময় অজানা অভ্যন্তরীণ সমস্যা"
 
 #: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "উল্লিখিত অবস্থান বৈধ নয়।"
 
 #: ../libgnome/gnome-url.c:99
+#, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
 "location."
 msgstr "চিহ্নিত অবস্থানের সাথে যুক্ত ডিফল্ট কর্মসংক্রান্ত কমান্ড পার্স করতে সমস্যা।"
 
 #: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
+#, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
 "location."
 msgstr "চিহ্নিত অবস্থানের সাথে যুক্ত ডিফল্ট কর্মসংক্রান্ত কমান্ড আরম্ভ করতে সমস্যা।"
 
 #: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "চিহ্নিত অবস্থানের জন্য কোনো ডিফল্ট কর্ম নির্ধারিত হয়নি।"
 
 #: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "ডিফল্টরূপে চিহ্নিত কর্মের দ্বারা এই প্রোটোকল সমর্থিত হয় না।"
 
 #: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "অনুরোধ বাতিল করা হয়েছে।"
 
@@ -467,18 +476,21 @@ msgid "The host \"%s\" could not be found."
 msgstr "\"%s\" নামক হোস্ট পাওয়া যায়নি।"
 
 #: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "হোস্ট পাওয়া যায়নি।"
 
 #: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "অবস্থান অথবা ফাইল পাওয়া যায়নি।"
 
 #: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "লগ-ইন বিফল।"
 
-#: ../libgnome/gnome-open.c:34
+#: ../libgnome/gnome-open.c:36
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "url প্রদর্শনে সমস্যা: %s\n"
@@ -540,7 +552,9 @@ msgstr "সর্বোচ্চ গতিতে প্রতি সেকেন
 # msgstr "সর্বোচ্চ গতিতে প্রতি সেকেন্ডে যতগুলো পিক্সেল সরে যায়"
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
-msgstr "@delay দ্বারা উল্লিখিত মিলিসেকেন্ডের মধ্যে _এক_ কি পুনরায় টেপা হলে তা অগ্রাহ্য করা হবে"
+msgstr ""
+"@delay দ্বারা উল্লিখিত মিলিসেকেন্ডের মধ্যে _এক_ কি পুনরায় টেপা হলে তা অগ্রাহ্য করা "
+"হবে"
 
 # msgstr "মিলিসেকেন্ডে যতখানি গতি বৃদ্ধি পায়"
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
@@ -927,10 +941,10 @@ msgstr "GtkFileChooser'র মডিউল"
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
-"Possible values are \"gnome-vfs\" and \"gtk+\"."
+"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 "GtkFileChooser উইজেটের ক্ষেত্রে ফাইল-সিস্টেম মডিউলরূপে ব্যবহারযোগ্য মডিউল। সম্ভাব্য "
-"মান \"gnome-vfs\" ও \"gtk+\"।"
+"মান \"gio\", \"gnome-vfs\" ও \"gtk+\"।"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
@@ -973,7 +987,9 @@ msgstr "'ইউনিকোড কনট্রোল ক্যারেকটা
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
-msgstr "টুলবারের মধ্যে উপস্থিত প্রতীকচিহ্নের মাপ, \"small-toolbar (ছোট-টুলবার)\" অথবা \"large-toolbar (বড়-টুলবার)\"।"
+msgstr ""
+"টুলবারের মধ্যে উপস্থিত প্রতীকচিহ্নের মাপ, \"small-toolbar (ছোট-টুলবার)\" অথবা "
+"\"large-toolbar (বড়-টুলবার)\"।"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
@@ -1074,31 +1090,39 @@ msgid "Whether to use a custom font in gtk+ applications."
 msgstr "gtk+ অ্যাপ্লিকেশনের ক্ষেত্রে স্বনির্বাচিত ফন্ট ব্যবহৃত হবে কি না।"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
+msgid "Disable URL and MIME type handlers"
+msgstr "URL ও MIME টাইপ হ্যান্ডলার নিষ্ক্রিয় করা হবে"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable command line"
 msgstr "কমান্ড লাইন নিষ্ক্রিয় করা হবে"
 
 # msgstr "গুহ্‌নোম একসিলারেটরস ডিরেকটরী '%s': %s তৈরী করতে পারছেনা\n"
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable lock screen"
 msgstr "পর্দা লক করার প্রক্রিয় নিষ্ক্রিয় করা হবে"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable print setup"
 msgstr "প্রিন্ট ব্যবস্থার বৈশিষ্ট্য নিষ্ক্রিয় করা হবে"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable printing"
 msgstr "প্রিন্ট ব্যবস্থা নিষ্ক্রিয় করা হবে"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid "Disable saving files to disk"
 msgstr "ডিস্কে ফাইল সংরক্ষণ ব্যবস্থা নিষ্ক্রিয় করা হবে"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid "Disable user switching"
 msgstr "ব্যবহারকারী পরিবর্তনের প্রক্রিয়া নিষ্ক্রিয় করা হবে"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+msgid "Prevent running any URL or MIME type handler applications."
+msgstr "কোনো ধরনের URL অথবা MIME টাইপ হ্যান্ডলার অ্যাপ্লিকেশনের সঞ্চালন বন্ধ করা হবে।"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -1107,7 +1131,7 @@ msgstr ""
 "ব্যবহারকারীর দ্বারা টার্মিনাল অথবা কোনো কমান্ড-লাইন চালনা প্রতিরোধ করা হবে। "
 "উদাহরণস্বরূপ, এর ফলে প্যানেলের \"অ্যাপ্লিকেশন চালনা\" ডায়লগের ব্যবহার বন্ধ হবে।"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -1116,7 +1140,7 @@ msgstr ""
 "উদাহরণস্বরূপ, এর ফলে সর্বধরনের অ্যাপ্লিকেশনের \"প্রিন্ট কর্মের বৈশিষ্ট্য\" শীর্ষক ডায়লগ "
 "ব্যবহার করা যাবে না।"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -1124,7 +1148,7 @@ msgstr ""
 "ব্যবহারকারীকে প্রিন্ট করতে বাধা দেওয়া হবে। উদাহরণস্বরূপ, এর ফলে সর্বধরনের "
 "অ্যাপ্লিকেশনের \"প্রিন্ট\" ডায়লগ ব্যবহার করা যাবে না।"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
@@ -1132,13 +1156,13 @@ msgstr ""
 "ব্যবহারকারীকে ডিস্কে ফাইল সংরক্ষণে বাধা দেওয়া হবে।. উদাহরণস্বরূপ, এর ফলে সর্বধরনের "
 "অ্যাপ্লিকেশনের \"নতুন রূপে সংরক্ষণ\" ডায়লগ ব্যবহার করা যাবে না।"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:13
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
 msgstr "সক্রিয় সেশানের মধ্যে ব্যবহারকারীকে ভিন্ন অ্যাকউন্ট পরিবর্তন করতে দেওয়া হবে না।"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:14
 msgid "Prevent the user to lock his screen."
 msgstr "ব্যবহারকারীকে পর্দা লক করতে দেওয়া হবে না।"
 
@@ -1285,21 +1309,51 @@ msgid "Enable sound server startup."
 msgstr "প্রারম্ভিক সাউন্ড সার্ভার সক্রিয় করা হবে।"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:5
+msgid "Input feedback sounds"
+msgstr "ইনপুট প্রতিক্রিয়ার জন্য শব্দ"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "Sound theme name"
+msgstr "শব্দের থিমের নাম"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
 msgid "Sounds for events"
 msgstr "বিভিন্ন ইভেন্টের শব্দ"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+# msgstr "প্রতীক বিষয়বস্তু"
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
+msgid "The XDG sound theme to use for event sounds."
+msgstr "ইভেন্টের শব্দ হিসাবে ব্যবহারযোগ্য XDG শব্দের থিম।"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:9
 msgid "The default mixer device used by the multimedia key bindings."
 msgstr "মাল্টিমিডিয়া কি-বাইন্ডিং দ্বারা ব্যবহৃত ডিফল্ট মিক্সার ডিভাইস।"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+#: ../schemas/desktop_gnome_sound.schemas.in.h:10
 msgid "The default mixer tracks used by the multimedia key bindings."
 msgstr "মাল্টিমিডিয়া কি-বাইন্ডিং দ্বারা ব্যবহৃত ডিফল্ট মিক্সার ট্র্যাক।"
 
 # msgstr "বিভিন্ন কাজের শব্দ"
-#: ../schemas/desktop_gnome_sound.schemas.in.h:8
+#: ../schemas/desktop_gnome_sound.schemas.in.h:11
+msgid "Whether to play sounds on input events."
+msgstr "ইনপুট ইভেন্টের জন্য শব্দ বাজানো হবে কি না।"
+
+# msgstr "বিভিন্ন কাজের শব্দ"
+#: ../schemas/desktop_gnome_sound.schemas.in.h:12
 msgid "Whether to play sounds on user events."
 msgstr "ব্যবহারকারীদের ইভেন্টের জন্য শব্দ বাজানো হবে।"
+
+#: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:1
+msgid ""
+"Maximum age for thumbnails in the cache, in days. Set to -1 to disable "
+"cleaning."
+msgstr "ক্যাশের মধ্যে উপস্থিত থাম্‌বনেইলের সর্বাধিক সংরক্ষণ কাল -দিন হিসাবে নির্ধারিত। বর্জন প্রক্রিয়া নিষ্ক্রিয় করার জন্য -1 নির্ধারণ করুন।"
+
+#: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
+msgid ""
+"Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
+"cleaning."
+msgstr "ক্যাশের মধ্যে সংরক্ষণের উদ্দেশ্যে থাম্‌বনেইলের সর্বাধিক মাপ -মেগাবাইট হিসাবে নির্ধারিত। বর্জন প্রক্রিয়া নিষ্ক্রিয় করার জন্য -1 নির্ধারণ করুন।"
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
