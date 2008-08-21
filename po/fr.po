@@ -8,16 +8,16 @@
 # Benoît Dejean <benoit@placenet.org>, 2006.
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2007.
 # Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007.
-# Robert-André Mauchin <zebob.m@pengzone.org>, 2007.
+# Robert-André Mauchin <zebob.m@pengzone.org>, 2007-2008.
 # Claude Paroz <claude@2xlibre.net>, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-06 10:42+0100\n"
-"PO-Revision-Date: 2008-03-06 10:46+0100\n"
-"Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
+"POT-Creation-Date: 2008-08-21 20:32+0200\n"
+"PO-Revision-Date: 2008-08-21 10:24+0200\n"
+"Last-Translator: Robert-André Mauchin <zebob.m@pengzone.org>\n"
 "Language-Team: GNOME French team\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,27 +75,27 @@ msgstr "Sélection d'une case à cocher"
 msgid "User interface events"
 msgstr "Événements d'interface utilisateur"
 
-#: ../libgnome/gnome-exec.c:451
+#: ../libgnome/gnome-exec.c:450
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Impossible de trouver un terminal, utilisation de xterm, même s'il peut ne "
 "pas fonctionner"
 
-#: ../libgnome/gnome-gconf.c:176
+#: ../libgnome/gnome-gconf.c:175
 msgid "GNOME GConf Support"
 msgstr "Prise en charge de GNOME GConf"
 
-#: ../libgnome/gnome-help.c:170
+#: ../libgnome/gnome-help.c:167
 #, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "Impossible de trouver le domaine GNOME_FILE_DOMAIN_APP_HELP"
 
-#: ../libgnome/gnome-help.c:183
+#: ../libgnome/gnome-help.c:180
 #, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "Impossible de trouver le domaine GNOME_FILE_DOMAIN_HELP."
 
-#: ../libgnome/gnome-help.c:196 ../libgnome/gnome-help.c:211
+#: ../libgnome/gnome-help.c:193 ../libgnome/gnome-help.c:208
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
@@ -104,14 +104,14 @@ msgstr ""
 "Impossible d'afficher l'aide car %s n'est pas un répertoire. Veuillez "
 "vérifier votre installation."
 
-#: ../libgnome/gnome-help.c:220
+#: ../libgnome/gnome-help.c:217
 #, c-format
 msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr ""
 "Impossible de trouver les chemins d'aide dans %s ou %s. Veuillez vérifier "
 "votre installation"
 
-#: ../libgnome/gnome-help.c:236
+#: ../libgnome/gnome-help.c:233
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -120,33 +120,33 @@ msgstr ""
 "Impossible de trouver les fichiers d'aide dans %s ou %s. Veuillez vérifier "
 "votre installation"
 
-#: ../libgnome/gnome-help.c:353
+#: ../libgnome/gnome-help.c:350
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "Impossible de trouver le doc_id %s dans le chemin de l'aide"
 
-#: ../libgnome/gnome-help.c:374
+#: ../libgnome/gnome-help.c:371
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "Document d'aide %s/%s non trouvé"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:92
+#: ../libgnome/gnome-init.c:91
 msgid "Bonobo Support"
 msgstr "Prise en charge de Bonobo"
 
-#: ../libgnome/gnome-init.c:146
+#: ../libgnome/gnome-init.c:145
 msgid "Bonobo activation Support"
 msgstr "Prise en charge d'activation de Bonobo"
 
-#: ../libgnome/gnome-init.c:382 ../libgnome/gnome-init.c:396
+#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Impossible de créer un répertoire de configuration GNOME par utilisateur « %"
 "s » : %s\n"
 
-#: ../libgnome/gnome-init.c:404
+#: ../libgnome/gnome-init.c:403
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
@@ -154,7 +154,7 @@ msgstr ""
 "Impossible d'obtenir les informations sur le répertoire privé de "
 "configuration GNOME par utilisateur « %s » : %s\n"
 
-#: ../libgnome/gnome-init.c:412
+#: ../libgnome/gnome-init.c:411
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -163,37 +163,37 @@ msgstr ""
 "Impossible de définir les droits, par utilisateur, à 0700 sur le répertoire "
 "privé de configuration GNOME « %s » : %s\n"
 
-#: ../libgnome/gnome-init.c:419
+#: ../libgnome/gnome-init.c:418
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr ""
 "Impossible de créer le répertoire de raccourcis clavier GNOME « %s » : %s\n"
 
-#: ../libgnome/gnome-init.c:458
+#: ../libgnome/gnome-init.c:457
 msgid "GNOME Virtual Filesystem"
 msgstr "Système de fichiers virtuel GNOME"
 
-#: ../libgnome/gnome-init.c:476 ../libgnome/gnome-init.c:519
+#: ../libgnome/gnome-init.c:475 ../libgnome/gnome-init.c:518
 msgid "Disable sound server usage"
 msgstr "Désactive l'utilisation du serveur de sons"
 
-#: ../libgnome/gnome-init.c:479 ../libgnome/gnome-init.c:522
+#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:521
 msgid "Enable sound server usage"
 msgstr "Active l'utilisation du serveur de sons"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:524
 msgid "Host:port on which the sound server to use is running"
 msgstr "Hôte:Port où fonctionne le serveur de sons à utiliser"
 
-#: ../libgnome/gnome-init.c:484 ../libgnome/gnome-init.c:527
+#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
 msgid "HOSTNAME:PORT"
 msgstr "HÔTE:PORT"
 
-#: ../libgnome/gnome-init.c:493 ../libgnome/gnome-init.c:537
+#: ../libgnome/gnome-init.c:492 ../libgnome/gnome-init.c:536
 msgid "GNOME Library"
 msgstr "Bibliothèque GNOME"
 
-#: ../libgnome/gnome-init.c:494
+#: ../libgnome/gnome-init.c:493
 msgid "Show GNOME options"
 msgstr "Affiche les options GNOME"
 
@@ -373,8 +373,8 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "%s\n"
-"Exécuter « %s --help » pour obtenir la liste complète des options en ligne "
-"de commande.\n"
+"Exécuter « %s --help » pour obtenir la liste complète des options en ligne de "
+"commande.\n"
 
 #: ../libgnome/gnome-url.c:85
 #, c-format
@@ -439,7 +439,7 @@ msgstr "Impossible de trouver l'emplacement ou le fichier."
 msgid "The login has failed."
 msgstr "La connexion a échoué."
 
-#: ../libgnome/gnome-open.c:34
+#: ../libgnome/gnome-open.c:36
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Erreur à l'affichage de l'URL : %s\n"
@@ -790,7 +790,7 @@ msgstr "Fichier du thème d'icône"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons."
-msgstr "Thème utilisé pour afficher le fichier d'icônes."
+msgstr "Thème utilisé pour afficher les icônes des fichiers."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -798,7 +798,7 @@ msgstr "Nom de base du thème par défaut utilisé par GTK+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Can Change Accels"
-msgstr "Autorise la modification des raccourcis clavier"
+msgstr "Permet la modification des raccourcis clavier"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Cursor Blink"
@@ -953,9 +953,9 @@ msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\"."
 msgstr ""
-"Style de la barre d'outils. Les valeurs valides sont « both » (texte sous "
-"les icônes), « both-horiz » (texte à côté des icônes), « icons » (icônes "
-"seules) et « text » (texte seul)."
+"Style de la barre d'outils. Les valeurs valides sont « both » (texte sous les "
+"icônes), « both-horiz » (texte à côté des icônes), « icons » (icônes seules) "
+"et « text » (texte seul)."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
@@ -1033,30 +1033,38 @@ msgstr ""
 "+."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
+msgid "Disable URL and MIME type handlers"
+msgstr "Désactiver les gestionnaires d'URL et de type MIME"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable command line"
 msgstr "Désactiver la ligne de commande"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable lock screen"
 msgstr "Désactiver le verrouillage d'écran"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable print setup"
 msgstr "Désactiver la configuration de l'impression"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable printing"
 msgstr "Désactiver l'impression"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid "Disable saving files to disk"
 msgstr "Désactiver l'enregistrement des fichiers sur le disque"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid "Disable user switching"
 msgstr "Désactiver le changement d'utilisateur"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+msgid "Prevent running any URL or MIME type handler applications."
+msgstr "Empêcher le lancement d'applications gérant les URL et les types MIME."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -1066,7 +1074,7 @@ msgstr ""
 "commande à exécuter. Par exemple, cela désactive l'accès à la boîte de "
 "dialogue « Lancer une application » du tableau de bord."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -1075,7 +1083,7 @@ msgstr ""
 "exemple, cela désactive l'accès aux boîtes de dialogue « Configuration de "
 "l'impression » de toutes les applications."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -1083,7 +1091,7 @@ msgstr ""
 "Interdit à l'utilisateur d'imprimer. Par exemple, cela désactive l'accès aux "
 "boîtes de dialogue « Imprimer » de toutes les applications."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
@@ -1092,14 +1100,14 @@ msgstr ""
 "exemple, cela désactive l'accès aux boîtes de dialogue « Enregistrer sous » "
 "de toutes les applications."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:13
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
 msgstr ""
 "Empêche l'utilisateur de changer de compte alors que sa session est active."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:14
 msgid "Prevent the user to lock his screen."
 msgstr "Empêche l'utilisateur de verrouiller son écran."
 
@@ -1246,24 +1254,56 @@ msgid "Enable sound server startup."
 msgstr "Activer le serveur de sons au démarrage."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:5
+msgid "Input feedback sounds"
+msgstr "Retour sonore lors de la saisie"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "Sound theme name"
+msgstr "Nom du thème sonore"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
 msgid "Sounds for events"
 msgstr "Effets sonores pour les événements"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
+msgid "The XDG sound theme to use for event sounds."
+msgstr "Thème sonore XDG à utiliser pour les sons des événements."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:9
 msgid "The default mixer device used by the multimedia key bindings."
 msgstr ""
 "Le périphérique de mixage par défaut utilisé par les touches de raccourci "
 "multimédia."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+#: ../schemas/desktop_gnome_sound.schemas.in.h:10
 msgid "The default mixer tracks used by the multimedia key bindings."
 msgstr ""
 "Les pistes de la table de mixage par défaut utilisées par les touches de "
 "raccourci multimédia."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:8
+#: ../schemas/desktop_gnome_sound.schemas.in.h:11
+msgid "Whether to play sounds on input events."
+msgstr "Indique s'il faut jouer des sons sur les événements d'entrée."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:12
 msgid "Whether to play sounds on user events."
 msgstr "Indique s'il faut jouer des sons sur les événements utilisateur."
+
+#: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:1
+msgid ""
+"Maximum age for thumbnails in the cache, in days. Set to -1 to disable "
+"cleaning."
+msgstr ""
+"Âge maximum en jours pour les vignettes dans le cache. Définissez à -1 pour "
+"désactiver le nettoyage."
+
+#: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
+msgid ""
+"Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
+"cleaning."
+msgstr ""
+"Taille maximum du cache en mégaoctets. Définissez à -1 pour désactiver le "
+"nettoyage."
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
@@ -1308,20 +1348,3 @@ msgstr "Indique si le verrouillage du clavier est activé ou non."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Indique si l'écran de pause peut être reporté ou non."
-
-#~ msgid "Default help viewer"
-#~ msgstr "Visionneur d'aide par défaut"
-
-#~ msgid "Help viewer needs terminal"
-#~ msgstr "Le visionneur d'aide a besoin d'un terminal"
-
-#~ msgid "Whether the default help viewer accepts URLs"
-#~ msgstr "Indique si le visionneur d'aide par défaut accepte les URL"
-
-#~ msgid "Whether the default help viewer needs a terminal to run"
-#~ msgstr ""
-#~ "Indique si le visionneur d'aide par défaut a besoin d'un terminal pour "
-#~ "fonctionner"
-
-#~ msgid "This specifies the size of icons displayed in toolbars"
-#~ msgstr "Indique la taille des icônes affichées dans les barres d'outils"
