@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 10:29+0000\n"
-"PO-Revision-Date: 2008-05-24 22:55+0930\n"
+"POT-Creation-Date: 2008-07-22 11:03+0000\n"
+"PO-Revision-Date: 2008-08-22 12:10+0700\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -145,8 +145,8 @@ msgstr "Không thể tạo thư mục cấu hình GNOME cho mỗi người dùng
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Không thể lấy trạng thái về thư mục cấu hình GNOME từng người dùng riêng « %"
-"s »: %s.\n"
+"Không thể lấy trạng thái về thư mục cấu hình GNOME từng người dùng riêng « %s "
+"»: %s.\n"
 
 #: ../libgnome/gnome-init.c:411
 #, c-format
@@ -694,8 +694,8 @@ msgid ""
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\"."
 msgstr ""
-"Xác định ảnh đặt bởi « wallpaper_filename » (tên tập tin ảnh nền) được vẽ "
-"như thế nào. Giá trị hợp lệ là:\n"
+"Xác định ảnh đặt bởi « wallpaper_filename » (tên tập tin ảnh nền) được vẽ như "
+"thế nào. Giá trị hợp lệ là:\n"
 " • none — không có,\n"
 " • wallpaper — ảnh nền,\n"
 " • centered — đã canh giữa,\n"
@@ -1093,8 +1093,8 @@ msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"Khi đặt là « true » (đúng), Gnome sẽ nhớ tính trạng của LED NumLock (Khóa "
-"Số) giữa hai phiên chạy."
+"Khi đặt là « true » (đúng), Gnome sẽ nhớ tính trạng của LED NumLock (Khóa Số) "
+"giữa hai phiên chạy."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -1218,18 +1218,34 @@ msgid "Enable sound server startup."
 msgstr "Bật trình phục vụ âm thanh lúc khởi động."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:5
+msgid "Input feedback sounds"
+msgstr "Âm phản hồi đầu vào"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "Sound theme name"
+msgstr "Tên sắc thái âm"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
 msgid "Sounds for events"
 msgstr "Âm thanh của sự kiện"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
+msgid "The XDG sound theme to use for event sounds."
+msgstr "Sắc thái âm XDG cần dùng cho các sự kiện âm thanh."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:9
 msgid "The default mixer device used by the multimedia key bindings."
 msgstr "Thiết bị hoà tiếng mặc định dùng bởi những tổ hợp phím nhạc/phim."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+#: ../schemas/desktop_gnome_sound.schemas.in.h:10
 msgid "The default mixer tracks used by the multimedia key bindings."
 msgstr "Các rãnh hoà tiếng mặc định dùng bởi những tổ hợp phím nhạc/phim."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:8
+#: ../schemas/desktop_gnome_sound.schemas.in.h:11
+msgid "Whether to play sounds on input events."
+msgstr "Có phát âm trên những sự kiện đầu vào không."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:12
 msgid "Whether to play sounds on user events."
 msgstr "Có phát âm trên những sự kiện của người dùng không."
 
@@ -1237,13 +1253,15 @@ msgstr "Có phát âm trên những sự kiện của người dùng không."
 msgid ""
 "Maximum age for thumbnails in the cache, in days. Set to -1 to disable "
 "cleaning."
-msgstr "Khoảng thời gian tối đa cần nhớ tạm ảnh mẫu, theo ngày. Đặt thành -1 để tắt."
+msgstr ""
+"Khoảng thời gian tối đa cần nhớ tạm ảnh mẫu, theo ngày. Đặt thành -1 để tắt."
 
 #: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
 msgid ""
 "Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
 "cleaning."
-msgstr "Kích cỡ tối đa của bộ nhớ ảnh mẫu, theo mega-byte. Đặt thành -1 để tắt."
+msgstr ""
+"Kích cỡ tối đa của bộ nhớ ảnh mẫu, theo mega-byte. Đặt thành -1 để tắt."
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
