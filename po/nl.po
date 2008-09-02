@@ -7,15 +7,16 @@
 # Vincent van Adrighem <V.vanAdrighem@dirck.mine.nu>, 2003, 2004.
 # Wouter Bolsterlee <wbolster@gnome.org>, 2007.
 # Daniel van Eeden <gnomenl@myname.nl>, 2008.
-# ------------------------------------------------------------------------
+#
+# event   - actie
 # handler - weergave/afhandeling/toepassing/programma
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 10:29+0000\n"
-"PO-Revision-Date: 2008-05-07 18:14+0200\n"
+"POT-Creation-Date: 2008-09-02 12:28+0200\n"
+"PO-Revision-Date: 2008-09-02 02:01+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +50,7 @@ msgstr "Vraag-dialoogvenster"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:7
 msgid "System events"
-msgstr "Systeemgebeurtenissen"
+msgstr "Systeemacties"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning message"
@@ -73,7 +74,7 @@ msgstr "Selecteer aankruisvakje"
 
 #: ../gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
-msgstr "Gebruikersinterface-gebeurtenissen"
+msgstr "Gebruikersinterface-acties"
 
 #: ../libgnome/gnome-exec.c:450
 msgid "Cannot find a terminal, using xterm, even if it may not work"
@@ -1041,14 +1042,19 @@ msgstr "Wisselen van gebruiker uitschakelen"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid "Prevent running any URL or MIME type handler applications."
-msgstr "Voorkomen dat bepaalde toepassingen gestart worden voor het afhandelen van URL- of MIME-types."
+msgstr ""
+"Voorkomen dat bepaalde toepassingen gestart worden voor het afhandelen van "
+"URL- of MIME-types."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
 "Application\" dialog."
-msgstr "De gebruiker verhinderen om toegang tot de terminal te krijgen of om een uit te voeren opdrachtregel op te geven. Dit schakelt bijvoorbeeld de toegang uit tot het ‘Toepassing uitvoeren’-dialoogvenster van het paneel."
+msgstr ""
+"De gebruiker verhinderen om toegang tot de terminal te krijgen of om een uit "
+"te voeren opdrachtregel op te geven. Dit schakelt bijvoorbeeld de toegang "
+"uit tot het ‘Toepassing uitvoeren’-dialoogvenster van het paneel."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
@@ -1226,22 +1232,41 @@ msgstr "ESD inschakelen"
 msgid "Enable sound server startup."
 msgstr "Geluidsserver inschakelen."
 
+# terugkoppeling/feedback
 #: ../schemas/desktop_gnome_sound.schemas.in.h:5
-msgid "Sounds for events"
-msgstr "Geluiden voor gebeurtenissen"
+msgid "Input feedback sounds"
+msgstr "Invoerfeedbackgeluiden"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "Sound theme name"
+msgstr "Naam van geluidsthema"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "Sounds for events"
+msgstr "Geluiden voor acties"
+
+# actie/gebeurtenis/event
+# een actie is bijv. het aanklikken van een knop
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
+msgid "The XDG sound theme to use for event sounds."
+msgstr "Het XDG-geluidsthema voor actiegeluiden."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:9
 msgid "The default mixer device used by the multimedia key bindings."
 msgstr "De mixer die standaard gebruikt wordt voor de multimediatoetsen."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+#: ../schemas/desktop_gnome_sound.schemas.in.h:10
 msgid "The default mixer tracks used by the multimedia key bindings."
 msgstr ""
 "De mixer-schuiven die standaard gebruikt worden voor de multimediatoetsen."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:8
+#: ../schemas/desktop_gnome_sound.schemas.in.h:11
+msgid "Whether to play sounds on input events."
+msgstr "Of er geluiden afgespeeld worden bij invoeracties."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:12
 msgid "Whether to play sounds on user events."
-msgstr "Of er geluiden afgespeeld moeten worden bij bepaalde gebeurtenissen."
+msgstr "Of er geluiden afgespeeld worden bij gebruikersacties."
 
 #: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:1
 msgid ""
