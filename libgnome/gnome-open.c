@@ -2,6 +2,7 @@
 
 #include <glib.h>
 #include <glib/gi18n-lib.h>
+#include <gio/gio.h>
 
 #include <stdio.h>
 
@@ -9,12 +10,11 @@
 #include "gnome-program.h"
 #include "gnome-init.h"
 
-#include <libgnomevfs/gnome-vfs-utils.h>
-
 int
 main (int argc, char *argv[])
 {
   GError *err = NULL;
+  GFile *file;
   char *uri;
 
   if (argc < 2)
@@ -28,9 +28,11 @@ main (int argc, char *argv[])
 		      argc, argv,
 		      NULL);
 
-  uri = gnome_vfs_make_uri_from_input_with_dirs (argv[1],
-						 GNOME_VFS_MAKE_URI_DIR_CURRENT);
-  if (gnome_url_show (uri, &err))
+  file = g_file_new_for_commandline_arg (argv[1]);
+  uri = g_file_get_uri (file);
+  g_object_unref (file);
+
+  if (g_app_info_launch_default_for_uri (uri, NULL, &err))
     return 0;
 
   fprintf (stderr, _("Error showing url: %s\n"), err->message);
