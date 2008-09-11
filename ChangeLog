@@ -1,3 +1,8 @@
+2008-09-12  Tor Lillqvist  <tml@novell.com>
+
+	* libgnome/gnome-sound.c: Include <poll.h> only if HAVE_ESD as
+	poll() is used only if HAVE_ESD.
+
 2008-09-08  Christian Persch  <chpe@gnome.org>
 
 	* configure.in:

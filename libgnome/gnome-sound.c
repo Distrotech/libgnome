@@ -35,9 +35,9 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <time.h>
-#include <poll.h>
 
 #ifdef HAVE_ESD
+#include <poll.h>
 #include <esd.h>
 #endif
 
