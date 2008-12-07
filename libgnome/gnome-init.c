@@ -36,7 +36,6 @@
 #include <sys/stat.h>
 
 #include <glib.h>
-#include <glib/goption.h>
 #include <glib/gstdio.h>
 
 #include "gnome-i18n.h"
