@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD.dz\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-10 14:19+0000\n"
-"PO-Revision-Date: 2007-03-01 16:30+0530\n"
-"Last-Translator: norbu <nor_den@hotmail.com>\n"
+"POT-Creation-Date: 2008-04-11 03:18+0100\n"
+"PO-Revision-Date: 2008-11-04 14:16+0530\n"
+"Last-Translator: Dawa pemo <daws_403@hotmail.com>\n"
 "Language-Team: DZONGKHA <pgeyleg@dit.gov.bt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -50,6 +50,10 @@ msgstr "རིམ་ལུགས་བྱུང་ལས།"
 msgid "Warning message"
 msgstr "ཉེན་བརྡའི་འཕྲིན་དོན།"
 
+#: ../gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "སྔོན་སྒྲིག་ རྒྱབ་གཞི་"
+
 #: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
 msgstr "དཀར་ཆག་རྣམ་གྲངས་ གདམ་ཁ་རྐྱབས།"
@@ -66,19 +70,21 @@ msgstr "ཞིབ་དཔྱད་སྒྲོམ་ སེལ་འཐུ་�
 msgid "User interface events"
 msgstr "ལག་ལེན་པའི་ངོས་འདྲ་བའི་བྱུང་ལས།"
 
-#: ../libgnome/gnome-exec.c:458
+#: ../libgnome/gnome-exec.c:451
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr "ཊར་མི་ནཱལ་ཅིག་འཚོལ་མ་ཐོབ། ལཱ་འབད་མ་བཏུབ་རུང་ ཨེགསི་ཊརམ་ལག་ལེན་འཐབ་དོ།"
 
-#: ../libgnome/gnome-gconf.c:177
+#: ../libgnome/gnome-gconf.c:176
 msgid "GNOME GConf Support"
 msgstr "ཇི་ནོམ་ ཇི་ཀཱོནཕི་གི་རྒྱབ་སྐྱོར།"
 
 #: ../libgnome/gnome-help.c:170
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "ཇི་ནོམ་ ཡིག་སྣོད་ ཌོ་མེན་ ཨེ་པི་པི་ གྲོགས་རམ་ཌོ་མེན་ འཚོལ་མ་ཐོབ།"
 
 #: ../libgnome/gnome-help.c:183
+#, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr " ཇི་ནོམ་ ཡིག་སྣོད་ ཌོ་མེན་ གྲོགས་རམ་ཌོ་མེན་ འཚོལ་མ་ཐོབ།"
 
@@ -90,8 +96,8 @@ msgstr "%s དེ་ སྣོད་ཐོ་ཅིག་མེནམ་ལས�
 
 #: ../libgnome/gnome-help.c:220
 #, c-format
-msgid "Unable to find help paths %s or %s.Please check your installation"
-msgstr "%s ཡང་ན་ %s འགྲུལ་ལམ་གཉིས་ཆ་རའི་ནང་ གྲོགས་རམ་འཚོལ་མ་ཐོབ། ཁྱོད་རའི་གཞི་བཙུགས་དེ་ ཞིབ་དཔྱད་འབད་གནང་"
+msgid "Unable to find help paths %s or %s. Please check your installation"
+msgstr "%s ཡང་ན་ %s འགྲུལ་ལམ་གཉིས་ཆ་རའི་ནང་ གྲོགས་རམ་འཚོལ་མ་ཐོབ།  ཁྱོད་རའི་གཞི་བཙུགས་དེ་ ཞིབ་དཔྱད་འབད་གནང་"
 
 #: ../libgnome/gnome-help.c:236
 #, c-format
@@ -109,233 +115,238 @@ msgid "Help document %s/%s not found"
 msgstr "གྲོགས་རམ་ཡིག་ཆ་ %s/%s མ་ཐོབ།"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:89
+#: ../libgnome/gnome-init.c:92
 msgid "Bonobo Support"
 msgstr "བཱོ་ནོ་བཱོའི་རྒྱབ་སྐྱོར།"
 
-#: ../libgnome/gnome-init.c:143
+#: ../libgnome/gnome-init.c:146
 msgid "Bonobo activation Support"
 msgstr "བཱོ་ནོ་བཱོ་ ཤུགས་བཟོའི་རྒྱབ་སྐྱོར།"
 
-#: ../libgnome/gnome-init.c:381
-#: ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:382
+#: ../libgnome/gnome-init.c:396
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "ལག་ལེན་པ་རེ་རེའི་ རིམ་སྒྲིག་སྣོད་ཐོ་  ‘%s’: %s གསར་བསྐྲུན་འབད་མ་ཚུགས། \n"
 
 #: ../libgnome/gnome-init.c:404
 #, c-format
+msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr "ལག་ལེན་པ་རེ་རེའི་ རིམ་སྒྲིག་སྣོད་ཐོ་  ‘%s’གསར་བསྐྲུན་འབད་མ་ཚུགས་: %s\n"
+
+#: ../libgnome/gnome-init.c:412
+#, c-format
 msgid "Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
 msgstr "སྒེར་གྱི་ལག་ལེན་པ་རེ་རེའི་ ཇི་ནོམ་རིམ་སྒྲིག་གི་ སྣོད་ཐོ་  ‘%s’: %s ལུ་ ཐབས་ལམ་ ༠༧༠༠ གཞི་སྒྲིག་འབད་མ་ཚུགས། \n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:419
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "ཇི་ནོམ་མགྱོགས་འཕྲུལ་གྱི་ སྣོད་ཐོ་  ‘%s’: %s གསར་བསྐྲུན་འབད་མ་ཚུགས། \n"
 
-#: ../libgnome/gnome-init.c:460
-#: ../libgnome/gnome-init.c:479
-msgid "Disable sound server usage"
-msgstr "སྒྲ་སྐད་སར་བར་ལག་ལེན་ ལྕོགས་མིན་བཟོ།"
-
-#: ../libgnome/gnome-init.c:463
-#: ../libgnome/gnome-init.c:482
-msgid "Enable sound server usage"
-msgstr "སྒྲ་སྐད་སར་བར་ལག་ལེན་ ལྕོགས་ཅན་བཟོ།"
-
-#: ../libgnome/gnome-init.c:466
-#: ../libgnome/gnome-init.c:486
-msgid "Host:port on which the sound server to use is running"
-msgstr "སྒྲ་སྐད་སར་བར་ ལག་ལེན་འཐབ་སའི་ ཧོསཊི་:འདྲེན་ལམ་དེ་ གཡོག་བཀོལ་དོ།"
-
-#: ../libgnome/gnome-init.c:468
-#: ../libgnome/gnome-init.c:487
-msgid "HOSTNAME:PORT"
-msgstr "ཧོསཊི་ནེམ་: འདྲེན་ལམ།"
-
-#: ../libgnome/gnome-init.c:506
+#: ../libgnome/gnome-init.c:458
 msgid "GNOME Virtual Filesystem"
 msgstr "ཇི་ནོམ་གྱི་ བར་ཅུ་ཡལ་ ཡིག་སྣོད་རིམ་ལུགས།"
 
-#: ../libgnome/gnome-init.c:524
-#: ../libgnome/gnome-init.c:545
+#: ../libgnome/gnome-init.c:476
+#: ../libgnome/gnome-init.c:519
+msgid "Disable sound server usage"
+msgstr "སྒྲ་སྐད་སར་བར་ལག་ལེན་ ལྕོགས་མིན་བཟོ།"
+
+#: ../libgnome/gnome-init.c:479
+#: ../libgnome/gnome-init.c:522
+msgid "Enable sound server usage"
+msgstr "སྒྲ་སྐད་སར་བར་ལག་ལེན་ ལྕོགས་ཅན་བཟོ།"
+
+#: ../libgnome/gnome-init.c:483
+#: ../libgnome/gnome-init.c:525
+msgid "Host:port on which the sound server to use is running"
+msgstr "སྒྲ་སྐད་སར་བར་ ལག་ལེན་འཐབ་སའི་ ཧོསཊི་:འདྲེན་ལམ་དེ་ གཡོག་བཀོལ་དོ།"
+
+#: ../libgnome/gnome-init.c:484
+#: ../libgnome/gnome-init.c:527
+msgid "HOSTNAME:PORT"
+msgstr "ཧོསཊི་ནེམ་: འདྲེན་ལམ།"
+
+#: ../libgnome/gnome-init.c:493
+#: ../libgnome/gnome-init.c:537
 msgid "GNOME Library"
 msgstr "ཇི་ནོམ་དཔེ་མཛོད།"
 
-#: ../libgnome/gnome-init.c:525
+#: ../libgnome/gnome-init.c:494
 msgid "Show GNOME options"
 msgstr "ཇི་ནོམ་གཡི་གདམ་ཁ་ཚུ་སྟོན།"
 
-#: ../libgnome/gnome-program.c:458
+#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "པོཔཊི་ཐིག་ཁྲམ།"
 
-#: ../libgnome/gnome-program.c:459
+#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "པོཔཊི་གི་དོན་ལུ་ གདམ་ཁའི་ཐིག་ཁྲམ།"
 
-#: ../libgnome/gnome-program.c:466
+#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "པོཔཊི་ཟུར་རྟགས།"
 
-#: ../libgnome/gnome-program.c:467
+#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "པོཔཊི་གི་དོན་ལུ་ ལག་ལེན་འཐབ་ནིའི་ཟུར་རྟགས།"
 
-#: ../libgnome/gnome-program.c:475
+#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "པོཔཊི་གི་སྐབས་དོན།"
 
-#: ../libgnome/gnome-program.c:476
+#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "ཇི་ནོམ་ལས་རིམ་གྱིས་ ལག་ལེན་འཐབ་བཞིན་ཡོད་མི་ པོཔཊི་སྐབས་དོན་གྱི་དཔག་བྱེད།"
 
-#: ../libgnome/gnome-program.c:484
+#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "ཇི་གདམ་ཁའི་སྐབས་དོན།"
 
-#: ../libgnome/gnome-program.c:485
+#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "ཇི་ནོམ་ལས་རིམ་གྱིས་ ལག་ལེན་འཐབ་བཞིན་ཡོད་མི་ ཇི་གདམ་ཁའི་སྐབས་དོན་དཔག་བྱེད།"
 
-#: ../libgnome/gnome-program.c:493
+#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "མི་གིས་ལྷག་ཚུགས་པའི་མིང༌།"
 
-#: ../libgnome/gnome-program.c:494
+#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "གློག་རིམ་འདི་གི་དོན་ལུ་ མི་གིས་ལྷག་ཚུགས་པའི་མིང༌།"
 
-#: ../libgnome/gnome-program.c:503
+#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "ཇི་ནོམ་འགྲུལ་ལམ།"
 
-#: ../libgnome/gnome-program.c:504
+#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "གཞི་བཙུགས་འབད་ཡོད་མི་ ཡིག་སྣོད་ཚུ་ འཚོལ་ནིའི་འགྲུལ་ལམ།"
 
-#: ../libgnome/gnome-program.c:513
+#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "གློག་རིམགྱི་ཨའི་ཌི།"
 
-#: ../libgnome/gnome-program.c:514
+#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "གློག་རིམ་འདི་གི་དོན་ལུ་ ལག་ལེན་འཐབ་ནིའི་ ངོ་རྟགས་ཀྱི་ཡིག་རྒྱུན།"
 
-#: ../libgnome/gnome-program.c:521
+#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "གློག་རིམ་གྱི་ཐོན་རིམ།"
 
-#: ../libgnome/gnome-program.c:522
+#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "གློག་རིམ་འདི་གི་ཐོན་རིམ།"
 
-#: ../libgnome/gnome-program.c:529
+#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "ཇི་ནོམ་ སྔོན་ཚིག"
 
-#: ../libgnome/gnome-program.c:530
+#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "ཇི་ནོམ་ གཞི་བཙུགས་འབད་ཡོད་སའི་སྔོན་ཚིག"
 
-#: ../libgnome/gnome-program.c:539
+#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "ཇི་ནོམ་ དཔེ་མཛོད་སྣོད་ཐོ།"
 
-#: ../libgnome/gnome-program.c:540
+#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "ཇི་ནོམ་ གཞི་བཙུགས་འབད་ཡོད་སའི་ དཔེ་མཛོད་ཀྱི་སྔོན་ཚིག"
 
-#: ../libgnome/gnome-program.c:549
+#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "ཇི་ནོམ་ གནད་སྡུད་སྣོད་ཐོ།"
 
-#: ../libgnome/gnome-program.c:550
+#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "ཇི་ནོམ་ གཞི་བཙུགས་འབད་དེ་ཡོད་སའི་ གནད་སྡུད་སྔོན་ཚིག"
 
-#: ../libgnome/gnome-program.c:559
+#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "ཇི་ནོམ་ རིམ་ལུགས་རིམ་སྒྲིག་སྣོད་ཐོ།"
 
-#: ../libgnome/gnome-program.c:560
+#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "ཇི་ནོམ་ གཞི་བཙུགས་འབད་དེ་ཡོད་སའི་ རིམ་སྒྲིག་སྔོན་ཚིག"
 
-#: ../libgnome/gnome-program.c:570
+#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "ཇི་ནོམ་ གློག་རིམ་སྔོན་ཚིག"
 
-#: ../libgnome/gnome-program.c:571
+#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "གློག་རིམ་འདི་ གཞི་བཙུགས་འབད་དེ་ཡོད་སའི་སྔོན་ཚིག"
 
-#: ../libgnome/gnome-program.c:579
+#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "ཇི་ནོམ་ གློག་རིམ་གྱི་ དཔེ་མཛོད་སྣོད་ཐོ།"
 
-#: ../libgnome/gnome-program.c:580
+#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "གློག་རིམ་འདི་ གཞི་བཙུགས་འབད་དེ་ཡོད་སའི་ དཔེ་མཛོད་སྔོན་ཚིག"
 
-#: ../libgnome/gnome-program.c:589
+#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "ཇི་ནོམ་ གློག་རིམ་གྱི་ གནས་སྡུད་སྣོད་ཐོ།"
 
-#: ../libgnome/gnome-program.c:590
+#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "གློག་རིམ་འདི་ གཞི་བཙུགས་འབད་དེ་ཡོད་སའི་ གནད་སྡུད་སྔོན་ཚིག"
 
-#: ../libgnome/gnome-program.c:599
+#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "ཇི་ནོམ་ གློག་རིམ་གྱི་ རིམ་ལུགས་རིམ་སྒྲིག་སྣོད་ཐོ།"
 
-#: ../libgnome/gnome-program.c:600
+#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "གློག་རིམ་འདི་ གཞི་བཙུགས་འབད་དེ་ཡོད་སའི་ རིམ་སྒྲིག་སྔོན་ཚིག"
 
-#: ../libgnome/gnome-program.c:609
+#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "སྣོད་ཐོ་ཚུ་ གསར་བསྐྲུན་འབད།"
 
-#: ../libgnome/gnome-program.c:610
+#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "འགོ་བཙུགས་སྐབས་ ཚད་ལྡན་གྱི་ ཇི་ནོམ་སྣོད་ཐོ་ གསར་བསྐྲུན་འབད།"
 
-#: ../libgnome/gnome-program.c:619
+#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "སྒྲ་སྐད་ལྕོགས་ཅན་བཟོ"
 
-#: ../libgnome/gnome-program.c:620
+#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "འགོ་བཙུགས་སྐབས་ སྒྲ་སྐད་ལྕོགས་ཅན་བཟོ།"
 
-#: ../libgnome/gnome-program.c:628
+#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "ཨི་སྒྲ་སྐྱེད།"
 
-#: ../libgnome/gnome-program.c:629
+#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "ཨི་ཨེསི་ཌི་ལུ་ ག་དེ་སྦེ་ མཐུད་ནི་ཨིན་ན།"
 
-#: ../libgnome/gnome-program.c:1394
+#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "གྲོགས་རམ་གདམ་ཁ་ཚུ།"
 
-#: ../libgnome/gnome-program.c:1399
+#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "གློག་རིམ་གདམ་ཁ་ཚུ།"
 
-#: ../libgnome/gnome-program.c:1415
+#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "མངོན་གསལ་འབད་ནིའི་ ནུས་ཅན་མོ་ཌུལ།"
 
-#: ../libgnome/gnome-program.c:1416
+#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "མོ་ཌུལ་༡ པ། མོ་ཌུལ་ ༢ པ་...།"
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1505
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -344,49 +355,59 @@ msgstr ""
 "%s\n"
 "ཐོབ་ཚུགས་པའི་བཀོད་ལམ་གདམ་ཁའི་ཐོ་ཡིག་ཆ་ཚང་ཅིག་བལྟ་ནིའི་དོན་ལུ་ '%s --གྲོགས་རམ' གཡོག་བཀོལ།\n"
 
-#: ../libgnome/gnome-url.c:86
+#: ../libgnome/gnome-url.c:85
+#, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "གནས་ཁོངས་འདི་ བཀྲམ་སྟོན་འབད་བའི་སྐབས་ མ་ཤེས་པའི་ ནང་འཁོད་ཀྱི་འཛོལ་བ།"
 
-#: ../libgnome/gnome-url.c:93
+#: ../libgnome/gnome-url.c:92
+#, c-format
 msgid "The specified location is invalid."
 msgstr "གསལ་བཀོད་འབད་མི་ གནས་ཁོངས་དེ་ ནུས་མེད་ཨིན་པས།"
 
-#: ../libgnome/gnome-url.c:100
+#: ../libgnome/gnome-url.c:99
+#, c-format
 msgid "There was an error parsing the default action command associated with this location."
 msgstr "གནས་ཁོངས་འདི་དང་འབྲེལ་བའི་ སྔོན་སྒྲིག་བྱ་བའི་བརྡ་བཀོད་ མིང་དཔྱད་འབད་ནི་ལུ་ འཛོལ་བ་ཅིག་འདུག"
 
-#: ../libgnome/gnome-url.c:108
-#: ../libgnome/gnome-url.c:181
+#: ../libgnome/gnome-url.c:107
+#: ../libgnome/gnome-url.c:180
+#, c-format
 msgid "There was an error launching the default action command associated with this location."
 msgstr "གནས་ཁོངས་འདི་དང་འབྲེལ་བའི་ སྔོན་སྒྲིག་བྱ་བའི་བརྡ་བཀོད་ གསར་བཙུགས་འབད་ནི་ལུ་ འཛོལ་བ་ཅིག་འདུག"
 
-#: ../libgnome/gnome-url.c:116
+#: ../libgnome/gnome-url.c:115
+#, c-format
 msgid "There is no default action associated with this location."
 msgstr "གནས་ཁོངས་འདི་དང་འབྲེལ་བའི་ སྔོན་སྒྲིག་བྱ་བ་མིན་འདུག"
 
-#: ../libgnome/gnome-url.c:123
+#: ../libgnome/gnome-url.c:122
+#, c-format
 msgid "The default action does not support this protocol."
 msgstr "སྔོན་སྒྲིག་བྱ་བ་འདི་གིས་ གནད་སྤེལ་ལམ་ལུགས་འདི་ལུ་ རྒྱབ་སྐྱོར་མིན་འདུག"
 
-#: ../libgnome/gnome-url.c:130
+#: ../libgnome/gnome-url.c:129
+#, c-format
 msgid "The request was cancelled."
 msgstr "ཞུ་བ་དེ་ཆ་མེད་བཏང་ཡོད།"
 
-#: ../libgnome/gnome-url.c:140
+#: ../libgnome/gnome-url.c:139
 #, c-format
 msgid "The host \"%s\" could not be found."
 msgstr "ཧོསཊི་ \"%s\"དེ་འཚོལ་མ་ཐོབ།"
 
-#: ../libgnome/gnome-url.c:146
+#: ../libgnome/gnome-url.c:145
+#, c-format
 msgid "The host could not be found."
 msgstr "ཧོསཊི་དེ་འཚོལ་མ་ཐོབ།"
 
-#: ../libgnome/gnome-url.c:157
+#: ../libgnome/gnome-url.c:156
+#, c-format
 msgid "The location or file could not be found."
 msgstr "གན་ཁོངས་ ཡང་ན་ ཡིག་སྣོད་དེ་འཚོལ་མ་ཐོབ།"
 
-#: ../libgnome/gnome-url.c:164
+#: ../libgnome/gnome-url.c:163
+#, c-format
 msgid "The login has failed."
 msgstr "ནང་བསྐྱོད་འདི་འཐུས་ཤོར་འབྱུང་ཡོད།"
 
@@ -417,84 +438,88 @@ msgid "Key %s not found in configuration"
 msgstr "རིམ་སྒྲིག་ནང་ ལྡེ་མིག་ %s དེ་ འཚོལ་མ་ཐོབ།"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
-msgid "Beep when a modifier is pressed"
-msgstr "ལེགས་བཅོས་འབད་མི་ཅིག་ ཨེབ་པའི་སྐབས་ བརྡ་སྐད་སྟོནམ་ཨིན།"
+msgid "Beep when a modifier is pressed."
+msgstr "ལེགས་བཅོས་འབད་མི་ཅིག་ ཨེབ་པའི་སྐབས་ བརྡ་སྐད་སྟོན་ "
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
 msgstr "ལྡེ་མིག་གཉིས་ དུས་མཉམ་ལུ་ཨེབ་པ་ཅིན་ ལྕོགས་མིན་བཟོཝ་ཨིན། "
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid "Do not accept a key as being pressed unless held for @delay milliseconds"
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
 msgstr "@ ཕྱིར་འགྱངས་ཀྱི་ མི་ལི་སྐར་ཆ་གི་དོན་ལུ་ འཆང་སྟེ་ཡོདན་མ་གཏོགས་ དེ་མིན་ལྡེ་མིག་ཅིག་ ཨེབ་དོ་བཟུམ་སྦེ་ དང་ལེན་མ་འབད།"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
-msgid "How many milliseconds it takes to go from 0 to maximum speed"
-msgstr "མགྱོགས་ཚད་ ༠ ལས་ མང་མཐའ་ཚུན་ཚོད་འགྱོ་ནི་ལུ་ མི་ལི་སྐར་ཆ་ག་དེམ་ཅིག་འགོརཝ་ཨིན་ན།"
+msgid "How long to accelerate in milliseconds"
+msgstr " མི་ལི་སྐར་ཆའི་ནང་ དུས་ཡུན་ག་དེམ་ཅིག་ མགྱོགས་སྤྱོད་འབད་ནི་ཨིན་ན་"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
-msgid "How many milliseconds to wait before mouse movement keys start to operate"
-msgstr "མཱའུསི་འགུལ་བསྐྱོད་ཀྱི་ལྡེ་མིག་ཚུ་ བཀོལ་སྤྱོད་འགོ་མ་བཙུགས་པའི་ཧེ་མར་ མི་ལི་སྐར་ཆ་ག་དེམ་ཅིག་ བསྒུག་དགོཔ་ཨིན་ན།"
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr "མགྱོགས་ཚད་ ༠ ལས་ མང་མཐའ་ཚུན་ཚོད་འགྱོ་ནི་ལུ་  མི་ལི་སྐར་ཆ་ག་དེམ་ཅིག་འགོརཝ་ཨིན་ན།"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
-msgid "How many pixels per second to move at the maximum speed"
-msgstr " མགྱོགས་ཚད་མང་མཐའ་ལུ་ འགུལ་བསྐྱོད་འབད་ནིའི་དོན་ལུ་ སྐར་ཆ་རེ་ནང་ པིག་སེལསི་ ག་དེམ་རེ་དགོཔ་སྨོ།"
+msgid "How many milliseconds to wait before mouse movement keys start to operate."
+msgstr "མཱའུསི་འགུལ་བསྐྱོད་ཀྱི་ལྡེ་མིག་ཚུ་ བཀོལ་སྤྱོད་འགོ་མ་བཙུགས་པའི་ཧེ་མར་  མི་ལི་སྐར་ཆ་ག་དེམ་ཅིག་ བསྒུག་དགོཔ་ཨིན་ན།"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
-msgid "Ignore multiple presses of the _same_ key within @delay milliseconds"
-msgstr "@ ཕྱིར་འགྱངས་ཀྱི་ མི་ལི་སྐར་ཆའི་ནང་འཁོད་ལུ་ ལྡེ་མིག་ཅོག་གཅིགཔ་སྣ་ཚོགས་ ཨེབ་ནི་ཚུ་སྤང་དགོ།"
+msgid "How many pixels per second to move at the maximum speed."
+msgstr " མགྱོགས་ཚད་མང་མཐའ་ལུ་ འགུལ་བསྐྱོད་འབད་ནིའི་དོན་ལུ་  སྐར་ཆ་རེ་ནང་ པིག་སེལསི་ ག་དེམ་རེ་དགོཔ་སྨོ།"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
-msgid "how long to accelerate in milliseconds"
-msgstr "དུས་ཡུན་ག་དེམ་ཅིག་ མགྱོགས་སྤྱོད་འབད་ནི་ཨིན་ན་ མི་ལི་སྐར་ཆའི་ནང་།"
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
+msgstr "@ ཕྱིར་འགྱངས་ཀྱི་ མི་ལི་སྐར་ཆའི་ནང་འཁོད་ལུ་  ལྡེ་མིག་ཅོག་གཅིགཔ་སྣ་ཚོགས་ ཨེབ་ནི་ཚུ་སྤང་དགོ།"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
-msgid "initial delay in milliseconds"
-msgstr "འགོ་ཐོག་གི་ཕྱིར་འགྱངས་ མི་ལི་སྐར་ཆའི་ནང་།"
+msgid "Initial delay in milliseconds"
+msgstr "མི་ལི་སྐར་ཆའི་ནང་ འགོ་ཐོག་གི་ཕྱིར་འགྱངས་ "
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
+msgid "Minimum interval in milliseconds"
+msgstr "མི་ལི་སྐར་ཆའི་ནང་ བར་མཚམས་ཉུང་མཐའ་ "
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
+msgid "Pixels per seconds"
+msgstr "སྐར་ཆ་རེ་ལུ་ པིག་སེལསི་ "
+
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
 msgid "minimum interval in milliseconds"
 msgstr "བར་མཚམས་ཉུང་མཐའ་ མི་ལི་སྐར་ཆའི་ནང་།"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
-msgid "pixels per seconds"
-msgstr "སྐར་ཆ་རེ་ལུ་ པིག་སེལསི།"
-
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
-msgid "List of assistive technology applications to start when logging into the GNOME desktop"
-msgstr "ཇི་ནོམ་ཌེཀསི་ཊོཔ་ལུ་ ནང་བསྐྱོད་འབདཝ་དང་ འགོ་བཙུགས་ནིའི་ ཕན་ཐབས་འཕྲུལ་རིག་ གློག་རིམ་གྱི་ཐོ་ཡིག"
+msgid "List of assistive technology applications to start when logging into the GNOME desktop."
+msgstr "ཇི་ནོམ་ཌེཀསི་ཊོཔ་ལུ་ ནང་བསྐྱོད་འབད་བའི་སྐབས་  འགོ་བཙུགས་ནིའི་ ཕན་ཐབས་འཕྲུལ་རིག་ གློག་རིམ་གྱི་ཐོ་ཡིག།"
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr "འགོ་བཙུགས་ཀྱི་ ཕན་ཐབས་འཕྲུལ་རིག་གློག་རིམ་ཚུ།"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
-msgid "GNOME to start preferred Mobility assistive technology application during login"
-msgstr "ནང་བསྐྱོད་ཀྱི་སྐབས་ འགྲུལ་བསྐྱོད་ཕན་ཐབས་ཅན་ འཕྲུལ་རིག་གི་གློག་རིམ་དགའ་མི་ འགོ་བཙུགས་ནི་གི་ཇི་ནོམ་"
+msgid "GNOME to start preferred Mobility assistive technology application during login."
+msgstr "ནང་བསྐྱོད་ཀྱི་སྐབས་ འགྲུལ་བསྐྱོད་ཕན་ཐབས་ཅན་ འཕྲུལ་རིག་གི་གློག་རིམ་དགའ་མི་ འགོ་བཙུགས་ནི་གི་ཇི་ནོམ།"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
 msgstr "འགྲུལ་བསྐྱོད་ཕན་ཐབས་འཕྲུལ་རིག་གི་གློག་རིམ་དགའ་མི་"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
-msgid "Preferred Mobility assistive technology application be used for login, menu, or command line"
-msgstr "ནང་བསྐྱོད་ དཀར་ཆག་ ཡང་ན་བརྡ་བཀོད་གྲལ་ཐིག་གི་དོན་ལུ་ལག་ལེན་འཐབ་ནི་གི་ འགྲུལ་བསྐྱོད་ཕན་ཐབས་ཅན་ འཕྲུལ་རིག་གི་གློག་རིམ་དགའ་མི་"
+msgid "Preferred Mobility assistive technology application to be used for login, menu, or command line."
+msgstr "ནང་བསྐྱོད་ དཀར་ཆག་ ཡང་ན་བརྡ་བཀོད་གྲལ་ཐིག་གི་དོན་ལུ་ལག་ལེན་འཐབ་ནི་གི་ འགྲུལ་བསྐྱོད་ཕན་ཐབས་ཅན་ འཕྲུལ་རིག་གི་གློག་རིམ་དགའ་མི།"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
 msgstr "འགྲུལ་བསྐྱོད་ཕན་ཐབས་འཕྲུལ་རིག་གི་གློག་རིམ་ དགའ་མི་འགོ་བཙུགས་"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
-msgid "GNOME to start preferred Visual assistive technology application during login"
-msgstr "ནང་བསྐྱོད་ཀྱི་སྐབས་ མཐོང་བའི་ཕན་ཐབས་ཅན་ འཕྲུལ་རིག་གི་གློག་རིམ་དགའ་མི་འགོ་བཙུགས་ནི་གི་ཇི་ནོམ་"
+msgid "GNOME to start preferred Visual assistive technology application during login."
+msgstr "ནང་བསྐྱོད་ཀྱི་སྐབས་ མཐོང་བའི་ཕན་ཐབས་ཅན་ འཕྲུལ་རིག་གི་གློག་རིམ་དགའ་མི་འགོ་བཙུགས་ནི་གི་ཇི་ནོམ།"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
 msgstr "མཐོང་བའི་ཕན་ཐབས་འཕྲུལ་རིག་གི་གློག་རིམ་དགའ་མི་"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
-msgid "Preferred Visual assistive technology application be used for login, menu, or command line"
-msgstr "ནང་བསྐྱོད་ དཀར་ཆག་ ཡང་ན་བརྡ་བཀོད་གྲལ་ཐིག་གི་དོན་ལུ་ ལག་ལེན་འཐབ་ནི་གི་ མཐོང་བའི་ཕན་ཐབས་ཅན་ འཕྲུལ་རིག་གི་གློག་རིམ་དགའ་མི་"
+msgid "Preferred Visual assistive technology application be used for login, menu, or command line."
+msgstr "ནང་བསྐྱོད་དང་དཀར་ཆག་ ཡང་ན་ བརྡ་བཀོད་གྲལ་ཐིག་གི་དོན་ལུ་ ལག་ལེན་འཐབ་ནི་གི་གདམ་ཁ་རྐྱབས་ཡོད་པའི་ མཐོང་བའི་ཕན་ཐབས་ཅན་ འཕྲུལ་རིག་གི་གློག་རིམ། "
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -505,7 +530,6 @@ msgid "Browser needs terminal"
 msgstr "བརའུ་ཟར་ལུ་ ཊར་མི་ནཱལ་དགོ་པས།"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:1
 msgid "Browser understands remote"
 msgstr "བརའུ་ཟར་གྱིས་ ཐག་རིང་ཧ་གོ་ཚུགས་པས།"
 
@@ -514,32 +538,48 @@ msgid "Default browser"
 msgstr "སྔོན་སྒྲིག་བརའུ་ཟར།"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
-msgid "Default browser for all URLs"
-msgstr "ཡུ་ཨར་ཨེལ་ཨེསི་ ཆ་མཉམ་གྱི་དོན་ལུ་ སྔོན་སྒྲིག་བརའུ་ཟར།"
+msgid "Default browser for all URLs."
+msgstr "ཡུ་ཨར་ཨེལ་ཨེསི་ ཆ་མཉམ་གྱི་དོན་ལུ་ སྔོན་སྒྲིག་བརའུ་ཟར། "
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
-msgid "Whether the default browser needs a terminal to run"
-msgstr "སྔོན་སྒྲིག་བརའུ་ཟར་དེ་ གཡོག་བཀོལ་ནིའི་དོན་ལུ་ ཊར་མི་ནཱལ་ཅིག་དགོཔ་ཨིན་ན་མེན།"
+msgid "Whether the default browser needs a terminal to run."
+msgstr "སྔོན་སྒྲིག་བརའུ་ཟར་དེ་ གཡོག་བཀོལ་ནིའི་དོན་ལུ་  ཊར་མི་ནཱལ་ཅིག་དགོཔ་ཨིན་ན་མེན།"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
-msgid "Whether the default browser understands netscape remote"
-msgstr "སྔོན་སྒྲིག་བརའུ་ཟར་དེ་གིས་ ནེཊི་སི་ཀེཔ་ཐག་རིང་ ཧ་གོ་ཚུགསཔ་ཨིན་ན་མེན།"
+msgid "Whether the default browser understands netscape remote."
+msgstr "སྔོན་སྒྲིག་བརའུ་ཟར་དེ་གིས་ ནེཊི་སི་ཀེཔ་ཐག་རིང་  ཧ་གོ་ཚུགསཔ་ཨིན་ན་མེན།"
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:2
-msgid "Default help viewer"
-msgstr "སྔོན་སྒྲིག་གྲོགས་རམ་མཐོང་བྱེད།"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "ཐླ་ཐོ་ལུ་  ཊར་མི་ནཱལ་དགོ་པས་ "
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:3
-msgid "Help viewer needs terminal"
-msgstr "གྲོགས་རམ་མཐོང་བྱེད་ལུ་ ཊར་མི་ནཱལ་དགོ་པས།"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "སྔོན་སྒྲིག་ ཟླ་ཐོ་ "
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:4
-msgid "Whether the default help viewer accepts URLs"
-msgstr "སྔོན་སྒྲིག་གྲོགས་རམ་མཐོང་བྱེད་ཀྱིས་ ཡུ་ཨར་ཨེལ་ཨེསི་ དང་ལེན་འབདཝ་ཨིན་ན་མེན།"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "སྔོན་སྒྲིག་ ཟླ་ཐོ་ འཇུག་སྤྱོད་ "
 
-#: ../schemas/desktop_gnome_applications_help_viewer.schemas.in.h:5
-msgid "Whether the default help viewer needs a terminal to run"
-msgstr "སྔོན་སྒྲིག་གྲོགས་རམ་མཐོང་བྱེད་དེ་ གཡོག་བཀོལ་ནིའི་དོན་ལུ་ ཊར་མི་ནཱལ་ཅིག་དགོཔ་ཨིན་ན་མེན།"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "སྔོན་སྒྲིག་ ལས་སྦྱོར་ཚུ་ "
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "སྔོན་སྒྲིག་  ལས་ཀ་ འཇུག་སྤྱོད་ "
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "ལས་ཀ་ལུ་  ཊར་མི་ནཱལ་དགོ་པས་ "
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "སྔོན་སྒྲིག་བརའུ་ཟར་དེ་ གཡོག་བཀོལ་ནིའི་དོན་ལུ་ ཊར་མི་ནཱལ་ཅིག་དགོཔ་ཨིན་ན་མེན་ "
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "སྔོན་སྒྲིག་ལས་ཀ་དེ་ལུ་  གཡོག་བཀོལ་ནིའི་དོན་ལུ་ ཊར་མི་ནཱལ་ཅིག་དགོཔ་ཨིན་ན་མེན་ "
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
@@ -554,8 +594,8 @@ msgid "Terminal application"
 msgstr "ཊར་མི་ནཱལ་གློག་རིམ།"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
-msgid "Terminal program to use when starting applications that require one"
-msgstr "གློག་རིམ་ཚུ་ འགོ་བཙུགས་པའི་སྐབས་ དགོས་མཁོ་ཡོད་པའི་ ཊར་མི་ནཱལ་ལས་རིམ།"
+msgid "Terminal program to use when starting applications that require one."
+msgstr "གློག་རིམ་ཚུ་ འགོ་བཙུགས་པའི་སྐབས་ དགོས་མཁོ་ཡོད་པའི་  ཊར་མི་ནཱལ་ལས་རིམ།"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid "A list with names of the first window manager workspaces. This key has been deprecated since GNOME 2.12."
@@ -589,59 +629,59 @@ msgstr "ལག་ལེན་པའི་སྒོ་སྒྲིག་འཛི
 msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr "དང་པ་ར་ སྒོ་སྒྲིག་འཛིན་སྐྱོང་པ་ ལག་ལུན་འཐབ། ལྡེ་མིག་འདི་ ཇི་ནོམ་༢.༡༢ ཐོན་ཞིནམ་ལས་ ངོས་ལེན་མེདཔ་བཟོ་ཡི།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:1
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "ཚོས་གཞི་ནག་གྲིབ་ཀྱི་དབྱེ་བ།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:2
-msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\"."
-msgstr "གྱང་ཤོག་ཡིག་སྣོད་མིང་གིས་ གཞི་སྒྲིག་འབད་མི་ གཟུགས་བརྙན་དེ་ ག་དེ་སྦེ་ལྷག་སྟོན་འབད་ནི་ཨིན་ན་ ཐག་གཅདཔ་ཨིན། སྲིད་པའི་བེ་ལུསི་ \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\" ཚུ་ཨིན།"
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
+msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom\"."
+msgstr "གྱང་ཤོག་ཡིག་སྣོད་མིང་གིས་ གཞི་སྒྲིག་འབད་མི་ གཟུགས་བརྙན་དེ་ ག་དེ་སྦེ་ལྷག་སྟོན་འབད་ནི་ཨིན་ན་ ཐག་གཅདཔ་ཨིན།  སྲིད་པའི་བེ་ལུསི་ \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\" ཚུ་ཨིན།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:3
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "ཌེཀསི་ཊོཔ་ རྒྱབ་གཞི་བྲིས།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:4
-msgid "File to use for the background image"
-msgstr "རྒྱབ་གཞིའི་གཟུགས་བརྙན་གྱི་དོན་ལུ་ ལག་ལེན་འཐབ་ནིའི་ཡིག་སྣོད།"
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
+msgid "File to use for the background image."
+msgstr "རྒྱབ་གཞི་ གཟུགས་བརྙན་གྱི་དོན་ལུ་ ལག་ལེན་འཐབ་ནིའི་ཡིག་སྣོད།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:5
-msgid "Have GNOME draw the desktop background"
-msgstr "ཇི་ནོམ་གྱིས་ ཌེཀསི་ཊོཔ་གི་ རྒྱབ་གཞི་བྲིས་ནུག་ག"
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
+msgid "Have GNOME draw the desktop background."
+msgstr "ཇི་ནོམ་གྱིས་  ཌེཀསི་ཊོཔ་གི་ རྒྱབ་གཞི་བྲིས་ནུག་ག"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:6
-msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\""
-msgstr "རྒྱབ་གཞིའི་ཚོས་གཞི་ ནག་གྲིབ་བཟོ་ཐངས། སྲིད་པའི་བེ་ལུསི་ \"horizontal-gradient\", \"vertical-gradient\" དང་ \"solid\" ཚུ་ཨིན།"
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
+msgid "How to shade the background color. Possible values are \"horizontal-gradient\", \"vertical-gradient\", and \"solid\"."
+msgstr "རྒྱབ་གཞིའི་ཚོས་གཞི་ ནག་གྲིབ་བཟོ་ཐངས།  སྲིད་པའི་བེ་ལུསི་ \"horizontal-gradient\", \"vertical-gradient\" དང་ \"solid\" ཚུ་ཨིན།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:7
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr "སྟེགས་རིས་སམ་ ཚོས་རགས་པ་འབྲི་བའི་སྐབས་ གཡོན་ ཡང་ན་ མགོའི་ཚོས་གཞི།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:8
-msgid "Opacity with which to draw the background picture"
-msgstr "རྒྱབ་གཞིའི་པར་ འབྲི་ནིའི་དྭངས་སྒྲིབ།"
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
+msgid "Opacity with which to draw the background picture."
+msgstr "རྒྱབ་གཞིའི་པར་  འབྲི་ནིའི་དྭངས་སྒྲིབ།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:9
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "པར་གྱི་ཡིག་སྣོད་མིང༌།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:10
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "པར་གྱི་དྭངས་སྒྲིབ།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:11
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "པར་གྱི་གདམ་ཁ་ཚུ།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:12
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "ཚོས་གཞི་གཙོ་བོ།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:13
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr "སྟེགས་རིས་འབྲི་བའི་སྐབས་ ཚོས་གཞི་རགས་པ་ ལག་ལེན་མ་འཐབ་པའི་ གཡས་ ཡང་ན་ མཇུག་གི་ཚོས་གཞི།"
 
-#: ../schemas/desktop_gnome_background.schemas.in.h:14
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "གལ་གནད་ཆུང་བའི་ཚོས་གཞི།"
 
@@ -650,8 +690,8 @@ msgid "File Icon Theme"
 msgstr "ཡིག་སྣོད་ངོས་དཔར་གྱི་བརྗོད་དོན།"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
-msgid "Theme used for displaying file icons"
-msgstr "ཡིག་སྣོད་ངོས་དཔར་ བཀྲམ་སྟོན་འབད་ནི་ལུ་ ལག་ལེན་འཐབ་མི་བརྗོད་དོན།"
+msgid "Theme used for displaying file icons."
+msgstr "ཡིག་སྣོད་ཀྱི་དངོས་དཔར་ཚུ་  བཀྲམ་སྟོན་འབད་ནི་ལུ་ ལག་ལེན་འཐབ་ཡོད་པའི་བརྗོད་དོན།"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -686,162 +726,170 @@ msgid "Enable Animations"
 msgstr "བསྒུལ་བཟོ་ལྕོགས་ཅན་བཟོ།།"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "GTK IM Module"
+msgstr "ཇི་ཊི་ཀེ་ ཨའི་ཨེམ་ ཚད་གཞི་ "
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Preedit Style"
 msgstr "ཇི་ཊི་ཀེ་ ཨའི་ཨེམ་ ཞུན་དག་མ་འབད་གོང་གི་བཟོ་རྣམ།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Status Style"
 msgstr "ཇི་ཊི་ཀེ་ ཨའི་ཨེམ་ གནས་ཚད་བཟོ་རྣམ།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "Gtk+ Theme"
 msgstr "ཇི་ཊི་ཀེ་+ བརྗོད་དོན།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Icon Theme"
 msgstr "ངོས་དཔར་གྱི་བརྗོད་དོན།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "པེ་ནཱལ་དང་ ནའུ་ཊི་ལཱསི་ལ་སོགས་པའི་དོན་ལུ་ ལག་ལེན་འཐབ་ནིའི་ངོས་དཔར།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "དཀར་ཆག་ཕྲ་རིང་ཚུ་ཁ་ཕྱེ་ནིའི་ ལྡེ་སྒྲོམ་མགྱོགས་ཐབས།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
-msgid "Length of the cursor blink cycle, in milliseconds"
-msgstr "འོད་རྟགས་འགུལ་བསྐྱོད འཁོར་རིམ་གྱི་རིང་ཚད་ མི་ལི་སྐར་ཆའི་ནང་ །"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "འོད་རྟགས་འགུལ་བསྐྱོད འཁོར་རིམ་གྱི་རིང་ཚད་ མི་ལི་སྐར་ཆའི་ནང་། "
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Menubar Detachable"
 msgstr "འཕྱལ་བཏུབ་པའི་ དཀར་ཆག་ཕྲ་རིང་།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar accelerator"
 msgstr "དཀར་ཆག་ཕྲ་རིང་གི་མགྱོགས་འཕྲུལ།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menus Have Icons"
 msgstr "དཀར་ཆག་ཚུ་ལུ་ ངོས་དཔར་ཡོད།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Tearoff"
 msgstr "དཀར་ཆག་ཚུ་ལུ་ ཊིའར་ཨོཕ་ཡོད།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Module for GtkFileChooser"
 msgstr "ཇི་ཊི་ཀེ་ ཡིག་སྣོད་འདེམས་བྱེད་ཀྱི་དོན་ལུ་ མོ་ཌུལ།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
-msgid "Module to use as the filesystem model for the GtkFileChooser widget. Possible values are \"gnome-vfs\" and \"gtk+\"."
-msgstr "ཇི་ཊི་ཀེ་ཡིག་སྣོད་འདེམས་བྱེད་ ཝིཌི་གེཊི་གི་དོན་ལུ་ ཡིག་སྣོད་རིམ་ལུགས་ཀྱི་དཔེ་འབད་ ལག་ལེན་འཐབ་ནིའི་མོ་ཌུལཞི། སྲིད་པའི་བེ་ལུསི་ཚུ་ \"gnome-vfs\" དང་ \"gtk+\" ཨིན།"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+msgid "Module to use as the filesystem model for the GtkFileChooser widget. Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
+msgstr "ཇི་ཊི་ཀེ་ཡིག་སྣོད་འདེམས་བྱེད་ ཝིཌི་གེཊི་གི་དོན་ལུ་ ཡིག་སྣོད་རིམ་ལུགས་ཀྱི་དཔེ་འབད་ ལག་ལེན་འཐབ་ནིའི་མོ་ཌུལ། སྲིད་པའི་བེ་ལུསི་ཚུ་ \"gnome-vfs\" དང་ \"gtk+\" ཨིན།"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid "Monospace font"
 msgstr "མོ་ནོ་སིཔེསི་ ཡིག་གཟུགས།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr "ཊར་མི་ནཱལ་བཟུམ་མའི་ གནས་ཁོངས་ཚུ་ནང་ ལག་ལེན་འཐབ་ནིའི་དོན་ལུ་ མོ་ནོ་སིཔེསི་ (རྒྱ་ཚད་གཏན་བཟོས་) ཡིག་གཟུགས་ཅིག་གི་མིང༌།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "ཇི་ཊི་ཀེ་+ གིས་ལག་ལེན་འཐབ་མི་ ཇི་ཊི་ཀེ་+ ཨིན་པུཊི་གི་ཐབས་ཤེས་ ཞུན་དག་མ་འབད་གོང་གི་བཟོ་རྣམ་གྱི་མིང༌།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "ཇི་ཊི་ཀེ་+ གིས་ལག་ལེན་འཐབ་མི་ ཇི་ཊི་ཀེ་+ ཨིན་པུཊི་ཐབས་ཤེས་ གནས་ཚད་བཟོ་རྣམ་གྱི་མིང༌།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the default font used by gtk+."
 msgstr "ཇི་ཊི་ཀེ་+ གིས་ལག་ལེན་འཐབ་མི་ སྔོན་སྒྲིག་ཡིག་གཟུགས་ཀྱི་མིང༌།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
-msgid "Name of the default font used for reading documents"
-msgstr "ཡིག་ཆ་ལྷག་ནིའི་ སྔོན་སྒྲིག་ཡིག་གཟུགས་ཀྱི་མིང༌།"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+msgid "Name of the default font used for reading documents."
+msgstr "ཡིག་ཆ་ལྷག་ནིའི་དོན་ལུ་ལག་ལེན་འཐབ་ཡོད་པའི་  སྔོན་སྒྲིག་ཡིག་གཟུགས་ཀྱི་མིང༌།"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the input method module used by GTK+."
+msgstr "ཇི་ཊི་ཀེ་+ གིས་ལག་ལེན་འཐབ་ཡོད་པའི་ ཨིན་པུཊི་ཐབས་ཤེས་ཀྱི་མིང༌།"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Show the 'Input Methods' menu"
 msgstr "'ཨིན་པུཊི་ཐབས་ལམ' གྱི་དཀར་ཆག་དེ་སྟོན།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "'ཡི་ནི་ཀོཌི་ ཚད་འཛིན་ཡིག་འབྲུ་' དཀར་ཆག་སྟོན།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr "ལག་ཆས་ཕྲ་རིང་ནང་ ངོས་དཔར་ཚུ་གི་ཚད་    \"small-toolbar\" ཡང་ན་  \"large-toolbar\"."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid "Status Bar on Right"
 msgstr " གནས་ཚད་ཕྲ་རིང༌ གཡས་ཕྱོགས་ལུ།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
-msgid "This specifies the size of icons displayed in toolbars"
-msgstr "འདི་གིས་ལག་ཆས་ཕྲ་རིང་ནང་ བཀྲམ་སྟོན་འབད་མི་ ངོས་དཔར་གྱི་ཚད་ཚུ་ གསལ་བཀོད་འབདཝ་ཨིན།"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Toolbar Detachable"
 msgstr "འཕྱལ་བཏུབ་པའི་ ལག་ཆས་ཕྲ་རིང་།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Icon Size"
 msgstr "ལག་ཆས་ཕྲ་རིང་གི་ ངོས་དཔར་ཚད།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Style"
 msgstr "ལག་ཆས་ཕྲ་རིང་གི་བཟོ་རྣམ།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
-msgid "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and \"text\""
-msgstr "ལག་ཆས་ཕྲ་རིང་གི་བཟོ་རྣམ། ནུས་ལྡན་བེ་ལུསི་ \"both\", \"both_horiz\", \"icons\", དང་ \"text\" ཚུ་ཨིན།"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
+msgid "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and \"text\"."
+msgstr "ལག་ཆས་ཕྲ་རིང་གི་བཟོ་རྣམ།  ནུས་ལྡན་བེ་ལུསི་ \"both\", \"both_horiz\", \"icons\", དང་ \"text\" ཚུ་ཨིན།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid "Use Custom Font"
 msgstr "སྲོལ་སྒྲིག་ཡིག་གཟུགས་ལག་ལེན་འཐབ།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
-msgid "Whether Applications should have accessibility support"
-msgstr "གློག་རིམ་ཚུ་ལུ་ འཛུལ་སྤྱོད་ཀྱི་རྒྱབ་སྐྱོར་དགོཔ་ཨིན་ན།"
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+msgid "Whether Applications should have accessibility support."
+msgstr "གློག་རིམ་ཚུ་ལུ་ འཛུལ་སྤྱོད་ཀྱི་རྒྱབ་སྐྱོར་དགོཔ་ཨིན་ན་མེན། "
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether animations should be displayed. Note: This is a global key, it changes the behaviour of the window manager, the panel etc."
 msgstr "བསྒུལ་བཟོ་ཚུ་ བཀྲམ་སྟོན་འབད་དགོཔ་ཨིན་ན། དྲན་འཛིན་: འདི་སྤྱི་ཁྱབ་ཀྱི་ལྡེ་མིག་ཅིག་ཨིནམ་ལས་ འདི་གིས་ སྒོ་སྒྲིག་འཛིན་སྐྱོང་པ་དང་ པེ་ནཱལ་ལ་སོགས་པའི་ སྤྱོད་ལམ་བསྒྱུར་བཅོས་འབདཝ་ཨིན།"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
-msgid "Whether menus may display an icon next to a menu entry"
-msgstr "དཀར་ཆག་ཚུ་གིས་ དཀར་ཆག་ཐོ་བཀོད་ཀྱི་ཤུལ་ལུ་ ངོས་དཔར་ཅིག་ བཀྲམ་སྟོན་འབད་འོང་ག"
-
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
-msgid "Whether menus should have a tearoff"
-msgstr "དཀར་ཆག་ཚུ་ལུ་ ཊིའར་ཨོཕ་ཅིག་དགོཔ་ཨིན་ན།"
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid "Whether the context menus of entries and text views should offer to change the input method"
-msgstr "ཐོ་བཀོད་དང་ཚིག་ཡིག་མཐོང་སྣང་གི་ སྐབས་དོན་དཀར་ཆག་གིས་ ཨིན་པུཊི་ཐབས་ལམ་བསྒྱུར་བཅོས་འབད་བཅུག་དགོཔ་ཨིན་ན་མེན།"
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "དཀར་ཆག་ཚུ་གིས་ དཀར་ཆག་ཐོ་བཀོད་ཀྱི་ཤུལ་ལུ་ ངོས་དཔར་ཅིག་ བཀྲམ་སྟོན་འབད་འོང་ག་ "
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-msgid "Whether the context menus of entries and text views should offer to insert control characters"
-msgstr "ཐོ་བཀོད་དང་ཚིག་ཡིག་མཐོང་སྣང་གི་ སྐབས་དོན་དཀར་ཆག་གིས་ ཚད་འཛིན་ཡིག་འབྲུ་ཚུ་ བཙུགས་བཅུག་དགོཔ་ཨིན་ན་མེན།"
+msgid "Whether menus should have a tearoff."
+msgstr "དཀར་ཆག་ཚུ་ལུ་ ཊིའར་ཨོཕ་ཅིག་དགོཔ་ཨིན་ན་མེན་ "
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
-msgid "Whether the cursor should blink"
-msgstr "འོད་རྟགས་དེ་ འགུལ་བསྐྱོད་འབད་དགོཔ་ཨིན་ན།"
+msgid "Whether the context menus of entries and text views should offer to change the input method."
+msgstr "ཐོ་བཀོད་དང་ཚིག་ཡིག་མཐོང་སྣང་གི་ སྐབས་དོན་དཀར་ཆག་གིས་  ཨིན་པུཊི་ཐབས་ལམ་བསྒྱུར་བཅོས་འབད་བཅུག་དགོཔ་ཨིན་ན་མེན།"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
-msgid "Whether the user can detach menubars and move them around"
-msgstr "ལག་ལེན་པ་དེ་གིས་ དཀར་ཆག་ཕྲ་རིང་ཚུ་ འཕྱལ་ཞིནམ་ལས་ ཕར་ཚུར་སྤོ་བཏུབ་ཨིན་ན།"
+msgid "Whether the context menus of entries and text views should offer to insert control characters."
+msgstr "ཐོ་བཀོད་དང་ཚིག་ཡིག་མཐོང་སྣང་གི་ སྐབས་དོན་དཀར་ཆག་གིས་  ཚད་འཛིན་ཡིག་འབྲུ་ཚུ་ བཙུགས་བཅུག་དགོཔ་ཨིན་ན་མེན།"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
-msgid "Whether the user can detach toolbars and move them around"
-msgstr "ལག་ལེན་པ་དེ་གིས་ ལག་ཆས་ཕྲ་རིང་ཚུ་ འཕྱལ་ཞིནམ་ལས་ ཕར་ཚུར་སྤོ་བཏུབ་ཨིན་ན།"
+msgid "Whether the cursor should blink."
+msgstr "འོད་རྟགས་དེ་ འགུལ་བསྐྱོད་འབད་དགོཔ་ཨིན་ན་མེན། "
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
-msgid "Whether the user can dynamically type a new accelerator when positioned over an active menuitem"
-msgstr "ཤུགས་ལྡན་དཀར་ཆག་རྣམ་གྲངས་ཅིག་གུ་བཀལ་བའི་སྐབས་ ལག་ལེན་པ་དེ་གིས་ ནུས་ལྡན་གྱི་ཐོག་ལས་ མགྱོགས་འཕྲུལ་གསརཔ་ཅིག་ ཡིག་དཔར་བརྐྱབ་ཚུགས་ག་མི་ཚུགས།"
+msgid "Whether the user can detach menubars and move them around."
+msgstr "ལག་ལེན་པ་དེ་གིས་ དཀར་ཆག་ཕྲ་རིང་ཚུ་ འཕྱལ་ཞིནམ་ལས་ ཕར་ཚུར་སྤོ་བཏུབ་ཨིན་ན་མེན་ན་ "
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
-msgid "Whether to display a status bar meter on the right"
-msgstr "གཡས་ཕྱོགས་ལུ་ གནས་ཚད་ཕྲ་རིང་གི་ མི་ཊར་ཅིག་ བཀྲམ་སྟོན་འབད་དགོཔ་ཨིན་ན།"
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "ལག་ལེན་པ་དེ་གིས་ ལག་ཆས་ཕྲ་རིང་ཚུ་ འཕྱལ་ཞིནམ་ལས་ ཕར་ཚུར་སྤོ་བཏུབ་ཨིན་ན་མེན་ན་ "
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+msgid "Whether the user can dynamically type a new accelerator when positioned over an active menuitem."
+msgstr "ཤུགས་ལྡན་དཀར་ཆག་རྣམ་གྲངས་ཅིག་གུ་བཀལ་བའི་སྐབས་  ལག་ལེན་པ་དེ་གིས་ ནུས་ལྡན་གྱི་ཐོག་ལས་ མགྱོགས་འཕྲུལ་གསརཔ་ཅིག་ ཡིག་དཔར་བརྐྱབ་ཚུགས་ག་མི་ཚུགས།"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+msgid "Whether to display a status bar meter on the right."
+msgstr "གཡས་ཕྱོགས་ལུ་ གནས་ཚད་ཕྲ་རིང་གི་ མི་ཊར་ཅིག་ བཀྲམ་སྟོན་འབད་དགོཔ་ཨིན་ན་མེན་ན་ "
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "ཇི་ཊི་ཀེ་+ གློག་རིམ་ནང་ལུ་ སྲོལ་སྒྲིག་ཡིག་གཟུགས་ཅིག་ ལག་ལེན་འཐབ་དགོཔ་ཨིན་ན།"
 
@@ -894,8 +942,8 @@ msgid "Prevent the user to lock his screen."
 msgstr "ལག་ལེན་པ་དེ་ལུ་ ཁོ་གི་གསལ་གཞི་ལྡེ་མིག་རྐྱབས་ནི་སྔོན་བཀག་འབད།"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
-msgid "File name of the bell sound to be played"
-msgstr "དྲིལ་བརྡ་གཏང་ནིའི་ཡིག་སྣོད་ཀྱི་མིང༌།"
+msgid "File name of the bell sound to be played."
+msgstr "དྲིལ་བརྡ་གཏང་ནིའི་ ཡིག་སྣོད་ཀྱི་མིང༌།"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
@@ -934,8 +982,8 @@ msgid "Cursor theme name. Used only by Xservers that support Xcursor, such as XF
 msgstr "འོད་རྟགས་བརྗོད་དོན་གྱི་མིང་། ཨེགསི་འོད་རྟགས་ དཔེར་ན་ ཨེགསི་ཕིརི་༨༦ ༤.༣ དང་ དེ་གི་ཤུལ་ལས་ཀྱི་ཚུ་ལུ་རྒྱབ་སྐྱོར་འབད་མི་ ཨེགསི་སར་བར་གྱིས་ ལག་ལེན་འཐབ་ཨིན།"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
-msgid "Distance before a drag is started"
-msgstr "འཐེན་འདྲུད་འགོ་མ་བཙུགས་པའི་ཧེ་མའི་རྒྱང་ཚད།"
+msgid "Distance before a drag is started."
+msgstr "འཐེན་འདྲུད་འགོ་མ་བཙུགས་པའི་ ཧེ་མའི་རྒྱང་ཚད།"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid "Distance in pixels the pointer must move before accelerated mouse motion is activated. A value of -1 is the system default."
@@ -954,12 +1002,12 @@ msgid "Font name of the cursor. If unset, the default font is used. This value i
 msgstr "འོད་རྟགས་ཡིག་གཟུགས་ཀྱི་མིང༌། སྒྲིག་བཤོལ་འབད་བ་ཅིན་ སྔོན་སྒྲིག་ཡིག་གཟུགས་དེ་ ལག་ལེན་འཐབ་ཨིན། བེ་ལུ་འདི་ ལཱ་ཡུན་རེ་འགོ་བཙུགས་སྐབས་ ཨེགསི་སར་བར་རྐྱངམ་གཅིག་ལུ་ དར་ཁྱབ་བཏང་སྟེ་ཡོདཔ་ལས་ ཁྱོད་ཀྱིས་ཤུལ་ལས་ ནང་བསྐྱོད་མ་འབད་ཚུན་ཚོད་ ལཱ་ཡུན་གྱི་བར་ན་ བསྒྱུར་བཅོས་འབདཝ་ད་ ཕན་གནོད་མེདཔ་ཨིན།"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
-msgid "Highlights the current location of the pointer when the Control key is pressed and released"
-msgstr "ཚད་འཛིན་ལྡེ་མིག་དེ་ ཨེབ་སྟེ་འཛིན་གྲོལ་འབདཝ་ད་ ད་ལྟོའི་དཔག་བྱེད་ཀྱི་གནས་ཁོངས་དེ་ གཙོ་དམིགས་འབདཝ་ཨིན།"
+msgid "Highlights the current location of the pointer when the Control key is pressed and released."
+msgstr "ཚད་འཛིན་ལྡེ་མིག་དེ་ ཨེབ་སྟེ་འཛིན་གྲོལ་འབདཝ་ད་ ད་ལྟོའི་དཔག་བྱེད་ཀྱི་གནས་ཁོངས་དེ་  གཙོ་དམིགས་འབདཝ་ཨིན།"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
-msgid "Length of a double click"
-msgstr "ཨེབ་གཏང་ཐེངས་གཉིས་ཀྱི་རིང་ཚད།"
+msgid "Length of a double click."
+msgstr "ཨེབ་གཏང་ ཐེངས་གཉིས་ཀྱི་རིང་ཚད།"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
@@ -978,16 +1026,16 @@ msgid "Single Click"
 msgstr "ཨེབ་གཏང་ཐེངས་གཅིག"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
-msgid "Single click to open icons"
-msgstr "ངོས་དཔར་ཚུ་ ཁ་ཕྱེ་ནིའི་དོན་ལུ་ ཨེབ་གཏང་ཐེངས་གཅིག"
+msgid "Single click to open icons."
+msgstr "ངོས་དཔར་ཚུ་ ཁ་ཕྱེ་ནིའི་དོན་ལུ་ ཨེབ་གཏང་ཐེངས་གཅིག་"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "འོད་རྟགས་བརྗོད་དོན་གྱིས་ གཞི་བསྟུན་འབད་ཡོད་མི་ འོད་རྟགས་ཀྱི་ཚད།(_t)"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
-msgid "Swap left and right mouse buttons for left-handed mice"
-msgstr "གཡོན་ལག་ཅན་གྱི་ མའུསི་ཚུ་གི་དོན་ལུ་ མཱའུསི་ཨེབ་རྟ་ གཡས་གཡོན་བརྗེ་སོར་འབད།"
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr "གཡོན་ལག་ཅན་གྱི་ མའུསི་ཚུ་གི་དོན་ལུ་ མཱའུསི་ཨེབ་རྟ་གཡས་གཡོན་བརྗེ་སོར་འབད།"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
@@ -1061,6 +1109,16 @@ msgstr "ལྡེ་སྒྲོམ་ལྡེ་མིག་བརྐྱབ་
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "ཡིག་དཔར་བརྐྱབ་ནིའི་བར་མཚམས་ གསལ་གཞི་དེ་ ཕར་འགྱངས་འབད་ཚུགས་ག་མི་ཚུགས།"
 
+#~ msgid "Default help viewer"
+#~ msgstr "སྔོན་སྒྲིག་གྲོགས་རམ་མཐོང་བྱེད།"
+#~ msgid "Help viewer needs terminal"
+#~ msgstr "གྲོགས་རམ་མཐོང་བྱེད་ལུ་ ཊར་མི་ནཱལ་དགོ་པས།"
+#~ msgid "Whether the default help viewer accepts URLs"
+#~ msgstr "སྔོན་སྒྲིག་གྲོགས་རམ་མཐོང་བྱེད་ཀྱིས་ ཡུ་ཨར་ཨེལ་ཨེསི་ དང་ལེན་འབདཝ་ཨིན་ན་མེན།"
+#~ msgid "Whether the default help viewer needs a terminal to run"
+#~ msgstr "སྔོན་སྒྲིག་གྲོགས་རམ་མཐོང་བྱེད་དེ་ གཡོག་བཀོལ་ནིའི་དོན་ལུ་ ཊར་མི་ནཱལ་ཅིག་དགོཔ་ཨིན་ན་མེན།"
+#~ msgid "This specifies the size of icons displayed in toolbars"
+#~ msgstr "འདི་གིས་ལག་ཆས་ཕྲ་རིང་ནང་ བཀྲམ་སྟོན་འབད་མི་ ངོས་དཔར་གྱི་ཚད་ཚུ་ གསལ་བཀོད་འབདཝ་ཨིན།"
 #~ msgid "Unknown error code: %u"
 #~ msgstr "མ་ཤེས་་པའི་ ཀོཌི་གི་འཛོལ་བ་:%u"
 #~ msgid ""
