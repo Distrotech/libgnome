@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-22 11:03+0000\n"
-"PO-Revision-Date: 2008-07-24 08:47+0300\n"
+"POT-Creation-Date: 2008-11-07 14:29+0100\n"
+"PO-Revision-Date: 2008-12-22 10:54+0200\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee> \n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -432,7 +432,7 @@ msgstr "Faili või asukohta ei leitud."
 msgid "The login has failed."
 msgstr "Tõrge sisselogimisel."
 
-#: ../libgnome/gnome-open.c:36
+#: ../libgnome/gnome-open.c:38
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Viga URL-i näitamisel: %s\n"
@@ -781,86 +781,90 @@ msgid "Basename of the default theme used by gtk+."
 msgstr "GTK+ vaikimisi teema põhinimetus."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
+msgid "Buttons Have Icons"
+msgstr "Nuppudel on ikoonid"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Can Change Accels"
 msgstr "Kiirklahve on võimalik muuta"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink"
 msgstr "Kursori plinkimine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Cursor Blink Time"
 msgstr "Kursori plinkimise aeg"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Default font"
 msgstr "Vaikimisi kirjatüüp"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Document font"
 msgstr "Dokumendi kirjatüüp"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Accessibility"
 msgstr "Hõlbustuste lubamine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "Enable Animations"
 msgstr "Animatsioonide lubamine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Module"
 msgstr "GTK SM Moodul"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Preedit Style"
 msgstr "GTK SM Eelredigeerimise laad"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "GTK IM Status Style"
 msgstr "GTK SM Oleku laad"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Gtk+ Theme"
 msgstr "Gtk+ Teema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon Theme"
 msgstr "Ikoonide teema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Ikoonide teema, mida kasutatakse paneelil, nautiluses jne."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Kiirklahv menüüribade avamiseks."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Length of the cursor blink cycle, in milliseconds."
 msgstr "Kursori vilkumistsükli pikkus millisekundites."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar Detachable"
 msgstr "Menüüriba on lahtihaagitav"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menubar accelerator"
 msgstr "Menüüriba kiirendi"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Icons"
 msgstr "Menüüdes on ikoonid"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Menus Have Tearoff"
 msgstr "Menüüd on küljestrebitavad"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooser'i moodul"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
@@ -868,69 +872,69 @@ msgstr ""
 "GtkFileChooser vidina jaoks kasutatav failisüsteemi moodul. Võimalikud "
 "väärtused on \"gio\", \"gnome-vfs\" ja \"gtk+\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Monospace font"
 msgstr "Monospace kirjatüüp"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Monospace (määratud laiusega) kirjatüüp kasutamiseks terminalitaolistes "
 "kohtades."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "gtk+ poolt kasutatav GTK+ eelredigeerimise sisestusmeetodi laad."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "gtk+ poolt kasutatav GTK+ oleku sisestusmeetodi laad."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Name of the default font used by gtk+."
 msgstr "GTK+ poolt vaikimisi kasutatava kirjatüübi nimi."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Name of the default font used for reading documents."
 msgstr "Dokumentide lugemisel kasutatava vaikimisi kirjatüübi nimi."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Name of the input method module used by GTK+."
 msgstr "GTK+ poolt kasutatav sisestusmeetodi mooduli nimi."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Input Methods' menu"
 msgstr "'Sisendmeetodite' menüü näitamine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "'Unikoodi juhtsümbolite' menüü näitamine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid ""
 "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
 msgstr ""
 "Ikoonide suurus tööriistaribal, kas \"small-toolbar\" (väike tööriistariba) "
 "või \"large-toolbar\" (suur tööriistariba)."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Status Bar on Right"
 msgstr "Olekuriba on paremal"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Detachable"
 msgstr "Tööriistariba on lahtihaagitav"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Icon Size"
 msgstr "Tööriistariba ikooni suurus"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Toolbar Style"
 msgstr "Tööriistariba stiil"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\"."
@@ -939,15 +943,15 @@ msgstr ""
 "\"both-horiz\" (ikoonid ja tekst rõhtsalt), \"icons\" (ainult ikoonid), ja "
 "\"text\" (ainult tekst)."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Use Custom Font"
 msgstr "Kohandatud kirjatüübi kasutamine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether Applications should have accessibility support."
 msgstr "Kas rakendustel peab olema hõlbustuste tugi või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -955,15 +959,19 @@ msgstr ""
 "Kas animatsioone kuvatakse. Märkus: see on globaalne klahv, see muudab ka "
 "aknahalduri, paneeli jne. käitumist."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
-msgid "Whether menus may display an icon next to a menu entry."
-msgstr "Kas menüüd võivad menüükirje järel ikooni kuvada või mitte."
-
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
+msgid "Whether buttons may display an icon in addition to the button text."
+msgstr "Kas nuppudel võib tekstile lisaks kuvada ka ikooni või mitte."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "Kas menüüdes võib menüükirje järel ikooni kuvada või mitte."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether menus should have a tearoff."
 msgstr "Kas menüüsid peaks olema võimalik lahti rebida või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method."
@@ -971,7 +979,7 @@ msgstr ""
 "Kas kirjete ja tekstivaadete kontekstimenüüd peavad pakkuma sisestusmeetodi "
 "muutmise võimalust või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters."
@@ -979,21 +987,21 @@ msgstr ""
 "Kas kirjete ja tekstivaadete kontekstimenüüd peavad pakkuma juhtmärkide "
 "lisamise võimalust või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether the cursor should blink."
 msgstr "Kas kursor peaks plinkima või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether the user can detach menubars and move them around."
 msgstr ""
 "Kas kasutaja tohib menüüribasid lahti haakida ja ringi tõsta või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
 msgid "Whether the user can detach toolbars and move them around."
 msgstr ""
 "Kas kasutaja tohib tööriistaribasid lahti haakida ja ringi tõsta või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem."
@@ -1001,11 +1009,11 @@ msgstr ""
 "Kas kasutajal on võimalik menüü kuvamise ajal aktiivse menüükirje kiirklahve "
 "dünaamiliselt muuta või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:51
 msgid "Whether to display a status bar meter on the right."
 msgstr "Kas olekuriba mõõdikut näidatakse paremal või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:52
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Kas gtk+ rakendustes kasutatakse vaikimisi kirjatüüpi."
 
