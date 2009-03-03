@@ -1,3 +1,12 @@
+2009-03-03  Alexander Larsson  <alexl@redhat.com>
+
+        Bug 561172 – gnome-open fails on local URIs with anchors
+
+        * libgnome/gnome-open.c:
+	For URIs, use the passed in URI, not the one from the GFile,
+	so that we can properly handle e.g. mailto: and other links
+	not supported by GIO.
+
 2008-12-07  Cosimo Cecchi  <cosimoc@gnome.org>
 
 	* libgnome/gnome-init.c:

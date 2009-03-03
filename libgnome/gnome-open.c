@@ -10,6 +10,15 @@
 #include "gnome-program.h"
 #include "gnome-init.h"
 
+static gboolean
+is_file_uri_with_anchor (char *str)
+{
+  if (g_ascii_strncasecmp (str, "file:", 5) == 0 &&
+      strchr (str, '#') != NULL)
+    return TRUE;
+  return FALSE;
+}
+
 int
 main (int argc, char *argv[])
 {
@@ -29,7 +38,12 @@ main (int argc, char *argv[])
 		      NULL);
 
   file = g_file_new_for_commandline_arg (argv[1]);
-  uri = g_file_get_uri (file);
+  if (g_file_is_native (file) && !is_file_uri_with_anchor (argv[1]))
+    uri = g_file_get_uri (file);
+  else
+      /* For uris, use the original string, as it might be
+	 modified by passing throught GFile (e.g. mailto: links) */
+    uri = g_strdup (argv[1]);
   g_object_unref (file);
 
   if (g_app_info_launch_default_for_uri (uri, NULL, &err))
