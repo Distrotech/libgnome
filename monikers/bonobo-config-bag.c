@@ -60,7 +60,7 @@ impl_Bonobo_PropertyBag_getKeys (PortableServer_Servant  servant,
 	slist = gconf_client_all_entries (cb->conf_client, path, &err);
 	g_free (path);
 	if (err) {
-		bonobo_exception_general_error_set (ev, NULL, err->message);
+		bonobo_exception_general_error_set (ev, NULL, "%s", err->message);
 		g_error_free (err);
 		return CORBA_OBJECT_NIL;
 	}
@@ -106,7 +106,7 @@ impl_Bonobo_PropertyBag_getType (PortableServer_Servant  servant,
 	value = gconf_client_get (cb->conf_client, path, &err);
 	g_free (path);
 	if (err) {
-		bonobo_exception_general_error_set (ev, NULL, err->message);
+		bonobo_exception_general_error_set (ev, NULL, "%s", err->message);
 		g_error_free (err);
 		return CORBA_OBJECT_NIL;
 	}
@@ -179,7 +179,7 @@ impl_Bonobo_PropertyBag_getValue (PortableServer_Servant  servant,
 	value = gconf_client_get (cb->conf_client, path, &err);
 	g_free (path);
 	if (err) {
-		bonobo_exception_general_error_set (ev, NULL, err->message);
+		bonobo_exception_general_error_set (ev, NULL, "%s", err->message);
 		g_error_free (err);
 		return CORBA_OBJECT_NIL;
 	}
@@ -235,7 +235,7 @@ impl_Bonobo_PropertyBag_setValue (PortableServer_Servant  servant,
 	g_free (path);
 
 	if (err) {
-		bonobo_exception_general_error_set (ev, NULL, err->message);
+		bonobo_exception_general_error_set (ev, NULL, "%s", err->message);
 		g_error_free (err);
 	}
 }
@@ -264,7 +264,7 @@ impl_Bonobo_PropertyBag_getValues (PortableServer_Servant servant,
 	slist = gconf_client_all_entries (cb->conf_client, path, &err);
 	g_free (path);
 	if (err) {
-		bonobo_exception_general_error_set (ev, NULL, err->message);
+		bonobo_exception_general_error_set (ev, NULL, "%s", err->message);
 		g_error_free (err);
 		return CORBA_OBJECT_NIL;
 	}
@@ -331,7 +331,7 @@ impl_Bonobo_PropertyBag_getDefault (PortableServer_Servant  servant,
 	value = gconf_client_get_default_from_schema (cb->conf_client, path, &err);
 	g_free (path);
 	if (err) {
-		bonobo_exception_general_error_set (ev, NULL, err->message);
+		bonobo_exception_general_error_set (ev, NULL, "%s", err->message);
 		g_error_free (err);
 		return CORBA_OBJECT_NIL;
 	}
@@ -359,7 +359,7 @@ impl_Bonobo_PropertyBag_getDocTitle (PortableServer_Servant  servant,
 	schema = gconf_client_get_schema (cb->conf_client, path, &err);
 	g_free (path);
 	if (err) {
-		bonobo_exception_general_error_set (ev, NULL, err->message);
+		bonobo_exception_general_error_set (ev, NULL, "%s", err->message);
 		g_error_free (err);
 		return NULL;
 	}
@@ -392,7 +392,7 @@ impl_Bonobo_PropertyBag_getDoc (PortableServer_Servant  servant,
 	schema = gconf_client_get_schema (cb->conf_client, path, &err);
 	g_free (path);
 	if (err) {
-		bonobo_exception_general_error_set (ev, NULL, err->message);
+		bonobo_exception_general_error_set (ev, NULL, "%s", err->message);
 		g_error_free (err);
 		return NULL;
 	}
@@ -424,7 +424,7 @@ impl_Bonobo_PropertyBag_getFlags (PortableServer_Servant  servant,
 	entry = gconf_client_get_entry (cb->conf_client, path, NULL, TRUE, &err);
 	g_free (path);
 	if (err) {
-		bonobo_exception_general_error_set (ev, NULL, err->message);
+		bonobo_exception_general_error_set (ev, NULL, "%s", err->message);
 		g_error_free (err);
 		return 0;
 	}
@@ -437,27 +437,6 @@ impl_Bonobo_PropertyBag_getFlags (PortableServer_Servant  servant,
 
 	return retval;
 }
-
-#if 0
-static void
-notify_cb (BonoboListener    *listener,
-	   const char        *event_name,
-	   const CORBA_any   *any,
-	   CORBA_Environment *ev,
-	   gpointer           user_data)
-{
-	BonoboConfigBag *cb = BONOBO_CONFIG_BAG (user_data);
-	char *tmp, *ename;
-
-	tmp = bonobo_event_subtype (event_name);
-	ename = g_strconcat ("Bonobo/Property:change:", tmp, NULL); 
-	g_free (tmp);
-
-	bonobo_event_source_notify_listeners (cb->es, ename, any, NULL);
-
-	g_free (ename);
-}
-#endif
 
 BonoboConfigBag *
 bonobo_config_bag_new (const gchar *path)

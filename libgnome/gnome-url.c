@@ -163,10 +163,10 @@ gnome_url_show_with_env (const char  *url,
 			     _("The login has failed."));
 		break;
 	default:
-		g_set_error (error,
-			     GNOME_URL_ERROR,
-			     GNOME_URL_ERROR_VFS,
-			     gnome_vfs_result_to_string (result));
+		g_set_error_literal (error,
+				     GNOME_URL_ERROR,
+				     GNOME_URL_ERROR_VFS,
+				     gnome_vfs_result_to_string (result));
 	}
 
 	return FALSE;

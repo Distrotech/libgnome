@@ -403,8 +403,6 @@ load (const char *file)
 				SecHeader->keys->value = decode_string_and_dup (CharBuffer);
 				state = c == '\n' ? KeyDef : IgnoreToEOL;
 				next = CharBuffer;
-#ifdef GNOME_ENABLE_DEBUG
-#endif
 			} else
 				*next++ = c;
 			break;

@@ -1,3 +1,20 @@
+2009-03-06  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* libgnome/gnome-config.c: (load):
+	* libgnome/gnome-triggers.c:
+	* libgnome/gnome-url.c: (gnome_url_show_with_env):
+	* monikers/bonobo-config-bag.c: (impl_Bonobo_PropertyBag_getKeys),
+	(impl_Bonobo_PropertyBag_getType),
+	(impl_Bonobo_PropertyBag_getValue),
+	(impl_Bonobo_PropertyBag_setValue),
+	(impl_Bonobo_PropertyBag_getValues),
+	(impl_Bonobo_PropertyBag_getDefault),
+	(impl_Bonobo_PropertyBag_getDocTitle),
+	(impl_Bonobo_PropertyBag_getDoc),
+	(impl_Bonobo_PropertyBag_getFlags):
+	- Remove #if 0'ed out code.
+	- Fix warnings about missing format specifiers.
+
 2009-03-03  Alexander Larsson  <alexl@redhat.com>
 
         Bug 561172 – gnome-open fails on local URIs with anchors
