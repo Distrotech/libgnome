@@ -1,6 +1,6 @@
 # translation of libgnome to Russian
 #
-# Copyright (C) 2001-2002, 2005, 2006, 2007 Free Software Foundation, Inc.
+# Copyright (C) 2001-2009 Free Software Foundation, Inc.
 #
 # Valek Filippov <frob@df.ru>, 2001-2002.
 # Dmitry G. Mastrukov <dmitry@taurussoft.org>, 2002-2003.
@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-21 23:06+0400\n"
-"PO-Revision-Date: 2008-09-21 21:44+0300\n"
+"POT-Creation-Date: 2009-03-12 23:57+0300\n"
+"PO-Revision-Date: 2009-03-12 21:44+0300\n"
 "Last-Translator: Nickolay V. Shmyrev <nshmyrev@yandex.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -127,21 +127,21 @@ msgid "Help document %s/%s not found"
 msgstr "Не удалось найти справочный документ %s/%s"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:91
+#: ../libgnome/gnome-init.c:90
 msgid "Bonobo Support"
 msgstr "Поддержка системы Bonobo"
 
-#: ../libgnome/gnome-init.c:145
+#: ../libgnome/gnome-init.c:144
 msgid "Bonobo activation Support"
 msgstr "Поддержка активации системы Bonobo"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:380 ../libgnome/gnome-init.c:394
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Не удалось создать пользовательский каталог «%s» настроек среды GNOME: %s\n"
 
-#: ../libgnome/gnome-init.c:403
+#: ../libgnome/gnome-init.c:402
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
@@ -149,7 +149,7 @@ msgstr ""
 "Не удалось получить сведения о пользовательском каталоге «%s» настроек среды "
 "GNOME: %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:410
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -158,36 +158,36 @@ msgstr ""
 "Не удалось установить режим доступа 0700 для пользовательского каталога «%s» "
 "настроек среды GNOME: %s\n"
 
-#: ../libgnome/gnome-init.c:418
+#: ../libgnome/gnome-init.c:417
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Не удалось создать каталог «%s» комбинаций клавиш среды GNOME: %s\n"
 
-#: ../libgnome/gnome-init.c:457
+#: ../libgnome/gnome-init.c:456
 msgid "GNOME Virtual Filesystem"
 msgstr "Виртуальная файловая система среды GNOME"
 
-#: ../libgnome/gnome-init.c:475 ../libgnome/gnome-init.c:518
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
 msgid "Disable sound server usage"
 msgstr "Отключить использование сервера звука"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:521
+#: ../libgnome/gnome-init.c:477 ../libgnome/gnome-init.c:520
 msgid "Enable sound server usage"
 msgstr "Включить использование сервера звука"
 
-#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:524
+#: ../libgnome/gnome-init.c:481 ../libgnome/gnome-init.c:523
 msgid "Host:port on which the sound server to use is running"
 msgstr "Узел:порт, на котором запущен сервер звука"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:525
 msgid "HOSTNAME:PORT"
 msgstr "УЗЕЛ:ПОРТ"
 
-#: ../libgnome/gnome-init.c:492 ../libgnome/gnome-init.c:536
+#: ../libgnome/gnome-init.c:491 ../libgnome/gnome-init.c:535
 msgid "GNOME Library"
 msgstr "Библиотека среды GNOME"
 
-#: ../libgnome/gnome-init.c:493
+#: ../libgnome/gnome-init.c:492
 msgid "Show GNOME options"
 msgstr "Показывать параметры GNOME"
 
@@ -435,7 +435,7 @@ msgstr "Не удалось найти файл или адрес."
 msgid "The login has failed."
 msgstr "Не удалось войти в систему."
 
-#: ../libgnome/gnome-open.c:38
+#: ../libgnome/gnome-open.c:52
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Ошибка отображения URL: %s\n"
@@ -777,86 +777,90 @@ msgid "Basename of the default theme used by gtk+."
 msgstr "Базовое имя темы по умолчанию, используемой GTK+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
+msgid "Buttons Have Icons"
+msgstr "Значки на кнопках"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Can Change Accels"
 msgstr "Можно ли изменять комбинации клавиш"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink"
 msgstr "Мигание курсора"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Cursor Blink Time"
 msgstr "Время мигания курсора"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Default font"
 msgstr "Шрифт по умолчанию"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Document font"
 msgstr "Шрифт документа"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Accessibility"
 msgstr "Включить специальные возможности"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "Enable Animations"
 msgstr "Включить анимацию"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Module"
 msgstr "Модуль ввода GTK+"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Preedit Style"
 msgstr "Стиль предправки метода ввода GTK+"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "GTK IM Status Style"
 msgstr "Стиль состояния метода ввода GTK+"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Gtk+ Theme"
 msgstr "Тема GTK+"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon Theme"
 msgstr "Тема значков"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Тема значков, для использования в панели, Nautilus и других местах."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Комбинация клавиш клавиатуры для открытия меню."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Length of the cursor blink cycle, in milliseconds."
 msgstr "Длина цикла мигания курсора (в миллисекундах)."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar Detachable"
 msgstr "Открепляемые меню"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menubar accelerator"
 msgstr "Клавиатурный ускоритель меню"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Icons"
 msgstr "В меню показываются значки"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Menus Have Tearoff"
 msgstr "В меню есть линии разрыва"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Module for GtkFileChooser"
 msgstr "Модуль для GtkFileChooser"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
@@ -864,85 +868,85 @@ msgstr ""
 "Модуль для использования в качестве модели файловой системы в виджете "
 "GtkFileChooser. Возможные значения: «gio», «gnome-vfs» и «gtk+»."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Monospace font"
 msgstr "Моноширинный шрифт"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Название моноширинного (как у пишущей машинки) шрифта, используемого в "
 "приложениях вроде терминала."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "Имя стиля предправки метода ввода GTK+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "Имя стиля состояния метода ввода GTK+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Name of the default font used by gtk+."
 msgstr "Название шрифта по умолчанию, используемого GTK+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Name of the default font used for reading documents."
 msgstr "Имя шрифта, используемого по умолчанию для чтения документов."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Name of the input method module used by GTK+."
 msgstr "Название метода ввода, используемого GTK+."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Input Methods' menu"
 msgstr "Показывать меню «Использовать методы ввода»"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "Показывать меню «Вставить управляющий символ набора Юникод»"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid ""
 "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
 msgstr ""
 "Размер значков на панелях инструментов: либо «small-toolbar», либо «large-"
 "toolbar»."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Status Bar on Right"
 msgstr "Строка состояния справа"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Detachable"
 msgstr "Открепляемые панели инструментов"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Icon Size"
 msgstr "Размер значков на панелях инструментов"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Toolbar Style"
 msgstr "Стиль панелей инструментов"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\"."
 msgstr ""
-"Стиль панелей инструментов. Возможные значения: «both», «both_horiz», "
-"«icon», «text»."
+"Стиль панелей инструментов. Возможные значения: «both», «both_horiz», «icon», "
+"«text»."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Use Custom Font"
 msgstr "Использовать другой шрифт"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether Applications should have accessibility support."
 msgstr "Поддерживать ли специальные возможности в приложениях."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -950,15 +954,19 @@ msgstr ""
 "Отображать ли анимацию. Обратите внимание: это глобальный ключ, его "
 "изменение повлияет на поведение оконного менеджера, панели и так далее."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
+msgid "Whether buttons may display an icon in addition to the button text."
+msgstr "Показывать ли значки в кнопках вместе с текстом."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether menus may display an icon next to a menu entry."
 msgstr "Показывать ли значки в пунктах меню."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether menus should have a tearoff."
 msgstr "Показывать ли линию отрыва в меню."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method."
@@ -966,7 +974,7 @@ msgstr ""
 "Должны ли контекстные меню элементов ввода текста предлагать сменить метод "
 "ввода."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters."
@@ -974,21 +982,21 @@ msgstr ""
 "Должны ли контекстные меню элементов ввода текста предлагать вставить "
 "управляющие символы."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether the cursor should blink."
 msgstr "Должен ли курсор мигать."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether the user can detach menubars and move them around."
 msgstr "Может ли пользователь откреплять меню и передвигать их по экрану."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
 msgid "Whether the user can detach toolbars and move them around."
 msgstr ""
 "Может ли пользователь откреплять панели инструментов и передвигать их по "
 "экрану."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem."
@@ -996,11 +1004,11 @@ msgstr ""
 "Может ли пользователь динамически вводить новую комбинацию клавиш для пункта "
 "меню при указании на него."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:51
 msgid "Whether to display a status bar meter on the right."
 msgstr "Отображать ли область для переноса в строке состояния справа."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:52
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Следует ли использовать другой шрифт в приложениях GTK+."
 
@@ -1034,7 +1042,9 @@ msgstr "Отключить переключение пользователей"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid "Prevent running any URL or MIME type handler applications."
-msgstr "Запретить запуск любых приложений для открытия ссылок и обрабоки файлов различных типов."
+msgstr ""
+"Запретить запуск любых приложений для открытия ссылок и обрабоки файлов "
+"различных типов."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
@@ -1261,14 +1271,16 @@ msgid ""
 "Maximum age for thumbnails in the cache, in days. Set to -1 to disable "
 "cleaning."
 msgstr ""
-"Максимальная давность миниатюр в кэше, в днях. Установите в -1 для выключения очистки кэша."
+"Максимальная давность миниатюр в кэше, в днях. Установите в -1 для "
+"выключения очистки кэша."
 
 #: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
 msgid ""
 "Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
 "cleaning."
 msgstr ""
-"Максимальный размер кэша, в мегабайтах. Установите в -1 для выключения очистки кэша."
+"Максимальный размер кэша, в мегабайтах. Установите в -1 для выключения "
+"очистки кэша."
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
