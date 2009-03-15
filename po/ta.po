@@ -1,38 +1,14 @@
-# translation of ta.po to
-# Tamil translation of GLib.
-# Copyright (C) 2001, 2006, 2007, 2009 Free Software Foundation, Inc.
-# translation of libgnome.HEAD.ta.po to
-# Tamil translation of libgnome2.
-# Copyright (C) 2001, 2002, 2003, 2004, 2006, 2008, 2009 Free Software Foundation, Inc.
-# Dinesh Nadarajah <n_dinesh@yahoo.com>
-# Ramanan Selvaratnam <rama@ukfsn.org>
-# translation of glib.HEAD.ta.po to Tamil
-# Tamil translation of GLib.
-# Copyright (C) 2001, 2006, 2007, 2009 Free Software Foundation, Inc.
+# translation of libgnome.HEAD.po to Tamil
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
-# Dinesh Nadarajah <n_dinesh@yahoo.com>, 2001.
-# Felix <ifelix25@gmail.com>, 2006.
-# Dr.T.Vasudevan <agnihot3@gmail.com>, 2007.
 # I. Felix <ifelix@redhat.com>, 2009.
-# Priyadharsini <priyafelix@gmail.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: ta\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=glib&component=general\n"
-"POT-Creation-Date: 2009-03-02 06:36+0000\n"
-"PO-Revision-Date: 2009-03-15 14:14+0530\n"
-"Last-Translator: \n"
-"Language-Team:  <en@li.org>\n"
-"Project-Id-Version: libgnome.HEAD.ta\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-07 14:29+0100\n"
-"PO-Revision-Date: 2009-03-09 16:20+0530\n"
-"Last-Translator: \n"
-"Language-Team:  <en@li.org>\n"
-"Project-Id-Version: glib.HEAD.ta\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=glib&component=general\n"
-"POT-Creation-Date: 2009-03-02 06:36+0000\n"
-"PO-Revision-Date: 2009-03-15 13:45+0530\n"
+"Project-Id-Version: libgnome.HEAD\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgnome&component=general\n"
+"POT-Creation-Date: 2009-03-15 09:03+0000\n"
+"PO-Revision-Date: 2009-03-15 14:45+0530\n"
 "Last-Translator: I. Felix <ifelix@redhat.com>\n"
 "Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
 "MIME-Version: 1.0\n"
@@ -40,1806 +16,1246 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\\n\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
 
-#: ../glib/gbookmarkfile.c:737
+#: ../gnome-data/gnome-2.soundlist.in.h:1
+msgid "Error message"
+msgstr "பிழை செய்தி"
+
+#: ../gnome-data/gnome-2.soundlist.in.h:2
+msgid "Informational message"
+msgstr "செய்தி தகவல்"
+
+#: ../gnome-data/gnome-2.soundlist.in.h:3
+msgid "Log in"
+msgstr "புகுபதிவு"
+
+#: ../gnome-data/gnome-2.soundlist.in.h:4
+msgid "Log out"
+msgstr "விடுபதிவு"
+
+#: ../gnome-data/gnome-2.soundlist.in.h:5
+msgid "Miscellaneous message"
+msgstr "இதர தகவல்"
+
+#: ../gnome-data/gnome-2.soundlist.in.h:6
+msgid "Question dialog"
+msgstr "கேள்வி உரையாடல்"
+
+#: ../gnome-data/gnome-2.soundlist.in.h:7
+msgid "System events"
+msgstr "அமைப்பு நிகழ்வுகள்"
+
+#: ../gnome-data/gnome-2.soundlist.in.h:8
+msgid "Warning message"
+msgstr "எச்சரிக்கை செய்தி"
+
+#: ../gnome-data/gnome-default.xml.in.in.h:1
+msgid "Default Background"
+msgstr "முன்னிருப்பு பின்னணி"
+
+#: ../gnome-data/gtk-events-2.soundlist.in.h:1
+msgid "Choose menu item"
+msgstr "பட்டி உருப்படி தெரிவுசெய்க"
+
+#: ../gnome-data/gtk-events-2.soundlist.in.h:2
+msgid "Click on command button"
+msgstr "கட்டளை பொத்தானை அமுத்துக"
+
+#: ../gnome-data/gtk-events-2.soundlist.in.h:3
+msgid "Select check box"
+msgstr "பரிசோதனை பெட்டியை தேர்வு செய்"
+
+#: ../gnome-data/gtk-events-2.soundlist.in.h:4
+msgid "User interface events"
+msgstr "பயனர் இடைமுகம் நிகழ்வுகள்"
+
+#: ../libgnome/gnome-exec.c:450
+msgid "Cannot find a terminal, using xterm, even if it may not work"
+msgstr "முனையம் ஒன்றைக் கண்டுபிடிக்க முடியவில்லை, இயக்க முடியாவிட்டாலும், xterm பயன்படுத்தும்"
+
+#: ../libgnome/gnome-gconf.c:175
+msgid "GNOME GConf Support"
+msgstr "குனோம் GConf ஆதரவளிப்பு"
+
+#: ../libgnome/gnome-help.c:167
 #, c-format
-msgid "Unexpected attribute '%s' for element '%s'"
-msgstr "எதிர்பாராத பண்புக்கூறு '%s' இந்த உறுப்புக்கு '%s'"
+msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
+msgstr "GNOME_FILE_DOMAIN_APP_HELP களம் கண்டுபிடிக்க முடியவில்லை"
 
-#: ../glib/gbookmarkfile.c:748 ../glib/gbookmarkfile.c:819
-#: ../glib/gbookmarkfile.c:829 ../glib/gbookmarkfile.c:936
+#: ../libgnome/gnome-help.c:180
 #, c-format
-msgid "Attribute '%s' of element '%s' not found"
-msgstr "மதிப்பு '%s' க்கு '%s' உறுப்பு எதுவும் இல்லை"
+msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
+msgstr "GNOME_FILE_DOMAIN_HELP களம் கண்டுபிடிக்க முடியவில்லை"
 
-#: ../glib/gbookmarkfile.c:1106 ../glib/gbookmarkfile.c:1171
-#: ../glib/gbookmarkfile.c:1235 ../glib/gbookmarkfile.c:1245
-#, c-format
-msgid "Unexpected tag '%s', tag '%s' expected"
-msgstr "எதிர்பாராத ஒட்டு'%s', ஒட்டு '%s' எதிர்பார்க்கப்பட்டது"
-
-#: ../glib/gbookmarkfile.c:1131 ../glib/gbookmarkfile.c:1145
-#: ../glib/gbookmarkfile.c:1213 ../glib/gbookmarkfile.c:1265
-#, c-format
-msgid "Unexpected tag '%s' inside '%s'"
-msgstr "'%s' க்குள் எதிர்பாராத ஒட்டு '%s' உள்ளது"
-
-#: ../glib/gbookmarkfile.c:1793
-msgid "No valid bookmark file found in data dirs"
-msgstr "தரவு அடைவுகளில் சரியான புத்தகக்குறி கோப்பு எதுவும் இல்லை"
-
-#: ../glib/gbookmarkfile.c:1994
-#, c-format
-msgid "A bookmark for URI '%s' already exists"
-msgstr "URI '%s' க்கு ஏற்கனவே புத்தகக்குறி உள்ளது"
-
-#: ../glib/gbookmarkfile.c:2040 ../glib/gbookmarkfile.c:2198
-#: ../glib/gbookmarkfile.c:2283 ../glib/gbookmarkfile.c:2363
-#: ../glib/gbookmarkfile.c:2448 ../glib/gbookmarkfile.c:2531
-#: ../glib/gbookmarkfile.c:2609 ../glib/gbookmarkfile.c:2688
-#: ../glib/gbookmarkfile.c:2730 ../glib/gbookmarkfile.c:2827
-#: ../glib/gbookmarkfile.c:2953 ../glib/gbookmarkfile.c:3143
-#: ../glib/gbookmarkfile.c:3219 ../glib/gbookmarkfile.c:3384
-#: ../glib/gbookmarkfile.c:3473 ../glib/gbookmarkfile.c:3563
-#: ../glib/gbookmarkfile.c:3691
-#, c-format
-msgid "No bookmark found for URI '%s'"
-msgstr "URIக்கு புத்தகக்குறி எதுவும் இல்லை '%s'"
-
-#: ../glib/gbookmarkfile.c:2372
-#, c-format
-msgid "No MIME type defined in the bookmark for URI '%s'"
-msgstr "URI '%s'க்கு MIME வகை எதுவும் புத்தகக்குறியில் குறிப்பிடப்படவில்லை"
-
-#: ../glib/gbookmarkfile.c:2457
-#, c-format
-msgid "No private flag has been defined in bookmark for URI '%s'"
-msgstr "URI '%s'க்கு புத்தகக்குறியில் தனிபட்ட கொடி எதுவும் குறிப்பிடப்படவில்லை"
-
-#: ../glib/gbookmarkfile.c:2836
-#, c-format
-msgid "No groups set in bookmark for URI '%s'"
-msgstr "URI '%s'க்கான புத்தகக்குறியில் குழுக்கள் எதுவும் அமைக்கப்படவில்லை"
-
-#: ../glib/gbookmarkfile.c:3237 ../glib/gbookmarkfile.c:3394
-#, c-format
-msgid "No application with name '%s' registered a bookmark for '%s'"
-msgstr "'%s' பெயரிலுள்ள பயன்பாடு  '%s'க்கு ஒரு புத்தகக்குறியை பதிவு செய்தது"
-
-#: ../glib/gbookmarkfile.c:3417
-#, c-format
-msgid "Failed to expand exec line '%s' with URI '%s'"
-msgstr "exec வரி '%s'  ஐ யூஆர்ஐ (URI) '%s' உடன் விரிவாக்குதல் தோல்வியுற்றது"
-
-#: ../glib/gconvert.c:431 ../glib/gconvert.c:509 ../glib/giochannel.c:1230
-#, c-format
-msgid "Conversion from character set '%s' to '%s' is not supported"
-msgstr "வரியுரு வகை `%s' இலிருந்து `%s' க்கு மாற்றுவதற்கு ஆதரவளிப்பு கிடையாது"
-
-#: ../glib/gconvert.c:435 ../glib/gconvert.c:513
-#, c-format
-msgid "Could not open converter from '%s' to '%s'"
-msgstr "'%s' லிருந்து '%s'க்கு மாற்றியை திறக்க முடியவில்லை"
-
-#: ../glib/gconvert.c:632 ../glib/gconvert.c:1017 ../glib/giochannel.c:1402
-#: ../glib/giochannel.c:1444 ../glib/giochannel.c:2288 ../glib/gutf8.c:964
-#: ../glib/gutf8.c:1413
-msgid "Invalid byte sequence in conversion input"
-msgstr "நிலை மாற்றியின் உள்ளீடுக்கு தவறான பைட் வரிசைமுறை"
-
-#: ../glib/gconvert.c:638 ../glib/gconvert.c:944 ../glib/giochannel.c:1409
-#: ../glib/giochannel.c:2300
-#, c-format
-msgid "Error during conversion: %s"
-msgstr "மாற்றும் போது பிழை: %s"
-
-#: ../glib/gconvert.c:669 ../glib/gutf8.c:960 ../glib/gutf8.c:1164
-#: ../glib/gutf8.c:1305 ../glib/gutf8.c:1409
-msgid "Partial character sequence at end of input"
-msgstr "உள்ளீடின் முடிவில் பூர்த்தியாகாத வரியுரு வரிசைமுறை"
-
-#: ../glib/gconvert.c:919
-#, c-format
-msgid "Cannot convert fallback '%s' to codeset '%s'"
-msgstr "பின்னடைப்பு '%s', '%s' குறிக் கணமிற்கு மாற்ற முடியவில்லை"
-
-#: ../glib/gconvert.c:1737
-#, c-format
-msgid "The URI '%s' is not an absolute URI using the \"file\" scheme"
-msgstr "URI '%s' \"கோப்பு\"திட்டத்தை பயன்படுத்தும் முழுமையான URI அல்ல"
-
-#: ../glib/gconvert.c:1747
-#, c-format
-msgid "The local file URI '%s' may not include a '#'"
-msgstr "உள்ளமைக் கோப்பு வலை முகவரி `%s' இல் ஓர் `#' இல்லாமல் இருக்கலாம்"
-
-#: ../glib/gconvert.c:1764
-#, c-format
-msgid "The URI '%s' is invalid"
-msgstr "`%s' செல்லுபடியாகாத வலை முகவரி"
-
-#: ../glib/gconvert.c:1776
-#, c-format
-msgid "The hostname of the URI '%s' is invalid"
-msgstr "`%s' வலை முகவரியின் விருந்தோம்புப்-பெயர் செல்லுபடியாகாதது"
-
-#: ../glib/gconvert.c:1792
-#, c-format
-msgid "The URI '%s' contains invalidly escaped characters"
-msgstr "வலை முகவரி `%s' இல் செல்லுபடியாகாத 'விடுபடு' வரியுருகள்"
-
-#: ../glib/gconvert.c:1887
-#, c-format
-msgid "The pathname '%s' is not an absolute path"
-msgstr "'%s' பாதைப்-பெயர் ஓர் தனிப் பாதை அல்ல"
-
-#: ../glib/gconvert.c:1897
-msgid "Invalid hostname"
-msgstr "பிழையான விருந்தோம்புப்-பெயர்"
-
-#: ../glib/gdir.c:110 ../glib/gdir.c:130
-#, c-format
-msgid "Error opening directory '%s': %s"
-msgstr "'%s' அடைவு திறக்கும்போது பிழை: %s"
-
-#: ../glib/gfileutils.c:532 ../glib/gfileutils.c:620
-#, c-format
-msgid "Could not allocate %lu bytes to read file \"%s\""
-msgstr "%lu பைட்டுகளை \"%s\" கோப்பு வாசிப்பதற்கு ஒதுக்கிவைக்க முடியவில்லை"
-
-#: ../glib/gfileutils.c:547
-#, c-format
-msgid "Error reading file '%s': %s"
-msgstr "'%s' கோப்பு வாசிக்கும் போது பிழை: %s"
-
-#: ../glib/gfileutils.c:561
-#, c-format
-msgid "File \"%s\" is too large"
-msgstr "கோப்பு \"%s\" மிகப்பெரியது"
-
-#: ../glib/gfileutils.c:644
-#, c-format
-msgid "Failed to read from file '%s': %s"
-msgstr "'%s' கோப்பிலிருந்து வாசிக்க முடியவில்லை: %s"
-
-#: ../glib/gfileutils.c:695 ../glib/gfileutils.c:782
-#, c-format
-msgid "Failed to open file '%s': %s"
-msgstr "'%s' கோப்பு திறக்க முடியவில்லை: %s"
-
-#: ../glib/gfileutils.c:712 ../glib/gmappedfile.c:133
-#, c-format
-msgid "Failed to get attributes of file '%s': fstat() failed: %s"
-msgstr "'%s' கோப்பின் பண்புகளை பெறமுடியவில்லை: fstat() செயலிழந்தது: %s"
-
-#: ../glib/gfileutils.c:746
-#, c-format
-msgid "Failed to open file '%s': fdopen() failed: %s"
-msgstr "'%s' கோப்பை திறக்க முடியவில்லை: fdopen() செயலிழந்தது: %s"
-
-#: ../glib/gfileutils.c:854
-#, c-format
-msgid "Failed to rename file '%s' to '%s': g_rename() failed: %s"
-msgstr "'%s'கோப்பினை '%s'க்கு மறுபெயரிட முடியவில்லை: g_rename() செயலிழந்தது: %s"
-
-#: ../glib/gfileutils.c:896 ../glib/gfileutils.c:1285
-#, c-format
-msgid "Failed to create file '%s': %s"
-msgstr "'%s' கோப்பை படைக்க முடியவில்லை: %s"
-
-#: ../glib/gfileutils.c:910
-#, c-format
-msgid "Failed to open file '%s' for writing: fdopen() failed: %s"
-msgstr "'%s' கோப்பினை திறக்க முடியவில்லை: fdopen() செயலிழந்தது: %s"
-
-#: ../glib/gfileutils.c:935
-#, c-format
-msgid "Failed to write file '%s': fwrite() failed: %s"
-msgstr "'%s' கோப்பினை எழுத முடியவில்லை: fwrite() செயலிழந்தது: %s"
-
-#: ../glib/gfileutils.c:954
-#, c-format
-msgid "Failed to close file '%s': fclose() failed: %s"
-msgstr "'%s'கோப்பினை மூட முடியவில்லை: fclose() செயலிழந்தது: %s"
-
-#: ../glib/gfileutils.c:1072
-#, c-format
-msgid "Existing file '%s' could not be removed: g_unlink() failed: %s"
-msgstr "இருக்கும் கோப்பு '%s' ஐ நீக்க முடியாது: g_unlink() செயலிழந்தது: %s"
-
-#: ../glib/gfileutils.c:1247
-#, c-format
-msgid "Template '%s' invalid, should not contain a '%s'"
-msgstr "'%s' படிம அச்சு செல்லுபடியாகாதது; அதனில் '%s' இருக்கக் கூடாது"
-
-#: ../glib/gfileutils.c:1260
-#, c-format
-msgid "Template '%s' doesn't contain XXXXXX"
-msgstr "'%s' படிம அச்சில் XXXXXX இல்லை"
-
-#: ../glib/gfileutils.c:1699
-#, c-format
-msgid "%.1f KB"
-msgstr "%.1f KB"
-
-#: ../glib/gfileutils.c:1704
-#, c-format
-msgid "%.1f MB"
-msgstr "%.1f MB"
-
-#: ../glib/gfileutils.c:1709
-#, c-format
-msgid "%.1f GB"
-msgstr "%.1f GB"
-
-#: ../glib/gfileutils.c:1752
-#, c-format
-msgid "Failed to read the symbolic link '%s': %s"
-msgstr "'%s' என்பதன்-குறுக்கம் இணைப்பை வாசிக்க முடியவில்லை: %s"
-
-#: ../glib/gfileutils.c:1773
-msgid "Symbolic links not supported"
-msgstr "என்பதன்-குறுக்கம் இணைப்புகளுக்கு ஆதரவு கிடையாது"
-
-#: ../glib/giochannel.c:1234
-#, c-format
-msgid "Could not open converter from '%s' to '%s': %s"
-msgstr "'%s' லிருந்து'%s'க்கு மாற்றியை திறக்க முடியவில்லை: %s"
-
-#: ../glib/giochannel.c:1579
-msgid "Can't do a raw read in g_io_channel_read_line_string"
-msgstr "g_io_channel_read_line_string இல் மூலமாக வாசிக்க முடியாது"
-
-#: ../glib/giochannel.c:1626 ../glib/giochannel.c:1884
-#: ../glib/giochannel.c:1971
-msgid "Leftover unconverted data in read buffer"
-msgstr "வாசிப்புத் தாங்ககத்தில் மாற்றப்படாத மீதித் தரவுகள்"
-
-#: ../glib/giochannel.c:1707 ../glib/giochannel.c:1784
-msgid "Channel terminates in a partial character"
-msgstr "வாய்க்கால் பாதி வரியுருவில் முடிவடைகிறது"
-
-#: ../glib/giochannel.c:1770
-msgid "Can't do a raw read in g_io_channel_read_to_end"
-msgstr "g_io_channel_read_to_end இல் மூலமாக வாசிக்க முடியாது"
-
-#: ../glib/gmappedfile.c:116
-#, c-format
-msgid "Failed to open file '%s': open() failed: %s"
-msgstr "'%s' கோப்பினை திறக்க முடியவில்லை: open() செயலிழந்தது: %s"
-
-#: ../glib/gmappedfile.c:193
-#, c-format
-msgid "Failed to map file '%s': mmap() failed: %s"
-msgstr "'%s' கோப்பினை ஒப்பிட முடியவில்லை: mmap() செயலிழந்தது: %s"
-
-#: ../glib/gmarkup.c:255 ../glib/gmarkup.c:295
-#, c-format
-msgid "Error on line %d char %d: "
-msgstr "வரி %d எழுத்து %d ல் பிழை: "
-
-#: ../glib/gmarkup.c:389
-#, c-format
-msgid "Error on line %d: %s"
-msgstr "%d வரியில் பிழை: %s"
-
-#: ../glib/gmarkup.c:493
-msgid "Empty entity '&;' seen; valid entities are: &amp; &quot; &lt; &gt; &apos;"
-msgstr "வெற்றா பிரதிநிதி '&;' கண்டது; சரியான பிரதிநிதிகள்: &amp; &quot; &lt; &qt; &apos;"
-
-#: ../glib/gmarkup.c:503
+#: ../libgnome/gnome-help.c:193 ../libgnome/gnome-help.c:208
 #, c-format
 msgid ""
-"Character '%s' is not valid at the start of an entity name; the & character "
-"begins an entity; if this ampersand isn't supposed to be an entity, escape "
-"it as &amp;"
-msgstr ""
-"'%s' வரியுரு பிரதிநிதியின் தொடக்கத்தில் வரக்கூடாது; & வரியுரு பிரதிநிதியைத் "
-"தொடங்கும்; இந்த & ஓர் பிரதிநிதியாக இருக்கக்கூடாது என்றால்; அதை &amp ஆக விடுவி;"
+"Unable to show help as %s is not a directory.  Please check your "
+"installation."
+msgstr "%s ஓர் அடைவு இல்லாததால், உதவி காண்பிக்க முடியவில்லை. உங்கள் நிறுவலை சரிபார்க்கவும்"
 
-#: ../glib/gmarkup.c:537
+#: ../libgnome/gnome-help.c:217
 #, c-format
-msgid "Character '%s' is not valid inside an entity name"
-msgstr "'%s' வரியுரு பிரதிநிதியின் பெயரில் பிழையானது"
-
-#: ../glib/gmarkup.c:574
-#, c-format
-msgid "Entity name '%s' is not known"
-msgstr "பிரதிநிதியின் பெயர் '%s' தெரியாதது"
-
-#: ../glib/gmarkup.c:585
-msgid ""
-"Entity did not end with a semicolon; most likely you used an ampersand "
-"character without intending to start an entity - escape ampersand as &amp;"
+msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr ""
-"பிரதிநிதி ';' உடன் முடிவடையவில்லை; நீங்கள் பிரதிநிதி ஒன்றை தொடங்க யோசிக்காமல் '&' "
-"பயன்படுத்தி இருக்கலாம் - '&'சை &amp ஆக விடுவி;"
+"உதவி பாதைகளை %s இல் அல்லது %s இல் கண்டுபிடிக்க முடியவில்லை. உங்கள் நிறுவலை "
+"சரிபார்க்கவும்"
 
-#: ../glib/gmarkup.c:638
+#: ../libgnome/gnome-help.c:233
 #, c-format
 msgid ""
-"Failed to parse '%-.*s', which should have been a digit inside a character "
-"reference (&#234; for example) - perhaps the digit is too large"
+"Unable to find the help files in either %s or %s.  Please check your "
+"installation"
 msgstr ""
-"'%-.*s'ஐ கூறிட முடியவில்லை,அதன் ஒரு எழுத்துக்குள் ஒரு தசமத்தை கொண்டிருக்க வேண்டும் "
-"குறிப்பு (&#234; எடுத்துக்காட்டாக) - எனினும் தசமம் மிக பெரியதாக உள்ளது"
+"உதவிக் கோப்புகளை %s இல் அல்லது %s இல் கண்டுபிடிக்க முடியவில்லை. உங்கள் நிறுவலை "
+"சரிபார்க்கவும்"
 
-#: ../glib/gmarkup.c:660
+#: ../libgnome/gnome-help.c:350
 #, c-format
-msgid "Character reference '%-.*s' does not encode a permitted character"
-msgstr "எழுத்து குறிப்பு '%-.*s' ஒரு அனுமதிக்கப்பட்ட எழுத்தினை குறிமுறையாக்கவில்லை"
+msgid "Unable to find doc_id %s in the help path"
+msgstr "உதவிப் பாதையில் doc_id %s ஐ கண்டுபிடிக்க முடியவில்லை"
 
-#: ../glib/gmarkup.c:675
-msgid "Empty character reference; should include a digit such as &#454;"
-msgstr "வேற்றான வரியுரு குறிப்பு; &#454 ஆகிய இலக்கங்கள் சேர்ந்திருக் வேண்டும்;"
-
-#: ../glib/gmarkup.c:685
-msgid ""
-"Character reference did not end with a semicolon; most likely you used an "
-"ampersand character without intending to start an entity - escape ampersand "
-"as &amp;"
-msgstr ""
-"Character reference did not end with a semicolon; most likely you used an "
-"ampersand character without intending to start an entity - escape ampersand "
-"as &amp;"
-
-#: ../glib/gmarkup.c:771
-msgid "Unfinished entity reference"
-msgstr "முடிவடையாத உள்ளீட்பு மேற்கோள்"
-
-#: ../glib/gmarkup.c:777
-msgid "Unfinished character reference"
-msgstr "முடிவடையாத வரியுரு மேற்கோள்"
-
-#: ../glib/gmarkup.c:1063
-msgid "Invalid UTF-8 encoded text - overlong sequence"
-msgstr "பிழையான UTF-8 குறியீடு செய்யப்பட்ட உரை - மிக நீண்ட உரை"
-
-#: ../glib/gmarkup.c:1091
-msgid "Invalid UTF-8 encoded text - not a start char"
-msgstr "பிழையான UTF-8 குறியீடு செய்யப்பட்ட உரை - துவங்கும் குறியல்ல"
-
-#: ../glib/gmarkup.c:1130
+#: ../libgnome/gnome-help.c:371
 #, c-format
-msgid "Invalid UTF-8 encoded text - not valid '%s'"
-msgstr "பிழையான UTF-8 குறியீடு செய்யப்பட்ட உரை - செல்லுபடியாகும் '%s' அல்ல"
+msgid "Help document %s/%s not found"
+msgstr "%s/%s உதவி ஆவணம் காணவில்லை"
 
-#: ../glib/gmarkup.c:1168
-msgid "Document must begin with an element (e.g. <book>)"
-msgstr "ஆவணம் ஓர் உறுப்புடன் (உதாரணம்: <book>) தொடங்க வேண்டும்"
+#. FIXME: get this from bonobo
+#: ../libgnome/gnome-init.c:90
+msgid "Bonobo Support"
+msgstr "Bonobo ஆதரவளிப்பு"
 
-#: ../glib/gmarkup.c:1208
+#: ../libgnome/gnome-init.c:144
+msgid "Bonobo activation Support"
+msgstr "Bonobo தொடங்கல் ஆதரவளிப்பு"
+
+#: ../libgnome/gnome-init.c:380 ../libgnome/gnome-init.c:394
+#, c-format
+msgid "Could not create per-user gnome configuration directory `%s': %s\n"
+msgstr "தலா-பயனர்ப்படி குனோம் அமை-வடிவ அடைவு `%s': %s படைக்க முடியவில்லை\n"
+
+#: ../libgnome/gnome-init.c:402
+#, c-format
+msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgstr "தலா-பயனர்ப்படி குனோம் அமை-வடிவ அடைவு `%s' படைக்க முடியவில்லை: %s\n"
+
+#: ../libgnome/gnome-init.c:410
 #, c-format
 msgid ""
-"'%s' is not a valid character following a '<' character; it may not begin an "
-"element name"
+"Could not set mode 0700 on private per-user gnome configuration directory `%"
+"s': %s\n"
 msgstr ""
-"'<' வரியுருவை தொடர்ந்து '%s' வர முடியாது; அதைப் பயன்படுத்தி ஓர் உறுப்படியின் பெயரைத் "
-"தொடங்க முடியாது"
+"க்னோம் அமைப்பு அடைவில் பயனீட்டாளர் அமைப்பை 0700 பாங்கிற்கு அமைக்க முடியவில்லை `%s': %s\n"
+"s\n"
 
-#: ../glib/gmarkup.c:1276
+#: ../libgnome/gnome-init.c:417
+#, c-format
+msgid "Could not create gnome accelerators directory `%s': %s\n"
+msgstr "குனோம் முடுக்கியின் அடைவு `%s': %s ஐ படைக்க முடியவில்லை\n"
+
+#: ../libgnome/gnome-init.c:456
+msgid "GNOME Virtual Filesystem"
+msgstr "குனோம் மாய கோப்பு-அமைப்பு"
+
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
+msgid "Disable sound server usage"
+msgstr "ஒலிச் சேவையக பயன்படுத்தலை முடக்கு"
+
+#: ../libgnome/gnome-init.c:477 ../libgnome/gnome-init.c:520
+msgid "Enable sound server usage"
+msgstr "ஒலிச் சேவையக பயன்படுத்தலை இயலுமைப்படுத்து"
+
+#: ../libgnome/gnome-init.c:481 ../libgnome/gnome-init.c:523
+msgid "Host:port on which the sound server to use is running"
+msgstr "ஒலிச் சேவையகம் பயன்படுத்த வேண்டிய விருந்தோம்பு:துறை பயன்படுத்தப்படுகின்றது"
+
+#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:525
+msgid "HOSTNAME:PORT"
+msgstr "விருந்தோம்பு:துறை"
+
+#: ../libgnome/gnome-init.c:491 ../libgnome/gnome-init.c:535
+msgid "GNOME Library"
+msgstr "குனோம் நூலகம்"
+
+#: ../libgnome/gnome-init.c:492
+msgid "Show GNOME options"
+msgstr "GNOME விருப்பங்களை காட்டு"
+
+#: ../libgnome/gnome-program.c:457
+msgid "Popt Table"
+msgstr "Popt அட்டவணை"
+
+#: ../libgnome/gnome-program.c:458
+msgid "The table of options for popt"
+msgstr "அட்டவணையாக poptக்கான விருப்புத் தேர்வுகள்"
+
+#: ../libgnome/gnome-program.c:465
+msgid "Popt Flags"
+msgstr "Popt கொடிகள்"
+
+#: ../libgnome/gnome-program.c:466
+msgid "The flags to use for popt"
+msgstr "poptக்காக பயன்படுத்த வேண்டிய கொடிகள்"
+
+#: ../libgnome/gnome-program.c:474
+msgid "Popt Context"
+msgstr "Popt சூழல்"
+
+#: ../libgnome/gnome-program.c:475
+msgid "The popt context pointer that GnomeProgram is using"
+msgstr "GnomeProgram பயன்படுத்துகின்ற Popt சூழல் சுட்டி"
+
+#: ../libgnome/gnome-program.c:483
+msgid "GOption Context"
+msgstr "GOption சூழல்"
+
+#: ../libgnome/gnome-program.c:484
+msgid "The goption context pointer that GnomeProgram is using"
+msgstr "goption சூழல் சுட்டியை GnomeProgram பயன்படுத்துகிறது"
+
+#: ../libgnome/gnome-program.c:492
+msgid "Human readable name"
+msgstr "மனிதர் வாசிக்கக்கூடிய பெயர்"
+
+#: ../libgnome/gnome-program.c:493
+msgid "Human readable name of this application"
+msgstr "இந்த  பயன்பாட்டின் மனிதர் வாசிக்கக்கூடிய பெயர்"
+
+#: ../libgnome/gnome-program.c:502
+msgid "GNOME path"
+msgstr "குனோம் பாதை"
+
+#: ../libgnome/gnome-program.c:503
+msgid "Path in which to look for installed files"
+msgstr "நிறுவப்பட்ட கோப்புகளுக்காக தேடவேண்டிய பாதை"
+
+#: ../libgnome/gnome-program.c:512
+msgid "App ID"
+msgstr "பயன்பாட்டின் அடையாளம்"
+
+#: ../libgnome/gnome-program.c:513
+msgid "ID string to use for this application"
+msgstr "இப் பயன்பாட்டுக்காக பயன்படுத்த வேண்டிய அடையாள சரம்"
+
+#: ../libgnome/gnome-program.c:520
+msgid "App version"
+msgstr "பயன்பாட்டு பதிப்பு"
+
+#: ../libgnome/gnome-program.c:521
+msgid "Version of this application"
+msgstr "இப் பயன்பாட்டின் பதிப்பு"
+
+#: ../libgnome/gnome-program.c:528
+msgid "GNOME Prefix"
+msgstr "குனோம் முற்சேர்க்கை"
+
+#: ../libgnome/gnome-program.c:529
+msgid "Prefix where GNOME was installed"
+msgstr "குனோம் நிறுவிக்கப்பட்ட இடத்தின் முற்சேர்க்கை"
+
+#: ../libgnome/gnome-program.c:538
+msgid "GNOME Libdir"
+msgstr "குனோம் நூலக-அடைவு"
+
+#: ../libgnome/gnome-program.c:539
+msgid "Library prefix where GNOME was installed"
+msgstr "குனோம் நிறுவிக்கப்பட்ட இடத்தின் நூலக முற்சேர்க்கை"
+
+#: ../libgnome/gnome-program.c:548
+msgid "GNOME Datadir"
+msgstr "குனோம் தரவு-அடைவு"
+
+#: ../libgnome/gnome-program.c:549
+msgid "Data prefix where GNOME was installed"
+msgstr "குனோம் நிறுவிக்கப்பட்ட இடத்தின் தரவு முற்சேர்க்கை"
+
+#: ../libgnome/gnome-program.c:558
+msgid "GNOME Sysconfdir"
+msgstr "குனோம் அமைப்புவடிவஅடைவு (Sysconfdir)"
+
+#: ../libgnome/gnome-program.c:559
+msgid "Configuration prefix where GNOME was installed"
+msgstr "குனோம் நிறுவிக்கப்பட்ட இடத்தின் அமைவடிவ முற்சேர்க்கை"
+
+#: ../libgnome/gnome-program.c:569
+msgid "GNOME App Prefix"
+msgstr "குனோம் பயன்பாட்டு முற்சேர்க்கை"
+
+#: ../libgnome/gnome-program.c:570
+msgid "Prefix where this application was installed"
+msgstr "இப் பயன்பாடு நிறுவிக்கப்பட்ட இடத்தின் முற்சேர்க்கை"
+
+#: ../libgnome/gnome-program.c:578
+msgid "GNOME App Libdir"
+msgstr "குனோம் பயன்பாட்டு நூலக அடைவு"
+
+#: ../libgnome/gnome-program.c:579
+msgid "Library prefix where this application was installed"
+msgstr "பயன்பாடு நிறுவிக்கப்பட்ட இடத்தின் நூலக முற்சேர்க்கை"
+
+#: ../libgnome/gnome-program.c:588
+msgid "GNOME App Datadir"
+msgstr "குனோம் பயன்பாட்டு அடைவு"
+
+#: ../libgnome/gnome-program.c:589
+msgid "Data prefix where this application was installed"
+msgstr "பயன்பாடு நிறுவிக்கப்பட்ட இடத்தின் தரவு முற்சேர்க்கை"
+
+#: ../libgnome/gnome-program.c:598
+msgid "GNOME App Sysconfdir"
+msgstr "குனோம் பயன்பாட்டு  அமைப்புவடிவஅடைவு (Sysconfdir)"
+
+#: ../libgnome/gnome-program.c:599
+msgid "Configuration prefix where this application was installed"
+msgstr "பயன்பாடு நிறுவிக்கப்பட்ட இடத்தின்  வடிவ முற்சேர்க்கை"
+
+#: ../libgnome/gnome-program.c:608
+msgid "Create Directories"
+msgstr "அடைவுகளை உருவாக்கு"
+
+#: ../libgnome/gnome-program.c:609
+msgid "Create standard GNOME directories on startup"
+msgstr "தொடங்கும்போது வழமையான குனோம் அடைவுகளை படைக்கவும்"
+
+#: ../libgnome/gnome-program.c:618
+msgid "Enable Sound"
+msgstr "ஒலி இயலுமைப்படுத்தவும்"
+
+#: ../libgnome/gnome-program.c:619
+msgid "Enable sound on startup"
+msgstr "தொடங்கும்போது ஒலியை இயலுமைப்படுத்துக"
+
+#: ../libgnome/gnome-program.c:627
+msgid "Espeaker"
+msgstr "Espeaker"
+
+#: ../libgnome/gnome-program.c:628
+msgid "How to connect to esd"
+msgstr "esdஉடன் எப்படி இணைத்து கொள்வது"
+
+#: ../libgnome/gnome-program.c:1393
+msgid "Help options"
+msgstr "உதவி விருப்பத்தேர்வுகள்"
+
+#: ../libgnome/gnome-program.c:1398
+msgid "Application options"
+msgstr "பயன்பாட்டு விருப்பத்தேர்வுகள்"
+
+#: ../libgnome/gnome-program.c:1414
+msgid "Dynamic modules to load"
+msgstr "ஏற்ற வேண்டிய இயங்குநிலை கூறுகள்"
+
+#: ../libgnome/gnome-program.c:1415
+msgid "MODULE1,MODULE2,..."
+msgstr "கூறு1,கூறு2,..."
+
+#. Translators: the first %s is the error message, 2nd %s the program name
+#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
-"Odd character '%s', expected a '>' character to end the empty-element tag '%"
-"s'"
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"ஒற்றை வரியுரு '%s', '%s' உறுப்படி தொடங்கல் ஒட்டை ஓர் '>' வரியுரு முடிவு செய்யும் "
-"என்று எதிர்பார்த்தது"
+"%s\n"
+"'%s --help' ஐ இயக்கி இருக்கும் கட்டளை வரி விருப்பங்களின் முழு பட்டியலையும் பார்க்கவும்.\n"
 
-#: ../glib/gmarkup.c:1365
+#: ../libgnome/gnome-url.c:85
 #, c-format
-msgid "Odd character '%s', expected a '=' after attribute name '%s' of element '%s'"
-msgstr ""
-"'%s' ஓர் ஒற்றை வரியுரு, பண்பின் பெயர் '%s' பின் ('%s' உறுப்பின்) எதிர்பார்த்தது ஓர் '=' "
-"வரியுரு"
+msgid "Unknown internal error while displaying this location."
+msgstr "இடத்தை காட்டும் போது தெரியாத உள் பிழை"
 
-#: ../glib/gmarkup.c:1407
+#: ../libgnome/gnome-url.c:92
+#, c-format
+msgid "The specified location is invalid."
+msgstr "குறிப்பிட்ட இடம் தவராணது."
+
+#: ../libgnome/gnome-url.c:99
 #, c-format
 msgid ""
-"Odd character '%s', expected a '>' or '/' character to end the start tag of "
-"element '%s', or optionally an attribute; perhaps you used an invalid "
-"character in an attribute name"
-msgstr ""
-"Odd character '%s', expected a '>' or '/' character to end the start tag of "
-"element '%s', or optionally an attribute; perhaps you used an invalid "
-"character in an attribute name"
+"There was an error parsing the default action command associated with this "
+"location."
+msgstr "இந்த இடத்தோடு தொடர்புடைய கட்டளையை பயன்படுத்தும் போது பகுத்தலில் பிழை நேர்ந்தது"
 
-#: ../glib/gmarkup.c:1493
+#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
 #, c-format
 msgid ""
-"Odd character '%s', expected an open quote mark after the equals sign when "
-"giving value for attribute '%s' of element '%s'"
-msgstr ""
-"Odd character '%s', expected an open quote mark after the equals sign when "
-"giving value for attribute '%s' of element '%s'"
+"There was an error launching the default action command associated with this "
+"location."
+msgstr "இந்த இடத்தோடு தொடர்புடைய கட்டைளையை செயல்படுத்தும் போது துவக்க பிழை நேர்ந்தது"
 
-#: ../glib/gmarkup.c:1635
+#: ../libgnome/gnome-url.c:115
 #, c-format
-msgid ""
-"'%s' is not a valid character following the characters '</'; '%s' may not "
-"begin an element name"
-msgstr ""
-"'%s' is not a valid character following the characters '</'; '%s' may not "
-"begin an element name"
+msgid "There is no default action associated with this location."
+msgstr "இந்த இடத்தோடு தொடர்புடைய இயல்பான செயல் எதுவுமில்லை"
 
-#: ../glib/gmarkup.c:1675
+#: ../libgnome/gnome-url.c:122
 #, c-format
-msgid ""
-"'%s' is not a valid character following the close element name '%s'; the "
-"allowed character is '>'"
-msgstr ""
-"'%s' is not a valid character following the close element name '%s'; the "
-"allowed character is '>'"
+msgid "The default action does not support this protocol."
+msgstr "இந்த செயல் இந்த விதிமுறையை என்றும் மீராது"
 
-#: ../glib/gmarkup.c:1686
+#: ../libgnome/gnome-url.c:129
 #, c-format
-msgid "Element '%s' was closed, no element is currently open"
-msgstr "'%s' உறுப்பு மூடப்பட்டுல்லது, தற்பொது ஒரு உறுப்பும் திறந்து இல்லை"
+msgid "The request was cancelled."
+msgstr "கோரிக்கை ரத்து செய்யப்பட்டது."
 
-#: ../glib/gmarkup.c:1695
+#: ../libgnome/gnome-url.c:139
 #, c-format
-msgid "Element '%s' was closed, but the currently open element is '%s'"
-msgstr "'%s' உறுப்பு மூடப்பட்டுல்லது, அனால் தற்பொது திறந்திறுக்கும் உறுப்பு '%s'"
+msgid "The host \"%s\" could not be found."
+msgstr "புரவலன் \"%s\" ஐ காண முடியவில்லை."
 
-#: ../glib/gmarkup.c:1858
-msgid "Document was empty or contained only whitespace"
-msgstr "வெற்றான ஆவணம் அல்லது ஆவணத்தில் இறுப்பது அனைத்தும் வெண்வெளி"
-
-#: ../glib/gmarkup.c:1872
-msgid "Document ended unexpectedly just after an open angle bracket '<'"
-msgstr "'<' பிறகு ஆவணம் திடீரென முடிவடைந்தது"
-
-#: ../glib/gmarkup.c:1880 ../glib/gmarkup.c:1925
+#: ../libgnome/gnome-url.c:145
 #, c-format
-msgid ""
-"Document ended unexpectedly with elements still open - '%s' was the last "
-"element opened"
-msgstr ""
-"உறுப்புகள் திறந்திறுக்கும்போது ஆவணம் திடீரென முடிவடைந்தது - கடைசியாகத் திறக்கப்பட்ட "
-"உறுப்பு '%s'"
+msgid "The host could not be found."
+msgstr "புரவலனை காண முடியவில்லை."
 
-#: ../glib/gmarkup.c:1888
+#: ../libgnome/gnome-url.c:156
 #, c-format
-msgid ""
-"Document ended unexpectedly, expected to see a close angle bracket ending "
-"the tag <%s/>"
-msgstr ""
-"ஆவணம் திடீரென முடிவடைந்தது, அடையாள ஒட்டு <%s/> முடிவில் ஓர் '}' இருக்கும் என "
-"எதிர்பார்த்தது"
+msgid "The location or file could not be found."
+msgstr "இடம் அல்லது கோப்பினை காண முடியவில்லை."
 
-#: ../glib/gmarkup.c:1894
-msgid "Document ended unexpectedly inside an element name"
-msgstr "உறுப்பு பெயர் உள்ளே ஆவணம் திடீரென முடிவடைந்தது"
-
-#: ../glib/gmarkup.c:1900
-msgid "Document ended unexpectedly inside an attribute name"
-msgstr "பண்பு பெயர் உள்ளே ஆவணம் திடீரென முடிவடைந்தது"
-
-#: ../glib/gmarkup.c:1905
-msgid "Document ended unexpectedly inside an element-opening tag."
-msgstr "உறுப்பு-தொடங்களின் அடையாள ஒட்டு  உள்ளே ஆவணம் திடீரென முடிவடைந்தது"
-
-#: ../glib/gmarkup.c:1911
-msgid ""
-"Document ended unexpectedly after the equals sign following an attribute "
-"name; no attribute value"
-msgstr ""
-"Document ended unexpectedly after the equals sign following an attribute "
-"name; no attribute value"
-
-#: ../glib/gmarkup.c:1918
-msgid "Document ended unexpectedly while inside an attribute value"
-msgstr "பண்பு பெயர் உள்ளிறுக்கும் போது ஆவணம் திடீரென முடிவடைந்தது"
-
-#: ../glib/gmarkup.c:1934
+#: ../libgnome/gnome-url.c:163
 #, c-format
-msgid "Document ended unexpectedly inside the close tag for element '%s'"
-msgstr "'%s' என்னும் மூடு-அடையாள ஒட்டு உள்ளே ஆவணம் திடீரென முடிவடைந்தது"
+msgid "The login has failed."
+msgstr "புகுபதிவு செய்ய முடியவில்லை"
 
-#: ../glib/gmarkup.c:1940
-msgid "Document ended unexpectedly inside a comment or processing instruction"
-msgstr "ஆவணம் திடீரென குறிப்புரையுல் அல்லது செயலாக்கம் ஆணையுல் முடிவடைந்தது"
-
-#: ../glib/gregex.c:131
-msgid "corrupted object"
-msgstr "சிதைந்த பொருள்"
-
-#: ../glib/gregex.c:133
-msgid "internal error or corrupted object"
-msgstr "உள்ளமை தவறு அல்லது சிதைந்த பொருள்"
-
-#: ../glib/gregex.c:135
-msgid "out of memory"
-msgstr "நினைவகம் நிரம்பியது"
-
-#: ../glib/gregex.c:140
-msgid "backtracking limit reached"
-msgstr "பின்நோக்கி ஆராயும் எல்லை அடையப்பட்டது"
-
-#: ../glib/gregex.c:152 ../glib/gregex.c:160
-msgid "the pattern contains items not supported for partial matching"
-msgstr "தோரணி உள்ளடக்கங்கள் பகுதி பொருத்தத்துக்கு ஆதரவு தராத உருப்படிகளாக உள்ளன"
-
-#: ../glib/gregex.c:154 ../gio/glocalfile.c:2002
-msgid "internal error"
-msgstr "உள்ளமை தவறு"
-
-#: ../glib/gregex.c:162
-msgid "back references as conditions are not supported for partial matching"
-msgstr "பின்நோக்கும் சமர்பணங்கள் பகுதி பொருத்தத்துக்கு ஆதரவு தராத உருப்படிகளாக உள்ளன"
-
-#: ../glib/gregex.c:171
-msgid "recursion limit reached"
-msgstr "உட்சுழல் எல்லை அடையப்பட்டது."
-
-#: ../glib/gregex.c:173
-msgid "workspace limit for empty substrings reached"
-msgstr "காலியான துணை சரங்களுக்கு பணியிட எல்லை அடையப்பட்டது."
-
-#: ../glib/gregex.c:175
-msgid "invalid combination of newline flags"
-msgstr "செல்லாத புது வரி குறிகளின் கூட்டு"
-
-#: ../glib/gregex.c:179
-msgid "unknown error"
-msgstr "தெரியாத தவறு"
-
-#: ../glib/gregex.c:199
-msgid "\\ at end of pattern"
-msgstr "\\ at end of pattern"
-
-#: ../glib/gregex.c:202
-msgid "\\c at end of pattern"
-msgstr "\\c at end of pattern"
-
-#: ../glib/gregex.c:205
-msgid "unrecognized character follows \\"
-msgstr "அறியாத எழுத்து வருகிறது \\"
-
-#: ../glib/gregex.c:212
-msgid "case-changing escapes (\\l, \\L, \\u, \\U) are not allowed here"
-msgstr "case-changing escapes (\\l, \\L, \\u, \\U) இங்கு அனுமதி இல்லை"
-
-#: ../glib/gregex.c:215
-msgid "numbers out of order in {} quantifier"
-msgstr "{} தகுதியாளரில் செயலிழக்கப்பட்டவையின் எண்ணிக்கைகள்"
-
-#: ../glib/gregex.c:218
-msgid "number too big in {} quantifier"
-msgstr "நிறையில்{} எண்கள் மிக பெரிதாக உள்ளன"
-
-#: ../glib/gregex.c:221
-msgid "missing terminating ] for character class"
-msgstr "எண் வகுப்புக்காக ] விடிபட்டவைகளை முடிவடையச் செய்தல்"
-
-#: ../glib/gregex.c:224
-msgid "invalid escape sequence in character class"
-msgstr "எண் வகுப்பில் தவறான வரிசைமுறையை தவிர்த்தல்"
-
-#: ../glib/gregex.c:227
-msgid "range out of order in character class"
-msgstr "எழுத்து வகுப்பில் வரம்பு செயலிழக்கப்பட்டது"
-
-#: ../glib/gregex.c:230
-msgid "nothing to repeat"
-msgstr "மீண்டும் செய்வதற்கு எதுவுமில்லை"
-
-#: ../glib/gregex.c:233
-msgid "unrecognized character after (?"
-msgstr "அடையாளம் காணமுடியாத எண்ணிற்கு பிறகு (?"
-
-#: ../glib/gregex.c:237
-msgid "unrecognized character after (?<"
-msgstr "அடையாளம் காணமுடியாத எண்ணிற்கு பிறகு (?<"
-
-#: ../glib/gregex.c:241
-msgid "unrecognized character after (?P"
-msgstr "அடையாளம் காணமுடியாத எண்ணிற்கு பிறகு (?P"
-
-#: ../glib/gregex.c:244
-msgid "POSIX named classes are supported only within a class"
-msgstr "POSIX என பெயரிடப்பட்ட வகுப்புகள் வகுப்பிற்குள் மட்டும் தான் துணைபுரியும் "
-
-#: ../glib/gregex.c:247
-msgid "missing terminating )"
-msgstr "விடுப்பட்ட முடித்தல் )"
-
-#: ../glib/gregex.c:251
-msgid ") without opening ("
-msgstr ") திறக்காமல் ("
-
-#. translators: '(?R' and '(?[+-]digits' are both meant as (groups of)
-#. * sequences here, '(?-54' would be an example for the second group.
-#.
-#: ../glib/gregex.c:258
-msgid "(?R or (?[+-]digits must be followed by )"
-msgstr "(?R அல்லது (?[+-]இவற்றால் எண்கள் பின்தொடரப்பட்டால் )"
-
-#: ../glib/gregex.c:261
-msgid "reference to non-existent subpattern"
-msgstr "இல்லாத துணை தோற்றத்திற்கான குறிப்பு"
-
-#: ../glib/gregex.c:264
-msgid "missing ) after comment"
-msgstr "கட்டளைக்கு பிறகு ) தவறியது"
-
-#: ../glib/gregex.c:267
-msgid "regular expression too large"
-msgstr "சாதரண வெளிப்பாடுகள் மிகப்பெரியவை"
-
-#: ../glib/gregex.c:270
-msgid "failed to get memory"
-msgstr "நினைவிற்கு கொண்டு வருவதில் தோல்வி"
-
-#: ../glib/gregex.c:273
-msgid "lookbehind assertion is not fixed length"
-msgstr "lookbehind வலியுறுத்துதல் நிலையான நீளத்தில் இல்லை"
-
-#: ../glib/gregex.c:276
-msgid "malformed number or name after (?("
-msgstr "தவறான எண் அல்லது பெயருக்கு பிறகு (?("
-
-#: ../glib/gregex.c:279
-msgid "conditional group contains more than two branches"
-msgstr "நிபந்தனைக்குட்பட்ட குழு இரண்டுக்கும் மேற்பட்ட கிளைகளை பெற்றுள்ளது"
-
-#: ../glib/gregex.c:282
-msgid "assertion expected after (?("
-msgstr "பின் வலியுறுத்துதல் எதிர்பார்க்கப்படுகிறது (?("
-
-#: ../glib/gregex.c:285
-msgid "unknown POSIX class name"
-msgstr "தெரியாத POSIX வகுப்பு பெயர்"
-
-#: ../glib/gregex.c:288
-msgid "POSIX collating elements are not supported"
-msgstr "POSIX collating elements are not supported"
-
-#: ../glib/gregex.c:291
-msgid "character value in \\x{...} sequence is too large"
-msgstr "எண்ணின் மதிப்பு \\x{...} இடைவிடா வரிசையில் மிகப்பெரிதாக உள்ளது"
-
-#: ../glib/gregex.c:294
-msgid "invalid condition (?(0)"
-msgstr "தவறான நிபந்தனை (?(0)"
-
-#: ../glib/gregex.c:297
-msgid "\\C not allowed in lookbehind assertion"
-msgstr "\\C ஐ lookbehind ல் வலியுறுத்த அனுமதியில்லை"
-
-#: ../glib/gregex.c:300
-msgid "recursive call could loop indefinitely"
-msgstr "கட்டாயமில்லாமல் மறுசுழற்சி அழைப்பு சுற்றாது"
-
-#: ../glib/gregex.c:303
-msgid "missing terminator in subpattern name"
-msgstr "subpattern பெயரில் முடிக்கப்பட்ட விடுபட்டவைகள்"
-
-#: ../glib/gregex.c:306
-msgid "two named subpatterns have the same name"
-msgstr "இரண்டு பெயரிடப்பட்ட subpatterns களும் ஒரே பெயரை பெற்றுள்ளது"
-
-#: ../glib/gregex.c:309
-msgid "malformed \\P or \\p sequence"
-msgstr "தவறானது \\P அல்லது \\p இடைவிடா வரிசையானது"
-
-#: ../glib/gregex.c:312
-msgid "unknown property name after \\P or \\p"
-msgstr "பின் தெரியாத இயல்பின் பெயர் \\P அல்லது \\p"
-
-#: ../glib/gregex.c:315
-msgid "subpattern name is too long (maximum 32 characters)"
-msgstr "subpattern ன் பெயர் மிக நீளமானது  (அதிகபட்சம் 32 எண்கள்)"
-
-#: ../glib/gregex.c:318
-msgid "too many named subpatterns (maximum 10,000)"
-msgstr "subpatterns க்கு நிறைய பெயர்கள் உள்ளது (அதிகபட்சம் 10,000)"
-
-#: ../glib/gregex.c:321
-msgid "octal value is greater than \\377"
-msgstr "எண்ம மதிப்பு \\377ஐ விட அதிகம்"
-
-#: ../glib/gregex.c:324
-msgid "DEFINE group contains more than one branch"
-msgstr "DEFINE குழு ஒன்றுக்கு மேற்பட்ட கிளைகளை கொண்டுள்ளது"
-
-#: ../glib/gregex.c:327
-msgid "repeating a DEFINE group is not allowed"
-msgstr "DEFINE குழுவை மீண்டும் அமைக்க  அனுமதி இல்லை"
-
-#: ../glib/gregex.c:330
-msgid "inconsistent NEWLINE options"
-msgstr "தொடர்சியற்ற NEWLINE விருப்பங்கள்"
-
-#: ../glib/gregex.c:333
-msgid "\\g is not followed by a braced name or an optionally braced non-zero number"
-msgstr "\\g ஒரு அடைப்புக்குறி மெயர் அல்லது ஒரு விருப்பமான அடைப்புக்குறி பூஜ்ஜியமில்லாததை தொடர்ந்து வராது"
-
-#: ../glib/gregex.c:338
-msgid "unexpected repeat"
-msgstr "எதிர்பாராத திரும்புதல்"
-
-#: ../glib/gregex.c:342
-msgid "code overflow"
-msgstr "அதிக குறியீடு"
-
-#: ../glib/gregex.c:346
-msgid "overran compiling workspace"
-msgstr "overran கைம்பைல் பணியிடம்"
-
-#: ../glib/gregex.c:350
-msgid "previously-checked referenced subpattern not found"
-msgstr "முன்பு சோதிக்கப்பட்ட குறிப்பிடப்பட்ட துணை தோற்றம் இல்லை"
-
-#: ../glib/gregex.c:526 ../glib/gregex.c:1605
+#: ../libgnome/gnome-open.c:52
 #, c-format
-msgid "Error while matching regular expression %s: %s"
-msgstr "வழக்கமான கூற்றை பொருத்துவதில் பிழை%s: %s"
+msgid "Error showing url: %s\n"
+msgstr "URL காட்டும்போது பிழை: %s\n"
 
-#: ../glib/gregex.c:1098
-msgid "PCRE library is compiled without UTF8 support"
-msgstr "பிசிஆர்ஈ நூலகம் யூடிஎஃப்8 ஆதரவு இல்லாமல் தொகுக்கப்பட்டது."
+#: ../monikers/GNOME_Moniker_std.server.in.in.h:1
+msgid "Extra Moniker factory"
+msgstr "இதர Moniker தொழிட்சாலை"
 
-#: ../glib/gregex.c:1107
-msgid "PCRE library is compiled without UTF8 properties support"
-msgstr "பிசிஆர்ஈ நூலகம் யூடிஎஃப்8 பண்புகள் ஆதரவு இல்லாமல் தொகுக்கப்பட்டது."
+#: ../monikers/GNOME_Moniker_std.server.in.in.h:2
+msgid "GConf moniker"
+msgstr "GConf moniker"
 
-#: ../glib/gregex.c:1161
-#, c-format
-msgid "Error while compiling regular expression %s at char %d: %s"
-msgstr "இயல்பான கூற்று %s ஐ தொகுக்கும்போது  %d வரியுருவில் பிழை: %s"
+#: ../monikers/GNOME_Moniker_std.server.in.in.h:3
+msgid "config indirect moniker"
+msgstr "மறைமுக moniker வடிவாக்கம்"
 
-#: ../glib/gregex.c:1197
-#, c-format
-msgid "Error while optimizing regular expression %s: %s"
-msgstr "இயல்பான கூற்று ஐ உகந்ததாக்கும்போது பிழை:%s: %s"
-
-#: ../glib/gregex.c:2033
-msgid "hexadecimal digit or '}' expected"
-msgstr "பதின்னறும எண் அல்லது '}'  எதிர்பார்க்கப்பட்டது."
-
-#: ../glib/gregex.c:2049
-msgid "hexadecimal digit expected"
-msgstr "பதின்னறும எண் எதிர்பார்க்கப்பட்டது."
-
-#: ../glib/gregex.c:2089
-msgid "missing '<' in symbolic reference"
-msgstr "குறியீட்டுருவான சமர்பணத்தில் '<' ஐ காணவில்லை"
-
-#: ../glib/gregex.c:2098
-msgid "unfinished symbolic reference"
-msgstr "முடிவடையாத உள்ளீட்பு மேற்கோள்"
-
-#: ../glib/gregex.c:2105
-msgid "zero-length symbolic reference"
-msgstr "பூஜ்ய நீள உள்ளீட்பு மேற்கோள்"
-
-#: ../glib/gregex.c:2116
-msgid "digit expected"
-msgstr "எண் எதிர்பார்க்கப்பட்டது"
-
-#: ../glib/gregex.c:2134
-msgid "illegal symbolic reference"
-msgstr "சட்டவிரோத உள்ளீட்பு மேற்கோள்"
-
-#: ../glib/gregex.c:2196
-msgid "stray final '\\'"
-msgstr "அனாதையான கடைசி '\\'"
-
-#: ../glib/gregex.c:2200
-msgid "unknown escape sequence"
-msgstr "தெரியாத வெளியேற்ற வரிசைமுறை"
-
-#: ../glib/gregex.c:2210
-#, c-format
-msgid "Error while parsing replacement text \"%s\" at char %lu: %s"
-msgstr "மாற்று உரை \"%s\" ஐ பகுக்கையில் பிழை வரியுரு %lu இல்: %s"
-
-#: ../glib/gshell.c:70
-msgid "Quoted text doesn't begin with a quotation mark"
-msgstr "மேற்களித்த உரை ஓர் \" -உடன் தொடங்கவில்லை"
-
-#: ../glib/gshell.c:160
-msgid "Unmatched quotation mark in command line or other shell-quoted text"
-msgstr "`கட்டளை வடியில் அல்லது வேறு மேற்களித்த உரையில் பொருத்தமற்ற \" "
-
-#: ../glib/gshell.c:538
-#, c-format
-msgid "Text ended just after a '\\' character. (The text was '%s')"
-msgstr "'\\' வரியுருக்கு பின்பு உரை முடிவடைந்தது. (கடைசி உரை: '%s')"
-
-#: ../glib/gshell.c:545
-#, c-format
-msgid "Text ended before matching quote was found for %c. (The text was '%s')"
-msgstr "%c க்கு பொருத்தமான மேற்கோள் கண்டுபிடிப்பதட்கு முன் உரை முடிவடைந்தது. (உரை: '%s')"
-
-#: ../glib/gshell.c:557
-msgid "Text was empty (or contained only whitespace)"
-msgstr "உரை வெற்றா இருந்தது (அல்லது வெண்வெளி மட்டுமே)"
-
-#: ../glib/gspawn-win32.c:283
-msgid "Failed to read data from child process"
-msgstr "சேய் செயலில் இருந்து தரவு வாசிக்க முடியவில்லை"
-
-#: ../glib/gspawn-win32.c:298 ../glib/gspawn.c:1468
-#, c-format
-msgid "Failed to create pipe for communicating with child process (%s)"
-msgstr "(%s) சேய்-செயலிடன் தொடர்பு கொல்ல கழாய்த்-தொடரைப் படைக்க முடியவில்லை"
-
-#: ../glib/gspawn-win32.c:336 ../glib/gspawn-win32.c:344 ../glib/gspawn.c:1132
-#, c-format
-msgid "Failed to read from child pipe (%s)"
-msgstr "(%s) சேய் கழாய்த் தொடரில் இருந்து வாசிக்க முடியவில்லை"
-
-#: ../glib/gspawn-win32.c:367 ../glib/gspawn.c:1337
-#, c-format
-msgid "Failed to change to directory '%s' (%s)"
-msgstr "'%s' (%s) அடைவுக்கு போக முடியவில்லை"
-
-#: ../glib/gspawn-win32.c:373 ../glib/gspawn-win32.c:492
-#, c-format
-msgid "Failed to execute child process (%s)"
-msgstr "(%s) சேய்-செயலை இயக்க முடியவில்லை"
-
-#: ../glib/gspawn-win32.c:442
-#, c-format
-msgid "Invalid program name: %s"
-msgstr "தவறான நிரல் பெயர்: %s"
-
-#: ../glib/gspawn-win32.c:452 ../glib/gspawn-win32.c:720
-#: ../glib/gspawn-win32.c:1276
-#, c-format
-msgid "Invalid string in argument vector at %d: %s"
-msgstr "%dல் மதிப்பரு வெக்டாரில் தவறான சரம்: %s"
-
-#: ../glib/gspawn-win32.c:463 ../glib/gspawn-win32.c:735
-#: ../glib/gspawn-win32.c:1309
-#, c-format
-msgid "Invalid string in environment: %s"
-msgstr "சூழலில் தவறான சரம்: %s"
-
-#: ../glib/gspawn-win32.c:716 ../glib/gspawn-win32.c:1257
-#, c-format
-msgid "Invalid working directory: %s"
-msgstr "தவறான பணி செய்யும் அடைவு: %s"
-
-#: ../glib/gspawn-win32.c:781
-#, c-format
-msgid "Failed to execute helper program (%s)"
-msgstr "உதவியாளர் நிலையை இயக்க முடியவில்லை (%s)"
-
-#: ../glib/gspawn-win32.c:995
-msgid ""
-"Unexpected error in g_io_channel_win32_poll() reading data from a child "
-"process"
-msgstr ""
-"Unexpected error in g_io_channel_win32_poll() reading data from a child "
-"process"
-
-#: ../glib/gspawn.c:188
-#, c-format
-msgid "Failed to read data from child process (%s)"
-msgstr "(%s) சேய்-செயலில் இருந்து தரவு வாசிக்க முடியவில்லை"
-
-#: ../glib/gspawn.c:325
-#, c-format
-msgid "Unexpected error in select() reading data from a child process (%s)"
-msgstr "(%s) சேய்-செயலில் இருந்து தரவு வாசிக்கும் போது, select()'டில் எதிர்பாராத பிழை"
-
-#: ../glib/gspawn.c:408
-#, c-format
-msgid "Unexpected error in waitpid() (%s)"
-msgstr "(%s) waitpid()'டில் எதிர்பாராத பிழை"
-
-#: ../glib/gspawn.c:1197
-#, c-format
-msgid "Failed to fork (%s)"
-msgstr "(%s) தொடங்க முடியவில்லை"
-
-#: ../glib/gspawn.c:1347
-#, c-format
-msgid "Failed to execute child process \"%s\" (%s)"
-msgstr "\"%s\" (%s) சேய்-செயலை இயக்க முடியவில்லை"
-
-#: ../glib/gspawn.c:1357
-#, c-format
-msgid "Failed to redirect output or input of child process (%s)"
-msgstr "சேய் (%s) செயலகத்தின் வெளியீடலை அல்லது உள்ளடலை திசை-மாற்றும்போது பிழை"
-
-#: ../glib/gspawn.c:1366
-#, c-format
-msgid "Failed to fork child process (%s)"
-msgstr "சேய் (%s) செயலகத்தை தொடங்க முடியவில்லை"
-
-#: ../glib/gspawn.c:1374
-#, c-format
-msgid "Unknown error executing child process \"%s\""
-msgstr "சேய் செயல் \"%s\" இயக்கும்போது தெரியாத பிழை"
-
-#: ../glib/gspawn.c:1396
-#, c-format
-msgid "Failed to read enough data from child pid pipe (%s)"
-msgstr "Failed to read enough data from child pid pipe (%s)"
-
-#: ../glib/gutf8.c:1038
-msgid "Character out of range for UTF-8"
-msgstr "UTF-8 க்கு வரியுரு வீச்சு எல்லைக்கு வெளியே"
-
-#: ../glib/gutf8.c:1132 ../glib/gutf8.c:1141 ../glib/gutf8.c:1273
-#: ../glib/gutf8.c:1282 ../glib/gutf8.c:1423 ../glib/gutf8.c:1519
-msgid "Invalid sequence in conversion input"
-msgstr "உரையாடல் உள்ளீட்டில் தவறான வரிசை"
-
-#: ../glib/gutf8.c:1434 ../glib/gutf8.c:1530
-msgid "Character out of range for UTF-16"
-msgstr "UTF-16 க்கு வரியுரு வீச்சு எல்லைக்கு வெளியே"
-
-#: ../glib/goption.c:615
-msgid "Usage:"
-msgstr "ஓபயன்பாடு:"
-
-#: ../glib/goption.c:615
-msgid "[OPTION...]"
-msgstr "[OPTION...]"
-
-#: ../glib/goption.c:719
-msgid "Help Options:"
-msgstr "உதவி விருப்பங்கள்:"
-
-#: ../glib/goption.c:720
-msgid "Show help options"
-msgstr "உதவி விருப்பங்களை காட்டு"
-
-#: ../glib/goption.c:726
-msgid "Show all help options"
-msgstr "அனைத்து உதவி விருப்பங்களை காட்டு"
-
-#: ../glib/goption.c:788
-msgid "Application Options:"
-msgstr "பயன்பாடு விருப்பங்கள்:"
-
-#: ../glib/goption.c:850 ../glib/goption.c:920
-#, c-format
-msgid "Cannot parse integer value '%s' for %s"
-msgstr "'%s' க்கு %sன் இயல் எண் மதிப்பினை கூறிட முடியாது"
-
-#: ../glib/goption.c:860 ../glib/goption.c:928
-#, c-format
-msgid "Integer value '%s' for %s out of range"
-msgstr "'%s' க்கு %sன் இயல் எண் மதிப்பு வரையறையை தாண்டியுள்ளது"
-
-#: ../glib/goption.c:885
-#, c-format
-msgid "Cannot parse double value '%s' for %s"
-msgstr "இரட்டை மதிப்பு '%s' ஐ %sக்கு கூறிட முடியாது"
-
-#: ../glib/goption.c:893
-#, c-format
-msgid "Double value '%s' for %s out of range"
-msgstr "இரட்டை மதிப்பு '%s' %sக்கு வரையறையை தாண்டியுள்ளது"
-
-#: ../glib/goption.c:1156 ../glib/goption.c:1235
-#, c-format
-msgid "Error parsing option %s"
-msgstr "கூறிடும் போது பிழை: %s"
-
-#: ../glib/goption.c:1266 ../glib/goption.c:1380
-#, c-format
-msgid "Missing argument for %s"
-msgstr " %sக்கான விடுபட்ட மதிப்புரு"
-
-#: ../glib/goption.c:1773
-#, c-format
-msgid "Unknown option %s"
-msgstr "தெரியாத விருப்பம் %s"
-
-#: ../glib/gkeyfile.c:358
-msgid "Valid key file could not be found in search dirs"
-msgstr "தேடல் அடைவுகளில் சரியான விசை கோப்பினை காண முடியவில்லை"
-
-#: ../glib/gkeyfile.c:393
-msgid "Not a regular file"
-msgstr "ஒரு முறையான கோப்பில்லை"
-
-#: ../glib/gkeyfile.c:401
-msgid "File is empty"
-msgstr "கோப்பு வெற்றாக உள்ளது"
-
-#: ../glib/gkeyfile.c:761
-#, c-format
-msgid "Key file contains line '%s' which is not a key-value pair, group, or comment"
-msgstr "விசை கோப்பு வரி '%s' கொண்டுள்ளது இது விசை-மதிப்பு சோடியை, குழு, அல்லது குறிப்பு அல்ல"
-
-#: ../glib/gkeyfile.c:821
-#, c-format
-msgid "Invalid group name: %s"
-msgstr "செல்லுபடியாகாத குழு பெயர்: %s"
-
-#: ../glib/gkeyfile.c:843
-msgid "Key file does not start with a group"
-msgstr "விசை கோப்பு ஒரு குழுவாக ஆரம்பமாகாது"
-
-#: ../glib/gkeyfile.c:869
-#, c-format
-msgid "Invalid key name: %s"
-msgstr "செல்லுபடியாகாத விசை பெயர்: %s"
-
-#: ../glib/gkeyfile.c:896
-#, c-format
-msgid "Key file contains unsupported encoding '%s'"
-msgstr "விசை கோப்பு துணையில்லாத குறிமுறையை கொண்டுள்ளது '%s'"
-
-#: ../glib/gkeyfile.c:1112 ../glib/gkeyfile.c:1274 ../glib/gkeyfile.c:2503
-#: ../glib/gkeyfile.c:2569 ../glib/gkeyfile.c:2704 ../glib/gkeyfile.c:2837
-#: ../glib/gkeyfile.c:2990 ../glib/gkeyfile.c:3177 ../glib/gkeyfile.c:3238
-#, c-format
-msgid "Key file does not have group '%s'"
-msgstr "விசை கோப்பு குழுவினை கொண்டிருக்கவில்லை '%s'"
-
-#: ../glib/gkeyfile.c:1286
-#, c-format
-msgid "Key file does not have key '%s'"
-msgstr " '%s' விசையை விசை கோப்பு கொண்டிருக்கவில்லை"
-
-#: ../glib/gkeyfile.c:1393 ../glib/gkeyfile.c:1508
-#, c-format
-msgid "Key file contains key '%s' with value '%s' which is not UTF-8"
-msgstr " '%s'மதிப்பினை உடைய '%s'விசை விசை கோப்பு கொண்டுள்ளது, இது UTF-8 அல்ல"
-
-#: ../glib/gkeyfile.c:1413 ../glib/gkeyfile.c:1528 ../glib/gkeyfile.c:1907
-#, c-format
-msgid "Key file contains key '%s' which has value that cannot be interpreted."
-msgstr "%s'விசையை விசை கோப்பு கொண்டுள்ளது அது கொண்டுள்ள மதிப்பினை மாற்ற முடியாது."
-
-#: ../glib/gkeyfile.c:2122 ../glib/gkeyfile.c:2334
-#, c-format
-msgid ""
-"Key file contains key '%s' in group '%s' which has value that cannot be "
-"interpreted."
-msgstr ""
-"'%s'குழுவில் %s'விசையை விசை கோப்பு கொண்டுள்ளது அது கொண்டுள்ள மதிப்பினை மாற்ற "
-"முடியாது."
-
-#: ../glib/gkeyfile.c:2518 ../glib/gkeyfile.c:2719 ../glib/gkeyfile.c:3249
-#, c-format
-msgid "Key file does not have key '%s' in group '%s'"
-msgstr "'%s' குழுவில் '%s' விசையை விசை கோப்பு கொண்டிருக்கவில்லை"
-
-#: ../glib/gkeyfile.c:3483
-msgid "Key file contains escape character at end of line"
-msgstr "கடைசி வரியில் விசை கோப்பு விடுபடு எழுத்தினை கொண்டுள்ளது"
-
-#: ../glib/gkeyfile.c:3505
-#, c-format
-msgid "Key file contains invalid escape sequence '%s'"
-msgstr "விசை கோப்பு தவறான விடுபடு வரிசையை கொண்டுள்ளது '%s'"
-
-#: ../glib/gkeyfile.c:3647
-#, c-format
-msgid "Value '%s' cannot be interpreted as a number."
-msgstr "மதிப்பு '%s' ஒரு எண்ணாக செயல்பட முடியாது."
-
-#: ../glib/gkeyfile.c:3661
-#, c-format
-msgid "Integer value '%s' out of range"
-msgstr "இயல் எண் மதிப்பு '%s' வரையறையை தாண்டியுள்ளது"
-
-#: ../glib/gkeyfile.c:3694
-#, c-format
-msgid "Value '%s' cannot be interpreted as a float number."
-msgstr "மதிப்பு '%s' தசம எண்ணாக செயல்பட முடியாது."
-
-#: ../glib/gkeyfile.c:3718
-#, c-format
-msgid "Value '%s' cannot be interpreted as a boolean."
-msgstr "மதிப்பு '%s' பூலியனாக செயல்பட முடியாது."
-
-#: ../gio/gbufferedinputstream.c:417 ../gio/gbufferedinputstream.c:498
-#: ../gio/ginputstream.c:193 ../gio/ginputstream.c:325
-#: ../gio/ginputstream.c:566 ../gio/ginputstream.c:691
-#: ../gio/goutputstream.c:202 ../gio/goutputstream.c:656
-#, c-format
-msgid "Too large count value passed to %s"
-msgstr "%sக்கு மிகப்பெரிய எண்ணிக்கை மதிப்பு செலுத்தப்பட்டது"
-
-#: ../gio/gbufferedinputstream.c:885 ../gio/ginputstream.c:901
-#: ../gio/goutputstream.c:1085
-msgid "Stream is already closed"
-msgstr "ஸ்ட்ரீம் ஏற்கனவே மூடப்பட்டது"
-
-#: ../gio/gcancellable.c:366 ../gio/glocalfile.c:1995
-#: ../gio/gsimpleasyncresult.c:627 ../gio/gsimpleasyncresult.c:654
-msgid "Operation was cancelled"
-msgstr "செயல்பாடு ரத்து செய்யப்பட்டது"
-
-#: ../gio/gcontenttype.c:180
+#: ../monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
 msgstr "தெரியாத வகை"
 
-#: ../gio/gcontenttype.c:181
+#: ../monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
-msgid "%s filetype"
-msgstr "%s கோப்பு வகை"
+msgid "Key %s not found in configuration"
+msgstr "அமை வடிவ கோப்பில் விசை %s காணவில்லை"
 
-#: ../gio/gcontenttype.c:678
-#, c-format
-msgid "%s type"
-msgstr "%s வகை"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
+msgid "Beep when a modifier is pressed."
+msgstr "மாற்றி அழுத்தும்போது ஒலிக்கவும்."
 
-#: ../gio/gdatainputstream.c:313
-msgid "Unexpected early end-of-stream"
-msgstr "எதிர்ப்பார்க்கப்படாத முடிவு ஸ்ட்ரீம்"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
+msgid "Disable if two keys are pressed at the same time."
+msgstr "ஒரே நேரத்தில் இரண்டு விசைகள் அழுத்தப்படும்போது முடக்குசெய்."
 
-#: ../gio/gdesktopappinfo.c:462 ../gio/gwin32appinfo.c:222
-msgid "Unnamed"
-msgstr "பெயரில்லாதது"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
+msgstr "@delay மில்லிநொடிகளுக்கு அழுத்தப்படும் வரை, விசை அழுத்தப்பட்டதாக ஏற்றுக்கொள்ள வேண்டாம்."
 
-#: ../gio/gdesktopappinfo.c:701
-msgid "Desktop file didn't specify Exec field"
-msgstr "பணிமேடை கோப்பு Exec புலம் குறிப்பிடப்படவில்லை"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
+msgid "How long to accelerate in milliseconds"
+msgstr "மில்லி விநாடிகளில் முடுக்கத்திற்கு எத்தனை நொடிகள்"
 
-#: ../gio/gdesktopappinfo.c:995
-msgid "Unable to find terminal required for application"
-msgstr "விண்ணப்பத்திற்கு தேவைப்படும் முனையத்தை கண்டுபிடிக்க இயலவில்லை"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
+msgid "How many milliseconds it takes to go from 0 to maximum speed."
+msgstr "0 விலிருந்து ஆகக்கூடிய வேகத்தை அடைவதற்கு எத்தனை மில்லிநொடிகள் எடுக்கும்."
 
-#: ../gio/gdesktopappinfo.c:1227
-#, c-format
-msgid "Can't create user application configuration folder %s: %s"
-msgstr "பயனர் விண்ணப்ப கட்டமைப்பு கோப்புறை %sஐ உருவாக்க இயலவில்லை: %s"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
+msgid "How many milliseconds to wait before mouse movement keys start to operate."
+msgstr "சுட்டி நகர்த்தல் விசைகளை தொடங்குவதற்கு எத்தனை மில்லிநொடிகள் காத்திருக்க வேண்டும்."
 
-#: ../gio/gdesktopappinfo.c:1231
-#, c-format
-msgid "Can't create user MIME configuration folder %s: %s"
-msgstr "பயனர் MIME கட்டமைப்பு கோப்புறை %s உருவாக்க இயலவில்லை: %s"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
+msgid "How many pixels per second to move at the maximum speed."
+msgstr "ஆகக்கூடிய வேகத்தில் எத்தனை பிக்செல்கள் ஓர் நொடியில் நகர்த்த வேண்டும்."
 
-#: ../gio/gdesktopappinfo.c:1635
-#, c-format
-msgid "Can't create user desktop file %s"
-msgstr "பயனர் டெஸ்க்டாப் கோப்பு %s உருவாக்க முடியாது"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
+msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
+msgstr "_same_ keyக்குள் மில்லி விநாடிகளில் @delayயில் பல செயல்களை தவிர்."
 
-#: ../gio/gdesktopappinfo.c:1747
-#, c-format
-msgid "Custom definition for %s"
-msgstr "%sக்கு தனிபயன் விளக்கம்"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
+msgid "Initial delay in milliseconds"
+msgstr "மில்லிநொடிகளில் ஆரம்ப தாமதம்"
 
-#: ../gio/gdrive.c:381
-msgid "drive doesn't implement eject"
-msgstr "இயக்கி வெளியேற்றம் செயல்படுத்தப்படுவில்லை"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
+msgid "Minimum interval in milliseconds"
+msgstr "மில்லிநொடிகளில் ஆகக்குறைந்த இடைவெளி"
 
-#: ../gio/gdrive.c:451
-msgid "drive doesn't implement polling for media"
-msgstr "இயக்கி ஊடகத்தில் பதிவு செய்யப்படவில்லை"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
+msgid "Pixels per seconds"
+msgstr "நொடியில் எத்தனை பிக்செல்கள்"
 
-#: ../gio/gemblem.c:325
-#, c-format
-msgid "Can't handle version %d of GEmblem encoding"
-msgstr "பதிப்பு %d GEmblem குறிமுறையில் கையாள முடியவில்லை"
+#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
+msgid "minimum interval in milliseconds"
+msgstr "மில்லிநொடிகளில் ஆகக்குறைந்த இடைவெளி"
 
-#: ../gio/gemblem.c:335
-#, c-format
-msgid "Malformed number of tokens (%d) in GEmblem encoding"
-msgstr "தவறான டோக்கன்களின் எண்ணிக்கை (%d) GEmblem குறிமுறையில்"
-
-#: ../gio/gemblemedicon.c:296
-#, c-format
-msgid "Can't handle version %d of GEmblemedIcon encoding"
-msgstr "பதிப்பு %dஐ  GEmblemedIcon குறிமுறையில் கையாள முடியவில்லை"
-
-#: ../gio/gemblemedicon.c:306
-#, c-format
-msgid "Malformed number of tokens (%d) in GEmblemedIcon encoding"
-msgstr "தவறான டோக்கன் எண்ணிக்கை (%d) GEmblemedIcon குறிமுறையில்"
-
-#: ../gio/gemblemedicon.c:329
-msgid "Expected a GEmblem for GEmblemedIcon"
-msgstr "GEmblemedIcon க்காக ஒரு GEmblem எதிர்பார்க்கப்படுகிறது"
-
-#: ../gio/gfile.c:827 ../gio/gfile.c:1057 ../gio/gfile.c:1192
-#: ../gio/gfile.c:1428 ../gio/gfile.c:1482 ../gio/gfile.c:1539
-#: ../gio/gfile.c:1622 ../gio/gfile.c:2712 ../gio/gfile.c:2766
-#: ../gio/gfile.c:2897 ../gio/gfile.c:2937 ../gio/gfile.c:3264
-#: ../gio/gfile.c:3666 ../gio/gfile.c:3750 ../gio/gfile.c:3833
-#: ../gio/gfile.c:3913 ../gio/gfile.c:4243 ../gio/win32/gwinhttpfile.c:428
-msgid "Operation not supported"
-msgstr "செயல்பாட்டிற்கு ஆதரவு கிடையாது"
-
-#. Translators: This is an error message when trying to find the
-#. * enclosing (user visible) mount of a file, but none exists.
-#. Translators: This is an error message when trying to
-#. * find the enclosing (user visible) mount of a file, but
-#. * none exists.
-#. Translators: This is an error message when trying to find
-#. * the enclosing (user visible) mount of a file, but none
-#. * exists.
-#: ../gio/gfile.c:1313 ../gio/glocalfile.c:1074 ../gio/glocalfile.c:1085
-#: ../gio/glocalfile.c:1098
-msgid "Containing mount does not exist"
-msgstr "கொண்டுள்ள மவுண்ட் இல்லை"
-
-#: ../gio/gfile.c:1965 ../gio/glocalfile.c:2145
-msgid "Can't copy over directory"
-msgstr "அடைவுக்கு மேலாக நகலெடுக்க முடியாது"
-
-#: ../gio/gfile.c:2025
-msgid "Can't copy directory over directory"
-msgstr "அடைவுக்கு மேலாக அடைவினை நகலெடுக்க முடியாது"
-
-#: ../gio/gfile.c:2033 ../gio/glocalfile.c:2154
-msgid "Target file exists"
-msgstr "இலக்கு கோப்பு வெளியேற்றப்பட்டது"
-
-#: ../gio/gfile.c:2051
-msgid "Can't recursively copy directory"
-msgstr "அடைவை மீண்டும் நகலெடுக்க முடியவில்லை"
-
-#: ../gio/gfile.c:2346
-msgid "Can't copy special file"
-msgstr "சிறப்பு கோப்பை நகலெடுக்க முடியவில்லை"
-
-#: ../gio/gfile.c:2887
-msgid "Invalid symlink value given"
-msgstr "தவறான symlink மதிப்பு கொடுக்கப்பட்டுள்ளது"
-
-#: ../gio/gfile.c:2980
-msgid "Trash not supported"
-msgstr "குப்பை ஆதரவு கிடையாது"
-
-#: ../gio/gfile.c:3029
-#, c-format
-msgid "File names cannot contain '%c'"
-msgstr "'%c' கோப்பின் பெயர்களை பெற்றிருக்கவில்லை"
-
-#: ../gio/gfile.c:5011 ../gio/gvolume.c:370
-msgid "volume doesn't implement mount"
-msgstr "தொகுதி மவுண்டை செயல்படுத்தவில்லை"
-
-#: ../gio/gfile.c:5119
-msgid "No application is registered as handling this file"
-msgstr "இந்த கோப்பைக் கையாள எந்த பதிவு செய்யப்பட்ட விண்ணப்பமும் இல்லை"
-
-#: ../gio/gfileenumerator.c:206
-msgid "Enumerator is closed"
-msgstr "எண்ணிடல் மூடப்பட்டது"
-
-#: ../gio/gfileenumerator.c:213 ../gio/gfileenumerator.c:272
-#: ../gio/gfileenumerator.c:372 ../gio/gfileenumerator.c:481
-msgid "File enumerator has outstanding operation"
-msgstr "கோப்பு எண்ணிடல் சிறந்த செயல்பாட்டை கொண்டுள்ளது"
-
-#: ../gio/gfileenumerator.c:362 ../gio/gfileenumerator.c:471
-msgid "File enumerator is already closed"
-msgstr "கோப்பு எண் ஏற்கனவே மூடப்பட்டது"
-
-#: ../gio/gfileicon.c:145
-msgid "file"
-msgstr "கோப்பு"
-
-#: ../gio/gfileicon.c:146
-msgid "The file containing the icon"
-msgstr "கோப்பு சின்னத்தை கொண்டுள்ளது"
-
-#: ../gio/gfileicon.c:237
-#, c-format
-msgid "Can't handle version %d of GFileIcon encoding"
-msgstr "GFileIcon குறிமுறை பதிப்பு %d ஐ கையாள முடியவில்லை"
-
-#: ../gio/gfileicon.c:247
-msgid "Malformed input data for GFileIcon"
-msgstr "GFileIcon க்கு தவறான உள்பாடு தரவு"
-
-#: ../gio/gfileinputstream.c:157 ../gio/gfileinputstream.c:424
-#: ../gio/gfileoutputstream.c:171 ../gio/gfileoutputstream.c:526
-msgid "Stream doesn't support query_info"
-msgstr "ஸ்ட்ரீம் query_infoக்கு துணைபுரியவில்லை"
-
-#: ../gio/gfileinputstream.c:339 ../gio/gfileoutputstream.c:384
-msgid "Seek not supported on stream"
-msgstr "ஸ்ட்ரீமில் தேடுதல் துணைபுரியவில்லை"
-
-#: ../gio/gfileinputstream.c:383
-msgid "Truncate not allowed on input stream"
-msgstr "உள்ளீடு ஸ்ட்ரீமில் வெட்டுதல் அனுமதி இல்லை"
-
-#: ../gio/gfileoutputstream.c:460
-msgid "Truncate not supported on stream"
-msgstr "ஸ்ட்ரீமில் வெட்டுதல் துணைபுரியவில்லை"
-
-#: ../gio/gicon.c:324
-#, c-format
-msgid "Wrong number of tokens (%d)"
-msgstr "தவறான டோக்கன்களின் எண்ணிக்கை (%d)"
-
-#: ../gio/gicon.c:344
-#, c-format
-msgid "No type for class name %s"
-msgstr "வகுப்பு பெயர் %sக்கு வகை இல்லை"
-
-#: ../gio/gicon.c:354
-#, c-format
-msgid "Type %s does not implement the GIcon interface"
-msgstr "வகை %s GIcon முகப்பை செயல்படுத்தவில்லை"
-
-#: ../gio/gicon.c:365
-#, c-format
-msgid "Type %s is not classed"
-msgstr "வகை %s பிரிக்கப்படவில்லை"
-
-#: ../gio/gicon.c:379
-#, c-format
-msgid "Malformed version number: %s"
-msgstr "தவறான பதிப்பு எண்: %s"
-
-#: ../gio/gicon.c:393
-#, c-format
-msgid "Type %s does not implement from_tokens() on the GIcon interface"
-msgstr "வகை %s from_tokens()ஐ  GIcon முகப்பில் செயல்படுத்தவில்லை"
-
-#: ../gio/gicon.c:469
-msgid "Can't handle the supplied version the icon encoding"
-msgstr "கொடுக்கப்பட்ட சின்ன குறிமுறை பதிப்பை கையாள முடியவில்லை"
-
-#: ../gio/ginputstream.c:202
-msgid "Input stream doesn't implement read"
-msgstr "உள்ளீடு ஸ்ட்ரீம் வாசிப்பை செயல்படுத்தவில்லை"
-
-#. Translators: This is an error you get if there is already an
-#. * operation running against this stream when you try to start
-#. * one
-#. Translators: This is an error you get if there is
-#. * already an operation running against this stream when
-#. * you try to start one
-#: ../gio/ginputstream.c:911 ../gio/goutputstream.c:1095
-msgid "Stream has outstanding operation"
-msgstr "ஸ்ட்ரீம் சிறந்த செயல்பாட்டை கொண்டுள்ளது"
-
-#: ../gio/glocaldirectorymonitor.c:274
-msgid "Unable to find default local directory monitor type"
-msgstr "முன்னிருப்பு உள்ளமை அடைவு மானிட்டர் வகையை தேட முடியவில்லை"
-
-#: ../gio/glocalfile.c:608 ../gio/win32/gwinhttpfile.c:411
-#, c-format
-msgid "Invalid filename %s"
-msgstr "செல்லுபடியாகாத கோப்பு பெயர் %s"
-
-#: ../gio/glocalfile.c:982
-#, c-format
-msgid "Error getting filesystem info: %s"
-msgstr "கோப்பு முறைமை தகவலை பெறும் போது பிழை: %s"
-
-#: ../gio/glocalfile.c:1118
-msgid "Can't rename root directory"
-msgstr "ரூட் அடைவை மறுபெயரிட முடியவில்லை"
-
-#: ../gio/glocalfile.c:1138 ../gio/glocalfile.c:1164
-#, c-format
-msgid "Error renaming file: %s"
-msgstr "கோப்பு மறுபெயரிடும் போது பிழை: %s"
-
-#: ../gio/glocalfile.c:1147
-msgid "Can't rename file, filename already exist"
-msgstr "கோப்பை மறுபெயரிட முடியவில்லை, கோப்புபெயர் ஏற்கனவே வெளியேற்றப்பட்டது"
-
-#: ../gio/glocalfile.c:1160 ../gio/glocalfile.c:2024 ../gio/glocalfile.c:2053
-#: ../gio/glocalfile.c:2207 ../gio/glocalfileoutputstream.c:505
-#: ../gio/glocalfileoutputstream.c:550 ../gio/glocalfileoutputstream.c:1009
-msgid "Invalid filename"
-msgstr "தவறான கோப்பு பெயர்"
-
-#: ../gio/glocalfile.c:1283
-#, c-format
-msgid "Error opening file: %s"
-msgstr "கோப்பு திறக்கும் போது பிழை: %s"
-
-#: ../gio/glocalfile.c:1293
-msgid "Can't open directory"
-msgstr "அடைவை திறக்க இயலவில்லை"
-
-#: ../gio/glocalfile.c:1353
-#, c-format
-msgid "Error removing file: %s"
-msgstr "கோப்பு நீக்கும் போது பிழை: %s"
-
-#: ../gio/glocalfile.c:1717
-#, c-format
-msgid "Error trashing file: %s"
-msgstr "கோப்பினை குப்பைக்கு அனுப்பும் போது பிழை: %s"
-
-#: ../gio/glocalfile.c:1740
-#, c-format
-msgid "Unable to create trash dir %s: %s"
-msgstr "குப்பை அடைவு %sஐ உருவாக்க முடியவில்லை: %s"
-
-#: ../gio/glocalfile.c:1761
-msgid "Unable to find toplevel directory for trash"
-msgstr "குப்பைக்கு மேல் நிலை அடைவை தேட முடியவில்லை"
-
-#: ../gio/glocalfile.c:1840 ../gio/glocalfile.c:1860
-msgid "Unable to find or create trash directory"
-msgstr "குப்பை அடைவை தேட அல்லது உருவாக்க முடியவில்லை"
-
-#: ../gio/glocalfile.c:1894
-#, c-format
-msgid "Unable to create trashing info file: %s"
-msgstr "குப்பை தகவல் கோப்பினை உருவாக்க முடியவில்லை: %s"
-
-#: ../gio/glocalfile.c:1919 ../gio/glocalfile.c:1994 ../gio/glocalfile.c:2001
-#, c-format
-msgid "Unable to trash file: %s"
-msgstr "கோப்பை இழுக்க முடியவில்லை: %s"
-
-#: ../gio/glocalfile.c:2028
-#, c-format
-msgid "Error creating directory: %s"
-msgstr "அடைவை உருவாக்கும்போது பிழை: %s"
-
-#: ../gio/glocalfile.c:2057
-#, c-format
-msgid "Error making symbolic link: %s"
-msgstr "குறிப்பீட்டின் இணைப்பை ஏற்படுத்துவதுல் பிழை: %s"
-
-#: ../gio/glocalfile.c:2117 ../gio/glocalfile.c:2211
-#, c-format
-msgid "Error moving file: %s"
-msgstr "பிழை நகர்த்தும் கோப்பு: %s"
-
-#: ../gio/glocalfile.c:2140
-msgid "Can't move directory over directory"
-msgstr "அடைவில் அடைவை நகர்த்த முடியவில்லை"
-
-#: ../gio/glocalfile.c:2167 ../gio/glocalfileoutputstream.c:829
-#: ../gio/glocalfileoutputstream.c:843 ../gio/glocalfileoutputstream.c:858
-#: ../gio/glocalfileoutputstream.c:874 ../gio/glocalfileoutputstream.c:888
-msgid "Backup file creation failed"
-msgstr "பின்சேமிப்பு கோப்பு உருவாக்க முடியவில்லை"
-
-#: ../gio/glocalfile.c:2186
-#, c-format
-msgid "Error removing target file: %s"
-msgstr "பிழை நீக்கும் இலக்கு கோப்பு : %s"
-
-#: ../gio/glocalfile.c:2200
-msgid "Move between mounts not supported"
-msgstr "மவுண்டிற்கிடையே நகர்த்த முடியவில்லை"
-
-#: ../gio/glocalfileinfo.c:719
-msgid "Attribute value must be non-NULL"
-msgstr "அளவுரு மதிப்பு பூஜ்ஜியமாக இருக்கக்கூடாது"
-
-#: ../gio/glocalfileinfo.c:726
-msgid "Invalid attribute type (string expected)"
-msgstr "தவறான அளவுரு வகை (சரம் எதிர்பார்க்கப்பட்டது)"
-
-#: ../gio/glocalfileinfo.c:733
-msgid "Invalid extended attribute name"
-msgstr "பண்பு பெயர் உள்ளே ஆவணம் திடீரென முடிவடைந்தது"
-
-#: ../gio/glocalfileinfo.c:773
-#, c-format
-msgid "Error setting extended attribute '%s': %s"
-msgstr "விரிவான அளவுரு'%s' அமைப்பதில் பிழை: %s"
-
-#: ../gio/glocalfileinfo.c:1466 ../gio/glocalfileoutputstream.c:713
-#, c-format
-msgid "Error stating file '%s': %s"
-msgstr "'%s' கோப்பை துவக்குவதில் பிழை : %s"
-
-#: ../gio/glocalfileinfo.c:1536
-msgid " (invalid encoding)"
-msgstr " (தவறான குறிமுறை)"
-
-#: ../gio/glocalfileinfo.c:1704
-#, c-format
-msgid "Error stating file descriptor: %s"
-msgstr "கோப்பு விவரிப்பவரை துவக்குவதில் பிழை: %s"
-
-#: ../gio/glocalfileinfo.c:1749
-msgid "Invalid attribute type (uint32 expected)"
-msgstr "தவறான அளவுரு வகை (uint32 எதிர்ப்பார்க்கப்பட்டது)"
-
-#: ../gio/glocalfileinfo.c:1767
-msgid "Invalid attribute type (uint64 expected)"
-msgstr "தவறான அளவுரு வகை (uint64 எதிர்பார்க்கப்பட்டது)"
-
-#: ../gio/glocalfileinfo.c:1786 ../gio/glocalfileinfo.c:1805
-msgid "Invalid attribute type (byte string expected)"
-msgstr "தவறான அளவுரு வகை (பைட் சரம் எதிர்பார்க்கப்பட்டது)"
-
-#: ../gio/glocalfileinfo.c:1831
-#, c-format
-msgid "Error setting permissions: %s"
-msgstr "பிழை அமைப்பதில் அனுமதி: %s"
-
-#: ../gio/glocalfileinfo.c:1882 ../gio/glocalfileinfo.c:2050
-#, c-format
-msgid "Error setting owner: %s"
-msgstr "மாற்றும் போது பிழை: %s"
-
-#: ../gio/glocalfileinfo.c:1905
-msgid "symlink must be non-NULL"
-msgstr "symlink பூஜ்ஜியமாக இருக்கக்கூடாது"
-
-#: ../gio/glocalfileinfo.c:1915 ../gio/glocalfileinfo.c:1934
-#: ../gio/glocalfileinfo.c:1945
-#, c-format
-msgid "Error setting symlink: %s"
-msgstr "symlink: %s கை அமைப்பதில் பிழை"
-
-#: ../gio/glocalfileinfo.c:1924
-msgid "Error setting symlink: file is not a symlink"
-msgstr "symlink அமைப்பதில் பிழை: கோப்பு ஒரு symlinkஆக இல்லை"
-
-#: ../gio/glocalfileinfo.c:2073
-msgid "SELinux context must be non-NULL"
-msgstr "SELinux சூழல் பூஜ்ஜியமாக இருக்கக்கூடாது"
-
-#: ../gio/glocalfileinfo.c:2088
-#, c-format
-msgid "Error setting SELinux context: %s"
-msgstr "SELinux சூழலை அமைப்பதில் பிழை: %s"
-
-#: ../gio/glocalfileinfo.c:2095
-msgid "SELinux is not enabled on this system"
-msgstr "SELinux இந்த கணினியில் செயல்படுத்தப்படவில்லை"
-
-#: ../gio/glocalfileinfo.c:2156
-#, c-format
-msgid "Setting attribute %s not supported"
-msgstr "அளவுரு %s ஐ அமைப்பதில் ஆதரவு கிடையாது"
-
-#: ../gio/glocalfileinputstream.c:160 ../gio/glocalfileoutputstream.c:603
-#, c-format
-msgid "Error reading from file: %s"
-msgstr "கோப்பிலிருந்து வாசிக்கும் போது பிழை: %s"
-
-#: ../gio/glocalfileinputstream.c:191 ../gio/glocalfileinputstream.c:203
-#: ../gio/glocalfileinputstream.c:312 ../gio/glocalfileoutputstream.c:405
-#: ../gio/glocalfileoutputstream.c:906
-#, c-format
-msgid "Error seeking in file: %s"
-msgstr "கோப்பை பார்க்கும் போது பிழை: %s"
-
-#: ../gio/glocalfileinputstream.c:233 ../gio/glocalfileoutputstream.c:208
-#: ../gio/glocalfileoutputstream.c:303
-#, c-format
-msgid "Error closing file: %s"
-msgstr "கோப்பை முடிக்கும் போது பிழை: %s"
-
-#: ../gio/glocalfilemonitor.c:198
-msgid "Unable to find default local file monitor type"
-msgstr "முன்னிருப்பு உள்ளமை கோப்பு மானிட்டர் வகையை தேட முடியவில்லை"
-
-#: ../gio/glocalfileoutputstream.c:172 ../gio/glocalfileoutputstream.c:624
-#, c-format
-msgid "Error writing to file: %s"
-msgstr "பிழையை எழுதும் கோப்பு: %s"
-
-#: ../gio/glocalfileoutputstream.c:235
-#, c-format
-msgid "Error removing old backup link: %s"
-msgstr "பழைய பின்சேமிப்பு இணைப்பை நீக்குவதில் பிழை: %s"
-
-#: ../gio/glocalfileoutputstream.c:249 ../gio/glocalfileoutputstream.c:262
-#, c-format
-msgid "Error creating backup copy: %s"
-msgstr "பின்சேமிப்பு நகலை உருவாக்குவதில் பிழை: %s"
-
-#: ../gio/glocalfileoutputstream.c:280
-#, c-format
-msgid "Error renaming temporary file: %s"
-msgstr "மறுபெயரிடப்பட்ட தற்காலிக கோப்பில் பிழை: %s"
-
-#: ../gio/glocalfileoutputstream.c:451 ../gio/glocalfileoutputstream.c:953
-#, c-format
-msgid "Error truncating file: %s"
-msgstr "கோப்பு வாசிக்கும் போது பிழை: %s"
-
-#: ../gio/glocalfileoutputstream.c:511 ../gio/glocalfileoutputstream.c:556
-#: ../gio/glocalfileoutputstream.c:695 ../gio/glocalfileoutputstream.c:934
-#: ../gio/glocalfileoutputstream.c:1015
-#, c-format
-msgid "Error opening file '%s': %s"
-msgstr "'%s' பிழையை திறக்கும் கோப்பு: %s"
-
-#: ../gio/glocalfileoutputstream.c:726
-msgid "Target file is a directory"
-msgstr "இலக்கு கோப்பு ஒரு அடைவில்லை"
-
-#: ../gio/glocalfileoutputstream.c:731
-msgid "Target file is not a regular file"
-msgstr "இலக்கு கோப்பு ஒரு நிரந்தர கோப்பு இல்லை"
-
-#: ../gio/glocalfileoutputstream.c:743
-msgid "The file was externally modified"
-msgstr "இந்த கோப்பு வெளியார்ந்து மாற்றப்பட்டுள்ளது"
-
-#: ../gio/glocalfileoutputstream.c:922
-#, c-format
-msgid "Error removing old file: %s"
-msgstr "பிழையை நீக்கும் பழைய கோப்பு: %s"
-
-#: ../gio/gmemoryinputstream.c:487 ../gio/gmemoryoutputstream.c:553
-msgid "Invalid GSeekType supplied"
-msgstr "தவறான GSeekType கொடுக்கப்பட்டுள்ளது"
-
-#: ../gio/gmemoryinputstream.c:497 ../gio/gmemoryoutputstream.c:563
-msgid "Invalid seek request"
-msgstr "தவறான தேடும் கோரிக்கை"
-
-#: ../gio/gmemoryinputstream.c:521
-msgid "Cannot truncate GMemoryInputStream"
-msgstr "GMemoryInputStreamஐ தசமமிட முடியவில்லை"
-
-#: ../gio/gmemoryoutputstream.c:290
-msgid "Reached maximum data array limit"
-msgstr "அதிகபட்ச தரவு அணி வரம்பை அடைந்தது"
-
-#: ../gio/gmemoryoutputstream.c:325
-msgid "Memory output stream not resizable"
-msgstr "நினைவக வெளிப்பாடு ஸ்ட்ரீம் அளவிடக்கூடியதல்ல"
-
-#: ../gio/gmemoryoutputstream.c:341
-msgid "Failed to resize memory output stream"
-msgstr "நினைவக வெளிப்பாடு ஸ்ட்ரீமை மறுஅளவிட முடியவில்லை"
-
-#. Translators: This is an error
-#. * message for mount objects that
-#. * don't implement unmount.
-#: ../gio/gmount.c:360
-msgid "mount doesn't implement unmount"
-msgstr "mount  unmountஐ செயல்படுத்தவில்லை"
-
-#. Translators: This is an error
-#. * message for mount objects that
-#. * don't implement eject.
-#: ../gio/gmount.c:435
-msgid "mount doesn't implement eject"
-msgstr "mount வெளியேற்றத்தை செயல்படுத்தவில்லை"
-
-#. Translators: This is an error
-#. * message for mount objects that
-#. * don't implement remount.
-#: ../gio/gmount.c:517
-msgid "mount doesn't implement remount"
-msgstr "mount  remount ஐ செயல்படுத்தவில்லை"
-
-#. Translators: This is an error
-#. * message for mount objects that
-#. * don't implement content type guessing.
-#: ../gio/gmount.c:601
-msgid "mount doesn't implement content type guessing"
-msgstr "mount உள்ளடக்க வகையை செயல்படுத்தவில்லை"
-
-#. Translators: This is an error
-#. * message for mount objects that
-#. * don't implement content type guessing.
-#: ../gio/gmount.c:690
-msgid "mount doesn't implement synchronous content type guessing"
-msgstr "mount ஒருங்கிணைத்தல் உள்ளடக்க வகையை செயல்படுத்தவில்லை"
-
-#: ../gio/goutputstream.c:211 ../gio/goutputstream.c:412
-msgid "Output stream doesn't implement write"
-msgstr "வெளிப்பாடு ஸ்ட்ரீம் எழுதுதலை செயல்படுத்தவில்லை"
-
-#: ../gio/goutputstream.c:372 ../gio/goutputstream.c:780
-msgid "Source stream is already closed"
-msgstr "மூல ஸ்ட்ரீம் ஏற்கனவே மூடப்பட்டது"
-
-#: ../gio/gthemedicon.c:211
-msgid "name"
-msgstr "பெயர்"
-
-#: ../gio/gthemedicon.c:212
-msgid "The name of the icon"
-msgstr "சின்னத்தின் பெயர்"
-
-#: ../gio/gthemedicon.c:223
-msgid "names"
-msgstr "பெயர்கள்"
-
-#: ../gio/gthemedicon.c:224
-msgid "An array containing the icon names"
-msgstr "ஒரு அணி சின்னப்பெயர்களை கொண்டுள்ளது"
-
-#: ../gio/gthemedicon.c:249
-msgid "use default fallbacks"
-msgstr "முன்னிருப்பு ஃபால்பேக்குகளை பயன்படுத்து"
-
-#: ../gio/gthemedicon.c:250
+#: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
-"Whether to use default fallbacks found by shortening the name at '-' "
-"characters. Ignores names after the first if multiple names are given."
+"List of assistive technology applications to start when logging into the "
+"GNOME desktop."
 msgstr ""
-"Whether to use default fallbacks found by shortening the name at '-' "
-"characters. Ignores names after the first if multiple names are given."
+"க்னோம் மேல்மேசைக்குள் நுழையும் போது பங்கெடுத்துக்கொள்ளும் தொழில்நுட்ப பயன்பாடுகளின் "
+"பட்டியலிடவும்."
 
-#: ../gio/gthemedicon.c:499
-#, c-format
-msgid "Can't handle version %d of GThemedIcon encoding"
-msgstr "பதிப்பு %d இன் GThemedIcon குறிமுறையாக்கத்திற்கு கையாள முடியாது"
+#: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
+msgid "Startup Assistive Technology Applications"
+msgstr "கைகொடுக்கும் தொழில்நுட்ப பயன்பாடுகள் துவக்கம்"
 
-#: ../gio/gunixinputstream.c:161 ../gio/gunixoutputstream.c:147
-msgid "File descriptor"
-msgstr "கோப்பு விளக்கி"
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Mobility assistive technology application during "
+"login."
+msgstr "புகுபதிவின் போது விருப்பப்பட்ட நடமாடும் தொழில்நுட்ப பயன்பாடுகள் GNOME துவக்க"
 
-#: ../gio/gunixinputstream.c:162
-msgid "The file descriptor to read from"
-msgstr "கோப்பு விளக்கி வாசிக்கிறது"
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
+msgid "Preferred Mobility assistive technology application"
+msgstr "விருப்பப்பட்ட நடமாடும் தொழில்நுட்ப பயன்பாடுகள்"
 
-#: ../gio/gunixinputstream.c:176 ../gio/gunixoutputstream.c:162
-msgid "Close file descriptor"
-msgstr "கோப்பு விரிவாளரை மூடு"
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
+msgid ""
+"Preferred Mobility assistive technology application to be used for login, "
+"menu, or command line."
+msgstr "விருப்பப்பட்ட நடமாடும் தொழில்நுட்ப பயன்பாடுகள் புகுபதிவு, மெனு அல்லது கட்டளைவரியில் பயன்படுத்த வேண்டும்."
 
-#: ../gio/gunixinputstream.c:177 ../gio/gunixoutputstream.c:163
-msgid "Whether to close the file descriptor when the stream is closed"
-msgstr "ஸ்ட்ரீம் மூடப்படும் போது கோப்பு விளக்கியை மூட வேண்டுமா"
+#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
+msgid "Start preferred Mobility assistive technology application"
+msgstr "விருப்பப்பட்ட நடமாடும் உதவி தொழில்நுட்ப பயன்பாடுகளை துவக்கு"
 
-#: ../gio/gunixinputstream.c:358 ../gio/gunixinputstream.c:378
-#: ../gio/gunixinputstream.c:456 ../gio/gunixoutputstream.c:443
-#, c-format
-msgid "Error reading from unix: %s"
-msgstr "unix லிருந்து வாசிப்பதில் பிழை: %s"
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
+msgid ""
+"GNOME to start preferred Visual assistive technology application during "
+"login."
+msgstr "GNOME புகுபதிவின் போது விருப்பப்பட்ட விஷுவல் உதவி தொழில்நுட்ப பயன்பாட்டை துவக்குகிறது."
 
-#: ../gio/gunixinputstream.c:411 ../gio/gunixinputstream.c:593
-#: ../gio/gunixoutputstream.c:398 ../gio/gunixoutputstream.c:549
-#, c-format
-msgid "Error closing unix: %s"
-msgstr "unix ஐ மூடுவதில் பிழை: %s"
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
+msgid "Preferred Visual assistive technology application"
+msgstr "விருப்பப்பட்ட விஷுவல் உதவி தொழில்நுட்ப பயன்பாடுகள்"
 
-#: ../gio/gunixmounts.c:1846 ../gio/gunixmounts.c:1883
-msgid "Filesystem root"
-msgstr "கோப்பு முறைமை ரூட்"
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
+msgid ""
+"Preferred Visual assistive technology application be used for login, menu, "
+"or command line."
+msgstr "விருப்பப்பட்ட விஷுவல் உதவி தொழில்நுட்ப பயன்பாடுகள் புகுபதிவி, மெனு அல்லது கட்டளைவரியில் பயன்படுத்தப்படும்."
 
-#: ../gio/gunixoutputstream.c:148
-msgid "The file descriptor to write to"
-msgstr "எழுத வேண்டிய கோப்பு விளக்கி"
+#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
+msgid "Start preferred Visual assistive technology application"
+msgstr "விருப்பப்பட்ட விஷுவல்  தொழில்நுட்ப பயன்பாடுகள் துவக்கம்"
 
-#: ../gio/gunixoutputstream.c:344 ../gio/gunixoutputstream.c:365
-#, c-format
-msgid "Error writing to unix: %s"
-msgstr "யுனிக்ஸில் எழுதும் போது பிழை: %s"
+#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
+msgid "Browser needs terminal"
+msgstr "மேலோடிக்கு முனையம் வேண்டும்"
 
-#: ../gio/gvolume.c:444
-msgid "volume doesn't implement eject"
-msgstr "தொகுதி வெளியேற்றத்தை செயல்படுத்தவில்லை"
+#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
+msgid "Browser understands remote"
+msgstr "மேலோடிக்கு தொலைவு விளங்கும்"
 
-#: ../gio/gwin32appinfo.c:277
-msgid "Can't find application"
-msgstr "பயன்பாட்டை காணவில்லை"
+#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:3
+msgid "Default browser"
+msgstr "கொடாநிலை மேலோடி"
 
-#: ../gio/gwin32appinfo.c:300
-#, c-format
-msgid "Error launching application: %s"
-msgstr "பிழையை கண்டுபிடிக்கும் விண்ணப்பம்: %s"
+#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
+msgid "Default browser for all URLs."
+msgstr "அனைத்து URLகளுக்கும் முன்னிருப்பு உலாவி."
 
-#: ../gio/gwin32appinfo.c:336
-msgid "URIs not supported"
-msgstr "URIs துணைப்புரியவில்லை"
+#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
+msgid "Whether the default browser needs a terminal to run."
+msgstr "முன்னிருப்பு உலாவியை இயக்குவதற்கு முனையம் வேண்டுமா"
 
-#: ../gio/gwin32appinfo.c:358
-msgid "association changes not supported on win32"
-msgstr "win32இல் அமைப்பு மாற்றங்கள் துணைபுரிவதில்லை"
+#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
+msgid "Whether the default browser understands netscape remote."
+msgstr "முன்னிருப்பு உலாவிக்கு நெட்ஸ்கேப் தொலைகருவி புரியுமா"
 
-#: ../gio/gwin32appinfo.c:370
-msgid "Association creation not supported on win32"
-msgstr "win32இல் அமைப்பு உருவாக்கம் துணைபுரிவதில்லை"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
+msgid "Calendar needs terminal"
+msgstr "நாள்காட்டிக்கு முனையம் வேண்டும்"
 
-#: ../tests/gio-ls.c:27
-msgid "do not hide entries"
-msgstr "உள்ளீடுகளை மறைக்காதே"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
+msgid "Default calendar"
+msgstr "முன்னிருப்பு நாள்காட்டி"
 
-#: ../tests/gio-ls.c:29
-msgid "use a long listing format"
-msgstr "நீண்ட பட்டியலிடும் முறையை பயன்படுத்து"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
+msgid "Default calendar application"
+msgstr "முன்னிருப்பு நாள்காட்டி பயன்பாடு"
 
-#: ../tests/gio-ls.c:37
-msgid "[FILE...]"
-msgstr "[FILE...]"
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
+msgid "Default tasks"
+msgstr "முன்னிருப்பு பணிகள்"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
+msgid "Default tasks application"
+msgstr "முன்னிருப்பு பணிகள் பயன்பாடு"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
+msgid "Tasks needs terminal"
+msgstr "முனையம் வேண்டும் பணிகள்"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
+msgid "Whether the default calendar application needs a terminal to run"
+msgstr "முன்னிருப்பு நாள்காட்டி பயன்பாட்டை இயக்குவதற்கு முனையம் வேண்டுமா"
+
+#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
+msgid "Whether the default tasks application needs a terminal to run"
+msgstr "முன்னிருப்பு மேலோடி இயக்குவதற்கு முனையம் வேண்டுமா"
+
+#: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
+msgid "Argument used to execute programs in the terminal defined by the 'exec' key."
+msgstr "'exec' விசையால் குறிப்பிடப்பட்ட முனையத்தில் இயங்கும் நிரல்களின் அளவுரு"
+
+#: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
+msgid "Exec Arguments"
+msgstr "செயற்பாடு மாறிகள்"
+
+#: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:3
+msgid "Terminal application"
+msgstr "முனைய செயல்பாடு"
+
+#: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
+msgid "Terminal program to use when starting applications that require one."
+msgstr "தேவைப்படும் போது பயன்பாட்டை துவக்க முனையத்தை பயன்படுத்து"
+
+#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
+msgid ""
+"A list with names of the first window manager workspaces. This key has been "
+"deprecated since GNOME 2.12."
+msgstr ""
+"முதல் சாளர மேலாளர் பணியிடங்களின் பெயர்களிடங்கிய பட்டியல். GNOME 2.12லிருந்து இந்த விசை "
+"எதிரிடையானது."
+
+#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
+msgid "Fallback window manager (deprecated)"
+msgstr "பின்சார்ந்த சாளரமேலாளர் (எதிரிடையானது)"
+
+#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
+msgid ""
+"Fallback window manager if user window manager can't be found. This key has "
+"been deprecated since GNOME 2.12."
+msgstr ""
+"பயனர் சாளரமேலாளர் காணாவிட்டால், பின்சார்ந்த சாளரமேலாளர். GNOME 2.12லிருந்து இந்த விசை "
+"எதிரிடையானது."
+
+#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
+msgid "Names of the workspaces (deprecated)"
+msgstr "பணிஇடங்களின் பெயர்கள் (எதிரிடையானது)"
+
+#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
+msgid "The number of workspaces (deprecated)"
+msgstr "எத்தனை பணிஇடங்கள் (எதிரிடையானது)"
+
+#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
+msgid ""
+"The number of workspaces the window manager should use This key has been "
+"deprecated since GNOME 2.12."
+msgstr ""
+"சாளரமேலாளர் எத்தனை பணிஇடங்களை பயன்படுத்தவேண்டும். GNOME 2.12லிருந்து இந்த விசை "
+"எதிரிடையானது."
+
+#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
+msgid "User window manager (deprecated)"
+msgstr "பயனர் சாளரமேலாளர் (எதிரிடையானது)"
+
+#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
+msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgstr "சாளர மேலாளர் முதலில் முயற்சிக்கட்டும். GNOME 2.12லிருந்து இந்த விசை எதிரிடையானது."
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
+msgid "Color Shading Type"
+msgstr "வண்ண நிழலாக்குதல் வகை"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
+msgid ""
+"Determines how the image set by wallpaper_filename is rendered. Possible "
+"values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\"."
+msgstr ""
+"வால் பேப்பர் கோப்பு பெயரில் உள்ள பிம்பம் எவ்வாறு சீரமைக்கப்பட்டது என்பதை கண்டுபிடிக்கும். "
+"மதிப்புகள் \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
+"\"zoom\" ஆக இருக்கும் (_f)"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
+msgid "Draw Desktop Background"
+msgstr "பின்னணி கணிமேசையை வரையவும்"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
+msgid "File to use for the background image."
+msgstr "பின்னணி படத்திற்கு பயன்படுத்த வேண்டிய கோப்பு"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
+msgid "Have GNOME draw the desktop background."
+msgstr "பணிமேடை பின்னணியை கனோம் வரையட்டும்"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
+msgid ""
+"How to shade the background color. Possible values are \"horizontal-gradient"
+"\", \"vertical-gradient\", and \"solid\"."
+msgstr ""
+"பின்னணி நிறத்தின் அளவை எப்படி மாற்றுவது. மதிப்புகள் \"horizontal-gradient"
+"\", \"vertical-gradient\", மற்றும் \"solid\" இருக்கும்"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
+msgid "Left or Top color when drawing gradients, or the solid color."
+msgstr "இடது அல்லது மேல் வண்ணம் சரிவாக வண்ணம் தரும்போது அல்லது நிலையான வண்னத்தில்"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
+msgid "Opacity with which to draw the background picture."
+msgstr "பின்னணி படத்தை வரைய தேவையான ஒளிபுகு தன்மை"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
+msgid "Picture Filename"
+msgstr "ஓவியம் கோப்பு பெயர்"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
+msgid "Picture Opacity"
+msgstr "படம் ஒளி புகாமை"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
+msgid "Picture Options"
+msgstr "ஓவியம் விருப்பங்கள்"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
+msgid "Primary Color"
+msgstr "முதல் வண்ணம்"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
+msgid "Right or Bottom color when drawing gradients, not used for solid color."
+msgstr "வலது அல்லது கீழ் வண்ணம் சரிவு வண்ணத்தை பயன்படுத்தும் போது அல்லது நிலையான வண்ணத்தில்"
+
+#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
+msgid "Secondary Color"
+msgstr "இரண்டாம் வண்ணம்"
+
+#: ../schemas/desktop_gnome_file_views.schemas.in.h:1
+msgid "File Icon Theme"
+msgstr "கோப்பு குறும்படம் தோற்றம்"
+
+#: ../schemas/desktop_gnome_file_views.schemas.in.h:2
+msgid "Theme used for displaying file icons."
+msgstr "கோப்பு குறும்படங்களை காண்பிப்பதற்கு பயன்படுத்தவேண்டிய தோற்றம்."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
+msgid "Basename of the default theme used by gtk+."
+msgstr "gtk+.பயன்படுத்தும் இயல்பான கருவின் அடிப்படைபெயர்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
+msgid "Buttons Have Icons"
+msgstr "பொத்தான்கள் குறும்படங்களை கொண்டுள்ளது"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
+msgid "Can Change Accels"
+msgstr "முடுகு விசைகளை மாற்றலாம்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
+msgid "Cursor Blink"
+msgstr "நிலை காட்டி சிமிட்டம்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
+msgid "Cursor Blink Time"
+msgstr "நிலை காட்டி சிமிட்டம் நேரம்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
+msgid "Default font"
+msgstr "கொடாநிலை எழுத்துரு"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
+msgid "Document font"
+msgstr "ஆவண எழுத்துரு"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
+msgid "Enable Accessibility"
+msgstr "அனுமதியை இயலுமைப்படுத்துக"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
+msgid "Enable Animations"
+msgstr "அசைவூட்டம் இயலுமைப்படுத்துக"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
+msgid "GTK IM Module"
+msgstr "GTK IM தொகுதி"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
+msgid "GTK IM Preedit Style"
+msgstr "GTK IM முன்திருத்தம் பாணி"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
+msgid "GTK IM Status Style"
+msgstr "GTK IM நிகழ்நிலை பாணி"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
+msgid "Gtk+ Theme"
+msgstr "Gtk+ தோற்றம்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
+msgid "Icon Theme"
+msgstr "குறும்படம் தோற்றம்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
+msgid "Icon theme to use for the panel, nautilus etc."
+msgstr "பலகை, நாடிலஸ் ஆகியவைகளில் புழங்கவேண்டிய குறும்படத் தோற்றம்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
+msgid "Keyboard shortcut to open the menu bars."
+msgstr "விசைப்பலகை குறுக்குவழி பட்டி பட்டைகளை திறக்கிறது"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
+msgid "Length of the cursor blink cycle, in milliseconds."
+msgstr "கர்சர் சிமிட்டும் கால அளவு, மில்லிசெகண்டில்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
+msgid "Menubar Detachable"
+msgstr "கழட்டக்கூடிய பட்டி-பட்டை"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
+msgid "Menubar accelerator"
+msgstr "பட்டி பட்டை மாற்றி"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
+msgid "Menus Have Icons"
+msgstr "பட்டிகளில் குறும்படங்கள்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
+msgid "Menus Have Tearoff"
+msgstr "பட்டிகளில் பிக்கக்கூடியவை"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
+msgid "Module for GtkFileChooser"
+msgstr "GtkFileChooser க்கான பகுதி"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
+msgid ""
+"Module to use as the filesystem model for the GtkFileChooser widget. "
+"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
+msgstr ""
+"GtkFileChooser சிறு சாளரம் கோப்பு அமைப்பு மாதிரியாக பயன்படுத்த வேண்டிய பகுதி. "
+"மதிப்புகள் \"gio\", \"gnome-vfs\" மற்றும் \"gtk+\"."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
+msgid "Monospace font"
+msgstr "Monospace எழுத்துரு"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
+msgid "Name of a monospaced (fixed-width) font for use in locations like terminals."
+msgstr "முனையத்தில் பயன்படுத்தப்படும் நிலையால இடைவெளி(fixed-width) உள்ள எழுத்துருவின் பெயர்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
+msgid "Name of the GTK+ input method Preedit Style used by gtk+."
+msgstr "GTK+ உள்ளிடு முறை முன் திருத்த பாணி பயன்படுத்தும் பெயர் "
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
+msgid "Name of the GTK+ input method Status Style used by gtk+."
+msgstr "GTK+ உள்ளிடு முறை நிலை பாணி பயன்படுத்தும் பெயர் "
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
+msgid "Name of the default font used by gtk+."
+msgstr "gtk+ பயன்படுத்தும் கொடாநிலை எழுத்துரு."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
+msgid "Name of the default font used for reading documents."
+msgstr "ஆவணத்தைப் படிப்பதற்கான முன்னிருப்பு எழுத்துருவின் பெயர்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
+msgid "Name of the input method module used by GTK+."
+msgstr "GTK+ உள்ளிடு முறை நிலை பாணி பயன்படுத்தும் பெயர்."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
+msgid "Show the 'Input Methods' menu"
+msgstr "'உள்ளீடு முறைகள்' பட்டியை காட்டு"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
+msgid "Show the 'Unicode Control Character' menu"
+msgstr "'யுனிக்கோட் கட்டுப்பாடு எழுத்து' பட்டியை காட்டு"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
+msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgstr "கருவிப்பட்டையில் சின்னத்தின் அளவு \"small-toolbar\" அல்லது \"large-toolbar\"."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
+msgid "Status Bar on Right"
+msgstr "நிலைப்பட்டை வலது பக்கத்தில்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
+msgid "Toolbar Detachable"
+msgstr "கழட்டக்கூடிய கருவிப்பட்டை"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
+msgid "Toolbar Icon Size"
+msgstr "கருவிப்பட்டையின் குறும்படம் அளவு"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
+msgid "Toolbar Style"
+msgstr "கருவிப் பட்டை பாணி"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
+msgid ""
+"Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
+"\"text\"."
+msgstr ""
+"கருவிப்பட்டை தோற்றம். சரியான மதிப்புகள் \"both\", \"both_horiz\", \"icon\", மற்றும் "
+"\"text\""
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
+msgid "Use Custom Font"
+msgstr "தனிப்பட்ட எழுத்துரு பயன்படுத்துக"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
+msgid "Whether Applications should have accessibility support."
+msgstr "பயன்பாட்டிற்கு அணுகல் ஆதரவு தேவையா."
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
+msgid ""
+"Whether animations should be displayed. Note: This is a global key, it "
+"changes the behaviour of the window manager, the panel etc."
+msgstr ""
+"உயிர்சித்திரம் காட்டப்பட வேண்டுமா.குறிப்பு: இது பொதுவான விசை, இது சாளர மேலாளரின் "
+"நடத்தை மற்றும் பலகத்தை மாற்றும்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
+msgid "Whether buttons may display an icon in addition to the button text."
+msgstr "மெனுவிற்கு அருகில் அதற்கான சின்னத்தை காட்ட வேண்டிமா"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
+msgid "Whether menus may display an icon next to a menu entry."
+msgstr "மெனுவிற்கு அருகில் அதற்கான சின்னத்தை காட்ட வேண்டிமா"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
+msgid "Whether menus should have a tearoff."
+msgstr "மெனு பிளக்கும் வசதி வேண்டுமா"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
+msgid ""
+"Whether the context menus of entries and text views should offer to change "
+"the input method."
+msgstr "சூழல் பட்டிகளின் உள்ளீடுகள் மற்றும் உரை பார்வைகள் உள்ளீடு முறைகளை மாற்ற வேண்டுமா"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
+msgid ""
+"Whether the context menus of entries and text views should offer to insert "
+"control characters."
+msgstr "சூழல் பட்டிகளின் உள்ளீடுகள் மற்றும் உரை பார்வைகள் கட்டுப்பாடு எழுத்துக்களை நுழைக்க வேண்டுமா"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
+msgid "Whether the cursor should blink."
+msgstr "நிலை காட்டி சிமிட்ட வேண்டுமா"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
+msgid "Whether the user can detach menubars and move them around."
+msgstr "பயனீட்டாளர் மெனுவை தனிப்படுத்தி நகர்த்தலாமா"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
+msgid "Whether the user can detach toolbars and move them around."
+msgstr "பயனீட்டாளர் கருவிப்பட்டியை தனியாக பிரித்து நகர்த்தலாமா"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
+msgid ""
+"Whether the user can dynamically type a new accelerator when positioned over "
+"an active menuitem."
+msgstr ""
+"பயனர் செயலிலுள்ள பட்டி உருப்படியின் மேல் ஒரு புதிய மாற்றியில் எவ்வாறாயினும் தட்டச்சு "
+"செய்யலாம்"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:51
+msgid "Whether to display a status bar meter on the right."
+msgstr "நிலைப்பட்டி மீட்டரை வலது பக்கத்தில் காட்ட வேண்டுமா"
+
+#: ../schemas/desktop_gnome_interface.schemas.in.in.h:52
+msgid "Whether to use a custom font in gtk+ applications."
+msgstr "gtk+ பயன்பாட்டிற்கான தனிப்பயன் எழுத்துருவை பயன்படுத்த வேண்டுமா"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
+msgid "Disable URL and MIME type handlers"
+msgstr "URL மற்றும் MIME வகை கையாளர்கள் செயல்நீக்கு"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
+msgid "Disable command line"
+msgstr "கட்டளை வரிசையை முடக்குக"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
+msgid "Disable lock screen"
+msgstr "திரை பூட்டை செயல்நீக்கு"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
+msgid "Disable print setup"
+msgstr "அச்சிடும் அமைப்பை முடக்குக"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
+msgid "Disable printing"
+msgstr "அச்சிடுவதை முடக்குக"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
+msgid "Disable saving files to disk"
+msgstr "கோப்புகளை வட்டுவில் சேமிப்பதை முடக்குக"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
+msgid "Disable user switching"
+msgstr "அச்சிடுவதை முடக்குக"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
+msgid "Prevent running any URL or MIME type handler applications."
+msgstr "எந்த URL அல்லது MIME வகை கையாளுதல் பயன்பாடுகளையும் தடுக்கிறது."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
+msgid ""
+"Prevent the user from accessing the terminal or specifying a command line to "
+"be executed. For example, this would disable access to the panel's \"Run "
+"Application\" dialog."
+msgstr ""
+"பயனீட்டாளர் முனையத்தை பயன்படுத்துவதை தடுக்க அதற்காக கட்டளைவரியை உள்ளிடவும். உதாரணம், "
+"\"Run Application\" உரையாடல் பலகத்தை அணுகுவதை செயலிழக்க செய்யும்"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
+msgid ""
+"Prevent the user from modifying print settings. For example, this would "
+"disable access to all applications' \"Print Setup\" dialogs."
+msgstr ""
+"பயனீட்டாளர் அச்சுப்பொறி அமைப்பை மாற்றுவதை தடுக்கும். உதாரணம் , இது அனைத்து பயன்பாட்டிலும் "
+"உள்ள \"அச்சுப்பொறி அமைப்பு\" உரையாடல் பெட்டியை செயலிழக்க செய்யும்"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
+msgid ""
+"Prevent the user from printing. For example, this would disable access to "
+"all applications' \"Print\" dialogs."
+msgstr ""
+"பயனீட்டாளர் அச்சடிப்பதை தடுக்கும். உதாரணமாக , இது அனைத்து பயன்பாட்டிலும் உள்ள \"அச்சடி\" "
+"உரையாடல் பெட்டியை செயல்நீக்கம் செய்யாது"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
+msgid ""
+"Prevent the user from saving files to disk. For example, this would disable "
+"access to all applications' \"Save as\" dialogs."
+msgstr ""
+"பயனீட்டாளர் கோப்பை வட்டில் சேமிப்பதை தடுக்கும். உதாரணம், இது \"எனச்சேமி\" உரையாடலை "
+"செயலிழக்க செய்யும்"
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:13
+msgid ""
+"Prevent the user from switching to another account while his session is "
+"active."
+msgstr "பயனருடைய அமர்வு செயலிலிருக்கும் போது வேறு கணக்கிற்கு மாற்றுவதை தடுக்கிறது."
+
+#: ../schemas/desktop_gnome_lockdown.schemas.in.h:14
+msgid "Prevent the user to lock his screen."
+msgstr "இந்த திரையை பயனர் பூட்டுவதை தடுக்கிறது"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
+msgid "File name of the bell sound to be played."
+msgstr "விளையாட வேண்டிய மணி ஓசையின் கோப்புப் பெயர்"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
+msgid "Keyboard Bell Custom Filename"
+msgstr "விசைப்பலகை மணி இயல்பான கோப்பு பெயர்"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
+msgid "Remember NumLock state"
+msgstr "எழுத்து பூட்டு நிலையை நினைவு கொள்"
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
+msgid ""
+"When set to true, GNOME will remember the state of the NumLock LED between "
+"sessions."
+msgstr "உண்மை என்று அமைக்கப்பட்டால், GNOME அமர்வுகளுக்கிடையே எண் பூட்டின் LED நிலையை அறியும்."
+
+#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
+msgid "possible values are \"on\", \"off\", and \"custom\"."
+msgstr "செயல்படக்கூடிய மதிப்புகள் \"இயக்கு\",\"நீக்கு\", மற்றும் \"தனிப்பயன்\""
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
+msgid ""
+"Acceleration multiplier for mouse motion. A value of -1 is the system "
+"default."
+msgstr "சுட்டி நகர்வதற்கான முடக்க பெருக்கி. -1 கணினி இயல்பாக எடுத்துக்கொள்ளும் மதிப்பு"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
+msgid "Cursor font"
+msgstr "நிலை காட்டி எழுத்துரு"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
+msgid "Cursor size"
+msgstr "நிலை காட்டி அளவு"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
+msgid "Cursor theme"
+msgstr "நிலை காட்டி தோற்றம்"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
+msgid ""
+"Cursor theme name. Used only by Xservers that support Xcursor, such as "
+"XFree86 4.3 and later."
+msgstr ""
+"நிலைகாட்டி திட்ட பெயர். XFree86 4.3 அல்லது அதற்கு அடுத்தது போன்ற Xservers ஆல் மட்டுமே "
+"பயன்படுத்தப்பட்டு Xcursorக்கு துணை புரிகிறது."
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
+msgid "Distance before a drag is started."
+msgstr "இழுக்கத்துவங்கும் போது இடைவெளி"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
+msgid ""
+"Distance in pixels the pointer must move before accelerated mouse motion is "
+"activated. A value of -1 is the system default."
+msgstr ""
+"காட்டி சுட்டி முடக்கம் துவங்கும் போது இருக்கும் இடைவெளியின் அளவு பிக்செல்லில் "
+"காட்டப்படும்.  -1 கணினியில் இயல்பான மதிப்பு"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
+msgid "Double Click Time"
+msgstr "இரட்டை அமுக்கு நேரம்"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
+msgid "Drag Threshold"
+msgstr "இழு்பு துவக்க நிலை"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
+msgid ""
+"Font name of the cursor. If unset, the default font is used. This value is "
+"only propagated to the X server start of each session, so changing it mid-"
+"session won't have an effect until the next time you log in."
+msgstr ""
+"கர்சரின் எழுத்துரு பெயர். அமைக்கப்படவில்லை எனில் இயல்பான எழுத்துரு பயன்படுத்தப்படும். இந்த "
+"மதிப்பு X சேவகனுக்கு அனுப்பபட்டு அமர்வின் துவக்கத்தில் பிரதிபலிக்கும், அமர்வின் இடையில் "
+"மாற்றம் செய்தால் அடுத்த முறை துவங்கும் போது செயல்படும்"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
+msgid ""
+"Highlights the current location of the pointer when the Control key is "
+"pressed and released."
+msgstr ""
+"கண்ரோல் விசை அழுத்தப்படும் போதும் விடுவிக்கப்படும் போதும் தற்போதைய காட்டியின் இடம் "
+"தனிப்படுத்தி காட்டப்படும்"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
+msgid "Length of a double click."
+msgstr "இரண்டு சொடுக்குதலின் அளவு"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
+msgid "Locate Pointer"
+msgstr "சுட்டியைக் காட்டுக"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
+msgid "Motion Threshold"
+msgstr "இயக்க துவக்கநிலை"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
+msgid "Mouse button orientation"
+msgstr "சுட்டி பட்டனின் அமைப்பு"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
+msgid "Single Click"
+msgstr "ஓர் அழுத்தம்"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
+msgid "Single click to open icons."
+msgstr "சின்னத்தை திறக்க ஒருமுறை க்ளிக் செய்யவும்"
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
+msgid "Size of the cursor referenced by cursor_theme."
+msgstr "நிலைக்காட்டி-திட்டத்தால் நிலைகாட்டியின் அளவு குறிப்பிடப்பட்டது."
+
+#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
+msgid "Swap left and right mouse buttons for left-handed mice."
+msgstr "வலது இடது சுண்டெலி பொத்தான்களை இடக்கை"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:1
+msgid "Default mixer device"
+msgstr "முன்னிருப்பு கலவை சாதனம்"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:2
+msgid "Default mixer tracks"
+msgstr "முன்னிருப்பு கலவை ட்ராக்கள்"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:3
+msgid "Enable ESD"
+msgstr "ESD ஐ இயலுமைப்படுத்து"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:4
+msgid "Enable sound server startup."
+msgstr "ஒலிச் சேவையக தொடங்குதலை இயலுமைப்படுத்துக."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:5
+msgid "Input feedback sounds"
+msgstr "பின்னூட்ட ஒலிகளை உள்ளீடு செய்"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:6
+msgid "Sound theme name"
+msgstr "ஒலி தீம் பெயர்"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:7
+msgid "Sounds for events"
+msgstr "நிகழ்வுகளுக்கான ஒலி"
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:8
+msgid "The XDG sound theme to use for event sounds."
+msgstr "இந்த XDG ஒலி தீம் நிகழ்வு ஒலிகளுக்கு பயன்படுத்தப்படுகிறது."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:9
+msgid "The default mixer device used by the multimedia key bindings."
+msgstr "பல்லூடக விசை பைண்டிங்கால் பயன்படுத்தப்படும் முன்னிருப்பு கலவை சாதனம் "
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:10
+msgid "The default mixer tracks used by the multimedia key bindings."
+msgstr "பல்லூடக விசை பைண்டிங்கால் முன்னிருப்பு கலவை ட்ராக்கள் பயன்படுத்தப்படுகிறது."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:11
+msgid "Whether to play sounds on input events."
+msgstr "ஒலிகளை பயனர் நிகழ்வின்போது இயக்க வேண்டுமா."
+
+#: ../schemas/desktop_gnome_sound.schemas.in.h:12
+msgid "Whether to play sounds on user events."
+msgstr "ஒலிகளை பயனர் நிகழ்வின்போது விளையாடுவதா இல்லையா"
+
+#: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:1
+msgid ""
+"Maximum age for thumbnails in the cache, in days. Set to -1 to disable "
+"cleaning."
+msgstr "இடையகத்தில் சிறுபடங்களின் அதிகபட்ச வயது ஒரு நாளில். -1 என்று அமைத்து துடைப்பதை செயல்நீக்கு"
+
+#: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
+msgid ""
+"Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
+"cleaning."
+msgstr "இடையகத்தில் சிறுபடங்களின் அதிகபட்ச அளவு மெகாபைட்டில். -1 என்று அமைத்து துடைப்பதை செயல்நீக்கு"
+
+#: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
+msgid "Disable all external thumbnailers"
+msgstr "வெளி சிறுபடங்களை செயல்படுத்தாதே"
+
+#: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:2
+msgid ""
+"Set to true to disable all external thumbnailer programs, independent on "
+"whether they are independently disabled/enabled."
+msgstr ""
+"வெளி சிறுபட நிரல்களை செயல்படுத்தாமல் இருக்க இதை உண்மை என அமைக்க வேண்டும், தனித்தனியே "
+"செயலிழக்க செய்யலாம்/செயல்படுத்தலாம்"
+
+#: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
+msgid "Allow postponing of breaks"
+msgstr "நிறுத்ததை தாமதிக்க அனுமதி"
+
+#: ../schemas/desktop_gnome_typing_break.schemas.in.h:2
+msgid "Break time"
+msgstr "இடைவேளை நேரம்"
+
+#: ../schemas/desktop_gnome_typing_break.schemas.in.h:3
+msgid "Number of minutes of typing time before break mode starts."
+msgstr "நிறுத்த பாங்கு துவங்குவதற்கு முன் உள்ள நிமிடங்களின் எண்ணிக்கை"
+
+#: ../schemas/desktop_gnome_typing_break.schemas.in.h:4
+msgid "Number of minutes that the typing break should last."
+msgstr "தட்டச்சு நிறுத்தம் முடியும் நிமிடம்"
+
+#: ../schemas/desktop_gnome_typing_break.schemas.in.h:5
+msgid "Type time"
+msgstr "நேரம் உள்ளீடுக"
+
+#: ../schemas/desktop_gnome_typing_break.schemas.in.h:6
+msgid "Whether or not keyboard locking is enabled"
+msgstr "விசைப்பலகை பூட்டு செயல்படுத்தப்பட்டதா"
+
+#: ../schemas/desktop_gnome_typing_break.schemas.in.h:7
+msgid "Whether or not keyboard locking is enabled."
+msgstr "விசைப்பலகை பூட்டு செயல்படுத்தப்பட்டதா"
+
+#: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
+msgid "Whether or not the typing break screen can be postponed."
+msgstr "விசைப்பலகை நிறுத்த திரையை தாமதிக்க முடியுமா"
 
