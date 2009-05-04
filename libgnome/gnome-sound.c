@@ -35,9 +35,9 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <time.h>
+#include <glib.h>
 
 #ifdef HAVE_ESD
-#include <poll.h>
 #include <esd.h>
 #endif
 
@@ -421,7 +421,7 @@ gnome_sound_sample_load_audiofile(const char *file)
 static int
 send_all (int fd, const char *buf, size_t buflen)
 {
-	struct pollfd pfd[1];
+	GPollFD pfd[1];
 	size_t nwritten = 0;
 	int flags, rv;
 	ssize_t n;
@@ -431,13 +431,13 @@ send_all (int fd, const char *buf, size_t buflen)
 	
 	fcntl (fd, F_SETFL, flags | O_NONBLOCK);
 	
-	pfd[0].events = POLLOUT;
+	pfd[0].events = G_IO_OUT;
 	pfd[0].fd = fd;
 	
 	do {
 		do {
 			pfd[0].revents = 0;
-			rv = poll (pfd, 1, 100);
+			rv = g_poll (pfd, 1, 100);
 		} while (rv == -1 && (errno == EINTR || errno == EAGAIN));
 		
 		if (rv == -1) {
@@ -449,7 +449,7 @@ send_all (int fd, const char *buf, size_t buflen)
 			
 			fd = -1;
 			break;
-		} else if (rv < 1 || (pfd[0].revents & (POLLERR | POLLHUP | POLLOUT)) != POLLOUT) {
+		} else if (rv < 1 || (pfd[0].revents & (G_IO_ERR | G_IO_HUP | G_IO_OUT)) != G_IO_OUT) {
 			/* we /just/ lost the esd connection */
 			esd_close (fd);
 			fd = -1;
