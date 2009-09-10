@@ -3,13 +3,15 @@
 # Marius Andreiana <marius galuna.ro>, 2002, 2003.
 # Mugurel Tudor <mugurelu@gnome.ro>, 2002 ,2003.
 # Mișu Moldovan <dumol@gnome.ro>, 2003 - 2009.
+# Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-07 23:22+0200\n"
-"PO-Revision-Date: 2009-03-07 23:42+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgnome&component=general\n"
+"POT-Creation-Date: 2009-08-25 10:22+0000\n"
+"PO-Revision-Date: 2009-09-10 21:51+0300\n"
 "Last-Translator: Mișu Moldovan <dumol@gnome.ro>\n"
 "Language-Team: <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -133,16 +135,17 @@ msgstr "Suport de activare Bonobo"
 #: ../libgnome/gnome-init.c:380 ../libgnome/gnome-init.c:394
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Nu s-a putut crea un director de configurare Gnome specific "
-"utilizatorului „%s”: %s\n"
+msgstr ""
+"Nu s-a putut crea un director de configurare Gnome specific utilizatorului "
+"„%s”: %s\n"
 
 #: ../libgnome/gnome-init.c:402
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr ""
-"Nu s-a găsit un director de configurare Gnome specific utilizatorului „%s”: %"
-"s\n"
+"Nu s-a găsit un director de configurare Gnome specific utilizatorului „%s”: "
+"%s\n"
 
 #: ../libgnome/gnome-init.c:410
 #, c-format
@@ -489,8 +492,9 @@ msgstr "Număr de pixeli pe secundă la viteza maximă."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
-msgstr "Ignoră apăsările multiple ale aceleiași taste într-un interval de "
-"„@delay” milisecunde."
+msgstr ""
+"Ignoră apăsările multiple ale aceleiași taste într-un interval de „@delay” "
+"milisecunde."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -513,57 +517,58 @@ msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop."
 msgstr ""
-"Lista aplicațiilor pentru tehnologiile de asistare ce pornesc automat la "
+"Lista aplicațiilor pentru tehnologiile de asistență ce pornesc automat la "
 "autentificarea în mediul GNOME."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
-msgstr "Tehnologiile de asistare pornite automat"
+msgstr "Tehnologiile de asistență pornite automat"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
 "login."
-msgstr "De pornit la autentificare aplicația tehnologiilor de asistare mobilă."
+msgstr ""
+"GNOME va porni la autentificare aplicația tehnologiilor de asistență mobilă."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
-msgstr "Aplicația preferată a tehnologiilor de asistare mobilă"
+msgstr "Aplicația preferată a tehnologiilor de asistență mobilă"
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
 "menu, or command line."
 msgstr ""
-"Aplicația preferată a tehnologiilor de asistare mobilă de utilizat la "
+"Aplicația preferată a tehnologiilor de asistență mobilă de utilizat la "
 "autentificare, în meniu și în linia de comandă."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
-msgstr "Pornește aplicația preferată a tehnologiilor de asistare mobilă"
+msgstr "Pornește aplicația preferată a tehnologiilor de asistență mobilă"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Visual assistive technology application during "
 "login."
 msgstr ""
-"De pornit la autentificare aplicația tehnologiilor de asistare vizuală."
+"De pornit la autentificare aplicația tehnologiilor de asistență vizuală."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
-msgstr "Aplicația preferată a tehnologiilor de asistare vizuală"
+msgstr "Aplicația preferată a tehnologiilor de asistență vizuală"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
 "or command line."
 msgstr ""
-"Aplicația preferată a tehnologiilor de asistare vizuală de utilizat la "
+"Aplicația preferată a tehnologiilor de asistență vizuală de utilizat la "
 "autentificare, în meniu și în linia de comandă."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
-msgstr "Pornește aplicația preferată a tehnologiilor de asistare vizuală"
+msgstr "Pornește aplicația preferată a tehnologiilor de asistență vizuală"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
@@ -587,8 +592,8 @@ msgstr "Specifică dacă navigatorul implicit are nevoie de terminal la pornire.
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote."
-msgstr "Specifică dacă navigatorul implicit înțelege comenzile la distanță "
-"Netscape."
+msgstr ""
+"Specifică dacă navigatorul implicit înțelege comenzile la distanță Netscape."
 
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
 msgid "Calendar needs terminal"
@@ -621,8 +626,9 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
 msgid "Whether the default tasks application needs a terminal to run"
-msgstr "Specifică dacă aplicația implicită de organizare are nevoie de "
-"terminal la pornire"
+msgstr ""
+"Specifică dacă aplicația implicită de organizare are nevoie de terminal la "
+"pornire"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
@@ -752,8 +758,9 @@ msgstr "Culoare primară"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
-msgstr "Culoarea din marginea dreaptă sau de jos când se utilizează "
-"gradienți, nefolosită în cazul unei culori unice."
+msgstr ""
+"Culoarea din marginea dreaptă sau de jos când se utilizează gradienți, "
+"nefolosită în cazul unei culori unice."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
@@ -892,7 +899,7 @@ msgstr "Numele fontului implicit utilizat pentru citirea documentelor."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Name of the input method module used by GTK+."
-msgstr "Numele metodei de input utilizate de GTK+."
+msgstr "Denumirea modulului metodei de input folosit în GTK+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Input Methods' menu"
@@ -1061,16 +1068,16 @@ msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
 msgstr ""
-"Previne tipărirea de către utilizator. De exemplu, se interzice accesul "
-"la comenzile de tipărire ale aplicațiilor."
+"Previne tipărirea de către utilizator. De exemplu, se interzice accesul la "
+"comenzile de tipărire ale aplicațiilor."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
-"Previne salvarea pe disc a fișierelor de către utilizator. De exemplu, "
-"se interzice astfel accesul la comenzile de salvare ale aplicațiilor."
+"Previne salvarea pe disc a fișierelor de către utilizator. De exemplu, se "
+"interzice astfel accesul la comenzile de salvare ale aplicațiilor."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:13
 msgid ""
