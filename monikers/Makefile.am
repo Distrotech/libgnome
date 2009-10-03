@@ -5,7 +5,7 @@ INCLUDES = \
 	-DVERSION=\"$(VERSION)\"
 
 GNOME_Moniker_std.server.in: GNOME_Moniker_std.server.in.in
-	sed -e "s|\@MONIKER_LIBDIR\@|$(monikerdir_in_server_file)|" \
+	$(AM_V_GEN) $(SED) -e "s|\@MONIKER_LIBDIR\@|$(monikerdir_in_server_file)|" \
 		-e "s|\@SOPREFIX\@|$(SOPREFIX)|" $< > $@
 
 CLEANFILES = GNOME_Moniker_std.server GNOME_Moniker_std.server.in

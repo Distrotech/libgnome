@@ -83,9 +83,9 @@ gnome_open_LDADD = \
 	$(GIO_LIBS)
 
 libgnometypebuiltins.h: stamp-libgnometypebuiltins.h
-	@true
+	$(AM_V_GEN) true
 stamp-libgnometypebuiltins.h: Makefile @REBUILD@ $(libgnome_headers)
-	(cd $(srcdir) \
+	$(AM_V_GEN) (cd $(srcdir) \
 	&& glib-mkenums \
 			--fhead "#ifndef __LIBGNOMETYPEBUILTINS_H__\n" \
 			--fhead "#define __LIBGNOMETYPEBUILTINS_H__ 1\n\n" \
@@ -102,7 +102,7 @@ stamp-libgnometypebuiltins.h: Makefile @REBUILD@ $(libgnome_headers)
 	&& echo timestamp > $(@F)
 
 libgnometypebuiltins.c: Makefile @REBUILD@ $(libgnome_headers)
-	(cd $(srcdir) \
+	$(AM_V_GEN) (cd $(srcdir) \
 	&& glib-mkenums \
 			--fhead "#include <config.h>\n" \
 			--fhead "#include <glib-object.h>\n" \

@@ -18,7 +18,7 @@ metadatadir = $(datadir)/gnome-background-properties
 metadata_DATA = $(metadata_in_files:.xml.in=.xml)
 
 gnome-default.xml.in: gnome-default.xml.in.in Makefile
-	sed -e 's^\@datadir\@^$(datadir)^g' < $(srcdir)/gnome-default.xml.in.in > gnome-default.xml.in.tmp \
+	$(AM_V_GEN) $(SED) -e 's^\@datadir\@^$(datadir)^g' < $(srcdir)/gnome-default.xml.in.in > gnome-default.xml.in.tmp \
 	&& mv gnome-default.xml.in.tmp gnome-default.xml.in
 
 @INTLTOOL_SOUNDLIST_RULE@

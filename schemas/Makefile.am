@@ -20,7 +20,7 @@ schema_in_files = \
 	$(NULL)
 
 desktop_gnome_background.schemas.in: desktop_gnome_background.schemas.in.in Makefile
-	sed -e 's^\@datadir\@^$(datadir)^g' < $(srcdir)/desktop_gnome_background.schemas.in.in > desktop_gnome_background.schemas.in.tmp \
+	$(AM_V_GEN) $(SED) -e 's^\@datadir\@^$(datadir)^g' < $(srcdir)/desktop_gnome_background.schemas.in.in > desktop_gnome_background.schemas.in.tmp \
 	&& mv desktop_gnome_background.schemas.in.tmp desktop_gnome_background.schemas.in
 
 schemadir= $(GCONF_SCHEMA_FILE_DIR)
