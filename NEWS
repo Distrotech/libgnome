@@ -1,3 +1,14 @@
+libgnome 2.32.0
+
+gnome-sound APIs now use libcanberra internally. That means that
+gnome_sound_connection_get() and will always return error (-1), and
+gnome_sound_sample_load also always return -1 but still cache
+the sample using the libcanberra API.
+libgnome continues to link to libesound and libaudiofile for ABI
+compatibility; use --disable-esd to remove this dependency.
+(#603198, #603349)
+
+
 libgnome 2.30.0
 
 * Enable silent build using AM_SILENT_RULES (Christian Persch)
