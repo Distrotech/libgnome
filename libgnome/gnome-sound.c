@@ -490,6 +490,8 @@ send_all (int fd, const char *buf, size_t buflen)
  *
  * Returns: The esound sample_id or %-1 if the sample was unable to be cached
  * for esound.
+ *
+ * @Deprecated: 2.30: Use ca_context_cache() or ca_context_cache_full() instead
  */
 int
 gnome_sound_sample_load(const char *sample_name, const char *filename)
@@ -564,6 +566,8 @@ gnome_sound_sample_load(const char *sample_name, const char *filename)
  *
  * Plays the audio stored in @filename, if possible. Fail quietly if playing is
  * not possible (due to missing sound support or for other reasons).
+ *
+ * @Deprecated: 2.30: Use ca_context_play(), ca_gtk_play_for_widget() or ca_gtk_play_for_event() instead
  */
 void
 gnome_sound_play (const char * filename)
@@ -602,6 +606,8 @@ gnome_sound_play (const char * filename)
  * @hostname: Hostname where esd daemon resides.
  *
  * Initialize the esd connection.
+ *
+ * @Deprecated: 2.30
  */
 void
 gnome_sound_init(const char *hostname)
@@ -617,6 +623,8 @@ gnome_sound_init(const char *hostname)
  * gnome_sound_shutdown:
  *
  * Shuts down the gnome sound support.
+ *
+ * @Deprecated: 2.30
  */
 void
 gnome_sound_shutdown(void)
@@ -638,6 +646,8 @@ gnome_sound_shutdown(void)
  *
  * Returns: the file descriptor of our esound connection or %-1
  * on error.
+ *
+ * @Deprecated: 2.30
  **/
 int
 gnome_sound_connection_get (void)

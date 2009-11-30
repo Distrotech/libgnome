@@ -26,6 +26,8 @@
 #ifndef __GNOME_SOUND_H__
 #define __GNOME_SOUND_H__ 1
 
+#ifndef GNOME_DISABLE_DEPRECATED
+
 #include <glib.h>
 
 G_BEGIN_DECLS
@@ -46,5 +48,7 @@ int gnome_sound_sample_load(const char *sample_name, const char *filename);
 void gnome_sound_play (const char * filename);
 
 G_END_DECLS
+
+#endif /* !GNOME_DISABLE_DEPRECATED */
 
 #endif /* __GNOME_SOUND_H__ */
