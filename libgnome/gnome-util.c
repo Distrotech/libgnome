@@ -179,6 +179,7 @@ g_extension_pointer (const char * path)
  *
  * Returns: %0 on success, %-1 on error
  *
+ * @Deprecated: 2.30: Use g_setenv() instead
  **/
 int
 gnome_setenv (const char *name, const char *value, gboolean overwrite)
@@ -210,6 +211,7 @@ gnome_setenv (const char *name, const char *value, gboolean overwrite)
  * this could cause leaks depending on the implementation of
  * environment.
  *
+ * @Deprecated: 2.30: Use g_unsetenv() instead
  **/
 void
 gnome_unsetenv (const char *name)
@@ -246,6 +248,7 @@ gnome_unsetenv (const char *name)
  * this could cause leaks depending on the implementation
  * of environment.
  *
+ * @Deprecated: 2.30
  **/
 void
 gnome_clearenv (void)

@@ -54,6 +54,8 @@ const char * g_extension_pointer (const char * path);
 /* Find the name of the user's shell.  */
 char *gnome_util_user_shell (void);
 
+#ifndef GNOME_DISABLE_DEPRECATED
+
 /* Portable versions of setenv/unsetenv */
 
 /* Note: setenv will leak on some systems (those without setenv) so
@@ -63,7 +65,6 @@ void	gnome_unsetenv (const char *name);
 void	gnome_clearenv (void);
 
 /* Some deprecated functions macroed to their new equivalents */
-#ifndef GNOME_DISABLE_DEPRECATED
 
 #define g_file_exists(filename)		g_file_test ((filename), G_FILE_TEST_EXISTS)
 #define g_unix_error_string(error_num)	g_strerror ((error_num))
