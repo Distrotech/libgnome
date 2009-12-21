@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-20 17:07+0000\n"
-"PO-Revision-Date: 2009-12-20 17:07+0100\n"
+"POT-Creation-Date: 2009-12-21 17:09+0000\n"
+"PO-Revision-Date: 2009-12-21 17:09+0100\n"
 "Last-Translator: Iestyn Pryce <dylunio@gmail.com>\n"
 "Language-Team: Welsh <gnome-cy@pengwyn.linux.org.uk>\n"
 "MIME-Version: 1.0\n"
@@ -136,10 +136,11 @@ msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Methwyd creu cyfeiriadur cyfluniad defnyddiwr GNOME `%s': %s\n"
 
 #: ../libgnome/gnome-init.c:402
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
-msgstr "Methwyd creu cyfeiriadur cyfluniad defnyddiwr GNOME `%s': %s\n"
+msgstr ""
+"Methwyd cael gwybodaeth ar plygell cyfluniad defnyddiwr gnome `%s': %s\n"
 
 #: ../libgnome/gnome-init.c:410
 #, c-format
@@ -611,9 +612,8 @@ msgid "Default tasks application"
 msgstr "Rhaglen tasgau rhagosodedig"
 
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
-#, fuzzy
 msgid "Tasks needs terminal"
-msgstr "Mae'r porwr angen terfynell"
+msgstr "Mae'r tasgau angen terfynell"
 
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
 msgid "Whether the default calendar application needs a terminal to run"
@@ -1007,7 +1007,7 @@ msgstr "A ddylid defnyddio ffont addasedig mewn rhaglenni gtk+."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable URL and MIME type handlers"
-msgstr ""
+msgstr "Analluogi'r trinwyr LAU ac math MIME "
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable command line"
@@ -1035,7 +1035,7 @@ msgstr "Analluogi newid defnyddwyr"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid "Prevent running any URL or MIME type handler applications."
-msgstr ""
+msgstr "Rhwystro rhedeg unrhyw rhaglenni trinwyr LAU neu math MIME."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
@@ -1223,7 +1223,7 @@ msgstr "Galluogi cychwyn y gweinydd sain."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Input feedback sounds"
-msgstr ""
+msgstr "Synau adborth mewnbwn"
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:6
 msgid "Sound theme name"
@@ -1260,12 +1260,16 @@ msgid ""
 "Maximum age for thumbnails in the cache, in days. Set to -1 to disable "
 "cleaning."
 msgstr ""
+"Oedran mwyaf, mewn dyddiau, ar gyfer rhagolygon yn y storfa. Gosodwch i -1 "
+"er mwyn analluogi glanhau."
 
 #: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
 msgid ""
 "Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
 "cleaning."
 msgstr ""
+"Maint mwyaf, mewn megabeit, y storfa rhagolygon. Gosodwch i -1 er mwyn "
+"analluogi glanhau."
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
