@@ -13,87 +13,69 @@ msgstr ""
 "Project-Id-Version: libgnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-07 14:29+0100\n"
-"PO-Revision-Date: 2008-12-22 10:54+0200\n"
-"Last-Translator: Ivar Smolin <okul@linux.ee> \n"
+"PO-Revision-Date: 2010-02-01 09:03+0300\n"
+"Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
 msgstr "Veateade"
 
-#: ../gnome-data/gnome-2.soundlist.in.h:2
 msgid "Informational message"
 msgstr "Informatiivne teade"
 
-#: ../gnome-data/gnome-2.soundlist.in.h:3
 msgid "Log in"
 msgstr "Sisselogimine"
 
-#: ../gnome-data/gnome-2.soundlist.in.h:4
 msgid "Log out"
 msgstr "Väljalogimine"
 
-#: ../gnome-data/gnome-2.soundlist.in.h:5
 msgid "Miscellaneous message"
 msgstr "Muu teade"
 
-#: ../gnome-data/gnome-2.soundlist.in.h:6
 msgid "Question dialog"
 msgstr "Küsimusdialoog"
 
-#: ../gnome-data/gnome-2.soundlist.in.h:7
 msgid "System events"
 msgstr "Süsteemsed sündmused"
 
-#: ../gnome-data/gnome-2.soundlist.in.h:8
 msgid "Warning message"
 msgstr "Hoiatusteade"
 
-#: ../gnome-data/gnome-default.xml.in.in.h:1
 msgid "Default Background"
 msgstr "Vaikimisi taust"
 
-#: ../gnome-data/gtk-events-2.soundlist.in.h:1
 msgid "Choose menu item"
 msgstr "Vali menüükirje"
 
-#: ../gnome-data/gtk-events-2.soundlist.in.h:2
 msgid "Click on command button"
 msgstr "Klõpsa käsunupul"
 
-#: ../gnome-data/gtk-events-2.soundlist.in.h:3
 msgid "Select check box"
 msgstr "Vali märkeruut"
 
-#: ../gnome-data/gtk-events-2.soundlist.in.h:4
 msgid "User interface events"
 msgstr "Kasutajaliidese sündmused"
 
-#: ../libgnome/gnome-exec.c:450
 msgid "Cannot find a terminal, using xterm, even if it may not work"
 msgstr ""
 "Terminali pole võimalik leida, kasutatakse xterm'i. Ka siis, kui see ei "
 "pruugi töötada."
 
-#: ../libgnome/gnome-gconf.c:175
 msgid "GNOME GConf Support"
 msgstr "GNOME GConf'i tugi"
 
-#: ../libgnome/gnome-help.c:167
 #, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_APP_HELP domain"
 msgstr "GNOME_FILE_DOMAIN_APP_HELP domeeni pole võimalik leida"
 
-#: ../libgnome/gnome-help.c:180
 #, c-format
 msgid "Unable to find the GNOME_FILE_DOMAIN_HELP domain."
 msgstr "GNOME_FILE_DOMAIN_HELP domeeni pole võimalik leida"
 
-#: ../libgnome/gnome-help.c:193 ../libgnome/gnome-help.c:208
 #, c-format
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
@@ -102,14 +84,12 @@ msgstr ""
 "Abiteavet pole võimalik näidata kuna %s pole kataloog.  Palun kontrolli "
 "GNOME paigaldust."
 
-#: ../libgnome/gnome-help.c:217
 #, c-format
 msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr ""
 "Abiteavet pole võimalik ei %s ega %s radadelt leida. Palun kontrolli GNOME "
 "paigaldust."
 
-#: ../libgnome/gnome-help.c:233
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
@@ -118,32 +98,26 @@ msgstr ""
 "Abiteavet pole võimalik näidata ei %s ega %s asukohast.  Palun kontrolli "
 "GNOME paigaldust."
 
-#: ../libgnome/gnome-help.c:350
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
 msgstr "doc_id %s pole võimalik abiteabe rajalt leida"
 
-#: ../libgnome/gnome-help.c:371
 #, c-format
 msgid "Help document %s/%s not found"
 msgstr "Abiteabe dokumenti %s/%s ei leitud"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:91
 msgid "Bonobo Support"
 msgstr "Bonobo tugi"
 
-#: ../libgnome/gnome-init.c:145
 msgid "Bonobo activation Support"
 msgstr "Bonobo aktiveerimise tugi"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Gnome kasutajapõhiste seadistuste kataloogi `%s' pole võimalik luua: %s\n"
 
-#: ../libgnome/gnome-init.c:403
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
@@ -151,7 +125,6 @@ msgstr ""
 "Gnome kasutajapõhiste seadistuste kataloogi `%s' kohta pole võimalik andmeid "
 "hankida: %s\n"
 
-#: ../libgnome/gnome-init.c:411
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -160,209 +133,158 @@ msgstr ""
 "Gnome kasutajapõhisele privaatsele seadistustekataloogile `%s' pole võimalik "
 "määrata 0700 õiguseid: %s\n"
 
-#: ../libgnome/gnome-init.c:418
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Gnome kiirendite kataloogi `%s' pole võimalik luua: %s\n"
+msgstr "Gnome kiirklahvide kataloogi `%s' pole võimalik luua: %s\n"
 
-#: ../libgnome/gnome-init.c:457
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME Virtuaalne Failisüsteem"
 
-#: ../libgnome/gnome-init.c:475 ../libgnome/gnome-init.c:518
 msgid "Disable sound server usage"
 msgstr "Heliserveri kasutamise keelamine"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:521
 msgid "Enable sound server usage"
 msgstr "Heliserveri kasutamise lubamine"
 
-#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:524
 msgid "Host:port on which the sound server to use is running"
 msgstr "Kasutatava heliserveri host:port"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
 msgid "HOSTNAME:PORT"
 msgstr "HOSTINIMI:PORT"
 
-#: ../libgnome/gnome-init.c:492 ../libgnome/gnome-init.c:536
 msgid "GNOME Library"
 msgstr "GNOME teek"
 
-#: ../libgnome/gnome-init.c:493
 msgid "Show GNOME options"
 msgstr "GNOME valikute näitamine"
 
-#: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
 msgstr "Popt tabel"
 
-#: ../libgnome/gnome-program.c:458
 msgid "The table of options for popt"
 msgstr "Popt võtmete tabel"
 
-#: ../libgnome/gnome-program.c:465
 msgid "Popt Flags"
 msgstr "Popt lipud"
 
-#: ../libgnome/gnome-program.c:466
 msgid "The flags to use for popt"
 msgstr "Popt lippude tabel"
 
-#: ../libgnome/gnome-program.c:474
 msgid "Popt Context"
 msgstr "Popt kontekst"
 
-#: ../libgnome/gnome-program.c:475
 msgid "The popt context pointer that GnomeProgram is using"
 msgstr "GnomeProgram'i poolt kasutatav Popt konteksti pointer"
 
-#: ../libgnome/gnome-program.c:483
 msgid "GOption Context"
 msgstr "GOption kontekst"
 
-#: ../libgnome/gnome-program.c:484
 msgid "The goption context pointer that GnomeProgram is using"
 msgstr "GnomeProgram'i poolt kasutatav goption konteksti pointer"
 
-#: ../libgnome/gnome-program.c:492
 msgid "Human readable name"
 msgstr "Inimloetav nimi"
 
-#: ../libgnome/gnome-program.c:493
 msgid "Human readable name of this application"
 msgstr "Selle rakenduse inimloetav nimi"
 
-#: ../libgnome/gnome-program.c:502
 msgid "GNOME path"
 msgstr "GNOME rada"
 
-#: ../libgnome/gnome-program.c:503
 msgid "Path in which to look for installed files"
 msgstr "Rada, millelt otsida paigaldatud faile"
 
-#: ../libgnome/gnome-program.c:512
 msgid "App ID"
 msgstr "Rakenduse ID"
 
-#: ../libgnome/gnome-program.c:513
 msgid "ID string to use for this application"
 msgstr "ID-string, mida selle rakenduse jaoks kasutatakse"
 
-#: ../libgnome/gnome-program.c:520
 msgid "App version"
 msgstr "Rakenduse versioon"
 
-#: ../libgnome/gnome-program.c:521
 msgid "Version of this application"
 msgstr "Selle rakenduse versioon"
 
-#: ../libgnome/gnome-program.c:528
 msgid "GNOME Prefix"
 msgstr "GNOME eesliide"
 
-#: ../libgnome/gnome-program.c:529
 msgid "Prefix where GNOME was installed"
 msgstr "GNOME kataloogi paigalduskoha eesliide"
 
-#: ../libgnome/gnome-program.c:538
 msgid "GNOME Libdir"
 msgstr "GNOME teegikataloog"
 
-#: ../libgnome/gnome-program.c:539
 msgid "Library prefix where GNOME was installed"
 msgstr "GNOME teegikataloogi paigalduskoha eesliide"
 
-#: ../libgnome/gnome-program.c:548
 msgid "GNOME Datadir"
 msgstr "GNOME andmekataloog"
 
-#: ../libgnome/gnome-program.c:549
 msgid "Data prefix where GNOME was installed"
 msgstr "GNOME andmekataloogi paigalduskoha eesliide"
 
-#: ../libgnome/gnome-program.c:558
 msgid "GNOME Sysconfdir"
 msgstr "GNOME seadistuskataloog"
 
-#: ../libgnome/gnome-program.c:559
 msgid "Configuration prefix where GNOME was installed"
 msgstr "GNOME seadistuskataloogi paigalduskoha eesliide"
 
-#: ../libgnome/gnome-program.c:569
 msgid "GNOME App Prefix"
 msgstr "GNOME rakenduse eesliide"
 
-#: ../libgnome/gnome-program.c:570
 msgid "Prefix where this application was installed"
 msgstr "Rakenduse kataloogi paigalduskoha eesliide"
 
-#: ../libgnome/gnome-program.c:578
 msgid "GNOME App Libdir"
 msgstr "GNOME rakenduse andmekataloog"
 
-#: ../libgnome/gnome-program.c:579
 msgid "Library prefix where this application was installed"
 msgstr "Rakenduse teegikataloogi paigalduskoha eesliide"
 
-#: ../libgnome/gnome-program.c:588
 msgid "GNOME App Datadir"
 msgstr "GNOME rakenduse andmekataloog"
 
-#: ../libgnome/gnome-program.c:589
 msgid "Data prefix where this application was installed"
 msgstr "Rakenduse andmekataloogi paigalduskoha eesliide"
 
-#: ../libgnome/gnome-program.c:598
 msgid "GNOME App Sysconfdir"
 msgstr "GNOME rakenduse seadistuskataloog"
 
-#: ../libgnome/gnome-program.c:599
 msgid "Configuration prefix where this application was installed"
 msgstr "Rakenduse seadistuskataloogi paigalduskoha eesliide"
 
-#: ../libgnome/gnome-program.c:608
 msgid "Create Directories"
 msgstr "Kataloogide loomine"
 
-#: ../libgnome/gnome-program.c:609
 msgid "Create standard GNOME directories on startup"
 msgstr "GNOME standardkataloogide loomine käivitamisel"
 
-#: ../libgnome/gnome-program.c:618
 msgid "Enable Sound"
 msgstr "Heli lubamine"
 
-#: ../libgnome/gnome-program.c:619
 msgid "Enable sound on startup"
 msgstr "Heli lubamine käivitamisel"
 
-#: ../libgnome/gnome-program.c:627
 msgid "Espeaker"
 msgstr "Espeaker"
 
-#: ../libgnome/gnome-program.c:628
 msgid "How to connect to esd"
 msgstr "Kuidas esd serverisse ühenduda"
 
-#: ../libgnome/gnome-program.c:1393
 msgid "Help options"
 msgstr "Abiteabe võtmed"
 
-#: ../libgnome/gnome-program.c:1398
 msgid "Application options"
 msgstr "Rakenduse võtmed"
 
-#: ../libgnome/gnome-program.c:1414
 msgid "Dynamic modules to load"
 msgstr "Dünaamiliselt laaditavad moodulid"
 
-#: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
 msgstr "MOODUL1,MOODUL2,..."
 
 #. Translators: the first %s is the error message, 2nd %s the program name
-#: ../libgnome/gnome-program.c:1633
 #, c-format
 msgid ""
 "%s\n"
@@ -371,17 +293,14 @@ msgstr ""
 "%s\n"
 "Täieliku käsureavõtmete loendi nägemiseks käivita '%s --help'.\n"
 
-#: ../libgnome/gnome-url.c:85
 #, c-format
 msgid "Unknown internal error while displaying this location."
 msgstr "Tundmatu sisemine viga selle asukoha kuvamisel."
 
-#: ../libgnome/gnome-url.c:92
 #, c-format
 msgid "The specified location is invalid."
 msgstr "Kirjeldatud asukoht on vigane."
 
-#: ../libgnome/gnome-url.c:99
 #, c-format
 msgid ""
 "There was an error parsing the default action command associated with this "
@@ -389,7 +308,6 @@ msgid ""
 msgstr ""
 "Selle asukohaga seotud vaikimisi tegevuse käsu analüüsimisel tekkis viga."
 
-#: ../libgnome/gnome-url.c:107 ../libgnome/gnome-url.c:180
 #, c-format
 msgid ""
 "There was an error launching the default action command associated with this "
@@ -397,124 +315,98 @@ msgid ""
 msgstr ""
 "Selle asukohaga seotud vaikimisi tegevuse käsu käivitamisel tekkis viga."
 
-#: ../libgnome/gnome-url.c:115
 #, c-format
 msgid "There is no default action associated with this location."
 msgstr "Selle asukohaga pole seotud vaikimisi toimingut."
 
-#: ../libgnome/gnome-url.c:122
 #, c-format
 msgid "The default action does not support this protocol."
 msgstr "Vaikimisi toiming ei toeta seda protokolli."
 
-#: ../libgnome/gnome-url.c:129
 #, c-format
 msgid "The request was cancelled."
 msgstr "Päring tühistati."
 
-#: ../libgnome/gnome-url.c:139
 #, c-format
 msgid "The host \"%s\" could not be found."
 msgstr "Hosti \"%s\" pole võimalik leida."
 
-#: ../libgnome/gnome-url.c:145
 #, c-format
 msgid "The host could not be found."
 msgstr "Hosti pole võimalik leida."
 
-#: ../libgnome/gnome-url.c:156
 #, c-format
 msgid "The location or file could not be found."
 msgstr "Faili või asukohta ei leitud."
 
-#: ../libgnome/gnome-url.c:163
 #, c-format
 msgid "The login has failed."
 msgstr "Tõrge sisselogimisel."
 
-#: ../libgnome/gnome-open.c:38
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Viga URL-i näitamisel: %s\n"
 
-#: ../monikers/GNOME_Moniker_std.server.in.in.h:1
 msgid "Extra Moniker factory"
 msgstr "Ekstra Moniker factory"
 
-#: ../monikers/GNOME_Moniker_std.server.in.in.h:2
 msgid "GConf moniker"
 msgstr "GConf moniker"
 
-#: ../monikers/GNOME_Moniker_std.server.in.in.h:3
 msgid "config indirect moniker"
 msgstr "kaudsete seadistuste moniker"
 
-#: ../monikers/bonobo-config-bag.c:231
 msgid "Unknown type"
 msgstr "Tundmatu tüüp"
 
-#: ../monikers/bonobo-moniker-conf-indirect.c:44
 #, c-format
 msgid "Key %s not found in configuration"
 msgstr "Sätetest ei leitud võtit %s"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:1
 msgid "Beep when a modifier is pressed."
 msgstr "Piiksumine muuteklahvi vajutamisel."
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:2
 msgid "Disable if two keys are pressed at the same time."
 msgstr "Keelamine kahe klahvi samaaegselt vajutamisel."
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid ""
 "Do not accept a key as being pressed unless held for @delay milliseconds."
 msgstr ""
 "Klahvivajutust, mille korral klahvi pärast vajutamist ei hoita all kauem kui "
 "selles võtmes määratud arv millisekundeid, ei arvestata."
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
 msgstr "Kiirenduse kestus millisekundites"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid "How many milliseconds it takes to go from 0 to maximum speed."
 msgstr "Kui palju millisekundeid kulub nullist maksimumkiiruse saavutamiseks."
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate."
 msgstr ""
 "Kui mitu millisekundit tuleb enne hiire liigutamise klahvide "
 "toimimahakkamist oodata."
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "How many pixels per second to move at the maximum speed."
 msgstr "Kui palju piksleid sekundis liigutakse maksimumkiirusel."
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
 msgstr ""
 "Määratud aja (millisekundites) jooksul _sama_ klahvi mitmekordset vajutamist "
 "eiratakse."
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
 msgstr "Lähteviivitus millisekundites"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:10
 msgid "Minimum interval in milliseconds"
 msgstr "Vähim ajavahemik millisekundites"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:11
 msgid "Pixels per seconds"
 msgstr "Piksleid sekundis"
 
-#: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:12
 msgid "minimum interval in milliseconds"
 msgstr "Vähim ajavahemik millisekundites"
 
-#: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:1
 msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop."
@@ -522,11 +414,9 @@ msgstr ""
 "Abistava tehnika rakenduste loend, mis käivitatakse GNOME töölauale "
 "sisselogimisel."
 
-#: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
 msgstr "Käivitatavad abistava tehnika rakendused"
 
-#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
 "login."
@@ -534,11 +424,9 @@ msgstr ""
 "Kas GNOME käivitab sisselogimisel eelistatud rakenduse mobiilse abistava "
 "tehnika toe jaoks."
 
-#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
 msgstr "Eelistatud rakendus mobiilse abistava tehnika toe jaoks"
 
-#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:3
 msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
 "menu, or command line."
@@ -546,11 +434,9 @@ msgstr ""
 "Eelistatud rakendus mobiilse abistava tehnika toe jaoks sisselogimisel, "
 "menüüdes ja käsureal."
 
-#: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
 msgid "Start preferred Mobility assistive technology application"
 msgstr "Eelistatud mobiilse abistava tehnika rakenduse käivitamine"
 
-#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid ""
 "GNOME to start preferred Visual assistive technology application during "
 "login."
@@ -558,11 +444,9 @@ msgstr ""
 "Kas GNOME käivitab sisselogimisel eelistatud rakenduse visuaalse abistava "
 "tehnika toe jaoks."
 
-#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
 msgstr "Eelistatud rakendus visuaalse abistava tehnika toe jaoks"
 
-#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
 "Preferred Visual assistive technology application be used for login, menu, "
 "or command line."
@@ -570,87 +454,67 @@ msgstr ""
 "Eelistatud rakendus visuaalse abistava tehnika toe jaoks sisselogimisel, "
 "menüüdes ja käsureal."
 
-#: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
 msgstr "Eelistatud visuaalse abistava tehnika rakenduse käivitamine"
 
-#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:1
 msgid "Browser needs terminal"
 msgstr "Veebilehitseja vajab terminali"
 
-#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:2
 msgid "Browser understands remote"
 msgstr "Veebilehitseja mõistab kaugkorraldusi"
 
-#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:3
 msgid "Default browser"
 msgstr "Vaikimisi veebilehitseja"
 
-#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
 msgid "Default browser for all URLs."
 msgstr "Vaikimisi veebilehitseja kõikide URL-ide jaoks."
 
-#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run."
 msgstr "Kas veebilehitseja vajab töötamiseks terminali."
 
-#: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote."
 msgstr "Kas veebilehitseja mõistab netscape kaugkorraldusi."
 
-#: ../schemas/desktop_gnome_applications_office.schemas.in.h:1
 msgid "Calendar needs terminal"
 msgstr "Kalender vajab terminali"
 
-#: ../schemas/desktop_gnome_applications_office.schemas.in.h:2
 msgid "Default calendar"
 msgstr "Vaikimisi kalender"
 
-#: ../schemas/desktop_gnome_applications_office.schemas.in.h:3
 msgid "Default calendar application"
 msgstr "Vaikimisi kalendrirakendus"
 
-#: ../schemas/desktop_gnome_applications_office.schemas.in.h:4
 msgid "Default tasks"
 msgstr "Vaikimisi ülesanded"
 
-#: ../schemas/desktop_gnome_applications_office.schemas.in.h:5
 msgid "Default tasks application"
 msgstr "Vaikimisi ülesanneterakendus"
 
-#: ../schemas/desktop_gnome_applications_office.schemas.in.h:6
 msgid "Tasks needs terminal"
 msgstr "Ülesanded vajavad terminali"
 
-#: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
 msgid "Whether the default calendar application needs a terminal to run"
 msgstr "Kas vaikimisi kalendrirakendus vajab töötamiseks terminali."
 
-#: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
 msgid "Whether the default tasks application needs a terminal to run"
 msgstr "Kas vaikimisi ülesanneterakendus vajab töötamiseks terminali."
 
-#: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
 "Argumendid terminalis töötavatele programmidele, kirjeldatakse 'exec' "
 "võtmega."
 
-#: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
 msgstr "Käivitamise argumendid"
 
-#: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:3
 msgid "Terminal application"
 msgstr "Terminalirakendus"
 
-#: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one."
 msgstr ""
 "Terminali vajavate rakenduste käivitamiseks kasutatav terminaliprogramm."
 
-#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
@@ -658,11 +522,9 @@ msgstr ""
 "Esmase aknahalduri tööalade nimede loend. See valik on alates GNOME 2.12 "
 "versioonist aegunud."
 
-#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
 msgstr "Tagavara-aknahaldur (aegunud)"
 
-#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:3
 msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
@@ -670,15 +532,12 @@ msgstr ""
 "Aknahaldur, mis käivitatakse juhul, kui kasutaja aknahaldurit ei leita. See "
 "võti on alates GNOME 2.12 versioonist aegunud."
 
-#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
 msgstr "Tööalade nimed (aegunud)"
 
-#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:5
 msgid "The number of workspaces (deprecated)"
 msgstr "Tööalade arv (aegunud)"
 
-#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:6
 msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
@@ -686,22 +545,18 @@ msgstr ""
 "Aknahalduri poolt kasutatavate tööalade arv. See valik on alates GNOME 2.12 "
 "versioonist aegunud."
 
-#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
 msgstr "Kasutaja aknahaldur (aegunud)"
 
-#: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
 msgid ""
 "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
 "Aknahaldur, mida proovitakse esimesena. See võti on alates GNOME 2.12-st "
 "aegunud."
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "Värvi varjutamise laad"
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:2
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
@@ -712,19 +567,15 @@ msgstr ""
 "\"centered\" (keskel), \"scaled\" (skaleeritud), \"stretched\" (venitatud) "
 "või \"zoom\" (suurendatud)."
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
 msgstr "Töölaua tausta joonistamine"
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:4
 msgid "File to use for the background image."
 msgstr "Taustapildiks kasutatav fail."
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background."
 msgstr "Kas GNOME joonistab töölaua tausta."
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\"."
@@ -733,138 +584,105 @@ msgstr ""
 "gradient\" (rõhtsa üleminekuga), \"vertical-gradient\" (püstise üleminekuga) "
 "ja \"solid\" (ühtlane värvus)."
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr ""
 "Hajusülemineku vasakpoolne või ülemine värvus, või hoopis ühtlane värvus."
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture."
 msgstr "Poolläbipaistev värv, millega taustapilt kaetakse."
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:9
 msgid "Picture Filename"
 msgstr "Pildi failinimi"
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:10
 msgid "Picture Opacity"
 msgstr "Pildi läbipaistmatus"
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:11
 msgid "Picture Options"
 msgstr "Pildi valikud"
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:12
 msgid "Primary Color"
 msgstr "Peamine värv"
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr ""
 "Hajusülemineku parempoolne või alumine värvus, ei kasutata ühtlase värvuse "
 "jaoks."
 
-#: ../schemas/desktop_gnome_background.schemas.in.in.h:14
 msgid "Secondary Color"
 msgstr "Teisene värv"
 
-#: ../schemas/desktop_gnome_file_views.schemas.in.h:1
 msgid "File Icon Theme"
 msgstr "Failiikooni teema"
 
-#: ../schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons."
 msgstr "Failiikoonide kuvamiseks kasutatav teema."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
 msgstr "GTK+ vaikimisi teema põhinimetus."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
 msgid "Buttons Have Icons"
 msgstr "Nuppudel on ikoonid"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:3
 msgid "Can Change Accels"
 msgstr "Kiirklahve on võimalik muuta"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:4
 msgid "Cursor Blink"
 msgstr "Kursori plinkimine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:5
 msgid "Cursor Blink Time"
 msgstr "Kursori plinkimise aeg"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:6
 msgid "Default font"
 msgstr "Vaikimisi kirjatüüp"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:7
 msgid "Document font"
 msgstr "Dokumendi kirjatüüp"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:8
 msgid "Enable Accessibility"
 msgstr "Hõlbustuste lubamine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:9
 msgid "Enable Animations"
 msgstr "Animatsioonide lubamine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:10
 msgid "GTK IM Module"
 msgstr "GTK SM Moodul"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:11
 msgid "GTK IM Preedit Style"
 msgstr "GTK SM Eelredigeerimise laad"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:12
 msgid "GTK IM Status Style"
 msgstr "GTK SM Oleku laad"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:13
 msgid "Gtk+ Theme"
 msgstr "Gtk+ Teema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:14
 msgid "Icon Theme"
 msgstr "Ikoonide teema"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:15
 msgid "Icon theme to use for the panel, nautilus etc."
 msgstr "Ikoonide teema, mida kasutatakse paneelil, nautiluses jne."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Keyboard shortcut to open the menu bars."
 msgstr "Kiirklahv menüüribade avamiseks."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Length of the cursor blink cycle, in milliseconds."
 msgstr "Kursori vilkumistsükli pikkus millisekundites."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:18
 msgid "Menubar Detachable"
 msgstr "Menüüriba on lahtihaagitav"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:19
 msgid "Menubar accelerator"
-msgstr "Menüüriba kiirendi"
+msgstr "Menüüriba kiirklahv"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:20
 msgid "Menus Have Icons"
 msgstr "Menüüdes on ikoonid"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:21
 msgid "Menus Have Tearoff"
 msgstr "Menüüd on küljestrebitavad"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Module for GtkFileChooser"
 msgstr "GtkFileChooser'i moodul"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
@@ -872,69 +690,54 @@ msgstr ""
 "GtkFileChooser vidina jaoks kasutatav failisüsteemi moodul. Võimalikud "
 "väärtused on \"gio\", \"gnome-vfs\" ja \"gtk+\"."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Monospace font"
 msgstr "Monospace kirjatüüp"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
 "Monospace (määratud laiusega) kirjatüüp kasutamiseks terminalitaolistes "
 "kohtades."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
 msgstr "gtk+ poolt kasutatav GTK+ eelredigeerimise sisestusmeetodi laad."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the GTK+ input method Status Style used by gtk+."
 msgstr "gtk+ poolt kasutatav GTK+ oleku sisestusmeetodi laad."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Name of the default font used by gtk+."
 msgstr "GTK+ poolt vaikimisi kasutatava kirjatüübi nimi."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Name of the default font used for reading documents."
 msgstr "Dokumentide lugemisel kasutatava vaikimisi kirjatüübi nimi."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Name of the input method module used by GTK+."
 msgstr "GTK+ poolt kasutatav sisestusmeetodi mooduli nimi."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Input Methods' menu"
 msgstr "'Sisendmeetodite' menüü näitamine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Show the 'Unicode Control Character' menu"
 msgstr "'Unikoodi juhtsümbolite' menüü näitamine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid ""
 "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
 msgstr ""
 "Ikoonide suurus tööriistaribal, kas \"small-toolbar\" (väike tööriistariba) "
 "või \"large-toolbar\" (suur tööriistariba)."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Status Bar on Right"
 msgstr "Olekuriba on paremal"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:35
 msgid "Toolbar Detachable"
 msgstr "Tööriistariba on lahtihaagitav"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Icon Size"
 msgstr "Tööriistariba ikooni suurus"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Toolbar Style"
 msgstr "Tööriistariba stiil"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:38
 msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\"."
@@ -943,15 +746,12 @@ msgstr ""
 "\"both-horiz\" (ikoonid ja tekst rõhtsalt), \"icons\" (ainult ikoonid), ja "
 "\"text\" (ainult tekst)."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Use Custom Font"
 msgstr "Kohandatud kirjatüübi kasutamine"
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:40
 msgid "Whether Applications should have accessibility support."
 msgstr "Kas rakendustel peab olema hõlbustuste tugi või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:41
 msgid ""
 "Whether animations should be displayed. Note: This is a global key, it "
 "changes the behaviour of the window manager, the panel etc."
@@ -959,19 +759,15 @@ msgstr ""
 "Kas animatsioone kuvatakse. Märkus: see on globaalne klahv, see muudab ka "
 "aknahalduri, paneeli jne. käitumist."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid "Whether buttons may display an icon in addition to the button text."
 msgstr "Kas nuppudel võib tekstile lisaks kuvada ka ikooni või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether menus may display an icon next to a menu entry."
 msgstr "Kas menüüdes võib menüükirje järel ikooni kuvada või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether menus should have a tearoff."
 msgstr "Kas menüüsid peaks olema võimalik lahti rebida või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:45
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method."
@@ -979,7 +775,6 @@ msgstr ""
 "Kas kirjete ja tekstivaadete kontekstimenüüd peavad pakkuma sisestusmeetodi "
 "muutmise võimalust või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:46
 msgid ""
 "Whether the context menus of entries and text views should offer to insert "
 "control characters."
@@ -987,21 +782,17 @@ msgstr ""
 "Kas kirjete ja tekstivaadete kontekstimenüüd peavad pakkuma juhtmärkide "
 "lisamise võimalust või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:47
 msgid "Whether the cursor should blink."
 msgstr "Kas kursor peaks plinkima või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:48
 msgid "Whether the user can detach menubars and move them around."
 msgstr ""
 "Kas kasutaja tohib menüüribasid lahti haakida ja ringi tõsta või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:49
 msgid "Whether the user can detach toolbars and move them around."
 msgstr ""
 "Kas kasutaja tohib tööriistaribasid lahti haakida ja ringi tõsta või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:50
 msgid ""
 "Whether the user can dynamically type a new accelerator when positioned over "
 "an active menuitem."
@@ -1009,47 +800,36 @@ msgstr ""
 "Kas kasutajal on võimalik menüü kuvamise ajal aktiivse menüükirje kiirklahve "
 "dünaamiliselt muuta või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:51
 msgid "Whether to display a status bar meter on the right."
 msgstr "Kas olekuriba mõõdikut näidatakse paremal või mitte."
 
-#: ../schemas/desktop_gnome_interface.schemas.in.in.h:52
 msgid "Whether to use a custom font in gtk+ applications."
 msgstr "Kas gtk+ rakendustes kasutatakse vaikimisi kirjatüüpi."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable URL and MIME type handlers"
 msgstr "URL-ide ja MIME käsitlejate keelamine"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable command line"
 msgstr "Käsurea keelamine"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:3
 msgid "Disable lock screen"
 msgstr "Ekraani lukustamise keelamine"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:4
 msgid "Disable print setup"
 msgstr "Printeri seadistamise keelamine"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:5
 msgid "Disable printing"
 msgstr "Printimise keelamine"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:6
 msgid "Disable saving files to disk"
 msgstr "Failide kettalesalvestamise keelamine"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:7
 msgid "Disable user switching"
 msgstr "Kasutajate vahel lülitumise keelamine"
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:8
 msgid "Prevent running any URL or MIME type handler applications."
 msgstr "URL-ide ja MIME-tüüpide käsitlemise rakenduste käivitamise keelamine."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:9
 msgid ""
 "Prevent the user from accessing the terminal or specifying a command line to "
 "be executed. For example, this would disable access to the panel's \"Run "
@@ -1058,7 +838,6 @@ msgstr ""
 "Kasutajal terminalile ja käsureale ligipääsu keelamine. Sellega on näiteks "
 "võimalik keelata paneeli \"Käivita rakendus...\" dialoog."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
@@ -1066,7 +845,6 @@ msgstr ""
 "Kasutajal printeri sätete muutmise keelamine. Sellega on näiteks võimalik "
 "keelata kõigi rakenduste printeri sätete dialoogid."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
@@ -1074,7 +852,6 @@ msgstr ""
 "Kasutajal printimise keelamine. Sellega on näiteks võimalik keelata kõigi "
 "rakenduste printimisdialoogid."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
@@ -1082,62 +859,50 @@ msgstr ""
 "Kasutajal failide kettale salvestamise keelamine. Sellega on näiteks "
 "võimalik keelata kõigi rakenduste \"Salvesta kui\" dialoogid."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:13
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
 msgstr ""
 "Kasutajal teisele kasutajale lülitumise keelamine kui tal on seanss aktiivne."
 
-#: ../schemas/desktop_gnome_lockdown.schemas.in.h:14
 msgid "Prevent the user to lock his screen."
 msgstr "Kasutajal oma ekraani lukustamise keelamine."
 
-#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played."
 msgstr "Kellahelina helifaili nimi."
 
-#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
 msgstr "Klaviatuurikõlli kohandatud failinimi"
 
-#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "Remember NumLock state"
 msgstr "NumLock oleku meelespidamine"
 
-#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:4
 msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
 "Kui märgitud, siis GNOME jätab seansside vahel NumLock klahvi oleku meelde."
 
-#: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr ""
 "võimalikud väärtused on \"on\" (sees), \"off\" (väljas) ja \"custom"
 "\" (kohandatud)."
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
 "Hiire liikumise kiirenduskordaja. Väärtus -1 märgib süsteemi vaikeväärtust."
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:2
 msgid "Cursor font"
 msgstr "Kursori kirjatüüp"
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
 msgid "Cursor size"
 msgstr "Kursori suurus"
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
 msgid "Cursor theme"
 msgstr "Kursori teema"
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:5
 msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
@@ -1145,11 +910,9 @@ msgstr ""
 "Kursoriteema nimi. Kasutatakse ainult Xcursori toega Xserverite poolt, "
 "näiteks XFree86 4.3 ja hilisemad."
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
 msgid "Distance before a drag is started."
 msgstr "Vahemaa, millest alates lohistamine aset leiab."
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:7
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
@@ -1157,15 +920,12 @@ msgstr ""
 "Pikslites määratud vahemaa, mille kursor peab läbima enne, kui hiireklahvi "
 "vajutus aktiveeritakse. Väärtus -1 tähendab süsteemset vaikesätet."
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:8
 msgid "Double Click Time"
 msgstr "Topeltklõpsu kestus"
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:9
 msgid "Drag Threshold"
 msgstr "Lohistamise lävi"
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:10
 msgid ""
 "Font name of the cursor. If unset, the default font is used. This value is "
 "only propagated to the X server start of each session, so changing it mid-"
@@ -1176,95 +936,73 @@ msgstr ""
 "seega pole selle muutmist võimalik rakendada seda enne järgmise seansi "
 "algust."
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released."
 msgstr ""
 "Kursori asukoha rõhutamine Control klahvi vajutamise ja lahtilaskmise korral."
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:12
 msgid "Length of a double click."
 msgstr "Topeltklõpsu kestus."
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:13
 msgid "Locate Pointer"
 msgstr "Kursori asukoha tuvastamine"
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:14
 msgid "Motion Threshold"
 msgstr "Vajutuse lävi"
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:15
 msgid "Mouse button orientation"
 msgstr "Hiirenupu suund"
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:16
 msgid "Single Click"
 msgstr "Üksikklõps"
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons."
 msgstr "Ikoonide avamiseks kasutatakse üksikklõpsu."
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "cursor_theme poolt viidatava kursori suurus."
 
-#: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice."
 msgstr "Vasaku ja parema hiirenupu vahetamine vasakukäeliste hiire jaoks."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
 msgstr "Vaikimisi mikserseade"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:2
 msgid "Default mixer tracks"
 msgstr "Mikseri vaikimisi rajad"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:3
 msgid "Enable ESD"
 msgstr "Lubada ESD"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:4
 msgid "Enable sound server startup."
 msgstr "Heliserveri lubamine käivitamisel."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:5
 msgid "Input feedback sounds"
 msgstr "Sisestuse tagasiside helid"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:6
 msgid "Sound theme name"
 msgstr "Heliteema nimi"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:7
 msgid "Sounds for events"
 msgstr "Sündmuste helid"
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:8
 msgid "The XDG sound theme to use for event sounds."
 msgstr "Sündmuste helide jaoks kasutatav XDG heliteema."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:9
 msgid "The default mixer device used by the multimedia key bindings."
 msgstr "Multimeedia klahvivajutuste korral vaikimisi kasutatav mikserseade."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:10
 msgid "The default mixer tracks used by the multimedia key bindings."
 msgstr ""
 "Multimeedia klahvivajutuste korral vaikimisi miksimiseks kasutatav rada."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:11
 msgid "Whether to play sounds on input events."
 msgstr "Kas sisestussündmuste puhul mängitakse helisid või mitte."
 
-#: ../schemas/desktop_gnome_sound.schemas.in.h:12
 msgid "Whether to play sounds on user events."
 msgstr "Kas kasutajasündmuste puhul mängitakse helisid."
 
-#: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:1
 msgid ""
 "Maximum age for thumbnails in the cache, in days. Set to -1 to disable "
 "cleaning."
@@ -1272,7 +1010,6 @@ msgstr ""
 "Puhverdatud pisipiltide suurim eluiga päevades. Kustutamise keelamiseks "
 "määra väärtuseks -1."
 
-#: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
 msgid ""
 "Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
 "cleaning."
@@ -1280,11 +1017,9 @@ msgstr ""
 "Puhverdatud pisipiltide suurim suurus megabaitides. Kustutamise keelamiseks "
 "määra väärtuseks -1."
 
-#: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
 msgstr "Kõikide väliste pisipilditegijate keelamine"
 
-#: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
@@ -1292,34 +1027,26 @@ msgstr ""
 "Märgi see võti kõikide väliste pisipilditegijate keelamiseks sõltumata nende "
 "üksikult lubamisest/keelamisest."
 
-#: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
 msgstr "Puhkepauside edasilükkamine on lubatud"
 
-#: ../schemas/desktop_gnome_typing_break.schemas.in.h:2
 msgid "Break time"
 msgstr "Puhkepausi kestus"
 
-#: ../schemas/desktop_gnome_typing_break.schemas.in.h:3
 msgid "Number of minutes of typing time before break mode starts."
 msgstr "Tippimiseks kuluvate minutite arv enne puhkepausi aktiveerimist."
 
-#: ../schemas/desktop_gnome_typing_break.schemas.in.h:4
 msgid "Number of minutes that the typing break should last."
 msgstr "Puhkepausi pikkus minutites"
 
-#: ../schemas/desktop_gnome_typing_break.schemas.in.h:5
 msgid "Type time"
 msgstr "Tippimisaeg"
 
-#: ../schemas/desktop_gnome_typing_break.schemas.in.h:6
 msgid "Whether or not keyboard locking is enabled"
 msgstr "Kas klaviatuuri lukustamine on lubatud või mitte"
 
-#: ../schemas/desktop_gnome_typing_break.schemas.in.h:7
 msgid "Whether or not keyboard locking is enabled."
 msgstr "Kas klaviatuuri lukustamine on lubatud või mitte."
 
-#: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Kas puhkepausi on võimalik edasi lükata või mitte."
