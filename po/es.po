@@ -6,13 +6,14 @@
 # Pablo Gonzalo del Campo <pablodc@bigfoot.com>, 2002.
 # Q&A, Germán Poo-Caamaño <gpoo@ubiobio.cl>, 2003.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004, 2005, 2006.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-20 02:18+0000\n"
-"PO-Revision-Date: 2008-10-20 19:31+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgnome&component=general\n"
+"POT-Creation-Date: 2010-02-18 21:11+0000\n"
+"PO-Revision-Date: 2010-02-19 08:51+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -128,21 +129,21 @@ msgid "Help document %s/%s not found"
 msgstr "Documento de ayuda %s/%s no encontrado"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:91
+#: ../libgnome/gnome-init.c:90
 msgid "Bonobo Support"
 msgstr "Soporte para Bonobo"
 
-#: ../libgnome/gnome-init.c:145
+#: ../libgnome/gnome-init.c:144
 msgid "Bonobo activation Support"
 msgstr "Soporte para activación de Bonobo"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:380 ../libgnome/gnome-init.c:394
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "No se ha podido crear un directorio de configuración por usuario  «%s»: %s\n"
 
-#: ../libgnome/gnome-init.c:403
+#: ../libgnome/gnome-init.c:402
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
@@ -150,7 +151,7 @@ msgstr ""
 "No se han podido examinar los directorios de configuración de GNOME cada "
 "usuario «%s»: «%s»\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:410
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -159,36 +160,36 @@ msgstr ""
 "No se ha podido establecer el modo 0700 en el directorio privado de "
 "configuración «%s» que hay por cada usuario: %s\n"
 
-#: ../libgnome/gnome-init.c:418
+#: ../libgnome/gnome-init.c:417
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "No se ha podido crear el directorio de aceleradores de GNOME «%s»: %s\n"
 
-#: ../libgnome/gnome-init.c:457
+#: ../libgnome/gnome-init.c:456
 msgid "GNOME Virtual Filesystem"
 msgstr "Sistema de archivos virtual de GNOME"
 
-#: ../libgnome/gnome-init.c:475 ../libgnome/gnome-init.c:518
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
 msgid "Disable sound server usage"
 msgstr "Desactivar el uso del servidor de sonido"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:521
+#: ../libgnome/gnome-init.c:477 ../libgnome/gnome-init.c:520
 msgid "Enable sound server usage"
 msgstr "Activar el uso del servidor de sonido"
 
-#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:524
+#: ../libgnome/gnome-init.c:481 ../libgnome/gnome-init.c:523
 msgid "Host:port on which the sound server to use is running"
 msgstr "Host:puerto donde escucha el servidor de sonido que se va a utilizar"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:525
 msgid "HOSTNAME:PORT"
 msgstr "HOST:PUERTO"
 
-#: ../libgnome/gnome-init.c:492 ../libgnome/gnome-init.c:536
+#: ../libgnome/gnome-init.c:491 ../libgnome/gnome-init.c:535
 msgid "GNOME Library"
 msgstr "Biblioteca de GNOME"
 
-#: ../libgnome/gnome-init.c:493
+#: ../libgnome/gnome-init.c:492
 msgid "Show GNOME options"
 msgstr "Mostrar las opciones de GNOME"
 
@@ -434,7 +435,7 @@ msgstr "El lugar o el archivo no se pudo encontrar."
 msgid "The login has failed."
 msgstr "Ha fallado la el inicio de sesión."
 
-#: ../libgnome/gnome-open.c:38
+#: ../libgnome/gnome-open.c:52
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Ocurrió un error al mostrar el url: %s\n"
@@ -710,14 +711,19 @@ msgid "Color Shading Type"
 msgstr "Tipo de sombreado de colores"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:2
+#| msgid ""
+#| "Determines how the image set by wallpaper_filename is rendered. Possible "
+#| "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
+#| "\", \"zoom\"."
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
+"\"zoom\", \"spanned\"."
 msgstr ""
-"Determina cómo se renderiza la imagen establecida por "
-"«nombre_de_la_imagen_de_fondo_de_pantalla». Los valores posibles son \"none"
-"\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\" y \"zoom\"."
+"Determina cómo se renderiza la imagen establecida por «wallpaper_filename». "
+"Los valores posibles son «none» (ninguna), «wallpaper» (rellenar pantalla), "
+"«centered» (centrado), «scaled» (escalado), «stretched» (estirado) y "
+"«zoom» (ampliación)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -736,8 +742,9 @@ msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\"."
 msgstr ""
-"Como sombrear el color de fondo. Los valores posibles son \"horizontal-"
-"gradient\", \"vertical-gradient\", y \"solid\"."
+"Como sombrear el color de fondo. Los valores posibles son «horizontal-"
+"gradient» (gradiente horizontal), «vertical-gradient» (gradiente vertical), y "
+"«solid» (sólido)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -877,7 +884,7 @@ msgid ""
 "Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 "Módulo que usar como el modelo de sistema de archivos para el widget "
-"GtkFileChooser. Los valores posibles son \"gio\", \"gnome-vfs\" y \"gtk+\"."
+"GtkFileChooser. Los valores posibles son «gio», «gnome-vfs» y «gtk+»."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Monospace font"
@@ -950,8 +957,8 @@ msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\"."
 msgstr ""
-"Estilo de la barra de herramientas. Los valores válidos son \"both\", \"both-"
-"horiz\", \"icons\", y \"text\"."
+"Estilo de la barra de herramientas. Los valores válidos son «both» (ambos), "
+"«both-horiz» (ambos horizontalmente), «icons» (iconos), y «text» (texto)."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Use Custom Font"
