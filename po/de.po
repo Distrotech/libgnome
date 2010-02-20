@@ -1,16 +1,18 @@
 # German libgnome translation.
 # Benjamin Greiner <benjamin.greiner@gmx.net>, 2002.
 # Christian Neumair <chris@gnome-de.org>, 2002-2004.
-# Hendrik Richter <hendrikr@gnome.org>, 2005, 2006, 2007, 2008.
+# Hendrik Richter <hendrikr@gnome.org>, 2005-2008.
 # Andre Klapper <ak-47@gmx.net>, 2008, 2009.
+# Mario Blättermann <mariobl@gnome.org>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-10 13:54+0100\n"
-"PO-Revision-Date: 2009-01-10 13:55+0100\n"
-"Last-Translator: Andre Klapper <ak-47@gmx.net>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgnome&component=general\n"
+"POT-Creation-Date: 2010-02-18 21:11+0000\n"
+"PO-Revision-Date: 2010-02-20 21:05+0100\n"
+"Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,8 +94,7 @@ msgstr "Die GNOME_FILE_DOMAIN_HELP-Domäne konnte nicht gefunden werden."
 #: ../libgnome/gnome-help.c:193 ../libgnome/gnome-help.c:208
 #, c-format
 msgid ""
-"Unable to show help as %s is not a directory.  Please check your "
-"installation."
+"Unable to show help as %s is not a directory.  Please check your installation."
 msgstr ""
 "Die Hilfe konnte nicht gezeigt werden, da %s kein Verzeichnis ist. Bitte "
 "überprüfen Sie Ihre Installation."
@@ -102,8 +103,8 @@ msgstr ""
 #, c-format
 msgid "Unable to find help paths %s or %s. Please check your installation"
 msgstr ""
-"Die Hilfeordner %s und %s konnten nicht gefunden werden. Bitte überprüfen "
-"Sie Ihre Installation."
+"Die Hilfeordner %s und %s konnten nicht gefunden werden. Bitte überprüfen Sie "
+"Ihre Installation."
 
 #: ../libgnome/gnome-help.c:233
 #, c-format
@@ -142,8 +143,7 @@ msgstr ""
 
 #: ../libgnome/gnome-init.c:402
 #, c-format
-msgid ""
-"Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Benutzerspezifisches GNOME-Konfigurationsverzeichnis »%s« konnte nicht "
 "angelegt werden: %s\n"
@@ -160,8 +160,7 @@ msgstr ""
 #: ../libgnome/gnome-init.c:417
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr ""
-"GNOME-Tastaturkürzel-Verzeichnis »%s« konnte nicht angelegt werden: %s\n"
+msgstr "GNOME-Tastaturkürzel-Verzeichnis »%s« konnte nicht angelegt werden: %s\n"
 
 #: ../libgnome/gnome-init.c:456
 msgid "GNOME Virtual Filesystem"
@@ -433,7 +432,7 @@ msgstr "Der Ort oder die Datei wurde nicht gefunden."
 msgid "The login has failed."
 msgstr "Der Anmeldevorgang ist gescheitert."
 
-#: ../libgnome/gnome-open.c:38
+#: ../libgnome/gnome-open.c:52
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Fehler beim Anzeigen einer URL: %s\n"
@@ -487,8 +486,8 @@ msgstr "Die Anzahl der Millisekunden von 0 bis zur maximalen Beschleunigung."
 msgid ""
 "How many milliseconds to wait before mouse movement keys start to operate."
 msgstr ""
-"Die Anzahl der Millisekunden, die abgewartet wird, bevor Maus-"
-"Bewegungstasten zu funktionieren beginnen."
+"Die Anzahl der Millisekunden, die abgewartet wird, bevor Maus-Bewegungstasten "
+"zu funktionieren beginnen."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:7
 msgid "How many pixels per second to move at the maximum speed."
@@ -535,8 +534,7 @@ msgstr ""
 msgid ""
 "GNOME to start preferred Mobility assistive technology application during "
 "login."
-msgstr ""
-"Bevorzugte Anwendung für mobile Hilfstechnologie beim Anmelden starten."
+msgstr "Bevorzugte Anwendung für mobile Hilfstechnologie beim Anmelden starten."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:2
 msgid "Preferred Mobility assistive technology application"
@@ -556,8 +554,7 @@ msgstr "Bevorzugte Anwendung für mobile Hilfstechnologie starten"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:1
 msgid ""
-"GNOME to start preferred Visual assistive technology application during "
-"login."
+"GNOME to start preferred Visual assistive technology application during login."
 msgstr ""
 "Bevorzugte Anwendung für visuelle Hilfstechnologie beim Anmelden starten."
 
@@ -567,11 +564,11 @@ msgstr "Bevorzugte Anwendung für visuelle Hilfstechnologie"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
-"Preferred Visual assistive technology application be used for login, menu, "
-"or command line."
+"Preferred Visual assistive technology application be used for login, menu, or "
+"command line."
 msgstr ""
-"Die bevorzugte Anwendung für visuelle Hilfstechnologie, die beim Anmelden, "
-"in Menüs oder der Kommandozeile verwendet wird."
+"Die bevorzugte Anwendung für visuelle Hilfstechnologie, die beim Anmelden, in "
+"Menüs oder der Kommandozeile verwendet wird."
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:4
 msgid "Start preferred Visual assistive technology application"
@@ -696,8 +693,8 @@ msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
 msgstr ""
-"Die Anzahl der Arbeitsflächen, die der Fenster-Manager verwenden soll. "
-"Dieser Schlüssel ist seit GNOME 2.12 veraltet."
+"Die Anzahl der Arbeitsflächen, die der Fenster-Manager verwenden soll. Dieser "
+"Schlüssel ist seit GNOME 2.12 veraltet."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
@@ -707,23 +704,27 @@ msgstr "Bevorzugter Fenster-Manager (veraltet)"
 msgid ""
 "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
-"Der Fenster-Manager der als erster versucht werden soll. Dieser Schlüssel "
-"ist seit GNOME 2.12 veraltet."
+"Der Fenster-Manager der als erster versucht werden soll. Dieser Schlüssel ist "
+"seit GNOME 2.12 veraltet."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:1
 msgid "Color Shading Type"
 msgstr "Typ der Farbschattierung"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:2
+#| msgid ""
+#| "Determines how the image set by wallpaper_filename is rendered. Possible "
+#| "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
+#| "\", \"zoom\"."
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
+"\"zoom\", \"spanned\"."
 msgstr ""
 "Legt fest, wie das von »wallpaper_filename« festgelegte Bild dargestellt "
 "werden soll. Zulässige Werte: »none« (Keins), »wallpaper« (Tapete), "
-"»centered« (zentriert), »scaled« (skaliert), »stretched« (gestreckt) sowie "
-"»zoom« (Zoom)."
+"»centered« (zentriert), »scaled« (skaliert), »stretched« (gestreckt), "
+"»zoom« (Zoom) sowie »spanned« (gespannt)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -881,8 +882,8 @@ msgstr "Modul für GtkFileChooser"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid ""
-"Module to use as the filesystem model for the GtkFileChooser widget. "
-"Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
+"Module to use as the filesystem model for the GtkFileChooser widget. Possible "
+"values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 "Als Dateisystemmodell für das GtkFileChooser-Widget zu verwendendes Modul. "
 "Zulässige Werte: »gio«, »gnome-vfs« sowie »gtk+«."
@@ -976,13 +977,11 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
 msgid "Whether buttons may display an icon in addition to the button text."
-msgstr ""
-"Legt fest, ob Knöpfe ein Symbol neben dem Text anzeigen dürfen."
+msgstr "Legt fest, ob Knöpfe ein Symbol neben dem Text anzeigen dürfen."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:43
 msgid "Whether menus may display an icon next to a menu entry."
-msgstr ""
-"Legt fest, ob Menüs ein Symbol neben den Menüeinträgen anzeigen dürfen."
+msgstr "Legt fest, ob Menüs ein Symbol neben den Menüeinträgen anzeigen dürfen."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:44
 msgid "Whether menus should have a tearoff."
@@ -1089,8 +1088,8 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
-"Prevent the user from printing. For example, this would disable access to "
-"all applications' \"Print\" dialogs."
+"Prevent the user from printing. For example, this would disable access to all "
+"applications' \"Print\" dialogs."
 msgstr ""
 "Den Benutzer am Drucken hindern. Dies verhindert beispielsweise den Zugriff "
 "auf den Druckdialog aller Anwendungen."
@@ -1145,8 +1144,7 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
-"Acceleration multiplier for mouse motion. A value of -1 is the system "
-"default."
+"Acceleration multiplier for mouse motion. A value of -1 is the system default."
 msgstr ""
 "Beschleunigungsmultiplikator für Mausbewegungen. Der Wert »-1« ist die "
 "Systemvorgabe."
@@ -1197,10 +1195,10 @@ msgid ""
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"Schriftname des Zeigers. Falls dieser Schlüssel nicht gesetzt wurde, wird "
-"die Vorgabeschrift verwendet. Dieser Wert wird dem X-Server lediglich am "
-"Anfang jeder Sitzung mitgeteilt, daher werden Änderungen an diesem Schlüssel "
-"erst ausgewertet, wenn Sie sich das nächste Mal anmelden."
+"Schriftname des Zeigers. Falls dieser Schlüssel nicht gesetzt wurde, wird die "
+"Vorgabeschrift verwendet. Dieser Wert wird dem X-Server lediglich am Anfang "
+"jeder Sitzung mitgeteilt, daher werden Änderungen an diesem Schlüssel erst "
+"ausgewertet, wenn Sie sich das nächste Mal anmelden."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -1241,8 +1239,8 @@ msgstr "Größe des Mauszeigers bezogen auf »cursor_theme«."
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice."
 msgstr ""
-"Vertauscht den rechten und den linken Mausknopf, so dass Linkshänder die "
-"Maus verwenden können."
+"Vertauscht den rechten und den linken Mausknopf, so dass Linkshänder die Maus "
+"verwenden können."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:1
 msgid "Default mixer device"
