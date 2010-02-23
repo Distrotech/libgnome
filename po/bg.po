@@ -1,16 +1,17 @@
 # Bulgarian translation of libgnome po-file.
-# Copyright (C) 2002, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
-# Alexander Shopov <ash@contact.bg>, 2002, 2005, 2006, 2007, 2008, 2009.
+# Copyright (C) 2002, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+# Copyright (C) 2009, 2010 Free Software Foundation, Inc.
+# Alexander Shopov <ash@kambanaria.org>, 2002, 2005, 2006, 2007, 2008, 2009.
 # Yanko Kaneti <yaneti@declera.com>, 2002.
-# Vladimir Petkov <vpetkov@i-space.org>, 2004, 2005.
+# Vladimir Petkov <kaladan@gmail.com>, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-30 08:28+0200\n"
-"PO-Revision-Date: 2009-01-30 08:28+0200\n"
-"Last-Translator: Alexander Shopov <ash@contact.bg>\n"
+"POT-Creation-Date: 2010-02-23 09:43+0200\n"
+"PO-Revision-Date: 2010-02-23 09:43+0200\n"
+"Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -431,7 +432,7 @@ msgstr "Местоположението или файлът не могат д�
 msgid "The login has failed."
 msgstr "Неуспешно влизане."
 
-#: ../libgnome/gnome-open.c:38
+#: ../libgnome/gnome-open.c:52
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Грешка при показването на адреса: %s\n"
@@ -703,12 +704,13 @@ msgstr "Тип на цветовото нюансиране"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
+"\"zoom\", \"spanned\"."
 msgstr ""
 "Указване как да се изобразява изображението указано от wallpaper_filename. "
 "Възможни стойности са „none“ (без изобразяване), „wallpaper“ (нормално "
 "изобразяване), „centered“ (центриране), „scaled“ (пропорционално "
-"мащабиране), „stretched“ (непропорционално разтегляне)."
+"мащабиране), „stretched“ (непропорционално разтегляне), „spanned“ (пренесено "
+"по екраните)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -869,13 +871,12 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Monospace font"
-msgstr "Едноразреден шрифт"
+msgstr "Равноширок шрифт"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
-msgstr ""
-"Име на едноразреден шрифт, който да се използва на места като терминали."
+msgstr "Име на равноширок шрифт, който да се използва на места като терминали."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
