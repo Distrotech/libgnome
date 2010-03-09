@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgnome&component=general\n"
-"POT-Creation-Date: 2009-04-22 07:57+0000\n"
-"PO-Revision-Date: 2008-09-20 02:55+0100\n"
+"POT-Creation-Date: 2010-02-18 21:11+0000\n"
+"PO-Revision-Date: 2010-03-09 21:01+0100\n"
 "Last-Translator: Горан Ракић <grakic@devbase.net>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
@@ -716,13 +716,19 @@ msgid "Color Shading Type"
 msgstr "Врста претапања боја"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:2
+#| msgid ""
+#| "Determines how the image set by wallpaper_filename is rendered. Possible "
+#| "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
+#| "\", \"zoom\"."
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
+"\"zoom\", \"spanned\"."
 msgstr ""
 "Одређује како се исцртава слика постављена помоћу wallpaper_filename. Могуће "
-"вредности су „none“, „wallpaper“, „centered“, „scaled“, „stretched“, „zoom“."
+"вредности су „none“ (ништа), „wallpaper“ (позадина), "
+"„centered“ (центрирано), „scaled“ (преко целог екрана), "
+"„stretched“ (развучено), „zoom“ (увећано) и „spanned“ (протегнуто)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -793,7 +799,6 @@ msgid "Basename of the default theme used by gtk+."
 msgstr "Основно име уобичајене теме коју користи Гтк+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
-#| msgid "Menus Have Icons"
 msgid "Buttons Have Icons"
 msgstr "Дугмићи садрже иконе"
 
@@ -972,7 +977,6 @@ msgstr ""
 "понашање управника прозора, панела, итд."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-#| msgid "Whether menus may display an icon next to a menu entry."
 msgid "Whether buttons may display an icon in addition to the button text."
 msgstr "Да ли се приказује икона поред текста на дугмићима."
 
