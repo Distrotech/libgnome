@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgnome&component=general\n"
-"POT-Creation-Date: 2009-04-22 07:57+0000\n"
-"PO-Revision-Date: 2008-09-20 02:55+0100\n"
+"POT-Creation-Date: 2010-02-18 21:11+0000\n"
+"PO-Revision-Date: 2010-03-09 21:01+0100\n"
 "Last-Translator: Goran Rakić <grakic@devbase.net>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
@@ -716,13 +716,19 @@ msgid "Color Shading Type"
 msgstr "Vrsta pretapanja boja"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:2
+#| msgid ""
+#| "Determines how the image set by wallpaper_filename is rendered. Possible "
+#| "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
+#| "\", \"zoom\"."
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
+"\"zoom\", \"spanned\"."
 msgstr ""
 "Određuje kako se iscrtava slika postavljena pomoću wallpaper_filename. Moguće "
-"vrednosti su „none“, „wallpaper“, „centered“, „scaled“, „stretched“, „zoom“."
+"vrednosti su „none“ (ništa), „wallpaper“ (pozadina), "
+"„centered“ (centrirano), „scaled“ (preko celog ekrana), "
+"„stretched“ (razvučeno), „zoom“ (uvećano) i „spanned“ (protegnuto)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -793,7 +799,6 @@ msgid "Basename of the default theme used by gtk+."
 msgstr "Osnovno ime uobičajene teme koju koristi Gtk+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:2
-#| msgid "Menus Have Icons"
 msgid "Buttons Have Icons"
 msgstr "Dugmići sadrže ikone"
 
@@ -972,7 +977,6 @@ msgstr ""
 "ponašanje upravnika prozora, panela, itd."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:42
-#| msgid "Whether menus may display an icon next to a menu entry."
 msgid "Whether buttons may display an icon in addition to the button text."
 msgstr "Da li se prikazuje ikona pored teksta na dugmićima."
 
