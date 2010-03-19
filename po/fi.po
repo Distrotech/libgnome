@@ -8,14 +8,15 @@
 # Ilkka Tuohela <hile@iki.fi>, 2005-2008.
 # Timo Jyrinki <timo.jyrinki@iki.fi>, 2008.
 # Ari Torhamo <ari.torhamo@gmail.com>, 2008.
+# Tommi Vainikainen <thv@iki.fi>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 1.109.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-06 10:27+0300\n"
-"PO-Revision-Date: 2008-10-12 13:13+0300\n"
-"Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
+"POT-Creation-Date: 2010-03-19 23:48+0200\n"
+"PO-Revision-Date: 2010-03-19 23:48+0200\n"
+"Last-Translator: Tommi Vainikainen <thv@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,64 +126,64 @@ msgid "Help document %s/%s not found"
 msgstr "Ohjeasiakirjaa %s/%s ei löydy"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:91
+#: ../libgnome/gnome-init.c:90
 msgid "Bonobo Support"
 msgstr "Bonobo-tuki"
 
-#: ../libgnome/gnome-init.c:145
+#: ../libgnome/gnome-init.c:144
 msgid "Bonobo activation Support"
 msgstr "Bonobo-aktivointituki"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:380 ../libgnome/gnome-init.c:394
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
-msgstr "Käyttäjän Gnome-asetuskansion \"%s\" luonti epäonnistui: %s\n"
+msgstr "Käyttäjän Gnome-asetuskansion ”%s” luonti epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:403
+#: ../libgnome/gnome-init.c:402
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
-msgstr "Käyttäjän Gnome-asetuskansion \"%s\" havaitseminen epäonnistui: %s\n"
+msgstr "Käyttäjän Gnome-asetuskansion ”%s” havaitseminen epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:410
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
 msgstr ""
-"Käyttäjän yksityisen Gnome-asetuskansion \"%s\" oikeuksien asettaminen "
-"arvoon 0700 epäonnistui: %s\n"
+"Käyttäjän yksityisen Gnome-asetuskansion ”%s” oikeuksien asettaminen arvoon "
+"0700 epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:418
+#: ../libgnome/gnome-init.c:417
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
-msgstr "Gnomen pikanäppäinkansion \"%s\" luonti epäonnistui: %s\n"
+msgstr "Gnomen pikanäppäinkansion ”%s” luonti epäonnistui: %s\n"
 
-#: ../libgnome/gnome-init.c:457
+#: ../libgnome/gnome-init.c:456
 msgid "GNOME Virtual Filesystem"
 msgstr "GNOME-virtuaalitiedostojärjestelmä"
 
-#: ../libgnome/gnome-init.c:475 ../libgnome/gnome-init.c:518
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
 msgid "Disable sound server usage"
 msgstr "Älä käytä äänipalvelinta."
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:521
+#: ../libgnome/gnome-init.c:477 ../libgnome/gnome-init.c:520
 msgid "Enable sound server usage"
 msgstr "Käytä äänipalvelinta."
 
-#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:524
+#: ../libgnome/gnome-init.c:481 ../libgnome/gnome-init.c:523
 msgid "Host:port on which the sound server to use is running"
 msgstr "Palvelin:portti, jolla käytettävä äänipalvelin on käynnissä"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:525
 msgid "HOSTNAME:PORT"
 msgstr "HOSTNAME:PORTTI"
 
-#: ../libgnome/gnome-init.c:492 ../libgnome/gnome-init.c:536
+#: ../libgnome/gnome-init.c:491 ../libgnome/gnome-init.c:535
 msgid "GNOME Library"
 msgstr "GNOME-kirjasto"
 
-#: ../libgnome/gnome-init.c:493
+#: ../libgnome/gnome-init.c:492
 msgid "Show GNOME options"
 msgstr "Näytä Gnomen vaihtoehdot"
 
@@ -352,7 +353,7 @@ msgstr "Ladattavat dynaamiset moduulit"
 
 #: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
-msgstr "MODUULI1,MODUULI2,..."
+msgstr "MODUULI1,MODUULI2,…"
 
 #. Translators: the first %s is the error message, 2nd %s the program name
 #: ../libgnome/gnome-program.c:1633
@@ -362,7 +363,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "%s\n"
-"Suorita \"%s --help\" nähdäksesi täyden luettelon komentorivivalitsimista.\n"
+"Suorita ”%s --help” nähdäksesi täyden luettelon komentorivivalitsimista.\n"
 
 #: ../libgnome/gnome-url.c:85
 #, c-format
@@ -410,7 +411,7 @@ msgstr "Pyyntö keskeytettiin."
 #: ../libgnome/gnome-url.c:139
 #, c-format
 msgid "The host \"%s\" could not be found."
-msgstr "Palvelinta \"%s\" ei löydy."
+msgstr "Palvelinta ”%s” ei löydy."
 
 #: ../libgnome/gnome-url.c:145
 #, c-format
@@ -427,7 +428,7 @@ msgstr "Sijaintia tai tiedostoa ei löydy."
 msgid "The login has failed."
 msgstr "Kirjautuminen epäonnistui."
 
-#: ../libgnome/gnome-open.c:38
+#: ../libgnome/gnome-open.c:52
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Virhe URL:n näyttämisessä: %s\n"
@@ -624,8 +625,8 @@ msgstr "Tarvitseeko oletustehtävähallinta päätteen toimiakseen"
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
-"Parametri, jonka avulla \"exec\"-avaimessa annettu pääte saadaan "
-"suorittamaan jokin ohjelma."
+"Parametri, jonka avulla ”exec”-avaimessa annettu pääte saadaan suorittamaan "
+"jokin ohjelma."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -694,12 +695,12 @@ msgstr "Varjostustyyppi"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
+"\"zoom\", \"spanned\"."
 msgstr ""
 "Määrittää, kuinka avaimessa wallpaper_filename määritelty kuva esitetään. "
-"Mahdollisia arvoja ovat \"none\" (ei näytetä), \"wallpaper\" (taustakuva), "
-"\"centered\" (keskitetty), \"scaled\" (skaalattu), \"stretched\" (venytetty) "
-"ja \"zoom\" (lähennetty)"
+"Mahdollisia arvoja ovat ”none” (ei näytetä), ”wallpaper” (taustakuva), "
+"”centered” (keskitetty), ”scaled” (skaalattu), ”stretched” (venytetty), "
+"”zoom” (lähennetty) ja ”spanned”."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -718,8 +719,8 @@ msgid ""
 "How to shade the background color. Possible values are \"horizontal-gradient"
 "\", \"vertical-gradient\", and \"solid\"."
 msgstr ""
-"Miten taustaväri varjostuu. Mahdollisia arvoja ovat \"horizontal-gradient\", "
-"\"vertical-gradient\" ja \"solid\"."
+"Miten taustaväri varjostuu. Mahdollisia arvoja ovat ”horizontal-gradient”, "
+"”vertical-gradient” ja ”solid”."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
@@ -855,7 +856,7 @@ msgid ""
 "Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
 "Moduuli, jota käytetään tiedostojärjestelmän mallina GtkFileChooser-"
-"säätimessä. Mahdolliset arvot ovat \"gio\", \"gnome-vfs\" ja \"gtk+\"."
+"säätimessä. Mahdolliset arvot ovat ”gio”, ”gnome-vfs” ja ”gtk+”."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Monospace font"
@@ -888,18 +889,17 @@ msgstr "GTK+:n oletus-syöttötapamoduulin nimi."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:31
 msgid "Show the 'Input Methods' menu"
-msgstr "Näytä \"Syöttötavat\"-valikko"
+msgstr "Näytä ”Syöttötavat”-valikko"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:32
 msgid "Show the 'Unicode Control Character' menu"
-msgstr "Näytä \"Unicode-ohjausmerkki\"-valikko"
+msgstr "Näytä ”Unicode-ohjausmerkki”-valikko"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
 msgid ""
 "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
 msgstr ""
-"Kuvakkeiden koko työkalupalkeissa, joko \"small-toolbar\" tai \"large-toolbar"
-"\""
+"Kuvakkeiden koko työkalupalkeissa, joko ”small-toolbar” tai ”large-toolbar”"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
 msgid "Status Bar on Right"
@@ -922,8 +922,8 @@ msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\"."
 msgstr ""
-"Työkalupalkin tyyli. Mahdollisia arvoja ovat \"both\", \"both-horiz\", "
-"\"icons\"  ja \"text\"."
+"Työkalupalkin tyyli. Mahdollisia arvoja ovat ”both”, ”both-horiz”, ”icons”  "
+"ja ”text”."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Use Custom Font"
@@ -1036,8 +1036,8 @@ msgid ""
 "Application\" dialog."
 msgstr ""
 "Estä käyttäjää käyttämästä päätettä tai antamasta suoritettavaa "
-"komentoriviä. Tämä poistaa esimerkiksi paneelin \"Suorita sovellus\"-"
-"toiminnon käytöstä."
+"komentoriviä. Tämä poistaa esimerkiksi paneelin ”Suorita sovellus”-toiminnon "
+"käytöstä."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
@@ -1045,7 +1045,7 @@ msgid ""
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
 "Estä käyttäjää muuttamasta tulostusasetuksia. Tämä poistaa esimerkiksi "
-"kaikkien sovellusten \"Tulostusasetukset\"-ikkunan käytöstä."
+"kaikkien sovellusten ”Tulostusasetukset”-ikkunan käytöstä."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
@@ -1053,7 +1053,7 @@ msgid ""
 "all applications' \"Print\" dialogs."
 msgstr ""
 "Estä käyttäjää tulostamasta. Tämä poistaa esimerkiksi kaikkien sovellusten "
-"\"Tulosta\"-ikkunat käytöstä."
+"”Tulosta”-ikkunat käytöstä."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid ""
@@ -1061,7 +1061,7 @@ msgid ""
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
 "Estä käyttäjää tallentamasta tiedostoja levylle. Tämä poistaa esimerkiksi "
-"kaikkien sovellusten \"Tallenna nimellä\"-ikkunat käytöstä."
+"kaikkien sovellusten ”Tallenna nimellä”-ikkunat käytöstä."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:13
 msgid ""
@@ -1097,8 +1097,7 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
 msgid "possible values are \"on\", \"off\", and \"custom\"."
-msgstr ""
-"mahdollisia arvoja ovat \"on\" (päällä), \"off\" (pois) ja \"custom\" (muu)."
+msgstr "mahdollisia arvoja ovat ”on” (päällä), ”off” (pois) ja ”custom” (muu)."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:1
 msgid ""
@@ -1269,7 +1268,7 @@ msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
-"Kun tämä on \"true\" (tosi), mitään erillisiä pienoiskuvien teko-ohjelmia ei "
+"Kun tämä on ”true” (tosi), mitään erillisiä pienoiskuvien teko-ohjelmia ei "
 "käytetä, riippumatta siitä, mitä yksittäisissä kohdissa on valittu."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
