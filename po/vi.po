@@ -1,14 +1,14 @@
 # Vietnamese translation for LibGnome.
-# Copyright © 2009 GNOME i18n Project for Vietnamese.
+# Copyright © 2010 GNOME i18n Project for Vietnamese.
 # Nguyễn Thái Ngọc Duy <pclouds@vnlinux.org>, 2002,2008.
-# Clytie Siddall <clytie@riverland.net.au>, 2005-2009.
+# Clytie Siddall <clytie@riverland.net.au>, 2005-2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome 2.23.92\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-07 14:29+0100\n"
-"PO-Revision-Date: 2009-02-07 19:29+0930\n"
+"Project-Id-Version: libgnome 2.26\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgnome&component=general\n"
+"POT-Creation-Date: 2010-02-18 21:11+0000\n"
+"PO-Revision-Date: 2010-03-22 21:48+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -114,65 +114,65 @@ msgid "Help document %s/%s not found"
 msgstr "Không tìm thấy tài liệu trợ giúp %s/%s."
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:91
+#: ../libgnome/gnome-init.c:90
 msgid "Bonobo Support"
 msgstr "Hỗ trợ Bonobo"
 
-#: ../libgnome/gnome-init.c:145
+#: ../libgnome/gnome-init.c:144
 msgid "Bonobo activation Support"
 msgstr "Hỗ trợ hoạt hóa Bonobo"
 
-#: ../libgnome/gnome-init.c:381
-#: ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:380
+#: ../libgnome/gnome-init.c:394
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "Không thể tạo thư mục cấu hình GNOME cho mỗi người dùng « %s »: %s.\n"
 
-#: ../libgnome/gnome-init.c:403
+#: ../libgnome/gnome-init.c:402
 #, c-format
 msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr "Không thể lấy trạng thái về thư mục cấu hình GNOME từng người dùng riêng « %s »: %s.\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:410
 #, c-format
 msgid "Could not set mode 0700 on private per-user gnome configuration directory `%s': %s\n"
 msgstr "Không thể đặt chế độ 0700 cho thư mục cấu hình GNOME cho mỗi người dùng riêng « %s »: %s\n"
 
-#: ../libgnome/gnome-init.c:418
+#: ../libgnome/gnome-init.c:417
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Không thể tạo thư mục tăng tốc GNOME « %s »: %s.\n"
 
-#: ../libgnome/gnome-init.c:457
+#: ../libgnome/gnome-init.c:456
 msgid "GNOME Virtual Filesystem"
 msgstr "Hệ thống tập tin ảo GNOME"
 
-#: ../libgnome/gnome-init.c:475
-#: ../libgnome/gnome-init.c:518
+#: ../libgnome/gnome-init.c:474
+#: ../libgnome/gnome-init.c:517
 msgid "Disable sound server usage"
 msgstr "Tắt khả năng sử dụng trình phục vụ âm thanh."
 
-#: ../libgnome/gnome-init.c:478
-#: ../libgnome/gnome-init.c:521
+#: ../libgnome/gnome-init.c:477
+#: ../libgnome/gnome-init.c:520
 msgid "Enable sound server usage"
 msgstr "Bật khả năng sử dụng trình phục vụ âm thanh."
 
-#: ../libgnome/gnome-init.c:482
-#: ../libgnome/gnome-init.c:524
+#: ../libgnome/gnome-init.c:481
+#: ../libgnome/gnome-init.c:523
 msgid "Host:port on which the sound server to use is running"
 msgstr "« Host:port » (máy:cổng) mà trình phục vụ âm thanh cần dùng đang chạy."
 
-#: ../libgnome/gnome-init.c:483
-#: ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:482
+#: ../libgnome/gnome-init.c:525
 msgid "HOSTNAME:PORT"
 msgstr "TÊN_MÁY:CỔNG"
 
-#: ../libgnome/gnome-init.c:492
-#: ../libgnome/gnome-init.c:536
+#: ../libgnome/gnome-init.c:491
+#: ../libgnome/gnome-init.c:535
 msgid "GNOME Library"
 msgstr "Thư viên GNOME"
 
-#: ../libgnome/gnome-init.c:493
+#: ../libgnome/gnome-init.c:492
 msgid "Show GNOME options"
 msgstr "Hiện tùy chọn Gnome"
 
@@ -410,7 +410,7 @@ msgstr "Không tìm thấy địa điểm hoặc tập tin đó."
 msgid "The login has failed."
 msgstr "Lỗi đăng nhập."
 
-#: ../libgnome/gnome-open.c:38
+#: ../libgnome/gnome-open.c:52
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Gặp lỗi khi hiển thị địa chỉ Mạng: %s\n"
@@ -633,15 +633,20 @@ msgid "Color Shading Type"
 msgstr "Kiểu bóng màu"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:2
-msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom\"."
+#| msgid ""
+#| "Determines how the image set by wallpaper_filename is rendered. Possible "
+#| "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
+#| "\", \"zoom\"."
+msgid "Determines how the image set by wallpaper_filename is rendered. Possible values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom\", \"spanned\"."
 msgstr ""
 "Xác định ảnh đặt bởi « wallpaper_filename » (tên tập tin ảnh nền) được vẽ như thế nào. Giá trị hợp lệ là:\n"
-" • none — không có,\n"
-" • wallpaper — ảnh nền,\n"
-" • centered — đã canh giữa,\n"
-" • scaled — đã co dãn,\n"
-" • stretched — đã kéo dãn,\n"
-" • zoom — thu/phóng."
+" • none — không có\n"
+" • wallpaper — ảnh nền\n"
+" • centered — đã canh giữa\n"
+" • scaled — đã co giãn\n"
+" • stretched — đã kéo giãn\n"
+" • zoom — thu/phóng\n"
+" • spanned — chiếm giữ"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
