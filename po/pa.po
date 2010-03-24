@@ -6,20 +6,20 @@
 # Amanpreet Singh Alam <aalam@redhat.com>, 2004, 2006.
 # Amanpreet Singh Alam <amanpreetalam@yahoo.com>, 2005.
 # A S Alam <apbrar@gmail.com>, 2006.
-# A S Alam <aalam@users.sf.net>, 2007.
+# A S Alam <aalam@users.sf.net>, 2007, 2010.
 # Amanpreet Singh Alam <aalam@users.sf.net>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome.HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-07 14:29+0100\n"
-"PO-Revision-Date: 2008-12-21 08:38+0530\n"
-"Last-Translator: Amanpreet Singh Alam <aalam@users.sf.net>\n"
-"Language-Team: Punjabi <punjabi-l10n@users.sf.net>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgnome&component=general\n"
+"POT-Creation-Date: 2010-03-23 01:02+0000\n"
+"PO-Revision-Date: 2010-03-24 07:47+0530\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: Punjabi/Panjabi <punjab-l10n@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
@@ -97,9 +97,7 @@ msgstr "GNOME_FILE_DOMAIN_HELP ਡੋਮੇਨ ਲੱਭਣ ਵਿੱਚ ਅਸ�
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr ""
-"ਕਿਉਂਕਿ %s ਇੱਕ ਡਾਇਰੈਕਟਰੀ ਨਹੀ ਹੈ, ਇਸਕਰਕੇ ਮੱਦਦ ਵੇਖਾਉਣ ਵਿੱਚ ਅਸਫਲ। ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ "
-"ਜੀ।"
+msgstr "ਕਿਉਂਕਿ %s ਇੱਕ ਡਾਇਰੈਕਟਰੀ ਨਹੀ ਹੈ, ਇਸਕਰਕੇ ਮੱਦਦ ਵੇਖਾਉਣ ਵਿੱਚ ਅਸਫਲ। ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ ਜੀ।"
 
 #: ../libgnome/gnome-help.c:217
 #, c-format
@@ -124,65 +122,63 @@ msgid "Help document %s/%s not found"
 msgstr "ਮੱਦਦ ਡੌਕੂਮੈਂਟ %s/%s ਨਹੀਂ ਲੱਭੇ"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:91
+#: ../libgnome/gnome-init.c:90
 msgid "Bonobo Support"
 msgstr "ਬੋਨਬੋ ਮੱਦਦ"
 
-#: ../libgnome/gnome-init.c:145
+#: ../libgnome/gnome-init.c:144
 msgid "Bonobo activation Support"
 msgstr "ਬੋਨਬੋ ਸਰਗਰਮੀ ਮੱਦਦ"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:380 ../libgnome/gnome-init.c:394
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr "ਹਰੇਕ ਯੂਜ਼ਰ ਲਈ ਗਨੋਮ ਸੰਰਚਨਾ ਡਾਇਰੈਕਟਰੀ `%s' ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ: %s\n"
 
-#: ../libgnome/gnome-init.c:403
+#: ../libgnome/gnome-init.c:402
 #, c-format
 msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr "ਹਰੇਕ ਯੂਜ਼ਰ ਲਈ ਗਨੋਮ ਸੰਰਚਨਾ ਡਾਇਰੈਕਟਰੀ `%s' ਲਈ ਪ੍ਰਾਈਵੇਟ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ : %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:410
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
 "s': %s\n"
-msgstr ""
-"ਮੋਡ 0700 ਦਿੱਤਾ ਨਹੀ ਕੀਤਾ ਜਾ ਸਕਿਆ, ਨਿੱਜੀ ਪ੍ਰਤੀ-ਯੂਜ਼ਰ ਗਨੋਮ-ਸੰਰਚਨਾ ਡਾਇਰੈਕਟਰੀ`%s' ਉੱਤੇ: %"
-"s\n"
+msgstr "ਮੋਡ 0700 ਦਿੱਤਾ ਨਹੀ ਕੀਤਾ ਜਾ ਸਕਿਆ, ਨਿੱਜੀ ਪ੍ਰਤੀ-ਯੂਜ਼ਰ ਗਨੋਮ-ਸੰਰਚਨਾ ਡਾਇਰੈਕਟਰੀ`%s' ਉੱਤੇ: %s\n"
 
-#: ../libgnome/gnome-init.c:418
+#: ../libgnome/gnome-init.c:417
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "ਗਨੋਮ ਐਕਸਰਲੇਟ ਡਾਇਰੈਕਟਰੀ `%s' ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ ਹੈ: %s\n"
 
-#: ../libgnome/gnome-init.c:457
+#: ../libgnome/gnome-init.c:456
 msgid "GNOME Virtual Filesystem"
 msgstr "ਗਨੋਮ ਵਰਚੁਅਲ ਫਾਇਲ-ਸਿਸਟਮ"
 
-#: ../libgnome/gnome-init.c:475 ../libgnome/gnome-init.c:518
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
 msgid "Disable sound server usage"
 msgstr "ਸਾਊਡ ਸਰਵਰ ਦੀ ਵਰਤੋਂ ਅਯੋਗ ਹੈ"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:521
+#: ../libgnome/gnome-init.c:477 ../libgnome/gnome-init.c:520
 msgid "Enable sound server usage"
 msgstr "ਸਾਊਡ ਸਰਵਰ ਦੀ ਵਰਤੋਂ ਯੋਗ ਹੈ"
 
-#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:524
+#: ../libgnome/gnome-init.c:481 ../libgnome/gnome-init.c:523
 msgid "Host:port on which the sound server to use is running"
 msgstr "ਮੇਜ਼ਬਾਨ:ਪੋਰਟ ਜਿਸ 'ਤੇ ਸਾਊਡ ਸਰਵਰ ਚੱਲ ਰਿਹਾ ਹੈ"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:525
 msgid "HOSTNAME:PORT"
-msgstr "ਮੇਜ਼ਬਾਨ ਨਾਂ:ਪੋਰਟ"
+msgstr "HOSTNAME:PORT"
 
-#: ../libgnome/gnome-init.c:492 ../libgnome/gnome-init.c:536
+#: ../libgnome/gnome-init.c:491 ../libgnome/gnome-init.c:535
 msgid "GNOME Library"
 msgstr "ਗਨੋਮ ਲਾਇਬ੍ਰੇਰੀ"
 
-#: ../libgnome/gnome-init.c:493
+#: ../libgnome/gnome-init.c:492
 msgid "Show GNOME options"
-msgstr "ਗਨੋਮ ਚੋਣਾਂ ਵੇਖਾਓ"
+msgstr "ਗਨੋਮ ਚੋਣਾਂ ਵੇਖੋ"
 
 #: ../libgnome/gnome-program.c:457
 msgid "Popt Table"
@@ -421,7 +417,7 @@ msgstr "ਟਿਕਾਣਾ ਜਾਂ ਫਾਇਲ ਲੱਭੀ ਨਹੀਂ ਜ�
 msgid "The login has failed."
 msgstr "ਲਾਗਇਨ ਫੇਲ੍ਹ ਹੋਇਆ।"
 
-#: ../libgnome/gnome-open.c:38
+#: ../libgnome/gnome-open.c:52
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "URL ਵੇਖਾਉਣ ਵਿੱਚ ਗਲਤੀ: %s\n"
@@ -457,9 +453,7 @@ msgstr "ਅਯੋਗ, ਜਦੋਂ ਦੋ ਕੀ(ਬਟਨ) ਇੱਕਠੀਆ�
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
 msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
-msgstr ""
-"ਕਿਸੇ ਕੁੰਜੀ ਨੂੰ ਮਾਨਤਾ ਨਾ ਦਿਓ, ਜਦੋਂ ਤੱਕ ਕਿ ਇਹਨਾਂ ਨੂੰ @delay ਮਿਲੀ ਸਕਿੰਟ "
-"ਲਈ ਦਬਾਇਆ ਨਹੀਂ ਜਾਂਦਾ ਹੈ।"
+msgstr "ਕਿਸੇ ਕੁੰਜੀ ਨੂੰ ਮਾਨਤਾ ਨਾ ਦਿਓ, ਜਦੋਂ ਤੱਕ ਕਿ ਇਹਨਾਂ ਨੂੰ @delay ਮਿਲੀ ਸਕਿੰਟ ਲਈ ਦਬਾਇਆ ਨਹੀਂ ਜਾਂਦਾ ਹੈ।"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:4
 msgid "How long to accelerate in milliseconds"
@@ -479,9 +473,7 @@ msgstr "ਅਧਿਕਤਮ ਗਤੀ ਤੇ ਕਿੰਨੇ ਪਿਕਸਲ ਪ�
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:8
 msgid "Ignore multiple presses of the _same_ key within @delay milliseconds."
-msgstr ""
-"ਇਕੋਂ ਸਮੇਂ ਦੱਬੀ _ਇੱਕੋ_ ਸਵਿੱਚ ਨੂੰ ਕਈ ਵਾਰ ਦੱਬਣਾ @delay ਮਿਲੀਸਕਿੰਟ ਅੰਤਾਰਲ "
-"ਨਾਲ ਅਣਡਿੱਠਾ ਕਰੋ।"
+msgstr "ਇਕੋਂ ਸਮੇਂ ਦੱਬੀ _ਇੱਕੋ_ ਸਵਿੱਚ ਨੂੰ ਕਈ ਵਾਰ ਦੱਬਣਾ @delay ਮਿਲੀਸਕਿੰਟ ਅੰਤਾਰਲ ਨਾਲ ਅਣਡਿੱਠਾ ਕਰੋ।"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:9
 msgid "Initial delay in milliseconds"
@@ -626,8 +618,7 @@ msgid ""
 "A list with names of the first window manager workspaces. This key has been "
 "deprecated since GNOME 2.12."
 msgstr ""
-"ਪਹਿਲੇ ਵਰਕਸਪੇਸ ਵਿੱਚ ਵਿੰਡੋ ਮੈਨੇਜਰ ਦੀ ਨਾਂ ਸੂਚੀ ਹੈ। ਇਹ ਕੁੰਜੀ ਗਨੋਮ 2.12 ਵਿੱਚ ਬਰਤਰਫ਼ ਕਰ ਦਿੱਤੀ ਗਈ "
-"ਹੈ।"
+"ਪਹਿਲੇ ਵਰਕਸਪੇਸ ਵਿੱਚ ਵਿੰਡੋ ਮੈਨੇਜਰ ਦੀ ਨਾਂ ਸੂਚੀ ਹੈ। ਇਹ ਕੁੰਜੀ ਗਨੋਮ 2.12 ਵਿੱਚ ਬਰਤਰਫ਼ ਕਰ ਦਿੱਤੀ ਗਈ ਹੈ।"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:2
 msgid "Fallback window manager (deprecated)"
@@ -638,8 +629,8 @@ msgid ""
 "Fallback window manager if user window manager can't be found. This key has "
 "been deprecated since GNOME 2.12."
 msgstr ""
-"ਫਾਲਬੈਕ ਵਿੰਡੋ ਮੈਨੇਜਰ, ਜੇਕਰ ਯੂਜ਼ਰ ਪਰਬੰਧਕ ਨਾ ਲੱਭਿਆ ਜਾ ਸਕੇ। ਇਹ ਕੁੰਜੀ ਗਨੋਮ 2.12 ਵਿੱਚ ਬਰਤਰਫ਼ "
-"ਕੀਤੀ ਜਾ ਚੁੱਕੀ ਹੈ।"
+"ਫਾਲਬੈਕ ਵਿੰਡੋ ਮੈਨੇਜਰ, ਜੇਕਰ ਯੂਜ਼ਰ ਪਰਬੰਧਕ ਨਾ ਲੱਭਿਆ ਜਾ ਸਕੇ। ਇਹ ਕੁੰਜੀ ਗਨੋਮ 2.12 ਵਿੱਚ ਬਰਤਰਫ਼ ਕੀਤੀ "
+"ਜਾ ਚੁੱਕੀ ਹੈ।"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:4
 msgid "Names of the workspaces (deprecated)"
@@ -654,8 +645,8 @@ msgid ""
 "The number of workspaces the window manager should use This key has been "
 "deprecated since GNOME 2.12."
 msgstr ""
-"ਵਰਕਸਪੇਸਾਂ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ਵਿੰਡੋ ਪਰਬੰਧਕ ਵਰਤ ਸਕਦੇ ਹਨ। ਇਹ ਕੁੰਜੀ ਨੂੰ ਗਨੋਮ 2.12 ਵਿੱਚ ਬਰਤਰਫ਼ "
-"ਕੀਤਾ ਜਾ ਚੁੱਕਿਆ ਹੈ।"
+"ਵਰਕਸਪੇਸਾਂ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ਵਿੰਡੋ ਪਰਬੰਧਕ ਵਰਤ ਸਕਦੇ ਹਨ। ਇਹ ਕੁੰਜੀ ਨੂੰ ਗਨੋਮ 2.12 ਵਿੱਚ ਬਰਤਰਫ਼ ਕੀਤਾ "
+"ਜਾ ਚੁੱਕਿਆ ਹੈ।"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:7
 msgid "User window manager (deprecated)"
@@ -670,13 +661,18 @@ msgid "Color Shading Type"
 msgstr "ਰੰਗ ਸ਼ੇਡਿੰਗ ਕਿਸਮ"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:2
+#| msgid ""
+#| "Determines how the image set by wallpaper_filename is rendered. Possible "
+#| "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched"
+#| "\", \"zoom\"."
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
+"\"zoom\", \"spanned\"."
 msgstr ""
-"ਦੱਸੋ ਕਿ ਬੈਕਗਰਾਊਂਡ ਫਾਇਲ-ਨਾਂ ਦਾ ਚਿੱਤਰ ਨੂੰ ਕਿਵੇਂ ਪੇਸ਼ ਕਰਨਾ ਹੈ, ਸੰਭਵ ਮੁੱਲ ਹਨ \"ਕੋਈ ਨਹੀਂ\", \"ਕੰਧ-"
-"ਚਿੱਤਰ\",\"ਕੇਂਦਰੀ\",\"ਮਾਪ\",\"ਤਣਿਆ\", \"ਜ਼ੂਮ\""
+"ਦੱਸੋ ਕਿ ਬੈਕਗਰਾਊਂਡ ਫਾਇਲ-ਨਾਂ ਦਾ ਚਿੱਤਰ ਨੂੰ ਕਿਵੇਂ ਪੇਸ਼ ਕਰਨਾ ਹੈ, ਸੰਭਵ ਮੁੱਲ ਹਨ \"ਕੋਈ ਨਹੀਂ\", "
+"\"ਵਾਲਪੇਪਰ\", "
+"\"ਕੇਂਦਰੀ\",\"ਸਕੇਲ ਕੀਤਾ\",\"ਤਣਿਆ\", \"ਜ਼ੂਮ\", \"ਭਰਿਆ\"।"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -831,8 +827,8 @@ msgid ""
 "Module to use as the filesystem model for the GtkFileChooser widget. "
 "Possible values are \"gio\", \"gnome-vfs\" and \"gtk+\"."
 msgstr ""
-"GtkFileChooser ਵਿਦਗਿਟ ਲਈ ਫਾਇਲ ਸਿਸਟਮ ਵਰਤਣ ਲਈ ਮੋਡੀਊਲ ਸੰਭਵ ਮੁੱਲ "
-"\"gio\", \"gnome-vfs\" ਅਤੇ \"gtk+\" ਹਨ।"
+"GtkFileChooser ਵਿਦਗਿਟ ਲਈ ਫਾਇਲ ਸਿਸਟਮ ਵਰਤਣ ਲਈ ਮੋਡੀਊਲ ਸੰਭਵ ਮੁੱਲ \"gio\", \"gnome-vfs"
+"\" ਅਤੇ \"gtk+\" ਹਨ।"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Monospace font"
@@ -1013,13 +1009,17 @@ msgstr ""
 msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
-msgstr "ਯੂਜ਼ਰ ਨੂੰ ਪਰਿੰਟਿੰਗ ਤੋਂ ਰੋਕ ਦਿਉ। ਜਿਵੇਂ ਕਿ, ਹਰੇਕ ਐਪਲੀਕੇਸ਼ਨ ਵਿੱਚੋਂ \"ਪਰਿੰਟ ਕਰੋ\" ਡਾਈਲਾਗ ਲਈ ਅਸੈੱਸ ਆਯੋਗ ਕਰ ਦਿਓ।"
+msgstr ""
+"ਯੂਜ਼ਰ ਨੂੰ ਪਰਿੰਟਿੰਗ ਤੋਂ ਰੋਕ ਦਿਉ। ਜਿਵੇਂ ਕਿ, ਹਰੇਕ ਐਪਲੀਕੇਸ਼ਨ ਵਿੱਚੋਂ \"ਪਰਿੰਟ ਕਰੋ\" ਡਾਈਲਾਗ ਲਈ ਅਸੈੱਸ ਆਯੋਗ "
+"ਕਰ ਦਿਓ।"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
-msgstr "ਯੂਜ਼ਰ ਨੂੰ ਫਾਇਲ ਨੂੰ ਡਿਸਕ ਉੱਤੇ ਸੰਭਾਲਣ ਤੋਂ ਰੋਕੇ। ਜਿਵੇਂ ਕਿ, ਹਰੇਕ ਐਪਲੀਕੇਸ਼ਨ ਵਿੱਚ \"ਇੰਜ ਸੰਭਾਲੋ\" ਡਾਈਲਾਗ ਲਈ ਪਹੁੰਚ ਆਯੋਗ ਕਰ ਦਿਓ।"
+msgstr ""
+"ਯੂਜ਼ਰ ਨੂੰ ਫਾਇਲ ਨੂੰ ਡਿਸਕ ਉੱਤੇ ਸੰਭਾਲਣ ਤੋਂ ਰੋਕੇ। ਜਿਵੇਂ ਕਿ, ਹਰੇਕ ਐਪਲੀਕੇਸ਼ਨ ਵਿੱਚ \"ਇੰਜ ਸੰਭਾਲੋ\" ਡਾਈਲਾਗ "
+"ਲਈ ਪਹੁੰਚ ਆਯੋਗ ਕਰ ਦਿਓ।"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:13
 msgid ""
@@ -1105,8 +1105,8 @@ msgid ""
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"ਕਰਸਰ ਲਈ ਫੋਂਟ ਨਾਂ, ਜੇਕਰ ਨਾ ਦਿੱਤਾ ਤਾਂ ਡਿਫਾਲਟ ਫੋਂਟ ਹੀ ਵਰਤੇ ਜਾਣਗੇ ਇਹ ਤਾਂ X ਸਰਵਰ ਨੂੰ ਸ਼ੁਰੂ ਵੇਲੇ ਹੀ ਮਿਲ "
-"ਜਾਂਦੇ ਹਨ, ਇਸ ਕਰਕੇ ਸ਼ੈਸ਼ਨ ਵਿੱਚਕਾਰ ਬਦਲਣ ਨਾਲ ਕੋਈ ਫਰਕ ਨਹੀਂ ਪੈਦਾ, ਜਦ ਤੱਕ ਮੁਡ਼ ਚਾਲੂ ਨਹੀ ਕਰਦੇ।"
+"ਕਰਸਰ ਲਈ ਫੋਂਟ ਨਾਂ, ਜੇਕਰ ਨਾ ਦਿੱਤਾ ਤਾਂ ਡਿਫਾਲਟ ਫੋਂਟ ਹੀ ਵਰਤੇ ਜਾਣਗੇ ਇਹ ਤਾਂ X ਸਰਵਰ ਨੂੰ ਸ਼ੁਰੂ ਵੇਲੇ ਹੀ "
+"ਮਿਲ ਜਾਂਦੇ ਹਨ, ਇਸ ਕਰਕੇ ਸ਼ੈਸ਼ਨ ਵਿੱਚਕਾਰ ਬਦਲਣ ਨਾਲ ਕੋਈ ਫਰਕ ਨਹੀਂ ਪੈਦਾ, ਜਦ ਤੱਕ ਮੁਡ਼ ਚਾਲੂ ਨਹੀ ਕਰਦੇ।"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
