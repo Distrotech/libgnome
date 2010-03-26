@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-13 11:09+0000\n"
-"PO-Revision-Date: 2008-08-24 14:10+0200\n"
+"POT-Creation-Date: 2010-03-26 11:46+0200\n"
+"PO-Revision-Date: 2010-03-26 14:10+0200\n"
 "Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -123,21 +123,21 @@ msgid "Help document %s/%s not found"
 msgstr "Документ довідки %s/%s не знайдено"
 
 #. FIXME: get this from bonobo
-#: ../libgnome/gnome-init.c:91
+#: ../libgnome/gnome-init.c:90
 msgid "Bonobo Support"
 msgstr "Підтримка Bonobo"
 
-#: ../libgnome/gnome-init.c:145
+#: ../libgnome/gnome-init.c:144
 msgid "Bonobo activation Support"
 msgstr "Підтримка активізації Bonobo"
 
-#: ../libgnome/gnome-init.c:381 ../libgnome/gnome-init.c:395
+#: ../libgnome/gnome-init.c:380 ../libgnome/gnome-init.c:394
 #, c-format
 msgid "Could not create per-user gnome configuration directory `%s': %s\n"
 msgstr ""
 "Не вдається створити окремий конфігураційний каталог користувача \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:403
+#: ../libgnome/gnome-init.c:402
 #, c-format
 msgid ""
 "Could not stat private per-user gnome configuration directory `%s': %s\n"
@@ -145,7 +145,7 @@ msgstr ""
 "Не вдається отримати інформацію про окремий конфігураційний каталог "
 "користувача \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:411
+#: ../libgnome/gnome-init.c:410
 #, c-format
 msgid ""
 "Could not set mode 0700 on private per-user gnome configuration directory `%"
@@ -154,36 +154,36 @@ msgstr ""
 "Не вдається встановити режим доступу 0700 на окремий приватний "
 "конфігураційний каталог користувача \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:418
+#: ../libgnome/gnome-init.c:417
 #, c-format
 msgid "Could not create gnome accelerators directory `%s': %s\n"
 msgstr "Не вдається створити каталог комбінацій клавіш GNOME \"%s\": %s\n"
 
-#: ../libgnome/gnome-init.c:457
+#: ../libgnome/gnome-init.c:456
 msgid "GNOME Virtual Filesystem"
 msgstr "Віртуальна файлова система GNOME"
 
-#: ../libgnome/gnome-init.c:475 ../libgnome/gnome-init.c:518
+#: ../libgnome/gnome-init.c:474 ../libgnome/gnome-init.c:517
 msgid "Disable sound server usage"
 msgstr "Вимкнути використання звукового сервера"
 
-#: ../libgnome/gnome-init.c:478 ../libgnome/gnome-init.c:521
+#: ../libgnome/gnome-init.c:477 ../libgnome/gnome-init.c:520
 msgid "Enable sound server usage"
 msgstr "Увімкнути використання звукового сервера"
 
-#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:524
+#: ../libgnome/gnome-init.c:481 ../libgnome/gnome-init.c:523
 msgid "Host:port on which the sound server to use is running"
 msgstr "Вузол:порт, де запущено звуковий сервер"
 
-#: ../libgnome/gnome-init.c:483 ../libgnome/gnome-init.c:526
+#: ../libgnome/gnome-init.c:482 ../libgnome/gnome-init.c:525
 msgid "HOSTNAME:PORT"
 msgstr "НАЗВАВУЗЛА:ПОРТ"
 
-#: ../libgnome/gnome-init.c:492 ../libgnome/gnome-init.c:536
+#: ../libgnome/gnome-init.c:491 ../libgnome/gnome-init.c:535
 msgid "GNOME Library"
 msgstr "Бібліотека GNOME"
 
-#: ../libgnome/gnome-init.c:493
+#: ../libgnome/gnome-init.c:492
 msgid "Show GNOME options"
 msgstr "Показувати параметри GNOME"
 
@@ -426,7 +426,7 @@ msgstr "Не вдається знайти вузол або файл."
 msgid "The login has failed."
 msgstr "Помилка входу у систему."
 
-#: ../libgnome/gnome-open.c:38
+#: ../libgnome/gnome-open.c:52
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "Помилка відображення url: %s\n"
@@ -697,11 +697,11 @@ msgstr "Тип кольорового переходу"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
+"\"zoom\", \"spanned\"."
 msgstr ""
 "Визначає метод візуалізації зображення встановленого параметром "
-"\"wallpaper_filename\". Можливі значення: \"none\", \"wallpaper\", \"centered"
-"\", \"scaled\", \"stretched\" та \"zoom\"."
+"wallpaper_filename. Можливі значення: \"none\", \"wallpaper\", \"centered"
+"\", \"scaled\", \"stretched\" та \"zoom\",  \"spanned\"."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -1312,20 +1312,4 @@ msgstr "Чи дозволяється блокування клавіатури.
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Чи дозволяється відкладати перерву."
 
-#~ msgid "Default help viewer"
-#~ msgstr "Типовий переглядач довідки"
 
-#~ msgid "Help viewer needs terminal"
-#~ msgstr "Переглядачу довідки потрібен термінал"
-
-#~ msgid "Whether the default help viewer accepts URLs"
-#~ msgstr "Чи типовий переглядач довідки приймає URL"
-
-#~ msgid "Whether the default help viewer needs a terminal to run"
-#~ msgstr "Чи типовому переглядачу довідки потрібен термінал для запуску"
-
-#~ msgid "This specifies the size of icons displayed in toolbars"
-#~ msgstr "Значення визначає розмір значків, що відображаються в панелях"
-
-#~ msgid "Unknown error code: %u"
-#~ msgstr "Невідомий код помилки: %u"
