@@ -1,17 +1,16 @@
-# Valencian (southern Catalan) translation of libgnome.
+# Catalan translation of libgnome.
 # Copyright © 2000, 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
 # Ivan Vilata i Balaguer <al011097@alumail.uji.es>, 2000.
 # Softcatala <linux@softcatala.org>, 2000.
 # Jordi Mallach <jordi@sindominio.net>, 2002, 2003, 2004, 2005, 2006.
 # Josep Puigdemont <josep.puigdemont@gmail.com>, 2006, 2007.
-# Miquel Esplà <miquelespla@gmail.com>, 2009 [valencian variant adaptation].
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-24 23:48+0200\n"
-"PO-Revision-Date: 2009-01-12 17:00+0100\n"
+"POT-Creation-Date: 2010-04-22 23:58+0200\n"
+"PO-Revision-Date: 2010-03-08 22:47+0100\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +116,7 @@ msgstr ""
 #: ../libgnome/gnome-help.c:350
 #, c-format
 msgid "Unable to find doc_id %s in the help path"
-msgstr "No s'ha pogut trobar la doc_id %s en la ruta de l'ajuda"
+msgstr "No s'ha pogut trobar la doc_id %s en el camí de l'ajuda"
 
 #: ../libgnome/gnome-help.c:371
 #, c-format
@@ -366,8 +365,8 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "%s\n"
-"Executeu «%s --help» per a vore una llista completa de les opcions "
-"disponibles de la línia d'ordes.\n"
+"Executeu «%s --help» per veure una llista completa de les opcions disponibles "
+"de la línia d'ordes.\n"
 
 #: ../libgnome/gnome-url.c:85
 #, c-format
@@ -516,7 +515,7 @@ msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop."
 msgstr ""
-"Llista d'aplicacions de tecnologia assistiva a iniciar quan s'entre a "
+"Llista d'aplicacions de tecnologia assistiva a iniciar quan s'entri a "
 "l'escriptori GNOME."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
@@ -542,7 +541,7 @@ msgid ""
 "Preferred Mobility assistive technology application to be used for login, "
 "menu, or command line."
 msgstr ""
-"Aplicació de tecnologia assistiva de mobilitat preferida per a utilitzar a "
+"Aplicació de tecnologia assistiva de mobilitat preferida per utilitzar a "
 "l'entrada, al menú o la línia d'ordes."
 
 #: ../schemas/desktop_gnome_applications_at_mobility.schemas.in.h:4
@@ -591,7 +590,7 @@ msgstr "Navegador predeterminat per a tots els URL."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run."
-msgstr "Si el navegador predeterminat necessita un terminal per a executar-se."
+msgstr "Si el navegador predeterminat necessita un terminal per executar-se."
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:6
 msgid "Whether the default browser understands netscape remote."
@@ -624,21 +623,21 @@ msgstr "L'aplicació de tasques necessita un terminal"
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:7
 msgid "Whether the default calendar application needs a terminal to run"
 msgstr ""
-"Si l'aplicació de calendari predeterminada necessita un terminal per a "
+"Si l'aplicació de calendari predeterminada necessita un terminal per "
 "executar-se"
 
 #: ../schemas/desktop_gnome_applications_office.schemas.in.h:8
 msgid "Whether the default tasks application needs a terminal to run"
 msgstr ""
-"Si l'aplicació de tasques predeterminada necessita un terminal per a "
-"executar-se"
+"Si l'aplicació de tasques predeterminada necessita un terminal per executar-"
+"se"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:1
 msgid ""
 "Argument used to execute programs in the terminal defined by the 'exec' key."
 msgstr ""
-"L'argument que s'utilitza per a executar programes en el terminal definit "
-"per la clau «exec»."
+"L'argument que s'utilitza per executar programes en el terminal definit per "
+"la clau «exec»."
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:2
 msgid "Exec Arguments"
@@ -709,12 +708,12 @@ msgstr "Tipus d'ombreig de color"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
+"\"zoom\", \"spanned\"."
 msgstr ""
 "Determina com es representa la imatge establerta per la clau "
 "«wallpaper_filename». Els valors possibles són «none» (cap), «wallpaper» (fons "
-"de pantalla), «centered» (centrat), «scaled» (escalat), «stretched» (ajustat) i "
-"«zoom» (ampliat)."
+"de pantalla), «centered» (centrat), «scaled» (escalat), «stretched» (ajustat) "
+"«zoom» (ampliat) i «spanned» (estirat)."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -726,7 +725,7 @@ msgstr "Fitxer a utilitzar per a la imatge de fons."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background."
-msgstr "Fes que el GNOME dibuixe el fons de l'escriptori."
+msgstr "Fes que el GNOME dibuixi el fons de l'escriptori."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
@@ -740,7 +739,7 @@ msgstr ""
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:7
 msgid "Left or Top color when drawing gradients, or the solid color."
 msgstr ""
-"Color de l'esquerra o superior quan es dibuixe el degradat, o el color sòlid."
+"Color de l'esquerra o superior quan es dibuixi el degradat, o el color sòlid."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:8
 msgid "Opacity with which to draw the background picture."
@@ -765,7 +764,7 @@ msgstr "Color primari"
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:13
 msgid "Right or Bottom color when drawing gradients, not used for solid color."
 msgstr ""
-"Color de la dreta o inferior quan es dibuixe el degradat, no s'utilitza per "
+"Color de la dreta o inferior quan es dibuixi el degradat, no s'utilitza per "
 "a colors sòlids."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:14
@@ -778,7 +777,7 @@ msgstr "Tema d'icones de fitxers"
 
 #: ../schemas/desktop_gnome_file_views.schemas.in.h:2
 msgid "Theme used for displaying file icons."
-msgstr "Tema que s'utilitza per a mostrar les icones de fitxers."
+msgstr "Tema que s'utilitza per mostrar les icones de fitxers."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:1
 msgid "Basename of the default theme used by gtk+."
@@ -842,7 +841,7 @@ msgstr "Tema d'icones que s'utilitza per al quadre, el nautilus, etc."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:16
 msgid "Keyboard shortcut to open the menu bars."
-msgstr "Drecera de teclat per a obrir les barres de menú."
+msgstr "Drecera de teclat per obrir les barres de menú."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:17
 msgid "Length of the cursor blink cycle, in milliseconds."
@@ -866,7 +865,7 @@ msgstr "Els menús tenen separadors"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:22
 msgid "Module for GtkFileChooser"
-msgstr "Mòdul per el GtkFileChooser"
+msgstr "Mòdul pel GtkFileChooser"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:23
 msgid ""
@@ -878,14 +877,14 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:24
 msgid "Monospace font"
-msgstr "Tipus de lletra de grandària fixa"
+msgstr "Tipus de lletra de mida fixa"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:25
 msgid ""
 "Name of a monospaced (fixed-width) font for use in locations like terminals."
 msgstr ""
-"Nom d'un tipus de lletra de grandària fixa per a utilitzar a ubicacions com "
-"el terminal."
+"Nom d'un tipus de lletra de mida fixa per utilitzar a ubicacions com el "
+"terminal."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
@@ -904,7 +903,7 @@ msgstr "Nom del tipus de lletra predeterminat que utilitza el GTK+."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Name of the default font used for reading documents."
-msgstr "Nom del tipus de lletra predeterminada per a llegir documents."
+msgstr "Nom del tipus de lletra predeterminada per llegir documents."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:30
 msgid "Name of the input method module used by GTK+."
@@ -922,7 +921,7 @@ msgstr "Mostra el menú «Caràcters de control Unicode»"
 msgid ""
 "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
 msgstr ""
-"Grandària de les icones en les barres d'eines, pot ser «small-toolbar» (barra "
+"Mida de les icones en les barres d'eines, pot ser «small-toolbar» (barra "
 "d'eines petita) o «large-toolbar» (barra d'eines gran)."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:34
@@ -935,7 +934,7 @@ msgstr "Les barres d'eines es poden desacoblar"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:36
 msgid "Toolbar Icon Size"
-msgstr "Grandària de les icones de les barres d'eines"
+msgstr "Mida de les icones de les barres d'eines"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:37
 msgid "Toolbar Style"
@@ -946,8 +945,8 @@ msgid ""
 "Toolbar Style. Valid values are \"both\", \"both-horiz\", \"icons\", and "
 "\"text\"."
 msgstr ""
-"Estil de les barres d'eines. Els valors vàlids són «both» (ambdós), "
-"«both_horiz» (ambdós horitzontal), «icon» (icona) i «text»."
+"Estil de les barres d'eines. Els valors vàlids són «both» (ambdós), «both-"
+"horiz» (ambdós horitzontal), «icons» (icona) i «text»."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:39
 msgid "Use Custom Font"
@@ -1025,7 +1024,7 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:1
 msgid "Disable URL and MIME type handlers"
-msgstr "Inhabilita els gestiors d'URL i de tipus MIME"
+msgstr "Inhabilita els gestors d'URL i de tipus MIME"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:2
 msgid "Disable command line"
@@ -1062,8 +1061,8 @@ msgid ""
 "Application\" dialog."
 msgstr ""
 "Evita que l'usuari puga accedir al terminal o puga especificar una línia "
-"d'ordes per a ser executada. Per exemple, això inhabilitaria l'accés al "
-"diàleg «Executa una aplicació» del quadre."
+"d'ordes per ser executada. Per exemple, això inhabilitaria l'accés al diàleg "
+"«Executa una aplicació» del quadre."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:10
 msgid ""
@@ -1098,7 +1097,7 @@ msgstr "Evita que es canvie d'usuari mentre la sessió estiga activa."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:14
 msgid "Prevent the user to lock his screen."
-msgstr "Evita que l'usuari bloquege la pantalla."
+msgstr "Evita que l'usuari bloqui la pantalla."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:1
 msgid "File name of the bell sound to be played."
@@ -1106,7 +1105,7 @@ msgstr "El nom del fitxer del so de la campana a reproduir."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:2
 msgid "Keyboard Bell Custom Filename"
-msgstr "Fitxer personalitzat de la campana del teclat."
+msgstr "Fitxer personalitzat de la campana del teclat"
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:3
 msgid "Remember NumLock state"
@@ -1140,7 +1139,7 @@ msgstr "Tipus de lletra del cursor"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:3
 msgid "Cursor size"
-msgstr "Grandària del cursor"
+msgstr "Mida del cursor"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:4
 msgid "Cursor theme"
@@ -1182,7 +1181,7 @@ msgid ""
 "only propagated to the X server start of each session, so changing it mid-"
 "session won't have an effect until the next time you log in."
 msgstr ""
-"Tipus de lletra del cursor. Si no està establert, s'utilitza el tipus de "
+"Tipus de lletra del cursor. Si no està establit, s'utilitza el tipus de "
 "lletra predeterminat. Este valor només es propaga al servidor d'X a l'inici "
 "de cada sessió, així que canviar-lo en mig de la sessió no tindrà cap efecte "
 "fins que torneu a entrar."
@@ -1217,11 +1216,11 @@ msgstr "Un clic"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:17
 msgid "Single click to open icons."
-msgstr "Un sol clic per a obrir les icones."
+msgstr "Un sol clic per obrir les icones."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:18
 msgid "Size of the cursor referenced by cursor_theme."
-msgstr "Grandària del cursor referit pel «cursor_theme»."
+msgstr "Mida del cursor referit pel «cursor_theme»."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:19
 msgid "Swap left and right mouse buttons for left-handed mice."
@@ -1286,15 +1285,15 @@ msgid ""
 "cleaning."
 msgstr ""
 "Edat màxima, en dies, de les miniatures en la que poden estar en la memòria "
-"cau. Establiu-la a -1 per a inhabilitar la neteja."
+"cau. Establiu-la a -1 per inhabilitar la neteja."
 
 #: ../schemas/desktop_gnome_thumbnail_cache.schemas.in.h:2
 msgid ""
 "Maximum size of the thumbnail cache, in megabytes. Set to -1 to disable "
 "cleaning."
 msgstr ""
-"Grandària màxima, en megabytes, de la memòria cau de miniatures. Establiu-la "
-"a -1 per a inhabilitar la neteja."
+"Mida màxima, en megabytes, de la memòria cau de miniatures. Establiu-la a -1 "
+"per inhabilitar la neteja."
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
@@ -1305,8 +1304,8 @@ msgid ""
 "Set to true to disable all external thumbnailer programs, independent on "
 "whether they are independently disabled/enabled."
 msgstr ""
-"Establiu-ho a cert per a inhabilitar tots els programes externs de creació "
-"de miniatures, independentment de si estan habilitats o inhabilitats."
+"Establiu-ho a cert per inhabilitar tots els programes externs de creació de "
+"miniatures, independentment de si estan habilitats o inhabilitats."
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
