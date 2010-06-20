@@ -148,9 +148,9 @@ dnl
 
 AC_MSG_CHECKING([whether ESounD support is requested])
 AC_ARG_ENABLE([esd],
-    AS_HELP_STRING([--enable-esd],[Enable ESounD (default=yes)]),
+    AS_HELP_STRING([--enable-esd],[Enable ESounD (default=no)]),
     [enable_esd=$enableval],
-    [enable_esd=yes])
+    [enable_esd=no])
 AC_MSG_RESULT([$enable_esd])
 
 ESD_DEPS=""
