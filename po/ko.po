@@ -2,16 +2,17 @@
 # This file is distributed under the same license as the libgnome package.
 #
 # Young-Ho, Cha <ganadist@chollian.net>, 2002.
-# Changwoo Ryu <cwryu@debian.org>, 2002-2008, 2009.
+# Changwoo Ryu <cwryu@debian.org>, 2002-2008, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-22 02:34+0900\n"
-"PO-Revision-Date: 2009-01-23 15:43+0900\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgnome&component=general\n"
+"POT-Creation-Date: 2010-09-10 02:06+0900\n"
+"PO-Revision-Date: 2010-09-10 02:08+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
-"Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
+"Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
+"Language: Korean\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -94,7 +95,9 @@ msgstr "GNOME_FILE_DOMAIN_HELP 도메인을 찾을 수 없습니다."
 msgid ""
 "Unable to show help as %s is not a directory.  Please check your "
 "installation."
-msgstr "%s이(가) 디렉터리가 아니므로 도움말을 보여줄 수 없습니다.  설치가 제대로 되었는지 확인하십시오."
+msgstr ""
+"%s이(가) 디렉터리가 아니므로 도움말을 보여줄 수 없습니다.  설치가 제대로 되었"
+"는지 확인하십시오."
 
 #: ../libgnome/gnome-help.c:217
 #, c-format
@@ -145,9 +148,11 @@ msgstr "사용자 개인 그놈 설정 디렉터리 `%s'의 정보를 읽을 수
 #: ../libgnome/gnome-init.c:410
 #, c-format
 msgid ""
-"Could not set mode 0700 on private per-user gnome configuration directory `%"
-"s': %s\n"
-msgstr "사용자 그놈 개인 설정 디렉터리 `%s'의 권한을 0700으로 설정할 수 없습니다: %s\n"
+"Could not set mode 0700 on private per-user gnome configuration directory `"
+"%s': %s\n"
+msgstr ""
+"사용자 그놈 개인 설정 디렉터리 `%s'의 권한을 0700으로 설정할 수 없습니다: "
+"%s\n"
 
 #: ../libgnome/gnome-init.c:417
 #, c-format
@@ -419,7 +424,7 @@ msgstr "파일의 위치를 찾을 수 없습니다."
 msgid "The login has failed."
 msgstr "로그인이 실패했습니다."
 
-#: ../libgnome/gnome-open.c:38
+#: ../libgnome/gnome-open.c:52
 #, c-format
 msgid "Error showing url: %s\n"
 msgstr "URL을 보여주는 데 오류가 발생했습니다: %s\n"
@@ -499,7 +504,7 @@ msgstr "밀리초 단위의 최소 시간 간격"
 msgid ""
 "List of assistive technology applications to start when logging into the "
 "GNOME desktop."
-msgstr "그놈 데스크탑에 로그인할 때 시작할 보조 기술 프로그램 목록."
+msgstr "그놈 데스크톱에 로그인할 때 시작할 보조 기술 프로그램 목록."
 
 #: ../schemas/desktop_gnome_accessibility_startup.schemas.in.h:2
 msgid "Startup Assistive Technology Applications"
@@ -672,15 +677,12 @@ msgstr "색상 변화 형식"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
-msgstr ""
-"wallpaper_filename에 설정한 그림을 어떻게 표현할 것인 지 결정합니다. 가능한 "
-"값은 \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom"
-"\"입니다."
+"\"zoom\", \"spanned\"."
+msgstr "wallpaper_filename에 설정한 그림을 어떻게 표현할 것인 지 결정합니다. 가능한 값은 \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", \"zoom\", \"spanned\"입니다."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
-msgstr "데스크탑 배경 그리기"
+msgstr "데스크톱 배경 그리기"
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:4
 msgid "File to use for the background image."
@@ -688,7 +690,7 @@ msgstr "배경 그림으로 사용할 파일."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:5
 msgid "Have GNOME draw the desktop background."
-msgstr "그놈 데스크탑에서 데스크탑 배경을 그립니다."
+msgstr "그놈 데스크톱에서 데스크탑 배경을 그립니다."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:6
 msgid ""
@@ -845,15 +847,15 @@ msgstr "고정폭 글꼴 이름, 터미널 등에서 사용합니다."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:26
 msgid "Name of the GTK+ input method Preedit Style used by gtk+."
-msgstr "gtk+가 사용할 GTK+ 입력 방식 Preedit 형식의 이름."
+msgstr "GTK+가 사용할 GTK+ 입력기 미리편집 형식의 이름."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:27
 msgid "Name of the GTK+ input method Status Style used by gtk+."
-msgstr "gtk+가 사용할 GTK+ 입력 방식 Status 형식의 이름."
+msgstr "GTK+가 사용할 GTK+ 입력기 상태 형식의 이름."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:28
 msgid "Name of the default font used by gtk+."
-msgstr "gtk+가 사용할 기본 글꼴의 이름."
+msgstr "GTK+가 사용할 기본 글꼴의 이름."
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:29
 msgid "Name of the default font used for reading documents."
@@ -1012,7 +1014,9 @@ msgstr ""
 msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
-msgstr "사용자가 인쇄 설정을 수정하지 못하도록 합니다. 예를 들어서, 모든 프로그램에서 \"인쇄 설정\" 대화 상자에 접근하지 못하도록 합니다."
+msgstr ""
+"사용자가 인쇄 설정을 수정하지 못하도록 합니다. 예를 들어서, 모든 프로그램에"
+"서 \"인쇄 설정\" 대화 상자에 접근하지 못하도록 합니다."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
 msgid ""
