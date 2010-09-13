@@ -1,19 +1,20 @@
 # libgnome ja.po.
-# Copyright (C) 1998-2009 Free Software Foundation, Inc.
+# Copyright (C) 1998-2010 Free Software Foundation, Inc.
 # Yukihiro Nakai <Nakai@abricot.co.jp>, 1998,2001.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1999.
-# Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 1999-2002.
+# Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 1999-2002, 2010.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2003-2009.
 # Satoru SATOH <ss@gnome.gr.jp>, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnome trunk\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-07 07:35+0900\n"
-"PO-Revision-Date: 2009-03-07 07:34+0900\n"
-"Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
+"Project-Id-Version: libgnome master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgnome&component=general\n"
+"POT-Creation-Date: 2010-09-09 17:09+0000\n"
+"PO-Revision-Date: 2010-09-14 00:50+0900\n"
+"Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -112,7 +113,7 @@ msgid ""
 "installation"
 msgstr ""
 "%s や %s のどちらにもヘルプ・ファイルがありません。インストール状況を確認して"
-"下さい。"
+"ください。"
 
 #: ../libgnome/gnome-help.c:350
 #, c-format
@@ -365,7 +366,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "利用可能なコマンド・ラインのオプション一覧を表示する場合は '%s --help' を実行"
-"して下さい\n"
+"してください\n"
 
 #: ../libgnome/gnome-url.c:85
 #, c-format
@@ -475,7 +476,7 @@ msgstr "加速するまでにどれくらい遅延するかです (ミリ秒単�
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:5
 msgid "How many milliseconds it takes to go from 0 to maximum speed."
-msgstr "速さが０から最大値になるまでどれくらい遅延するかです (ミリ秒単位)。"
+msgstr "速さが0から最大値になるまでどれくらい遅延するかです (ミリ秒単位)。"
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
 msgid ""
@@ -581,7 +582,7 @@ msgstr "デフォルトのブラウザ"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:4
 msgid "Default browser for all URLs."
-msgstr "全ての URL で利用するデフォルトのブラウザです。"
+msgstr "すべての URL で利用するデフォルトのブラウザです。"
 
 #: ../schemas/desktop_gnome_applications_browser.schemas.in.h:5
 msgid "Whether the default browser needs a terminal to run."
@@ -699,11 +700,11 @@ msgstr "色調の変化"
 msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
-"\"zoom\"."
+"\"zoom\", \"spanned\"."
 msgstr ""
 "wallpaper_filename で指定した画像をどのように描画するか設定します。設定可能な"
 "値: \"none\"、\"wallpaper\"、\"centered\"、\"scaled\"、\"stretched\"、\"zoom"
-"\""
+"\"、\"spanned\""
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -1050,7 +1051,7 @@ msgid ""
 "Prevent the user from modifying print settings. For example, this would "
 "disable access to all applications' \"Print Setup\" dialogs."
 msgstr ""
-"ユーザによる印刷設定の変更を不可にします。たとえば、これは全てのアプリケー"
+"ユーザによる印刷設定の変更を不可にします。たとえば、これはすべてのアプリケー"
 "ションが提供する \"印刷設定\" ダイアログへのアクセスを利用できなくします。"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:11
@@ -1058,16 +1059,16 @@ msgid ""
 "Prevent the user from printing. For example, this would disable access to "
 "all applications' \"Print\" dialogs."
 msgstr ""
-"ユーザからの印刷実行を不可にします。たとえば、全てのアプリケーションが提供す"
-"る \"印刷\" ダイアログへのアクセスを利用できなくします。"
+"ユーザからの印刷実行を不可にします。たとえば、すべてのアプリケーションが提供"
+"する \"印刷\" ダイアログへのアクセスを利用できなくします。"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:12
 msgid ""
 "Prevent the user from saving files to disk. For example, this would disable "
 "access to all applications' \"Save as\" dialogs."
 msgstr ""
-"ユーザによるファイルの保存を不可にします。たとえば、全てのアプリケーションが"
-"提供する \"別名で保存\" ダイアログへのアクセスを利用できなくします。"
+"ユーザによるファイルの保存を不可にします。たとえば、すべてのアプリケーション"
+"が提供する \"別名で保存\" ダイアログへのアクセスを利用できなくします。"
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:13
 msgid ""
@@ -1129,7 +1130,7 @@ msgid ""
 "Cursor theme name. Used only by Xservers that support Xcursor, such as "
 "XFree86 4.3 and later."
 msgstr ""
-"使用するカーソル・テーマの名前です。Xcursor をサポートしているＸサーバ (例え"
+"使用するカーソル・テーマの名前です。Xcursor をサポートしているXサーバ (例え"
 "ば、XFree86 バージョン 4.3 以降) でのみ利用できます。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:6
@@ -1159,8 +1160,8 @@ msgid ""
 "session won't have an effect until the next time you log in."
 msgstr ""
 "カーソルのフォント名を設定します。ファイル名を指定していない場合はデフォルト"
-"のフォントを使用します。この値は各セッションの起動時にＸサーバへ引き渡される"
-"ので、セッション中に値を変更しても次回ログインするまで何の効果もありません。"
+"のフォントを使用します。この値は各セッションの起動時にXサーバへ引き渡されるの"
+"で、セッション中に値を変更しても次回ログインするまで何の効果もありません。"
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -1270,7 +1271,7 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:1
 msgid "Disable all external thumbnailers"
-msgstr "サムネイル表示する外部のプログラムを全て無効にする"
+msgstr "サムネイル表示する外部のプログラムをすべて無効にする"
 
 #: ../schemas/desktop_gnome_thumbnailers.schemas.in.h:2
 msgid ""
@@ -1278,7 +1279,7 @@ msgid ""
 "whether they are independently disabled/enabled."
 msgstr ""
 "TRUE にすると、サムネイル表示する外部プログラムを (外部プログラムの有効/無効"
-"に関わらず) 全て無効にします。"
+"に関わらず) すべて無効にします。"
 
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:1
 msgid "Allow postponing of breaks"
