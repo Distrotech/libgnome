@@ -1,18 +1,22 @@
 # Norwegian translation of libgnome (bokmål dialect).
 # Copyright (C) 1998-2003 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@gnome.org>, 1998-2010.
 #
+# Kjartan Maraas <kmaraas@gnome.org>, 1998-2010.
+# Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnome 2.28.x\n"
-"Report-Msgid-Bugs-To:\n"
-"POT-Creation-Date: 2010-03-03 13:52+0100\n"
-"PO-Revision-Date: 2010-03-03 13:54+0100\n"
-"Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
-"Language-Team: Norwegian <i18n-nb@lister.ping.uio.no>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
+"cgi?product=libgnome&component=general\n"
+"POT-Creation-Date: 2010-05-12 22:44+0000\n"
+"PO-Revision-Date: 2010-12-30 21:45+0100\n"
+"Last-Translator: Torstein Adolf Winterseth <kvikende@fsfe.org>\n"
+"Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../gnome-data/gnome-2.soundlist.in.h:1
 msgid "Error message"
@@ -68,8 +72,7 @@ msgstr "Hendelser angående brukergrensesnittet"
 
 #: ../libgnome/gnome-exec.c:450
 msgid "Cannot find a terminal, using xterm, even if it may not work"
-msgstr ""
-"Kan ikke finne en terminal, bruker xterm selv om den kanskje ikke virker"
+msgstr "Kan ikke finne en terminal, bruker xterm selv om den kanskje ikke virker"
 
 #: ../libgnome/gnome-gconf.c:175
 msgid "GNOME GConf Support"
@@ -97,16 +100,14 @@ msgstr ""
 #: ../libgnome/gnome-help.c:217
 #, c-format
 msgid "Unable to find help paths %s or %s. Please check your installation"
-msgstr ""
-"Kan ikke finne hjelpstier %s eller %s. Vennligst sjekk din installasjon"
+msgstr "Kan ikke finne hjelpstier %s eller %s. Vennligst sjekk din installasjon"
 
 #: ../libgnome/gnome-help.c:233
 #, c-format
 msgid ""
 "Unable to find the help files in either %s or %s.  Please check your "
 "installation"
-msgstr ""
-"Kan ikke finne hjelpfiler i %s eller %s. Vennligst sjekk din installasjon"
+msgstr "Kan ikke finne hjelpfiler i %s eller %s. Vennligst sjekk din installasjon"
 
 #: ../libgnome/gnome-help.c:350
 #, c-format
@@ -134,8 +135,7 @@ msgstr "Kunn ikke opprette per-bruker konfigurasjonskatalog «%s»: %s\n"
 
 #: ../libgnome/gnome-init.c:402
 #, c-format
-msgid ""
-"Could not stat private per-user gnome configuration directory `%s': %s\n"
+msgid "Could not stat private per-user gnome configuration directory `%s': %s\n"
 msgstr "Kunne ikke kjøre stat() på brukers konfigurasjonskatalog «%s»: %s\n"
 
 #: ../libgnome/gnome-init.c:410
@@ -346,7 +346,7 @@ msgstr "Dynamiske moduler som skal lastes"
 
 #: ../libgnome/gnome-program.c:1415
 msgid "MODULE1,MODULE2,..."
-msgstr "MODUL1,MODUL2,..."
+msgstr "MODUL1,MODUL2, …"
 
 #. Translators: the first %s is the error message, 2nd %s the program name
 #: ../libgnome/gnome-program.c:1633
@@ -457,8 +457,7 @@ msgid "Disable if two keys are pressed at the same time."
 msgstr "Deaktiver hvis to taster trykkes ned samtidig."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:3
-msgid ""
-"Do not accept a key as being pressed unless held for @delay milliseconds."
+msgid "Do not accept a key as being pressed unless held for @delay milliseconds."
 msgstr ""
 "Ikke godta en tast som nedtrykket før den holdes minst @delay millisekunder."
 
@@ -471,8 +470,7 @@ msgid "How many milliseconds it takes to go from 0 to maximum speed."
 msgstr "Antall millisekunder det tar å gå fra 0 til maksimal hastighet."
 
 #: ../schemas/desktop_gnome_accessibility_keyboard.schemas.in.h:6
-msgid ""
-"How many milliseconds to wait before mouse movement keys start to operate."
+msgid "How many milliseconds to wait before mouse movement keys start to operate."
 msgstr ""
 "Antall millisekunder ventetid før taster for musbevegelse begynner å virke."
 
@@ -545,8 +543,7 @@ msgstr ""
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:2
 msgid "Preferred Visual assistive technology application"
-msgstr ""
-"Foretrukket program med hjelpeteknologi for tilgjengelighet for svaksynte"
+msgstr "Foretrukket program med hjelpeteknologi for tilgjengelighet for svaksynte"
 
 #: ../schemas/desktop_gnome_applications_at_visual.schemas.in.h:3
 msgid ""
@@ -633,8 +630,7 @@ msgstr "Terminalprogram"
 
 #: ../schemas/desktop_gnome_applications_terminal.schemas.in.h:4
 msgid "Terminal program to use when starting applications that require one."
-msgstr ""
-"Terminalprogram som skal brukes ved oppstart av programmer som krever det."
+msgstr "Terminalprogram som skal brukes ved oppstart av programmer som krever det."
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:1
 msgid ""
@@ -677,8 +673,7 @@ msgid "User window manager (deprecated)"
 msgstr "Brukers vindushåndterer (fases ut)"
 
 #: ../schemas/desktop_gnome_applications_window_manager.schemas.in.h:8
-msgid ""
-"Window manager to try first. This key has been deprecated since GNOME 2.12."
+msgid "Window manager to try first. This key has been deprecated since GNOME 2.12."
 msgstr ""
 "Vindushåndterer som skal prøves først. Denne nøkkelen skal fases ut etter "
 "GNOME 2.12."
@@ -692,7 +687,10 @@ msgid ""
 "Determines how the image set by wallpaper_filename is rendered. Possible "
 "values are \"none\", \"wallpaper\", \"centered\", \"scaled\", \"stretched\", "
 "\"zoom\", \"spanned\"."
-msgstr "Bestemmer hvordan bildet satt av wallpaper_filename skal rendres. Mulige verdier er «none», «wallpaper», «centered», «scaled», «stretched», «zoom» og «spanned»."
+msgstr ""
+"Bestemmer hvordan bildet satt av wallpaper_filename skal rendres. Mulige "
+"verdier er «none», «wallpaper», «centered», «scaled», «stretched», «zoom» og "
+"«spanned»."
 
 #: ../schemas/desktop_gnome_background.schemas.in.in.h:3
 msgid "Draw Desktop Background"
@@ -892,8 +890,7 @@ msgid "Show the 'Unicode Control Character' menu"
 msgstr "Vis menyen «Unicode kontrolltegn»"
 
 #: ../schemas/desktop_gnome_interface.schemas.in.in.h:33
-msgid ""
-"Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
+msgid "Size of icons in toolbars, either \"small-toolbar\" or \"large-toolbar\"."
 msgstr ""
 "Størrelse på ikoner på verktøylinjen. Enten «small-toolbar» eller «large-"
 "toolbar»."
@@ -1063,7 +1060,7 @@ msgstr ""
 msgid ""
 "Prevent the user from switching to another account while his session is "
 "active."
-msgstr "Hindre bruker fra å bytte til en annen konto mens sesjonen er aktiv."
+msgstr "Hindre bruker fra å bytte til en annen konto mens økten er aktiv."
 
 #: ../schemas/desktop_gnome_lockdown.schemas.in.h:14
 msgid "Prevent the user to lock his screen."
@@ -1086,7 +1083,7 @@ msgid ""
 "When set to true, GNOME will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"GNOME vil huske tilstand for NumLock mellom sesjoner hvis denne settes til "
+"GNOME vil huske tilstand for NumLock mellom økter hvis denne settes til "
 "«true»."
 
 #: ../schemas/desktop_gnome_peripherals_keyboard.schemas.in.h:5
@@ -1148,8 +1145,8 @@ msgid ""
 "session won't have an effect until the next time you log in."
 msgstr ""
 "Skriftnavn for markøren. Hvis denne ikke er satt brukes forvalgt skrift. "
-"Denne verdien videresendes kun til X-tjeneren ved oppstart av en sesjon, så "
-"den har ingen effekt før ved neste innlogging hvis den endres i en sesjon."
+"Denne verdien videresendes kun til X-tjeneren ved oppstart av en økt, så "
+"den har ingen effekt før ved neste innlogging hvis den endres i en økt."
 
 #: ../schemas/desktop_gnome_peripherals_mouse.schemas.in.h:11
 msgid ""
@@ -1228,8 +1225,7 @@ msgstr "Forvalgt mikserenhet som brukes av tastaturbindinger for multimedia."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:10
 msgid "The default mixer tracks used by the multimedia key bindings."
-msgstr ""
-"Forvalgte spor for mikser som brukes av tastaturbindinger for multimedia."
+msgstr "Forvalgte spor for mikser som brukes av tastaturbindinger for multimedia."
 
 #: ../schemas/desktop_gnome_sound.schemas.in.h:11
 msgid "Whether to play sounds on input events."
@@ -1298,3 +1294,4 @@ msgstr "Om låsing av tastaturet er aktivert."
 #: ../schemas/desktop_gnome_typing_break.schemas.in.h:8
 msgid "Whether or not the typing break screen can be postponed."
 msgstr "Om skrivepausen kan utsettes eller ikke."
+
