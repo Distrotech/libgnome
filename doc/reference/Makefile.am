@@ -27,8 +27,8 @@ IGNORE_HFILES=			\
 	gnome-preferences.h	\
 	gnome-triggersP.h
 
-INCLUDES = -I$(top_srcdir) -I$(top_builddir)
-GTKDOC_LIBS =
+INCLUDES = -I$(top_srcdir) -I$(top_builddir) $(LIBGNOME_CFLAGS)
+GTKDOC_LIBS = $(top_builddir)/libgnome/libgnome-2.la
 
 # Extra options to supply to gtkdoc-mkdb.
 MKDB_OPTIONS=--sgml-mode --output-format=xml

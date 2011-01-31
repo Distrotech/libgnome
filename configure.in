@@ -192,7 +192,9 @@ PKG_CHECK_MODULES([GIO],[gio-2.0 >= gio_required_version])
 dnl
 dnl Check for gtk-doc
 dnl
-GTK_DOC_CHECK([1.0])
+GTK_DOC_CHECK([1.0],[--flavour no-tmpl])
+
+AC_CONFIG_MACRO_DIR(m4)
 
 dnl ==============================================
 dnl Special GConf section 
