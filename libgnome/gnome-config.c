@@ -1988,7 +1988,7 @@ void
 gnome_config_set_string_ (const char *path, const char *new_value, gboolean priv)
 {
 	ParsedPath *pp;
-	const char *r;
+	const char *r G_GNUC_UNUSED;
 
 	pp = parse_path (path, priv);
 	r = access_config (SET, pp->section, pp->key, new_value, pp->file,
@@ -2018,7 +2018,7 @@ gnome_config_set_int_ (const char *path, int new_value, gboolean priv)
 {
 	ParsedPath *pp;
 	char intbuf [40];
-	const char *r;
+	const char *r G_GNUC_UNUSED;
 
 	pp = parse_path (path, priv);
 	g_snprintf (intbuf, sizeof(intbuf), "%d", new_value);
@@ -2049,7 +2049,7 @@ gnome_config_set_float_ (const char *path, gdouble new_value, gboolean priv)
 {
 	ParsedPath *pp;
 	char floatbuf [40];
-	const char *r;
+	const char *r G_GNUC_UNUSED;
 
 	pp = parse_path (path, priv);
 
@@ -2083,7 +2083,7 @@ void
 gnome_config_set_bool_ (const char *path, gboolean new_value, gboolean priv)
 {
 	ParsedPath *pp;
-	const char *r;
+	const char *r G_GNUC_UNUSED;
 
 	pp = parse_path (path, priv);
 	r = access_config (SET, pp->section, pp->key,
