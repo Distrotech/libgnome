@@ -347,7 +347,6 @@ INCLUDES = \
 	-I$(srcdir)/..						\
 	$(WARN_CFLAGS)						\
 	$(LIBGNOME_CFLAGS)					\
-	-DG_DISABLE_DEPRECATED					\
 	-DLIBGNOME_PREFIX=\""$(prefix)"\"			\
 	-DLIBGNOME_LIBDIR=\""$(libdir)"\"			\
 	-DLIBGNOME_DATADIR=\""$(datadir)"\"			\
